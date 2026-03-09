@@ -61,26 +61,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_accuracy' => 'float',
         'avg_assists' => 'float',
         'avg_boss_damage' => 'float',
+        'avg_creep_damage' => 'float',
+        'avg_creep_kills' => 'float',
         'avg_crit_rate' => 'float',
+        'avg_damage_absorbed' => 'float',
+        'avg_damage_mitigated' => 'float',
         'avg_deaths' => 'float',
         'avg_denies' => 'float',
         'avg_duration_s' => 'float',
         'avg_ending_level' => 'float',
         'avg_first_mid_boss_time_s' => 'float',
         'avg_gold_boss' => 'float',
+        'avg_gold_boss_orb' => 'float',
         'avg_gold_death_loss' => 'float',
         'avg_gold_denied' => 'float',
         'avg_gold_lane_creep' => 'float',
         'avg_gold_neutral_creep' => 'float',
         'avg_gold_player' => 'float',
         'avg_gold_treasure' => 'float',
+        'avg_heal_prevented' => 'float',
         'avg_kd_ratio' => 'float',
         'avg_kills' => 'float',
         'avg_last_hits' => 'float',
+        'avg_max_health' => 'float',
         'avg_net_worth' => 'float',
+        'avg_neutral_damage' => 'float',
+        'avg_neutral_kills' => 'float',
+        'avg_objectives_destroyed_time_s' => 'float',
         'avg_player_damage' => 'float',
         'avg_player_damage_taken' => 'float',
         'avg_player_healing' => 'float',
+        'avg_possible_creeps' => 'float',
+        'avg_self_healing' => 'float',
+        'avg_tech_power' => 'float',
+        'avg_weapon_power' => 'float',
         'bucket' => 'int',
         'mid_boss_kill_rate' => 'float',
         'total_matches' => 'int'
@@ -98,26 +112,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_accuracy' => 'double',
         'avg_assists' => 'double',
         'avg_boss_damage' => 'double',
+        'avg_creep_damage' => 'double',
+        'avg_creep_kills' => 'double',
         'avg_crit_rate' => 'double',
+        'avg_damage_absorbed' => 'double',
+        'avg_damage_mitigated' => 'double',
         'avg_deaths' => 'double',
         'avg_denies' => 'double',
         'avg_duration_s' => 'double',
         'avg_ending_level' => 'double',
         'avg_first_mid_boss_time_s' => 'double',
         'avg_gold_boss' => 'double',
+        'avg_gold_boss_orb' => 'double',
         'avg_gold_death_loss' => 'double',
         'avg_gold_denied' => 'double',
         'avg_gold_lane_creep' => 'double',
         'avg_gold_neutral_creep' => 'double',
         'avg_gold_player' => 'double',
         'avg_gold_treasure' => 'double',
+        'avg_heal_prevented' => 'double',
         'avg_kd_ratio' => 'double',
         'avg_kills' => 'double',
         'avg_last_hits' => 'double',
+        'avg_max_health' => 'double',
         'avg_net_worth' => 'double',
+        'avg_neutral_damage' => 'double',
+        'avg_neutral_kills' => 'double',
+        'avg_objectives_destroyed_time_s' => 'double',
         'avg_player_damage' => 'double',
         'avg_player_damage_taken' => 'double',
         'avg_player_healing' => 'double',
+        'avg_possible_creeps' => 'double',
+        'avg_self_healing' => 'double',
+        'avg_tech_power' => 'double',
+        'avg_weapon_power' => 'double',
         'bucket' => 'int32',
         'mid_boss_kill_rate' => 'double',
         'total_matches' => 'int64'
@@ -133,26 +161,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_accuracy' => false,
         'avg_assists' => false,
         'avg_boss_damage' => false,
+        'avg_creep_damage' => false,
+        'avg_creep_kills' => false,
         'avg_crit_rate' => false,
+        'avg_damage_absorbed' => false,
+        'avg_damage_mitigated' => false,
         'avg_deaths' => false,
         'avg_denies' => false,
         'avg_duration_s' => false,
         'avg_ending_level' => false,
         'avg_first_mid_boss_time_s' => false,
         'avg_gold_boss' => false,
+        'avg_gold_boss_orb' => false,
         'avg_gold_death_loss' => false,
         'avg_gold_denied' => false,
         'avg_gold_lane_creep' => false,
         'avg_gold_neutral_creep' => false,
         'avg_gold_player' => false,
         'avg_gold_treasure' => false,
+        'avg_heal_prevented' => false,
         'avg_kd_ratio' => false,
         'avg_kills' => false,
         'avg_last_hits' => false,
+        'avg_max_health' => false,
         'avg_net_worth' => false,
+        'avg_neutral_damage' => false,
+        'avg_neutral_kills' => false,
+        'avg_objectives_destroyed_time_s' => false,
         'avg_player_damage' => false,
         'avg_player_damage_taken' => false,
         'avg_player_healing' => false,
+        'avg_possible_creeps' => false,
+        'avg_self_healing' => false,
+        'avg_tech_power' => false,
+        'avg_weapon_power' => false,
         'bucket' => false,
         'mid_boss_kill_rate' => false,
         'total_matches' => false
@@ -248,26 +290,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_accuracy' => 'avg_accuracy',
         'avg_assists' => 'avg_assists',
         'avg_boss_damage' => 'avg_boss_damage',
+        'avg_creep_damage' => 'avg_creep_damage',
+        'avg_creep_kills' => 'avg_creep_kills',
         'avg_crit_rate' => 'avg_crit_rate',
+        'avg_damage_absorbed' => 'avg_damage_absorbed',
+        'avg_damage_mitigated' => 'avg_damage_mitigated',
         'avg_deaths' => 'avg_deaths',
         'avg_denies' => 'avg_denies',
         'avg_duration_s' => 'avg_duration_s',
         'avg_ending_level' => 'avg_ending_level',
         'avg_first_mid_boss_time_s' => 'avg_first_mid_boss_time_s',
         'avg_gold_boss' => 'avg_gold_boss',
+        'avg_gold_boss_orb' => 'avg_gold_boss_orb',
         'avg_gold_death_loss' => 'avg_gold_death_loss',
         'avg_gold_denied' => 'avg_gold_denied',
         'avg_gold_lane_creep' => 'avg_gold_lane_creep',
         'avg_gold_neutral_creep' => 'avg_gold_neutral_creep',
         'avg_gold_player' => 'avg_gold_player',
         'avg_gold_treasure' => 'avg_gold_treasure',
+        'avg_heal_prevented' => 'avg_heal_prevented',
         'avg_kd_ratio' => 'avg_kd_ratio',
         'avg_kills' => 'avg_kills',
         'avg_last_hits' => 'avg_last_hits',
+        'avg_max_health' => 'avg_max_health',
         'avg_net_worth' => 'avg_net_worth',
+        'avg_neutral_damage' => 'avg_neutral_damage',
+        'avg_neutral_kills' => 'avg_neutral_kills',
+        'avg_objectives_destroyed_time_s' => 'avg_objectives_destroyed_time_s',
         'avg_player_damage' => 'avg_player_damage',
         'avg_player_damage_taken' => 'avg_player_damage_taken',
         'avg_player_healing' => 'avg_player_healing',
+        'avg_possible_creeps' => 'avg_possible_creeps',
+        'avg_self_healing' => 'avg_self_healing',
+        'avg_tech_power' => 'avg_tech_power',
+        'avg_weapon_power' => 'avg_weapon_power',
         'bucket' => 'bucket',
         'mid_boss_kill_rate' => 'mid_boss_kill_rate',
         'total_matches' => 'total_matches'
@@ -283,26 +339,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_accuracy' => 'setAvgAccuracy',
         'avg_assists' => 'setAvgAssists',
         'avg_boss_damage' => 'setAvgBossDamage',
+        'avg_creep_damage' => 'setAvgCreepDamage',
+        'avg_creep_kills' => 'setAvgCreepKills',
         'avg_crit_rate' => 'setAvgCritRate',
+        'avg_damage_absorbed' => 'setAvgDamageAbsorbed',
+        'avg_damage_mitigated' => 'setAvgDamageMitigated',
         'avg_deaths' => 'setAvgDeaths',
         'avg_denies' => 'setAvgDenies',
         'avg_duration_s' => 'setAvgDurationS',
         'avg_ending_level' => 'setAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'setAvgFirstMidBossTimeS',
         'avg_gold_boss' => 'setAvgGoldBoss',
+        'avg_gold_boss_orb' => 'setAvgGoldBossOrb',
         'avg_gold_death_loss' => 'setAvgGoldDeathLoss',
         'avg_gold_denied' => 'setAvgGoldDenied',
         'avg_gold_lane_creep' => 'setAvgGoldLaneCreep',
         'avg_gold_neutral_creep' => 'setAvgGoldNeutralCreep',
         'avg_gold_player' => 'setAvgGoldPlayer',
         'avg_gold_treasure' => 'setAvgGoldTreasure',
+        'avg_heal_prevented' => 'setAvgHealPrevented',
         'avg_kd_ratio' => 'setAvgKdRatio',
         'avg_kills' => 'setAvgKills',
         'avg_last_hits' => 'setAvgLastHits',
+        'avg_max_health' => 'setAvgMaxHealth',
         'avg_net_worth' => 'setAvgNetWorth',
+        'avg_neutral_damage' => 'setAvgNeutralDamage',
+        'avg_neutral_kills' => 'setAvgNeutralKills',
+        'avg_objectives_destroyed_time_s' => 'setAvgObjectivesDestroyedTimeS',
         'avg_player_damage' => 'setAvgPlayerDamage',
         'avg_player_damage_taken' => 'setAvgPlayerDamageTaken',
         'avg_player_healing' => 'setAvgPlayerHealing',
+        'avg_possible_creeps' => 'setAvgPossibleCreeps',
+        'avg_self_healing' => 'setAvgSelfHealing',
+        'avg_tech_power' => 'setAvgTechPower',
+        'avg_weapon_power' => 'setAvgWeaponPower',
         'bucket' => 'setBucket',
         'mid_boss_kill_rate' => 'setMidBossKillRate',
         'total_matches' => 'setTotalMatches'
@@ -318,26 +388,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_accuracy' => 'getAvgAccuracy',
         'avg_assists' => 'getAvgAssists',
         'avg_boss_damage' => 'getAvgBossDamage',
+        'avg_creep_damage' => 'getAvgCreepDamage',
+        'avg_creep_kills' => 'getAvgCreepKills',
         'avg_crit_rate' => 'getAvgCritRate',
+        'avg_damage_absorbed' => 'getAvgDamageAbsorbed',
+        'avg_damage_mitigated' => 'getAvgDamageMitigated',
         'avg_deaths' => 'getAvgDeaths',
         'avg_denies' => 'getAvgDenies',
         'avg_duration_s' => 'getAvgDurationS',
         'avg_ending_level' => 'getAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'getAvgFirstMidBossTimeS',
         'avg_gold_boss' => 'getAvgGoldBoss',
+        'avg_gold_boss_orb' => 'getAvgGoldBossOrb',
         'avg_gold_death_loss' => 'getAvgGoldDeathLoss',
         'avg_gold_denied' => 'getAvgGoldDenied',
         'avg_gold_lane_creep' => 'getAvgGoldLaneCreep',
         'avg_gold_neutral_creep' => 'getAvgGoldNeutralCreep',
         'avg_gold_player' => 'getAvgGoldPlayer',
         'avg_gold_treasure' => 'getAvgGoldTreasure',
+        'avg_heal_prevented' => 'getAvgHealPrevented',
         'avg_kd_ratio' => 'getAvgKdRatio',
         'avg_kills' => 'getAvgKills',
         'avg_last_hits' => 'getAvgLastHits',
+        'avg_max_health' => 'getAvgMaxHealth',
         'avg_net_worth' => 'getAvgNetWorth',
+        'avg_neutral_damage' => 'getAvgNeutralDamage',
+        'avg_neutral_kills' => 'getAvgNeutralKills',
+        'avg_objectives_destroyed_time_s' => 'getAvgObjectivesDestroyedTimeS',
         'avg_player_damage' => 'getAvgPlayerDamage',
         'avg_player_damage_taken' => 'getAvgPlayerDamageTaken',
         'avg_player_healing' => 'getAvgPlayerHealing',
+        'avg_possible_creeps' => 'getAvgPossibleCreeps',
+        'avg_self_healing' => 'getAvgSelfHealing',
+        'avg_tech_power' => 'getAvgTechPower',
+        'avg_weapon_power' => 'getAvgWeaponPower',
         'bucket' => 'getBucket',
         'mid_boss_kill_rate' => 'getMidBossKillRate',
         'total_matches' => 'getTotalMatches'
@@ -404,26 +488,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('avg_accuracy', $data ?? [], null);
         $this->setIfExists('avg_assists', $data ?? [], null);
         $this->setIfExists('avg_boss_damage', $data ?? [], null);
+        $this->setIfExists('avg_creep_damage', $data ?? [], null);
+        $this->setIfExists('avg_creep_kills', $data ?? [], null);
         $this->setIfExists('avg_crit_rate', $data ?? [], null);
+        $this->setIfExists('avg_damage_absorbed', $data ?? [], null);
+        $this->setIfExists('avg_damage_mitigated', $data ?? [], null);
         $this->setIfExists('avg_deaths', $data ?? [], null);
         $this->setIfExists('avg_denies', $data ?? [], null);
         $this->setIfExists('avg_duration_s', $data ?? [], null);
         $this->setIfExists('avg_ending_level', $data ?? [], null);
         $this->setIfExists('avg_first_mid_boss_time_s', $data ?? [], null);
         $this->setIfExists('avg_gold_boss', $data ?? [], null);
+        $this->setIfExists('avg_gold_boss_orb', $data ?? [], null);
         $this->setIfExists('avg_gold_death_loss', $data ?? [], null);
         $this->setIfExists('avg_gold_denied', $data ?? [], null);
         $this->setIfExists('avg_gold_lane_creep', $data ?? [], null);
         $this->setIfExists('avg_gold_neutral_creep', $data ?? [], null);
         $this->setIfExists('avg_gold_player', $data ?? [], null);
         $this->setIfExists('avg_gold_treasure', $data ?? [], null);
+        $this->setIfExists('avg_heal_prevented', $data ?? [], null);
         $this->setIfExists('avg_kd_ratio', $data ?? [], null);
         $this->setIfExists('avg_kills', $data ?? [], null);
         $this->setIfExists('avg_last_hits', $data ?? [], null);
+        $this->setIfExists('avg_max_health', $data ?? [], null);
         $this->setIfExists('avg_net_worth', $data ?? [], null);
+        $this->setIfExists('avg_neutral_damage', $data ?? [], null);
+        $this->setIfExists('avg_neutral_kills', $data ?? [], null);
+        $this->setIfExists('avg_objectives_destroyed_time_s', $data ?? [], null);
         $this->setIfExists('avg_player_damage', $data ?? [], null);
         $this->setIfExists('avg_player_damage_taken', $data ?? [], null);
         $this->setIfExists('avg_player_healing', $data ?? [], null);
+        $this->setIfExists('avg_possible_creeps', $data ?? [], null);
+        $this->setIfExists('avg_self_healing', $data ?? [], null);
+        $this->setIfExists('avg_tech_power', $data ?? [], null);
+        $this->setIfExists('avg_weapon_power', $data ?? [], null);
         $this->setIfExists('bucket', $data ?? [], null);
         $this->setIfExists('mid_boss_kill_rate', $data ?? [], null);
         $this->setIfExists('total_matches', $data ?? [], null);
@@ -468,8 +566,20 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['avg_boss_damage'] === null) {
             $invalidProperties[] = "'avg_boss_damage' can't be null";
         }
+        if ($this->container['avg_creep_damage'] === null) {
+            $invalidProperties[] = "'avg_creep_damage' can't be null";
+        }
+        if ($this->container['avg_creep_kills'] === null) {
+            $invalidProperties[] = "'avg_creep_kills' can't be null";
+        }
         if ($this->container['avg_crit_rate'] === null) {
             $invalidProperties[] = "'avg_crit_rate' can't be null";
+        }
+        if ($this->container['avg_damage_absorbed'] === null) {
+            $invalidProperties[] = "'avg_damage_absorbed' can't be null";
+        }
+        if ($this->container['avg_damage_mitigated'] === null) {
+            $invalidProperties[] = "'avg_damage_mitigated' can't be null";
         }
         if ($this->container['avg_deaths'] === null) {
             $invalidProperties[] = "'avg_deaths' can't be null";
@@ -489,6 +599,9 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['avg_gold_boss'] === null) {
             $invalidProperties[] = "'avg_gold_boss' can't be null";
         }
+        if ($this->container['avg_gold_boss_orb'] === null) {
+            $invalidProperties[] = "'avg_gold_boss_orb' can't be null";
+        }
         if ($this->container['avg_gold_death_loss'] === null) {
             $invalidProperties[] = "'avg_gold_death_loss' can't be null";
         }
@@ -507,6 +620,9 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['avg_gold_treasure'] === null) {
             $invalidProperties[] = "'avg_gold_treasure' can't be null";
         }
+        if ($this->container['avg_heal_prevented'] === null) {
+            $invalidProperties[] = "'avg_heal_prevented' can't be null";
+        }
         if ($this->container['avg_kd_ratio'] === null) {
             $invalidProperties[] = "'avg_kd_ratio' can't be null";
         }
@@ -516,8 +632,20 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['avg_last_hits'] === null) {
             $invalidProperties[] = "'avg_last_hits' can't be null";
         }
+        if ($this->container['avg_max_health'] === null) {
+            $invalidProperties[] = "'avg_max_health' can't be null";
+        }
         if ($this->container['avg_net_worth'] === null) {
             $invalidProperties[] = "'avg_net_worth' can't be null";
+        }
+        if ($this->container['avg_neutral_damage'] === null) {
+            $invalidProperties[] = "'avg_neutral_damage' can't be null";
+        }
+        if ($this->container['avg_neutral_kills'] === null) {
+            $invalidProperties[] = "'avg_neutral_kills' can't be null";
+        }
+        if ($this->container['avg_objectives_destroyed_time_s'] === null) {
+            $invalidProperties[] = "'avg_objectives_destroyed_time_s' can't be null";
         }
         if ($this->container['avg_player_damage'] === null) {
             $invalidProperties[] = "'avg_player_damage' can't be null";
@@ -527,6 +655,18 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if ($this->container['avg_player_healing'] === null) {
             $invalidProperties[] = "'avg_player_healing' can't be null";
+        }
+        if ($this->container['avg_possible_creeps'] === null) {
+            $invalidProperties[] = "'avg_possible_creeps' can't be null";
+        }
+        if ($this->container['avg_self_healing'] === null) {
+            $invalidProperties[] = "'avg_self_healing' can't be null";
+        }
+        if ($this->container['avg_tech_power'] === null) {
+            $invalidProperties[] = "'avg_tech_power' can't be null";
+        }
+        if ($this->container['avg_weapon_power'] === null) {
+            $invalidProperties[] = "'avg_weapon_power' can't be null";
         }
         if ($this->container['bucket'] === null) {
             $invalidProperties[] = "'bucket' can't be null";
@@ -669,6 +809,60 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets avg_creep_damage
+     *
+     * @return float
+     */
+    public function getAvgCreepDamage()
+    {
+        return $this->container['avg_creep_damage'];
+    }
+
+    /**
+     * Sets avg_creep_damage
+     *
+     * @param float $avg_creep_damage avg_creep_damage
+     *
+     * @return self
+     */
+    public function setAvgCreepDamage($avg_creep_damage)
+    {
+        if (is_null($avg_creep_damage)) {
+            throw new \InvalidArgumentException('non-nullable avg_creep_damage cannot be null');
+        }
+        $this->container['avg_creep_damage'] = $avg_creep_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_creep_kills
+     *
+     * @return float
+     */
+    public function getAvgCreepKills()
+    {
+        return $this->container['avg_creep_kills'];
+    }
+
+    /**
+     * Sets avg_creep_kills
+     *
+     * @param float $avg_creep_kills avg_creep_kills
+     *
+     * @return self
+     */
+    public function setAvgCreepKills($avg_creep_kills)
+    {
+        if (is_null($avg_creep_kills)) {
+            throw new \InvalidArgumentException('non-nullable avg_creep_kills cannot be null');
+        }
+        $this->container['avg_creep_kills'] = $avg_creep_kills;
+
+        return $this;
+    }
+
+    /**
      * Gets avg_crit_rate
      *
      * @return float
@@ -691,6 +885,60 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_crit_rate cannot be null');
         }
         $this->container['avg_crit_rate'] = $avg_crit_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_damage_absorbed
+     *
+     * @return float
+     */
+    public function getAvgDamageAbsorbed()
+    {
+        return $this->container['avg_damage_absorbed'];
+    }
+
+    /**
+     * Sets avg_damage_absorbed
+     *
+     * @param float $avg_damage_absorbed avg_damage_absorbed
+     *
+     * @return self
+     */
+    public function setAvgDamageAbsorbed($avg_damage_absorbed)
+    {
+        if (is_null($avg_damage_absorbed)) {
+            throw new \InvalidArgumentException('non-nullable avg_damage_absorbed cannot be null');
+        }
+        $this->container['avg_damage_absorbed'] = $avg_damage_absorbed;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_damage_mitigated
+     *
+     * @return float
+     */
+    public function getAvgDamageMitigated()
+    {
+        return $this->container['avg_damage_mitigated'];
+    }
+
+    /**
+     * Sets avg_damage_mitigated
+     *
+     * @param float $avg_damage_mitigated avg_damage_mitigated
+     *
+     * @return self
+     */
+    public function setAvgDamageMitigated($avg_damage_mitigated)
+    {
+        if (is_null($avg_damage_mitigated)) {
+            throw new \InvalidArgumentException('non-nullable avg_damage_mitigated cannot be null');
+        }
+        $this->container['avg_damage_mitigated'] = $avg_damage_mitigated;
 
         return $this;
     }
@@ -858,6 +1106,33 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets avg_gold_boss_orb
+     *
+     * @return float
+     */
+    public function getAvgGoldBossOrb()
+    {
+        return $this->container['avg_gold_boss_orb'];
+    }
+
+    /**
+     * Sets avg_gold_boss_orb
+     *
+     * @param float $avg_gold_boss_orb avg_gold_boss_orb
+     *
+     * @return self
+     */
+    public function setAvgGoldBossOrb($avg_gold_boss_orb)
+    {
+        if (is_null($avg_gold_boss_orb)) {
+            throw new \InvalidArgumentException('non-nullable avg_gold_boss_orb cannot be null');
+        }
+        $this->container['avg_gold_boss_orb'] = $avg_gold_boss_orb;
+
+        return $this;
+    }
+
+    /**
      * Gets avg_gold_death_loss
      *
      * @return float
@@ -1020,6 +1295,33 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets avg_heal_prevented
+     *
+     * @return float
+     */
+    public function getAvgHealPrevented()
+    {
+        return $this->container['avg_heal_prevented'];
+    }
+
+    /**
+     * Sets avg_heal_prevented
+     *
+     * @param float $avg_heal_prevented avg_heal_prevented
+     *
+     * @return self
+     */
+    public function setAvgHealPrevented($avg_heal_prevented)
+    {
+        if (is_null($avg_heal_prevented)) {
+            throw new \InvalidArgumentException('non-nullable avg_heal_prevented cannot be null');
+        }
+        $this->container['avg_heal_prevented'] = $avg_heal_prevented;
+
+        return $this;
+    }
+
+    /**
      * Gets avg_kd_ratio
      *
      * @return float
@@ -1101,6 +1403,33 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets avg_max_health
+     *
+     * @return float
+     */
+    public function getAvgMaxHealth()
+    {
+        return $this->container['avg_max_health'];
+    }
+
+    /**
+     * Sets avg_max_health
+     *
+     * @param float $avg_max_health avg_max_health
+     *
+     * @return self
+     */
+    public function setAvgMaxHealth($avg_max_health)
+    {
+        if (is_null($avg_max_health)) {
+            throw new \InvalidArgumentException('non-nullable avg_max_health cannot be null');
+        }
+        $this->container['avg_max_health'] = $avg_max_health;
+
+        return $this;
+    }
+
+    /**
      * Gets avg_net_worth
      *
      * @return float
@@ -1123,6 +1452,87 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_net_worth cannot be null');
         }
         $this->container['avg_net_worth'] = $avg_net_worth;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_neutral_damage
+     *
+     * @return float
+     */
+    public function getAvgNeutralDamage()
+    {
+        return $this->container['avg_neutral_damage'];
+    }
+
+    /**
+     * Sets avg_neutral_damage
+     *
+     * @param float $avg_neutral_damage avg_neutral_damage
+     *
+     * @return self
+     */
+    public function setAvgNeutralDamage($avg_neutral_damage)
+    {
+        if (is_null($avg_neutral_damage)) {
+            throw new \InvalidArgumentException('non-nullable avg_neutral_damage cannot be null');
+        }
+        $this->container['avg_neutral_damage'] = $avg_neutral_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_neutral_kills
+     *
+     * @return float
+     */
+    public function getAvgNeutralKills()
+    {
+        return $this->container['avg_neutral_kills'];
+    }
+
+    /**
+     * Sets avg_neutral_kills
+     *
+     * @param float $avg_neutral_kills avg_neutral_kills
+     *
+     * @return self
+     */
+    public function setAvgNeutralKills($avg_neutral_kills)
+    {
+        if (is_null($avg_neutral_kills)) {
+            throw new \InvalidArgumentException('non-nullable avg_neutral_kills cannot be null');
+        }
+        $this->container['avg_neutral_kills'] = $avg_neutral_kills;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_objectives_destroyed_time_s
+     *
+     * @return float
+     */
+    public function getAvgObjectivesDestroyedTimeS()
+    {
+        return $this->container['avg_objectives_destroyed_time_s'];
+    }
+
+    /**
+     * Sets avg_objectives_destroyed_time_s
+     *
+     * @param float $avg_objectives_destroyed_time_s avg_objectives_destroyed_time_s
+     *
+     * @return self
+     */
+    public function setAvgObjectivesDestroyedTimeS($avg_objectives_destroyed_time_s)
+    {
+        if (is_null($avg_objectives_destroyed_time_s)) {
+            throw new \InvalidArgumentException('non-nullable avg_objectives_destroyed_time_s cannot be null');
+        }
+        $this->container['avg_objectives_destroyed_time_s'] = $avg_objectives_destroyed_time_s;
 
         return $this;
     }
@@ -1204,6 +1614,114 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_player_healing cannot be null');
         }
         $this->container['avg_player_healing'] = $avg_player_healing;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_possible_creeps
+     *
+     * @return float
+     */
+    public function getAvgPossibleCreeps()
+    {
+        return $this->container['avg_possible_creeps'];
+    }
+
+    /**
+     * Sets avg_possible_creeps
+     *
+     * @param float $avg_possible_creeps avg_possible_creeps
+     *
+     * @return self
+     */
+    public function setAvgPossibleCreeps($avg_possible_creeps)
+    {
+        if (is_null($avg_possible_creeps)) {
+            throw new \InvalidArgumentException('non-nullable avg_possible_creeps cannot be null');
+        }
+        $this->container['avg_possible_creeps'] = $avg_possible_creeps;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_self_healing
+     *
+     * @return float
+     */
+    public function getAvgSelfHealing()
+    {
+        return $this->container['avg_self_healing'];
+    }
+
+    /**
+     * Sets avg_self_healing
+     *
+     * @param float $avg_self_healing avg_self_healing
+     *
+     * @return self
+     */
+    public function setAvgSelfHealing($avg_self_healing)
+    {
+        if (is_null($avg_self_healing)) {
+            throw new \InvalidArgumentException('non-nullable avg_self_healing cannot be null');
+        }
+        $this->container['avg_self_healing'] = $avg_self_healing;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_tech_power
+     *
+     * @return float
+     */
+    public function getAvgTechPower()
+    {
+        return $this->container['avg_tech_power'];
+    }
+
+    /**
+     * Sets avg_tech_power
+     *
+     * @param float $avg_tech_power avg_tech_power
+     *
+     * @return self
+     */
+    public function setAvgTechPower($avg_tech_power)
+    {
+        if (is_null($avg_tech_power)) {
+            throw new \InvalidArgumentException('non-nullable avg_tech_power cannot be null');
+        }
+        $this->container['avg_tech_power'] = $avg_tech_power;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_weapon_power
+     *
+     * @return float
+     */
+    public function getAvgWeaponPower()
+    {
+        return $this->container['avg_weapon_power'];
+    }
+
+    /**
+     * Sets avg_weapon_power
+     *
+     * @param float $avg_weapon_power avg_weapon_power
+     *
+     * @return self
+     */
+    public function setAvgWeaponPower($avg_weapon_power)
+    {
+        if (is_null($avg_weapon_power)) {
+            throw new \InvalidArgumentException('non-nullable avg_weapon_power cannot be null');
+        }
+        $this->container['avg_weapon_power'] = $avg_weapon_power;
 
         return $this;
     }

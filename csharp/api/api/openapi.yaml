@@ -121,7 +121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -367,7 +367,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -499,7 +499,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -572,7 +572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -705,7 +705,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -954,7 +954,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -1207,7 +1207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -1468,7 +1468,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -1746,7 +1746,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -1971,7 +1971,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -2235,7 +2235,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -2524,7 +2524,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -2742,7 +2742,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -3038,7 +3038,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -5249,7 +5249,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -5368,7 +5368,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770336000
+          default: 1770422400
           format: int64
           nullable: true
           type: integer
@@ -6597,32 +6597,46 @@ components:
       - wins
     AnalyticsGameStats:
       example:
-        avg_net_worth: 9.965781217890562
-        avg_deaths: 2.3021358869347655
-        avg_gold_lane_creep: 1.0246457001441578
-        avg_gold_player: 6.84685269835264
-        avg_player_damage_taken: 6.683562403749608
-        avg_player_damage: 9.369310271410669
-        avg_gold_boss: 4.145608029883936
+        avg_creep_kills: 2.3021358869347655
+        avg_net_worth: 6.965117697638846
+        avg_deaths: 2.027123023002322
+        avg_gold_lane_creep: 4.965218492984954
+        avg_objectives_destroyed_time_s: 6.778324963048013
+        avg_neutral_damage: 1.284659006116532
+        avg_neutral_kills: 2.8841621266687802
+        avg_tech_power: 7.143538047012306
+        avg_weapon_power: 0.8851374739011653
+        avg_max_health: 3.5571952270680973
+        avg_damage_mitigated: 3.616076749251911
+        avg_gold_player: 9.965781217890562
+        avg_self_healing: 3.0937452626664474
+        avg_creep_damage: 5.637376656633329
+        avg_player_damage_taken: 5.944895607614016
+        avg_player_damage: 6.878052220127876
+        avg_gold_boss: 1.4894159098541704
         avg_accuracy: 6.027456183070403
-        avg_last_hits: 5.025004791520295
-        avg_gold_death_loss: 7.386281948385884
+        avg_last_hits: 6.438423552598547
+        avg_gold_boss_orb: 6.84685269835264
+        avg_gold_death_loss: 7.457744773683766
+        avg_heal_prevented: 6.683562403749608
         total_matches: 0
-        avg_crit_rate: 5.637376656633329
-        mid_boss_kill_rate: 6.438423552598547
+        avg_crit_rate: 7.061401241503109
+        mid_boss_kill_rate: 6.519180951018382
         avg_assists: 1.4658129805029452
-        avg_gold_denied: 1.2315135367772556
-        avg_kills: 4.965218492984954
+        avg_gold_denied: 1.1730742509559433
+        avg_kills: 9.018348186070783
+        avg_damage_absorbed: 9.301444243932576
         abandon_rate: 0.8008281904610115
         bucket: 0
-        avg_gold_treasure: 7.457744773683766
-        avg_first_mid_boss_time_s: 2.027123023002322
-        avg_denies: 7.061401241503109
-        avg_duration_s: 9.301444243932576
-        avg_ending_level: 3.616076749251911
-        avg_kd_ratio: 1.1730742509559433
-        avg_gold_neutral_creep: 1.4894159098541704
-        avg_player_healing: 8.762042012749001
+        avg_gold_treasure: 9.369310271410669
+        avg_first_mid_boss_time_s: 1.0246457001441578
+        avg_denies: 4.145608029883936
+        avg_duration_s: 7.386281948385884
+        avg_ending_level: 1.2315135367772556
+        avg_kd_ratio: 8.762042012749001
+        avg_gold_neutral_creep: 5.025004791520295
+        avg_player_healing: 6.704019297950036
+        avg_possible_creeps: 3.353193347011243
         avg_boss_damage: 5.962133916683182
       properties:
         abandon_rate:
@@ -6637,7 +6651,19 @@ components:
         avg_boss_damage:
           format: double
           type: number
+        avg_creep_damage:
+          format: double
+          type: number
+        avg_creep_kills:
+          format: double
+          type: number
         avg_crit_rate:
+          format: double
+          type: number
+        avg_damage_absorbed:
+          format: double
+          type: number
+        avg_damage_mitigated:
           format: double
           type: number
         avg_deaths:
@@ -6658,6 +6684,9 @@ components:
         avg_gold_boss:
           format: double
           type: number
+        avg_gold_boss_orb:
+          format: double
+          type: number
         avg_gold_death_loss:
           format: double
           type: number
@@ -6676,6 +6705,9 @@ components:
         avg_gold_treasure:
           format: double
           type: number
+        avg_heal_prevented:
+          format: double
+          type: number
         avg_kd_ratio:
           format: double
           type: number
@@ -6685,7 +6717,19 @@ components:
         avg_last_hits:
           format: double
           type: number
+        avg_max_health:
+          format: double
+          type: number
         avg_net_worth:
+          format: double
+          type: number
+        avg_neutral_damage:
+          format: double
+          type: number
+        avg_neutral_kills:
+          format: double
+          type: number
+        avg_objectives_destroyed_time_s:
           format: double
           type: number
         avg_player_damage:
@@ -6695,6 +6739,18 @@ components:
           format: double
           type: number
         avg_player_healing:
+          format: double
+          type: number
+        avg_possible_creeps:
+          format: double
+          type: number
+        avg_self_healing:
+          format: double
+          type: number
+        avg_tech_power:
+          format: double
+          type: number
+        avg_weapon_power:
           format: double
           type: number
         bucket:
@@ -6713,26 +6769,40 @@ components:
       - avg_accuracy
       - avg_assists
       - avg_boss_damage
+      - avg_creep_damage
+      - avg_creep_kills
       - avg_crit_rate
+      - avg_damage_absorbed
+      - avg_damage_mitigated
       - avg_deaths
       - avg_denies
       - avg_duration_s
       - avg_ending_level
       - avg_first_mid_boss_time_s
       - avg_gold_boss
+      - avg_gold_boss_orb
       - avg_gold_death_loss
       - avg_gold_denied
       - avg_gold_lane_creep
       - avg_gold_neutral_creep
       - avg_gold_player
       - avg_gold_treasure
+      - avg_heal_prevented
       - avg_kd_ratio
       - avg_kills
       - avg_last_hits
+      - avg_max_health
       - avg_net_worth
+      - avg_neutral_damage
+      - avg_neutral_kills
+      - avg_objectives_destroyed_time_s
       - avg_player_damage
       - avg_player_damage_taken
       - avg_player_healing
+      - avg_possible_creeps
+      - avg_self_healing
+      - avg_tech_power
+      - avg_weapon_power
       - bucket
       - mid_boss_kill_rate
       - total_matches

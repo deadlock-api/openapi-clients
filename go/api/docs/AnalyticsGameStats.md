@@ -8,26 +8,40 @@ Name | Type | Description | Notes
 **AvgAccuracy** | **float64** |  | 
 **AvgAssists** | **float64** |  | 
 **AvgBossDamage** | **float64** |  | 
+**AvgCreepDamage** | **float64** |  | 
+**AvgCreepKills** | **float64** |  | 
 **AvgCritRate** | **float64** |  | 
+**AvgDamageAbsorbed** | **float64** |  | 
+**AvgDamageMitigated** | **float64** |  | 
 **AvgDeaths** | **float64** |  | 
 **AvgDenies** | **float64** |  | 
 **AvgDurationS** | **float64** |  | 
 **AvgEndingLevel** | **float64** |  | 
 **AvgFirstMidBossTimeS** | **float64** |  | 
 **AvgGoldBoss** | **float64** |  | 
+**AvgGoldBossOrb** | **float64** |  | 
 **AvgGoldDeathLoss** | **float64** |  | 
 **AvgGoldDenied** | **float64** |  | 
 **AvgGoldLaneCreep** | **float64** |  | 
 **AvgGoldNeutralCreep** | **float64** |  | 
 **AvgGoldPlayer** | **float64** |  | 
 **AvgGoldTreasure** | **float64** |  | 
+**AvgHealPrevented** | **float64** |  | 
 **AvgKdRatio** | **float64** |  | 
 **AvgKills** | **float64** |  | 
 **AvgLastHits** | **float64** |  | 
+**AvgMaxHealth** | **float64** |  | 
 **AvgNetWorth** | **float64** |  | 
+**AvgNeutralDamage** | **float64** |  | 
+**AvgNeutralKills** | **float64** |  | 
+**AvgObjectivesDestroyedTimeS** | **float64** |  | 
 **AvgPlayerDamage** | **float64** |  | 
 **AvgPlayerDamageTaken** | **float64** |  | 
 **AvgPlayerHealing** | **float64** |  | 
+**AvgPossibleCreeps** | **float64** |  | 
+**AvgSelfHealing** | **float64** |  | 
+**AvgTechPower** | **float64** |  | 
+**AvgWeaponPower** | **float64** |  | 
 **Bucket** | **int32** |  | 
 **MidBossKillRate** | **float64** |  | 
 **TotalMatches** | **int64** |  | 
@@ -36,7 +50,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsGameStats
 
-`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCritRate float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgNetWorth float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, bucket int32, midBossKillRate float64, totalMatches int64, ) *AnalyticsGameStats`
+`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, totalMatches int64, ) *AnalyticsGameStats`
 
 NewAnalyticsGameStats instantiates a new AnalyticsGameStats object
 This constructor will assign default values to properties that have it defined,
@@ -131,6 +145,46 @@ and a boolean to check if the value has been set.
 SetAvgBossDamage sets AvgBossDamage field to given value.
 
 
+### GetAvgCreepDamage
+
+`func (o *AnalyticsGameStats) GetAvgCreepDamage() float64`
+
+GetAvgCreepDamage returns the AvgCreepDamage field if non-nil, zero value otherwise.
+
+### GetAvgCreepDamageOk
+
+`func (o *AnalyticsGameStats) GetAvgCreepDamageOk() (*float64, bool)`
+
+GetAvgCreepDamageOk returns a tuple with the AvgCreepDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgCreepDamage
+
+`func (o *AnalyticsGameStats) SetAvgCreepDamage(v float64)`
+
+SetAvgCreepDamage sets AvgCreepDamage field to given value.
+
+
+### GetAvgCreepKills
+
+`func (o *AnalyticsGameStats) GetAvgCreepKills() float64`
+
+GetAvgCreepKills returns the AvgCreepKills field if non-nil, zero value otherwise.
+
+### GetAvgCreepKillsOk
+
+`func (o *AnalyticsGameStats) GetAvgCreepKillsOk() (*float64, bool)`
+
+GetAvgCreepKillsOk returns a tuple with the AvgCreepKills field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgCreepKills
+
+`func (o *AnalyticsGameStats) SetAvgCreepKills(v float64)`
+
+SetAvgCreepKills sets AvgCreepKills field to given value.
+
+
 ### GetAvgCritRate
 
 `func (o *AnalyticsGameStats) GetAvgCritRate() float64`
@@ -149,6 +203,46 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsGameStats) SetAvgCritRate(v float64)`
 
 SetAvgCritRate sets AvgCritRate field to given value.
+
+
+### GetAvgDamageAbsorbed
+
+`func (o *AnalyticsGameStats) GetAvgDamageAbsorbed() float64`
+
+GetAvgDamageAbsorbed returns the AvgDamageAbsorbed field if non-nil, zero value otherwise.
+
+### GetAvgDamageAbsorbedOk
+
+`func (o *AnalyticsGameStats) GetAvgDamageAbsorbedOk() (*float64, bool)`
+
+GetAvgDamageAbsorbedOk returns a tuple with the AvgDamageAbsorbed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgDamageAbsorbed
+
+`func (o *AnalyticsGameStats) SetAvgDamageAbsorbed(v float64)`
+
+SetAvgDamageAbsorbed sets AvgDamageAbsorbed field to given value.
+
+
+### GetAvgDamageMitigated
+
+`func (o *AnalyticsGameStats) GetAvgDamageMitigated() float64`
+
+GetAvgDamageMitigated returns the AvgDamageMitigated field if non-nil, zero value otherwise.
+
+### GetAvgDamageMitigatedOk
+
+`func (o *AnalyticsGameStats) GetAvgDamageMitigatedOk() (*float64, bool)`
+
+GetAvgDamageMitigatedOk returns a tuple with the AvgDamageMitigated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgDamageMitigated
+
+`func (o *AnalyticsGameStats) SetAvgDamageMitigated(v float64)`
+
+SetAvgDamageMitigated sets AvgDamageMitigated field to given value.
 
 
 ### GetAvgDeaths
@@ -271,6 +365,26 @@ and a boolean to check if the value has been set.
 SetAvgGoldBoss sets AvgGoldBoss field to given value.
 
 
+### GetAvgGoldBossOrb
+
+`func (o *AnalyticsGameStats) GetAvgGoldBossOrb() float64`
+
+GetAvgGoldBossOrb returns the AvgGoldBossOrb field if non-nil, zero value otherwise.
+
+### GetAvgGoldBossOrbOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldBossOrbOk() (*float64, bool)`
+
+GetAvgGoldBossOrbOk returns a tuple with the AvgGoldBossOrb field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldBossOrb
+
+`func (o *AnalyticsGameStats) SetAvgGoldBossOrb(v float64)`
+
+SetAvgGoldBossOrb sets AvgGoldBossOrb field to given value.
+
+
 ### GetAvgGoldDeathLoss
 
 `func (o *AnalyticsGameStats) GetAvgGoldDeathLoss() float64`
@@ -391,6 +505,26 @@ and a boolean to check if the value has been set.
 SetAvgGoldTreasure sets AvgGoldTreasure field to given value.
 
 
+### GetAvgHealPrevented
+
+`func (o *AnalyticsGameStats) GetAvgHealPrevented() float64`
+
+GetAvgHealPrevented returns the AvgHealPrevented field if non-nil, zero value otherwise.
+
+### GetAvgHealPreventedOk
+
+`func (o *AnalyticsGameStats) GetAvgHealPreventedOk() (*float64, bool)`
+
+GetAvgHealPreventedOk returns a tuple with the AvgHealPrevented field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgHealPrevented
+
+`func (o *AnalyticsGameStats) SetAvgHealPrevented(v float64)`
+
+SetAvgHealPrevented sets AvgHealPrevented field to given value.
+
+
 ### GetAvgKdRatio
 
 `func (o *AnalyticsGameStats) GetAvgKdRatio() float64`
@@ -451,6 +585,26 @@ and a boolean to check if the value has been set.
 SetAvgLastHits sets AvgLastHits field to given value.
 
 
+### GetAvgMaxHealth
+
+`func (o *AnalyticsGameStats) GetAvgMaxHealth() float64`
+
+GetAvgMaxHealth returns the AvgMaxHealth field if non-nil, zero value otherwise.
+
+### GetAvgMaxHealthOk
+
+`func (o *AnalyticsGameStats) GetAvgMaxHealthOk() (*float64, bool)`
+
+GetAvgMaxHealthOk returns a tuple with the AvgMaxHealth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgMaxHealth
+
+`func (o *AnalyticsGameStats) SetAvgMaxHealth(v float64)`
+
+SetAvgMaxHealth sets AvgMaxHealth field to given value.
+
+
 ### GetAvgNetWorth
 
 `func (o *AnalyticsGameStats) GetAvgNetWorth() float64`
@@ -469,6 +623,66 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsGameStats) SetAvgNetWorth(v float64)`
 
 SetAvgNetWorth sets AvgNetWorth field to given value.
+
+
+### GetAvgNeutralDamage
+
+`func (o *AnalyticsGameStats) GetAvgNeutralDamage() float64`
+
+GetAvgNeutralDamage returns the AvgNeutralDamage field if non-nil, zero value otherwise.
+
+### GetAvgNeutralDamageOk
+
+`func (o *AnalyticsGameStats) GetAvgNeutralDamageOk() (*float64, bool)`
+
+GetAvgNeutralDamageOk returns a tuple with the AvgNeutralDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgNeutralDamage
+
+`func (o *AnalyticsGameStats) SetAvgNeutralDamage(v float64)`
+
+SetAvgNeutralDamage sets AvgNeutralDamage field to given value.
+
+
+### GetAvgNeutralKills
+
+`func (o *AnalyticsGameStats) GetAvgNeutralKills() float64`
+
+GetAvgNeutralKills returns the AvgNeutralKills field if non-nil, zero value otherwise.
+
+### GetAvgNeutralKillsOk
+
+`func (o *AnalyticsGameStats) GetAvgNeutralKillsOk() (*float64, bool)`
+
+GetAvgNeutralKillsOk returns a tuple with the AvgNeutralKills field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgNeutralKills
+
+`func (o *AnalyticsGameStats) SetAvgNeutralKills(v float64)`
+
+SetAvgNeutralKills sets AvgNeutralKills field to given value.
+
+
+### GetAvgObjectivesDestroyedTimeS
+
+`func (o *AnalyticsGameStats) GetAvgObjectivesDestroyedTimeS() float64`
+
+GetAvgObjectivesDestroyedTimeS returns the AvgObjectivesDestroyedTimeS field if non-nil, zero value otherwise.
+
+### GetAvgObjectivesDestroyedTimeSOk
+
+`func (o *AnalyticsGameStats) GetAvgObjectivesDestroyedTimeSOk() (*float64, bool)`
+
+GetAvgObjectivesDestroyedTimeSOk returns a tuple with the AvgObjectivesDestroyedTimeS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgObjectivesDestroyedTimeS
+
+`func (o *AnalyticsGameStats) SetAvgObjectivesDestroyedTimeS(v float64)`
+
+SetAvgObjectivesDestroyedTimeS sets AvgObjectivesDestroyedTimeS field to given value.
 
 
 ### GetAvgPlayerDamage
@@ -529,6 +743,86 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsGameStats) SetAvgPlayerHealing(v float64)`
 
 SetAvgPlayerHealing sets AvgPlayerHealing field to given value.
+
+
+### GetAvgPossibleCreeps
+
+`func (o *AnalyticsGameStats) GetAvgPossibleCreeps() float64`
+
+GetAvgPossibleCreeps returns the AvgPossibleCreeps field if non-nil, zero value otherwise.
+
+### GetAvgPossibleCreepsOk
+
+`func (o *AnalyticsGameStats) GetAvgPossibleCreepsOk() (*float64, bool)`
+
+GetAvgPossibleCreepsOk returns a tuple with the AvgPossibleCreeps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgPossibleCreeps
+
+`func (o *AnalyticsGameStats) SetAvgPossibleCreeps(v float64)`
+
+SetAvgPossibleCreeps sets AvgPossibleCreeps field to given value.
+
+
+### GetAvgSelfHealing
+
+`func (o *AnalyticsGameStats) GetAvgSelfHealing() float64`
+
+GetAvgSelfHealing returns the AvgSelfHealing field if non-nil, zero value otherwise.
+
+### GetAvgSelfHealingOk
+
+`func (o *AnalyticsGameStats) GetAvgSelfHealingOk() (*float64, bool)`
+
+GetAvgSelfHealingOk returns a tuple with the AvgSelfHealing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgSelfHealing
+
+`func (o *AnalyticsGameStats) SetAvgSelfHealing(v float64)`
+
+SetAvgSelfHealing sets AvgSelfHealing field to given value.
+
+
+### GetAvgTechPower
+
+`func (o *AnalyticsGameStats) GetAvgTechPower() float64`
+
+GetAvgTechPower returns the AvgTechPower field if non-nil, zero value otherwise.
+
+### GetAvgTechPowerOk
+
+`func (o *AnalyticsGameStats) GetAvgTechPowerOk() (*float64, bool)`
+
+GetAvgTechPowerOk returns a tuple with the AvgTechPower field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgTechPower
+
+`func (o *AnalyticsGameStats) SetAvgTechPower(v float64)`
+
+SetAvgTechPower sets AvgTechPower field to given value.
+
+
+### GetAvgWeaponPower
+
+`func (o *AnalyticsGameStats) GetAvgWeaponPower() float64`
+
+GetAvgWeaponPower returns the AvgWeaponPower field if non-nil, zero value otherwise.
+
+### GetAvgWeaponPowerOk
+
+`func (o *AnalyticsGameStats) GetAvgWeaponPowerOk() (*float64, bool)`
+
+GetAvgWeaponPowerOk returns a tuple with the AvgWeaponPower field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgWeaponPower
+
+`func (o *AnalyticsGameStats) SetAvgWeaponPower(v float64)`
+
+SetAvgWeaponPower sets AvgWeaponPower field to given value.
 
 
 ### GetBucket

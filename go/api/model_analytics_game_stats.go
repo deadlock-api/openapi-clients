@@ -25,26 +25,40 @@ type AnalyticsGameStats struct {
 	AvgAccuracy float64 `json:"avg_accuracy"`
 	AvgAssists float64 `json:"avg_assists"`
 	AvgBossDamage float64 `json:"avg_boss_damage"`
+	AvgCreepDamage float64 `json:"avg_creep_damage"`
+	AvgCreepKills float64 `json:"avg_creep_kills"`
 	AvgCritRate float64 `json:"avg_crit_rate"`
+	AvgDamageAbsorbed float64 `json:"avg_damage_absorbed"`
+	AvgDamageMitigated float64 `json:"avg_damage_mitigated"`
 	AvgDeaths float64 `json:"avg_deaths"`
 	AvgDenies float64 `json:"avg_denies"`
 	AvgDurationS float64 `json:"avg_duration_s"`
 	AvgEndingLevel float64 `json:"avg_ending_level"`
 	AvgFirstMidBossTimeS float64 `json:"avg_first_mid_boss_time_s"`
 	AvgGoldBoss float64 `json:"avg_gold_boss"`
+	AvgGoldBossOrb float64 `json:"avg_gold_boss_orb"`
 	AvgGoldDeathLoss float64 `json:"avg_gold_death_loss"`
 	AvgGoldDenied float64 `json:"avg_gold_denied"`
 	AvgGoldLaneCreep float64 `json:"avg_gold_lane_creep"`
 	AvgGoldNeutralCreep float64 `json:"avg_gold_neutral_creep"`
 	AvgGoldPlayer float64 `json:"avg_gold_player"`
 	AvgGoldTreasure float64 `json:"avg_gold_treasure"`
+	AvgHealPrevented float64 `json:"avg_heal_prevented"`
 	AvgKdRatio float64 `json:"avg_kd_ratio"`
 	AvgKills float64 `json:"avg_kills"`
 	AvgLastHits float64 `json:"avg_last_hits"`
+	AvgMaxHealth float64 `json:"avg_max_health"`
 	AvgNetWorth float64 `json:"avg_net_worth"`
+	AvgNeutralDamage float64 `json:"avg_neutral_damage"`
+	AvgNeutralKills float64 `json:"avg_neutral_kills"`
+	AvgObjectivesDestroyedTimeS float64 `json:"avg_objectives_destroyed_time_s"`
 	AvgPlayerDamage float64 `json:"avg_player_damage"`
 	AvgPlayerDamageTaken float64 `json:"avg_player_damage_taken"`
 	AvgPlayerHealing float64 `json:"avg_player_healing"`
+	AvgPossibleCreeps float64 `json:"avg_possible_creeps"`
+	AvgSelfHealing float64 `json:"avg_self_healing"`
+	AvgTechPower float64 `json:"avg_tech_power"`
+	AvgWeaponPower float64 `json:"avg_weapon_power"`
 	Bucket int32 `json:"bucket"`
 	MidBossKillRate float64 `json:"mid_boss_kill_rate"`
 	TotalMatches int64 `json:"total_matches"`
@@ -56,32 +70,46 @@ type _AnalyticsGameStats AnalyticsGameStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCritRate float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgNetWorth float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, bucket int32, midBossKillRate float64, totalMatches int64) *AnalyticsGameStats {
+func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, totalMatches int64) *AnalyticsGameStats {
 	this := AnalyticsGameStats{}
 	this.AbandonRate = abandonRate
 	this.AvgAccuracy = avgAccuracy
 	this.AvgAssists = avgAssists
 	this.AvgBossDamage = avgBossDamage
+	this.AvgCreepDamage = avgCreepDamage
+	this.AvgCreepKills = avgCreepKills
 	this.AvgCritRate = avgCritRate
+	this.AvgDamageAbsorbed = avgDamageAbsorbed
+	this.AvgDamageMitigated = avgDamageMitigated
 	this.AvgDeaths = avgDeaths
 	this.AvgDenies = avgDenies
 	this.AvgDurationS = avgDurationS
 	this.AvgEndingLevel = avgEndingLevel
 	this.AvgFirstMidBossTimeS = avgFirstMidBossTimeS
 	this.AvgGoldBoss = avgGoldBoss
+	this.AvgGoldBossOrb = avgGoldBossOrb
 	this.AvgGoldDeathLoss = avgGoldDeathLoss
 	this.AvgGoldDenied = avgGoldDenied
 	this.AvgGoldLaneCreep = avgGoldLaneCreep
 	this.AvgGoldNeutralCreep = avgGoldNeutralCreep
 	this.AvgGoldPlayer = avgGoldPlayer
 	this.AvgGoldTreasure = avgGoldTreasure
+	this.AvgHealPrevented = avgHealPrevented
 	this.AvgKdRatio = avgKdRatio
 	this.AvgKills = avgKills
 	this.AvgLastHits = avgLastHits
+	this.AvgMaxHealth = avgMaxHealth
 	this.AvgNetWorth = avgNetWorth
+	this.AvgNeutralDamage = avgNeutralDamage
+	this.AvgNeutralKills = avgNeutralKills
+	this.AvgObjectivesDestroyedTimeS = avgObjectivesDestroyedTimeS
 	this.AvgPlayerDamage = avgPlayerDamage
 	this.AvgPlayerDamageTaken = avgPlayerDamageTaken
 	this.AvgPlayerHealing = avgPlayerHealing
+	this.AvgPossibleCreeps = avgPossibleCreeps
+	this.AvgSelfHealing = avgSelfHealing
+	this.AvgTechPower = avgTechPower
+	this.AvgWeaponPower = avgWeaponPower
 	this.Bucket = bucket
 	this.MidBossKillRate = midBossKillRate
 	this.TotalMatches = totalMatches
@@ -192,6 +220,54 @@ func (o *AnalyticsGameStats) SetAvgBossDamage(v float64) {
 	o.AvgBossDamage = v
 }
 
+// GetAvgCreepDamage returns the AvgCreepDamage field value
+func (o *AnalyticsGameStats) GetAvgCreepDamage() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgCreepDamage
+}
+
+// GetAvgCreepDamageOk returns a tuple with the AvgCreepDamage field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgCreepDamageOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgCreepDamage, true
+}
+
+// SetAvgCreepDamage sets field value
+func (o *AnalyticsGameStats) SetAvgCreepDamage(v float64) {
+	o.AvgCreepDamage = v
+}
+
+// GetAvgCreepKills returns the AvgCreepKills field value
+func (o *AnalyticsGameStats) GetAvgCreepKills() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgCreepKills
+}
+
+// GetAvgCreepKillsOk returns a tuple with the AvgCreepKills field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgCreepKillsOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgCreepKills, true
+}
+
+// SetAvgCreepKills sets field value
+func (o *AnalyticsGameStats) SetAvgCreepKills(v float64) {
+	o.AvgCreepKills = v
+}
+
 // GetAvgCritRate returns the AvgCritRate field value
 func (o *AnalyticsGameStats) GetAvgCritRate() float64 {
 	if o == nil {
@@ -214,6 +290,54 @@ func (o *AnalyticsGameStats) GetAvgCritRateOk() (*float64, bool) {
 // SetAvgCritRate sets field value
 func (o *AnalyticsGameStats) SetAvgCritRate(v float64) {
 	o.AvgCritRate = v
+}
+
+// GetAvgDamageAbsorbed returns the AvgDamageAbsorbed field value
+func (o *AnalyticsGameStats) GetAvgDamageAbsorbed() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgDamageAbsorbed
+}
+
+// GetAvgDamageAbsorbedOk returns a tuple with the AvgDamageAbsorbed field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgDamageAbsorbedOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgDamageAbsorbed, true
+}
+
+// SetAvgDamageAbsorbed sets field value
+func (o *AnalyticsGameStats) SetAvgDamageAbsorbed(v float64) {
+	o.AvgDamageAbsorbed = v
+}
+
+// GetAvgDamageMitigated returns the AvgDamageMitigated field value
+func (o *AnalyticsGameStats) GetAvgDamageMitigated() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgDamageMitigated
+}
+
+// GetAvgDamageMitigatedOk returns a tuple with the AvgDamageMitigated field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgDamageMitigatedOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgDamageMitigated, true
+}
+
+// SetAvgDamageMitigated sets field value
+func (o *AnalyticsGameStats) SetAvgDamageMitigated(v float64) {
+	o.AvgDamageMitigated = v
 }
 
 // GetAvgDeaths returns the AvgDeaths field value
@@ -360,6 +484,30 @@ func (o *AnalyticsGameStats) SetAvgGoldBoss(v float64) {
 	o.AvgGoldBoss = v
 }
 
+// GetAvgGoldBossOrb returns the AvgGoldBossOrb field value
+func (o *AnalyticsGameStats) GetAvgGoldBossOrb() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgGoldBossOrb
+}
+
+// GetAvgGoldBossOrbOk returns a tuple with the AvgGoldBossOrb field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgGoldBossOrbOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgGoldBossOrb, true
+}
+
+// SetAvgGoldBossOrb sets field value
+func (o *AnalyticsGameStats) SetAvgGoldBossOrb(v float64) {
+	o.AvgGoldBossOrb = v
+}
+
 // GetAvgGoldDeathLoss returns the AvgGoldDeathLoss field value
 func (o *AnalyticsGameStats) GetAvgGoldDeathLoss() float64 {
 	if o == nil {
@@ -504,6 +652,30 @@ func (o *AnalyticsGameStats) SetAvgGoldTreasure(v float64) {
 	o.AvgGoldTreasure = v
 }
 
+// GetAvgHealPrevented returns the AvgHealPrevented field value
+func (o *AnalyticsGameStats) GetAvgHealPrevented() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgHealPrevented
+}
+
+// GetAvgHealPreventedOk returns a tuple with the AvgHealPrevented field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgHealPreventedOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgHealPrevented, true
+}
+
+// SetAvgHealPrevented sets field value
+func (o *AnalyticsGameStats) SetAvgHealPrevented(v float64) {
+	o.AvgHealPrevented = v
+}
+
 // GetAvgKdRatio returns the AvgKdRatio field value
 func (o *AnalyticsGameStats) GetAvgKdRatio() float64 {
 	if o == nil {
@@ -576,6 +748,30 @@ func (o *AnalyticsGameStats) SetAvgLastHits(v float64) {
 	o.AvgLastHits = v
 }
 
+// GetAvgMaxHealth returns the AvgMaxHealth field value
+func (o *AnalyticsGameStats) GetAvgMaxHealth() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgMaxHealth
+}
+
+// GetAvgMaxHealthOk returns a tuple with the AvgMaxHealth field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgMaxHealthOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgMaxHealth, true
+}
+
+// SetAvgMaxHealth sets field value
+func (o *AnalyticsGameStats) SetAvgMaxHealth(v float64) {
+	o.AvgMaxHealth = v
+}
+
 // GetAvgNetWorth returns the AvgNetWorth field value
 func (o *AnalyticsGameStats) GetAvgNetWorth() float64 {
 	if o == nil {
@@ -598,6 +794,78 @@ func (o *AnalyticsGameStats) GetAvgNetWorthOk() (*float64, bool) {
 // SetAvgNetWorth sets field value
 func (o *AnalyticsGameStats) SetAvgNetWorth(v float64) {
 	o.AvgNetWorth = v
+}
+
+// GetAvgNeutralDamage returns the AvgNeutralDamage field value
+func (o *AnalyticsGameStats) GetAvgNeutralDamage() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgNeutralDamage
+}
+
+// GetAvgNeutralDamageOk returns a tuple with the AvgNeutralDamage field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgNeutralDamageOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgNeutralDamage, true
+}
+
+// SetAvgNeutralDamage sets field value
+func (o *AnalyticsGameStats) SetAvgNeutralDamage(v float64) {
+	o.AvgNeutralDamage = v
+}
+
+// GetAvgNeutralKills returns the AvgNeutralKills field value
+func (o *AnalyticsGameStats) GetAvgNeutralKills() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgNeutralKills
+}
+
+// GetAvgNeutralKillsOk returns a tuple with the AvgNeutralKills field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgNeutralKillsOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgNeutralKills, true
+}
+
+// SetAvgNeutralKills sets field value
+func (o *AnalyticsGameStats) SetAvgNeutralKills(v float64) {
+	o.AvgNeutralKills = v
+}
+
+// GetAvgObjectivesDestroyedTimeS returns the AvgObjectivesDestroyedTimeS field value
+func (o *AnalyticsGameStats) GetAvgObjectivesDestroyedTimeS() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgObjectivesDestroyedTimeS
+}
+
+// GetAvgObjectivesDestroyedTimeSOk returns a tuple with the AvgObjectivesDestroyedTimeS field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgObjectivesDestroyedTimeSOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgObjectivesDestroyedTimeS, true
+}
+
+// SetAvgObjectivesDestroyedTimeS sets field value
+func (o *AnalyticsGameStats) SetAvgObjectivesDestroyedTimeS(v float64) {
+	o.AvgObjectivesDestroyedTimeS = v
 }
 
 // GetAvgPlayerDamage returns the AvgPlayerDamage field value
@@ -670,6 +938,102 @@ func (o *AnalyticsGameStats) GetAvgPlayerHealingOk() (*float64, bool) {
 // SetAvgPlayerHealing sets field value
 func (o *AnalyticsGameStats) SetAvgPlayerHealing(v float64) {
 	o.AvgPlayerHealing = v
+}
+
+// GetAvgPossibleCreeps returns the AvgPossibleCreeps field value
+func (o *AnalyticsGameStats) GetAvgPossibleCreeps() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgPossibleCreeps
+}
+
+// GetAvgPossibleCreepsOk returns a tuple with the AvgPossibleCreeps field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgPossibleCreepsOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgPossibleCreeps, true
+}
+
+// SetAvgPossibleCreeps sets field value
+func (o *AnalyticsGameStats) SetAvgPossibleCreeps(v float64) {
+	o.AvgPossibleCreeps = v
+}
+
+// GetAvgSelfHealing returns the AvgSelfHealing field value
+func (o *AnalyticsGameStats) GetAvgSelfHealing() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgSelfHealing
+}
+
+// GetAvgSelfHealingOk returns a tuple with the AvgSelfHealing field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgSelfHealingOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgSelfHealing, true
+}
+
+// SetAvgSelfHealing sets field value
+func (o *AnalyticsGameStats) SetAvgSelfHealing(v float64) {
+	o.AvgSelfHealing = v
+}
+
+// GetAvgTechPower returns the AvgTechPower field value
+func (o *AnalyticsGameStats) GetAvgTechPower() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgTechPower
+}
+
+// GetAvgTechPowerOk returns a tuple with the AvgTechPower field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgTechPowerOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgTechPower, true
+}
+
+// SetAvgTechPower sets field value
+func (o *AnalyticsGameStats) SetAvgTechPower(v float64) {
+	o.AvgTechPower = v
+}
+
+// GetAvgWeaponPower returns the AvgWeaponPower field value
+func (o *AnalyticsGameStats) GetAvgWeaponPower() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgWeaponPower
+}
+
+// GetAvgWeaponPowerOk returns a tuple with the AvgWeaponPower field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgWeaponPowerOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgWeaponPower, true
+}
+
+// SetAvgWeaponPower sets field value
+func (o *AnalyticsGameStats) SetAvgWeaponPower(v float64) {
+	o.AvgWeaponPower = v
 }
 
 // GetBucket returns the Bucket field value
@@ -758,26 +1122,40 @@ func (o AnalyticsGameStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["avg_accuracy"] = o.AvgAccuracy
 	toSerialize["avg_assists"] = o.AvgAssists
 	toSerialize["avg_boss_damage"] = o.AvgBossDamage
+	toSerialize["avg_creep_damage"] = o.AvgCreepDamage
+	toSerialize["avg_creep_kills"] = o.AvgCreepKills
 	toSerialize["avg_crit_rate"] = o.AvgCritRate
+	toSerialize["avg_damage_absorbed"] = o.AvgDamageAbsorbed
+	toSerialize["avg_damage_mitigated"] = o.AvgDamageMitigated
 	toSerialize["avg_deaths"] = o.AvgDeaths
 	toSerialize["avg_denies"] = o.AvgDenies
 	toSerialize["avg_duration_s"] = o.AvgDurationS
 	toSerialize["avg_ending_level"] = o.AvgEndingLevel
 	toSerialize["avg_first_mid_boss_time_s"] = o.AvgFirstMidBossTimeS
 	toSerialize["avg_gold_boss"] = o.AvgGoldBoss
+	toSerialize["avg_gold_boss_orb"] = o.AvgGoldBossOrb
 	toSerialize["avg_gold_death_loss"] = o.AvgGoldDeathLoss
 	toSerialize["avg_gold_denied"] = o.AvgGoldDenied
 	toSerialize["avg_gold_lane_creep"] = o.AvgGoldLaneCreep
 	toSerialize["avg_gold_neutral_creep"] = o.AvgGoldNeutralCreep
 	toSerialize["avg_gold_player"] = o.AvgGoldPlayer
 	toSerialize["avg_gold_treasure"] = o.AvgGoldTreasure
+	toSerialize["avg_heal_prevented"] = o.AvgHealPrevented
 	toSerialize["avg_kd_ratio"] = o.AvgKdRatio
 	toSerialize["avg_kills"] = o.AvgKills
 	toSerialize["avg_last_hits"] = o.AvgLastHits
+	toSerialize["avg_max_health"] = o.AvgMaxHealth
 	toSerialize["avg_net_worth"] = o.AvgNetWorth
+	toSerialize["avg_neutral_damage"] = o.AvgNeutralDamage
+	toSerialize["avg_neutral_kills"] = o.AvgNeutralKills
+	toSerialize["avg_objectives_destroyed_time_s"] = o.AvgObjectivesDestroyedTimeS
 	toSerialize["avg_player_damage"] = o.AvgPlayerDamage
 	toSerialize["avg_player_damage_taken"] = o.AvgPlayerDamageTaken
 	toSerialize["avg_player_healing"] = o.AvgPlayerHealing
+	toSerialize["avg_possible_creeps"] = o.AvgPossibleCreeps
+	toSerialize["avg_self_healing"] = o.AvgSelfHealing
+	toSerialize["avg_tech_power"] = o.AvgTechPower
+	toSerialize["avg_weapon_power"] = o.AvgWeaponPower
 	toSerialize["bucket"] = o.Bucket
 	toSerialize["mid_boss_kill_rate"] = o.MidBossKillRate
 	toSerialize["total_matches"] = o.TotalMatches
@@ -793,26 +1171,40 @@ func (o *AnalyticsGameStats) UnmarshalJSON(data []byte) (err error) {
 		"avg_accuracy",
 		"avg_assists",
 		"avg_boss_damage",
+		"avg_creep_damage",
+		"avg_creep_kills",
 		"avg_crit_rate",
+		"avg_damage_absorbed",
+		"avg_damage_mitigated",
 		"avg_deaths",
 		"avg_denies",
 		"avg_duration_s",
 		"avg_ending_level",
 		"avg_first_mid_boss_time_s",
 		"avg_gold_boss",
+		"avg_gold_boss_orb",
 		"avg_gold_death_loss",
 		"avg_gold_denied",
 		"avg_gold_lane_creep",
 		"avg_gold_neutral_creep",
 		"avg_gold_player",
 		"avg_gold_treasure",
+		"avg_heal_prevented",
 		"avg_kd_ratio",
 		"avg_kills",
 		"avg_last_hits",
+		"avg_max_health",
 		"avg_net_worth",
+		"avg_neutral_damage",
+		"avg_neutral_kills",
+		"avg_objectives_destroyed_time_s",
 		"avg_player_damage",
 		"avg_player_damage_taken",
 		"avg_player_healing",
+		"avg_possible_creeps",
+		"avg_self_healing",
+		"avg_tech_power",
+		"avg_weapon_power",
 		"bucket",
 		"mid_boss_kill_rate",
 		"total_matches",

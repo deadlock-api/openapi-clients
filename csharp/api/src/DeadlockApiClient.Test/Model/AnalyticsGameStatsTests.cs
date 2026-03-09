@@ -90,12 +90,48 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgCreepDamage'
+        /// </summary>
+        [Fact]
+        public void AvgCreepDamageTest()
+        {
+            // TODO unit test for the property 'AvgCreepDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgCreepKills'
+        /// </summary>
+        [Fact]
+        public void AvgCreepKillsTest()
+        {
+            // TODO unit test for the property 'AvgCreepKills'
+        }
+
+        /// <summary>
         /// Test the property 'AvgCritRate'
         /// </summary>
         [Fact]
         public void AvgCritRateTest()
         {
             // TODO unit test for the property 'AvgCritRate'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgDamageAbsorbed'
+        /// </summary>
+        [Fact]
+        public void AvgDamageAbsorbedTest()
+        {
+            // TODO unit test for the property 'AvgDamageAbsorbed'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgDamageMitigated'
+        /// </summary>
+        [Fact]
+        public void AvgDamageMitigatedTest()
+        {
+            // TODO unit test for the property 'AvgDamageMitigated'
         }
 
         /// <summary>
@@ -153,6 +189,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgGoldBossOrb'
+        /// </summary>
+        [Fact]
+        public void AvgGoldBossOrbTest()
+        {
+            // TODO unit test for the property 'AvgGoldBossOrb'
+        }
+
+        /// <summary>
         /// Test the property 'AvgGoldDeathLoss'
         /// </summary>
         [Fact]
@@ -207,6 +252,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgHealPrevented'
+        /// </summary>
+        [Fact]
+        public void AvgHealPreventedTest()
+        {
+            // TODO unit test for the property 'AvgHealPrevented'
+        }
+
+        /// <summary>
         /// Test the property 'AvgKdRatio'
         /// </summary>
         [Fact]
@@ -234,12 +288,48 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgMaxHealth'
+        /// </summary>
+        [Fact]
+        public void AvgMaxHealthTest()
+        {
+            // TODO unit test for the property 'AvgMaxHealth'
+        }
+
+        /// <summary>
         /// Test the property 'AvgNetWorth'
         /// </summary>
         [Fact]
         public void AvgNetWorthTest()
         {
             // TODO unit test for the property 'AvgNetWorth'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgNeutralDamage'
+        /// </summary>
+        [Fact]
+        public void AvgNeutralDamageTest()
+        {
+            // TODO unit test for the property 'AvgNeutralDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgNeutralKills'
+        /// </summary>
+        [Fact]
+        public void AvgNeutralKillsTest()
+        {
+            // TODO unit test for the property 'AvgNeutralKills'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgObjectivesDestroyedTimeS'
+        /// </summary>
+        [Fact]
+        public void AvgObjectivesDestroyedTimeSTest()
+        {
+            // TODO unit test for the property 'AvgObjectivesDestroyedTimeS'
         }
 
         /// <summary>
@@ -267,6 +357,42 @@ namespace DeadlockApiClient.Test.Model
         public void AvgPlayerHealingTest()
         {
             // TODO unit test for the property 'AvgPlayerHealing'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgPossibleCreeps'
+        /// </summary>
+        [Fact]
+        public void AvgPossibleCreepsTest()
+        {
+            // TODO unit test for the property 'AvgPossibleCreeps'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgSelfHealing'
+        /// </summary>
+        [Fact]
+        public void AvgSelfHealingTest()
+        {
+            // TODO unit test for the property 'AvgSelfHealing'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgTechPower'
+        /// </summary>
+        [Fact]
+        public void AvgTechPowerTest()
+        {
+            // TODO unit test for the property 'AvgTechPower'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgWeaponPower'
+        /// </summary>
+        [Fact]
+        public void AvgWeaponPowerTest()
+        {
+            // TODO unit test for the property 'AvgWeaponPower'
         }
 
         /// <summary>

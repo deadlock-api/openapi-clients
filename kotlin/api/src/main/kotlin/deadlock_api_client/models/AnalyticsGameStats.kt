@@ -27,26 +27,40 @@ import java.io.Serializable
  * @param avgAccuracy 
  * @param avgAssists 
  * @param avgBossDamage 
+ * @param avgCreepDamage 
+ * @param avgCreepKills 
  * @param avgCritRate 
+ * @param avgDamageAbsorbed 
+ * @param avgDamageMitigated 
  * @param avgDeaths 
  * @param avgDenies 
  * @param avgDurationS 
  * @param avgEndingLevel 
  * @param avgFirstMidBossTimeS 
  * @param avgGoldBoss 
+ * @param avgGoldBossOrb 
  * @param avgGoldDeathLoss 
  * @param avgGoldDenied 
  * @param avgGoldLaneCreep 
  * @param avgGoldNeutralCreep 
  * @param avgGoldPlayer 
  * @param avgGoldTreasure 
+ * @param avgHealPrevented 
  * @param avgKdRatio 
  * @param avgKills 
  * @param avgLastHits 
+ * @param avgMaxHealth 
  * @param avgNetWorth 
+ * @param avgNeutralDamage 
+ * @param avgNeutralKills 
+ * @param avgObjectivesDestroyedTimeS 
  * @param avgPlayerDamage 
  * @param avgPlayerDamageTaken 
  * @param avgPlayerHealing 
+ * @param avgPossibleCreeps 
+ * @param avgSelfHealing 
+ * @param avgTechPower 
+ * @param avgWeaponPower 
  * @param bucket 
  * @param midBossKillRate 
  * @param totalMatches 
@@ -67,8 +81,20 @@ data class AnalyticsGameStats (
     @Json(name = "avg_boss_damage")
     val avgBossDamage: kotlin.Double,
 
+    @Json(name = "avg_creep_damage")
+    val avgCreepDamage: kotlin.Double,
+
+    @Json(name = "avg_creep_kills")
+    val avgCreepKills: kotlin.Double,
+
     @Json(name = "avg_crit_rate")
     val avgCritRate: kotlin.Double,
+
+    @Json(name = "avg_damage_absorbed")
+    val avgDamageAbsorbed: kotlin.Double,
+
+    @Json(name = "avg_damage_mitigated")
+    val avgDamageMitigated: kotlin.Double,
 
     @Json(name = "avg_deaths")
     val avgDeaths: kotlin.Double,
@@ -88,6 +114,9 @@ data class AnalyticsGameStats (
     @Json(name = "avg_gold_boss")
     val avgGoldBoss: kotlin.Double,
 
+    @Json(name = "avg_gold_boss_orb")
+    val avgGoldBossOrb: kotlin.Double,
+
     @Json(name = "avg_gold_death_loss")
     val avgGoldDeathLoss: kotlin.Double,
 
@@ -106,6 +135,9 @@ data class AnalyticsGameStats (
     @Json(name = "avg_gold_treasure")
     val avgGoldTreasure: kotlin.Double,
 
+    @Json(name = "avg_heal_prevented")
+    val avgHealPrevented: kotlin.Double,
+
     @Json(name = "avg_kd_ratio")
     val avgKdRatio: kotlin.Double,
 
@@ -115,8 +147,20 @@ data class AnalyticsGameStats (
     @Json(name = "avg_last_hits")
     val avgLastHits: kotlin.Double,
 
+    @Json(name = "avg_max_health")
+    val avgMaxHealth: kotlin.Double,
+
     @Json(name = "avg_net_worth")
     val avgNetWorth: kotlin.Double,
+
+    @Json(name = "avg_neutral_damage")
+    val avgNeutralDamage: kotlin.Double,
+
+    @Json(name = "avg_neutral_kills")
+    val avgNeutralKills: kotlin.Double,
+
+    @Json(name = "avg_objectives_destroyed_time_s")
+    val avgObjectivesDestroyedTimeS: kotlin.Double,
 
     @Json(name = "avg_player_damage")
     val avgPlayerDamage: kotlin.Double,
@@ -126,6 +170,18 @@ data class AnalyticsGameStats (
 
     @Json(name = "avg_player_healing")
     val avgPlayerHealing: kotlin.Double,
+
+    @Json(name = "avg_possible_creeps")
+    val avgPossibleCreeps: kotlin.Double,
+
+    @Json(name = "avg_self_healing")
+    val avgSelfHealing: kotlin.Double,
+
+    @Json(name = "avg_tech_power")
+    val avgTechPower: kotlin.Double,
+
+    @Json(name = "avg_weapon_power")
+    val avgWeaponPower: kotlin.Double,
 
     @Json(name = "bucket")
     val bucket: kotlin.Int,

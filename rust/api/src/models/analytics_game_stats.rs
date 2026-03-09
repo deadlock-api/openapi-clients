@@ -21,8 +21,16 @@ pub struct AnalyticsGameStats {
     pub avg_assists: f64,
     #[serde(rename = "avg_boss_damage")]
     pub avg_boss_damage: f64,
+    #[serde(rename = "avg_creep_damage")]
+    pub avg_creep_damage: f64,
+    #[serde(rename = "avg_creep_kills")]
+    pub avg_creep_kills: f64,
     #[serde(rename = "avg_crit_rate")]
     pub avg_crit_rate: f64,
+    #[serde(rename = "avg_damage_absorbed")]
+    pub avg_damage_absorbed: f64,
+    #[serde(rename = "avg_damage_mitigated")]
+    pub avg_damage_mitigated: f64,
     #[serde(rename = "avg_deaths")]
     pub avg_deaths: f64,
     #[serde(rename = "avg_denies")]
@@ -35,6 +43,8 @@ pub struct AnalyticsGameStats {
     pub avg_first_mid_boss_time_s: f64,
     #[serde(rename = "avg_gold_boss")]
     pub avg_gold_boss: f64,
+    #[serde(rename = "avg_gold_boss_orb")]
+    pub avg_gold_boss_orb: f64,
     #[serde(rename = "avg_gold_death_loss")]
     pub avg_gold_death_loss: f64,
     #[serde(rename = "avg_gold_denied")]
@@ -47,20 +57,38 @@ pub struct AnalyticsGameStats {
     pub avg_gold_player: f64,
     #[serde(rename = "avg_gold_treasure")]
     pub avg_gold_treasure: f64,
+    #[serde(rename = "avg_heal_prevented")]
+    pub avg_heal_prevented: f64,
     #[serde(rename = "avg_kd_ratio")]
     pub avg_kd_ratio: f64,
     #[serde(rename = "avg_kills")]
     pub avg_kills: f64,
     #[serde(rename = "avg_last_hits")]
     pub avg_last_hits: f64,
+    #[serde(rename = "avg_max_health")]
+    pub avg_max_health: f64,
     #[serde(rename = "avg_net_worth")]
     pub avg_net_worth: f64,
+    #[serde(rename = "avg_neutral_damage")]
+    pub avg_neutral_damage: f64,
+    #[serde(rename = "avg_neutral_kills")]
+    pub avg_neutral_kills: f64,
+    #[serde(rename = "avg_objectives_destroyed_time_s")]
+    pub avg_objectives_destroyed_time_s: f64,
     #[serde(rename = "avg_player_damage")]
     pub avg_player_damage: f64,
     #[serde(rename = "avg_player_damage_taken")]
     pub avg_player_damage_taken: f64,
     #[serde(rename = "avg_player_healing")]
     pub avg_player_healing: f64,
+    #[serde(rename = "avg_possible_creeps")]
+    pub avg_possible_creeps: f64,
+    #[serde(rename = "avg_self_healing")]
+    pub avg_self_healing: f64,
+    #[serde(rename = "avg_tech_power")]
+    pub avg_tech_power: f64,
+    #[serde(rename = "avg_weapon_power")]
+    pub avg_weapon_power: f64,
     #[serde(rename = "bucket")]
     pub bucket: u32,
     #[serde(rename = "mid_boss_kill_rate")]
@@ -70,32 +98,46 @@ pub struct AnalyticsGameStats {
 }
 
 impl AnalyticsGameStats {
-    pub fn new(abandon_rate: f64, avg_accuracy: f64, avg_assists: f64, avg_boss_damage: f64, avg_crit_rate: f64, avg_deaths: f64, avg_denies: f64, avg_duration_s: f64, avg_ending_level: f64, avg_first_mid_boss_time_s: f64, avg_gold_boss: f64, avg_gold_death_loss: f64, avg_gold_denied: f64, avg_gold_lane_creep: f64, avg_gold_neutral_creep: f64, avg_gold_player: f64, avg_gold_treasure: f64, avg_kd_ratio: f64, avg_kills: f64, avg_last_hits: f64, avg_net_worth: f64, avg_player_damage: f64, avg_player_damage_taken: f64, avg_player_healing: f64, bucket: u32, mid_boss_kill_rate: f64, total_matches: u64) -> AnalyticsGameStats {
+    pub fn new(abandon_rate: f64, avg_accuracy: f64, avg_assists: f64, avg_boss_damage: f64, avg_creep_damage: f64, avg_creep_kills: f64, avg_crit_rate: f64, avg_damage_absorbed: f64, avg_damage_mitigated: f64, avg_deaths: f64, avg_denies: f64, avg_duration_s: f64, avg_ending_level: f64, avg_first_mid_boss_time_s: f64, avg_gold_boss: f64, avg_gold_boss_orb: f64, avg_gold_death_loss: f64, avg_gold_denied: f64, avg_gold_lane_creep: f64, avg_gold_neutral_creep: f64, avg_gold_player: f64, avg_gold_treasure: f64, avg_heal_prevented: f64, avg_kd_ratio: f64, avg_kills: f64, avg_last_hits: f64, avg_max_health: f64, avg_net_worth: f64, avg_neutral_damage: f64, avg_neutral_kills: f64, avg_objectives_destroyed_time_s: f64, avg_player_damage: f64, avg_player_damage_taken: f64, avg_player_healing: f64, avg_possible_creeps: f64, avg_self_healing: f64, avg_tech_power: f64, avg_weapon_power: f64, bucket: u32, mid_boss_kill_rate: f64, total_matches: u64) -> AnalyticsGameStats {
         AnalyticsGameStats {
             abandon_rate,
             avg_accuracy,
             avg_assists,
             avg_boss_damage,
+            avg_creep_damage,
+            avg_creep_kills,
             avg_crit_rate,
+            avg_damage_absorbed,
+            avg_damage_mitigated,
             avg_deaths,
             avg_denies,
             avg_duration_s,
             avg_ending_level,
             avg_first_mid_boss_time_s,
             avg_gold_boss,
+            avg_gold_boss_orb,
             avg_gold_death_loss,
             avg_gold_denied,
             avg_gold_lane_creep,
             avg_gold_neutral_creep,
             avg_gold_player,
             avg_gold_treasure,
+            avg_heal_prevented,
             avg_kd_ratio,
             avg_kills,
             avg_last_hits,
+            avg_max_health,
             avg_net_worth,
+            avg_neutral_damage,
+            avg_neutral_kills,
+            avg_objectives_destroyed_time_s,
             avg_player_damage,
             avg_player_damage_taken,
             avg_player_healing,
+            avg_possible_creeps,
+            avg_self_healing,
+            avg_tech_power,
+            avg_weapon_power,
             bucket,
             mid_boss_kill_rate,
             total_matches,

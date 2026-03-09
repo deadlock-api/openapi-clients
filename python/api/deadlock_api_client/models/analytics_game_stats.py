@@ -31,30 +31,44 @@ class AnalyticsGameStats(BaseModel):
     avg_accuracy: Union[StrictFloat, StrictInt]
     avg_assists: Union[StrictFloat, StrictInt]
     avg_boss_damage: Union[StrictFloat, StrictInt]
+    avg_creep_damage: Union[StrictFloat, StrictInt]
+    avg_creep_kills: Union[StrictFloat, StrictInt]
     avg_crit_rate: Union[StrictFloat, StrictInt]
+    avg_damage_absorbed: Union[StrictFloat, StrictInt]
+    avg_damage_mitigated: Union[StrictFloat, StrictInt]
     avg_deaths: Union[StrictFloat, StrictInt]
     avg_denies: Union[StrictFloat, StrictInt]
     avg_duration_s: Union[StrictFloat, StrictInt]
     avg_ending_level: Union[StrictFloat, StrictInt]
     avg_first_mid_boss_time_s: Union[StrictFloat, StrictInt]
     avg_gold_boss: Union[StrictFloat, StrictInt]
+    avg_gold_boss_orb: Union[StrictFloat, StrictInt]
     avg_gold_death_loss: Union[StrictFloat, StrictInt]
     avg_gold_denied: Union[StrictFloat, StrictInt]
     avg_gold_lane_creep: Union[StrictFloat, StrictInt]
     avg_gold_neutral_creep: Union[StrictFloat, StrictInt]
     avg_gold_player: Union[StrictFloat, StrictInt]
     avg_gold_treasure: Union[StrictFloat, StrictInt]
+    avg_heal_prevented: Union[StrictFloat, StrictInt]
     avg_kd_ratio: Union[StrictFloat, StrictInt]
     avg_kills: Union[StrictFloat, StrictInt]
     avg_last_hits: Union[StrictFloat, StrictInt]
+    avg_max_health: Union[StrictFloat, StrictInt]
     avg_net_worth: Union[StrictFloat, StrictInt]
+    avg_neutral_damage: Union[StrictFloat, StrictInt]
+    avg_neutral_kills: Union[StrictFloat, StrictInt]
+    avg_objectives_destroyed_time_s: Union[StrictFloat, StrictInt]
     avg_player_damage: Union[StrictFloat, StrictInt]
     avg_player_damage_taken: Union[StrictFloat, StrictInt]
     avg_player_healing: Union[StrictFloat, StrictInt]
+    avg_possible_creeps: Union[StrictFloat, StrictInt]
+    avg_self_healing: Union[StrictFloat, StrictInt]
+    avg_tech_power: Union[StrictFloat, StrictInt]
+    avg_weapon_power: Union[StrictFloat, StrictInt]
     bucket: Annotated[int, Field(strict=True, ge=0)]
     mid_boss_kill_rate: Union[StrictFloat, StrictInt]
     total_matches: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_crit_rate", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_gold_boss", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_neutral_creep", "avg_gold_player", "avg_gold_treasure", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_net_worth", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "bucket", "mid_boss_kill_rate", "total_matches"]
+    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_gold_boss", "avg_gold_boss_orb", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_neutral_creep", "avg_gold_player", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_objectives_destroyed_time_s", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "total_matches"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -111,26 +125,40 @@ class AnalyticsGameStats(BaseModel):
             "avg_accuracy": obj.get("avg_accuracy"),
             "avg_assists": obj.get("avg_assists"),
             "avg_boss_damage": obj.get("avg_boss_damage"),
+            "avg_creep_damage": obj.get("avg_creep_damage"),
+            "avg_creep_kills": obj.get("avg_creep_kills"),
             "avg_crit_rate": obj.get("avg_crit_rate"),
+            "avg_damage_absorbed": obj.get("avg_damage_absorbed"),
+            "avg_damage_mitigated": obj.get("avg_damage_mitigated"),
             "avg_deaths": obj.get("avg_deaths"),
             "avg_denies": obj.get("avg_denies"),
             "avg_duration_s": obj.get("avg_duration_s"),
             "avg_ending_level": obj.get("avg_ending_level"),
             "avg_first_mid_boss_time_s": obj.get("avg_first_mid_boss_time_s"),
             "avg_gold_boss": obj.get("avg_gold_boss"),
+            "avg_gold_boss_orb": obj.get("avg_gold_boss_orb"),
             "avg_gold_death_loss": obj.get("avg_gold_death_loss"),
             "avg_gold_denied": obj.get("avg_gold_denied"),
             "avg_gold_lane_creep": obj.get("avg_gold_lane_creep"),
             "avg_gold_neutral_creep": obj.get("avg_gold_neutral_creep"),
             "avg_gold_player": obj.get("avg_gold_player"),
             "avg_gold_treasure": obj.get("avg_gold_treasure"),
+            "avg_heal_prevented": obj.get("avg_heal_prevented"),
             "avg_kd_ratio": obj.get("avg_kd_ratio"),
             "avg_kills": obj.get("avg_kills"),
             "avg_last_hits": obj.get("avg_last_hits"),
+            "avg_max_health": obj.get("avg_max_health"),
             "avg_net_worth": obj.get("avg_net_worth"),
+            "avg_neutral_damage": obj.get("avg_neutral_damage"),
+            "avg_neutral_kills": obj.get("avg_neutral_kills"),
+            "avg_objectives_destroyed_time_s": obj.get("avg_objectives_destroyed_time_s"),
             "avg_player_damage": obj.get("avg_player_damage"),
             "avg_player_damage_taken": obj.get("avg_player_damage_taken"),
             "avg_player_healing": obj.get("avg_player_healing"),
+            "avg_possible_creeps": obj.get("avg_possible_creeps"),
+            "avg_self_healing": obj.get("avg_self_healing"),
+            "avg_tech_power": obj.get("avg_tech_power"),
+            "avg_weapon_power": obj.get("avg_weapon_power"),
             "bucket": obj.get("bucket"),
             "mid_boss_kill_rate": obj.get("mid_boss_kill_rate"),
             "total_matches": obj.get("total_matches")

@@ -47,7 +47,31 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgCreepDamage: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgCreepKills: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgCritRate: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgDamageAbsorbed: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgDamageMitigated: number;
     /**
      * 
      * @type {number}
@@ -89,6 +113,12 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgGoldBossOrb: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgGoldDeathLoss: number;
     /**
      * 
@@ -125,6 +155,12 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgHealPrevented: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgKdRatio: number;
     /**
      * 
@@ -143,7 +179,31 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgMaxHealth: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgNetWorth: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgNeutralDamage: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgNeutralKills: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgObjectivesDestroyedTimeS: number;
     /**
      * 
      * @type {number}
@@ -162,6 +222,30 @@ export interface AnalyticsGameStats  {
      * @memberof AnalyticsGameStats
      */
     avgPlayerHealing: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgPossibleCreeps: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgSelfHealing: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgTechPower: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgWeaponPower: number;
     /**
      * 
      * @type {number}
@@ -188,26 +272,40 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgAccuracy': json['avg_accuracy'],
         'avgAssists': json['avg_assists'],
         'avgBossDamage': json['avg_boss_damage'],
+        'avgCreepDamage': json['avg_creep_damage'],
+        'avgCreepKills': json['avg_creep_kills'],
         'avgCritRate': json['avg_crit_rate'],
+        'avgDamageAbsorbed': json['avg_damage_absorbed'],
+        'avgDamageMitigated': json['avg_damage_mitigated'],
         'avgDeaths': json['avg_deaths'],
         'avgDenies': json['avg_denies'],
         'avgDurationS': json['avg_duration_s'],
         'avgEndingLevel': json['avg_ending_level'],
         'avgFirstMidBossTimeS': json['avg_first_mid_boss_time_s'],
         'avgGoldBoss': json['avg_gold_boss'],
+        'avgGoldBossOrb': json['avg_gold_boss_orb'],
         'avgGoldDeathLoss': json['avg_gold_death_loss'],
         'avgGoldDenied': json['avg_gold_denied'],
         'avgGoldLaneCreep': json['avg_gold_lane_creep'],
         'avgGoldNeutralCreep': json['avg_gold_neutral_creep'],
         'avgGoldPlayer': json['avg_gold_player'],
         'avgGoldTreasure': json['avg_gold_treasure'],
+        'avgHealPrevented': json['avg_heal_prevented'],
         'avgKdRatio': json['avg_kd_ratio'],
         'avgKills': json['avg_kills'],
         'avgLastHits': json['avg_last_hits'],
+        'avgMaxHealth': json['avg_max_health'],
         'avgNetWorth': json['avg_net_worth'],
+        'avgNeutralDamage': json['avg_neutral_damage'],
+        'avgNeutralKills': json['avg_neutral_kills'],
+        'avgObjectivesDestroyedTimeS': json['avg_objectives_destroyed_time_s'],
         'avgPlayerDamage': json['avg_player_damage'],
         'avgPlayerDamageTaken': json['avg_player_damage_taken'],
         'avgPlayerHealing': json['avg_player_healing'],
+        'avgPossibleCreeps': json['avg_possible_creeps'],
+        'avgSelfHealing': json['avg_self_healing'],
+        'avgTechPower': json['avg_tech_power'],
+        'avgWeaponPower': json['avg_weapon_power'],
         'bucket': json['bucket'],
         'midBossKillRate': json['mid_boss_kill_rate'],
         'totalMatches': json['total_matches'],
@@ -223,26 +321,40 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_accuracy': value.avgAccuracy,
         'avg_assists': value.avgAssists,
         'avg_boss_damage': value.avgBossDamage,
+        'avg_creep_damage': value.avgCreepDamage,
+        'avg_creep_kills': value.avgCreepKills,
         'avg_crit_rate': value.avgCritRate,
+        'avg_damage_absorbed': value.avgDamageAbsorbed,
+        'avg_damage_mitigated': value.avgDamageMitigated,
         'avg_deaths': value.avgDeaths,
         'avg_denies': value.avgDenies,
         'avg_duration_s': value.avgDurationS,
         'avg_ending_level': value.avgEndingLevel,
         'avg_first_mid_boss_time_s': value.avgFirstMidBossTimeS,
         'avg_gold_boss': value.avgGoldBoss,
+        'avg_gold_boss_orb': value.avgGoldBossOrb,
         'avg_gold_death_loss': value.avgGoldDeathLoss,
         'avg_gold_denied': value.avgGoldDenied,
         'avg_gold_lane_creep': value.avgGoldLaneCreep,
         'avg_gold_neutral_creep': value.avgGoldNeutralCreep,
         'avg_gold_player': value.avgGoldPlayer,
         'avg_gold_treasure': value.avgGoldTreasure,
+        'avg_heal_prevented': value.avgHealPrevented,
         'avg_kd_ratio': value.avgKdRatio,
         'avg_kills': value.avgKills,
         'avg_last_hits': value.avgLastHits,
+        'avg_max_health': value.avgMaxHealth,
         'avg_net_worth': value.avgNetWorth,
+        'avg_neutral_damage': value.avgNeutralDamage,
+        'avg_neutral_kills': value.avgNeutralKills,
+        'avg_objectives_destroyed_time_s': value.avgObjectivesDestroyedTimeS,
         'avg_player_damage': value.avgPlayerDamage,
         'avg_player_damage_taken': value.avgPlayerDamageTaken,
         'avg_player_healing': value.avgPlayerHealing,
+        'avg_possible_creeps': value.avgPossibleCreeps,
+        'avg_self_healing': value.avgSelfHealing,
+        'avg_tech_power': value.avgTechPower,
+        'avg_weapon_power': value.avgWeaponPower,
         'bucket': value.bucket,
         'mid_boss_kill_rate': value.midBossKillRate,
         'total_matches': value.totalMatches,

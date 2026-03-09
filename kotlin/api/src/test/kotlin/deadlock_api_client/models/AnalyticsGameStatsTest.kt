@@ -49,10 +49,34 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgBossDamage shouldBe ("TODO")
         }
 
+        // to test the property `avgCreepDamage`
+        should("test avgCreepDamage") {
+            // uncomment below to test the property
+            //modelInstance.avgCreepDamage shouldBe ("TODO")
+        }
+
+        // to test the property `avgCreepKills`
+        should("test avgCreepKills") {
+            // uncomment below to test the property
+            //modelInstance.avgCreepKills shouldBe ("TODO")
+        }
+
         // to test the property `avgCritRate`
         should("test avgCritRate") {
             // uncomment below to test the property
             //modelInstance.avgCritRate shouldBe ("TODO")
+        }
+
+        // to test the property `avgDamageAbsorbed`
+        should("test avgDamageAbsorbed") {
+            // uncomment below to test the property
+            //modelInstance.avgDamageAbsorbed shouldBe ("TODO")
+        }
+
+        // to test the property `avgDamageMitigated`
+        should("test avgDamageMitigated") {
+            // uncomment below to test the property
+            //modelInstance.avgDamageMitigated shouldBe ("TODO")
         }
 
         // to test the property `avgDeaths`
@@ -91,6 +115,12 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgGoldBoss shouldBe ("TODO")
         }
 
+        // to test the property `avgGoldBossOrb`
+        should("test avgGoldBossOrb") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldBossOrb shouldBe ("TODO")
+        }
+
         // to test the property `avgGoldDeathLoss`
         should("test avgGoldDeathLoss") {
             // uncomment below to test the property
@@ -127,6 +157,12 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgGoldTreasure shouldBe ("TODO")
         }
 
+        // to test the property `avgHealPrevented`
+        should("test avgHealPrevented") {
+            // uncomment below to test the property
+            //modelInstance.avgHealPrevented shouldBe ("TODO")
+        }
+
         // to test the property `avgKdRatio`
         should("test avgKdRatio") {
             // uncomment below to test the property
@@ -145,10 +181,34 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgLastHits shouldBe ("TODO")
         }
 
+        // to test the property `avgMaxHealth`
+        should("test avgMaxHealth") {
+            // uncomment below to test the property
+            //modelInstance.avgMaxHealth shouldBe ("TODO")
+        }
+
         // to test the property `avgNetWorth`
         should("test avgNetWorth") {
             // uncomment below to test the property
             //modelInstance.avgNetWorth shouldBe ("TODO")
+        }
+
+        // to test the property `avgNeutralDamage`
+        should("test avgNeutralDamage") {
+            // uncomment below to test the property
+            //modelInstance.avgNeutralDamage shouldBe ("TODO")
+        }
+
+        // to test the property `avgNeutralKills`
+        should("test avgNeutralKills") {
+            // uncomment below to test the property
+            //modelInstance.avgNeutralKills shouldBe ("TODO")
+        }
+
+        // to test the property `avgObjectivesDestroyedTimeS`
+        should("test avgObjectivesDestroyedTimeS") {
+            // uncomment below to test the property
+            //modelInstance.avgObjectivesDestroyedTimeS shouldBe ("TODO")
         }
 
         // to test the property `avgPlayerDamage`
@@ -167,6 +227,30 @@ class AnalyticsGameStatsTest : ShouldSpec() {
         should("test avgPlayerHealing") {
             // uncomment below to test the property
             //modelInstance.avgPlayerHealing shouldBe ("TODO")
+        }
+
+        // to test the property `avgPossibleCreeps`
+        should("test avgPossibleCreeps") {
+            // uncomment below to test the property
+            //modelInstance.avgPossibleCreeps shouldBe ("TODO")
+        }
+
+        // to test the property `avgSelfHealing`
+        should("test avgSelfHealing") {
+            // uncomment below to test the property
+            //modelInstance.avgSelfHealing shouldBe ("TODO")
+        }
+
+        // to test the property `avgTechPower`
+        should("test avgTechPower") {
+            // uncomment below to test the property
+            //modelInstance.avgTechPower shouldBe ("TODO")
+        }
+
+        // to test the property `avgWeaponPower`
+        should("test avgWeaponPower") {
+            // uncomment below to test the property
+            //modelInstance.avgWeaponPower shouldBe ("TODO")
         }
 
         // to test the property `bucket`

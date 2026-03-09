@@ -116,9 +116,45 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_creep_damage"
+     */
+    public function testPropertyAvgCreepDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_creep_kills"
+     */
+    public function testPropertyAvgCreepKills()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_crit_rate"
      */
     public function testPropertyAvgCritRate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_damage_absorbed"
+     */
+    public function testPropertyAvgDamageAbsorbed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_damage_mitigated"
+     */
+    public function testPropertyAvgDamageMitigated()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -179,6 +215,15 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_gold_boss_orb"
+     */
+    public function testPropertyAvgGoldBossOrb()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_death_loss"
      */
     public function testPropertyAvgGoldDeathLoss()
@@ -233,6 +278,15 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_heal_prevented"
+     */
+    public function testPropertyAvgHealPrevented()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_kd_ratio"
      */
     public function testPropertyAvgKdRatio()
@@ -260,9 +314,45 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_max_health"
+     */
+    public function testPropertyAvgMaxHealth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_net_worth"
      */
     public function testPropertyAvgNetWorth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_neutral_damage"
+     */
+    public function testPropertyAvgNeutralDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_neutral_kills"
+     */
+    public function testPropertyAvgNeutralKills()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_objectives_destroyed_time_s"
+     */
+    public function testPropertyAvgObjectivesDestroyedTimeS()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -290,6 +380,42 @@ class AnalyticsGameStatsTest extends TestCase
      * Test attribute "avg_player_healing"
      */
     public function testPropertyAvgPlayerHealing()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_possible_creeps"
+     */
+    public function testPropertyAvgPossibleCreeps()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_self_healing"
+     */
+    public function testPropertyAvgSelfHealing()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_tech_power"
+     */
+    public function testPropertyAvgTechPower()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_weapon_power"
+     */
+    public function testPropertyAvgWeaponPower()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
