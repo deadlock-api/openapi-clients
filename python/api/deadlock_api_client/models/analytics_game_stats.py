@@ -66,8 +66,10 @@ class AnalyticsGameStats(BaseModel):
     avg_weapon_power: Union[StrictFloat, StrictInt]
     bucket: Annotated[int, Field(strict=True, ge=0)]
     mid_boss_kill_rate: Union[StrictFloat, StrictInt]
+    team0_wins: Annotated[int, Field(strict=True, ge=0)]
+    team1_wins: Annotated[int, Field(strict=True, ge=0)]
     total_matches: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_gold_boss", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_neutral_creep", "avg_gold_player", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_objectives_destroyed_time_s", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "total_matches"]
+    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_gold_boss", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_neutral_creep", "avg_gold_player", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_objectives_destroyed_time_s", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "team0_wins", "team1_wins", "total_matches"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -159,6 +161,8 @@ class AnalyticsGameStats(BaseModel):
             "avg_weapon_power": obj.get("avg_weapon_power"),
             "bucket": obj.get("bucket"),
             "mid_boss_kill_rate": obj.get("mid_boss_kill_rate"),
+            "team0_wins": obj.get("team0_wins"),
+            "team1_wins": obj.get("team1_wins"),
             "total_matches": obj.get("total_matches")
         })
         return _obj

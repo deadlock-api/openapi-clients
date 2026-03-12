@@ -259,6 +259,18 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.midBossKillRate shouldBe ("TODO")
         }
 
+        // to test the property `team0Wins`
+        should("test team0Wins") {
+            // uncomment below to test the property
+            //modelInstance.team0Wins shouldBe ("TODO")
+        }
+
+        // to test the property `team1Wins`
+        should("test team1Wins") {
+            // uncomment below to test the property
+            //modelInstance.team1Wins shouldBe ("TODO")
+        }
+
         // to test the property `totalMatches`
         should("test totalMatches") {
             // uncomment below to test the property

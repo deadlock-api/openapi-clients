@@ -44,6 +44,8 @@ Name | Type | Description | Notes
 **avg_weapon_power** | **number** |  | [default to undefined]
 **bucket** | **number** |  | [default to undefined]
 **mid_boss_kill_rate** | **number** |  | [default to undefined]
+**team0_wins** | **number** |  | [default to undefined]
+**team1_wins** | **number** |  | [default to undefined]
 **total_matches** | **number** |  | [default to undefined]
 
 ## Example
@@ -91,6 +93,8 @@ const instance: AnalyticsGameStats = {
     avg_weapon_power,
     bucket,
     mid_boss_kill_rate,
+    team0_wins,
+    team1_wins,
     total_matches,
 };
 ```

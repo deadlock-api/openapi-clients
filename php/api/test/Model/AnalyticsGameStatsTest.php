@@ -431,6 +431,24 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "team0_wins"
+     */
+    public function testPropertyTeam0Wins()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "team1_wins"
+     */
+    public function testPropertyTeam1Wins()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "total_matches"
      */
     public function testPropertyTotalMatches()

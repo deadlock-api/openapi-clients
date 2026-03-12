@@ -43,13 +43,15 @@ Name | Type | Description | Notes
 **AvgWeaponPower** | **float64** |  | 
 **Bucket** | **int32** |  | 
 **MidBossKillRate** | **float64** |  | 
+**Team0Wins** | **int64** |  | 
+**Team1Wins** | **int64** |  | 
 **TotalMatches** | **int64** |  | 
 
 ## Methods
 
 ### NewAnalyticsGameStats
 
-`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, totalMatches int64, ) *AnalyticsGameStats`
+`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, ) *AnalyticsGameStats`
 
 NewAnalyticsGameStats instantiates a new AnalyticsGameStats object
 This constructor will assign default values to properties that have it defined,
@@ -842,6 +844,46 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsGameStats) SetMidBossKillRate(v float64)`
 
 SetMidBossKillRate sets MidBossKillRate field to given value.
+
+
+### GetTeam0Wins
+
+`func (o *AnalyticsGameStats) GetTeam0Wins() int64`
+
+GetTeam0Wins returns the Team0Wins field if non-nil, zero value otherwise.
+
+### GetTeam0WinsOk
+
+`func (o *AnalyticsGameStats) GetTeam0WinsOk() (*int64, bool)`
+
+GetTeam0WinsOk returns a tuple with the Team0Wins field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTeam0Wins
+
+`func (o *AnalyticsGameStats) SetTeam0Wins(v int64)`
+
+SetTeam0Wins sets Team0Wins field to given value.
+
+
+### GetTeam1Wins
+
+`func (o *AnalyticsGameStats) GetTeam1Wins() int64`
+
+GetTeam1Wins returns the Team1Wins field if non-nil, zero value otherwise.
+
+### GetTeam1WinsOk
+
+`func (o *AnalyticsGameStats) GetTeam1WinsOk() (*int64, bool)`
+
+GetTeam1WinsOk returns a tuple with the Team1Wins field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTeam1Wins
+
+`func (o *AnalyticsGameStats) SetTeam1Wins(v int64)`
+
+SetTeam1Wins sets Team1Wins field to given value.
 
 
 ### GetTotalMatches

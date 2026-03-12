@@ -44,6 +44,8 @@ Name | Type | Description | Notes
 **avg_weapon_power** | **float** |  | 
 **bucket** | **int** |  | 
 **mid_boss_kill_rate** | **float** |  | 
+**team0_wins** | **int** |  | 
+**team1_wins** | **int** |  | 
 **total_matches** | **int** |  | 
 
 ## Example

@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -369,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -501,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -575,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -709,7 +709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -959,7 +959,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -1213,7 +1213,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -1475,7 +1475,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -1754,7 +1754,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -1980,7 +1980,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -2245,7 +2245,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -2535,7 +2535,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -2754,7 +2754,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -3051,7 +3051,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -5267,7 +5267,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -5386,7 +5386,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770595200
+          default: 1770681600
           format: int64
           nullable: true
           type: integer
@@ -6634,6 +6634,7 @@ components:
         avg_creep_damage: 5.637376656633329
         avg_player_damage_taken: 6.878052220127876
         avg_player_damage: 6.778324963048013
+        team0_wins: 0
         avg_gold_boss: 1.4894159098541704
         avg_accuracy: 6.027456183070403
         avg_last_hits: 9.018348186070783
@@ -6649,6 +6650,7 @@ components:
         abandon_rate: 0.8008281904610115
         bucket: 0
         avg_gold_treasure: 9.965781217890562
+        team1_wins: 0
         avg_first_mid_boss_time_s: 1.0246457001441578
         avg_denies: 4.145608029883936
         avg_duration_s: 7.386281948385884
@@ -6777,6 +6779,14 @@ components:
         mid_boss_kill_rate:
           format: double
           type: number
+        team0_wins:
+          format: int64
+          minimum: 0
+          type: integer
+        team1_wins:
+          format: int64
+          minimum: 0
+          type: integer
         total_matches:
           format: int64
           minimum: 0
@@ -6821,6 +6831,8 @@ components:
       - avg_weapon_power
       - bucket
       - mid_boss_kill_rate
+      - team0_wins
+      - team1_wins
       - total_matches
     AnalyticsHeroStats:
       example:

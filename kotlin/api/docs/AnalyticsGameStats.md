@@ -43,6 +43,8 @@
 | **avgWeaponPower** | **kotlin.Double** |  |  |
 | **bucket** | **kotlin.Int** |  |  |
 | **midBossKillRate** | **kotlin.Double** |  |  |
+| **team0Wins** | **kotlin.Long** |  |  |
+| **team1Wins** | **kotlin.Long** |  |  |
 | **totalMatches** | **kotlin.Long** |  |  |
 
 

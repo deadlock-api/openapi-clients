@@ -62,6 +62,8 @@ import java.io.Serializable
  * @param avgWeaponPower 
  * @param bucket 
  * @param midBossKillRate 
+ * @param team0Wins 
+ * @param team1Wins 
  * @param totalMatches 
  */
 
@@ -184,6 +186,12 @@ data class AnalyticsGameStats (
 
     @Json(name = "mid_boss_kill_rate")
     val midBossKillRate: kotlin.Double,
+
+    @Json(name = "team0_wins")
+    val team0Wins: kotlin.Long,
+
+    @Json(name = "team1_wins")
+    val team1Wins: kotlin.Long,
 
     @Json(name = "total_matches")
     val totalMatches: kotlin.Long

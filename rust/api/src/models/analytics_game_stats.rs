@@ -91,12 +91,16 @@ pub struct AnalyticsGameStats {
     pub bucket: u32,
     #[serde(rename = "mid_boss_kill_rate")]
     pub mid_boss_kill_rate: f64,
+    #[serde(rename = "team0_wins")]
+    pub team0_wins: u64,
+    #[serde(rename = "team1_wins")]
+    pub team1_wins: u64,
     #[serde(rename = "total_matches")]
     pub total_matches: u64,
 }
 
 impl AnalyticsGameStats {
-    pub fn new(abandon_rate: f64, avg_accuracy: f64, avg_assists: f64, avg_boss_damage: f64, avg_creep_damage: f64, avg_creep_kills: f64, avg_crit_rate: f64, avg_damage_absorbed: f64, avg_damage_mitigated: f64, avg_deaths: f64, avg_denies: f64, avg_duration_s: f64, avg_ending_level: f64, avg_first_mid_boss_time_s: f64, avg_gold_boss: f64, avg_gold_death_loss: f64, avg_gold_denied: f64, avg_gold_lane_creep: f64, avg_gold_neutral_creep: f64, avg_gold_player: f64, avg_gold_treasure: f64, avg_heal_prevented: f64, avg_kd_ratio: f64, avg_kills: f64, avg_last_hits: f64, avg_max_health: f64, avg_net_worth: f64, avg_neutral_damage: f64, avg_neutral_kills: f64, avg_objectives_destroyed_time_s: f64, avg_player_damage: f64, avg_player_damage_taken: f64, avg_player_healing: f64, avg_possible_creeps: f64, avg_self_healing: f64, avg_tech_power: f64, avg_weapon_power: f64, bucket: u32, mid_boss_kill_rate: f64, total_matches: u64) -> AnalyticsGameStats {
+    pub fn new(abandon_rate: f64, avg_accuracy: f64, avg_assists: f64, avg_boss_damage: f64, avg_creep_damage: f64, avg_creep_kills: f64, avg_crit_rate: f64, avg_damage_absorbed: f64, avg_damage_mitigated: f64, avg_deaths: f64, avg_denies: f64, avg_duration_s: f64, avg_ending_level: f64, avg_first_mid_boss_time_s: f64, avg_gold_boss: f64, avg_gold_death_loss: f64, avg_gold_denied: f64, avg_gold_lane_creep: f64, avg_gold_neutral_creep: f64, avg_gold_player: f64, avg_gold_treasure: f64, avg_heal_prevented: f64, avg_kd_ratio: f64, avg_kills: f64, avg_last_hits: f64, avg_max_health: f64, avg_net_worth: f64, avg_neutral_damage: f64, avg_neutral_kills: f64, avg_objectives_destroyed_time_s: f64, avg_player_damage: f64, avg_player_damage_taken: f64, avg_player_healing: f64, avg_possible_creeps: f64, avg_self_healing: f64, avg_tech_power: f64, avg_weapon_power: f64, bucket: u32, mid_boss_kill_rate: f64, team0_wins: u64, team1_wins: u64, total_matches: u64) -> AnalyticsGameStats {
         AnalyticsGameStats {
             abandon_rate,
             avg_accuracy,
@@ -137,6 +141,8 @@ impl AnalyticsGameStats {
             avg_weapon_power,
             bucket,
             mid_boss_kill_rate,
+            team0_wins,
+            team1_wins,
             total_matches,
         }
     }

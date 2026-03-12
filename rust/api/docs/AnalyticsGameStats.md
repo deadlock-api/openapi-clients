@@ -43,6 +43,8 @@ Name | Type | Description | Notes
 **avg_weapon_power** | **f64** |  | 
 **bucket** | **u32** |  | 
 **mid_boss_kill_rate** | **f64** |  | 
+**team0_wins** | **u64** |  | 
+**team1_wins** | **u64** |  | 
 **total_matches** | **u64** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

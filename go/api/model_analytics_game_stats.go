@@ -60,6 +60,8 @@ type AnalyticsGameStats struct {
 	AvgWeaponPower float64 `json:"avg_weapon_power"`
 	Bucket int32 `json:"bucket"`
 	MidBossKillRate float64 `json:"mid_boss_kill_rate"`
+	Team0Wins int64 `json:"team0_wins"`
+	Team1Wins int64 `json:"team1_wins"`
 	TotalMatches int64 `json:"total_matches"`
 }
 
@@ -69,7 +71,7 @@ type _AnalyticsGameStats AnalyticsGameStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, totalMatches int64) *AnalyticsGameStats {
+func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64) *AnalyticsGameStats {
 	this := AnalyticsGameStats{}
 	this.AbandonRate = abandonRate
 	this.AvgAccuracy = avgAccuracy
@@ -110,6 +112,8 @@ func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists 
 	this.AvgWeaponPower = avgWeaponPower
 	this.Bucket = bucket
 	this.MidBossKillRate = midBossKillRate
+	this.Team0Wins = team0Wins
+	this.Team1Wins = team1Wins
 	this.TotalMatches = totalMatches
 	return &this
 }
@@ -1058,6 +1062,54 @@ func (o *AnalyticsGameStats) SetMidBossKillRate(v float64) {
 	o.MidBossKillRate = v
 }
 
+// GetTeam0Wins returns the Team0Wins field value
+func (o *AnalyticsGameStats) GetTeam0Wins() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Team0Wins
+}
+
+// GetTeam0WinsOk returns a tuple with the Team0Wins field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetTeam0WinsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Team0Wins, true
+}
+
+// SetTeam0Wins sets field value
+func (o *AnalyticsGameStats) SetTeam0Wins(v int64) {
+	o.Team0Wins = v
+}
+
+// GetTeam1Wins returns the Team1Wins field value
+func (o *AnalyticsGameStats) GetTeam1Wins() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Team1Wins
+}
+
+// GetTeam1WinsOk returns a tuple with the Team1Wins field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetTeam1WinsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Team1Wins, true
+}
+
+// SetTeam1Wins sets field value
+func (o *AnalyticsGameStats) SetTeam1Wins(v int64) {
+	o.Team1Wins = v
+}
+
 // GetTotalMatches returns the TotalMatches field value
 func (o *AnalyticsGameStats) GetTotalMatches() int64 {
 	if o == nil {
@@ -1131,6 +1183,8 @@ func (o AnalyticsGameStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["avg_weapon_power"] = o.AvgWeaponPower
 	toSerialize["bucket"] = o.Bucket
 	toSerialize["mid_boss_kill_rate"] = o.MidBossKillRate
+	toSerialize["team0_wins"] = o.Team0Wins
+	toSerialize["team1_wins"] = o.Team1Wins
 	toSerialize["total_matches"] = o.TotalMatches
 	return toSerialize, nil
 }
@@ -1179,6 +1233,8 @@ func (o *AnalyticsGameStats) UnmarshalJSON(data []byte) (err error) {
 		"avg_weapon_power",
 		"bucket",
 		"mid_boss_kill_rate",
+		"team0_wins",
+		"team1_wins",
 		"total_matches",
 	}
 

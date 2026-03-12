@@ -257,6 +257,18 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    team0Wins: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    team1Wins: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     totalMatches: number;
 }
 
@@ -301,6 +313,8 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgWeaponPower': json['avg_weapon_power'],
         'bucket': json['bucket'],
         'midBossKillRate': json['mid_boss_kill_rate'],
+        'team0Wins': json['team0_wins'],
+        'team1Wins': json['team1_wins'],
         'totalMatches': json['total_matches'],
     };
 }
@@ -349,6 +363,8 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_weapon_power': value.avgWeaponPower,
         'bucket': value.bucket,
         'mid_boss_kill_rate': value.midBossKillRate,
+        'team0_wins': value.team0Wins,
+        'team1_wins': value.team1Wins,
         'total_matches': value.totalMatches,
     };
 }

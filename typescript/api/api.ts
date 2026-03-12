@@ -166,6 +166,8 @@ export interface AnalyticsGameStats {
     'avg_weapon_power': number;
     'bucket': number;
     'mid_boss_kill_rate': number;
+    'team0_wins': number;
+    'team1_wins': number;
     'total_matches': number;
 }
 export interface AnalyticsHeroStats {

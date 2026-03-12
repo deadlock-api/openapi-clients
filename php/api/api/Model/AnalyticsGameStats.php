@@ -96,6 +96,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_weapon_power' => 'float',
         'bucket' => 'int',
         'mid_boss_kill_rate' => 'float',
+        'team0_wins' => 'int',
+        'team1_wins' => 'int',
         'total_matches' => 'int'
     ];
 
@@ -146,6 +148,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_weapon_power' => 'double',
         'bucket' => 'int32',
         'mid_boss_kill_rate' => 'double',
+        'team0_wins' => 'int64',
+        'team1_wins' => 'int64',
         'total_matches' => 'int64'
     ];
 
@@ -194,6 +198,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_weapon_power' => false,
         'bucket' => false,
         'mid_boss_kill_rate' => false,
+        'team0_wins' => false,
+        'team1_wins' => false,
         'total_matches' => false
     ];
 
@@ -322,6 +328,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_weapon_power' => 'avg_weapon_power',
         'bucket' => 'bucket',
         'mid_boss_kill_rate' => 'mid_boss_kill_rate',
+        'team0_wins' => 'team0_wins',
+        'team1_wins' => 'team1_wins',
         'total_matches' => 'total_matches'
     ];
 
@@ -370,6 +378,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_weapon_power' => 'setAvgWeaponPower',
         'bucket' => 'setBucket',
         'mid_boss_kill_rate' => 'setMidBossKillRate',
+        'team0_wins' => 'setTeam0Wins',
+        'team1_wins' => 'setTeam1Wins',
         'total_matches' => 'setTotalMatches'
     ];
 
@@ -418,6 +428,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_weapon_power' => 'getAvgWeaponPower',
         'bucket' => 'getBucket',
         'mid_boss_kill_rate' => 'getMidBossKillRate',
+        'team0_wins' => 'getTeam0Wins',
+        'team1_wins' => 'getTeam1Wins',
         'total_matches' => 'getTotalMatches'
     ];
 
@@ -517,6 +529,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('avg_weapon_power', $data ?? [], null);
         $this->setIfExists('bucket', $data ?? [], null);
         $this->setIfExists('mid_boss_kill_rate', $data ?? [], null);
+        $this->setIfExists('team0_wins', $data ?? [], null);
+        $this->setIfExists('team1_wins', $data ?? [], null);
         $this->setIfExists('total_matches', $data ?? [], null);
     }
 
@@ -668,6 +682,20 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['mid_boss_kill_rate'] === null) {
             $invalidProperties[] = "'mid_boss_kill_rate' can't be null";
         }
+        if ($this->container['team0_wins'] === null) {
+            $invalidProperties[] = "'team0_wins' can't be null";
+        }
+        if (($this->container['team0_wins'] < 0)) {
+            $invalidProperties[] = "invalid value for 'team0_wins', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['team1_wins'] === null) {
+            $invalidProperties[] = "'team1_wins' can't be null";
+        }
+        if (($this->container['team1_wins'] < 0)) {
+            $invalidProperties[] = "invalid value for 'team1_wins', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['total_matches'] === null) {
             $invalidProperties[] = "'total_matches' can't be null";
         }
@@ -1744,6 +1772,70 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable mid_boss_kill_rate cannot be null');
         }
         $this->container['mid_boss_kill_rate'] = $mid_boss_kill_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets team0_wins
+     *
+     * @return int
+     */
+    public function getTeam0Wins()
+    {
+        return $this->container['team0_wins'];
+    }
+
+    /**
+     * Sets team0_wins
+     *
+     * @param int $team0_wins team0_wins
+     *
+     * @return self
+     */
+    public function setTeam0Wins($team0_wins)
+    {
+        if (is_null($team0_wins)) {
+            throw new \InvalidArgumentException('non-nullable team0_wins cannot be null');
+        }
+
+        if (($team0_wins < 0)) {
+            throw new \InvalidArgumentException('invalid value for $team0_wins when calling AnalyticsGameStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['team0_wins'] = $team0_wins;
+
+        return $this;
+    }
+
+    /**
+     * Gets team1_wins
+     *
+     * @return int
+     */
+    public function getTeam1Wins()
+    {
+        return $this->container['team1_wins'];
+    }
+
+    /**
+     * Sets team1_wins
+     *
+     * @param int $team1_wins team1_wins
+     *
+     * @return self
+     */
+    public function setTeam1Wins($team1_wins)
+    {
+        if (is_null($team1_wins)) {
+            throw new \InvalidArgumentException('non-nullable team1_wins cannot be null');
+        }
+
+        if (($team1_wins < 0)) {
+            throw new \InvalidArgumentException('invalid value for $team1_wins when calling AnalyticsGameStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['team1_wins'] = $team1_wins;
 
         return $this;
     }

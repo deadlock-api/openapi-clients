@@ -74,6 +74,8 @@ class TestAnalyticsGameStats(unittest.TestCase):
                 avg_weapon_power = 1.337,
                 bucket = 0,
                 mid_boss_kill_rate = 1.337,
+                team0_wins = 0,
+                team1_wins = 0,
                 total_matches = 0
             )
         else:
@@ -117,6 +119,8 @@ class TestAnalyticsGameStats(unittest.TestCase):
                 avg_weapon_power = 1.337,
                 bucket = 0,
                 mid_boss_kill_rate = 1.337,
+                team0_wins = 0,
+                team1_wins = 0,
                 total_matches = 0,
         )
         """
