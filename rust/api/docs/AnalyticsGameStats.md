@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **avg_ending_level** | **f64** |  | 
 **avg_first_mid_boss_time_s** | **f64** |  | 
 **avg_gold_boss** | **f64** |  | 
-**avg_gold_boss_orb** | **f64** |  | 
 **avg_gold_death_loss** | **f64** |  | 
 **avg_gold_denied** | **f64** |  | 
 **avg_gold_lane_creep** | **f64** |  | 

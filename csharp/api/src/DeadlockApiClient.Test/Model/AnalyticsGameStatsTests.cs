@@ -189,15 +189,6 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'AvgGoldBossOrb'
-        /// </summary>
-        [Fact]
-        public void AvgGoldBossOrbTest()
-        {
-            // TODO unit test for the property 'AvgGoldBossOrb'
-        }
-
-        /// <summary>
         /// Test the property 'AvgGoldDeathLoss'
         /// </summary>
         [Fact]

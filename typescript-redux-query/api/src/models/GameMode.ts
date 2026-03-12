@@ -18,7 +18,8 @@
  */
 export enum GameMode {
     Normal = 'normal',
-    StreetBrawl = 'street_brawl'
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c'
 }
 
 export function GameModeFromJSON(json: any): GameMode {

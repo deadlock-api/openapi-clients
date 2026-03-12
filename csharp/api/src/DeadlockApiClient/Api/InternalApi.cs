@@ -79,6 +79,12 @@ namespace DeadlockApiClient.Api
         bool IsBadRequest { get; }
 
         /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
         /// Returns true if the response is 500 InternalServerError
         /// </summary>
         /// <returns></returns>
@@ -365,6 +371,12 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError

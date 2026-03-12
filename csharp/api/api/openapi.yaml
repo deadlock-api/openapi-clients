@@ -111,6 +111,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -121,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -357,6 +358,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -367,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -499,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -562,6 +564,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -572,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -695,6 +698,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -705,7 +709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -944,6 +948,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -954,7 +959,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -1197,6 +1202,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -1207,7 +1213,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -1458,6 +1464,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -1468,7 +1475,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -1715,6 +1722,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -1746,7 +1754,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -1940,6 +1948,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -1971,7 +1980,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -2225,6 +2234,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -2235,7 +2245,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -2514,6 +2524,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -2524,7 +2535,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -2732,6 +2743,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -2742,7 +2754,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -3017,6 +3029,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -3038,7 +3051,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -3288,6 +3301,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -4508,6 +4522,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -4799,6 +4814,8 @@ paths:
           description: ""
         "400":
           description: Provided parameters are invalid or the salt check failed.
+        "429":
+          description: Rate limit exceeded
         "500":
           description: Ingest failed
       summary: Match Salts Ingest
@@ -5044,6 +5061,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -5249,7 +5267,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -5368,7 +5386,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770508800
+          default: 1770595200
           format: int64
           nullable: true
           type: integer
@@ -5728,6 +5746,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -5926,6 +5945,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -6143,6 +6163,7 @@ paths:
           enum:
           - normal
           - street_brawl
+          - explore_n_y_c
           nullable: true
           type: string
         style: form
@@ -6231,8 +6252,8 @@ paths:
   /v1/sql:
     get:
       description: "\nExecutes a SQL query on the database.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 300req/5min |\n| Key | 300req/5min\
-        \ |\n| Global | 600req/60s |\n    "
+        | Type | Limit |\n| ---- | ----- |\n| IP | 5req/min, 50req/hr |\n| Key | 10req/min\
+        \ |\n| Global | 30req/min |\n    "
       operationId: sql
       parameters:
       - description: The SQL query to execute. It must follow the Clickhouse SQL syntax.
@@ -6262,8 +6283,8 @@ paths:
   /v1/sql/tables:
     get:
       description: "\nLists all tables in the database.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global |\
-        \ - |\n    "
+        \ | Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global |\
+        \ 60req/min |\n    "
       operationId: list_tables
       responses:
         "200":
@@ -6286,7 +6307,7 @@ paths:
   /v1/sql/tables/{table}/schema:
     get:
       description: "\nReturns the schema of a table.\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
+        \ Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min\
         \ |\n    "
       operationId: table_schema
       parameters:
@@ -6598,45 +6619,44 @@ components:
     AnalyticsGameStats:
       example:
         avg_creep_kills: 2.3021358869347655
-        avg_net_worth: 6.965117697638846
+        avg_net_worth: 3.5571952270680973
         avg_deaths: 2.027123023002322
-        avg_gold_lane_creep: 4.965218492984954
-        avg_objectives_destroyed_time_s: 6.778324963048013
-        avg_neutral_damage: 1.284659006116532
-        avg_neutral_kills: 2.8841621266687802
-        avg_tech_power: 7.143538047012306
-        avg_weapon_power: 0.8851374739011653
-        avg_max_health: 3.5571952270680973
+        avg_gold_lane_creep: 1.1730742509559433
+        avg_objectives_destroyed_time_s: 2.8841621266687802
+        avg_neutral_damage: 6.965117697638846
+        avg_neutral_kills: 1.284659006116532
+        avg_tech_power: 3.0937452626664474
+        avg_weapon_power: 7.143538047012306
+        avg_max_health: 6.438423552598547
         avg_damage_mitigated: 3.616076749251911
-        avg_gold_player: 9.965781217890562
-        avg_self_healing: 3.0937452626664474
+        avg_gold_player: 5.025004791520295
+        avg_self_healing: 3.353193347011243
         avg_creep_damage: 5.637376656633329
-        avg_player_damage_taken: 5.944895607614016
-        avg_player_damage: 6.878052220127876
+        avg_player_damage_taken: 6.878052220127876
+        avg_player_damage: 6.778324963048013
         avg_gold_boss: 1.4894159098541704
         avg_accuracy: 6.027456183070403
-        avg_last_hits: 6.438423552598547
-        avg_gold_boss_orb: 6.84685269835264
-        avg_gold_death_loss: 7.457744773683766
-        avg_heal_prevented: 6.683562403749608
+        avg_last_hits: 9.018348186070783
+        avg_gold_death_loss: 6.84685269835264
+        avg_heal_prevented: 9.369310271410669
         total_matches: 0
         avg_crit_rate: 7.061401241503109
-        mid_boss_kill_rate: 6.519180951018382
+        mid_boss_kill_rate: 7.058770351582356
         avg_assists: 1.4658129805029452
-        avg_gold_denied: 1.1730742509559433
-        avg_kills: 9.018348186070783
+        avg_gold_denied: 7.457744773683766
+        avg_kills: 8.762042012749001
         avg_damage_absorbed: 9.301444243932576
         abandon_rate: 0.8008281904610115
         bucket: 0
-        avg_gold_treasure: 9.369310271410669
+        avg_gold_treasure: 9.965781217890562
         avg_first_mid_boss_time_s: 1.0246457001441578
         avg_denies: 4.145608029883936
         avg_duration_s: 7.386281948385884
         avg_ending_level: 1.2315135367772556
-        avg_kd_ratio: 8.762042012749001
-        avg_gold_neutral_creep: 5.025004791520295
-        avg_player_healing: 6.704019297950036
-        avg_possible_creeps: 3.353193347011243
+        avg_kd_ratio: 6.683562403749608
+        avg_gold_neutral_creep: 4.965218492984954
+        avg_player_healing: 5.944895607614016
+        avg_possible_creeps: 6.704019297950036
         avg_boss_damage: 5.962133916683182
       properties:
         abandon_rate:
@@ -6682,9 +6702,6 @@ components:
           format: double
           type: number
         avg_gold_boss:
-          format: double
-          type: number
-        avg_gold_boss_orb:
           format: double
           type: number
         avg_gold_death_loss:
@@ -6780,7 +6797,6 @@ components:
       - avg_ending_level
       - avg_first_mid_boss_time_s
       - avg_gold_boss
-      - avg_gold_boss_orb
       - avg_gold_death_loss
       - avg_gold_denied
       - avg_gold_lane_creep
@@ -7514,6 +7530,7 @@ components:
       enum:
       - normal
       - street_brawl
+      - explore_n_y_c
       type: string
     GetCustomMatchIdResponse:
       example:

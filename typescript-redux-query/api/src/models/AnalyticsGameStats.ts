@@ -113,12 +113,6 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
-    avgGoldBossOrb: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsGameStats
-     */
     avgGoldDeathLoss: number;
     /**
      * 
@@ -283,7 +277,6 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgEndingLevel': json['avg_ending_level'],
         'avgFirstMidBossTimeS': json['avg_first_mid_boss_time_s'],
         'avgGoldBoss': json['avg_gold_boss'],
-        'avgGoldBossOrb': json['avg_gold_boss_orb'],
         'avgGoldDeathLoss': json['avg_gold_death_loss'],
         'avgGoldDenied': json['avg_gold_denied'],
         'avgGoldLaneCreep': json['avg_gold_lane_creep'],
@@ -332,7 +325,6 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_ending_level': value.avgEndingLevel,
         'avg_first_mid_boss_time_s': value.avgFirstMidBossTimeS,
         'avg_gold_boss': value.avgGoldBoss,
-        'avg_gold_boss_orb': value.avgGoldBossOrb,
         'avg_gold_death_loss': value.avgGoldDeathLoss,
         'avg_gold_denied': value.avgGoldDenied,
         'avg_gold_lane_creep': value.avgGoldLaneCreep,

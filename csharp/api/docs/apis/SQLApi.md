@@ -14,7 +14,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 List Tables
 
- Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+ Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
 
 ### Parameters
@@ -47,7 +47,7 @@ No authorization required
 
 Query
 
- Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+ Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
 
 
 ### Parameters
@@ -84,7 +84,7 @@ No authorization required
 
 Table Schema
 
- Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+ Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
 
 ### Parameters

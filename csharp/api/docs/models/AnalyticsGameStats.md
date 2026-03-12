@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **AvgEndingLevel** | **double** |  | 
 **AvgFirstMidBossTimeS** | **double** |  | 
 **AvgGoldBoss** | **double** |  | 
-**AvgGoldBossOrb** | **double** |  | 
 **AvgGoldDeathLoss** | **double** |  | 
 **AvgGoldDenied** | **double** |  | 
 **AvgGoldLaneCreep** | **double** |  | 

@@ -38,7 +38,6 @@ import java.io.Serializable
  * @param avgEndingLevel 
  * @param avgFirstMidBossTimeS 
  * @param avgGoldBoss 
- * @param avgGoldBossOrb 
  * @param avgGoldDeathLoss 
  * @param avgGoldDenied 
  * @param avgGoldLaneCreep 
@@ -113,9 +112,6 @@ data class AnalyticsGameStats (
 
     @Json(name = "avg_gold_boss")
     val avgGoldBoss: kotlin.Double,
-
-    @Json(name = "avg_gold_boss_orb")
-    val avgGoldBossOrb: kotlin.Double,
 
     @Json(name = "avg_gold_death_loss")
     val avgGoldDeathLoss: kotlin.Double,

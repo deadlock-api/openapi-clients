@@ -142,7 +142,6 @@ export interface AnalyticsGameStats {
     'avg_ending_level': number;
     'avg_first_mid_boss_time_s': number;
     'avg_gold_boss': number;
-    'avg_gold_boss_orb': number;
     'avg_gold_death_loss': number;
     'avg_gold_denied': number;
     'avg_gold_lane_creep': number;
@@ -331,7 +330,8 @@ export interface EnemyStats {
 
 export const GameMode = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 
 export type GameMode = typeof GameMode[keyof typeof GameMode];
@@ -4710,12 +4710,14 @@ export class AnalyticsApi extends BaseAPI {
 
 export const AbilityOrderStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type AbilityOrderStatsGameModeEnum = typeof AbilityOrderStatsGameModeEnum[keyof typeof AbilityOrderStatsGameModeEnum];
 export const BadgeDistributionGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type BadgeDistributionGameModeEnum = typeof BadgeDistributionGameModeEnum[keyof typeof BadgeDistributionGameModeEnum];
 export const GameStatsBucketEnum = {
@@ -4729,17 +4731,20 @@ export const GameStatsBucketEnum = {
 export type GameStatsBucketEnum = typeof GameStatsBucketEnum[keyof typeof GameStatsBucketEnum];
 export const GameStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type GameStatsGameModeEnum = typeof GameStatsGameModeEnum[keyof typeof GameStatsGameModeEnum];
 export const HeroCombStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type HeroCombStatsGameModeEnum = typeof HeroCombStatsGameModeEnum[keyof typeof HeroCombStatsGameModeEnum];
 export const HeroCountersStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum[keyof typeof HeroCountersStatsGameModeEnum];
 export const HeroScoreboardSortByEnum = {
@@ -4813,7 +4818,8 @@ export const HeroScoreboardSortDirectionEnum = {
 export type HeroScoreboardSortDirectionEnum = typeof HeroScoreboardSortDirectionEnum[keyof typeof HeroScoreboardSortDirectionEnum];
 export const HeroScoreboardGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type HeroScoreboardGameModeEnum = typeof HeroScoreboardGameModeEnum[keyof typeof HeroScoreboardGameModeEnum];
 export const HeroStatsBucketEnum = {
@@ -4827,17 +4833,20 @@ export const HeroStatsBucketEnum = {
 export type HeroStatsBucketEnum = typeof HeroStatsBucketEnum[keyof typeof HeroStatsBucketEnum];
 export const HeroStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type HeroStatsGameModeEnum = typeof HeroStatsGameModeEnum[keyof typeof HeroStatsGameModeEnum];
 export const HeroSynergiesStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type HeroSynergiesStatsGameModeEnum = typeof HeroSynergiesStatsGameModeEnum[keyof typeof HeroSynergiesStatsGameModeEnum];
 export const ItemPermutationStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type ItemPermutationStatsGameModeEnum = typeof ItemPermutationStatsGameModeEnum[keyof typeof ItemPermutationStatsGameModeEnum];
 export const ItemStatsBucketEnum = {
@@ -4859,17 +4868,20 @@ export const ItemStatsBucketEnum = {
 export type ItemStatsBucketEnum = typeof ItemStatsBucketEnum[keyof typeof ItemStatsBucketEnum];
 export const ItemStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type ItemStatsGameModeEnum = typeof ItemStatsGameModeEnum[keyof typeof ItemStatsGameModeEnum];
 export const KillDeathStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type KillDeathStatsGameModeEnum = typeof KillDeathStatsGameModeEnum[keyof typeof KillDeathStatsGameModeEnum];
 export const PlayerPerformanceCurveGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGameModeEnum[keyof typeof PlayerPerformanceCurveGameModeEnum];
 export const PlayerScoreboardSortByEnum = {
@@ -4943,12 +4955,14 @@ export const PlayerScoreboardSortDirectionEnum = {
 export type PlayerScoreboardSortDirectionEnum = typeof PlayerScoreboardSortDirectionEnum[keyof typeof PlayerScoreboardSortDirectionEnum];
 export const PlayerScoreboardGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type PlayerScoreboardGameModeEnum = typeof PlayerScoreboardGameModeEnum[keyof typeof PlayerScoreboardGameModeEnum];
 export const PlayerStatsMetricsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type PlayerStatsMetricsGameModeEnum = typeof PlayerStatsMetricsGameModeEnum[keyof typeof PlayerStatsMetricsGameModeEnum];
 
@@ -8539,7 +8553,8 @@ export class MatchesApi extends BaseAPI {
 
 export const BulkMetadataGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type BulkMetadataGameModeEnum = typeof BulkMetadataGameModeEnum[keyof typeof BulkMetadataGameModeEnum];
 export const BulkMetadataOrderByEnum = {
@@ -9732,22 +9747,26 @@ export class PlayersApi extends BaseAPI {
 
 export const EnemyStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type EnemyStatsGameModeEnum = typeof EnemyStatsGameModeEnum[keyof typeof EnemyStatsGameModeEnum];
 export const MateStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type MateStatsGameModeEnum = typeof MateStatsGameModeEnum[keyof typeof MateStatsGameModeEnum];
 export const PartyStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type PartyStatsGameModeEnum = typeof PartyStatsGameModeEnum[keyof typeof PartyStatsGameModeEnum];
 export const PlayerHeroStatsGameModeEnum = {
     Normal: 'normal',
-    StreetBrawl: 'street_brawl'
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c'
 } as const;
 export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
 
@@ -9758,7 +9777,7 @@ export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[key
 export const SQLApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
          * @summary List Tables
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9788,7 +9807,7 @@ export const SQLApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
          * @param {*} [options] Override http request option.
@@ -9825,7 +9844,7 @@ export const SQLApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
          * @summary Table Schema
          * @param {string} table The name of the table to fetch the schema for.
          * @param {*} [options] Override http request option.
@@ -9868,7 +9887,7 @@ export const SQLApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SQLApiAxiosParamCreator(configuration)
     return {
         /**
-         *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
          * @summary List Tables
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9880,7 +9899,7 @@ export const SQLApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
          * @param {*} [options] Override http request option.
@@ -9893,7 +9912,7 @@ export const SQLApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
          * @summary Table Schema
          * @param {string} table The name of the table to fetch the schema for.
          * @param {*} [options] Override http request option.
@@ -9915,7 +9934,7 @@ export const SQLApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = SQLApiFp(configuration)
     return {
         /**
-         *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
          * @summary List Tables
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9924,7 +9943,7 @@ export const SQLApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.listTables(options).then((request) => request(axios, basePath));
         },
         /**
-         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {SQLApiSqlRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -9934,7 +9953,7 @@ export const SQLApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.sql(requestParameters.query, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
          * @summary Table Schema
          * @param {SQLApiTableSchemaRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -9971,7 +9990,7 @@ export interface SQLApiTableSchemaRequest {
  */
 export class SQLApi extends BaseAPI {
     /**
-     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @summary List Tables
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -9981,7 +10000,7 @@ export class SQLApi extends BaseAPI {
     }
 
     /**
-     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @summary Query
      * @param {SQLApiSqlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -9992,7 +10011,7 @@ export class SQLApi extends BaseAPI {
     }
 
     /**
-     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @summary Table Schema
      * @param {SQLApiTableSchemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

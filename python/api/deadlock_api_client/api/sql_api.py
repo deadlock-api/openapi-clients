@@ -55,7 +55,7 @@ class SQLApi:
     ) -> List[str]:
         """List Tables
 
-         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -119,7 +119,7 @@ class SQLApi:
     ) -> ApiResponse[List[str]]:
         """List Tables
 
-         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -183,7 +183,7 @@ class SQLApi:
     ) -> RESTResponseType:
         """List Tables
 
-         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -305,7 +305,7 @@ class SQLApi:
     ) -> str:
         """Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -373,7 +373,7 @@ class SQLApi:
     ) -> ApiResponse[str]:
         """Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -441,7 +441,7 @@ class SQLApi:
     ) -> RESTResponseType:
         """Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -570,7 +570,7 @@ class SQLApi:
     ) -> Dict[str, str]:
         """Table Schema
 
-         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str
@@ -638,7 +638,7 @@ class SQLApi:
     ) -> ApiResponse[Dict[str, str]]:
         """Table Schema
 
-         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str
@@ -706,7 +706,7 @@ class SQLApi:
     ) -> RESTResponseType:
         """Table Schema
 
-         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str

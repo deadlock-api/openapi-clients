@@ -215,15 +215,6 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
-     * Test attribute "avg_gold_boss_orb"
-     */
-    public function testPropertyAvgGoldBossOrb()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "avg_gold_death_loss"
      */
     public function testPropertyAvgGoldDeathLoss()

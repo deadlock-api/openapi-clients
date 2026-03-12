@@ -48,7 +48,6 @@ namespace DeadlockApiClient.Model
         /// <param name="avgEndingLevel">avgEndingLevel</param>
         /// <param name="avgFirstMidBossTimeS">avgFirstMidBossTimeS</param>
         /// <param name="avgGoldBoss">avgGoldBoss</param>
-        /// <param name="avgGoldBossOrb">avgGoldBossOrb</param>
         /// <param name="avgGoldDeathLoss">avgGoldDeathLoss</param>
         /// <param name="avgGoldDenied">avgGoldDenied</param>
         /// <param name="avgGoldLaneCreep">avgGoldLaneCreep</param>
@@ -75,7 +74,7 @@ namespace DeadlockApiClient.Model
         /// <param name="midBossKillRate">midBossKillRate</param>
         /// <param name="totalMatches">totalMatches</param>
         [JsonConstructor]
-        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgGoldBoss, double avgGoldBossOrb, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldLaneCreep, double avgGoldNeutralCreep, double avgGoldPlayer, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgObjectivesDestroyedTimeS, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, int bucket, double midBossKillRate, long totalMatches)
+        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgGoldBoss, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldLaneCreep, double avgGoldNeutralCreep, double avgGoldPlayer, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgObjectivesDestroyedTimeS, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, int bucket, double midBossKillRate, long totalMatches)
         {
             AbandonRate = abandonRate;
             AvgAccuracy = avgAccuracy;
@@ -92,7 +91,6 @@ namespace DeadlockApiClient.Model
             AvgEndingLevel = avgEndingLevel;
             AvgFirstMidBossTimeS = avgFirstMidBossTimeS;
             AvgGoldBoss = avgGoldBoss;
-            AvgGoldBossOrb = avgGoldBossOrb;
             AvgGoldDeathLoss = avgGoldDeathLoss;
             AvgGoldDenied = avgGoldDenied;
             AvgGoldLaneCreep = avgGoldLaneCreep;
@@ -212,12 +210,6 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("avg_gold_boss")]
         public double AvgGoldBoss { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AvgGoldBossOrb
-        /// </summary>
-        [JsonPropertyName("avg_gold_boss_orb")]
-        public double AvgGoldBossOrb { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgGoldDeathLoss
@@ -392,7 +384,6 @@ namespace DeadlockApiClient.Model
             sb.Append("  AvgEndingLevel: ").Append(AvgEndingLevel).Append("\n");
             sb.Append("  AvgFirstMidBossTimeS: ").Append(AvgFirstMidBossTimeS).Append("\n");
             sb.Append("  AvgGoldBoss: ").Append(AvgGoldBoss).Append("\n");
-            sb.Append("  AvgGoldBossOrb: ").Append(AvgGoldBossOrb).Append("\n");
             sb.Append("  AvgGoldDeathLoss: ").Append(AvgGoldDeathLoss).Append("\n");
             sb.Append("  AvgGoldDenied: ").Append(AvgGoldDenied).Append("\n");
             sb.Append("  AvgGoldLaneCreep: ").Append(AvgGoldLaneCreep).Append("\n");
@@ -482,7 +473,6 @@ namespace DeadlockApiClient.Model
             Option<double?> avgEndingLevel = default;
             Option<double?> avgFirstMidBossTimeS = default;
             Option<double?> avgGoldBoss = default;
-            Option<double?> avgGoldBossOrb = default;
             Option<double?> avgGoldDeathLoss = default;
             Option<double?> avgGoldDenied = default;
             Option<double?> avgGoldLaneCreep = default;
@@ -568,9 +558,6 @@ namespace DeadlockApiClient.Model
                             break;
                         case "avg_gold_boss":
                             avgGoldBoss = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
-                            break;
-                        case "avg_gold_boss_orb":
-                            avgGoldBossOrb = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "avg_gold_death_loss":
                             avgGoldDeathLoss = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -698,9 +685,6 @@ namespace DeadlockApiClient.Model
             if (!avgGoldBoss.IsSet)
                 throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldBoss));
 
-            if (!avgGoldBossOrb.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldBossOrb));
-
             if (!avgGoldDeathLoss.IsSet)
                 throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldDeathLoss));
 
@@ -821,9 +805,6 @@ namespace DeadlockApiClient.Model
             if (avgGoldBoss.IsSet && avgGoldBoss.Value == null)
                 throw new ArgumentNullException(nameof(avgGoldBoss), "Property is not nullable for class AnalyticsGameStats.");
 
-            if (avgGoldBossOrb.IsSet && avgGoldBossOrb.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldBossOrb), "Property is not nullable for class AnalyticsGameStats.");
-
             if (avgGoldDeathLoss.IsSet && avgGoldDeathLoss.Value == null)
                 throw new ArgumentNullException(nameof(avgGoldDeathLoss), "Property is not nullable for class AnalyticsGameStats.");
 
@@ -899,7 +880,7 @@ namespace DeadlockApiClient.Model
             if (totalMatches.IsSet && totalMatches.Value == null)
                 throw new ArgumentNullException(nameof(totalMatches), "Property is not nullable for class AnalyticsGameStats.");
 
-            return new AnalyticsGameStats(abandonRate.Value!.Value!, avgAccuracy.Value!.Value!, avgAssists.Value!.Value!, avgBossDamage.Value!.Value!, avgCreepDamage.Value!.Value!, avgCreepKills.Value!.Value!, avgCritRate.Value!.Value!, avgDamageAbsorbed.Value!.Value!, avgDamageMitigated.Value!.Value!, avgDeaths.Value!.Value!, avgDenies.Value!.Value!, avgDurationS.Value!.Value!, avgEndingLevel.Value!.Value!, avgFirstMidBossTimeS.Value!.Value!, avgGoldBoss.Value!.Value!, avgGoldBossOrb.Value!.Value!, avgGoldDeathLoss.Value!.Value!, avgGoldDenied.Value!.Value!, avgGoldLaneCreep.Value!.Value!, avgGoldNeutralCreep.Value!.Value!, avgGoldPlayer.Value!.Value!, avgGoldTreasure.Value!.Value!, avgHealPrevented.Value!.Value!, avgKdRatio.Value!.Value!, avgKills.Value!.Value!, avgLastHits.Value!.Value!, avgMaxHealth.Value!.Value!, avgNetWorth.Value!.Value!, avgNeutralDamage.Value!.Value!, avgNeutralKills.Value!.Value!, avgObjectivesDestroyedTimeS.Value!.Value!, avgPlayerDamage.Value!.Value!, avgPlayerDamageTaken.Value!.Value!, avgPlayerHealing.Value!.Value!, avgPossibleCreeps.Value!.Value!, avgSelfHealing.Value!.Value!, avgTechPower.Value!.Value!, avgWeaponPower.Value!.Value!, bucket.Value!.Value!, midBossKillRate.Value!.Value!, totalMatches.Value!.Value!);
+            return new AnalyticsGameStats(abandonRate.Value!.Value!, avgAccuracy.Value!.Value!, avgAssists.Value!.Value!, avgBossDamage.Value!.Value!, avgCreepDamage.Value!.Value!, avgCreepKills.Value!.Value!, avgCritRate.Value!.Value!, avgDamageAbsorbed.Value!.Value!, avgDamageMitigated.Value!.Value!, avgDeaths.Value!.Value!, avgDenies.Value!.Value!, avgDurationS.Value!.Value!, avgEndingLevel.Value!.Value!, avgFirstMidBossTimeS.Value!.Value!, avgGoldBoss.Value!.Value!, avgGoldDeathLoss.Value!.Value!, avgGoldDenied.Value!.Value!, avgGoldLaneCreep.Value!.Value!, avgGoldNeutralCreep.Value!.Value!, avgGoldPlayer.Value!.Value!, avgGoldTreasure.Value!.Value!, avgHealPrevented.Value!.Value!, avgKdRatio.Value!.Value!, avgKills.Value!.Value!, avgLastHits.Value!.Value!, avgMaxHealth.Value!.Value!, avgNetWorth.Value!.Value!, avgNeutralDamage.Value!.Value!, avgNeutralKills.Value!.Value!, avgObjectivesDestroyedTimeS.Value!.Value!, avgPlayerDamage.Value!.Value!, avgPlayerDamageTaken.Value!.Value!, avgPlayerHealing.Value!.Value!, avgPossibleCreeps.Value!.Value!, avgSelfHealing.Value!.Value!, avgTechPower.Value!.Value!, avgWeaponPower.Value!.Value!, bucket.Value!.Value!, midBossKillRate.Value!.Value!, totalMatches.Value!.Value!);
         }
 
         /// <summary>
@@ -955,8 +936,6 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("avg_first_mid_boss_time_s", analyticsGameStats.AvgFirstMidBossTimeS);
 
             writer.WriteNumber("avg_gold_boss", analyticsGameStats.AvgGoldBoss);
-
-            writer.WriteNumber("avg_gold_boss_orb", analyticsGameStats.AvgGoldBossOrb);
 
             writer.WriteNumber("avg_gold_death_loss", analyticsGameStats.AvgGoldDeathLoss);
 

@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **avg_ending_level** | **number** |  | [default to undefined]
 **avg_first_mid_boss_time_s** | **number** |  | [default to undefined]
 **avg_gold_boss** | **number** |  | [default to undefined]
-**avg_gold_boss_orb** | **number** |  | [default to undefined]
 **avg_gold_death_loss** | **number** |  | [default to undefined]
 **avg_gold_denied** | **number** |  | [default to undefined]
 **avg_gold_lane_creep** | **number** |  | [default to undefined]
@@ -68,7 +67,6 @@ const instance: AnalyticsGameStats = {
     avg_ending_level,
     avg_first_mid_boss_time_s,
     avg_gold_boss,
-    avg_gold_boss_orb,
     avg_gold_death_loss,
     avg_gold_denied,
     avg_gold_lane_creep,

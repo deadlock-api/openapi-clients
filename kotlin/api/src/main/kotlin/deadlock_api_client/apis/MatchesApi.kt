@@ -207,7 +207,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
      enum class GameModeBulkMetadata(val value: kotlin.String) {
          @Json(name = "normal") normal("normal"),
-         @Json(name = "street_brawl") street_brawl("street_brawl");
+         @Json(name = "street_brawl") street_brawl("street_brawl"),
+         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use

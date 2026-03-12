@@ -46,6 +46,8 @@ class GameMode
 
     public const STREET_BRAWL = 'street_brawl';
 
+    public const EXPLORE_N_Y_C = 'explore_n_y_c';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -54,7 +56,8 @@ class GameMode
     {
         return [
             self::NORMAL,
-            self::STREET_BRAWL
+            self::STREET_BRAWL,
+            self::EXPLORE_N_Y_C
         ];
     }
 }

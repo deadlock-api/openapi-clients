@@ -92,6 +92,7 @@ class InternalApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
+            '429': None,
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -161,6 +162,7 @@ class InternalApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
+            '429': None,
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -230,6 +232,7 @@ class InternalApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
+            '429': None,
             '500': None,
         }
         response_data = self.api_client.call_api(

@@ -631,7 +631,8 @@ export function url<T>(requestParameters: UrlRequest, requestConfig?: runtime.Ty
     */
 export enum BulkMetadataGameModeEnum {
     Normal = 'normal',
-    StreetBrawl = 'street_brawl'
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c'
 }
 /**
     * @export

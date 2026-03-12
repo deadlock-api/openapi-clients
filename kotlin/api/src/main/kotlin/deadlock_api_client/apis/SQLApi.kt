@@ -47,7 +47,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables
      * List Tables
-     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @return kotlin.collections.List<kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -78,7 +78,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables
      * List Tables
-     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -117,7 +117,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql
      * Query
-     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -149,7 +149,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql
      * Query
-     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -193,7 +193,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables/{table}/schema
      * Table Schema
-     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @param table The name of the table to fetch the schema for.
      * @return kotlin.collections.Map<kotlin.String, kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
@@ -225,7 +225,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables/{table}/schema
      * Table Schema
-     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @param table The name of the table to fetch the schema for.
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured

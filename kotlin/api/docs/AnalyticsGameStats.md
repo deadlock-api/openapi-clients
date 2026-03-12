@@ -19,7 +19,6 @@
 | **avgEndingLevel** | **kotlin.Double** |  |  |
 | **avgFirstMidBossTimeS** | **kotlin.Double** |  |  |
 | **avgGoldBoss** | **kotlin.Double** |  |  |
-| **avgGoldBossOrb** | **kotlin.Double** |  |  |
 | **avgGoldDeathLoss** | **kotlin.Double** |  |  |
 | **avgGoldDenied** | **kotlin.Double** |  |  |
 | **avgGoldLaneCreep** | **kotlin.Double** |  |  |

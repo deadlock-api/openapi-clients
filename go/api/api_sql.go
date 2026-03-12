@@ -41,9 +41,9 @@ Lists all tables in the database.
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
+| IP | 10req/min |
 | Key | - |
-| Global | - |
+| Global | 60req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -166,9 +166,9 @@ Executes a SQL query on the database.
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 300req/5min |
-| Key | 300req/5min |
-| Global | 600req/60s |
+| IP | 5req/min, 50req/hr |
+| Key | 10req/min |
+| Global | 30req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -289,9 +289,9 @@ Returns the schema of a table.
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
+| IP | 10req/min |
 | Key | - |
-| Global | - |
+| Global | 60req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

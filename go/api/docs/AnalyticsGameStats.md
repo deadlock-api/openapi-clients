@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **AvgEndingLevel** | **float64** |  | 
 **AvgFirstMidBossTimeS** | **float64** |  | 
 **AvgGoldBoss** | **float64** |  | 
-**AvgGoldBossOrb** | **float64** |  | 
 **AvgGoldDeathLoss** | **float64** |  | 
 **AvgGoldDenied** | **float64** |  | 
 **AvgGoldLaneCreep** | **float64** |  | 
@@ -50,7 +49,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsGameStats
 
-`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, totalMatches int64, ) *AnalyticsGameStats`
+`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgGoldBoss float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldNeutralCreep float64, avgGoldPlayer float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgObjectivesDestroyedTimeS float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, totalMatches int64, ) *AnalyticsGameStats`
 
 NewAnalyticsGameStats instantiates a new AnalyticsGameStats object
 This constructor will assign default values to properties that have it defined,
@@ -363,26 +362,6 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsGameStats) SetAvgGoldBoss(v float64)`
 
 SetAvgGoldBoss sets AvgGoldBoss field to given value.
-
-
-### GetAvgGoldBossOrb
-
-`func (o *AnalyticsGameStats) GetAvgGoldBossOrb() float64`
-
-GetAvgGoldBossOrb returns the AvgGoldBossOrb field if non-nil, zero value otherwise.
-
-### GetAvgGoldBossOrbOk
-
-`func (o *AnalyticsGameStats) GetAvgGoldBossOrbOk() (*float64, bool)`
-
-GetAvgGoldBossOrbOk returns a tuple with the AvgGoldBossOrb field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAvgGoldBossOrb
-
-`func (o *AnalyticsGameStats) SetAvgGoldBossOrb(v float64)`
-
-SetAvgGoldBossOrb sets AvgGoldBossOrb field to given value.
 
 
 ### GetAvgGoldDeathLoss

@@ -26,6 +26,7 @@ pub struct IngestSaltsParams {
 #[serde(untagged)]
 pub enum IngestSaltsError {
     Status400(),
+    Status429(),
     Status500(),
     UnknownValue(serde_json::Value),
 }

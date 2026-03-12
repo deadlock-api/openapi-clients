@@ -72,7 +72,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'float',
         'avg_first_mid_boss_time_s' => 'float',
         'avg_gold_boss' => 'float',
-        'avg_gold_boss_orb' => 'float',
         'avg_gold_death_loss' => 'float',
         'avg_gold_denied' => 'float',
         'avg_gold_lane_creep' => 'float',
@@ -123,7 +122,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'double',
         'avg_first_mid_boss_time_s' => 'double',
         'avg_gold_boss' => 'double',
-        'avg_gold_boss_orb' => 'double',
         'avg_gold_death_loss' => 'double',
         'avg_gold_denied' => 'double',
         'avg_gold_lane_creep' => 'double',
@@ -172,7 +170,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => false,
         'avg_first_mid_boss_time_s' => false,
         'avg_gold_boss' => false,
-        'avg_gold_boss_orb' => false,
         'avg_gold_death_loss' => false,
         'avg_gold_denied' => false,
         'avg_gold_lane_creep' => false,
@@ -301,7 +298,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'avg_ending_level',
         'avg_first_mid_boss_time_s' => 'avg_first_mid_boss_time_s',
         'avg_gold_boss' => 'avg_gold_boss',
-        'avg_gold_boss_orb' => 'avg_gold_boss_orb',
         'avg_gold_death_loss' => 'avg_gold_death_loss',
         'avg_gold_denied' => 'avg_gold_denied',
         'avg_gold_lane_creep' => 'avg_gold_lane_creep',
@@ -350,7 +346,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'setAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'setAvgFirstMidBossTimeS',
         'avg_gold_boss' => 'setAvgGoldBoss',
-        'avg_gold_boss_orb' => 'setAvgGoldBossOrb',
         'avg_gold_death_loss' => 'setAvgGoldDeathLoss',
         'avg_gold_denied' => 'setAvgGoldDenied',
         'avg_gold_lane_creep' => 'setAvgGoldLaneCreep',
@@ -399,7 +394,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'getAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'getAvgFirstMidBossTimeS',
         'avg_gold_boss' => 'getAvgGoldBoss',
-        'avg_gold_boss_orb' => 'getAvgGoldBossOrb',
         'avg_gold_death_loss' => 'getAvgGoldDeathLoss',
         'avg_gold_denied' => 'getAvgGoldDenied',
         'avg_gold_lane_creep' => 'getAvgGoldLaneCreep',
@@ -499,7 +493,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('avg_ending_level', $data ?? [], null);
         $this->setIfExists('avg_first_mid_boss_time_s', $data ?? [], null);
         $this->setIfExists('avg_gold_boss', $data ?? [], null);
-        $this->setIfExists('avg_gold_boss_orb', $data ?? [], null);
         $this->setIfExists('avg_gold_death_loss', $data ?? [], null);
         $this->setIfExists('avg_gold_denied', $data ?? [], null);
         $this->setIfExists('avg_gold_lane_creep', $data ?? [], null);
@@ -598,9 +591,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if ($this->container['avg_gold_boss'] === null) {
             $invalidProperties[] = "'avg_gold_boss' can't be null";
-        }
-        if ($this->container['avg_gold_boss_orb'] === null) {
-            $invalidProperties[] = "'avg_gold_boss_orb' can't be null";
         }
         if ($this->container['avg_gold_death_loss'] === null) {
             $invalidProperties[] = "'avg_gold_death_loss' can't be null";
@@ -1101,33 +1091,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_gold_boss cannot be null');
         }
         $this->container['avg_gold_boss'] = $avg_gold_boss;
-
-        return $this;
-    }
-
-    /**
-     * Gets avg_gold_boss_orb
-     *
-     * @return float
-     */
-    public function getAvgGoldBossOrb()
-    {
-        return $this->container['avg_gold_boss_orb'];
-    }
-
-    /**
-     * Sets avg_gold_boss_orb
-     *
-     * @param float $avg_gold_boss_orb avg_gold_boss_orb
-     *
-     * @return self
-     */
-    public function setAvgGoldBossOrb($avg_gold_boss_orb)
-    {
-        if (is_null($avg_gold_boss_orb)) {
-            throw new \InvalidArgumentException('non-nullable avg_gold_boss_orb cannot be null');
-        }
-        $this->container['avg_gold_boss_orb'] = $avg_gold_boss_orb;
 
         return $this;
     }

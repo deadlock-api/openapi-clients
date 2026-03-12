@@ -28,6 +28,7 @@ class GameMode(str, Enum):
     """
     NORMAL = 'normal'
     STREET_BRAWL = 'street_brawl'
+    EXPLORE_N_Y_C = 'explore_n_y_c'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

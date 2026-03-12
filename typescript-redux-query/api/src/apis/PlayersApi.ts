@@ -660,7 +660,8 @@ export function playerHeroStats<T>(requestParameters: PlayerHeroStatsRequest, re
     */
 export enum EnemyStatsGameModeEnum {
     Normal = 'normal',
-    StreetBrawl = 'street_brawl'
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c'
 }
 /**
     * @export
@@ -668,7 +669,8 @@ export enum EnemyStatsGameModeEnum {
     */
 export enum MateStatsGameModeEnum {
     Normal = 'normal',
-    StreetBrawl = 'street_brawl'
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c'
 }
 /**
     * @export
@@ -676,7 +678,8 @@ export enum MateStatsGameModeEnum {
     */
 export enum PartyStatsGameModeEnum {
     Normal = 'normal',
-    StreetBrawl = 'street_brawl'
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c'
 }
 /**
     * @export
@@ -684,5 +687,6 @@ export enum PartyStatsGameModeEnum {
     */
 export enum PlayerHeroStatsGameModeEnum {
     Normal = 'normal',
-    StreetBrawl = 'street_brawl'
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c'
 }

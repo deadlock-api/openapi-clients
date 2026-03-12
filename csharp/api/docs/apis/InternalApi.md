@@ -40,6 +40,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** |  |  -  |
 | **400** | Provided parameters are invalid or the salt check failed. |  -  |
+| **429** | Rate limit exceeded |  -  |
 | **500** | Ingest failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

@@ -25,7 +25,7 @@ export interface TableSchemaRequest {
 
 
 /**
- *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
  * List Tables
  */
 function listTablesRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<string>> = {}): QueryConfig<T> {
@@ -60,7 +60,7 @@ function listTablesRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<stri
 }
 
 /**
-*  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 * List Tables
 */
 export function listTables<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<string>>): QueryConfig<T> {
@@ -68,7 +68,7 @@ export function listTables<T>( requestConfig?: runtime.TypedQueryConfig<T, Array
 }
 
 /**
- *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+ *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
  * Query
  */
 function sqlRaw<T>(requestParameters: SqlRequest, requestConfig: runtime.TypedQueryConfig<T, string> = {}): QueryConfig<T> {
@@ -114,7 +114,7 @@ function sqlRaw<T>(requestParameters: SqlRequest, requestConfig: runtime.TypedQu
 }
 
 /**
-*  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+*  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
 * Query
 */
 export function sql<T>(requestParameters: SqlRequest, requestConfig?: runtime.TypedQueryConfig<T, string>): QueryConfig<T> {
@@ -122,7 +122,7 @@ export function sql<T>(requestParameters: SqlRequest, requestConfig?: runtime.Ty
 }
 
 /**
- *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
  * Table Schema
  */
 function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
@@ -161,7 +161,7 @@ function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig:
 }
 
 /**
-*  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 * Table Schema
 */
 export function tableSchema<T>(requestParameters: TableSchemaRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {

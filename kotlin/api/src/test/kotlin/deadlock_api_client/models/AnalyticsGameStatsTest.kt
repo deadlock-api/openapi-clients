@@ -115,12 +115,6 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgGoldBoss shouldBe ("TODO")
         }
 
-        // to test the property `avgGoldBossOrb`
-        should("test avgGoldBossOrb") {
-            // uncomment below to test the property
-            //modelInstance.avgGoldBossOrb shouldBe ("TODO")
-        }
-
         // to test the property `avgGoldDeathLoss`
         should("test avgGoldDeathLoss") {
             // uncomment below to test the property

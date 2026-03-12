@@ -54,7 +54,7 @@ pub enum TableSchemaError {
 }
 
 
-///  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 pub async fn list_tables(configuration: &configuration::Configuration) -> Result<Vec<String>, Error<ListTablesError>> {
 
     let uri_str = format!("{}/v1/sql/tables", configuration.base_path);
@@ -89,7 +89,7 @@ pub async fn list_tables(configuration: &configuration::Configuration) -> Result
     }
 }
 
-///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 300req/5min | | Key | 300req/5min | | Global | 600req/60s |     
+///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
 pub async fn sql(configuration: &configuration::Configuration, params: SqlParams) -> Result<String, Error<SqlError>> {
 
     let uri_str = format!("{}/v1/sql", configuration.base_path);
@@ -125,7 +125,7 @@ pub async fn sql(configuration: &configuration::Configuration, params: SqlParams
     }
 }
 
-///  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 pub async fn table_schema(configuration: &configuration::Configuration, params: TableSchemaParams) -> Result<std::collections::HashMap<String, String>, Error<TableSchemaError>> {
 
     let uri_str = format!("{}/v1/sql/tables/{table}/schema", configuration.base_path, table=crate::apis::urlencode(params.table));
