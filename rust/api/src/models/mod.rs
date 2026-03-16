@@ -80,8 +80,6 @@ pub mod mate_stats;
 pub use self::mate_stats::MateStats;
 pub mod mmr_history;
 pub use self::mmr_history::MmrHistory;
-pub mod party_stats;
-pub use self::party_stats::PartyStats;
 pub mod patch;
 pub use self::patch::Patch;
 pub mod patch_category;

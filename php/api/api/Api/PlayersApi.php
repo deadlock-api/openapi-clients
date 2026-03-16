@@ -89,9 +89,6 @@ class PlayersApi
         'mateStats' => [
             'application/json',
         ],
-        'partyStats' => [
-            'application/json',
-        ],
         'playerHeroStats' => [
             'application/json',
         ],
@@ -1431,16 +1428,15 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MateStats[]
      */
-    public function mateStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
-        list($response) = $this->mateStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        list($response) = $this->mateStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
         return $response;
     }
 
@@ -1459,16 +1455,15 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MateStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function mateStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
-        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1554,15 +1549,14 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
-        return $this->mateStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType)
+        return $this->mateStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1585,16 +1579,15 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MateStats[]';
-        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
+        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1645,13 +1638,12 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
-     * @param  bool|null $same_party Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function mateStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = true, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -1697,7 +1689,6 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$max_matches_played" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
         }
         
-
 
         $resourcePath = '/v1/players/{account_id}/mate-stats';
         $formParams = [];
@@ -1782,409 +1773,6 @@ class PlayersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $max_matches_played,
             'max_matches_played', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $same_party,
-            'same_party', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($account_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation partyStats
-     *
-     * Party Stats
-     *
-     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PartyStats[]
-     */
-    public function partyStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
-    {
-        list($response) = $this->partyStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation partyStatsWithHttpInfo
-     *
-     * Party Stats
-     *
-     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PartyStats[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function partyStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
-    {
-        $request = $this->partyStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\PartyStats[]',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\PartyStats[]',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PartyStats[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation partyStatsAsync
-     *
-     * Party Stats
-     *
-     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function partyStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
-    {
-        return $this->partyStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation partyStatsAsyncWithHttpInfo
-     *
-     * Party Stats
-     *
-     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function partyStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\PartyStats[]';
-        $request = $this->partyStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'partyStats'
-     *
-     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
-     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
-     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['partyStats'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function partyStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['partyStats'][0])
-    {
-
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling partyStats'
-            );
-        }
-        if ($account_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
-        }
-        
-
-
-
-        if ($min_duration_s !== null && $min_duration_s > 7000) {
-            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling PlayersApi.partyStats, must be smaller than or equal to 7000.');
-        }
-        if ($min_duration_s !== null && $min_duration_s < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_duration_s !== null && $max_duration_s > 7000) {
-            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling PlayersApi.partyStats, must be smaller than or equal to 7000.');
-        }
-        if ($max_duration_s !== null && $max_duration_s < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($min_match_id !== null && $min_match_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
-        }
-        
-        if ($max_match_id !== null && $max_match_id < 0) {
-            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling PlayersApi.partyStats, must be bigger than or equal to 0.');
-        }
-        
-
-        $resourcePath = '/v1/players/{account_id}/party-stats';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $game_mode,
-            'game_mode', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_unix_timestamp,
-            'min_unix_timestamp', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_unix_timestamp,
-            'max_unix_timestamp', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_duration_s,
-            'min_duration_s', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_duration_s,
-            'max_duration_s', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $min_match_id,
-            'min_match_id', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $max_match_id,
-            'max_match_id', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode

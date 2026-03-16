@@ -88,7 +88,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());
             _jsonOptions.Converters.Add(new MatchSpectateResponseJsonConverter());
             _jsonOptions.Converters.Add(new MateStatsJsonConverter());
-            _jsonOptions.Converters.Add(new PartyStatsJsonConverter());
             _jsonOptions.Converters.Add(new PatchJsonConverter());
             _jsonOptions.Converters.Add(new PatchCategoryJsonConverter());
             _jsonOptions.Converters.Add(new PatchGuidJsonConverter());

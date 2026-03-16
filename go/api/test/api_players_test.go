@@ -92,20 +92,6 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PlayersAPIService PartyStats", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var accountId int32
-
-		resp, httpRes, err := apiClient.PlayersAPI.PartyStats(context.Background(), accountId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test PlayersAPIService PlayerHeroStats", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

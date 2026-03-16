@@ -694,12 +694,6 @@ export interface MateStats {
     'mate_id': number;
     'wins': number;
 }
-export interface PartyStats {
-    'matches': Array<number>;
-    'matches_played': number;
-    'party_size': number;
-    'wins': number;
-}
 export interface Patch {
     'author': string;
     'category': PatchCategory;
@@ -1803,7 +1797,6 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
-         * @param {boolean | null} [samePartyFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;hero_id2&#x60; were on the same party. When &#x60;false&#x60;, considers all matchups regardless of party affiliation.
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -1811,7 +1804,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroSynergiesStats: async (gameMode?: HeroSynergiesStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, samePartyFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroSynergiesStats: async (gameMode?: HeroSynergiesStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/hero-synergy-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1870,10 +1863,6 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (sameLaneFilter !== undefined) {
                 localVarQueryParameter['same_lane_filter'] = sameLaneFilter;
-            }
-
-            if (samePartyFilter !== undefined) {
-                localVarQueryParameter['same_party_filter'] = samePartyFilter;
             }
 
             if (minMatches !== undefined) {
@@ -2884,7 +2873,6 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane.
-         * @param {boolean | null} [samePartyFilter] When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;hero_id2&#x60; were on the same party. When &#x60;false&#x60;, considers all matchups regardless of party affiliation.
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -2892,8 +2880,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroSynergiesStats(gameMode?: HeroSynergiesStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, samePartyFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroSynergyStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroSynergiesStats(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, samePartyFilter, minMatches, maxMatches, accountId, accountIds, options);
+        async heroSynergiesStats(gameMode?: HeroSynergiesStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroSynergyStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroSynergiesStats(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroSynergiesStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3180,7 +3168,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         heroSynergiesStats(requestParameters: AnalyticsApiHeroSynergiesStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroSynergyStats>> {
-            return localVarFp.heroSynergiesStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.samePartyFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.heroSynergiesStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -3920,11 +3908,6 @@ export interface AnalyticsApiHeroSynergiesStatsRequest {
     readonly sameLaneFilter?: boolean | null
 
     /**
-     * When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;hero_id2&#x60; were on the same party. When &#x60;false&#x60;, considers all matchups regardless of party affiliation.
-     */
-    readonly samePartyFilter?: boolean | null
-
-    /**
      * The minimum number of matches played for a hero combination to be included in the response.
      */
     readonly minMatches?: number | null
@@ -4640,7 +4623,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public heroSynergiesStats(requestParameters: AnalyticsApiHeroSynergiesStatsRequest = {}, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).heroSynergiesStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.samePartyFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).heroSynergiesStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8936,11 +8919,10 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
          * @param {number | null} [maxMatchesPlayed] Filter based on the number of matches played.
-         * @param {boolean} [sameParty] Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mateStats: async (accountId: number, gameMode?: MateStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, sameParty?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        mateStats: async (accountId: number, gameMode?: MateStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('mateStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/mate-stats`
@@ -8990,79 +8972,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (maxMatchesPlayed !== undefined) {
                 localVarQueryParameter['max_matches_played'] = maxMatchesPlayed;
-            }
-
-            if (sameParty !== undefined) {
-                localVarQueryParameter['same_party'] = sameParty;
-            }
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Party Stats
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {PartyStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
-         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minMatchId] Filter matches based on their ID.
-         * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        partyStats: async (accountId: number, gameMode?: PartyStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('partyStats', 'accountId', accountId)
-            const localVarPath = `/v1/players/{account_id}/party-stats`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (gameMode !== undefined) {
-                localVarQueryParameter['game_mode'] = gameMode;
-            }
-
-            if (minUnixTimestamp !== undefined) {
-                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
-            }
-
-            if (maxUnixTimestamp !== undefined) {
-                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
-            }
-
-            if (minDurationS !== undefined) {
-                localVarQueryParameter['min_duration_s'] = minDurationS;
-            }
-
-            if (maxDurationS !== undefined) {
-                localVarQueryParameter['max_duration_s'] = maxDurationS;
-            }
-
-            if (minMatchId !== undefined) {
-                localVarQueryParameter['min_match_id'] = minMatchId;
-            }
-
-            if (maxMatchId !== undefined) {
-                localVarQueryParameter['max_match_id'] = maxMatchId;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9258,34 +9167,13 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [minMatchesPlayed] Filter based on the number of matches played.
          * @param {number | null} [maxMatchesPlayed] Filter based on the number of matches played.
-         * @param {boolean} [sameParty] Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mateStats(accountId: number, gameMode?: MateStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, sameParty?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MateStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty, options);
+        async mateStats(accountId: number, gameMode?: MateStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatchesPlayed?: number | null, maxMatchesPlayed?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MateStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.mateStats']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Party Stats
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {PartyStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
-         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minMatchId] Filter matches based on their ID.
-         * @param {number | null} [maxMatchId] Filter matches based on their ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async partyStats(accountId: number, gameMode?: PartyStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PartyStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.partyStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.partyStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -9370,17 +9258,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         mateStats(requestParameters: PlayersApiMateStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<MateStats>> {
-            return localVarFp.mateStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-         * @summary Party Stats
-         * @param {PlayersApiPartyStatsRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        partyStats(requestParameters: PlayersApiPartyStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PartyStats>> {
-            return localVarFp.partyStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+            return localVarFp.mateStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -9543,56 +9421,6 @@ export interface PlayersApiMateStatsRequest {
      * Filter based on the number of matches played.
      */
     readonly maxMatchesPlayed?: number | null
-
-    /**
-     * Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
-     */
-    readonly sameParty?: boolean
-}
-
-/**
- * Request parameters for partyStats operation in PlayersApi.
- */
-export interface PlayersApiPartyStatsRequest {
-    /**
-     * The players &#x60;SteamID3&#x60;
-     */
-    readonly accountId: number
-
-    /**
-     * Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
-     */
-    readonly gameMode?: PartyStatsGameModeEnum
-
-    /**
-     * Filter matches based on their start time (Unix timestamp).
-     */
-    readonly minUnixTimestamp?: number | null
-
-    /**
-     * Filter matches based on their start time (Unix timestamp).
-     */
-    readonly maxUnixTimestamp?: number | null
-
-    /**
-     * Filter matches based on their duration in seconds (up to 7000s).
-     */
-    readonly minDurationS?: number | null
-
-    /**
-     * Filter matches based on their duration in seconds (up to 7000s).
-     */
-    readonly maxDurationS?: number | null
-
-    /**
-     * Filter matches based on their ID.
-     */
-    readonly minMatchId?: number | null
-
-    /**
-     * Filter matches based on their ID.
-     */
-    readonly maxMatchId?: number | null
 }
 
 /**
@@ -9721,18 +9549,7 @@ export class PlayersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public mateStats(requestParameters: PlayersApiMateStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).mateStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-     * @summary Party Stats
-     * @param {PlayersApiPartyStatsRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public partyStats(requestParameters: PlayersApiPartyStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).partyStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).mateStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9759,12 +9576,6 @@ export const MateStatsGameModeEnum = {
     ExploreNYC: 'explore_n_y_c'
 } as const;
 export type MateStatsGameModeEnum = typeof MateStatsGameModeEnum[keyof typeof MateStatsGameModeEnum];
-export const PartyStatsGameModeEnum = {
-    Normal: 'normal',
-    StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
-} as const;
-export type PartyStatsGameModeEnum = typeof PartyStatsGameModeEnum[keyof typeof PartyStatsGameModeEnum];
 export const PlayerHeroStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',

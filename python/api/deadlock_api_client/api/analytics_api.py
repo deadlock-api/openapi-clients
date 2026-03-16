@@ -4024,7 +4024,6 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
-        same_party_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -4070,8 +4069,6 @@ class AnalyticsApi:
         :type max_match_id: int
         :param same_lane_filter: When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
         :type same_lane_filter: bool
-        :param same_party_filter: When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.
-        :type same_party_filter: bool
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -4115,7 +4112,6 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             same_lane_filter=same_lane_filter,
-            same_party_filter=same_party_filter,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -4157,7 +4153,6 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
-        same_party_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -4203,8 +4198,6 @@ class AnalyticsApi:
         :type max_match_id: int
         :param same_lane_filter: When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
         :type same_lane_filter: bool
-        :param same_party_filter: When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.
-        :type same_party_filter: bool
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -4248,7 +4241,6 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             same_lane_filter=same_lane_filter,
-            same_party_filter=same_party_filter,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -4290,7 +4282,6 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
-        same_party_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -4336,8 +4327,6 @@ class AnalyticsApi:
         :type max_match_id: int
         :param same_lane_filter: When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
         :type same_lane_filter: bool
-        :param same_party_filter: When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.
-        :type same_party_filter: bool
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -4381,7 +4370,6 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             same_lane_filter=same_lane_filter,
-            same_party_filter=same_party_filter,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -4418,7 +4406,6 @@ class AnalyticsApi:
         min_match_id,
         max_match_id,
         same_lane_filter,
-        same_party_filter,
         min_matches,
         max_matches,
         account_id,
@@ -4493,10 +4480,6 @@ class AnalyticsApi:
         if same_lane_filter is not None:
             
             _query_params.append(('same_lane_filter', same_lane_filter))
-            
-        if same_party_filter is not None:
-            
-            _query_params.append(('same_party_filter', same_party_filter))
             
         if min_matches is not None:
             

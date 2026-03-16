@@ -150,7 +150,6 @@ Class | Method | HTTP request | Description
 *PlayersAPI* | [**EnemyStats**](docs/PlayersAPI.md#enemystats) | **Get** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersAPI* | [**MatchHistory**](docs/PlayersAPI.md#matchhistory) | **Get** /v1/players/{account_id}/match-history | Match History
 *PlayersAPI* | [**MateStats**](docs/PlayersAPI.md#matestats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
-*PlayersAPI* | [**PartyStats**](docs/PlayersAPI.md#partystats) | **Get** /v1/players/{account_id}/party-stats | Party Stats
 *PlayersAPI* | [**PlayerHeroStats**](docs/PlayersAPI.md#playerherostats) | **Get** /v1/players/hero-stats | Hero Stats
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
 *SQLAPI* | [**Sql**](docs/SQLAPI.md#sql) | **Get** /v1/sql | Query
@@ -202,7 +201,6 @@ Class | Method | HTTP request | Description
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
- - [PartyStats](docs/PartyStats.md)
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)

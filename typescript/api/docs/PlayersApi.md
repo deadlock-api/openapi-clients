@@ -9,7 +9,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**enemyStats**](#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats|
 |[**matchHistory**](#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History|
 |[**mateStats**](#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats|
-|[**partyStats**](#partystats) | **GET** /v1/players/{account_id}/party-stats | Party Stats|
 |[**playerHeroStats**](#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats|
 
 # **accountStats**
@@ -288,7 +287,6 @@ let minMatchId: number; //Filter matches based on their ID. (optional) (default 
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let minMatchesPlayed: number; //Filter based on the number of matches played. (optional) (default to undefined)
 let maxMatchesPlayed: number; //Filter based on the number of matches played. (optional) (default to undefined)
-let sameParty: boolean; //Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional) (default to true)
 
 const { status, data } = await apiInstance.mateStats(
     accountId,
@@ -300,8 +298,7 @@ const { status, data } = await apiInstance.mateStats(
     minMatchId,
     maxMatchId,
     minMatchesPlayed,
-    maxMatchesPlayed,
-    sameParty
+    maxMatchesPlayed
 );
 ```
 
@@ -319,7 +316,6 @@ const { status, data } = await apiInstance.mateStats(
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **minMatchesPlayed** | [**number**] | Filter based on the number of matches played. | (optional) defaults to undefined|
 | **maxMatchesPlayed** | [**number**] | Filter based on the number of matches played. | (optional) defaults to undefined|
-| **sameParty** | [**boolean**] | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | (optional) defaults to true|
 
 
 ### Return type
@@ -342,80 +338,6 @@ No authorization required
 |**200** | Mate Stats |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**500** | Failed to fetch mate stats |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **partyStats**
-> Array<PartyStats> partyStats()
-
- This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-
-### Example
-
-```typescript
-import {
-    PlayersApi,
-    Configuration
-} from 'deadlock_api_client';
-
-const configuration = new Configuration();
-const apiInstance = new PlayersApi(configuration);
-
-let accountId: number; //The players `SteamID3` (default to undefined)
-let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
-let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
-let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
-let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
-let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
-let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
-
-const { status, data } = await apiInstance.partyStats(
-    accountId,
-    gameMode,
-    minUnixTimestamp,
-    maxUnixTimestamp,
-    minDurationS,
-    maxDurationS,
-    minMatchId,
-    maxMatchId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
-| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
-| **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
-| **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
-| **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
-| **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
-| **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
-
-
-### Return type
-
-**Array<PartyStats>**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Party Stats |  -  |
-|**400** | Provided parameters are invalid. |  -  |
-|**500** | Failed to fetch party stats |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

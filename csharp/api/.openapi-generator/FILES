@@ -58,7 +58,6 @@ docs/models/MMRHistory.md
 docs/models/MatchSaltsResponse.md
 docs/models/MatchSpectateResponse.md
 docs/models/MateStats.md
-docs/models/PartyStats.md
 docs/models/Patch.md
 docs/models/PatchCategory.md
 docs/models/PatchGuid.md
@@ -138,7 +137,6 @@ src/DeadlockApiClient.Test/Model/MMRHistoryTests.cs
 src/DeadlockApiClient.Test/Model/MatchSaltsResponseTests.cs
 src/DeadlockApiClient.Test/Model/MatchSpectateResponseTests.cs
 src/DeadlockApiClient.Test/Model/MateStatsTests.cs
-src/DeadlockApiClient.Test/Model/PartyStatsTests.cs
 src/DeadlockApiClient.Test/Model/PatchCategoryTests.cs
 src/DeadlockApiClient.Test/Model/PatchGuidTests.cs
 src/DeadlockApiClient.Test/Model/PatchTests.cs
@@ -238,7 +236,6 @@ src/DeadlockApiClient/Model/MMRHistory.cs
 src/DeadlockApiClient/Model/MatchSaltsResponse.cs
 src/DeadlockApiClient/Model/MatchSpectateResponse.cs
 src/DeadlockApiClient/Model/MateStats.cs
-src/DeadlockApiClient/Model/PartyStats.cs
 src/DeadlockApiClient/Model/Patch.cs
 src/DeadlockApiClient/Model/PatchCategory.cs
 src/DeadlockApiClient/Model/PatchGuid.cs

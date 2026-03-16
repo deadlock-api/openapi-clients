@@ -9,7 +9,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**EnemyStats**](PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | [**MatchHistory**](PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**MateStats**](PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
-| [**PartyStats**](PlayersApi.md#partystats) | **GET** /v1/players/{account_id}/party-stats | Party Stats |
 | [**PlayerHeroStats**](PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
 
 <a id="accountstats"></a>
@@ -182,7 +181,7 @@ No authorization required
 
 <a id="matestats"></a>
 # **MateStats**
-> List&lt;MateStats&gt; MateStats (int accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null, bool sameParty = null)
+> List&lt;MateStats&gt; MateStats (int accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null)
 
 Mate Stats
 
@@ -203,7 +202,6 @@ Mate Stats
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **minMatchesPlayed** | **long** | Filter based on the number of matches played. | [optional]  |
 | **maxMatchesPlayed** | **long** | Filter based on the number of matches played. | [optional]  |
-| **sameParty** | **bool** | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to true] |
 
 ### Return type
 
@@ -225,51 +223,6 @@ No authorization required
 | **200** | Mate Stats |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Failed to fetch mate stats |  -  |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-<a id="partystats"></a>
-# **PartyStats**
-> List&lt;PartyStats&gt; PartyStats (int accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minMatchId = null, long maxMatchId = null)
-
-Party Stats
-
- This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
-
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
-| **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
-| **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
-| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
-| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
-| **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
-| **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
-
-### Return type
-
-[**List&lt;PartyStats&gt;**](PartyStats.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Party Stats |  -  |
-| **400** | Provided parameters are invalid. |  -  |
-| **500** | Failed to fetch party stats |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

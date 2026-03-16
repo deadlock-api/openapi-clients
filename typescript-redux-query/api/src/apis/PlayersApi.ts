@@ -24,9 +24,6 @@ import {
     MateStats,
     MateStatsFromJSON,
     MateStatsToJSON,
-    PartyStats,
-    PartyStatsFromJSON,
-    PartyStatsToJSON,
     PlayerAccountStats,
     PlayerAccountStatsFromJSON,
     PlayerAccountStatsToJSON,
@@ -76,18 +73,6 @@ export interface MateStatsRequest {
     maxMatchId?: number;
     minMatchesPlayed?: number;
     maxMatchesPlayed?: number;
-    sameParty?: boolean;
-}
-
-export interface PartyStatsRequest {
-    accountId: number;
-    gameMode?: PartyStatsGameModeEnum;
-    minUnixTimestamp?: number;
-    maxUnixTimestamp?: number;
-    minDurationS?: number;
-    maxDurationS?: number;
-    minMatchId?: number;
-    maxMatchId?: number;
 }
 
 export interface PlayerHeroStatsRequest {
@@ -414,11 +399,6 @@ function mateStatsRaw<T>(requestParameters: MateStatsRequest, requestConfig: run
         queryParameters['max_matches_played'] = requestParameters.maxMatchesPlayed;
     }
 
-
-    if (requestParameters.sameParty !== undefined) {
-        queryParameters['same_party'] = requestParameters.sameParty;
-    }
-
     const headerParameters : runtime.HttpHeaders = {};
 
 
@@ -453,90 +433,6 @@ function mateStatsRaw<T>(requestParameters: MateStatsRequest, requestConfig: run
 */
 export function mateStats<T>(requestParameters: MateStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<MateStats>>): QueryConfig<T> {
     return mateStatsRaw(requestParameters, requestConfig);
-}
-
-/**
- *  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
- * Party Stats
- */
-function partyStatsRaw<T>(requestParameters: PartyStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PartyStats>> = {}): QueryConfig<T> {
-    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
-        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling partyStats.');
-    }
-
-    let queryParameters = null;
-
-    queryParameters = {};
-
-
-    if (requestParameters.gameMode !== undefined) {
-        queryParameters['game_mode'] = requestParameters.gameMode;
-    }
-
-
-    if (requestParameters.minUnixTimestamp !== undefined) {
-        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
-    }
-
-
-    if (requestParameters.maxUnixTimestamp !== undefined) {
-        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
-    }
-
-
-    if (requestParameters.minDurationS !== undefined) {
-        queryParameters['min_duration_s'] = requestParameters.minDurationS;
-    }
-
-
-    if (requestParameters.maxDurationS !== undefined) {
-        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
-    }
-
-
-    if (requestParameters.minMatchId !== undefined) {
-        queryParameters['min_match_id'] = requestParameters.minMatchId;
-    }
-
-
-    if (requestParameters.maxMatchId !== undefined) {
-        queryParameters['max_match_id'] = requestParameters.maxMatchId;
-    }
-
-    const headerParameters : runtime.HttpHeaders = {};
-
-
-    const { meta = {} } = requestConfig;
-
-    const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/party-stats`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
-        meta,
-        update: requestConfig.update,
-        queryKey: requestConfig.queryKey,
-        optimisticUpdate: requestConfig.optimisticUpdate,
-        force: requestConfig.force,
-        rollback: requestConfig.rollback,
-        options: {
-            method: 'GET',
-            headers: headerParameters,
-        },
-        body: queryParameters,
-    };
-
-    const { transform: requestTransform } = requestConfig;
-    if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(PartyStatsFromJSON), text);
-    }
-
-    return config;
-}
-
-/**
-*  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-* Party Stats
-*/
-export function partyStats<T>(requestParameters: PartyStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PartyStats>>): QueryConfig<T> {
-    return partyStatsRaw(requestParameters, requestConfig);
 }
 
 /**
@@ -668,15 +564,6 @@ export enum EnemyStatsGameModeEnum {
     * @enum {string}
     */
 export enum MateStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PartyStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c'

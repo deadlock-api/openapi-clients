@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**enemy_stats**](PlayersApi.md#enemy_stats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
-[**party_stats**](PlayersApi.md#party_stats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
 
 
@@ -147,7 +146,7 @@ No authorization required
 
 ## mate_stats
 
-> Vec<models::MateStats> mate_stats(account_id, game_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_match_id, max_match_id, min_matches_played, max_matches_played, same_party)
+> Vec<models::MateStats> mate_stats(account_id, game_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_match_id, max_match_id, min_matches_played, max_matches_played)
 Mate Stats
 
  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -167,48 +166,10 @@ Name | Type | Description  | Required | Notes
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **min_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
 **max_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
-**same_party** | Option<**bool**> | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. |  |[default to true]
 
 ### Return type
 
 [**Vec<models::MateStats>**](MateStats.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## party_stats
-
-> Vec<models::PartyStats> party_stats(account_id, game_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_match_id, max_match_id)
-Party Stats
-
- This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**account_id** | **u32** | The players `SteamID3` | [required] |
-**game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
-**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
-
-### Return type
-
-[**Vec<models::PartyStats>**](PartyStats.md)
 
 ### Authorization
 

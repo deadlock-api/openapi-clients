@@ -22,12 +22,7 @@ Accept: application/json
 
 ### Mate Stats
 ## Mate Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/mate-stats?gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}&sameParty={{sameParty}}
-Accept: application/json
-
-### Party Stats
-## Party Stats
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/party-stats?gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/mate-stats?gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatchesPlayed={{minMatchesPlayed}}&maxMatchesPlayed={{maxMatchesPlayed}}
 Accept: application/json
 
 ### Hero Stats

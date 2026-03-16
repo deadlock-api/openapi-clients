@@ -125,29 +125,9 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> maxMatchId = default!;
             Client.Option<long?> minMatchesPlayed = default!;
             Client.Option<long?> maxMatchesPlayed = default!;
-            Client.Option<bool> sameParty = default!;
-            var response = await _instance.MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
+            var response = await _instance.MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
             var model = response.Ok();
             Assert.IsType<List<MateStats>>(model);
-        }
-
-        /// <summary>
-        /// Test PartyStats
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task PartyStatsAsyncTest()
-        {
-            int accountId = default!;
-            Client.Option<string?> gameMode = default!;
-            Client.Option<long?> minUnixTimestamp = default!;
-            Client.Option<long?> maxUnixTimestamp = default!;
-            Client.Option<long?> minDurationS = default!;
-            Client.Option<long?> maxDurationS = default!;
-            Client.Option<long?> minMatchId = default!;
-            Client.Option<long?> maxMatchId = default!;
-            var response = await _instance.PartyStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId);
-            var model = response.Ok();
-            Assert.IsType<List<PartyStats>>(model);
         }
 
         /// <summary>

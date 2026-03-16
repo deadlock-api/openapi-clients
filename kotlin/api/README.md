@@ -117,7 +117,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**enemyStats**](docs/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | *PlayersApi* | [**matchHistory**](docs/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
-| *PlayersApi* | [**partyStats**](docs/PlayersApi.md#partystats) | **GET** /v1/players/{account_id}/party-stats | Party Stats |
 | *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
@@ -170,7 +169,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [deadlock_api_client.models.MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [deadlock_api_client.models.MateStats](docs/MateStats.md)
- - [deadlock_api_client.models.PartyStats](docs/PartyStats.md)
  - [deadlock_api_client.models.Patch](docs/Patch.md)
  - [deadlock_api_client.models.PatchCategory](docs/PatchCategory.md)
  - [deadlock_api_client.models.PatchGuid](docs/PatchGuid.md)

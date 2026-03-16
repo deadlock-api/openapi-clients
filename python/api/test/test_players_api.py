@@ -61,13 +61,6 @@ class TestPlayersApi(unittest.TestCase):
         """
         pass
 
-    def test_party_stats(self) -> None:
-        """Test case for party_stats
-
-        Party Stats
-        """
-        pass
-
     def test_player_hero_stats(self) -> None:
         """Test case for player_hero_stats
 

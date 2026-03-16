@@ -11,7 +11,6 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**enemyStats()**](PlayersApi.md#enemyStats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | [**matchHistory()**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats()**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
-| [**partyStats()**](PlayersApi.md#partyStats) | **GET** /v1/players/{account_id}/party-stats | Party Stats |
 | [**playerHeroStats()**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
 
 
@@ -264,7 +263,7 @@ No authorization required
 ## `mateStats()`
 
 ```php
-mateStats($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party): \OpenAPI\Client\Model\MateStats[]
+mateStats($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played): \OpenAPI\Client\Model\MateStats[]
 ```
 
 Mate Stats
@@ -294,10 +293,9 @@ $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $min_matches_played = 56; // int | Filter based on the number of matches played.
 $max_matches_played = 56; // int | Filter based on the number of matches played.
-$same_party = true; // bool | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
 
 try {
-    $result = $apiInstance->mateStats($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party);
+    $result = $apiInstance->mateStats($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlayersApi->mateStats: ', $e->getMessage(), PHP_EOL;
@@ -318,81 +316,10 @@ try {
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **min_matches_played** | **int**| Filter based on the number of matches played. | [optional] |
 | **max_matches_played** | **int**| Filter based on the number of matches played. | [optional] |
-| **same_party** | **bool**| Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to true] |
 
 ### Return type
 
 [**\OpenAPI\Client\Model\MateStats[]**](../Model/MateStats.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `partyStats()`
-
-```php
-partyStats($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id): \OpenAPI\Client\Model\PartyStats[]
-```
-
-Party Stats
-
-This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new OpenAPI\Client\Api\PlayersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$account_id = 56; // int | The players `SteamID3`
-$game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
-$max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
-$min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
-$max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
-$min_match_id = 56; // int | Filter matches based on their ID.
-$max_match_id = 56; // int | Filter matches based on their ID.
-
-try {
-    $result = $apiInstance->partyStats($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PlayersApi->partyStats: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
-| **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
-| **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\PartyStats[]**](../Model/PartyStats.md)
 
 ### Authorization
 

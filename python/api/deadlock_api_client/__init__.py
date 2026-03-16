@@ -81,7 +81,6 @@ __all__ = [
     "MatchSaltsResponse",
     "MatchSpectateResponse",
     "MateStats",
-    "PartyStats",
     "Patch",
     "PatchCategory",
     "PatchGuid",
@@ -172,7 +171,6 @@ from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse as MatchSpectateResponse
 from deadlock_api_client.models.mate_stats import MateStats as MateStats
-from deadlock_api_client.models.party_stats import PartyStats as PartyStats
 from deadlock_api_client.models.patch import Patch as Patch
 from deadlock_api_client.models.patch_category import PatchCategory as PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid as PatchGuid

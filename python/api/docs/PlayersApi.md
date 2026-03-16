@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**enemy_stats**](PlayersApi.md#enemy_stats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
-[**party_stats**](PlayersApi.md#party_stats) | **GET** /v1/players/{account_id}/party-stats | Party Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
 
 
@@ -389,7 +388,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mate_stats**
-> List[MateStats] mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played, same_party=same_party)
+> List[MateStats] mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played)
 
 Mate Stats
 
@@ -434,11 +433,10 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
     min_matches_played = 56 # int | Filter based on the number of matches played. (optional)
     max_matches_played = 56 # int | Filter based on the number of matches played. (optional)
-    same_party = True # bool | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional) (default to True)
 
     try:
         # Mate Stats
-        api_response = api_instance.mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played, same_party=same_party)
+        api_response = api_instance.mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played)
         print("The response of PlayersApi->mate_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -462,7 +460,6 @@ Name | Type | Description  | Notes
  **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
  **min_matches_played** | **int**| Filter based on the number of matches played. | [optional] 
  **max_matches_played** | **int**| Filter based on the number of matches played. | [optional] 
- **same_party** | **bool**| Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to True]
 
 ### Return type
 
@@ -484,99 +481,6 @@ No authorization required
 **200** | Mate Stats |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **500** | Failed to fetch mate stats |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **party_stats**
-> List[PartyStats] party_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id)
-
-Party Stats
-
-
-This endpoint returns the party stats.
-
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-    
-
-### Example
-
-
-```python
-import deadlock_api_client
-from deadlock_api_client.models.party_stats import PartyStats
-from deadlock_api_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.deadlock-api.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = deadlock_api_client.Configuration(
-    host = "https://api.deadlock-api.com"
-)
-
-
-# Enter a context with an instance of the API client
-with deadlock_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = deadlock_api_client.PlayersApi(api_client)
-    account_id = 56 # int | The players `SteamID3`
-    game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
-    max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
-    min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
-    max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
-    min_match_id = 56 # int | Filter matches based on their ID. (optional)
-    max_match_id = 56 # int | Filter matches based on their ID. (optional)
-
-    try:
-        # Party Stats
-        api_response = api_instance.party_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id)
-        print("The response of PlayersApi->party_stats:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling PlayersApi->party_stats: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
- **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
- **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
- **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
- **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
- **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
- **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
-
-### Return type
-
-[**List[PartyStats]**](PartyStats.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Party Stats |  -  |
-**400** | Provided parameters are invalid. |  -  |
-**500** | Failed to fetch party stats |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

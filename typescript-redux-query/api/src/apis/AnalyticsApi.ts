@@ -213,7 +213,6 @@ export interface HeroSynergiesStatsRequest {
     minMatchId?: number;
     maxMatchId?: number;
     sameLaneFilter?: boolean;
-    samePartyFilter?: boolean;
     minMatches?: number;
     maxMatches?: number;
     accountId?: number;
@@ -1357,11 +1356,6 @@ function heroSynergiesStatsRaw<T>(requestParameters: HeroSynergiesStatsRequest, 
 
     if (requestParameters.sameLaneFilter !== undefined) {
         queryParameters['same_lane_filter'] = requestParameters.sameLaneFilter;
-    }
-
-
-    if (requestParameters.samePartyFilter !== undefined) {
-        queryParameters['same_party_filter'] = requestParameters.samePartyFilter;
     }
 
 

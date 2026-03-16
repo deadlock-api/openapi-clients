@@ -9,7 +9,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**enemyStats**](PlayersApi.md#enemyStats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | [**matchHistory**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
-| [**partyStats**](PlayersApi.md#partyStats) | **GET** /v1/players/{account_id}/party-stats | Party Stats |
 | [**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
 
 
@@ -221,7 +220,7 @@ No authorization required
 
 <a id="mateStats"></a>
 # **mateStats**
-> kotlin.collections.List&lt;MateStats&gt; mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
+> kotlin.collections.List&lt;MateStats&gt; mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
 
 Mate Stats
 
@@ -244,9 +243,8 @@ val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on thei
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
 val maxMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
-val sameParty : kotlin.Boolean = true // kotlin.Boolean | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
 try {
-    val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
+    val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#mateStats")
@@ -267,74 +265,13 @@ try {
 | **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
-| **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sameParty** | **kotlin.Boolean**| Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [optional] [default to true] |
+| **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
 
 ### Return type
 
 [**kotlin.collections.List&lt;MateStats&gt;**](MateStats.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="partyStats"></a>
-# **partyStats**
-> kotlin.collections.List&lt;PartyStats&gt; partyStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId)
-
-Party Stats
-
- This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
-
-### Example
-```kotlin
-// Import classes:
-//import deadlock_api_client.infrastructure.*
-//import deadlock_api_client.models.*
-
-val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-try {
-    val result : kotlin.collections.List<PartyStats> = apiInstance.partyStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PlayersApi#partyStats")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PlayersApi#partyStats")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-
-### Return type
-
-[**kotlin.collections.List&lt;PartyStats&gt;**](PartyStats.md)
 
 ### Authorization
 

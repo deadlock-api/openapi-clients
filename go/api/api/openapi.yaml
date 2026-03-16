@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -369,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -501,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -575,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -709,7 +709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -959,7 +959,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -1213,7 +1213,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -1475,7 +1475,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -1590,18 +1590,6 @@ paths:
         explode: true
         in: query
         name: same_lane_filter
-        required: false
-        schema:
-          default: true
-          nullable: true
-          type: boolean
-        style: form
-      - description: "When `true`, only considers matchups where both `hero_id` and\
-          \ `hero_id2` were on the same party. When `false`, considers all matchups\
-          \ regardless of party affiliation."
-        explode: true
-        in: query
-        name: same_party_filter
         required: false
         schema:
           default: true
@@ -1754,7 +1742,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -1980,7 +1968,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -2245,7 +2233,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -2535,7 +2523,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -2754,7 +2742,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -3051,7 +3039,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -5267,7 +5255,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -5386,7 +5374,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1770854400
+          default: 1770940800
           format: int64
           nullable: true
           type: integer
@@ -6037,17 +6025,6 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: |-
-          Filter based on whether the mates were on the same party.
-          **Careful:** this will require us to use the match metadata, which can have missing matches.
-        explode: true
-        in: query
-        name: same_party
-        required: false
-        schema:
-          default: true
-          type: boolean
-        style: form
       responses:
         "200":
           content:
@@ -6136,119 +6113,6 @@ paths:
       summary: Hero MMR History
       tags:
       - MMR
-  /v1/players/{account_id}/party-stats:
-    get:
-      description: "\nThis endpoint returns the party stats.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
-      operationId: party_stats
-      parameters:
-      - description: The players `SteamID3`
-        explode: false
-        in: path
-        name: account_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      - description: "Filter matches based on their game mode. Valid values: `normal`,\
-          \ `street_brawl`. **Default:** `normal`."
-        explode: true
-        in: query
-        name: game_mode
-        required: false
-        schema:
-          enum:
-          - normal
-          - street_brawl
-          - explore_n_y_c
-          nullable: true
-          type: string
-        style: form
-      - description: Filter matches based on their start time (Unix timestamp).
-        explode: true
-        in: query
-        name: min_unix_timestamp
-        required: false
-        schema:
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their start time (Unix timestamp).
-        explode: true
-        in: query
-        name: max_unix_timestamp
-        required: false
-        schema:
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their duration in seconds (up to 7000s).
-        explode: true
-        in: query
-        name: min_duration_s
-        required: false
-        schema:
-          format: int64
-          maximum: 7000
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their duration in seconds (up to 7000s).
-        explode: true
-        in: query
-        name: max_duration_s
-        required: false
-        schema:
-          format: int64
-          maximum: 7000
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: min_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: max_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/PartyStats"
-                type: array
-          description: Party Stats
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch party stats
-      summary: Party Stats
-      tags:
-      - Players
   /v1/sql:
     get:
       description: "\nExecutes a SQL query on the database.\n\n### Rate Limits:\n\
@@ -8433,38 +8297,6 @@ components:
       - matches
       - matches_played
       - mate_id
-      - wins
-    PartyStats:
-      example:
-        matches_played: 0
-        wins: 0
-        party_size: 0
-        matches:
-        - 0
-        - 0
-      properties:
-        matches:
-          items:
-            format: int64
-            minimum: 0
-            type: integer
-          type: array
-        matches_played:
-          format: int64
-          minimum: 0
-          type: integer
-        party_size:
-          format: int64
-          minimum: 0
-          type: integer
-        wins:
-          format: int64
-          minimum: 0
-          type: integer
-      required:
-      - matches
-      - matches_played
-      - party_size
       - wins
     Patch:
       example:

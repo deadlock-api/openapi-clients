@@ -168,10 +168,9 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
-        /// <param name="sameParty">Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Mate Stats
@@ -189,47 +188,9 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
-        /// <param name="sameParty">Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>?&gt;</returns>
-        Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Party Stats
-        /// </summary>
-        /// <remarks>
-        ///  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
-        /// </remarks>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IPartyStatsApiResponse"/>&gt;</returns>
-        Task<IPartyStatsApiResponse> PartyStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Party Stats
-        /// </summary>
-        /// <remarks>
-        ///  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
-        /// </remarks>
-        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IPartyStatsApiResponse"/>?&gt;</returns>
-        Task<IPartyStatsApiResponse?> PartyStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Stats
@@ -430,30 +391,6 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
-    /// The <see cref="IPartyStatsApiResponse"/>
-    /// </summary>
-    public interface IPartyStatsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<PartyStats>?>
-    {
-        /// <summary>
-        /// Returns true if the response is 200 Ok
-        /// </summary>
-        /// <returns></returns>
-        bool IsOk { get; }
-
-        /// <summary>
-        /// Returns true if the response is 400 BadRequest
-        /// </summary>
-        /// <returns></returns>
-        bool IsBadRequest { get; }
-
-        /// <summary>
-        /// Returns true if the response is 500 InternalServerError
-        /// </summary>
-        /// <returns></returns>
-        bool IsInternalServerError { get; }
-    }
-
-    /// <summary>
     /// The <see cref="IPlayerHeroStatsApiResponse"/>
     /// </summary>
     public interface IPlayerHeroStatsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<HeroStats>?>
@@ -580,26 +517,6 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorMateStats(Exception exception)
         {
             OnErrorMateStats?.Invoke(this, new ExceptionEventArgs(exception));
-        }
-
-        /// <summary>
-        /// The event raised after the server response
-        /// </summary>
-        public event EventHandler<ApiResponseEventArgs>? OnPartyStats;
-
-        /// <summary>
-        /// The event raised after an error querying the server
-        /// </summary>
-        public event EventHandler<ExceptionEventArgs>? OnErrorPartyStats;
-
-        internal void ExecuteOnPartyStats(PlayersApi.PartyStatsApiResponse apiResponse)
-        {
-            OnPartyStats?.Invoke(this, new ApiResponseEventArgs(apiResponse));
-        }
-
-        internal void ExecuteOnErrorPartyStats(Exception exception)
-        {
-            OnErrorPartyStats?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -1771,7 +1688,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMateStats(ref int accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed, ref Option<bool> sameParty);
+        partial void FormatMateStats(ref int accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed);
 
         /// <summary>
         /// Processes the server response
@@ -1787,11 +1704,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        /// <param name="sameParty"></param>
-        private void AfterMateStatsDefaultImplementation(IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
+        private void AfterMateStatsDefaultImplementation(IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
         {
             bool suppressDefaultLog = false;
-            AfterMateStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
+            AfterMateStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1811,8 +1727,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        /// <param name="sameParty"></param>
-        partial void AfterMateStats(ref bool suppressDefaultLog, IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
+        partial void AfterMateStats(ref bool suppressDefaultLog, IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1830,11 +1745,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        /// <param name="sameParty"></param>
-        private void OnErrorMateStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
+        private void OnErrorMateStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorMateStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
+            OnErrorMateStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1856,8 +1770,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        /// <param name="sameParty"></param>
-        partial void OnErrorMateStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
+        partial void OnErrorMateStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
 
         /// <summary>
         /// Mate Stats  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -1872,14 +1785,13 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
-        /// <param name="sameParty">Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        public async Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty, cancellationToken).ConfigureAwait(false);
+                return await MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1901,16 +1813,15 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
-        /// <param name="sameParty">Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        public async Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatMateStats(ref accountId, ref gameMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minMatchId, ref maxMatchId, ref minMatchesPlayed, ref maxMatchesPlayed, ref sameParty);
+                FormatMateStats(ref accountId, ref gameMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minMatchId, ref maxMatchId, ref minMatchesPlayed, ref maxMatchesPlayed);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1951,9 +1862,6 @@ namespace DeadlockApiClient.Api
                     if (maxMatchesPlayed.IsSet)
                         parseQueryStringLocalVar["max_matches_played"] = ClientUtils.ParameterToString(maxMatchesPlayed.Value);
 
-                    if (sameParty.IsSet)
-                        parseQueryStringLocalVar["same_party"] = ClientUtils.ParameterToString(sameParty.Value);
-
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1985,7 +1893,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterMateStatsDefaultImplementation(apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
+                        AfterMateStatsDefaultImplementation(apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
 
                         Events.ExecuteOnMateStats(apiResponseLocalVar);
 
@@ -1995,7 +1903,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorMateStatsDefaultImplementation(e, "/v1/players/{account_id}/mate-stats", uriBuilderLocalVar.Path, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
+                OnErrorMateStatsDefaultImplementation(e, "/v1/players/{account_id}/mate-stats", uriBuilderLocalVar.Path, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
                 Events.ExecuteOnErrorMateStats(e);
                 throw;
             }
@@ -2069,314 +1977,6 @@ namespace DeadlockApiClient.Api
             /// <param name="result"></param>
             /// <returns></returns>
             public bool TryOk([NotNullWhen(true)]out List<MateStats>? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = Ok();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
-                }
-
-                return result != null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 400 BadRequest
-            /// </summary>
-            /// <returns></returns>
-            public bool IsBadRequest => 400 == (int)StatusCode;
-
-            /// <summary>
-            /// Returns true if the response is 500 InternalServerError
-            /// </summary>
-            /// <returns></returns>
-            public bool IsInternalServerError => 500 == (int)StatusCode;
-
-            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
-            {
-                bool suppressDefaultLog = false;
-                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
-                if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
-            }
-
-            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
-        }
-
-        partial void FormatPartyStats(ref int accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
-
-        /// <summary>
-        /// Processes the server response
-        /// </summary>
-        /// <param name="apiResponseLocalVar"></param>
-        /// <param name="accountId"></param>
-        /// <param name="gameMode"></param>
-        /// <param name="minUnixTimestamp"></param>
-        /// <param name="maxUnixTimestamp"></param>
-        /// <param name="minDurationS"></param>
-        /// <param name="maxDurationS"></param>
-        /// <param name="minMatchId"></param>
-        /// <param name="maxMatchId"></param>
-        private void AfterPartyStatsDefaultImplementation(IPartyStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId)
-        {
-            bool suppressDefaultLog = false;
-            AfterPartyStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId);
-            if (!suppressDefaultLog)
-                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
-        }
-
-        /// <summary>
-        /// Processes the server response
-        /// </summary>
-        /// <param name="suppressDefaultLog"></param>
-        /// <param name="apiResponseLocalVar"></param>
-        /// <param name="accountId"></param>
-        /// <param name="gameMode"></param>
-        /// <param name="minUnixTimestamp"></param>
-        /// <param name="maxUnixTimestamp"></param>
-        /// <param name="minDurationS"></param>
-        /// <param name="maxDurationS"></param>
-        /// <param name="minMatchId"></param>
-        /// <param name="maxMatchId"></param>
-        partial void AfterPartyStats(ref bool suppressDefaultLog, IPartyStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId);
-
-        /// <summary>
-        /// Logs exceptions that occur while retrieving the server response
-        /// </summary>
-        /// <param name="exceptionLocalVar"></param>
-        /// <param name="pathFormatLocalVar"></param>
-        /// <param name="pathLocalVar"></param>
-        /// <param name="accountId"></param>
-        /// <param name="gameMode"></param>
-        /// <param name="minUnixTimestamp"></param>
-        /// <param name="maxUnixTimestamp"></param>
-        /// <param name="minDurationS"></param>
-        /// <param name="maxDurationS"></param>
-        /// <param name="minMatchId"></param>
-        /// <param name="maxMatchId"></param>
-        private void OnErrorPartyStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId)
-        {
-            bool suppressDefaultLogLocalVar = false;
-            OnErrorPartyStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId);
-            if (!suppressDefaultLogLocalVar)
-                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
-        }
-
-        /// <summary>
-        /// A partial method that gives developers a way to provide customized exception handling
-        /// </summary>
-        /// <param name="suppressDefaultLogLocalVar"></param>
-        /// <param name="exceptionLocalVar"></param>
-        /// <param name="pathFormatLocalVar"></param>
-        /// <param name="pathLocalVar"></param>
-        /// <param name="accountId"></param>
-        /// <param name="gameMode"></param>
-        /// <param name="minUnixTimestamp"></param>
-        /// <param name="maxUnixTimestamp"></param>
-        /// <param name="minDurationS"></param>
-        /// <param name="maxDurationS"></param>
-        /// <param name="minMatchId"></param>
-        /// <param name="maxMatchId"></param>
-        partial void OnErrorPartyStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId);
-
-        /// <summary>
-        /// Party Stats  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
-        /// </summary>
-        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IPartyStatsApiResponse"/>&gt;</returns>
-        public async Task<IPartyStatsApiResponse?> PartyStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
-        {
-            try
-            {
-                return await PartyStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, cancellationToken).ConfigureAwait(false);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Party Stats  This endpoint returns the party stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
-        /// </summary>
-        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
-        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
-        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IPartyStatsApiResponse"/>&gt;</returns>
-        public async Task<IPartyStatsApiResponse> PartyStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
-        {
-            UriBuilder uriBuilderLocalVar = new UriBuilder();
-
-            try
-            {
-                FormatPartyStats(ref accountId, ref gameMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minMatchId, ref maxMatchId);
-
-                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
-                {
-                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
-                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
-                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
-                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/v1/players/{account_id}/party-stats"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/party-stats");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
-
-                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
-
-                    if (gameMode.IsSet)
-                        parseQueryStringLocalVar["game_mode"] = ClientUtils.ParameterToString(gameMode.Value);
-
-                    if (minUnixTimestamp.IsSet)
-                        parseQueryStringLocalVar["min_unix_timestamp"] = ClientUtils.ParameterToString(minUnixTimestamp.Value);
-
-                    if (maxUnixTimestamp.IsSet)
-                        parseQueryStringLocalVar["max_unix_timestamp"] = ClientUtils.ParameterToString(maxUnixTimestamp.Value);
-
-                    if (minDurationS.IsSet)
-                        parseQueryStringLocalVar["min_duration_s"] = ClientUtils.ParameterToString(minDurationS.Value);
-
-                    if (maxDurationS.IsSet)
-                        parseQueryStringLocalVar["max_duration_s"] = ClientUtils.ParameterToString(maxDurationS.Value);
-
-                    if (minMatchId.IsSet)
-                        parseQueryStringLocalVar["min_match_id"] = ClientUtils.ParameterToString(minMatchId.Value);
-
-                    if (maxMatchId.IsSet)
-                        parseQueryStringLocalVar["max_match_id"] = ClientUtils.ParameterToString(maxMatchId.Value);
-
-                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
-
-                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
-
-                    string[] acceptLocalVars = new string[] {
-                        "application/json"
-                    };
-
-                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
-
-                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
-                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
-
-                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
-
-                    DateTime requestedAtLocalVar = DateTime.UtcNow;
-
-                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
-                    {
-                        ILogger<PartyStatsApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<PartyStatsApiResponse>();
-                        PartyStatsApiResponse apiResponseLocalVar;
-
-                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
-                            default: {
-                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/{account_id}/party-stats", requestedAtLocalVar, _jsonSerializerOptions);
-
-                                break;
-                            }
-                        }
-
-                        AfterPartyStatsDefaultImplementation(apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId);
-
-                        Events.ExecuteOnPartyStats(apiResponseLocalVar);
-
-                        return apiResponseLocalVar;
-                    }
-                }
-            }
-            catch(Exception e)
-            {
-                OnErrorPartyStatsDefaultImplementation(e, "/v1/players/{account_id}/party-stats", uriBuilderLocalVar.Path, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId);
-                Events.ExecuteOnErrorPartyStats(e);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// The <see cref="PartyStatsApiResponse"/>
-        /// </summary>
-        public partial class PartyStatsApiResponse : DeadlockApiClient.Client.ApiResponse, IPartyStatsApiResponse
-        {
-            /// <summary>
-            /// The logger
-            /// </summary>
-            public ILogger<PartyStatsApiResponse> Logger { get; }
-
-            /// <summary>
-            /// The <see cref="PartyStatsApiResponse"/>
-            /// </summary>
-            /// <param name="logger"></param>
-            /// <param name="httpRequestMessage"></param>
-            /// <param name="httpResponseMessage"></param>
-            /// <param name="rawContent"></param>
-            /// <param name="path"></param>
-            /// <param name="requestedAt"></param>
-            /// <param name="jsonSerializerOptions"></param>
-            public PartyStatsApiResponse(ILogger<PartyStatsApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
-            {
-                Logger = logger;
-                OnCreated(httpRequestMessage, httpResponseMessage);
-            }
-
-            /// <summary>
-            /// The <see cref="PartyStatsApiResponse"/>
-            /// </summary>
-            /// <param name="logger"></param>
-            /// <param name="httpRequestMessage"></param>
-            /// <param name="httpResponseMessage"></param>
-            /// <param name="contentStream"></param>
-            /// <param name="path"></param>
-            /// <param name="requestedAt"></param>
-            /// <param name="jsonSerializerOptions"></param>
-            public PartyStatsApiResponse(ILogger<PartyStatsApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
-            {
-                Logger = logger;
-                OnCreated(httpRequestMessage, httpResponseMessage);
-            }
-
-            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
-
-            /// <summary>
-            /// Returns true if the response is 200 Ok
-            /// </summary>
-            /// <returns></returns>
-            public bool IsOk => 200 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 200 Ok
-            /// </summary>
-            /// <returns></returns>
-            public List<PartyStats>? Ok()
-            {
-                // This logic may be modified with the AsModel.mustache template
-                return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<List<PartyStats>>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 200 Ok and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out List<PartyStats>? result)
             {
                 result = null;
 

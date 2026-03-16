@@ -270,12 +270,11 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
             Client.Option<bool?> sameLaneFilter = default!;
-            Client.Option<bool?> samePartyFilter = default!;
             Client.Option<long?> minMatches = default!;
             Client.Option<int?> maxMatches = default!;
             Client.Option<int?> accountId = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.HeroSynergiesStatsAsync(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, samePartyFilter, minMatches, maxMatches, accountId, accountIds);
+            var response = await _instance.HeroSynergiesStatsAsync(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds);
             var model = response.Ok();
             Assert.IsType<List<HeroSynergyStats>>(model);
         }

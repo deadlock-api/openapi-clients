@@ -22,7 +22,6 @@ import deadlock_api_client.apis.PlayersApi
 import deadlock_api_client.models.EnemyStats
 import deadlock_api_client.models.HeroStats
 import deadlock_api_client.models.MateStats
-import deadlock_api_client.models.PartyStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
@@ -88,23 +87,7 @@ class PlayersApiTest : ShouldSpec() {
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
             //val maxMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
-            //val sameParty : kotlin.Boolean = true // kotlin.Boolean | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches.
-            //val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
-            //result shouldBe ("TODO")
-        }
-
-        // to test partyStats
-        should("test partyStats") {
-            // uncomment below to test partyStats
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-            //val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-            //val result : kotlin.collections.List<PartyStats> = apiInstance.partyStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId)
+            //val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
             //result shouldBe ("TODO")
         }
 

@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**EnemyStats**](PlayersAPI.md#EnemyStats) | **Get** /v1/players/{account_id}/enemy-stats | Enemy Stats
 [**MatchHistory**](PlayersAPI.md#MatchHistory) | **Get** /v1/players/{account_id}/match-history | Match History
 [**MateStats**](PlayersAPI.md#MateStats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
-[**PartyStats**](PlayersAPI.md#PartyStats) | **Get** /v1/players/{account_id}/party-stats | Party Stats
 [**PlayerHeroStats**](PlayersAPI.md#PlayerHeroStats) | **Get** /v1/players/hero-stats | Hero Stats
 
 
@@ -318,7 +317,7 @@ No authorization required
 
 ## MateStats
 
-> []MateStats MateStats(ctx, accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).SameParty(sameParty).Execute()
+> []MateStats MateStats(ctx, accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).Execute()
 
 Mate Stats
 
@@ -347,11 +346,10 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
 	maxMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
-	sameParty := true // bool | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.MateStats(context.Background(), accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).SameParty(sameParty).Execute()
+	resp, r, err := apiClient.PlayersAPI.MateStats(context.Background(), accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.MateStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -386,95 +384,10 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
  **maxMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
- **sameParty** | **bool** | Filter based on whether the mates were on the same party. **Careful:** this will require us to use the match metadata, which can have missing matches. | [default to true]
 
 ### Return type
 
 [**[]MateStats**](MateStats.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## PartyStats
-
-> []PartyStats PartyStats(ctx, accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
-
-Party Stats
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/deadlock-api/openapi-clients"
-)
-
-func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
-	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.PartyStats(context.Background(), accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.PartyStats``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PartyStats`: []PartyStats
-	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.PartyStats`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPartyStatsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **minMatchId** | **int64** | Filter matches based on their ID. | 
- **maxMatchId** | **int64** | Filter matches based on their ID. | 
-
-### Return type
-
-[**[]PartyStats**](PartyStats.md)
 
 ### Authorization
 

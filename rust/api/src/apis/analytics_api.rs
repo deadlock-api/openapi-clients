@@ -309,8 +309,6 @@ pub struct HeroSynergiesStatsParams {
     pub max_match_id: Option<u64>,
     /// When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.
     pub same_lane_filter: Option<bool>,
-    /// When `true`, only considers matchups where both `hero_id` and `hero_id2` were on the same party. When `false`, considers all matchups regardless of party affiliation.
-    pub same_party_filter: Option<bool>,
     /// The minimum number of matches played for a hero combination to be included in the response.
     pub min_matches: Option<u64>,
     /// The maximum number of matches played for a hero combination to be included in the response.
@@ -1406,9 +1404,6 @@ pub async fn hero_synergies_stats(configuration: &configuration::Configuration, 
     }
     if let Some(ref param_value) = params.same_lane_filter {
         req_builder = req_builder.query(&[("same_lane_filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.same_party_filter {
-        req_builder = req_builder.query(&[("same_party_filter", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_matches {
         req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);

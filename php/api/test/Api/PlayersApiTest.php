@@ -132,18 +132,6 @@ class PlayersApiTest extends TestCase
     }
 
     /**
-     * Test case for partyStats
-     *
-     * Party Stats.
-     *
-     */
-    public function testPartyStats()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for playerHeroStats
      *
      * Hero Stats.
