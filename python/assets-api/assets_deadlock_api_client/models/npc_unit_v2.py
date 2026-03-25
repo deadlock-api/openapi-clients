@@ -30,6 +30,7 @@ from assets_deadlock_api_client.models.subclass_trooper_damage_reduction import 
 from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class NPCUnitV2(BaseModel):
     """
@@ -104,7 +105,8 @@ class NPCUnitV2(BaseModel):
     __properties: ClassVar[List[str]] = ["class_name", "weapon_info", "max_health", "phase2_health", "bound_abilities", "max_health_final", "max_health_generator", "enemy_trooper_protection_range", "empowered_modifier_level1", "empowered_modifier_level2", "backdoor_bullet_resist_modifier", "objective_regen", "objective_health_growth_phase1", "objective_health_growth_phase2", "enemy_trooper_damage_reduction", "ranged_armor_modifier", "intrinsic_modifiers", "sight_range_players", "sight_range_npcs", "gold_reward", "gold_reward_bonus_percent_per_minute", "player_damage_resist_pct", "trooper_damage_resist_pct", "t1_boss_damage_resist_pct", "t2_boss_damage_resist_pct", "t3_boss_damage_resist_pct", "barrack_guardian_damage_resist_pct", "near_death_duration", "laser_dps_to_players", "laser_dps_max_health", "no_shield_laser_dps_to_players", "stomp_damage", "stomp_damage_max_health_percent", "stun_duration", "stomp_impact_radius", "walk_speed", "run_speed", "acceleration", "melee_damage", "spawn_breakables_on_death", "melee_attempt_range", "melee_hit_range", "melee_duration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_dps", "generator_boss_dps", "barrack_boss_dps", "player_dps", "trooper_dps", "health_bar_color_friend", "health_bar_color_enemy", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "id"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -116,8 +118,7 @@ class NPCUnitV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

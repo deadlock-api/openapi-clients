@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Radius** | Pointer to **int32** | The radius of the map. | [optional] [default to 10752]
 **Images** | [**MapImagesV1**](MapImagesV1.md) | The images of the map. | 
 **ObjectivePositions** | [**ObjectivePositionsV1**](ObjectivePositionsV1.md) |  | [readonly] 
-**ZiplinePaths** | [**[]ZiplanePathV1**](ZiplanePathV1.md) | The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline. | 
+**ZiplinePaths** | [**[]ZiplanePathV1**](ZiplanePathV1.md) | The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline. | [readonly] 
 
 ## Methods
 

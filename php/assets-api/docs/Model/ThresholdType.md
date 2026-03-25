@@ -1,4 +1,4 @@
-# # ThresholdType
+# ThresholdType
 
 ## Properties
 

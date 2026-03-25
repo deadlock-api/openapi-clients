@@ -1,4 +1,4 @@
-# # AnalyticsGameStats
+# AnalyticsGameStats
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # BadgeDistribution
+# BadgeDistribution
 
 ## Properties
 

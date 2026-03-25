@@ -36,6 +36,7 @@ from assets_deadlock_api_client.models.raw_hero_stats_display_v2 import RawHeroS
 from assets_deadlock_api_client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class HeroV2(BaseModel):
     """
@@ -77,7 +78,8 @@ class HeroV2(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "class_name", "name", "description", "item_draft_weights", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "prerelease_only", "limited_testing", "complexity", "skin", "images", "items", "starting_stats", "item_slot_info", "physics", "colors", "shop_stat_display", "cost_bonuses", "stats_display", "hero_stats_ui", "level_info", "scaling_stats", "purchase_bonuses", "standard_level_up_upgrades", "item_draft_bucketing"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -89,8 +91,7 @@ class HeroV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

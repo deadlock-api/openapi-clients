@@ -1,4 +1,4 @@
-# # ScriptValues
+# ScriptValues
 
 ## Properties
 

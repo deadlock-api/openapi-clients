@@ -1,4 +1,4 @@
-# # LaneInfoV2
+# LaneInfoV2
 
 ## Properties
 

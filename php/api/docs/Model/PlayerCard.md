@@ -1,4 +1,4 @@
-# # PlayerCard
+# PlayerCard
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
+# UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon
 
 ## Properties
 

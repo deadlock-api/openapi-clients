@@ -31,6 +31,7 @@ from assets_deadlock_api_client.models.rejuv_params import RejuvParams
 from assets_deadlock_api_client.models.street_brawl import StreetBrawl
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class GenericDataV2(BaseModel):
     """
@@ -60,7 +61,8 @@ class GenericDataV2(BaseModel):
     __properties: ClassVar[List[str]] = ["damage_flash", "glitch_settings", "lane_info", "new_player_metrics", "minimap_team_rebels_color", "minimap_team_combine_color", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "item_price_per_tier", "trooper_kill_gold_share_frac", "hero_kill_gold_share_frac", "aim_spring_strength", "targeting_spring_strength", "objective_params", "rejuv_params", "mini_map_offsets", "weapon_groups", "armor_groups", "spirit_groups", "street_brawl"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -72,8 +74,7 @@ class GenericDataV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

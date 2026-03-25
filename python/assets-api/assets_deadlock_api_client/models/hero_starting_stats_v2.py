@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from assets_deadlock_api_client.models.hero_starting_stat_v2 import HeroStartingStatV2
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class HeroStartingStatsV2(BaseModel):
     """
@@ -51,7 +52,8 @@ class HeroStartingStatsV2(BaseModel):
     __properties: ClassVar[List[str]] = ["max_move_speed", "sprint_speed", "crouch_speed", "move_acceleration", "light_melee_damage", "heavy_melee_damage", "max_health", "weapon_power", "reload_speed", "weapon_power_scale", "proc_build_up_rate_scale", "stamina", "base_health_regen", "stamina_regen_per_second", "ability_resource_max", "ability_resource_regen_per_second", "crit_damage_received_scale", "tech_duration", "tech_armor_damage_reduction", "tech_range", "bullet_armor_damage_reduction"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -63,8 +65,7 @@ class HeroStartingStatsV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -1,4 +1,4 @@
-# # RejuvParams
+# RejuvParams
 
 ## Properties
 

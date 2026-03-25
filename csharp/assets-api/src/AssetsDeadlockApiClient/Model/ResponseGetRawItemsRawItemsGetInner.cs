@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets RawAbilityV2
         /// </summary>
-        public RawAbilityV2? RawAbilityV2 { get { return this.RawAbilityV2Option; } set { this.RawAbilityV2Option = new(value); } }
+        public RawAbilityV2? RawAbilityV2 { get { return this.RawAbilityV2Option.Value; } set { this.RawAbilityV2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RawWeaponV2
@@ -68,7 +68,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets RawWeaponV2
         /// </summary>
-        public RawWeaponV2? RawWeaponV2 { get { return this.RawWeaponV2Option; } set { this.RawWeaponV2Option = new(value); } }
+        public RawWeaponV2? RawWeaponV2 { get { return this.RawWeaponV2Option.Value; } set { this.RawWeaponV2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RawUpgradeV2
@@ -80,7 +80,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets RawUpgradeV2
         /// </summary>
-        public RawUpgradeV2? RawUpgradeV2 { get { return this.RawUpgradeV2Option; } set { this.RawUpgradeV2Option = new(value); } }
+        public RawUpgradeV2? RawUpgradeV2 { get { return this.RawUpgradeV2Option.Value; } set { this.RawUpgradeV2Option = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

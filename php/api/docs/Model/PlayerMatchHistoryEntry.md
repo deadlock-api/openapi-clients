@@ -1,4 +1,4 @@
-# # PlayerMatchHistoryEntry
+# PlayerMatchHistoryEntry
 
 ## Properties
 

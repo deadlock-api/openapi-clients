@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets List
         /// </summary>
-        public List<decimal>? List { get { return this.ListOption; } set { this.ListOption = new(value); } }
+        public List<decimal>? List { get { return this.ListOption.Value; } set { this.ListOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Decimal
@@ -66,7 +66,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets Decimal
         /// </summary>
-        public decimal? Decimal { get { return this.DecimalOption; } set { this.DecimalOption = new(value); } }
+        public decimal? Decimal { get { return this.DecimalOption.Value; } set { this.DecimalOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

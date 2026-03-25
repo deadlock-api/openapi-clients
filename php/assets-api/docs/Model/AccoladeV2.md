@@ -1,4 +1,4 @@
-# # AccoladeV2
+# AccoladeV2
 
 ## Properties
 

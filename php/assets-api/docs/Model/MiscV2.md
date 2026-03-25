@@ -1,4 +1,4 @@
-# # MiscV2
+# MiscV2
 
 ## Properties
 

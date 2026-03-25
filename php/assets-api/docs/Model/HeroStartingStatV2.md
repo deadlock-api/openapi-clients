@@ -1,4 +1,4 @@
-# # HeroStartingStatV2
+# HeroStartingStatV2
 
 ## Properties
 

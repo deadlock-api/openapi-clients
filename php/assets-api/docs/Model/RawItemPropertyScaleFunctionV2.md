@@ -1,4 +1,4 @@
-# # RawItemPropertyScaleFunctionV2
+# RawItemPropertyScaleFunctionV2
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # RawItemWeaponInfoBulletSpeedCurveSplineV2
+# RawItemWeaponInfoBulletSpeedCurveSplineV2
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # HashMapValue
+# HashMapValue
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # HeroShopStatDisplayV2
+# HeroShopStatDisplayV2
 
 ## Properties
 

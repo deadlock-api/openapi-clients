@@ -1,4 +1,4 @@
-# # ClickhouseMatchInfo
+# ClickhouseMatchInfo
 
 ## Properties
 

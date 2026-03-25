@@ -1,4 +1,4 @@
-# # TrackedStatName
+# TrackedStatName
 
 ## Properties
 

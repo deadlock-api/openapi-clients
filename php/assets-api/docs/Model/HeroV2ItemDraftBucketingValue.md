@@ -1,4 +1,4 @@
-# # HeroV2ItemDraftBucketingValue
+# HeroV2ItemDraftBucketingValue
 
 ## Properties
 

@@ -157,7 +157,7 @@ pub enum EnemyStatsError {
 #[serde(untagged)]
 pub enum MatchHistoryError {
     Status400(),
-    Status429(),
+    Status429(Vec<models::PlayerMatchHistoryEntry>),
     Status500(),
     UnknownValue(serde_json::Value),
 }

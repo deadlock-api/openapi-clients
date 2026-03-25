@@ -1,4 +1,4 @@
-# # BuildHero
+# BuildHero
 
 ## Properties
 

@@ -26,6 +26,7 @@ from assets_deadlock_api_client.models.raw_weapon_info_vertical_recoil_v2 import
 from assets_deadlock_api_client.models.standing_shot_spread_penalty import StandingShotSpreadPenalty
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RawWeaponInfoV2(BaseModel):
     """
@@ -97,7 +98,8 @@ class RawWeaponInfoV2(BaseModel):
     __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "spins_up", "is_semi_auto", "semi_auto_cycle_rate", "max_spin_cycle_time", "spin_increase_rate", "spin_decay_rate", "build_up_rate", "intra_burst_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "bullet_speed", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -109,8 +111,7 @@ class RawWeaponInfoV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

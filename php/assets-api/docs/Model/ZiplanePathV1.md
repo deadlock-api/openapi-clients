@@ -1,4 +1,4 @@
-# # ZiplanePathV1
+# ZiplanePathV1
 
 ## Properties
 

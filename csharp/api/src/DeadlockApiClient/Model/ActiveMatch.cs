@@ -96,7 +96,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets GameModeParsed
         /// </summary>
         [JsonPropertyName("game_mode_parsed")]
-        public ActiveMatchGameMode? GameModeParsed { get { return this.GameModeParsedOption; } set { this.GameModeParsedOption = new(value); } }
+        public ActiveMatchGameMode? GameModeParsed { get { return this.GameModeParsedOption.Value; } set { this.GameModeParsedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchModeParsed
@@ -109,7 +109,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MatchModeParsed
         /// </summary>
         [JsonPropertyName("match_mode_parsed")]
-        public ActiveMatchMode? MatchModeParsed { get { return this.MatchModeParsedOption; } set { this.MatchModeParsedOption = new(value); } }
+        public ActiveMatchMode? MatchModeParsed { get { return this.MatchModeParsedOption.Value; } set { this.MatchModeParsedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RegionModeParsed
@@ -122,7 +122,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets RegionModeParsed
         /// </summary>
         [JsonPropertyName("region_mode_parsed")]
-        public RegionMode? RegionModeParsed { get { return this.RegionModeParsedOption; } set { this.RegionModeParsedOption = new(value); } }
+        public RegionMode? RegionModeParsed { get { return this.RegionModeParsedOption.Value; } set { this.RegionModeParsedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WinningTeamParsed
@@ -135,7 +135,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets WinningTeamParsed
         /// </summary>
         [JsonPropertyName("winning_team_parsed")]
-        public ActiveMatchTeam? WinningTeamParsed { get { return this.WinningTeamParsedOption; } set { this.WinningTeamParsedOption = new(value); } }
+        public ActiveMatchTeam? WinningTeamParsed { get { return this.WinningTeamParsedOption.Value; } set { this.WinningTeamParsedOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets Players

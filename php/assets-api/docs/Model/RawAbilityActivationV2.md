@@ -1,4 +1,4 @@
-# # RawAbilityActivationV2
+# RawAbilityActivationV2
 
 ## Properties
 

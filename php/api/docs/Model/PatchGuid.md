@@ -1,4 +1,4 @@
-# # PatchGuid
+# PatchGuid
 
 ## Properties
 

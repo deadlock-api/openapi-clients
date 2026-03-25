@@ -1,4 +1,4 @@
-# # ActiveMatchTeam
+# ActiveMatchTeam
 
 ## Properties
 

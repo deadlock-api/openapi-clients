@@ -1,4 +1,4 @@
-# # PlayerPerformanceCurvePoint
+# PlayerPerformanceCurvePoint
 
 ## Properties
 

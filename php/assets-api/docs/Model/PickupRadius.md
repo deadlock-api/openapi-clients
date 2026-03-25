@@ -1,4 +1,4 @@
-# # PickupRadius
+# PickupRadius
 
 ## Properties
 

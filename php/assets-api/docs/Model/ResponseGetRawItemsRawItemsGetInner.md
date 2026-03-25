@@ -1,4 +1,4 @@
-# # ResponseGetRawItemsRawItemsGetInner
+# ResponseGetRawItemsRawItemsGetInner
 
 ## Properties
 

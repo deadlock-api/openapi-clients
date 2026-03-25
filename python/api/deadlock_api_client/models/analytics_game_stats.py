@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AnalyticsGameStats(BaseModel):
     """
@@ -72,7 +73,8 @@ class AnalyticsGameStats(BaseModel):
     __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_gold_boss", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_neutral_creep", "avg_gold_player", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_objectives_destroyed_time_s", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "team0_wins", "team1_wins", "total_matches"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -84,8 +86,7 @@ class AnalyticsGameStats(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

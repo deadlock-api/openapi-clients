@@ -1,4 +1,4 @@
-# # RawHeroStatsUIV2
+# RawHeroStatsUIV2
 
 ## Properties
 

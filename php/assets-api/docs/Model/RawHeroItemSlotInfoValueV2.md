@@ -1,4 +1,4 @@
-# # RawHeroItemSlotInfoValueV2
+# RawHeroItemSlotInfoValueV2
 
 ## Properties
 

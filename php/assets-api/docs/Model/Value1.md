@@ -1,4 +1,4 @@
-# # Value1
+# Value1
 
 ## Properties
 

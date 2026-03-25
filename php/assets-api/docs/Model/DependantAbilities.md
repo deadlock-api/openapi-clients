@@ -1,4 +1,4 @@
-# # DependantAbilities
+# DependantAbilities
 
 ## Properties
 

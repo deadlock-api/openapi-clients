@@ -53,7 +53,7 @@ export interface MapV1  {
      * @type {Array<ZiplanePathV1>}
      * @memberof MapV1
      */
-    ziplinePaths: Array<ZiplanePathV1>;
+    readonly ziplinePaths: Array<ZiplanePathV1>;
 }
 
 export function MapV1FromJSON(json: any): MapV1 {
@@ -72,7 +72,6 @@ export function MapV1ToJSON(value?: MapV1): any {
     return {
         'radius': value.radius,
         'images': MapImagesV1ToJSON(value.images),
-        'zipline_paths': (value.ziplinePaths as Array<any>).map(ZiplanePathV1ToJSON),
     };
 }
 

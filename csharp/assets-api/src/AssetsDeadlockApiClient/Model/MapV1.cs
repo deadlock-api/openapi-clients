@@ -67,7 +67,7 @@ namespace AssetsDeadlockApiClient.Model
         /// </summary>
         /// <value>The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline.</value>
         [JsonPropertyName("zipline_paths")]
-        public List<ZiplanePathV1> ZiplinePaths { get; set; }
+        public List<ZiplanePathV1> ZiplinePaths { get; }
 
         /// <summary>
         /// Used to track the state of Radius

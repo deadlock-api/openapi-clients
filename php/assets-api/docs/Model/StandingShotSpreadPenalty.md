@@ -1,4 +1,4 @@
-# # StandingShotSpreadPenalty
+# StandingShotSpreadPenalty
 
 ## Properties
 

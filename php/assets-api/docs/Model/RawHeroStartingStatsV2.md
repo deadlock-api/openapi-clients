@@ -1,4 +1,4 @@
-# # RawHeroStartingStatsV2
+# RawHeroStartingStatsV2
 
 ## Properties
 

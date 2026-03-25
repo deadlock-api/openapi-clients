@@ -1070,7 +1070,7 @@ class PlayersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[PlayerMatchHistoryEntry]",
             '400': None,
-            '429': None,
+            '429': "List[PlayerMatchHistoryEntry]",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1148,7 +1148,7 @@ class PlayersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[PlayerMatchHistoryEntry]",
             '400': None,
-            '429': None,
+            '429': "List[PlayerMatchHistoryEntry]",
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1226,7 +1226,7 @@ class PlayersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[PlayerMatchHistoryEntry]",
             '400': None,
-            '429': None,
+            '429': "List[PlayerMatchHistoryEntry]",
             '500': None,
         }
         response_data = self.api_client.call_api(

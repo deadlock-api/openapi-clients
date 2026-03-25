@@ -1,4 +1,4 @@
-# # RawAbilityUpgradePropertyUpgradeV2
+# RawAbilityUpgradePropertyUpgradeV2
 
 ## Properties
 

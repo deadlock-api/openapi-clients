@@ -1,4 +1,4 @@
-# # RawHeroDraftBucketing
+# RawHeroDraftBucketing
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # LootTableV2
+# LootTableV2
 
 ## Properties
 

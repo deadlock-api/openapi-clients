@@ -1,4 +1,4 @@
-# # RawWeaponInfoHorizontalRecoilV2
+# RawWeaponInfoHorizontalRecoilV2
 
 ## Properties
 

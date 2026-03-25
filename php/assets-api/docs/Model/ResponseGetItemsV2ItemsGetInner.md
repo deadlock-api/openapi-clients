@@ -1,4 +1,4 @@
-# # ResponseGetItemsV2ItemsGetInner
+# ResponseGetItemsV2ItemsGetInner
 
 ## Properties
 

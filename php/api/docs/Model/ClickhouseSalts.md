@@ -1,4 +1,4 @@
-# # ClickhouseSalts
+# ClickhouseSalts
 
 ## Properties
 

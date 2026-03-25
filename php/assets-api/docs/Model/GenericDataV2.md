@@ -1,4 +1,4 @@
-# # GenericDataV2
+# GenericDataV2
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IntrinsicModifiers
+# IntrinsicModifiers
 
 ## Properties
 

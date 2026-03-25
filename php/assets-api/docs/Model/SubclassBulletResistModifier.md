@@ -1,4 +1,4 @@
-# # SubclassBulletResistModifier
+# SubclassBulletResistModifier
 
 ## Properties
 

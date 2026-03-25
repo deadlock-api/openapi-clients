@@ -256,7 +256,7 @@ No authorization required
 |-------------|-------------|------------------|
 |**200** |  |  -  |
 |**400** | Provided parameters are invalid. |  -  |
-|**429** | Rate limit exceeded |  -  |
+|**429** | Rate limit exceeded. Returns stored match history from ClickHouse as a fallback. When &#x60;force_refetch&#x3D;true&#x60;, returns an error instead. |  -  |
 |**500** | Fetching player match history failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

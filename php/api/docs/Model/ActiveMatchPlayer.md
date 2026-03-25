@@ -1,4 +1,4 @@
-# # ActiveMatchPlayer
+# ActiveMatchPlayer
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ItemPropertyV2
+# ItemPropertyV2
 
 ## Properties
 

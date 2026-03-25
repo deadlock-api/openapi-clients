@@ -1,4 +1,4 @@
-# # RawHeroV2
+# RawHeroV2
 
 ## Properties
 

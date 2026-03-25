@@ -1,4 +1,4 @@
-# # RawHeroLevelInfoV2
+# RawHeroLevelInfoV2
 
 ## Properties
 

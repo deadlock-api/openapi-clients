@@ -1,4 +1,4 @@
-# # HeroShopWeaponStatsDisplayV2
+# HeroShopWeaponStatsDisplayV2
 
 ## Properties
 

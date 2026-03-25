@@ -1,4 +1,4 @@
-# # ActiveMatchGameMode
+# ActiveMatchGameMode
 
 ## Properties
 

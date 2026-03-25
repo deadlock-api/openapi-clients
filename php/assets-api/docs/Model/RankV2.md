@@ -1,4 +1,4 @@
-# # RankV2
+# RankV2
 
 ## Properties
 

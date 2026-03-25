@@ -1,4 +1,4 @@
-# # ColorV1
+# ColorV1
 
 ## Properties
 

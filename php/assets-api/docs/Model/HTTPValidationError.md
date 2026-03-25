@@ -1,4 +1,4 @@
-# # HTTPValidationError
+# HTTPValidationError
 
 ## Properties
 

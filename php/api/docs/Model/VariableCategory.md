@@ -1,4 +1,4 @@
-# # VariableCategory
+# VariableCategory
 
 ## Properties
 

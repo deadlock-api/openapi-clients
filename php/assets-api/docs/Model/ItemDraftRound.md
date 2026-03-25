@@ -1,4 +1,4 @@
-# # ItemDraftRound
+# ItemDraftRound
 
 ## Properties
 

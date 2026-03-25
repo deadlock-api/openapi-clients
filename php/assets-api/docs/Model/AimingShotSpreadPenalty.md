@@ -1,4 +1,4 @@
-# # AimingShotSpreadPenalty
+# AimingShotSpreadPenalty
 
 ## Properties
 

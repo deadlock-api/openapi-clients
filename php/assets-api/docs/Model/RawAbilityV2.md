@@ -1,4 +1,4 @@
-# # RawAbilityV2
+# RawAbilityV2
 
 ## Properties
 

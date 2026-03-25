@@ -1,4 +1,4 @@
-# # HeroStats
+# HeroStats
 
 ## Properties
 

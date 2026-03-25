@@ -1,4 +1,4 @@
-# # RawAbilitySectionTypeV2
+# RawAbilitySectionTypeV2
 
 ## Properties
 

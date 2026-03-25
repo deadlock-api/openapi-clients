@@ -1,4 +1,4 @@
-# # SubclassModifierDefinition
+# SubclassModifierDefinition
 
 ## Properties
 

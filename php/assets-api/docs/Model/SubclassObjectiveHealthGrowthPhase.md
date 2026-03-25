@@ -1,4 +1,4 @@
-# # SubclassObjectiveHealthGrowthPhase
+# SubclassObjectiveHealthGrowthPhase
 
 ## Properties
 

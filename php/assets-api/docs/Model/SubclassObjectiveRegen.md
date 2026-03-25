@@ -1,4 +1,4 @@
-# # SubclassObjectiveRegen
+# SubclassObjectiveRegen
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # MatchSpectateResponse
+# MatchSpectateResponse
 
 ## Properties
 

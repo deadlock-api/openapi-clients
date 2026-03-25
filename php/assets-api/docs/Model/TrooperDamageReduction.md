@@ -1,4 +1,4 @@
-# # TrooperDamageReduction
+# TrooperDamageReduction
 
 ## Properties
 

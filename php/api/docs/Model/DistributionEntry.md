@@ -1,4 +1,4 @@
-# # DistributionEntry
+# DistributionEntry
 
 ## Properties
 

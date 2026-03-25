@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SectionType
         /// </summary>
         [JsonPropertyName("section_type")]
-        public RawAbilitySectionTypeV2? SectionType { get { return this.SectionTypeOption; } set { this.SectionTypeOption = new(value); } }
+        public RawAbilitySectionTypeV2? SectionType { get { return this.SectionTypeOption.Value; } set { this.SectionTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SectionAttributes

@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RankImagesV2(BaseModel):
     """
@@ -57,7 +58,8 @@ class RankImagesV2(BaseModel):
     __properties: ClassVar[List[str]] = ["large", "large_webp", "large_subrank1", "large_subrank1_webp", "large_subrank2", "large_subrank2_webp", "large_subrank3", "large_subrank3_webp", "large_subrank4", "large_subrank4_webp", "large_subrank5", "large_subrank5_webp", "large_subrank6", "large_subrank6_webp", "small", "small_webp", "small_subrank1", "small_subrank1_webp", "small_subrank2", "small_subrank2_webp", "small_subrank3", "small_subrank3_webp", "small_subrank4", "small_subrank4_webp", "small_subrank5", "small_subrank5_webp", "small_subrank6", "small_subrank6_webp"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -69,8 +71,7 @@ class RankImagesV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

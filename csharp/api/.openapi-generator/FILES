@@ -184,6 +184,7 @@ src/DeadlockApiClient/Client/DateOnlyNullableJsonConverter.cs
 src/DeadlockApiClient/Client/DateTimeJsonConverter.cs
 src/DeadlockApiClient/Client/DateTimeNullableJsonConverter.cs
 src/DeadlockApiClient/Client/ExceptionEventArgs.cs
+src/DeadlockApiClient/Client/FileParameter.cs
 src/DeadlockApiClient/Client/HostConfiguration.cs
 src/DeadlockApiClient/Client/JsonSerializerOptionsProvider.cs
 src/DeadlockApiClient/Client/Option.cs

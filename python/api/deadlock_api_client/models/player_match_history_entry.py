@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class PlayerMatchHistoryEntry(BaseModel):
     """
@@ -53,7 +54,8 @@ class PlayerMatchHistoryEntry(BaseModel):
     __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_team", "start_time", "team_abandoned"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -65,8 +67,7 @@ class PlayerMatchHistoryEntry(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -1,4 +1,4 @@
-# # StreetBrawlValue
+# StreetBrawlValue
 
 ## Properties
 

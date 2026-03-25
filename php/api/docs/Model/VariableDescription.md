@@ -1,4 +1,4 @@
-# # VariableDescription
+# VariableDescription
 
 ## Properties
 

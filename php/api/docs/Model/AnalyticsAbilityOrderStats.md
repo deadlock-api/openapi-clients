@@ -1,4 +1,4 @@
-# # AnalyticsAbilityOrderStats
+# AnalyticsAbilityOrderStats
 
 ## Properties
 

@@ -70,7 +70,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets GameMode
         /// </summary>
         [JsonPropertyName("game_mode")]
-        public GameMode? GameMode { get { return this.GameModeOption; } set { this.GameModeOption = new(value); } }
+        public GameMode? GameMode { get { return this.GameModeOption.Value; } set { this.GameModeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ServerRegion
@@ -83,7 +83,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ServerRegion
         /// </summary>
         [JsonPropertyName("server_region")]
-        public ServerRegion? ServerRegion { get { return this.ServerRegionOption; } set { this.ServerRegionOption = new(value); } }
+        public ServerRegion? ServerRegion { get { return this.ServerRegionOption.Value; } set { this.ServerRegionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CallbackUrl

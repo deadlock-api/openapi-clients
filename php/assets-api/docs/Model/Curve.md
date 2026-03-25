@@ -1,4 +1,4 @@
-# # Curve
+# Curve
 
 ## Properties
 

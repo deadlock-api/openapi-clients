@@ -1,4 +1,4 @@
-# # PlayerEntry
+# PlayerEntry
 
 ## Properties
 

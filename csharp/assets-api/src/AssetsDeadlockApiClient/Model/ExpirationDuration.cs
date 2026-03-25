@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets Curve
         /// </summary>
-        public Curve? Curve { get { return this.CurveOption; } set { this.CurveOption = new(value); } }
+        public Curve? Curve { get { return this.CurveOption.Value; } set { this.CurveOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Decimal
@@ -66,7 +66,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets Decimal
         /// </summary>
-        public decimal? Decimal { get { return this.DecimalOption; } set { this.DecimalOption = new(value); } }
+        public decimal? Decimal { get { return this.DecimalOption.Value; } set { this.DecimalOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

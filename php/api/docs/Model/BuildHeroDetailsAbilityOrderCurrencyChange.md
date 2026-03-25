@@ -1,4 +1,4 @@
-# # BuildHeroDetailsAbilityOrderCurrencyChange
+# BuildHeroDetailsAbilityOrderCurrencyChange
 
 ## Properties
 

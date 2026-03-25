@@ -1,4 +1,4 @@
-# # AbilityTooltipDetailsV2
+# AbilityTooltipDetailsV2
 
 ## Properties
 

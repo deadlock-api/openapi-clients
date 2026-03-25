@@ -1,4 +1,4 @@
-# # StreetBrawl
+# StreetBrawl
 
 ## Properties
 

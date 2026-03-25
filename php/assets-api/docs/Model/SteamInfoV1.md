@@ -1,4 +1,4 @@
-# # SteamInfoV1
+# SteamInfoV1
 
 ## Properties
 

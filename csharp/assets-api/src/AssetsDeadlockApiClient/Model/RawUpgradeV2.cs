@@ -152,7 +152,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Type
         /// </summary>
         [JsonPropertyName("type")]
-        public TypeEnum? Type { get { return this.TypeOption; } set { this.TypeOption = new(value); } }
+        public TypeEnum? Type { get { return this.TypeOption.Value; } set { this.TypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Activation
@@ -165,7 +165,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Activation
         /// </summary>
         [JsonPropertyName("activation")]
-        public RawAbilityActivationV2? Activation { get { return this.ActivationOption; } set { this.ActivationOption = new(value); } }
+        public RawAbilityActivationV2? Activation { get { return this.ActivationOption.Value; } set { this.ActivationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Imbue
@@ -178,7 +178,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Imbue
         /// </summary>
         [JsonPropertyName("imbue")]
-        public RawAbilityImbueV2? Imbue { get { return this.ImbueOption; } set { this.ImbueOption = new(value); } }
+        public RawAbilityImbueV2? Imbue { get { return this.ImbueOption.Value; } set { this.ImbueOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets ClassName

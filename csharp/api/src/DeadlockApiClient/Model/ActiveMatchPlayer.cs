@@ -62,7 +62,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets TeamParsed
         /// </summary>
         [JsonPropertyName("team_parsed")]
-        public ActiveMatchTeam? TeamParsed { get { return this.TeamParsedOption; } set { this.TeamParsedOption = new(value); } }
+        public ActiveMatchTeam? TeamParsed { get { return this.TeamParsedOption.Value; } set { this.TeamParsedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Abandoned

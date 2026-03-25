@@ -1,4 +1,4 @@
-# # ModifierDefinition
+# ModifierDefinition
 
 ## Properties
 

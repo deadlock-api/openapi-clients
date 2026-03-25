@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class HeroImagesV2(BaseModel):
     """
@@ -46,7 +47,8 @@ class HeroImagesV2(BaseModel):
     __properties: ClassVar[List[str]] = ["icon_hero_card", "icon_hero_card_webp", "icon_image_small", "icon_image_small_webp", "minimap_image", "minimap_image_webp", "hero_card_critical", "hero_card_critical_webp", "hero_card_gloat", "hero_card_gloat_webp", "top_bar_vertical_image", "top_bar_vertical_image_webp", "weapon_image", "weapon_image_webp", "background_image", "background_image_webp", "name_image"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -58,8 +60,7 @@ class HeroImagesV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

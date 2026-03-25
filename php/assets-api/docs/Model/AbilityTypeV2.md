@@ -1,4 +1,4 @@
-# # AbilityTypeV2
+# AbilityTypeV2
 
 ## Properties
 

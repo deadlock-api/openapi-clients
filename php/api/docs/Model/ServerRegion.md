@@ -1,4 +1,4 @@
-# # ServerRegion
+# ServerRegion
 
 ## Properties
 

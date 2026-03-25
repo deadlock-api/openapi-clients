@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Properties** | Pointer to **[]string** |  | [optional] 
 **ElevatedProperties** | Pointer to **[]string** |  | [optional] 
 **ImportantProperties** | Pointer to [**[]RawUpgradeTooltipSectionAttributeImportantPropertyV2**](RawUpgradeTooltipSectionAttributeImportantPropertyV2.md) |  | [optional] 
-**ImportantPropertiesWithIconPath** | [**[]RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon**](RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon.md) |  | 
+**ImportantPropertiesWithIconPath** | [**[]RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon**](RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon.md) |  | [readonly] 
 
 ## Methods
 

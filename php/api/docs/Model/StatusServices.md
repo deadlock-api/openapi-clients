@@ -1,4 +1,4 @@
-# # StatusServices
+# StatusServices
 
 ## Properties
 

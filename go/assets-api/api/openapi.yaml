@@ -3218,6 +3218,7 @@ components:
             \ and P2 points, describing the cubic spline."
           items:
             $ref: "#/components/schemas/ZiplanePathV1"
+          readOnly: true
           title: Zipline Paths
           type: array
       required:
@@ -5378,6 +5379,7 @@ components:
           items:
             $ref: "#/components/schemas/RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon"
           nullable: true
+          readOnly: true
           type: array
       required:
       - important_properties_with_icon_path

@@ -33,6 +33,7 @@ from assets_deadlock_api_client.models.raw_hero_stats_display_v2 import RawHeroS
 from assets_deadlock_api_client.models.raw_hero_stats_uiv2 import RawHeroStatsUIV2
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RawHeroV2(BaseModel):
     """
@@ -86,7 +87,8 @@ class RawHeroV2(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "class_name", "item_draft_weights", "player_selectable", "disabled", "in_development", "needs_testing", "assigned_players_only", "available_in_hero_labs", "prerelease_only", "limited_testing", "complexity", "skin", "starting_stats", "icon_hero_card", "icon_image_small", "minimap_image", "name_image", "hero_card_critical", "hero_card_gloat", "top_bar_vertical_image", "tags", "gun_tag", "hideout_rich_presence", "hero_type", "shop_stat_display", "cost_bonuses", "color_ui", "collision_height", "collision_radius", "footstep_sound_travel_distance_meters", "stealth_speed_meters_per_second", "step_height", "step_sound_time", "step_sound_time_sprinting", "stats_display", "hero_stats_ui", "items", "item_slot_info", "level_info", "purchase_bonuses", "scaling_stats", "standard_level_up_upgrades", "item_draft_bucketing", "background_image"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -98,8 +100,7 @@ class RawHeroV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

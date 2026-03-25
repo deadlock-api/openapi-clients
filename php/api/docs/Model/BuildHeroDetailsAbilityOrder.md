@@ -1,4 +1,4 @@
-# # BuildHeroDetailsAbilityOrder
+# BuildHeroDetailsAbilityOrder
 
 ## Properties
 

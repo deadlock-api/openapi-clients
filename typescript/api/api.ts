@@ -70,7 +70,7 @@ export const ActiveMatchGameMode = {
     KeCitadelGameModeNormal: 'KECitadelGameModeNormal',
     KeCitadelGameMode1v1Test: 'KECitadelGameMode1v1Test',
     KeCitadelGameModeSandbox: 'KECitadelGameModeSandbox',
-    KeCitadelGameModeStreetBrawl: 'KECitadelGameModeStreetBrawl'
+    KeCitadelGameModeStreetBrawl: 'KECitadelGameModeStreetBrawl',
 } as const;
 
 export type ActiveMatchGameMode = typeof ActiveMatchGameMode[keyof typeof ActiveMatchGameMode];
@@ -85,7 +85,7 @@ export const ActiveMatchMode = {
     Ranked: 'Ranked',
     ServerTest: 'ServerTest',
     Tutorial: 'Tutorial',
-    HeroLabs: 'HeroLabs'
+    HeroLabs: 'HeroLabs',
 } as const;
 
 export type ActiveMatchMode = typeof ActiveMatchMode[keyof typeof ActiveMatchMode];
@@ -107,7 +107,7 @@ export interface ActiveMatchPlayer {
 export const ActiveMatchTeam = {
     Team0: 'Team0',
     Team1: 'Team1',
-    Spectator: 'Spectator'
+    Spectator: 'Spectator',
 } as const;
 
 export type ActiveMatchTeam = typeof ActiveMatchTeam[keyof typeof ActiveMatchTeam];
@@ -333,7 +333,7 @@ export interface EnemyStats {
 export const GameMode = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 
 export type GameMode = typeof GameMode[keyof typeof GameMode];
@@ -837,7 +837,7 @@ export const RegionMode = {
     SeAsia: 'se_asia',
     SAmerica: 's_america',
     Russia: 'russia',
-    Oceania: 'oceania'
+    Oceania: 'oceania',
 } as const;
 
 export type RegionMode = typeof RegionMode[keyof typeof RegionMode];
@@ -870,7 +870,7 @@ export const ServerRegion = {
     Chile: 'chile',
     Peru: 'peru',
     Argentina: 'argentina',
-    SouthAmerica: 'south_america'
+    SouthAmerica: 'south_america',
 } as const;
 
 export type ServerRegion = typeof ServerRegion[keyof typeof ServerRegion];
@@ -932,7 +932,7 @@ export const VariableCategory = {
     Hero: 'Hero',
     Item: 'Item',
     Leaderboard: 'Leaderboard',
-    Overall: 'Overall'
+    Overall: 'Overall',
 } as const;
 
 export type VariableCategory = typeof VariableCategory[keyof typeof VariableCategory];
@@ -4696,13 +4696,13 @@ export class AnalyticsApi extends BaseAPI {
 export const AbilityOrderStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type AbilityOrderStatsGameModeEnum = typeof AbilityOrderStatsGameModeEnum[keyof typeof AbilityOrderStatsGameModeEnum];
 export const BadgeDistributionGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type BadgeDistributionGameModeEnum = typeof BadgeDistributionGameModeEnum[keyof typeof BadgeDistributionGameModeEnum];
 export const GameStatsBucketEnum = {
@@ -4711,25 +4711,25 @@ export const GameStatsBucketEnum = {
     StartTimeHour: 'start_time_hour',
     StartTimeDay: 'start_time_day',
     StartTimeWeek: 'start_time_week',
-    StartTimeMonth: 'start_time_month'
+    StartTimeMonth: 'start_time_month',
 } as const;
 export type GameStatsBucketEnum = typeof GameStatsBucketEnum[keyof typeof GameStatsBucketEnum];
 export const GameStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type GameStatsGameModeEnum = typeof GameStatsGameModeEnum[keyof typeof GameStatsGameModeEnum];
 export const HeroCombStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type HeroCombStatsGameModeEnum = typeof HeroCombStatsGameModeEnum[keyof typeof HeroCombStatsGameModeEnum];
 export const HeroCountersStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum[keyof typeof HeroCountersStatsGameModeEnum];
 export const HeroScoreboardSortByEnum = {
@@ -4793,18 +4793,18 @@ export const HeroScoreboardSortByEnum = {
     HeroBulletsHit: 'hero_bullets_hit',
     MaxHeroBulletsHitCritPerMatch: 'max_hero_bullets_hit_crit_per_match',
     AvgHeroBulletsHitCritPerMatch: 'avg_hero_bullets_hit_crit_per_match',
-    HeroBulletsHitCrit: 'hero_bullets_hit_crit'
+    HeroBulletsHitCrit: 'hero_bullets_hit_crit',
 } as const;
 export type HeroScoreboardSortByEnum = typeof HeroScoreboardSortByEnum[keyof typeof HeroScoreboardSortByEnum];
 export const HeroScoreboardSortDirectionEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type HeroScoreboardSortDirectionEnum = typeof HeroScoreboardSortDirectionEnum[keyof typeof HeroScoreboardSortDirectionEnum];
 export const HeroScoreboardGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type HeroScoreboardGameModeEnum = typeof HeroScoreboardGameModeEnum[keyof typeof HeroScoreboardGameModeEnum];
 export const HeroStatsBucketEnum = {
@@ -4813,25 +4813,25 @@ export const HeroStatsBucketEnum = {
     StartTimeHour: 'start_time_hour',
     StartTimeDay: 'start_time_day',
     StartTimeWeek: 'start_time_week',
-    StartTimeMonth: 'start_time_month'
+    StartTimeMonth: 'start_time_month',
 } as const;
 export type HeroStatsBucketEnum = typeof HeroStatsBucketEnum[keyof typeof HeroStatsBucketEnum];
 export const HeroStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type HeroStatsGameModeEnum = typeof HeroStatsGameModeEnum[keyof typeof HeroStatsGameModeEnum];
 export const HeroSynergiesStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type HeroSynergiesStatsGameModeEnum = typeof HeroSynergiesStatsGameModeEnum[keyof typeof HeroSynergiesStatsGameModeEnum];
 export const ItemPermutationStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type ItemPermutationStatsGameModeEnum = typeof ItemPermutationStatsGameModeEnum[keyof typeof ItemPermutationStatsGameModeEnum];
 export const ItemStatsBucketEnum = {
@@ -4848,25 +4848,25 @@ export const ItemStatsBucketEnum = {
     NetWorthBy2000: 'net_worth_by_2000',
     NetWorthBy3000: 'net_worth_by_3000',
     NetWorthBy5000: 'net_worth_by_5000',
-    NetWorthBy10000: 'net_worth_by_10000'
+    NetWorthBy10000: 'net_worth_by_10000',
 } as const;
 export type ItemStatsBucketEnum = typeof ItemStatsBucketEnum[keyof typeof ItemStatsBucketEnum];
 export const ItemStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type ItemStatsGameModeEnum = typeof ItemStatsGameModeEnum[keyof typeof ItemStatsGameModeEnum];
 export const KillDeathStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type KillDeathStatsGameModeEnum = typeof KillDeathStatsGameModeEnum[keyof typeof KillDeathStatsGameModeEnum];
 export const PlayerPerformanceCurveGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGameModeEnum[keyof typeof PlayerPerformanceCurveGameModeEnum];
 export const PlayerScoreboardSortByEnum = {
@@ -4930,24 +4930,24 @@ export const PlayerScoreboardSortByEnum = {
     HeroBulletsHit: 'hero_bullets_hit',
     MaxHeroBulletsHitCritPerMatch: 'max_hero_bullets_hit_crit_per_match',
     AvgHeroBulletsHitCritPerMatch: 'avg_hero_bullets_hit_crit_per_match',
-    HeroBulletsHitCrit: 'hero_bullets_hit_crit'
+    HeroBulletsHitCrit: 'hero_bullets_hit_crit',
 } as const;
 export type PlayerScoreboardSortByEnum = typeof PlayerScoreboardSortByEnum[keyof typeof PlayerScoreboardSortByEnum];
 export const PlayerScoreboardSortDirectionEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type PlayerScoreboardSortDirectionEnum = typeof PlayerScoreboardSortDirectionEnum[keyof typeof PlayerScoreboardSortDirectionEnum];
 export const PlayerScoreboardGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type PlayerScoreboardGameModeEnum = typeof PlayerScoreboardGameModeEnum[keyof typeof PlayerScoreboardGameModeEnum];
 export const PlayerStatsMetricsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type PlayerStatsMetricsGameModeEnum = typeof PlayerStatsMetricsGameModeEnum[keyof typeof PlayerStatsMetricsGameModeEnum];
 
@@ -5267,12 +5267,12 @@ export const SearchBuildsSortByEnum = {
     Reports: 'reports',
     UpdatedAt: 'updated_at',
     PublishedAt: 'published_at',
-    Version: 'version'
+    Version: 'version',
 } as const;
 export type SearchBuildsSortByEnum = typeof SearchBuildsSortByEnum[keyof typeof SearchBuildsSortByEnum];
 export const SearchBuildsSortDirectionEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type SearchBuildsSortDirectionEnum = typeof SearchBuildsSortDirectionEnum[keyof typeof SearchBuildsSortDirectionEnum];
 export const SearchBuildsBuildLanguageEnum = {
@@ -5293,7 +5293,7 @@ export const SearchBuildsBuildLanguageEnum = {
     PortugueseBrazil: 'PortugueseBrazil',
     Ukrainian: 'Ukrainian',
     SpanishLatinAmerica: 'SpanishLatinAmerica',
-    Vietnamese: 'Vietnamese'
+    Vietnamese: 'Vietnamese',
 } as const;
 export type SearchBuildsBuildLanguageEnum = typeof SearchBuildsBuildLanguageEnum[keyof typeof SearchBuildsBuildLanguageEnum];
 
@@ -5678,7 +5678,7 @@ export const CommandResolveRegionEnum = {
     Asia: 'Asia',
     NAmerica: 'NAmerica',
     SAmerica: 'SAmerica',
-    Oceania: 'Oceania'
+    Oceania: 'Oceania',
 } as const;
 export type CommandResolveRegionEnum = typeof CommandResolveRegionEnum[keyof typeof CommandResolveRegionEnum];
 export const VariablesResolveRegionEnum = {
@@ -5686,7 +5686,7 @@ export const VariablesResolveRegionEnum = {
     Asia: 'Asia',
     NAmerica: 'NAmerica',
     SAmerica: 'SAmerica',
-    Oceania: 'Oceania'
+    Oceania: 'Oceania',
 } as const;
 export type VariablesResolveRegionEnum = typeof VariablesResolveRegionEnum[keyof typeof VariablesResolveRegionEnum];
 
@@ -6802,7 +6802,7 @@ export const LeaderboardRegionEnum = {
     Asia: 'Asia',
     NAmerica: 'NAmerica',
     SAmerica: 'SAmerica',
-    Oceania: 'Oceania'
+    Oceania: 'Oceania',
 } as const;
 export type LeaderboardRegionEnum = typeof LeaderboardRegionEnum[keyof typeof LeaderboardRegionEnum];
 export const LeaderboardHeroRegionEnum = {
@@ -6810,7 +6810,7 @@ export const LeaderboardHeroRegionEnum = {
     Asia: 'Asia',
     NAmerica: 'NAmerica',
     SAmerica: 'SAmerica',
-    Oceania: 'Oceania'
+    Oceania: 'Oceania',
 } as const;
 export type LeaderboardHeroRegionEnum = typeof LeaderboardHeroRegionEnum[keyof typeof LeaderboardHeroRegionEnum];
 export const LeaderboardHeroRawRegionEnum = {
@@ -6818,7 +6818,7 @@ export const LeaderboardHeroRawRegionEnum = {
     Asia: 'Asia',
     NAmerica: 'NAmerica',
     SAmerica: 'SAmerica',
-    Oceania: 'Oceania'
+    Oceania: 'Oceania',
 } as const;
 export type LeaderboardHeroRawRegionEnum = typeof LeaderboardHeroRawRegionEnum[keyof typeof LeaderboardHeroRawRegionEnum];
 export const LeaderboardRawRegionEnum = {
@@ -6826,7 +6826,7 @@ export const LeaderboardRawRegionEnum = {
     Asia: 'Asia',
     NAmerica: 'NAmerica',
     SAmerica: 'SAmerica',
-    Oceania: 'Oceania'
+    Oceania: 'Oceania',
 } as const;
 export type LeaderboardRawRegionEnum = typeof LeaderboardRawRegionEnum[keyof typeof LeaderboardRawRegionEnum];
 
@@ -8539,18 +8539,18 @@ export class MatchesApi extends BaseAPI {
 export const BulkMetadataGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type BulkMetadataGameModeEnum = typeof BulkMetadataGameModeEnum[keyof typeof BulkMetadataGameModeEnum];
 export const BulkMetadataOrderByEnum = {
     MatchId: 'match_id',
     StartTime: 'start_time',
-    AverageBadge: 'average_badge'
+    AverageBadge: 'average_badge',
 } as const;
 export type BulkMetadataOrderByEnum = typeof BulkMetadataOrderByEnum[keyof typeof BulkMetadataOrderByEnum];
 export const BulkMetadataOrderDirectionEnum = {
     Desc: 'desc',
-    Asc: 'asc'
+    Asc: 'asc',
 } as const;
 export type BulkMetadataOrderDirectionEnum = typeof BulkMetadataOrderDirectionEnum[keyof typeof BulkMetadataOrderDirectionEnum];
 
@@ -9567,19 +9567,19 @@ export class PlayersApi extends BaseAPI {
 export const EnemyStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type EnemyStatsGameModeEnum = typeof EnemyStatsGameModeEnum[keyof typeof EnemyStatsGameModeEnum];
 export const MateStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type MateStatsGameModeEnum = typeof MateStatsGameModeEnum[keyof typeof MateStatsGameModeEnum];
 export const PlayerHeroStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
-    ExploreNYC: 'explore_n_y_c'
+    ExploreNYC: 'explore_n_y_c',
 } as const;
 export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
 

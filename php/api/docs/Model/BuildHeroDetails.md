@@ -1,4 +1,4 @@
-# # BuildHeroDetails
+# BuildHeroDetails
 
 ## Properties
 

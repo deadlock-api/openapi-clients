@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RejuvParams(BaseModel):
     """
@@ -36,7 +37,8 @@ class RejuvParams(BaseModel):
     __properties: ClassVar[List[str]] = ["rejuvinator_expiration_warning_timing", "rejuvinator_buff_duration", "rejuvinator_drop_height", "rejuvinator_drop_duration", "trooper_health_mult", "player_respawn_mult", "rejuvinator_rebirth_duration"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -48,8 +50,7 @@ class RejuvParams(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

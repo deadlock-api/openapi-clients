@@ -1,4 +1,4 @@
-# # MateStats
+# MateStats
 
 ## Properties
 

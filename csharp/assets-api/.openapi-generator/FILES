@@ -344,6 +344,7 @@ src/AssetsDeadlockApiClient/Client/DateOnlyNullableJsonConverter.cs
 src/AssetsDeadlockApiClient/Client/DateTimeJsonConverter.cs
 src/AssetsDeadlockApiClient/Client/DateTimeNullableJsonConverter.cs
 src/AssetsDeadlockApiClient/Client/ExceptionEventArgs.cs
+src/AssetsDeadlockApiClient/Client/FileParameter.cs
 src/AssetsDeadlockApiClient/Client/HostConfiguration.cs
 src/AssetsDeadlockApiClient/Client/JsonSerializerOptionsProvider.cs
 src/AssetsDeadlockApiClient/Client/Option.cs

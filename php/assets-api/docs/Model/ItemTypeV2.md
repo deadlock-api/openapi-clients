@@ -1,4 +1,4 @@
-# # ItemTypeV2
+# ItemTypeV2
 
 ## Properties
 

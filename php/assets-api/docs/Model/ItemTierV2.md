@@ -1,4 +1,4 @@
-# # ItemTierV2
+# ItemTierV2
 
 ## Properties
 

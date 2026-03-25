@@ -1,4 +1,4 @@
-# # HeroImagesV2
+# HeroImagesV2
 
 ## Properties
 

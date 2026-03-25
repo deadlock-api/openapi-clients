@@ -1,4 +1,4 @@
-# # KillDeathStats
+# KillDeathStats
 
 ## Properties
 

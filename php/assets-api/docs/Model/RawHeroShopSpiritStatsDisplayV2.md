@@ -1,4 +1,4 @@
-# # RawHeroShopSpiritStatsDisplayV2
+# RawHeroShopSpiritStatsDisplayV2
 
 ## Properties
 

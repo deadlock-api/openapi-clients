@@ -23,6 +23,7 @@ from typing_extensions import Annotated
 from deadlock_api_client.models.build_hero import BuildHero
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Build(BaseModel):
     """
@@ -37,7 +38,8 @@ class Build(BaseModel):
     __properties: ClassVar[List[str]] = ["hero_build", "num_favorites", "num_ignores", "num_reports", "num_weekly_favorites", "rollup_category"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -49,8 +51,7 @@ class Build(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

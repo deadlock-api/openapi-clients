@@ -1,4 +1,4 @@
-# # GlitchSettingsV2
+# GlitchSettingsV2
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # TableSize
+# TableSize
 
 ## Properties
 

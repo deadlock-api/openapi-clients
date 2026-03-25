@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **properties** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **elevated_properties** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **important_properties** | [**Array&lt;RawUpgradeTooltipSectionAttributeImportantPropertyV2&gt;**](RawUpgradeTooltipSectionAttributeImportantPropertyV2.md) |  | [optional] [default to undefined]
-**important_properties_with_icon_path** | [**Array&lt;RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon&gt;**](RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon.md) |  | [default to undefined]
+**important_properties_with_icon_path** | [**Array&lt;RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon&gt;**](RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon.md) |  | [readonly] [default to undefined]
 
 ## Example
 

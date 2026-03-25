@@ -1,4 +1,4 @@
-# # HeroDescriptionV2
+# HeroDescriptionV2
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # RawItemPropertyV2
+# RawItemPropertyV2
 
 ## Properties
 

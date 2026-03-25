@@ -1,4 +1,4 @@
-# # Leaderboard
+# Leaderboard
 
 ## Properties
 

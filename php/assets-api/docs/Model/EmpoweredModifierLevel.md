@@ -1,4 +1,4 @@
-# # EmpoweredModifierLevel
+# EmpoweredModifierLevel
 
 ## Properties
 

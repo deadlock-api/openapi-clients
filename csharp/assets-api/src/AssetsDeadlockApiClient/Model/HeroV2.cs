@@ -118,7 +118,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HeroType
         /// </summary>
         [JsonPropertyName("hero_type")]
-        public HeroTypeV2? HeroType { get { return this.HeroTypeOption; } set { this.HeroTypeOption = new(value); } }
+        public HeroTypeV2? HeroType { get { return this.HeroTypeOption.Value; } set { this.HeroTypeOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets Id

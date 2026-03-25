@@ -1,4 +1,4 @@
-# # DamageFlashV2
+# DamageFlashV2
 
 ## Properties
 

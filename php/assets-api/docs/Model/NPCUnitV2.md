@@ -1,4 +1,4 @@
-# # NPCUnitV2
+# NPCUnitV2
 
 ## Properties
 

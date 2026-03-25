@@ -1,4 +1,4 @@
-# # BuildItemStats
+# BuildItemStats
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # StatsUsageFlagV2
+# StatsUsageFlagV2
 
 ## Properties
 

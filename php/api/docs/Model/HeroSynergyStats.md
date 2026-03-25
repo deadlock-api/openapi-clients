@@ -1,4 +1,4 @@
-# # HeroSynergyStats
+# HeroSynergyStats
 
 ## Properties
 

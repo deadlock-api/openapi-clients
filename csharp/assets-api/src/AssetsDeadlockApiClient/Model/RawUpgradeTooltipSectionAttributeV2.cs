@@ -107,7 +107,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ImportantPropertiesWithIconPath
         /// </summary>
         [JsonPropertyName("important_properties_with_icon_path")]
-        public List<RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>? ImportantPropertiesWithIconPath { get; set; }
+        public List<RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>? ImportantPropertiesWithIconPath { get; }
 
         /// <summary>
         /// Returns the string presentation of the object

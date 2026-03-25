@@ -339,7 +339,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IMatchHistoryApiResponse"/>
     /// </summary>
-    public interface IMatchHistoryApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<PlayerMatchHistoryEntry>?>
+    public interface IMatchHistoryApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<PlayerMatchHistoryEntry>?>, ITooManyRequests<List<PlayerMatchHistoryEntry>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -1670,6 +1670,38 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public List<PlayerMatchHistoryEntry>? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<PlayerMatchHistoryEntry>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out List<PlayerMatchHistoryEntry>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
+                }
+
+                return result != null;
+            }
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError

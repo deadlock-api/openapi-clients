@@ -52,7 +52,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets DependantAbilities
         /// </summary>
-        public DependantAbilities? DependantAbilities { get { return this.DependantAbilitiesOption; } set { this.DependantAbilitiesOption = new(value); } }
+        public DependantAbilities? DependantAbilities { get { return this.DependantAbilitiesOption.Value; } set { this.DependantAbilitiesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

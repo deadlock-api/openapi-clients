@@ -1,4 +1,4 @@
-# # HeroColorsV2
+# HeroColorsV2
 
 ## Properties
 

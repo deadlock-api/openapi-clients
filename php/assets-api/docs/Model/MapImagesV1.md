@@ -1,4 +1,4 @@
-# # MapImagesV1
+# MapImagesV1
 
 ## Properties
 

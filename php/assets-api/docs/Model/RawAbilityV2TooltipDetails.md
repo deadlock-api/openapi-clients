@@ -1,4 +1,4 @@
-# # RawAbilityV2TooltipDetails
+# RawAbilityV2TooltipDetails
 
 ## Properties
 

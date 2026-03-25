@@ -1,4 +1,4 @@
-# # BulletResistModifier
+# BulletResistModifier
 
 ## Properties
 

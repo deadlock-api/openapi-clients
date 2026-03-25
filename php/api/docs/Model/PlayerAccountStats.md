@@ -1,4 +1,4 @@
-# # PlayerAccountStats
+# PlayerAccountStats
 
 ## Properties
 

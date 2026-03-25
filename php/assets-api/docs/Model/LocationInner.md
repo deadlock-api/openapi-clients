@@ -1,4 +1,4 @@
-# # LocationInner
+# LocationInner
 
 ## Properties
 

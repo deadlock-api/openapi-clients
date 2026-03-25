@@ -1,4 +1,4 @@
-# # HeroEntry
+# HeroEntry
 
 ## Properties
 

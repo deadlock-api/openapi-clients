@@ -1,4 +1,4 @@
-# # ModifierValue
+# ModifierValue
 
 ## Properties
 

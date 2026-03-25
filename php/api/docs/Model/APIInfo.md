@@ -1,4 +1,4 @@
-# # APIInfo
+# APIInfo
 
 ## Properties
 

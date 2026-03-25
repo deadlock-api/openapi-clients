@@ -1,4 +1,4 @@
-# # ObjectiveParams
+# ObjectiveParams
 
 ## Properties
 

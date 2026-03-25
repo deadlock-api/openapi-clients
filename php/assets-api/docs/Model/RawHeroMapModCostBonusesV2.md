@@ -1,4 +1,4 @@
-# # RawHeroMapModCostBonusesV2
+# RawHeroMapModCostBonusesV2
 
 ## Properties
 

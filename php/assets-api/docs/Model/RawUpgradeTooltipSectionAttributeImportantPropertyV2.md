@@ -1,4 +1,4 @@
-# # RawUpgradeTooltipSectionAttributeImportantPropertyV2
+# RawUpgradeTooltipSectionAttributeImportantPropertyV2
 
 ## Properties
 

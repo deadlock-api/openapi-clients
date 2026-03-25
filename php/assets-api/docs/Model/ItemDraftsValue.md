@@ -1,4 +1,4 @@
-# # ItemDraftsValue
+# ItemDraftsValue
 
 ## Properties
 

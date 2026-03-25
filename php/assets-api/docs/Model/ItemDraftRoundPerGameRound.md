@@ -1,4 +1,4 @@
-# # ItemDraftRoundPerGameRound
+# ItemDraftRoundPerGameRound
 
 ## Properties
 

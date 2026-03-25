@@ -1,4 +1,4 @@
-# # SubclassIntrinsicModifiers
+# SubclassIntrinsicModifiers
 
 ## Properties
 

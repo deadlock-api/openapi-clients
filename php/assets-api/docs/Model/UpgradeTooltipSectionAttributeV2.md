@@ -1,4 +1,4 @@
-# # UpgradeTooltipSectionAttributeV2
+# UpgradeTooltipSectionAttributeV2
 
 ## Properties
 

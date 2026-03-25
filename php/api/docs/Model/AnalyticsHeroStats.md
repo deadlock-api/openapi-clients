@@ -1,4 +1,4 @@
-# # AnalyticsHeroStats
+# AnalyticsHeroStats
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # RawHeroScalingStatV2
+# RawHeroScalingStatV2
 
 ## Properties
 

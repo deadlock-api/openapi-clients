@@ -27,6 +27,7 @@ from deadlock_api_client.models.active_match_team import ActiveMatchTeam
 from deadlock_api_client.models.region_mode import RegionMode
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ActiveMatch(BaseModel):
     """
@@ -57,7 +58,8 @@ class ActiveMatch(BaseModel):
     __properties: ClassVar[List[str]] = ["compat_version", "duration_s", "game_mode", "game_mode_parsed", "game_mode_version", "lobby_id", "match_id", "match_mode", "match_mode_parsed", "match_score", "net_worth_team_0", "net_worth_team_1", "objectives_mask_team0", "objectives_mask_team1", "open_spectator_slots", "players", "region_mode", "region_mode_parsed", "spectators", "start_time", "winning_team", "winning_team_parsed"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -69,8 +71,7 @@ class ActiveMatch(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

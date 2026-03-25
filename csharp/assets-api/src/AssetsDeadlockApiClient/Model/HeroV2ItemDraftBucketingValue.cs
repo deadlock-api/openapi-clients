@@ -52,7 +52,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets RawHeroDraftBucketing
         /// </summary>
-        public RawHeroDraftBucketing? RawHeroDraftBucketing { get { return this.RawHeroDraftBucketingOption; } set { this.RawHeroDraftBucketingOption = new(value); } }
+        public RawHeroDraftBucketing? RawHeroDraftBucketing { get { return this.RawHeroDraftBucketingOption.Value; } set { this.RawHeroDraftBucketingOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

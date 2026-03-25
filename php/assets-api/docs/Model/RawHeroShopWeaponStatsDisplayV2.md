@@ -1,4 +1,4 @@
-# # RawHeroShopWeaponStatsDisplayV2
+# RawHeroShopWeaponStatsDisplayV2
 
 ## Properties
 

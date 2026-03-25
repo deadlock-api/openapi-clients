@@ -54,7 +54,7 @@ export const AbilityTypeV2 = {
     Ultimate: 'ultimate',
     Weapon: 'weapon',
     Melee: 'melee',
-    Cosmetic: 'cosmetic'
+    Cosmetic: 'cosmetic',
 } as const;
 
 export type AbilityTypeV2 = typeof AbilityTypeV2[keyof typeof AbilityTypeV2];
@@ -86,7 +86,7 @@ export interface AbilityV2 {
 }
 
 export const AbilityV2TypeEnum = {
-    Ability: 'ability'
+    Ability: 'ability',
 } as const;
 
 export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
@@ -232,7 +232,7 @@ export const DeadlockAssetsApiRoutesValidClientVersions = {
     NUMBER_5538: 5538,
     NUMBER_5533: 5533,
     NUMBER_5529: 5529,
-    NUMBER_5527: 5527
+    NUMBER_5527: 5527,
 } as const;
 
 export type DeadlockAssetsApiRoutesValidClientVersions = typeof DeadlockAssetsApiRoutesValidClientVersions[keyof typeof DeadlockAssetsApiRoutesValidClientVersions];
@@ -268,7 +268,7 @@ export interface FlashDataV2 {
 }
 
 export const GameMode = {
-    Normal: 'normal'
+    Normal: 'normal',
 } as const;
 
 export type GameMode = typeof GameMode[keyof typeof GameMode];
@@ -358,7 +358,7 @@ export const HeroItemTypeV2 = {
     Signature2: 'signature2',
     Signature3: 'signature3',
     Signature4: 'signature4',
-    EslotCosmetic1: 'eslot_cosmetic_1'
+    EslotCosmetic1: 'eslot_cosmetic_1',
 } as const;
 
 export type HeroItemTypeV2 = typeof HeroItemTypeV2[keyof typeof HeroItemTypeV2];
@@ -422,7 +422,7 @@ export const HeroTypeV2 = {
     Assassin: 'assassin',
     Brawler: 'brawler',
     Marksman: 'marksman',
-    Mystic: 'mystic'
+    Mystic: 'mystic',
 } as const;
 
 export type HeroTypeV2 = typeof HeroTypeV2[keyof typeof HeroTypeV2];
@@ -515,7 +515,7 @@ export interface ItemPropertyV2 {
 export const ItemSlotTypeV2 = {
     Weapon: 'weapon',
     Spirit: 'spirit',
-    Vitality: 'vitality'
+    Vitality: 'vitality',
 } as const;
 
 export type ItemSlotTypeV2 = typeof ItemSlotTypeV2[keyof typeof ItemSlotTypeV2];
@@ -527,7 +527,7 @@ export const ItemTierV2 = {
     NUMBER_2: 2,
     NUMBER_3: 3,
     NUMBER_4: 4,
-    NUMBER_5: 5
+    NUMBER_5: 5,
 } as const;
 
 export type ItemTierV2 = typeof ItemTierV2[keyof typeof ItemTierV2];
@@ -539,7 +539,7 @@ export const ItemTypeV2 = {
     Ability: 'ability',
     Upgrade: 'upgrade',
     Tech: 'tech',
-    Armor: 'armor'
+    Armor: 'armor',
 } as const;
 
 export type ItemTypeV2 = typeof ItemTypeV2[keyof typeof ItemTypeV2];
@@ -582,7 +582,7 @@ export const Language = {
     Thai: 'thai',
     Turkish: 'turkish',
     Ukrainian: 'ukrainian',
-    Vietnamese: 'vietnamese'
+    Vietnamese: 'vietnamese',
 } as const;
 
 export type Language = typeof Language[keyof typeof Language];
@@ -894,7 +894,7 @@ export const RawAbilityActivationV2 = {
     Passive: 'passive',
     Press: 'press',
     PressToggle: 'press_toggle',
-    InstantCastToggle: 'instant_cast_toggle'
+    InstantCastToggle: 'instant_cast_toggle',
 } as const;
 
 export type RawAbilityActivationV2 = typeof RawAbilityActivationV2[keyof typeof RawAbilityActivationV2];
@@ -904,7 +904,7 @@ export type RawAbilityActivationV2 = typeof RawAbilityActivationV2[keyof typeof 
 export const RawAbilityImbueV2 = {
     ImbueActive: 'imbue_active',
     ImbueActiveNonUlt: 'imbue_active_non_ult',
-    ImbueModifierValue: 'imbue_modifier_value'
+    ImbueModifierValue: 'imbue_modifier_value',
 } as const;
 
 export type RawAbilityImbueV2 = typeof RawAbilityImbueV2[keyof typeof RawAbilityImbueV2];
@@ -914,7 +914,7 @@ export type RawAbilityImbueV2 = typeof RawAbilityImbueV2[keyof typeof RawAbility
 export const RawAbilitySectionTypeV2 = {
     Innate: 'innate',
     Active: 'active',
-    Passive: 'passive'
+    Passive: 'passive',
 } as const;
 
 export type RawAbilitySectionTypeV2 = typeof RawAbilitySectionTypeV2[keyof typeof RawAbilitySectionTypeV2];
@@ -950,7 +950,7 @@ export interface RawAbilityV2 {
 }
 
 export const RawAbilityV2TypeEnum = {
-    Ability: 'ability'
+    Ability: 'ability',
 } as const;
 
 export type RawAbilityV2TypeEnum = typeof RawAbilityV2TypeEnum[keyof typeof RawAbilityV2TypeEnum];
@@ -1200,7 +1200,7 @@ export interface RawUpgradeV2 {
 }
 
 export const RawUpgradeV2TypeEnum = {
-    Upgrade: 'upgrade'
+    Upgrade: 'upgrade',
 } as const;
 
 export type RawUpgradeV2TypeEnum = typeof RawUpgradeV2TypeEnum[keyof typeof RawUpgradeV2TypeEnum];
@@ -1292,7 +1292,7 @@ export interface RawWeaponV2 {
 }
 
 export const RawWeaponV2TypeEnum = {
-    Weapon: 'weapon'
+    Weapon: 'weapon',
 } as const;
 
 export type RawWeaponV2TypeEnum = typeof RawWeaponV2TypeEnum[keyof typeof RawWeaponV2TypeEnum];
@@ -1348,7 +1348,7 @@ export interface ResponseGetRawItemsRawItemsGetInner {
 export const ResponseGetRawItemsRawItemsGetInnerTypeEnum = {
     Ability: 'ability',
     Weapon: 'weapon',
-    Upgrade: 'upgrade'
+    Upgrade: 'upgrade',
 } as const;
 
 export type ResponseGetRawItemsRawItemsGetInnerTypeEnum = typeof ResponseGetRawItemsRawItemsGetInnerTypeEnum[keyof typeof ResponseGetRawItemsRawItemsGetInnerTypeEnum];
@@ -1364,7 +1364,7 @@ export const StatsUsageFlagV2 = {
     ConditionallyApplied: 'ConditionallyApplied',
     ConditionallyEnemyApplied: 'ConditionallyEnemyApplied',
     IntrinsicallyProvidedInAbility: 'IntrinsicallyProvidedInAbility',
-    IntrinsicallyProvidedInModifier: 'IntrinsicallyProvidedInModifier'
+    IntrinsicallyProvidedInModifier: 'IntrinsicallyProvidedInModifier',
 } as const;
 
 export type StatsUsageFlagV2 = typeof StatsUsageFlagV2[keyof typeof StatsUsageFlagV2];
@@ -1446,7 +1446,7 @@ export interface SubclassTrooperDamageReduction {
 
 export const ThresholdType = {
     Automatic: 'automatic',
-    Manual: 'manual'
+    Manual: 'manual',
 } as const;
 
 export type ThresholdType = typeof ThresholdType[keyof typeof ThresholdType];
@@ -1484,7 +1484,7 @@ export const TrackedStatName = {
     Secures: 'secures',
     SinnersSacrificeJackpot: 'sinners_sacrifice_jackpot',
     TrooperLastHits: 'trooper_last_hits',
-    WeaponDamage: 'weapon_damage'
+    WeaponDamage: 'weapon_damage',
 } as const;
 
 export type TrackedStatName = typeof TrackedStatName[keyof typeof TrackedStatName];
@@ -1574,7 +1574,7 @@ export interface UpgradeV2 {
 }
 
 export const UpgradeV2TypeEnum = {
-    Upgrade: 'upgrade'
+    Upgrade: 'upgrade',
 } as const;
 
 export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2TypeEnum];
@@ -1681,7 +1681,7 @@ export interface WeaponV2 {
 }
 
 export const WeaponV2TypeEnum = {
-    Weapon: 'weapon'
+    Weapon: 'weapon',
 } as const;
 
 export type WeaponV2TypeEnum = typeof WeaponV2TypeEnum[keyof typeof WeaponV2TypeEnum];

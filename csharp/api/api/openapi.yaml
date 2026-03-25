@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -369,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -501,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -575,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -709,7 +709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -959,7 +959,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -1213,7 +1213,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -1475,7 +1475,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -1742,7 +1742,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -1968,7 +1968,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -2233,7 +2233,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -2523,7 +2523,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -2742,7 +2742,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -3039,7 +3039,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -5255,7 +5255,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -5374,7 +5374,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771632000
+          default: 1771718400
           format: int64
           nullable: true
           type: integer
@@ -5900,7 +5900,14 @@ paths:
         "400":
           description: Provided parameters are invalid.
         "429":
-          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/PlayerMatchHistoryEntry"
+                type: array
+          description: "Rate limit exceeded. Returns stored match history from ClickHouse\
+            \ as a fallback. When `force_refetch=true`, returns an error instead."
         "500":
           description: Fetching player match history failed
       summary: Match History

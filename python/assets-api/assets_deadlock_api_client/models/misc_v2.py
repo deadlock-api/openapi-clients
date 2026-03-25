@@ -26,6 +26,7 @@ from assets_deadlock_api_client.models.pickup_radius import PickupRadius
 from assets_deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class MiscV2(BaseModel):
     """
@@ -69,7 +70,8 @@ class MiscV2(BaseModel):
     __properties: ClassVar[List[str]] = ["class_name", "color", "initial_spawn_time", "respawn_time", "spawn_interval", "initial_spawn_delay_in_seconds", "spawn_interval_in_seconds", "match_time_mins_for_level2_pickups", "match_time_mins_for_level3_pickups", "loot_list_deck_size", "initial_spawn_delay_seconds", "health", "break_on_dodge_touch", "solid_after_death", "render_after_death", "damaged_by_abilities", "damaged_by_melee", "damaged_by_bullets", "is_mantleable", "primary_drop_chance", "primary_pickups", "m_vecPickups_lv2", "m_vecPickups_lv3", "roll_type", "gold_amount", "gold_per_minute_amount", "modifier", "pickup_radius", "expiration_duration", "show_on_minimap", "orb_spawn_delay_min", "orb_spawn_delay_max", "lifetime", "collision_radius", "id"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -81,8 +83,7 @@ class MiscV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

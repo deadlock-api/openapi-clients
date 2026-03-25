@@ -1,4 +1,4 @@
-# # PlayerCardSlotStat
+# PlayerCardSlotStat
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # BuildHeroDetailsCategoryAbility
+# BuildHeroDetailsCategoryAbility
 
 ## Properties
 

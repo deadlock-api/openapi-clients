@@ -1,4 +1,4 @@
-# # RawWeaponV2
+# RawWeaponV2
 
 ## Properties
 

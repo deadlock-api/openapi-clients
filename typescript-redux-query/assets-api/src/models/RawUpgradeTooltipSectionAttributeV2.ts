@@ -56,7 +56,7 @@ export interface RawUpgradeTooltipSectionAttributeV2  {
      * @type {Array<RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>}
      * @memberof RawUpgradeTooltipSectionAttributeV2
      */
-    importantPropertiesWithIconPath: Array<RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>;
+    readonly importantPropertiesWithIconPath: Array<RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon>;
 }
 
 export function RawUpgradeTooltipSectionAttributeV2FromJSON(json: any): RawUpgradeTooltipSectionAttributeV2 {
@@ -78,7 +78,6 @@ export function RawUpgradeTooltipSectionAttributeV2ToJSON(value?: RawUpgradeTool
         'properties': value.properties,
         'elevated_properties': value.elevatedProperties,
         'important_properties': value.importantProperties === undefined ? undefined : (value.importantProperties as Array<any>).map(RawUpgradeTooltipSectionAttributeImportantPropertyV2ToJSON),
-        'important_properties_with_icon_path': (value.importantPropertiesWithIconPath as Array<any>).map(RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIconToJSON),
     };
 }
 

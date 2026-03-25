@@ -1,4 +1,4 @@
-# # AbilityV2DependentAbilitiesValue
+# AbilityV2DependentAbilitiesValue
 
 ## Properties
 

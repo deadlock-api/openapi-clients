@@ -1,4 +1,4 @@
-# # RankImagesV2
+# RankImagesV2
 
 ## Properties
 

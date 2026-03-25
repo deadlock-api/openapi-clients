@@ -1,4 +1,4 @@
-# # RangedArmorModifier
+# RangedArmorModifier
 
 ## Properties
 

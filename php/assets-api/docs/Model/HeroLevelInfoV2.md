@@ -1,4 +1,4 @@
-# # HeroLevelInfoV2
+# HeroLevelInfoV2
 
 ## Properties
 

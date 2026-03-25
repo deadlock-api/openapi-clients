@@ -94,7 +94,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TooltipSection
         /// </summary>
         [JsonPropertyName("tooltip_section")]
-        public RawAbilitySectionTypeV2? TooltipSection { get { return this.TooltipSectionOption; } set { this.TooltipSectionOption = new(value); } }
+        public RawAbilitySectionTypeV2? TooltipSection { get { return this.TooltipSectionOption.Value; } set { this.TooltipSectionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Value

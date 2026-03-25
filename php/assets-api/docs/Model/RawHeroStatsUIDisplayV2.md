@@ -1,4 +1,4 @@
-# # RawHeroStatsUIDisplayV2
+# RawHeroStatsUIDisplayV2
 
 ## Properties
 

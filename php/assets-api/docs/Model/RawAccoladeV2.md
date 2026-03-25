@@ -1,4 +1,4 @@
-# # RawAccoladeV2
+# RawAccoladeV2
 
 ## Properties
 

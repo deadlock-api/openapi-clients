@@ -1,4 +1,4 @@
-# # RawHeroPurchaseBonusV2
+# RawHeroPurchaseBonusV2
 
 ## Properties
 

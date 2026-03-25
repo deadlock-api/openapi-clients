@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **importantPropertiesWithIconPath** | [**kotlin.collections.List&lt;RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon&gt;**](RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon.md) |  |  |
+| **importantPropertiesWithIconPath** | [**kotlin.collections.List&lt;RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon&gt;**](RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon.md) |  |  [readonly] |
 | **locString** | **kotlin.String** |  |  [optional] |
 | **properties** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **elevatedProperties** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |

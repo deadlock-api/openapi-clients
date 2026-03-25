@@ -23,6 +23,7 @@ from assets_deadlock_api_client.models.item_draft_round_per_game_round import It
 from assets_deadlock_api_client.models.item_drafts_value import ItemDraftsValue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class StreetBrawl(BaseModel):
     """
@@ -64,7 +65,8 @@ class StreetBrawl(BaseModel):
     __properties: ClassVar[List[str]] = ["respawn_times", "gold_per_round", "apper_round", "item_draft_rerolls_per_round", "round_length_minutes", "round_length_minutes_urgent", "overtime_respawn_time_increase", "overtime_respawn_time_increase_urgent", "overtime_trooper_health_scale", "overtime_trooper_damage_scale", "buy_time", "pre_buy_time", "score_to_win", "scoring_time", "lane_number", "objective_max_health", "tier2_bonus_health", "comeback_bonus_health", "comeback_bonus_health_critical", "trooper_spawn_timer", "trooper_spawn_before_round_start_timer", "zip_boost_cooldown_on_start", "buy_time_grace_period", "tier1_max_resist_time", "tier2_max_resist_time", "ultimate_unlock_round", "item_draft_rounds_per_game_round", "outline_color_friend", "outline_color_enemy", "outline_color_team1", "outline_color_team2", "outline_color_neutral", "item_drafts"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -76,8 +78,7 @@ class StreetBrawl(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

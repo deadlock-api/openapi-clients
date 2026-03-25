@@ -1,4 +1,4 @@
-# # ResponseGetItemV2ItemsIdOrClassNameGet
+# ResponseGetItemV2ItemsIdOrClassNameGet
 
 ## Properties
 

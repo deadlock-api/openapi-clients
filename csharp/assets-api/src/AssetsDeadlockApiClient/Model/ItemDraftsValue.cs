@@ -52,7 +52,7 @@ namespace AssetsDeadlockApiClient.Model
         /// <summary>
         /// Gets or Sets DraftBuckets
         /// </summary>
-        public DraftBuckets? DraftBuckets { get { return this.DraftBucketsOption; } set { this.DraftBucketsOption = new(value); } }
+        public DraftBuckets? DraftBuckets { get { return this.DraftBucketsOption.Value; } set { this.DraftBucketsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

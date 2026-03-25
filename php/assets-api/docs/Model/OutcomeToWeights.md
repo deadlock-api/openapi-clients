@@ -1,4 +1,4 @@
-# # OutcomeToWeights
+# OutcomeToWeights
 
 ## Properties
 

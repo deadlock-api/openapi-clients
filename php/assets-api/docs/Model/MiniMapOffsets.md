@@ -1,4 +1,4 @@
-# # MiniMapOffsets
+# MiniMapOffsets
 
 ## Properties
 

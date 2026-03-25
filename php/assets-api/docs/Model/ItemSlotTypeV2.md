@@ -1,4 +1,4 @@
-# # ItemSlotTypeV2
+# ItemSlotTypeV2
 
 ## Properties
 

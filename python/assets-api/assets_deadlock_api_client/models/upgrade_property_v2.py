@@ -26,6 +26,7 @@ from assets_deadlock_api_client.models.usage_flags import UsageFlags
 from assets_deadlock_api_client.models.value1 import Value1
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class UpgradePropertyV2(BaseModel):
     """
@@ -55,7 +56,8 @@ class UpgradePropertyV2(BaseModel):
     __properties: ClassVar[List[str]] = ["value", "street_brawl_value", "can_set_token_override", "provided_property_type", "css_class", "usage_flags", "negative_attribute", "disable_value", "loc_token_override", "display_units", "icon_path", "scale_function", "prefix", "label", "postfix", "postvalue_label", "conditional", "icon", "tooltip_section", "tooltip_is_elevated", "tooltip_is_important"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -67,8 +69,7 @@ class UpgradePropertyV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

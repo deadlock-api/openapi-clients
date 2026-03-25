@@ -1,4 +1,4 @@
-# # ObjectivePositionV1
+# ObjectivePositionV1
 
 ## Properties
 

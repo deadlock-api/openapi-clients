@@ -1,4 +1,4 @@
-# # SubclassTrooperDamageReduction
+# SubclassTrooperDamageReduction
 
 ## Properties
 

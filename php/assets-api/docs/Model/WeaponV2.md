@@ -1,4 +1,4 @@
-# # WeaponV2
+# WeaponV2
 
 ## Properties
 

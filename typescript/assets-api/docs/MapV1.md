@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **radius** | **number** | The radius of the map. | [optional] [default to 10752]
 **images** | [**MapImagesV1**](MapImagesV1.md) | The images of the map. | [default to undefined]
 **objective_positions** | [**ObjectivePositionsV1**](ObjectivePositionsV1.md) |  | [readonly] [default to undefined]
-**zipline_paths** | [**Array&lt;ZiplanePathV1&gt;**](ZiplanePathV1.md) | The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline. | [default to undefined]
+**zipline_paths** | [**Array&lt;ZiplanePathV1&gt;**](ZiplanePathV1.md) | The ziplane paths of the map. Each path is a list of P0, P1, and P2 points, describing the cubic spline. | [readonly] [default to undefined]
 
 ## Example
 

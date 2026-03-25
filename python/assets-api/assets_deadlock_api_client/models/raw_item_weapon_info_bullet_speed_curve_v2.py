@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline_v2 import RawItemWeaponInfoBulletSpeedCurveSplineV2
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RawItemWeaponInfoBulletSpeedCurveV2(BaseModel):
     """
@@ -33,7 +34,8 @@ class RawItemWeaponInfoBulletSpeedCurveV2(BaseModel):
     __properties: ClassVar[List[str]] = ["spline", "domain_maxs", "domain_mins"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -45,8 +47,7 @@ class RawItemWeaponInfoBulletSpeedCurveV2(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

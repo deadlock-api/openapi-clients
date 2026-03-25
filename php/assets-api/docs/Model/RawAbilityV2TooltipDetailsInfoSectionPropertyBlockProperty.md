@@ -1,4 +1,4 @@
-# # RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
+# RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 
 ## Properties
 

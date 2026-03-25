@@ -1,4 +1,4 @@
-# # PatchCategory
+# PatchCategory
 
 ## Properties
 
