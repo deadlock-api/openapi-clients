@@ -92,6 +92,9 @@ class PlayersApi
         'playerHeroStats' => [
             'application/json',
         ],
+        'rankPredict' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -2293,6 +2296,277 @@ class PlayersApi
         ) ?? []);
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rankPredict
+     *
+     * Rank Predict
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\RankPredictResponse
+     */
+    public function rankPredict($account_id, string $contentType = self::contentTypes['rankPredict'][0])
+    {
+        list($response) = $this->rankPredictWithHttpInfo($account_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation rankPredictWithHttpInfo
+     *
+     * Rank Predict
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\RankPredictResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rankPredictWithHttpInfo($account_id, string $contentType = self::contentTypes['rankPredict'][0])
+    {
+        $request = $this->rankPredictRequest($account_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\RankPredictResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\RankPredictResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\RankPredictResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rankPredictAsync
+     *
+     * Rank Predict
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankPredictAsync($account_id, string $contentType = self::contentTypes['rankPredict'][0])
+    {
+        return $this->rankPredictAsyncWithHttpInfo($account_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rankPredictAsyncWithHttpInfo
+     *
+     * Rank Predict
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankPredictAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['rankPredict'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\RankPredictResponse';
+        $request = $this->rankPredictRequest($account_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rankPredict'
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rankPredictRequest($account_id, string $contentType = self::contentTypes['rankPredict'][0])
+    {
+
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling rankPredict'
+            );
+        }
+        if ($account_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.rankPredict, must be bigger than or equal to 0.');
+        }
+        
+
+        $resourcePath = '/v1/players/{account_id}/rank-predict';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'account_id' . '}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(

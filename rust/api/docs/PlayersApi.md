@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
+[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
 
 
 
@@ -212,6 +213,36 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**Vec<models::HeroStats>**](HeroStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## rank_predict
+
+> models::RankPredictResponse rank_predict(account_id)
+Rank Predict
+
+ Predicts a player's current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player's > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**account_id** | **u32** | The players `SteamID3` | [required] |
+
+### Return type
+
+[**models::RankPredictResponse**](RankPredictResponse.md)
 
 ### Authorization
 

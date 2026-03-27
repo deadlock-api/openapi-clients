@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**MatchHistory**](PlayersAPI.md#MatchHistory) | **Get** /v1/players/{account_id}/match-history | Match History
 [**MateStats**](PlayersAPI.md#MateStats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 [**PlayerHeroStats**](PlayersAPI.md#PlayerHeroStats) | **Get** /v1/players/hero-stats | Hero Stats
+[**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict
 
 
 
@@ -478,6 +479,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]HeroStats**](HeroStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RankPredict
+
+> RankPredictResponse RankPredict(ctx, accountId).Execute()
+
+Rank Predict
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountId := int32(56) // int32 | The players `SteamID3`
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.RankPredict(context.Background(), accountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredict``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RankPredict`: RankPredictResponse
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankPredict`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRankPredictRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**RankPredictResponse**](RankPredictResponse.md)
 
 ### Authorization
 

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
+[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
 
 
 # **account_stats**
@@ -584,6 +585,113 @@ No authorization required
 **200** | Hero Stats |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **500** | Failed to fetch hero stats |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rank_predict**
+> RankPredictResponse rank_predict(account_id)
+
+Rank Predict
+
+
+Predicts a player's current rank badge from their last 30 ranked/unranked matches.
+Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.
+
+> **This is an ML prediction and may be inaccurate.** The model has no access to the player's
+> actual hidden MMR — it infers rank from match context signals only.
+
+### Model Accuracy (5-fold cross-validation)
+
+| Metric | Value |
+|--------|-------|
+| R²     | 0.924 |
+| MAE    | 3.35 sub-ranks |
+| RMSE   | 4.55 sub-ranks |
+| Within ±1 sub-rank | 30% |
+| Within ±3 sub-ranks | 64% |
+| Within ±5 sub-ranks | 83% |
+| Within ±6 sub-ranks | 88% |
+
+Accuracy by tier:
+
+| Tier range | MAE |
+|------------|-----|
+| Low (1–4)  | 4.46 sub-ranks |
+| Mid (5–7)  | 3.93 sub-ranks |
+| High (8–11)| 2.84 sub-ranks |
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.rank_predict_response import RankPredictResponse
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_id = 56 # int | The players `SteamID3`
+
+    try:
+        # Rank Predict
+        api_response = api_instance.rank_predict(account_id)
+        print("The response of PlayersApi->rank_predict:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->rank_predict: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
+
+### Return type
+
+[**RankPredictResponse**](RankPredictResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**400** | Invalid account ID |  -  |
+**403** | User is protected or endpoint unavailable |  -  |
+**422** | Not enough recent ranked matches (need 30) |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Prediction failed |  -  |
+**503** | Rank prediction model not loaded |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

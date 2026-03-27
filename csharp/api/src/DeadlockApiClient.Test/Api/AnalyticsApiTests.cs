@@ -155,12 +155,14 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> maxMatchId = default!;
             Client.Option<List<int>?> includeHeroIds = default!;
             Client.Option<List<int>?> excludeHeroIds = default!;
+            Client.Option<List<int>?> includeEnemyHeroIds = default!;
+            Client.Option<List<int>?> excludeEnemyHeroIds = default!;
             Client.Option<int?> minMatches = default!;
             Client.Option<int?> maxMatches = default!;
             Client.Option<int?> combSize = default!;
             Client.Option<int?> accountId = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.HeroCombStatsAsync(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeHeroIds, excludeHeroIds, minMatches, maxMatches, combSize, accountId, accountIds);
+            var response = await _instance.HeroCombStatsAsync(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeHeroIds, excludeHeroIds, includeEnemyHeroIds, excludeEnemyHeroIds, minMatches, maxMatches, combSize, accountId, accountIds);
             var model = response.Ok();
             Assert.IsType<List<HeroCombStats>>(model);
         }

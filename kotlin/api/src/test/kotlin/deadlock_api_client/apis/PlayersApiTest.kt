@@ -33,6 +33,7 @@ import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
+import deadlock_api_client.models.RankPredictResponse
 
 class PlayersApiTest : ShouldSpec() {
     init {
@@ -116,6 +117,14 @@ class PlayersApiTest : ShouldSpec() {
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val result : kotlin.collections.List<HeroStats> = apiInstance.playerHeroStats(accountIds, gameMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test rankPredict
+        should("test rankPredict") {
+            // uncomment below to test rankPredict
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val result : RankPredictResponse = apiInstance.rankPredict(accountId)
             //result shouldBe ("TODO")
         }
 

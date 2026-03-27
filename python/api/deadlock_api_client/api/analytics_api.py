@@ -1789,6 +1789,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=6, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
@@ -1837,6 +1839,10 @@ class AnalyticsApi:
         :type include_hero_ids: List[int]
         :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type exclude_hero_ids: List[int]
+        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type include_enemy_hero_ids: List[int]
+        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type exclude_enemy_hero_ids: List[int]
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -1883,6 +1889,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             include_hero_ids=include_hero_ids,
             exclude_hero_ids=exclude_hero_ids,
+            include_enemy_hero_ids=include_enemy_hero_ids,
+            exclude_enemy_hero_ids=exclude_enemy_hero_ids,
             min_matches=min_matches,
             max_matches=max_matches,
             comb_size=comb_size,
@@ -1926,6 +1934,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=6, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
@@ -1974,6 +1984,10 @@ class AnalyticsApi:
         :type include_hero_ids: List[int]
         :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type exclude_hero_ids: List[int]
+        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type include_enemy_hero_ids: List[int]
+        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type exclude_enemy_hero_ids: List[int]
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -2020,6 +2034,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             include_hero_ids=include_hero_ids,
             exclude_hero_ids=exclude_hero_ids,
+            include_enemy_hero_ids=include_enemy_hero_ids,
+            exclude_enemy_hero_ids=exclude_enemy_hero_ids,
             min_matches=min_matches,
             max_matches=max_matches,
             comb_size=comb_size,
@@ -2063,6 +2079,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=6, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
@@ -2111,6 +2129,10 @@ class AnalyticsApi:
         :type include_hero_ids: List[int]
         :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type exclude_hero_ids: List[int]
+        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type include_enemy_hero_ids: List[int]
+        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type exclude_enemy_hero_ids: List[int]
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -2157,6 +2179,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             include_hero_ids=include_hero_ids,
             exclude_hero_ids=exclude_hero_ids,
+            include_enemy_hero_ids=include_enemy_hero_ids,
+            exclude_enemy_hero_ids=exclude_enemy_hero_ids,
             min_matches=min_matches,
             max_matches=max_matches,
             comb_size=comb_size,
@@ -2195,6 +2219,8 @@ class AnalyticsApi:
         max_match_id,
         include_hero_ids,
         exclude_hero_ids,
+        include_enemy_hero_ids,
+        exclude_enemy_hero_ids,
         min_matches,
         max_matches,
         comb_size,
@@ -2211,6 +2237,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_hero_ids': 'multi',
             'exclude_hero_ids': 'multi',
+            'include_enemy_hero_ids': 'multi',
+            'exclude_enemy_hero_ids': 'multi',
             'account_ids': 'multi',
         }
 
@@ -2276,6 +2304,14 @@ class AnalyticsApi:
         if exclude_hero_ids is not None:
             
             _query_params.append(('exclude_hero_ids', exclude_hero_ids))
+            
+        if include_enemy_hero_ids is not None:
+            
+            _query_params.append(('include_enemy_hero_ids', include_enemy_hero_ids))
+            
+        if exclude_enemy_hero_ids is not None:
+            
+            _query_params.append(('exclude_enemy_hero_ids', exclude_enemy_hero_ids))
             
         if min_matches is not None:
             

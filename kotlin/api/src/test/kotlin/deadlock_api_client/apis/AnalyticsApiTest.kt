@@ -134,12 +134,14 @@ class AnalyticsApiTest : ShouldSpec() {
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val includeHeroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
             //val excludeHeroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val includeEnemyHeroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val excludeEnemyHeroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
             //val minMatches : kotlin.Int = 56 // kotlin.Int | The minimum number of matches played for a hero combination to be included in the response.
             //val maxMatches : kotlin.Int = 56 // kotlin.Int | The maximum number of matches played for a hero combination to be included in the response.
             //val combSize : kotlin.Int = 56 // kotlin.Int | The combination size to return.
             //val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
-            //val result : kotlin.collections.List<HeroCombStats> = apiInstance.heroCombStats(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeHeroIds, excludeHeroIds, minMatches, maxMatches, combSize, accountId, accountIds)
+            //val result : kotlin.collections.List<HeroCombStats> = apiInstance.heroCombStats(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeHeroIds, excludeHeroIds, includeEnemyHeroIds, excludeEnemyHeroIds, minMatches, maxMatches, combSize, accountId, accountIds)
             //result shouldBe ("TODO")
         }
 

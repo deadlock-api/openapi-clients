@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**match_history**](docs/PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mate_stats**](docs/PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**player_hero_stats**](docs/PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
+*PlayersApi* | [**rank_predict**](docs/PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
 *SqlApi* | [**list_tables**](docs/SqlApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
 *SqlApi* | [**sql**](docs/SqlApi.md#sql) | **GET** /v1/sql | Query
 *SqlApi* | [**table_schema**](docs/SqlApi.md#table_schema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
@@ -161,6 +162,8 @@ Class | Method | HTTP request | Description
  - [PlayerEntry](docs/PlayerEntry.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
+ - [RankPredictResponse](docs/RankPredictResponse.md)
+ - [RankPrediction](docs/RankPrediction.md)
  - [RegionMode](docs/RegionMode.md)
  - [ServerRegion](docs/ServerRegion.md)
  - [Status](docs/Status.md)

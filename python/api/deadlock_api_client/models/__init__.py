@@ -66,6 +66,8 @@ from deadlock_api_client.models.player_card_slot_stat import PlayerCardSlotStat
 from deadlock_api_client.models.player_entry import PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
+from deadlock_api_client.models.rank_predict_response import RankPredictResponse
+from deadlock_api_client.models.rank_prediction import RankPrediction
 from deadlock_api_client.models.region_mode import RegionMode
 from deadlock_api_client.models.server_region import ServerRegion
 from deadlock_api_client.models.status import Status

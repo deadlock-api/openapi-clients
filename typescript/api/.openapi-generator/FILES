@@ -70,6 +70,8 @@ docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
+docs/RankPredictResponse.md
+docs/RankPrediction.md
 docs/RegionMode.md
 docs/SQLApi.md
 docs/ServerRegion.md

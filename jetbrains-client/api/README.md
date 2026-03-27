@@ -69,6 +69,7 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**matchHistory**](Apis/PlayersApi.http#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](Apis/PlayersApi.http#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**playerHeroStats**](Apis/PlayersApi.http#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
+*PlayersApi* | [**rankPredict**](Apis/PlayersApi.http#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
 *SQLApi* | [**listTables**](Apis/SQLApi.http#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](Apis/SQLApi.http#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](Apis/SQLApi.http#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema

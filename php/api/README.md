@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1771891200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1771977600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**matchHistory**](docs/Api/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](docs/Api/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**playerHeroStats**](docs/Api/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
+*PlayersApi* | [**rankPredict**](docs/Api/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
 *SQLApi* | [**listTables**](docs/Api/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/Api/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](docs/Api/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
@@ -223,6 +224,8 @@ Class | Method | HTTP request | Description
 - [PlayerEntry](docs/Model/PlayerEntry.md)
 - [PlayerMatchHistoryEntry](docs/Model/PlayerMatchHistoryEntry.md)
 - [PlayerPerformanceCurvePoint](docs/Model/PlayerPerformanceCurvePoint.md)
+- [RankPredictResponse](docs/Model/RankPredictResponse.md)
+- [RankPrediction](docs/Model/RankPrediction.md)
 - [RegionMode](docs/Model/RegionMode.md)
 - [ServerRegion](docs/Model/ServerRegion.md)
 - [Status](docs/Model/Status.md)

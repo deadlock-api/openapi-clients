@@ -70,6 +70,8 @@ docs/models/PlayerCardSlotStat.md
 docs/models/PlayerEntry.md
 docs/models/PlayerMatchHistoryEntry.md
 docs/models/PlayerPerformanceCurvePoint.md
+docs/models/RankPredictResponse.md
+docs/models/RankPrediction.md
 docs/models/RegionMode.md
 docs/models/ServerRegion.md
 docs/models/Status.md
@@ -149,6 +151,8 @@ src/DeadlockApiClient.Test/Model/PlayerCardTests.cs
 src/DeadlockApiClient.Test/Model/PlayerEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
+src/DeadlockApiClient.Test/Model/RankPredictResponseTests.cs
+src/DeadlockApiClient.Test/Model/RankPredictionTests.cs
 src/DeadlockApiClient.Test/Model/RegionModeTests.cs
 src/DeadlockApiClient.Test/Model/ServerRegionTests.cs
 src/DeadlockApiClient.Test/Model/StatusServicesTests.cs
@@ -249,6 +253,8 @@ src/DeadlockApiClient/Model/PlayerCardSlotStat.cs
 src/DeadlockApiClient/Model/PlayerEntry.cs
 src/DeadlockApiClient/Model/PlayerMatchHistoryEntry.cs
 src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
+src/DeadlockApiClient/Model/RankPredictResponse.cs
+src/DeadlockApiClient/Model/RankPrediction.cs
 src/DeadlockApiClient/Model/RegionMode.cs
 src/DeadlockApiClient/Model/ServerRegion.cs
 src/DeadlockApiClient/Model/Status.cs

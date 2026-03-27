@@ -1096,3 +1096,142 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
+type ApiRankPredictRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	accountId int32
+}
+
+func (r ApiRankPredictRequest) Execute() (*RankPredictResponse, *http.Response, error) {
+	return r.ApiService.RankPredictExecute(r)
+}
+
+/*
+RankPredict Rank Predict
+
+
+Predicts a player's current rank badge from their last 30 ranked/unranked matches.
+Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.
+
+> **This is an ML prediction and may be inaccurate.** The model has no access to the player's
+> actual hidden MMR — it infers rank from match context signals only.
+
+### Model Accuracy (5-fold cross-validation)
+
+| Metric | Value |
+|--------|-------|
+| R²     | 0.924 |
+| MAE    | 3.35 sub-ranks |
+| RMSE   | 4.55 sub-ranks |
+| Within ±1 sub-rank | 30% |
+| Within ±3 sub-ranks | 64% |
+| Within ±5 sub-ranks | 83% |
+| Within ±6 sub-ranks | 88% |
+
+Accuracy by tier:
+
+| Tier range | MAE |
+|------------|-----|
+| Low (1–4)  | 4.46 sub-ranks |
+| Mid (5–7)  | 3.93 sub-ranks |
+| High (8–11)| 2.84 sub-ranks |
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param accountId The players `SteamID3`
+ @return ApiRankPredictRequest
+*/
+func (a *PlayersAPIService) RankPredict(ctx context.Context, accountId int32) ApiRankPredictRequest {
+	return ApiRankPredictRequest{
+		ApiService: a,
+		ctx: ctx,
+		accountId: accountId,
+	}
+}
+
+// Execute executes the request
+//  @return RankPredictResponse
+func (a *PlayersAPIService) RankPredictExecute(r ApiRankPredictRequest) (*RankPredictResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RankPredictResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.RankPredict")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/{account_id}/rank-predict"
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountId < 0 {
+		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}

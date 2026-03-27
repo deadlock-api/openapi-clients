@@ -71,6 +71,8 @@ src/models/PlayerCardSlotStat.ts
 src/models/PlayerEntry.ts
 src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
+src/models/RankPredictResponse.ts
+src/models/RankPrediction.ts
 src/models/RegionMode.ts
 src/models/ServerRegion.ts
 src/models/Status.ts

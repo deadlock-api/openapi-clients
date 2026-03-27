@@ -118,6 +118,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**matchHistory**](docs/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
+| *PlayersApi* | [**rankPredict**](docs/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
 | *SQLApi* | [**tableSchema**](docs/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema |
@@ -181,6 +182,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PlayerEntry](docs/PlayerEntry.md)
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
+ - [deadlock_api_client.models.RankPredictResponse](docs/RankPredictResponse.md)
+ - [deadlock_api_client.models.RankPrediction](docs/RankPrediction.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
  - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
  - [deadlock_api_client.models.Status](docs/Status.md)

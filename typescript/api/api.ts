@@ -830,6 +830,30 @@ export interface PlayerPerformanceCurvePoint {
      */
     'net_worth_std': number;
 }
+export interface RankPredictResponse {
+    /**
+     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     */
+    'badge': number;
+    /**
+     * Raw model output (float index into badge space)
+     */
+    'raw_score': number;
+    /**
+     * Number of recent matches used for the prediction
+     */
+    'matches_used': number;
+}
+export interface RankPrediction {
+    /**
+     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     */
+    'badge': number;
+    /**
+     * Raw model output (float index into badge space)
+     */
+    'raw_score': number;
+}
 
 export const RegionMode = {
     Row: 'row',
@@ -1316,6 +1340,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {Array<number> | null} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {Array<number> | null} [excludeHeroIds] Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number> | null} [includeEnemyHeroIds] Comma separated list of enemy hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number> | null} [excludeEnemyHeroIds] Comma separated list of enemy hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [combSize] The combination size to return.
@@ -1324,7 +1350,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroCombStats: async (gameMode?: HeroCombStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number> | null, excludeHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroCombStats: async (gameMode?: HeroCombStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number> | null, excludeHeroIds?: Array<number> | null, includeEnemyHeroIds?: Array<number> | null, excludeEnemyHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/hero-comb-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1387,6 +1413,14 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (excludeHeroIds) {
                 localVarQueryParameter['exclude_hero_ids'] = excludeHeroIds;
+            }
+
+            if (includeEnemyHeroIds) {
+                localVarQueryParameter['include_enemy_hero_ids'] = includeEnemyHeroIds;
+            }
+
+            if (excludeEnemyHeroIds) {
+                localVarQueryParameter['exclude_enemy_hero_ids'] = excludeEnemyHeroIds;
             }
 
             if (minMatches !== undefined) {
@@ -2754,6 +2788,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {Array<number> | null} [includeHeroIds] Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {Array<number> | null} [excludeHeroIds] Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number> | null} [includeEnemyHeroIds] Comma separated list of enemy hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {Array<number> | null} [excludeEnemyHeroIds] Comma separated list of enemy hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [combSize] The combination size to return.
@@ -2762,8 +2798,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroCombStats(gameMode?: HeroCombStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number> | null, excludeHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCombStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroCombStats(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeHeroIds, excludeHeroIds, minMatches, maxMatches, combSize, accountId, accountIds, options);
+        async heroCombStats(gameMode?: HeroCombStatsGameModeEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeHeroIds?: Array<number> | null, excludeHeroIds?: Array<number> | null, includeEnemyHeroIds?: Array<number> | null, excludeEnemyHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, combSize?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCombStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroCombStats(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeHeroIds, excludeHeroIds, includeEnemyHeroIds, excludeEnemyHeroIds, minMatches, maxMatches, combSize, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroCombStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3128,7 +3164,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         heroCombStats(requestParameters: AnalyticsApiHeroCombStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroCombStats>> {
-            return localVarFp.heroCombStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeHeroIds, requestParameters.excludeHeroIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.combSize, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.heroCombStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeHeroIds, requestParameters.excludeHeroIds, requestParameters.includeEnemyHeroIds, requestParameters.excludeEnemyHeroIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.combSize, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -3531,6 +3567,16 @@ export interface AnalyticsApiHeroCombStatsRequest {
      * Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
      */
     readonly excludeHeroIds?: Array<number> | null
+
+    /**
+     * Comma separated list of enemy hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly includeEnemyHeroIds?: Array<number> | null
+
+    /**
+     * Comma separated list of enemy hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly excludeEnemyHeroIds?: Array<number> | null
 
     /**
      * The minimum number of matches played for a hero combination to be included in the response.
@@ -4579,7 +4625,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public heroCombStats(requestParameters: AnalyticsApiHeroCombStatsRequest = {}, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).heroCombStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeHeroIds, requestParameters.excludeHeroIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.combSize, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).heroCombStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeHeroIds, requestParameters.excludeHeroIds, requestParameters.includeEnemyHeroIds, requestParameters.excludeEnemyHeroIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.combSize, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9082,6 +9128,40 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+         * @summary Rank Predict
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankPredict: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('rankPredict', 'accountId', accountId)
+            const localVarPath = `/v1/players/{account_id}/rank-predict`
+                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -9201,6 +9281,19 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.playerHeroStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+         * @summary Rank Predict
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rankPredict(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RankPredictResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredict(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredict']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -9269,6 +9362,16 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          */
         playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroStats>> {
             return localVarFp.playerHeroStats(requestParameters.accountIds, requestParameters.gameMode, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+         * @summary Rank Predict
+         * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): AxiosPromise<RankPredictResponse> {
+            return localVarFp.rankPredict(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -9494,6 +9597,16 @@ export interface PlayersApiPlayerHeroStatsRequest {
 }
 
 /**
+ * Request parameters for rankPredict operation in PlayersApi.
+ */
+export interface PlayersApiRankPredictRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number
+}
+
+/**
  * PlayersApi - object-oriented interface
  */
 export class PlayersApi extends BaseAPI {
@@ -9561,6 +9674,17 @@ export class PlayersApi extends BaseAPI {
      */
     public playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).playerHeroStats(requestParameters.accountIds, requestParameters.gameMode, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+     * @summary Rank Predict
+     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig) {
+        return PlayersApiFp(this.configuration).rankPredict(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

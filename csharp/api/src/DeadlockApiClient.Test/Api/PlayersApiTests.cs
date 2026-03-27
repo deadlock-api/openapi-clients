@@ -153,5 +153,17 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<List<HeroStats>>(model);
         }
+
+        /// <summary>
+        /// Test RankPredict
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RankPredictAsyncTest()
+        {
+            int accountId = default!;
+            var response = await _instance.RankPredictAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<RankPredictResponse>(model);
+        }
     }
 }

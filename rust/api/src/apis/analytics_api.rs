@@ -147,6 +147,10 @@ pub struct HeroCombStatsParams {
     pub include_hero_ids: Option<Vec<u32>>,
     /// Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub exclude_hero_ids: Option<Vec<u32>>,
+    /// Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub include_enemy_hero_ids: Option<Vec<u32>>,
+    /// Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub exclude_enemy_hero_ids: Option<Vec<u32>>,
     /// The minimum number of matches played for a hero combination to be included in the response.
     pub min_matches: Option<u32>,
     /// The maximum number of matches played for a hero combination to be included in the response.
@@ -1034,6 +1038,18 @@ pub async fn hero_comb_stats(configuration: &configuration::Configuration, param
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("exclude_hero_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.include_enemy_hero_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_enemy_hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_enemy_hero_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.exclude_enemy_hero_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_enemy_hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_enemy_hero_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.min_matches {

@@ -33,6 +33,9 @@ import {
     PlayerMatchHistoryEntry,
     PlayerMatchHistoryEntryFromJSON,
     PlayerMatchHistoryEntryToJSON,
+    RankPredictResponse,
+    RankPredictResponseFromJSON,
+    RankPredictResponseToJSON,
 } from '../models';
 
 export interface AccountStatsRequest {
@@ -89,6 +92,10 @@ export interface PlayerHeroStatsRequest {
     maxAverageBadge?: number;
     minMatchId?: number;
     maxMatchId?: number;
+}
+
+export interface RankPredictRequest {
+    accountId: number;
 }
 
 
@@ -547,6 +554,54 @@ function playerHeroStatsRaw<T>(requestParameters: PlayerHeroStatsRequest, reques
 */
 export function playerHeroStats<T>(requestParameters: PlayerHeroStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroStats>>): QueryConfig<T> {
     return playerHeroStatsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+ * Rank Predict
+ */
+function rankPredictRaw<T>(requestParameters: RankPredictRequest, requestConfig: runtime.TypedQueryConfig<T, RankPredictResponse> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling rankPredict.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank-predict`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(RankPredictResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+* Rank Predict
+*/
+export function rankPredict<T>(requestParameters: RankPredictRequest, requestConfig?: runtime.TypedQueryConfig<T, RankPredictResponse>): QueryConfig<T> {
+    return rankPredictRaw(requestParameters, requestConfig);
 }
 
 

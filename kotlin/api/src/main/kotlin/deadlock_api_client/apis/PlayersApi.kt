@@ -33,6 +33,7 @@ import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
+import deadlock_api_client.models.RankPredictResponse
 
 import com.squareup.moshi.Json
 
@@ -744,6 +745,79 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/players/hero-stats",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/rank-predict
+     * Rank Predict
+     *  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RankPredictResponse
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun rankPredict(accountId: kotlin.Int) : RankPredictResponse {
+        val localVarResponse = rankPredictWithHttpInfo(accountId = accountId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RankPredictResponse
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/rank-predict
+     * Rank Predict
+     *  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return ApiResponse<RankPredictResponse?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun rankPredictWithHttpInfo(accountId: kotlin.Int) : ApiResponse<RankPredictResponse?> {
+        val localVariableConfig = rankPredictRequestConfig(accountId = accountId)
+
+        return request<Unit, RankPredictResponse>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation rankPredict
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RequestConfig
+     */
+    fun rankPredictRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/rank-predict".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -120,6 +120,13 @@ pub struct PlayerHeroStatsParams {
     pub max_match_id: Option<u64>
 }
 
+/// struct for passing parameters to the method [`rank_predict`]
+#[derive(Clone, Debug)]
+pub struct RankPredictParams {
+    /// The players `SteamID3`
+    pub account_id: u32
+}
+
 
 /// struct for typed errors of method [`account_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -177,6 +184,19 @@ pub enum MateStatsError {
 pub enum PlayerHeroStatsError {
     Status400(),
     Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`rank_predict`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RankPredictError {
+    Status400(),
+    Status403(),
+    Status422(),
+    Status429(),
+    Status500(),
+    Status503(),
     UnknownValue(serde_json::Value),
 }
 
@@ -487,6 +507,41 @@ pub async fn player_hero_stats(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<PlayerHeroStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Predicts a player's current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player's > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+pub async fn rank_predict(configuration: &configuration::Configuration, params: RankPredictParams) -> Result<models::RankPredictResponse, Error<RankPredictError>> {
+
+    let uri_str = format!("{}/v1/players/{account_id}/rank-predict", configuration.base_path, account_id=params.account_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RankPredictResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RankPredictResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<RankPredictError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -12,6 +12,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**matchHistory()**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats()**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**playerHeroStats()**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
+| [**rankPredict()**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
 
 
 ## `accountStats()`
@@ -400,6 +401,62 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\HeroStats[]**](../Model/HeroStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `rankPredict()`
+
+```php
+rankPredict($account_id): \OpenAPI\Client\Model\RankPredictResponse
+```
+
+Rank Predict
+
+Predicts a player's current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player's > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_id = 56; // int | The players `SteamID3`
+
+try {
+    $result = $apiInstance->rankPredict($account_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->rankPredict: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\RankPredictResponse**](../Model/RankPredictResponse.md)
 
 ### Authorization
 

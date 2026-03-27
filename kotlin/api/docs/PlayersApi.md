@@ -10,6 +10,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**matchHistory**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
+| [**rankPredict**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
 
 
 <a id="accountStats"></a>
@@ -342,6 +343,52 @@ try {
 ### Return type
 
 [**kotlin.collections.List&lt;HeroStats&gt;**](HeroStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="rankPredict"></a>
+# **rankPredict**
+> RankPredictResponse rankPredict(accountId)
+
+Rank Predict
+
+ Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |------------|-----| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+try {
+    val result : RankPredictResponse = apiInstance.rankPredict(accountId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rankPredict")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rankPredict")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**RankPredictResponse**](RankPredictResponse.md)
 
 ### Authorization
 

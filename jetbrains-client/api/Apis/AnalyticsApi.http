@@ -22,7 +22,7 @@ Accept: application/json
 
 ### Hero Comb Stats
 ## Hero Comb Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-comb-stats?gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&includeHeroIds={{includeHeroIds}}&excludeHeroIds={{excludeHeroIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&combSize={{combSize}}&accountId={{accountId}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/hero-comb-stats?gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&includeHeroIds={{includeHeroIds}}&excludeHeroIds={{excludeHeroIds}}&includeEnemyHeroIds={{includeEnemyHeroIds}}&excludeEnemyHeroIds={{excludeEnemyHeroIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&combSize={{combSize}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Hero Counter Stats

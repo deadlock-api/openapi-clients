@@ -82,6 +82,8 @@ docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersAPI.md
+docs/RankPredictResponse.md
+docs/RankPrediction.md
 docs/RegionMode.md
 docs/SQLAPI.md
 docs/ServerRegion.md
@@ -148,6 +150,8 @@ model_player_card_slot_stat.go
 model_player_entry.go
 model_player_match_history_entry.go
 model_player_performance_curve_point.go
+model_rank_predict_response.go
+model_rank_prediction.go
 model_region_mode.go
 model_server_region.go
 model_status.go

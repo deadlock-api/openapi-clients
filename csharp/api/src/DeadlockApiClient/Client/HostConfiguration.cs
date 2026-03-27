@@ -100,6 +100,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new PlayerEntryJsonConverter());
             _jsonOptions.Converters.Add(new PlayerMatchHistoryEntryJsonConverter());
             _jsonOptions.Converters.Add(new PlayerPerformanceCurvePointJsonConverter());
+            _jsonOptions.Converters.Add(new RankPredictResponseJsonConverter());
+            _jsonOptions.Converters.Add(new RankPredictionJsonConverter());
             _jsonOptions.Converters.Add(new RegionModeJsonConverter());
             _jsonOptions.Converters.Add(new RegionModeNullableJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionJsonConverter());

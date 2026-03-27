@@ -74,6 +74,8 @@ api/Model/PlayerCardSlotStat.php
 api/Model/PlayerEntry.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
+api/Model/RankPredictResponse.php
+api/Model/RankPrediction.php
 api/Model/RegionMode.php
 api/Model/ServerRegion.php
 api/Model/Status.php
@@ -150,6 +152,8 @@ docs/Model/PlayerCardSlotStat.md
 docs/Model/PlayerEntry.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
+docs/Model/RankPredictResponse.md
+docs/Model/RankPrediction.md
 docs/Model/RegionMode.md
 docs/Model/ServerRegion.md
 docs/Model/Status.md
@@ -226,6 +230,8 @@ test/Model/PlayerCardTest.php
 test/Model/PlayerEntryTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
+test/Model/RankPredictResponseTest.php
+test/Model/RankPredictionTest.php
 test/Model/RegionModeTest.php
 test/Model/ServerRegionTest.php
 test/Model/StatusServicesTest.php

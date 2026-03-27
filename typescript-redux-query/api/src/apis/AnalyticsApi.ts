@@ -130,6 +130,8 @@ export interface HeroCombStatsRequest {
     maxMatchId?: number;
     includeHeroIds?: Array<number>;
     excludeHeroIds?: Array<number>;
+    includeEnemyHeroIds?: Array<number>;
+    excludeEnemyHeroIds?: Array<number>;
     minMatches?: number;
     maxMatches?: number;
     combSize?: number;
@@ -817,6 +819,16 @@ function heroCombStatsRaw<T>(requestParameters: HeroCombStatsRequest, requestCon
 
     if (requestParameters.excludeHeroIds) {
         queryParameters['exclude_hero_ids'] = requestParameters.excludeHeroIds;
+    }
+
+
+    if (requestParameters.includeEnemyHeroIds) {
+        queryParameters['include_enemy_hero_ids'] = requestParameters.includeEnemyHeroIds;
+    }
+
+
+    if (requestParameters.excludeEnemyHeroIds) {
+        queryParameters['exclude_enemy_hero_ids'] = requestParameters.excludeEnemyHeroIds;
     }
 
 

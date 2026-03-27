@@ -238,6 +238,29 @@ namespace DeadlockApiClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerHeroStatsApiResponse"/>?&gt;</returns>
         Task<IPlayerHeroStatsApiResponse?> PlayerHeroStatsOrDefaultAsync(List<int> accountIds, Option<string?> gameMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Predict
+        /// </summary>
+        /// <remarks>
+        ///  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |- -- -- -- -- -- -|- -- --| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>&gt;</returns>
+        Task<IRankPredictApiResponse> RankPredictAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Predict
+        /// </summary>
+        /// <remarks>
+        ///  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |- -- -- -- -- -- -|- -- --| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// </remarks>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>?&gt;</returns>
+        Task<IRankPredictApiResponse?> RankPredictOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -415,6 +438,54 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
+    /// The <see cref="IRankPredictApiResponse"/>
+    /// </summary>
+    public interface IRankPredictApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.RankPredictResponse?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 403 Forbidden
+        /// </summary>
+        /// <returns></returns>
+        bool IsForbidden { get; }
+
+        /// <summary>
+        /// Returns true if the response is 422 UnprocessableContent
+        /// </summary>
+        /// <returns></returns>
+        bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+
+        /// <summary>
+        /// Returns true if the response is 503 ServiceUnavailable
+        /// </summary>
+        /// <returns></returns>
+        bool IsServiceUnavailable { get; }
+    }
+
+    /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public class PlayersApiEvents
@@ -537,6 +608,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorPlayerHeroStats(Exception exception)
         {
             OnErrorPlayerHeroStats?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnRankPredict;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorRankPredict;
+
+        internal void ExecuteOnRankPredict(PlayersApi.RankPredictApiResponse apiResponse)
+        {
+            OnRankPredict?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorRankPredict(Exception exception)
+        {
+            OnErrorRankPredict?.Invoke(this, new ExceptionEventArgs(exception));
         }
     }
 
@@ -2401,6 +2492,271 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatRankPredict(ref int accountId);
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        private void AfterRankPredictDefaultImplementation(IRankPredictApiResponse apiResponseLocalVar, int accountId)
+        {
+            bool suppressDefaultLog = false;
+            AfterRankPredict(ref suppressDefaultLog, apiResponseLocalVar, accountId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        partial void AfterRankPredict(ref bool suppressDefaultLog, IRankPredictApiResponse apiResponseLocalVar, int accountId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        private void OnErrorRankPredictDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorRankPredict(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        partial void OnErrorRankPredict(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
+
+        /// <summary>
+        /// Rank Predict  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |- -- -- -- -- -- -|- -- --| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// </summary>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>&gt;</returns>
+        public async Task<IRankPredictApiResponse?> RankPredictOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await RankPredictAsync(accountId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Rank Predict  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.924 | | MAE    | 3.35 sub-ranks | | RMSE   | 4.55 sub-ranks | | Within ±1 sub-rank | 30% | | Within ±3 sub-ranks | 64% | | Within ±5 sub-ranks | 83% | | Within ±6 sub-ranks | 88% |  Accuracy by tier:  | Tier range | MAE | |- -- -- -- -- -- -|- -- --| | Low (1–4)  | 4.46 sub-ranks | | Mid (5–7)  | 3.93 sub-ranks | | High (8–11)| 2.84 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>&gt;</returns>
+        public async Task<IRankPredictApiResponse> RankPredictAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                FormatRankPredict(ref accountId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/players/{account_id}/rank-predict"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/rank-predict");
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<RankPredictApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<RankPredictApiResponse>();
+                        RankPredictApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/{account_id}/rank-predict", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterRankPredictDefaultImplementation(apiResponseLocalVar, accountId);
+
+                        Events.ExecuteOnRankPredict(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorRankPredictDefaultImplementation(e, "/v1/players/{account_id}/rank-predict", uriBuilderLocalVar.Path, accountId);
+                Events.ExecuteOnErrorRankPredict(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="RankPredictApiResponse"/>
+        /// </summary>
+        public partial class RankPredictApiResponse : DeadlockApiClient.Client.ApiResponse, IRankPredictApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<RankPredictApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="RankPredictApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankPredictApiResponse(ILogger<RankPredictApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="RankPredictApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankPredictApiResponse(ILogger<RankPredictApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public DeadlockApiClient.Model.RankPredictResponse? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.RankPredictResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.RankPredictResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 403 Forbidden
+            /// </summary>
+            /// <returns></returns>
+            public bool IsForbidden => 403 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 422 UnprocessableContent
+            /// </summary>
+            /// <returns></returns>
+            public bool IsUnprocessableContent => 422 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 503 ServiceUnavailable
+            /// </summary>
+            /// <returns></returns>
+            public bool IsServiceUnavailable => 503 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {

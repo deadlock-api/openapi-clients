@@ -65,6 +65,8 @@ docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
+docs/RankPredictResponse.md
+docs/RankPrediction.md
 docs/RegionMode.md
 docs/SQLApi.md
 docs/ServerRegion.md
@@ -159,6 +161,8 @@ src/main/kotlin/deadlock_api_client/models/PlayerCardSlotStat.kt
 src/main/kotlin/deadlock_api_client/models/PlayerEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePoint.kt
+src/main/kotlin/deadlock_api_client/models/RankPredictResponse.kt
+src/main/kotlin/deadlock_api_client/models/RankPrediction.kt
 src/main/kotlin/deadlock_api_client/models/RegionMode.kt
 src/main/kotlin/deadlock_api_client/models/ServerRegion.kt
 src/main/kotlin/deadlock_api_client/models/Status.kt
@@ -233,6 +237,8 @@ src/test/kotlin/deadlock_api_client/models/PlayerCardTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePointTest.kt
+src/test/kotlin/deadlock_api_client/models/RankPredictResponseTest.kt
+src/test/kotlin/deadlock_api_client/models/RankPredictionTest.kt
 src/test/kotlin/deadlock_api_client/models/RegionModeTest.kt
 src/test/kotlin/deadlock_api_client/models/ServerRegionTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusServicesTest.kt

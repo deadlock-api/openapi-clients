@@ -29,3 +29,8 @@ Accept: application/json
 ## Hero Stats
 GET https://api.deadlock-api.com/v1/players/hero-stats?accountIds={{accountIds}}&gameMode={{gameMode}}&heroIds={{heroIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
+
+### Rank Predict
+## Rank Predict
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict
+Accept: application/json

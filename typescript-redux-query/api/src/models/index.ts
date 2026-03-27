@@ -51,6 +51,8 @@ export * from './PlayerCardSlotStat';
 export * from './PlayerEntry';
 export * from './PlayerMatchHistoryEntry';
 export * from './PlayerPerformanceCurvePoint';
+export * from './RankPredictResponse';
+export * from './RankPrediction';
 export * from './RegionMode';
 export * from './ServerRegion';
 export * from './Status';

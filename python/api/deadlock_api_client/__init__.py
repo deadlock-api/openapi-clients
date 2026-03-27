@@ -93,6 +93,8 @@ __all__ = [
     "PlayerEntry",
     "PlayerMatchHistoryEntry",
     "PlayerPerformanceCurvePoint",
+    "RankPredictResponse",
+    "RankPrediction",
     "RegionMode",
     "ServerRegion",
     "Status",
@@ -183,6 +185,8 @@ from deadlock_api_client.models.player_card_slot_stat import PlayerCardSlotStat 
 from deadlock_api_client.models.player_entry import PlayerEntry as PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
+from deadlock_api_client.models.rank_predict_response import RankPredictResponse as RankPredictResponse
+from deadlock_api_client.models.rank_prediction import RankPrediction as RankPrediction
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode
 from deadlock_api_client.models.server_region import ServerRegion as ServerRegion
 from deadlock_api_client.models.status import Status as Status
