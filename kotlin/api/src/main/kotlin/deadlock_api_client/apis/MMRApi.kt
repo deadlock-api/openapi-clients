@@ -144,7 +144,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Hero MMR Distribution
      *  Player Hero MMR Distribution 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771804800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771891200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -162,7 +162,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroMmrDistribution(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1771804800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+    fun heroMmrDistribution(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1771891200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
         val localVarResponse = heroMmrDistributionWithHttpInfo(heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -185,7 +185,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Hero MMR Distribution
      *  Player Hero MMR Distribution 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771804800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771891200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -212,7 +212,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation heroMmrDistribution
      *
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771804800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771891200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -430,7 +430,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * GET /v1/players/mmr/distribution
      * MMR Distribution
      *  Player MMR Distribution 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771804800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771891200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -448,7 +448,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun mmrDistribution(minUnixTimestamp: kotlin.Long? = 1771804800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+    fun mmrDistribution(minUnixTimestamp: kotlin.Long? = 1771891200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
         val localVarResponse = mmrDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -470,7 +470,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * GET /v1/players/mmr/distribution
      * MMR Distribution
      *  Player MMR Distribution 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771804800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771891200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -496,7 +496,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation mmrDistribution
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771804800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1771891200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
