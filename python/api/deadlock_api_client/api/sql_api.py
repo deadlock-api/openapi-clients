@@ -305,7 +305,7 @@ class SQLApi:
     ) -> str:
         """Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
+         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -373,7 +373,7 @@ class SQLApi:
     ) -> ApiResponse[str]:
         """Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
+         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -441,7 +441,7 @@ class SQLApi:
     ) -> RESTResponseType:
         """Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
+         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str

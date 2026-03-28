@@ -7,6 +7,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 |[**getBuildTagsV2BuildTagsGet**](#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags|
 |[**getClientVersionsV2ClientVersionsGet**](#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions|
 |[**getColorsV1ColorsGet**](#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors|
+|[**getFontsV1FontsGet**](#getfontsv1fontsget) | **GET** /v1/fonts | Get Fonts|
 |[**getGenericDataV2GenericDataGet**](#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data|
 |[**getIconsV1IconsGet**](#geticonsv1iconsget) | **GET** /v1/icons | Get Icons|
 |[**getImagesV1ImagesGet**](#getimagesv1imagesget) | **GET** /v1/images | Get Images|
@@ -145,6 +146,57 @@ const { status, data } = await apiInstance.getColorsV1ColorsGet(
 ### Return type
 
 **{ [key: string]: ColorV1; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getFontsV1FontsGet**
+> { [key: string]: string; } getFontsV1FontsGet()
+
+
+### Example
+
+```typescript
+import {
+    DefaultApi,
+    Configuration
+} from 'assets_deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new DefaultApi(configuration);
+
+let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
+
+const { status, data } = await apiInstance.getFontsV1FontsGet(
+    clientVersion
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
+
+
+### Return type
+
+**{ [key: string]: string; }**
 
 ### Authorization
 

@@ -7,6 +7,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | [**GetBuildTagsV2BuildTagsGet**](DefaultApi.md#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags |
 | [**GetClientVersionsV2ClientVersionsGet**](DefaultApi.md#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions |
 | [**GetColorsV1ColorsGet**](DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors |
+| [**GetFontsV1FontsGet**](DefaultApi.md#getfontsv1fontsget) | **GET** /v1/fonts | Get Fonts |
 | [**GetGenericDataV2GenericDataGet**](DefaultApi.md#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data |
 | [**GetIconsV1IconsGet**](DefaultApi.md#geticonsv1iconsget) | **GET** /v1/icons | Get Icons |
 | [**GetImagesV1ImagesGet**](DefaultApi.md#getimagesv1imagesget) | **GET** /v1/images | Get Images |
@@ -98,6 +99,41 @@ Get Colors
 ### Return type
 
 [**Dictionary&lt;string, ColorV1&gt;**](ColorV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="getfontsv1fontsget"></a>
+# **GetFontsV1FontsGet**
+> Dictionary&lt;string, string&gt; GetFontsV1FontsGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+
+Get Fonts
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | [optional]  |
+
+### Return type
+
+**Dictionary<string, string>**
 
 ### Authorization
 

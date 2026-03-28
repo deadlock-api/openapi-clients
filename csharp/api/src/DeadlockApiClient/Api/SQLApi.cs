@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Api
         /// Query
         /// </summary>
         /// <remarks>
-        ///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
+        ///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
@@ -73,7 +73,7 @@ namespace DeadlockApiClient.Api
         /// Query
         /// </summary>
         /// <remarks>
-        ///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
+        ///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
         /// </remarks>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -588,7 +588,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorSql(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query);
 
         /// <summary>
-        /// Query  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
+        /// Query  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
         /// </summary>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -606,7 +606,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Query  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min, 50req/hr | | Key | 10req/min | | Global | 30req/min |     
+        /// Query  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>

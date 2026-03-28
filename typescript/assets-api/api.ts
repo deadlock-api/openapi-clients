@@ -162,6 +162,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6417: 6417,
     NUMBER_6415: 6415,
     NUMBER_6404: 6404,
     NUMBER_6395: 6395,
@@ -2122,6 +2123,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @summary Get Fonts
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFontsV1FontsGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/fonts`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientVersion !== undefined) {
+                localVarQueryParameter['client_version'] = clientVersion;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get Generic Data
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -2455,6 +2491,19 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get Fonts
+         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFontsV1FontsGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFontsV1FontsGet(clientVersion, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getFontsV1FontsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @summary Get Generic Data
          * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
@@ -2598,6 +2647,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @summary Get Fonts
+         * @param {DefaultApiGetFontsV1FontsGetRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFontsV1FontsGet(requestParameters: DefaultApiGetFontsV1FontsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
+            return localVarFp.getFontsV1FontsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Generic Data
          * @param {DefaultApiGetGenericDataV2GenericDataGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -2696,6 +2755,13 @@ export interface DefaultApiGetColorsV1ColorsGetRequest {
 }
 
 /**
+ * Request parameters for getFontsV1FontsGet operation in DefaultApi.
+ */
+export interface DefaultApiGetFontsV1FontsGetRequest {
+    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
+}
+
+/**
  * Request parameters for getGenericDataV2GenericDataGet operation in DefaultApi.
  */
 export interface DefaultApiGetGenericDataV2GenericDataGetRequest {
@@ -2787,6 +2853,17 @@ export class DefaultApi extends BaseAPI {
      */
     public getColorsV1ColorsGet(requestParameters: DefaultApiGetColorsV1ColorsGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getColorsV1ColorsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Fonts
+     * @param {DefaultApiGetFontsV1FontsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getFontsV1FontsGet(requestParameters: DefaultApiGetFontsV1FontsGetRequest = {}, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getFontsV1FontsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -20,6 +20,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](Apis/DefaultApi.http#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](Apis/DefaultApi.http#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**getColorsV1ColorsGet**](Apis/DefaultApi.http#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
+*DefaultApi* | [**getFontsV1FontsGet**](Apis/DefaultApi.http#getfontsv1fontsget) | **GET** /v1/fonts | Get Fonts
 *DefaultApi* | [**getGenericDataV2GenericDataGet**](Apis/DefaultApi.http#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**getIconsV1IconsGet**](Apis/DefaultApi.http#geticonsv1iconsget) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**getImagesV1ImagesGet**](Apis/DefaultApi.http#getimagesv1imagesget) | **GET** /v1/images | Get Images

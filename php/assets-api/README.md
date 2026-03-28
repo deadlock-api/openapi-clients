@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getBuildTagsV2BuildTagsGet**](docs/Api/DefaultApi.md#getbuildtagsv2buildtagsget) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**getClientVersionsV2ClientVersionsGet**](docs/Api/DefaultApi.md#getclientversionsv2clientversionsget) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**getColorsV1ColorsGet**](docs/Api/DefaultApi.md#getcolorsv1colorsget) | **GET** /v1/colors | Get Colors
+*DefaultApi* | [**getFontsV1FontsGet**](docs/Api/DefaultApi.md#getfontsv1fontsget) | **GET** /v1/fonts | Get Fonts
 *DefaultApi* | [**getGenericDataV2GenericDataGet**](docs/Api/DefaultApi.md#getgenericdatav2genericdataget) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**getIconsV1IconsGet**](docs/Api/DefaultApi.md#geticonsv1iconsget) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**getImagesV1ImagesGet**](docs/Api/DefaultApi.md#getimagesv1imagesget) | **GET** /v1/images | Get Images

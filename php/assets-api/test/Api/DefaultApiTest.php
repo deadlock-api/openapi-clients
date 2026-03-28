@@ -108,6 +108,18 @@ class DefaultApiTest extends TestCase
     }
 
     /**
+     * Test case for getFontsV1FontsGet
+     *
+     * Get Fonts.
+     *
+     */
+    public function testGetFontsV1FontsGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getGenericDataV2GenericDataGet
      *
      * Get Generic Data.

@@ -56,6 +56,10 @@ export interface GetColorsV1ColorsGetRequest {
     clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
 }
 
+export interface GetFontsV1FontsGetRequest {
+    clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
+}
+
 export interface GetGenericDataV2GenericDataGetRequest {
     clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
 }
@@ -230,6 +234,53 @@ function getColorsV1ColorsGetRaw<T>(requestParameters: GetColorsV1ColorsGetReque
 */
 export function getColorsV1ColorsGet<T>(requestParameters: GetColorsV1ColorsGetRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: ColorV1; }>): QueryConfig<T> {
     return getColorsV1ColorsGetRaw(requestParameters, requestConfig);
+}
+
+/**
+ * Get Fonts
+ */
+function getFontsV1FontsGetRaw<T>(requestParameters: GetFontsV1FontsGetRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.clientVersion !== undefined) {
+        queryParameters['client_version'] = requestParameters.clientVersion;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/fonts`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+* Get Fonts
+*/
+export function getFontsV1FontsGet<T>(requestParameters: GetFontsV1FontsGetRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
+    return getFontsV1FontsGetRaw(requestParameters, requestConfig);
 }
 
 /**

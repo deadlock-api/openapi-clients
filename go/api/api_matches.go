@@ -508,9 +508,9 @@ This endpoints lets you fetch multiple match metadata at once. The response is a
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 4req/s |
-| Key | - |
-| Global | 10req/s |
+| IP | 10req/min |
+| Key | 10req/10s |
+| Global | 100req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

@@ -87,6 +87,18 @@ namespace AssetsDeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test GetFontsV1FontsGet
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task GetFontsV1FontsGetAsyncTest()
+        {
+            Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
+            var response = await _instance.GetFontsV1FontsGetAsync(clientVersion);
+            var model = response.Ok();
+            Assert.IsType<Dictionary<string, string>>(model);
+        }
+
+        /// <summary>
         /// Test GetGenericDataV2GenericDataGet
         /// </summary>
         [Fact (Skip = "not implemented")]

@@ -87,7 +87,7 @@ namespace DeadlockApiClient.Api
         /// Bulk Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
@@ -128,7 +128,7 @@ namespace DeadlockApiClient.Api
         /// Bulk Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </remarks>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
         /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
@@ -1371,7 +1371,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorBulkMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> includeInfo, Option<bool> includeMoreInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerKda, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<int?> itemFilterHeroId, Option<string?> includeItemIds, Option<string?> excludeItemIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit);
 
         /// <summary>
-        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </summary>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
         /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
@@ -1418,7 +1418,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>

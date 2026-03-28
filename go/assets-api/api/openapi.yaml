@@ -965,6 +965,35 @@ paths:
                 $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Get Images
+  /v1/fonts:
+    get:
+      operationId: get_fonts_v1_fonts_get
+      parameters:
+      - explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
+          nullable: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                title: Response Get Fonts V1 Fonts Get
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+          description: Validation Error
+      summary: Get Fonts
   /v1/sounds:
     get:
       operationId: get_sounds_v1_sounds_get
@@ -1577,6 +1606,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6417
       - 6415
       - 6404
       - 6395

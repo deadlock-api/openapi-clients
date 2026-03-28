@@ -67,6 +67,14 @@ class DefaultApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test getFontsV1FontsGet
+        should("test getFontsV1FontsGet") {
+            // uncomment below to test getFontsV1FontsGet
+            //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
+            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getFontsV1FontsGet(clientVersion)
+            //result shouldBe ("TODO")
+        }
+
         // to test getGenericDataV2GenericDataGet
         should("test getGenericDataV2GenericDataGet") {
             // uncomment below to test getGenericDataV2GenericDataGet

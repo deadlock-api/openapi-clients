@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -369,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -501,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -575,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -709,7 +709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -987,7 +987,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -1241,7 +1241,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -1503,7 +1503,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -1770,7 +1770,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -1996,7 +1996,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -2261,7 +2261,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -2551,7 +2551,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -2770,7 +2770,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -3067,7 +3067,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -4450,8 +4450,8 @@ paths:
     get:
       description: "\nThis endpoints lets you fetch multiple match metadata at once.\
         \ The response is a JSON array of match metadata.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 4req/s |\n| Key | - |\n| Global | 10req/s\
-        \ |\n    "
+        \ | Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | 10req/10s |\n|\
+        \ Global | 100req/min |\n    "
       operationId: bulk_metadata
       parameters:
       - description: Include match info in the response.
@@ -5283,7 +5283,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -5402,7 +5402,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1771977600
+          default: 1772064000
           format: int64
           nullable: true
           type: integer
@@ -6221,7 +6221,7 @@ paths:
   /v1/sql:
     get:
       description: "\nExecutes a SQL query on the database.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 5req/min, 50req/hr |\n| Key | 10req/min\
+        | Type | Limit |\n| ---- | ----- |\n| IP | API-Key ONLY |\n| Key | 10req/min\
         \ |\n| Global | 30req/min |\n    "
       operationId: sql
       parameters:

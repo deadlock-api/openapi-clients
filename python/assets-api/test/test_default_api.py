@@ -47,6 +47,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_fonts_v1_fonts_get(self) -> None:
+        """Test case for get_fonts_v1_fonts_get
+
+        Get Fonts
+        """
+        pass
+
     def test_get_generic_data_v2_generic_data_get(self) -> None:
         """Test case for get_generic_data_v2_generic_data_get
 

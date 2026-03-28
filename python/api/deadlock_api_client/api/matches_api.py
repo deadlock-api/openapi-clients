@@ -623,7 +623,7 @@ class MatchesApi:
     ) -> List[int]:
         """Bulk Metadata
 
-         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
         :param include_info: Include match info in the response.
         :type include_info: bool
@@ -808,7 +808,7 @@ class MatchesApi:
     ) -> ApiResponse[List[int]]:
         """Bulk Metadata
 
-         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
         :param include_info: Include match info in the response.
         :type include_info: bool
@@ -993,7 +993,7 @@ class MatchesApi:
     ) -> RESTResponseType:
         """Bulk Metadata
 
-         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
         :param include_info: Include match info in the response.
         :type include_info: bool

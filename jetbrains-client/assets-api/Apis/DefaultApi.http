@@ -15,6 +15,11 @@ Accept: application/json
 GET https://assets.deadlock-api.com/v1/colors?clientVersion={{clientVersion}}
 Accept: application/json
 
+### Get Fonts
+## Get Fonts
+GET https://assets.deadlock-api.com/v1/fonts?clientVersion={{clientVersion}}
+Accept: application/json
+
 ### Get Generic Data
 ## Get Generic Data
 GET https://assets.deadlock-api.com/v2/generic-data?clientVersion={{clientVersion}}

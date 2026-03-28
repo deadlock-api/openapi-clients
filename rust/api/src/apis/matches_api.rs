@@ -275,7 +275,7 @@ pub async fn active_matches_raw(configuration: &configuration::Configuration) ->
     }
 }
 
-///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 4req/s | | Key | - | | Global | 10req/s |     
+///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 pub async fn bulk_metadata(configuration: &configuration::Configuration, params: BulkMetadataParams) -> Result<Vec<u32>, Error<BulkMetadataError>> {
 
     let uri_str = format!("{}/v1/matches/metadata", configuration.base_path);

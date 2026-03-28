@@ -50,6 +50,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_build_tags_v2_build_tags_get**](docs/DefaultApi.md#get_build_tags_v2_build_tags_get) | **GET** /v2/build-tags | Get Build Tags
 *DefaultApi* | [**get_client_versions_v2_client_versions_get**](docs/DefaultApi.md#get_client_versions_v2_client_versions_get) | **GET** /v2/client-versions | Get Client Versions
 *DefaultApi* | [**get_colors_v1_colors_get**](docs/DefaultApi.md#get_colors_v1_colors_get) | **GET** /v1/colors | Get Colors
+*DefaultApi* | [**get_fonts_v1_fonts_get**](docs/DefaultApi.md#get_fonts_v1_fonts_get) | **GET** /v1/fonts | Get Fonts
 *DefaultApi* | [**get_generic_data_v2_generic_data_get**](docs/DefaultApi.md#get_generic_data_v2_generic_data_get) | **GET** /v2/generic-data | Get Generic Data
 *DefaultApi* | [**get_icons_v1_icons_get**](docs/DefaultApi.md#get_icons_v1_icons_get) | **GET** /v1/icons | Get Icons
 *DefaultApi* | [**get_images_v1_images_get**](docs/DefaultApi.md#get_images_v1_images_get) | **GET** /v1/images | Get Images

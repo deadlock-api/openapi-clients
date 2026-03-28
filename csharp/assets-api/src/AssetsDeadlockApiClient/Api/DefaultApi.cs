@@ -107,6 +107,29 @@ namespace AssetsDeadlockApiClient.Api
         Task<IGetColorsV1ColorsGetApiResponse?> GetColorsV1ColorsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Get Fonts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientVersion"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>&gt;</returns>
+        Task<IGetFontsV1FontsGetApiResponse> GetFontsV1FontsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Fonts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <param name="clientVersion"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>?&gt;</returns>
+        Task<IGetFontsV1FontsGetApiResponse?> GetFontsV1FontsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Get Generic Data
         /// </summary>
         /// <remarks>
@@ -342,6 +365,24 @@ namespace AssetsDeadlockApiClient.Api
     }
 
     /// <summary>
+    /// The <see cref="IGetFontsV1FontsGetApiResponse"/>
+    /// </summary>
+    public interface IGetFontsV1FontsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 422 UnprocessableContent
+        /// </summary>
+        /// <returns></returns>
+        bool IsUnprocessableContent { get; }
+    }
+
+    /// <summary>
     /// The <see cref="IGetGenericDataV2GenericDataGetApiResponse"/>
     /// </summary>
     public interface IGetGenericDataV2GenericDataGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<AssetsDeadlockApiClient.Model.GenericDataV2?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
@@ -548,6 +589,26 @@ namespace AssetsDeadlockApiClient.Api
         internal void ExecuteOnErrorGetColorsV1ColorsGet(Exception exception)
         {
             OnErrorGetColorsV1ColorsGet?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnGetFontsV1FontsGet;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorGetFontsV1FontsGet;
+
+        internal void ExecuteOnGetFontsV1FontsGet(DefaultApi.GetFontsV1FontsGetApiResponse apiResponse)
+        {
+            OnGetFontsV1FontsGet?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorGetFontsV1FontsGet(Exception exception)
+        {
+            OnErrorGetFontsV1FontsGet?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -1461,6 +1522,279 @@ namespace AssetsDeadlockApiClient.Api
             /// <param name="result"></param>
             /// <returns></returns>
             public bool TryOk([NotNullWhen(true)]out Dictionary<string, ColorV1>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 422 UnprocessableContent
+            /// </summary>
+            /// <returns></returns>
+            public bool IsUnprocessableContent => 422 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 422 UnprocessableContent
+            /// </summary>
+            /// <returns></returns>
+            public AssetsDeadlockApiClient.Model.HTTPValidationError? UnprocessableContent()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsUnprocessableContent
+                    ? System.Text.Json.JsonSerializer.Deserialize<AssetsDeadlockApiClient.Model.HTTPValidationError>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 422 UnprocessableContent and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryUnprocessableContent([NotNullWhen(true)]out AssetsDeadlockApiClient.Model.HTTPValidationError? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = UnprocessableContent();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
+                }
+
+                return result != null;
+            }
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatGetFontsV1FontsGet(ref Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="clientVersion"></param>
+        private void AfterGetFontsV1FontsGetDefaultImplementation(IGetFontsV1FontsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        {
+            bool suppressDefaultLog = false;
+            AfterGetFontsV1FontsGet(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="clientVersion"></param>
+        partial void AfterGetFontsV1FontsGet(ref bool suppressDefaultLog, IGetFontsV1FontsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="clientVersion"></param>
+        private void OnErrorGetFontsV1FontsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorGetFontsV1FontsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="clientVersion"></param>
+        partial void OnErrorGetFontsV1FontsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+
+        /// <summary>
+        /// Get Fonts 
+        /// </summary>
+        /// <param name="clientVersion"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>&gt;</returns>
+        public async Task<IGetFontsV1FontsGetApiResponse?> GetFontsV1FontsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await GetFontsV1FontsGetAsync(clientVersion, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Get Fonts 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientVersion"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>&gt;</returns>
+        public async Task<IGetFontsV1FontsGetApiResponse> GetFontsV1FontsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                FormatGetFontsV1FontsGet(ref clientVersion);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/fonts"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/fonts");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (clientVersion.IsSet)
+                        parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<GetFontsV1FontsGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<GetFontsV1FontsGetApiResponse>();
+                        GetFontsV1FontsGetApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/fonts", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterGetFontsV1FontsGetDefaultImplementation(apiResponseLocalVar, clientVersion);
+
+                        Events.ExecuteOnGetFontsV1FontsGet(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorGetFontsV1FontsGetDefaultImplementation(e, "/v1/fonts", uriBuilderLocalVar.Path, clientVersion);
+                Events.ExecuteOnErrorGetFontsV1FontsGet(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="GetFontsV1FontsGetApiResponse"/>
+        /// </summary>
+        public partial class GetFontsV1FontsGetApiResponse : AssetsDeadlockApiClient.Client.ApiResponse, IGetFontsV1FontsGetApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<GetFontsV1FontsGetApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="GetFontsV1FontsGetApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public GetFontsV1FontsGetApiResponse(ILogger<GetFontsV1FontsGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="GetFontsV1FontsGetApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public GetFontsV1FontsGetApiResponse(ILogger<GetFontsV1FontsGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public Dictionary<string, string>? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out Dictionary<string, string>? result)
             {
                 result = null;
 

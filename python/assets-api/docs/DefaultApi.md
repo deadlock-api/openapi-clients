@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_build_tags_v2_build_tags_get**](DefaultApi.md#get_build_tags_v2_build_tags_get) | **GET** /v2/build-tags | Get Build Tags
 [**get_client_versions_v2_client_versions_get**](DefaultApi.md#get_client_versions_v2_client_versions_get) | **GET** /v2/client-versions | Get Client Versions
 [**get_colors_v1_colors_get**](DefaultApi.md#get_colors_v1_colors_get) | **GET** /v1/colors | Get Colors
+[**get_fonts_v1_fonts_get**](DefaultApi.md#get_fonts_v1_fonts_get) | **GET** /v1/fonts | Get Fonts
 [**get_generic_data_v2_generic_data_get**](DefaultApi.md#get_generic_data_v2_generic_data_get) | **GET** /v2/generic-data | Get Generic Data
 [**get_icons_v1_icons_get**](DefaultApi.md#get_icons_v1_icons_get) | **GET** /v1/icons | Get Icons
 [**get_images_v1_images_get**](DefaultApi.md#get_images_v1_images_get) | **GET** /v1/images | Get Images
@@ -195,6 +196,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Dict[str, ColorV1]**](ColorV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_fonts_v1_fonts_get**
+> Dict[str, str] get_fonts_v1_fonts_get(client_version=client_version)
+
+Get Fonts
+
+### Example
+
+
+```python
+import assets_deadlock_api_client
+from assets_deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://assets.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = assets_deadlock_api_client.Configuration(
+    host = "https://assets.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = assets_deadlock_api_client.DefaultApi(api_client)
+    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesValidClientVersions() # DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+
+    try:
+        # Get Fonts
+        api_response = api_instance.get_fonts_v1_fonts_get(client_version=client_version)
+        print("The response of DefaultApi->get_fonts_v1_fonts_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_fonts_v1_fonts_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client_version** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] 
+
+### Return type
+
+**Dict[str, str]**
 
 ### Authorization
 
