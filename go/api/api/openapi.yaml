@@ -20,12 +20,12 @@ info:
     \ Corporation_\n        "
   license:
     name: MIT
-    url: https://github.com/deadlock-api/deadlock-api-rust/blob/master/LICENSE
+    url: https://github.com/deadlock-api/deadlock-api/blob/master/LICENSE
   title: Deadlock API
   version: 0.1.0
 externalDocs:
   description: Source Code
-  url: https://github.com/deadlock-api/deadlock-api-rust
+  url: https://github.com/deadlock-api/deadlock-api
 servers:
 - url: https://api.deadlock-api.com
 tags:
