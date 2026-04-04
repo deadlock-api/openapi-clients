@@ -59,7 +59,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hero_id** | **int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -173,7 +173,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -200,7 +200,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -272,7 +272,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-    min_last_updated_unix_timestamp = 1772496000 # int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_last_updated_unix_timestamp = 1772582400 # int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_last_updated_unix_timestamp = 56 # int | Filter builds based on their last updated time (Unix timestamp). (optional)
 
     try:
@@ -292,7 +292,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hero_id** | **int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
- **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] 
 
 ### Return type
@@ -356,7 +356,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket allows you to group the stats by a specific field. | [optional] 
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -454,7 +454,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -491,7 +491,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -575,7 +575,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -610,7 +610,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -691,7 +691,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     sort_direction = 'sort_direction_example' # str | The direction to sort heroes in. (optional)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
     min_matches = 56 # int | Filter by min number of matches played. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -724,7 +724,7 @@ Name | Type | Description  | Notes
  **sort_direction** | **str**| The direction to sort heroes in. | [optional] 
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
  **min_matches** | **int**| Filter by min number of matches played. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -798,7 +798,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -835,7 +835,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket allows you to group the stats by a specific field. | [optional] 
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -918,7 +918,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -951,7 +951,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -1033,7 +1033,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     hero_id = 56 # int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1067,7 +1067,7 @@ Name | Type | Description  | Notes
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
  **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
  **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -1145,7 +1145,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     hero_id = 56 # int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1184,7 +1184,7 @@ Name | Type | Description  | Notes
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
  **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
  **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -1232,7 +1232,7 @@ No authorization required
 Kill Death Stats
 
 
-This endpoint returns the kill-death statistics across a 100x100 pixel raster.
+This endpoint returns the kill-death statistics across a 128x128 pixel raster.
 
 ### Rate Limits:
 | Type | Limit |
@@ -1264,7 +1264,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     team = 56 # int | Filter by team number. (optional)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1304,7 +1304,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team** | **int**| Filter by team number. | [optional] 
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -1389,7 +1389,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     resolution = 10 # int | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional) (default to 10)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1422,7 +1422,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resolution** | **int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10]
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -1617,7 +1617,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772496000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772496000)
+    min_unix_timestamp = 1772582400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772582400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1650,7 +1650,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772496000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772582400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

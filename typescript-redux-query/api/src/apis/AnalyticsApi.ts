@@ -1712,7 +1712,7 @@ export function itemStats<T>(requestParameters: ItemStatsRequest, requestConfig?
 }
 
 /**
- *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
  * Kill Death Stats
  */
 function killDeathStatsRaw<T>(requestParameters: KillDeathStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<KillDeathStats>> = {}): QueryConfig<T> {
@@ -1864,7 +1864,7 @@ function killDeathStatsRaw<T>(requestParameters: KillDeathStatsRequest, requestC
 }
 
 /**
-*  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 * Kill Death Stats
 */
 export function killDeathStats<T>(requestParameters: KillDeathStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<KillDeathStats>>): QueryConfig<T> {

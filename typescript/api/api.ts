@@ -2182,7 +2182,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Kill Death Stats
          * @param {number | null} [team] Filter by team number.
          * @param {KillDeathStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -2986,7 +2986,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Kill Death Stats
          * @param {number | null} [team] Filter by team number.
          * @param {KillDeathStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3227,7 +3227,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Kill Death Stats
          * @param {AnalyticsApiKillDeathStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -4695,7 +4695,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Kill Death Stats
      * @param {AnalyticsApiKillDeathStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

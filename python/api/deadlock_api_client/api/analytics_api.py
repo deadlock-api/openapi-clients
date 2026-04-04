@@ -5780,7 +5780,7 @@ class AnalyticsApi:
     ) -> List[KillDeathStats]:
         """Kill Death Stats
 
-         This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
         :param team: Filter by team number.
         :type team: int
@@ -5937,7 +5937,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[KillDeathStats]]:
         """Kill Death Stats
 
-         This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
         :param team: Filter by team number.
         :type team: int
@@ -6094,7 +6094,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Kill Death Stats
 
-         This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
         :param team: Filter by team number.
         :type team: int

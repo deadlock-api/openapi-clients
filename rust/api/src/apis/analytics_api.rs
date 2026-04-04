@@ -1667,7 +1667,7 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
     }
 }
 
-///  This endpoint returns the kill-death statistics across a 100x100 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn kill_death_stats(configuration: &configuration::Configuration, params: KillDeathStatsParams) -> Result<Vec<models::KillDeathStats>, Error<KillDeathStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/kill-death-stats", configuration.base_path);
