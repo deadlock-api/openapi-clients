@@ -314,6 +314,27 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfoV1SteamInfoGetApiResponse"/>?&gt;</returns>
         Task<IGetSteamInfoV1SteamInfoGetApiResponse?> GetSteamInfoV1SteamInfoGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Steam Infos
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfosV1SteamInfoAllGetApiResponse"/>&gt;</returns>
+        Task<IGetSteamInfosV1SteamInfoAllGetApiResponse> GetSteamInfosV1SteamInfoAllGetAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Steam Infos
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfosV1SteamInfoAllGetApiResponse"/>?&gt;</returns>
+        Task<IGetSteamInfosV1SteamInfoAllGetApiResponse?> GetSteamInfosV1SteamInfoAllGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -524,6 +545,18 @@ namespace AssetsDeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IGetSteamInfosV1SteamInfoAllGetApiResponse"/>
+    /// </summary>
+    public interface IGetSteamInfosV1SteamInfoAllGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<List<SteamInfoV1>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
     }
 
     /// <summary>
@@ -769,6 +802,26 @@ namespace AssetsDeadlockApiClient.Api
         internal void ExecuteOnErrorGetSteamInfoV1SteamInfoGet(Exception exception)
         {
             OnErrorGetSteamInfoV1SteamInfoGet?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnGetSteamInfosV1SteamInfoAllGet;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorGetSteamInfosV1SteamInfoAllGet;
+
+        internal void ExecuteOnGetSteamInfosV1SteamInfoAllGet(DefaultApi.GetSteamInfosV1SteamInfoAllGetApiResponse apiResponse)
+        {
+            OnGetSteamInfosV1SteamInfoAllGet?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorGetSteamInfosV1SteamInfoAllGet(Exception exception)
+        {
+            OnErrorGetSteamInfosV1SteamInfoAllGet?.Invoke(this, new ExceptionEventArgs(exception));
         }
     }
 
@@ -4035,6 +4088,224 @@ namespace AssetsDeadlockApiClient.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
+                }
+
+                return result != null;
+            }
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        private void AfterGetSteamInfosV1SteamInfoAllGetDefaultImplementation(IGetSteamInfosV1SteamInfoAllGetApiResponse apiResponseLocalVar)
+        {
+            bool suppressDefaultLog = false;
+            AfterGetSteamInfosV1SteamInfoAllGet(ref suppressDefaultLog, apiResponseLocalVar);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        partial void AfterGetSteamInfosV1SteamInfoAllGet(ref bool suppressDefaultLog, IGetSteamInfosV1SteamInfoAllGetApiResponse apiResponseLocalVar);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        private void OnErrorGetSteamInfosV1SteamInfoAllGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorGetSteamInfosV1SteamInfoAllGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        partial void OnErrorGetSteamInfosV1SteamInfoAllGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
+
+        /// <summary>
+        /// Get Steam Infos 
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfosV1SteamInfoAllGetApiResponse"/>&gt;</returns>
+        public async Task<IGetSteamInfosV1SteamInfoAllGetApiResponse?> GetSteamInfosV1SteamInfoAllGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await GetSteamInfosV1SteamInfoAllGetAsync(cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Get Steam Infos 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfosV1SteamInfoAllGetApiResponse"/>&gt;</returns>
+        public async Task<IGetSteamInfosV1SteamInfoAllGetApiResponse> GetSteamInfosV1SteamInfoAllGetAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/steam-info/all"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/steam-info/all");
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<GetSteamInfosV1SteamInfoAllGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<GetSteamInfosV1SteamInfoAllGetApiResponse>();
+                        GetSteamInfosV1SteamInfoAllGetApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/steam-info/all", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterGetSteamInfosV1SteamInfoAllGetDefaultImplementation(apiResponseLocalVar);
+
+                        Events.ExecuteOnGetSteamInfosV1SteamInfoAllGet(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorGetSteamInfosV1SteamInfoAllGetDefaultImplementation(e, "/v1/steam-info/all", uriBuilderLocalVar.Path);
+                Events.ExecuteOnErrorGetSteamInfosV1SteamInfoAllGet(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="GetSteamInfosV1SteamInfoAllGetApiResponse"/>
+        /// </summary>
+        public partial class GetSteamInfosV1SteamInfoAllGetApiResponse : AssetsDeadlockApiClient.Client.ApiResponse, IGetSteamInfosV1SteamInfoAllGetApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<GetSteamInfosV1SteamInfoAllGetApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="GetSteamInfosV1SteamInfoAllGetApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public GetSteamInfosV1SteamInfoAllGetApiResponse(ILogger<GetSteamInfosV1SteamInfoAllGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="GetSteamInfosV1SteamInfoAllGetApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public GetSteamInfosV1SteamInfoAllGetApiResponse(ILogger<GetSteamInfosV1SteamInfoAllGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<SteamInfoV1>? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<SteamInfoV1>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<SteamInfoV1>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
                 }
 
                 return result != null;

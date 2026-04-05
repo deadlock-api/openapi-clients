@@ -16,6 +16,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 | [**GetRanksV2RanksGet**](DefaultApi.md#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks |
 | [**GetSoundsV1SoundsGet**](DefaultApi.md#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds |
 | [**GetSteamInfoV1SteamInfoGet**](DefaultApi.md#getsteaminfov1steaminfoget) | **GET** /v1/steam-info | Get Steam Info |
+| [**GetSteamInfosV1SteamInfoAllGet**](DefaultApi.md#getsteaminfosv1steaminfoallget) | **GET** /v1/steam-info/all | Get Steam Infos |
 
 <a id="getbuildtagsv2buildtagsget"></a>
 # **GetBuildTagsV2BuildTagsGet**
@@ -431,6 +432,36 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="getsteaminfosv1steaminfoallget"></a>
+# **GetSteamInfosV1SteamInfoAllGet**
+> List&lt;SteamInfoV1&gt; GetSteamInfosV1SteamInfoAllGet ()
+
+Get Steam Infos
+
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;SteamInfoV1&gt;**](SteamInfoV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

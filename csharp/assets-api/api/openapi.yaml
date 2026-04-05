@@ -907,6 +907,20 @@ paths:
                 $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Get Steam Info
+  /v1/steam-info/all:
+    get:
+      operationId: get_steam_infos_v1_steam_info_all_get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/SteamInfoV1"
+                title: Response Get Steam Infos V1 Steam Info All Get
+                type: array
+          description: Successful Response
+      summary: Get Steam Infos
   /v1/icons:
     get:
       operationId: get_icons_v1_icons_get
@@ -1606,6 +1620,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6430
       - 6418
       - 6417
       - 6415

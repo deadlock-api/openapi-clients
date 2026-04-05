@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_ranks_v2_ranks_get**](docs/DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**get_sounds_v1_sounds_get**](docs/DefaultApi.md#get_sounds_v1_sounds_get) | **GET** /v1/sounds | Get Sounds
 *DefaultApi* | [**get_steam_info_v1_steam_info_get**](docs/DefaultApi.md#get_steam_info_v1_steam_info_get) | **GET** /v1/steam-info | Get Steam Info
+*DefaultApi* | [**get_steam_infos_v1_steam_info_all_get**](docs/DefaultApi.md#get_steam_infos_v1_steam_info_all_get) | **GET** /v1/steam-info/all | Get Steam Infos
 
 
 ## Documentation For Models

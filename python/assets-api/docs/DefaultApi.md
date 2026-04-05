@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_ranks_v2_ranks_get**](DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
 [**get_sounds_v1_sounds_get**](DefaultApi.md#get_sounds_v1_sounds_get) | **GET** /v1/sounds | Get Sounds
 [**get_steam_info_v1_steam_info_get**](DefaultApi.md#get_steam_info_v1_steam_info_get) | **GET** /v1/steam-info | Get Steam Info
+[**get_steam_infos_v1_steam_info_all_get**](DefaultApi.md#get_steam_infos_v1_steam_info_all_get) | **GET** /v1/steam-info/all | Get Steam Infos
 
 
 # **get_build_tags_v2_build_tags_get**
@@ -813,6 +814,68 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
 **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_steam_infos_v1_steam_info_all_get**
+> List[SteamInfoV1] get_steam_infos_v1_steam_info_all_get()
+
+Get Steam Infos
+
+### Example
+
+
+```python
+import assets_deadlock_api_client
+from assets_deadlock_api_client.models.steam_info_v1 import SteamInfoV1
+from assets_deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://assets.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = assets_deadlock_api_client.Configuration(
+    host = "https://assets.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with assets_deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = assets_deadlock_api_client.DefaultApi(api_client)
+
+    try:
+        # Get Steam Infos
+        api_response = api_instance.get_steam_infos_v1_steam_info_all_get()
+        print("The response of DefaultApi->get_steam_infos_v1_steam_info_all_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_steam_infos_v1_steam_info_all_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List[SteamInfoV1]**](SteamInfoV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

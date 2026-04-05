@@ -194,5 +194,16 @@ namespace AssetsDeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<SteamInfoV1>(model);
         }
+
+        /// <summary>
+        /// Test GetSteamInfosV1SteamInfoAllGet
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task GetSteamInfosV1SteamInfoAllGetAsyncTest()
+        {
+            var response = await _instance.GetSteamInfosV1SteamInfoAllGetAsync();
+            var model = response.Ok();
+            Assert.IsType<List<SteamInfoV1>>(model);
+        }
     }
 }

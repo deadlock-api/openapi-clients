@@ -87,7 +87,7 @@ namespace DeadlockApiClient.Api
         /// Bulk Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
@@ -128,7 +128,7 @@ namespace DeadlockApiClient.Api
         /// Bulk Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </remarks>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
         /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
@@ -168,7 +168,7 @@ namespace DeadlockApiClient.Api
         /// Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
+        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -181,7 +181,7 @@ namespace DeadlockApiClient.Api
         /// Metadata
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
+        ///  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -1371,7 +1371,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorBulkMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> includeInfo, Option<bool> includeMoreInfo, Option<bool> includeObjectives, Option<bool> includeMidBoss, Option<bool> includePlayerInfo, Option<bool> includePlayerKda, Option<bool> includePlayerItems, Option<bool> includePlayerStats, Option<bool> includePlayerDeathDetails, Option<string?> gameMode, Option<List<long>?> matchIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<List<int>?> accountIds, Option<string?> heroIds, Option<int?> itemFilterHeroId, Option<string?> includeItemIds, Option<string?> excludeItemIds, Option<string> orderBy, Option<string> orderDirection, Option<int> limit);
 
         /// <summary>
-        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </summary>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
         /// <param name="includeMoreInfo">Include more match info in the response. (optional)</param>
@@ -1418,7 +1418,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        /// Bulk Metadata  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeInfo">Include match info in the response. (optional, default to true)</param>
@@ -1769,7 +1769,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom);
 
         /// <summary>
-        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
+        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
@@ -1788,7 +1788,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
+        /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>

@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getRanksV2RanksGet**](docs/Api/DefaultApi.md#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**getSoundsV1SoundsGet**](docs/Api/DefaultApi.md#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds
 *DefaultApi* | [**getSteamInfoV1SteamInfoGet**](docs/Api/DefaultApi.md#getsteaminfov1steaminfoget) | **GET** /v1/steam-info | Get Steam Info
+*DefaultApi* | [**getSteamInfosV1SteamInfoAllGet**](docs/Api/DefaultApi.md#getsteaminfosv1steaminfoallget) | **GET** /v1/steam-info/all | Get Steam Infos
 *HeroesApi* | [**getHeroByNameV2HeroesByNameNameGet**](docs/Api/HeroesApi.md#getherobynamev2heroesbynamenameget) | **GET** /v2/heroes/by-name/{name} | Get Hero By Name
 *HeroesApi* | [**getHeroV2HeroesIdGet**](docs/Api/HeroesApi.md#getherov2heroesidget) | **GET** /v2/heroes/{id} | Get Hero
 *HeroesApi* | [**getHeroesV2HeroesGet**](docs/Api/HeroesApi.md#getheroesv2heroesget) | **GET** /v2/heroes | Get Heroes

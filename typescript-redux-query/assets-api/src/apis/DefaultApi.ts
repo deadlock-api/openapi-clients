@@ -669,3 +669,45 @@ export function getSteamInfoV1SteamInfoGet<T>(requestParameters: GetSteamInfoV1S
     return getSteamInfoV1SteamInfoGetRaw(requestParameters, requestConfig);
 }
 
+/**
+ * Get Steam Infos
+ */
+function getSteamInfosV1SteamInfoAllGetRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<SteamInfoV1>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/steam-info/all`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(SteamInfoV1FromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+* Get Steam Infos
+*/
+export function getSteamInfosV1SteamInfoAllGet<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<SteamInfoV1>>): QueryConfig<T> {
+    return getSteamInfosV1SteamInfoAllGetRaw( requestConfig);
+}
+

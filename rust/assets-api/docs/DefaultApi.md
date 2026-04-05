@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_ranks_v2_ranks_get**](DefaultApi.md#get_ranks_v2_ranks_get) | **GET** /v2/ranks | Get Ranks
 [**get_sounds_v1_sounds_get**](DefaultApi.md#get_sounds_v1_sounds_get) | **GET** /v1/sounds | Get Sounds
 [**get_steam_info_v1_steam_info_get**](DefaultApi.md#get_steam_info_v1_steam_info_get) | **GET** /v1/steam-info | Get Steam Info
+[**get_steam_infos_v1_steam_info_all_get**](DefaultApi.md#get_steam_infos_v1_steam_info_all_get) | **GET** /v1/steam-info/all | Get Steam Infos
 
 
 
@@ -341,6 +342,31 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::SteamInfoV1**](SteamInfoV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_steam_infos_v1_steam_info_all_get
+
+> Vec<models::SteamInfoV1> get_steam_infos_v1_steam_info_all_get()
+Get Steam Infos
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Vec<models::SteamInfoV1>**](SteamInfoV1.md)
 
 ### Authorization
 

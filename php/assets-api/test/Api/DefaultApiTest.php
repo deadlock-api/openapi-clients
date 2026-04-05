@@ -214,4 +214,16 @@ class DefaultApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for getSteamInfosV1SteamInfoAllGet
+     *
+     * Get Steam Infos.
+     *
+     */
+    public function testGetSteamInfosV1SteamInfoAllGet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

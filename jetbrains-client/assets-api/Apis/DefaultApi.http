@@ -59,3 +59,8 @@ Accept: application/json
 ## Get Steam Info
 GET https://assets.deadlock-api.com/v1/steam-info?clientVersion={{clientVersion}}
 Accept: application/json
+
+### Get Steam Infos
+## Get Steam Infos
+GET https://assets.deadlock-api.com/v1/steam-info/all
+Accept: application/json

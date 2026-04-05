@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -369,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -501,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -575,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -614,8 +614,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+      - description: |-
+          Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+          Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         explode: true
         in: query
         name: min_average_badge
@@ -627,8 +628,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+      - description: |-
+          Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+          Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         explode: true
         in: query
         name: max_average_badge
@@ -709,7 +711,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -987,7 +989,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -1241,7 +1243,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -1503,7 +1505,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -1770,7 +1772,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -1996,7 +1998,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -2261,7 +2263,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -2551,7 +2553,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -2770,7 +2772,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -3067,7 +3069,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -4449,9 +4451,13 @@ paths:
   /v1/matches/metadata:
     get:
       description: "\nThis endpoints lets you fetch multiple match metadata at once.\
-        \ The response is a JSON array of match metadata.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | 10req/10s |\n|\
-        \ Global | 100req/min |\n    "
+        \ The response is a JSON array of match metadata.\n\nWhen player info is included,\
+        \ each player object contains a `hero_build_id` field (if available) from\
+        \ demo analysis.\n\n> **Note:** The `hero_build_id` represents the first build\
+        \ the player had selected when the game started. It does not reflect any build\
+        \ changes made during the match.\n\n### Rate Limits:\n| Type | Limit |\n|\
+        \ ---- | ----- |\n| IP | 10req/min |\n| Key | 10req/10s |\n| Global | 100req/min\
+        \ |\n    "
       operationId: bulk_metadata
       parameters:
       - description: Include match info in the response.
@@ -4875,7 +4881,11 @@ paths:
   /v1/matches/{match_id}/metadata:
     get:
       description: "\nThis endpoint returns the match metadata for the given `match_id`\
-        \ parsed into JSON.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
+        \ parsed into JSON.\n\nEach player object is enriched with a `hero_build_id`\
+        \ field (if available) from demo analysis.\n\n> **Note:** The `hero_build_id`\
+        \ represents the first build the player had selected when the game started.\
+        \ It does not reflect any build changes made during the match.\n\nProtobuf\
+        \ definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgMatchMetaData\n- CMsgMatchMetaDataContents\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | From Cache:\
         \ 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |\n| Key | From Cache:\
@@ -5283,7 +5293,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer
@@ -5402,7 +5412,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772582400
+          default: 1772668800
           format: int64
           nullable: true
           type: integer

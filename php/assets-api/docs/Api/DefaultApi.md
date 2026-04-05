@@ -18,6 +18,7 @@ All URIs are relative to https://assets.deadlock-api.com, except if the operatio
 | [**getRanksV2RanksGet()**](DefaultApi.md#getRanksV2RanksGet) | **GET** /v2/ranks | Get Ranks |
 | [**getSoundsV1SoundsGet()**](DefaultApi.md#getSoundsV1SoundsGet) | **GET** /v1/sounds | Get Sounds |
 | [**getSteamInfoV1SteamInfoGet()**](DefaultApi.md#getSteamInfoV1SteamInfoGet) | **GET** /v1/steam-info | Get Steam Info |
+| [**getSteamInfosV1SteamInfoAllGet()**](DefaultApi.md#getSteamInfosV1SteamInfoAllGet) | **GET** /v1/steam-info/all | Get Steam Infos |
 
 
 ## `getBuildTagsV2BuildTagsGet()`
@@ -655,6 +656,57 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\SteamInfoV1**](../Model/SteamInfoV1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSteamInfosV1SteamInfoAllGet()`
+
+```php
+getSteamInfosV1SteamInfoAllGet(): \OpenAPI\Client\Model\SteamInfoV1[]
+```
+
+Get Steam Infos
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getSteamInfosV1SteamInfoAllGet();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getSteamInfosV1SteamInfoAllGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\SteamInfoV1[]**](../Model/SteamInfoV1.md)
 
 ### Authorization
 

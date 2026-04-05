@@ -29,6 +29,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getRanksV2RanksGet**](Apis/DefaultApi.http#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks
 *DefaultApi* | [**getSoundsV1SoundsGet**](Apis/DefaultApi.http#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds
 *DefaultApi* | [**getSteamInfoV1SteamInfoGet**](Apis/DefaultApi.http#getsteaminfov1steaminfoget) | **GET** /v1/steam-info | Get Steam Info
+*DefaultApi* | [**getSteamInfosV1SteamInfoAllGet**](Apis/DefaultApi.http#getsteaminfosv1steaminfoallget) | **GET** /v1/steam-info/all | Get Steam Infos
 *HeroesApi* | [**getHeroByNameV2HeroesByNameNameGet**](Apis/HeroesApi.http#getherobynamev2heroesbynamenameget) | **GET** /v2/heroes/by-name/{name} | Get Hero By Name
 *HeroesApi* | [**getHeroV2HeroesIdGet**](Apis/HeroesApi.http#getherov2heroesidget) | **GET** /v2/heroes/{id} | Get Hero
 *HeroesApi* | [**getHeroesV2HeroesGet**](Apis/HeroesApi.http#getheroesv2heroesget) | **GET** /v2/heroes | Get Heroes

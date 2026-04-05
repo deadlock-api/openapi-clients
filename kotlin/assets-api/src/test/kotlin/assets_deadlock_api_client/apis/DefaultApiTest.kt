@@ -140,5 +140,12 @@ class DefaultApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test getSteamInfosV1SteamInfoAllGet
+        should("test getSteamInfosV1SteamInfoAllGet") {
+            // uncomment below to test getSteamInfosV1SteamInfoAllGet
+            //val result : kotlin.collections.List<SteamInfoV1> = apiInstance.getSteamInfosV1SteamInfoAllGet()
+            //result shouldBe ("TODO")
+        }
+
     }
 }

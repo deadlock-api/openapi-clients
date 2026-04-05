@@ -162,6 +162,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6430: 6430,
     NUMBER_6418: 6418,
     NUMBER_6417: 6417,
     NUMBER_6415: 6415,
@@ -2442,6 +2443,36 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Get Steam Infos
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSteamInfosV1SteamInfoAllGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/steam-info/all`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -2608,6 +2639,18 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSteamInfoV1SteamInfoGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @summary Get Steam Infos
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSteamInfosV1SteamInfoAllGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamInfoV1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSteamInfosV1SteamInfoAllGet(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSteamInfosV1SteamInfoAllGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -2735,6 +2778,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         getSteamInfoV1SteamInfoGet(requestParameters: DefaultApiGetSteamInfoV1SteamInfoGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<SteamInfoV1> {
             return localVarFp.getSteamInfoV1SteamInfoGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Steam Infos
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSteamInfosV1SteamInfoAllGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamInfoV1>> {
+            return localVarFp.getSteamInfosV1SteamInfoAllGet(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2953,6 +3005,16 @@ export class DefaultApi extends BaseAPI {
      */
     public getSteamInfoV1SteamInfoGet(requestParameters: DefaultApiGetSteamInfoV1SteamInfoGetRequest = {}, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getSteamInfoV1SteamInfoGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Steam Infos
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getSteamInfosV1SteamInfoAllGet(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getSteamInfosV1SteamInfoAllGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

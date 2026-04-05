@@ -110,6 +110,13 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_steam_infos_v1_steam_info_all_get(self) -> None:
+        """Test case for get_steam_infos_v1_steam_info_all_get
+
+        Get Steam Infos
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

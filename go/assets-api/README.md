@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
 *DefaultAPI* | [**GetRanksV2RanksGet**](docs/DefaultAPI.md#getranksv2ranksget) | **Get** /v2/ranks | Get Ranks
 *DefaultAPI* | [**GetSoundsV1SoundsGet**](docs/DefaultAPI.md#getsoundsv1soundsget) | **Get** /v1/sounds | Get Sounds
 *DefaultAPI* | [**GetSteamInfoV1SteamInfoGet**](docs/DefaultAPI.md#getsteaminfov1steaminfoget) | **Get** /v1/steam-info | Get Steam Info
+*DefaultAPI* | [**GetSteamInfosV1SteamInfoAllGet**](docs/DefaultAPI.md#getsteaminfosv1steaminfoallget) | **Get** /v1/steam-info/all | Get Steam Infos
 *HeroesAPI* | [**GetHeroByNameV2HeroesByNameNameGet**](docs/HeroesAPI.md#getherobynamev2heroesbynamenameget) | **Get** /v2/heroes/by-name/{name} | Get Hero By Name
 *HeroesAPI* | [**GetHeroV2HeroesIdGet**](docs/HeroesAPI.md#getherov2heroesidget) | **Get** /v2/heroes/{id} | Get Hero
 *HeroesAPI* | [**GetHeroesV2HeroesGet**](docs/HeroesAPI.md#getheroesv2heroesget) | **Get** /v2/heroes | Get Heroes

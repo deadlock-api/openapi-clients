@@ -1002,6 +1002,76 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         )
     }
 
+    /**
+     * GET /v1/steam-info/all
+     * Get Steam Infos
+     * 
+     * @return kotlin.collections.List<SteamInfoV1>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getSteamInfosV1SteamInfoAllGet() : kotlin.collections.List<SteamInfoV1> {
+        val localVarResponse = getSteamInfosV1SteamInfoAllGetWithHttpInfo()
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SteamInfoV1>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/steam-info/all
+     * Get Steam Infos
+     * 
+     * @return ApiResponse<kotlin.collections.List<SteamInfoV1>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun getSteamInfosV1SteamInfoAllGetWithHttpInfo() : ApiResponse<kotlin.collections.List<SteamInfoV1>?> {
+        val localVariableConfig = getSteamInfosV1SteamInfoAllGetRequestConfig()
+
+        return request<Unit, kotlin.collections.List<SteamInfoV1>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation getSteamInfosV1SteamInfoAllGet
+     *
+     * @return RequestConfig
+     */
+    fun getSteamInfosV1SteamInfoAllGetRequestConfig() : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/steam-info/all",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
 
     private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
         HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]

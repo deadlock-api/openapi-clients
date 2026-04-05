@@ -16,6 +16,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
 |[**getRanksV2RanksGet**](#getranksv2ranksget) | **GET** /v2/ranks | Get Ranks|
 |[**getSoundsV1SoundsGet**](#getsoundsv1soundsget) | **GET** /v1/sounds | Get Sounds|
 |[**getSteamInfoV1SteamInfoGet**](#getsteaminfov1steaminfoget) | **GET** /v1/steam-info | Get Steam Info|
+|[**getSteamInfosV1SteamInfoAllGet**](#getsteaminfosv1steaminfoallget) | **GET** /v1/steam-info/all | Get Steam Infos|
 
 # **getBuildTagsV2BuildTagsGet**
 > Array<BuildTagV2> getBuildTagsV2BuildTagsGet()
@@ -624,6 +625,49 @@ No authorization required
 |-------------|-------------|------------------|
 |**200** | Successful Response |  -  |
 |**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getSteamInfosV1SteamInfoAllGet**
+> Array<SteamInfoV1> getSteamInfosV1SteamInfoAllGet()
+
+
+### Example
+
+```typescript
+import {
+    DefaultApi,
+    Configuration
+} from 'assets_deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new DefaultApi(configuration);
+
+const { status, data } = await apiInstance.getSteamInfosV1SteamInfoAllGet();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**Array<SteamInfoV1>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
