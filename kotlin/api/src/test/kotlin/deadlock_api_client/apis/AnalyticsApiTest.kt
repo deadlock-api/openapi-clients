@@ -33,6 +33,8 @@ import deadlock_api_client.models.AnalyticsHeroStats
 import deadlock_api_client.models.BadgeDistribution
 import deadlock_api_client.models.BuildItemStats
 import deadlock_api_client.models.HashMapValue
+import deadlock_api_client.models.HeroBanStats
+import deadlock_api_client.models.HeroBuildStats
 import deadlock_api_client.models.HeroCombStats
 import deadlock_api_client.models.HeroCounterStats
 import deadlock_api_client.models.HeroEntry
@@ -115,6 +117,41 @@ class AnalyticsApiTest : ShouldSpec() {
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val result : kotlin.collections.List<AnalyticsGameStats> = apiInstance.gameStats(bucket, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test heroBanStats
+        should("test heroBanStats") {
+            // uncomment below to test heroBanStats
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+            //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val result : kotlin.collections.List<HeroBanStats> = apiInstance.heroBanStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test heroBuildStats
+        should("test heroBuildStats") {
+            // uncomment below to test heroBuildStats
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+            //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val heroBuildId : kotlin.Long = 789 // kotlin.Long | Filter results for a specific hero build.
+            //val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of matches played for a build to be included in the response.
+            //val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+            //val result : kotlin.collections.List<HeroBuildStats> = apiInstance.heroBuildStats(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds)
             //result shouldBe ("TODO")
         }
 

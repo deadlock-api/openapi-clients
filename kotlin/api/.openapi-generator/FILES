@@ -32,6 +32,8 @@ docs/EnemyStats.md
 docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
+docs/HeroBanStats.md
+docs/HeroBuildStats.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
 docs/HeroEntry.md
@@ -135,6 +137,8 @@ src/main/kotlin/deadlock_api_client/models/EnemyStats.kt
 src/main/kotlin/deadlock_api_client/models/GameMode.kt
 src/main/kotlin/deadlock_api_client/models/GetCustomMatchIdResponse.kt
 src/main/kotlin/deadlock_api_client/models/HashMapValue.kt
+src/main/kotlin/deadlock_api_client/models/HeroBanStats.kt
+src/main/kotlin/deadlock_api_client/models/HeroBuildStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroCombStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroCounterStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroEntry.kt
@@ -211,6 +215,8 @@ src/test/kotlin/deadlock_api_client/models/EnemyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/GameModeTest.kt
 src/test/kotlin/deadlock_api_client/models/GetCustomMatchIdResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapValueTest.kt
+src/test/kotlin/deadlock_api_client/models/HeroBanStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/HeroBuildStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroCombStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroCounterStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroEntryTest.kt

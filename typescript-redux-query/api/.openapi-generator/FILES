@@ -45,6 +45,8 @@ src/models/EnemyStats.ts
 src/models/GameMode.ts
 src/models/GetCustomMatchIdResponse.ts
 src/models/HashMapValue.ts
+src/models/HeroBanStats.ts
+src/models/HeroBuildStats.ts
 src/models/HeroCombStats.ts
 src/models/HeroCounterStats.ts
 src/models/HeroEntry.ts

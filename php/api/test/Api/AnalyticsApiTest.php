@@ -120,6 +120,30 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for heroBanStats
+     *
+     * Hero Ban Stats.
+     *
+     */
+    public function testHeroBanStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for heroBuildStats
+     *
+     * Hero Build Stats.
+     *
+     */
+    public function testHeroBuildStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for heroCombStats
      *
      * Hero Comb Stats.

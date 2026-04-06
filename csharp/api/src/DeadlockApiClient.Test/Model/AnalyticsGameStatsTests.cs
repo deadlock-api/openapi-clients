@@ -189,6 +189,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgGoldBossOrb'
+        /// </summary>
+        [Fact]
+        public void AvgGoldBossOrbTest()
+        {
+            // TODO unit test for the property 'AvgGoldBossOrb'
+        }
+
+        /// <summary>
         /// Test the property 'AvgGoldDeathLoss'
         /// </summary>
         [Fact]
@@ -216,6 +225,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgGoldLaneCreepOrbs'
+        /// </summary>
+        [Fact]
+        public void AvgGoldLaneCreepOrbsTest()
+        {
+            // TODO unit test for the property 'AvgGoldLaneCreepOrbs'
+        }
+
+        /// <summary>
         /// Test the property 'AvgGoldNeutralCreep'
         /// </summary>
         [Fact]
@@ -225,12 +243,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgGoldNeutralCreepOrbs'
+        /// </summary>
+        [Fact]
+        public void AvgGoldNeutralCreepOrbsTest()
+        {
+            // TODO unit test for the property 'AvgGoldNeutralCreepOrbs'
+        }
+
+        /// <summary>
         /// Test the property 'AvgGoldPlayer'
         /// </summary>
         [Fact]
         public void AvgGoldPlayerTest()
         {
             // TODO unit test for the property 'AvgGoldPlayer'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgGoldPlayerOrbs'
+        /// </summary>
+        [Fact]
+        public void AvgGoldPlayerOrbsTest()
+        {
+            // TODO unit test for the property 'AvgGoldPlayerOrbs'
         }
 
         /// <summary>

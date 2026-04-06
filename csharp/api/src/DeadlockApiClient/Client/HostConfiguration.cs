@@ -74,6 +74,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new GameModeNullableJsonConverter());
             _jsonOptions.Converters.Add(new GetCustomMatchIdResponseJsonConverter());
             _jsonOptions.Converters.Add(new HashMapValueJsonConverter());
+            _jsonOptions.Converters.Add(new HeroBanStatsJsonConverter());
+            _jsonOptions.Converters.Add(new HeroBuildStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroCombStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroCounterStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroEntryJsonConverter());

@@ -87,7 +87,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1772668800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772668800)
+    min_unix_timestamp = 1772755200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1772755200)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -125,6 +125,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**badge_distribution**](docs/AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**build_item_stats**](docs/AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsApi* | [**game_stats**](docs/AnalyticsApi.md#game_stats) | **GET** /v1/analytics/game-stats | Game Stats
+*AnalyticsApi* | [**hero_ban_stats**](docs/AnalyticsApi.md#hero_ban_stats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats
+*AnalyticsApi* | [**hero_build_stats**](docs/AnalyticsApi.md#hero_build_stats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats
 *AnalyticsApi* | [**hero_comb_stats**](docs/AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**hero_counters_stats**](docs/AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**hero_scoreboard**](docs/AnalyticsApi.md#hero_scoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -213,6 +215,8 @@ Class | Method | HTTP request | Description
  - [GameMode](docs/GameMode.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [HashMapValue](docs/HashMapValue.md)
+ - [HeroBanStats](docs/HeroBanStats.md)
+ - [HeroBuildStats](docs/HeroBuildStats.md)
  - [HeroCombStats](docs/HeroCombStats.md)
  - [HeroCounterStats](docs/HeroCounterStats.md)
  - [HeroEntry](docs/HeroEntry.md)

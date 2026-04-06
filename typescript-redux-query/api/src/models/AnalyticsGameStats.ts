@@ -113,6 +113,12 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgGoldBossOrb: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgGoldDeathLoss: number;
     /**
      * 
@@ -131,13 +137,31 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgGoldLaneCreepOrbs: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgGoldNeutralCreep: number;
     /**
      * 
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgGoldNeutralCreepOrbs: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgGoldPlayer: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldPlayerOrbs: number;
     /**
      * 
      * @type {number}
@@ -289,11 +313,15 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgEndingLevel': json['avg_ending_level'],
         'avgFirstMidBossTimeS': json['avg_first_mid_boss_time_s'],
         'avgGoldBoss': json['avg_gold_boss'],
+        'avgGoldBossOrb': json['avg_gold_boss_orb'],
         'avgGoldDeathLoss': json['avg_gold_death_loss'],
         'avgGoldDenied': json['avg_gold_denied'],
         'avgGoldLaneCreep': json['avg_gold_lane_creep'],
+        'avgGoldLaneCreepOrbs': json['avg_gold_lane_creep_orbs'],
         'avgGoldNeutralCreep': json['avg_gold_neutral_creep'],
+        'avgGoldNeutralCreepOrbs': json['avg_gold_neutral_creep_orbs'],
         'avgGoldPlayer': json['avg_gold_player'],
+        'avgGoldPlayerOrbs': json['avg_gold_player_orbs'],
         'avgGoldTreasure': json['avg_gold_treasure'],
         'avgHealPrevented': json['avg_heal_prevented'],
         'avgKdRatio': json['avg_kd_ratio'],
@@ -339,11 +367,15 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_ending_level': value.avgEndingLevel,
         'avg_first_mid_boss_time_s': value.avgFirstMidBossTimeS,
         'avg_gold_boss': value.avgGoldBoss,
+        'avg_gold_boss_orb': value.avgGoldBossOrb,
         'avg_gold_death_loss': value.avgGoldDeathLoss,
         'avg_gold_denied': value.avgGoldDenied,
         'avg_gold_lane_creep': value.avgGoldLaneCreep,
+        'avg_gold_lane_creep_orbs': value.avgGoldLaneCreepOrbs,
         'avg_gold_neutral_creep': value.avgGoldNeutralCreep,
+        'avg_gold_neutral_creep_orbs': value.avgGoldNeutralCreepOrbs,
         'avg_gold_player': value.avgGoldPlayer,
+        'avg_gold_player_orbs': value.avgGoldPlayerOrbs,
         'avg_gold_treasure': value.avgGoldTreasure,
         'avg_heal_prevented': value.avgHealPrevented,
         'avg_kd_ratio': value.avgKdRatio,

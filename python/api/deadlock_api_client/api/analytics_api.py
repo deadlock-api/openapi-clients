@@ -24,6 +24,8 @@ from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
 from deadlock_api_client.models.build_item_stats import BuildItemStats
 from deadlock_api_client.models.hash_map_value import HashMapValue
+from deadlock_api_client.models.hero_ban_stats import HeroBanStats
+from deadlock_api_client.models.hero_build_stats import HeroBuildStats
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats
 from deadlock_api_client.models.hero_counter_stats import HeroCounterStats
 from deadlock_api_client.models.hero_entry import HeroEntry
@@ -1758,6 +1760,864 @@ class AnalyticsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/analytics/game-stats',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def hero_ban_stats(
+        self,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[HeroBanStats]:
+        """Hero Ban Stats
+
+         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._hero_ban_stats_serialize(
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[HeroBanStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def hero_ban_stats_with_http_info(
+        self,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[HeroBanStats]]:
+        """Hero Ban Stats
+
+         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._hero_ban_stats_serialize(
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[HeroBanStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def hero_ban_stats_without_preload_content(
+        self,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Hero Ban Stats
+
+         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._hero_ban_stats_serialize(
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[HeroBanStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _hero_ban_stats_serialize(
+        self,
+        min_unix_timestamp,
+        max_unix_timestamp,
+        min_duration_s,
+        max_duration_s,
+        min_average_badge,
+        max_average_badge,
+        min_match_id,
+        max_match_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if min_unix_timestamp is not None:
+            
+            _query_params.append(('min_unix_timestamp', min_unix_timestamp))
+            
+        if max_unix_timestamp is not None:
+            
+            _query_params.append(('max_unix_timestamp', max_unix_timestamp))
+            
+        if min_duration_s is not None:
+            
+            _query_params.append(('min_duration_s', min_duration_s))
+            
+        if max_duration_s is not None:
+            
+            _query_params.append(('max_duration_s', max_duration_s))
+            
+        if min_average_badge is not None:
+            
+            _query_params.append(('min_average_badge', min_average_badge))
+            
+        if max_average_badge is not None:
+            
+            _query_params.append(('max_average_badge', max_average_badge))
+            
+        if min_match_id is not None:
+            
+            _query_params.append(('min_match_id', min_match_id))
+            
+        if max_match_id is not None:
+            
+            _query_params.append(('max_match_id', max_match_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/analytics/hero-ban-stats',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def hero_build_stats(
+        self,
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[HeroBuildStats]:
+        """Hero Build Stats
+
+         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+        :param hero_id: The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :type hero_id: int
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param hero_build_id: Filter results for a specific hero build.
+        :type hero_build_id: int
+        :param min_matches: The minimum number of matches played for a build to be included in the response.
+        :type min_matches: int
+        :param account_id: Filter for matches with a specific player account ID.
+        :type account_id: int
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._hero_build_stats_serialize(
+            hero_id=hero_id,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            hero_build_id=hero_build_id,
+            min_matches=min_matches,
+            account_id=account_id,
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[HeroBuildStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def hero_build_stats_with_http_info(
+        self,
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[HeroBuildStats]]:
+        """Hero Build Stats
+
+         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+        :param hero_id: The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :type hero_id: int
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param hero_build_id: Filter results for a specific hero build.
+        :type hero_build_id: int
+        :param min_matches: The minimum number of matches played for a build to be included in the response.
+        :type min_matches: int
+        :param account_id: Filter for matches with a specific player account ID.
+        :type account_id: int
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._hero_build_stats_serialize(
+            hero_id=hero_id,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            hero_build_id=hero_build_id,
+            min_matches=min_matches,
+            account_id=account_id,
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[HeroBuildStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def hero_build_stats_without_preload_content(
+        self,
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Hero Build Stats
+
+         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+        :param hero_id: The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :type hero_id: int
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param hero_build_id: Filter results for a specific hero build.
+        :type hero_build_id: int
+        :param min_matches: The minimum number of matches played for a build to be included in the response.
+        :type min_matches: int
+        :param account_id: Filter for matches with a specific player account ID.
+        :type account_id: int
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._hero_build_stats_serialize(
+            hero_id=hero_id,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            hero_build_id=hero_build_id,
+            min_matches=min_matches,
+            account_id=account_id,
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[HeroBuildStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _hero_build_stats_serialize(
+        self,
+        hero_id,
+        min_unix_timestamp,
+        max_unix_timestamp,
+        min_duration_s,
+        max_duration_s,
+        min_average_badge,
+        max_average_badge,
+        min_match_id,
+        max_match_id,
+        hero_build_id,
+        min_matches,
+        account_id,
+        account_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'account_ids': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if hero_id is not None:
+            _path_params['hero_id'] = hero_id
+        # process the query parameters
+        if min_unix_timestamp is not None:
+            
+            _query_params.append(('min_unix_timestamp', min_unix_timestamp))
+            
+        if max_unix_timestamp is not None:
+            
+            _query_params.append(('max_unix_timestamp', max_unix_timestamp))
+            
+        if min_duration_s is not None:
+            
+            _query_params.append(('min_duration_s', min_duration_s))
+            
+        if max_duration_s is not None:
+            
+            _query_params.append(('max_duration_s', max_duration_s))
+            
+        if min_average_badge is not None:
+            
+            _query_params.append(('min_average_badge', min_average_badge))
+            
+        if max_average_badge is not None:
+            
+            _query_params.append(('max_average_badge', max_average_badge))
+            
+        if min_match_id is not None:
+            
+            _query_params.append(('min_match_id', min_match_id))
+            
+        if max_match_id is not None:
+            
+            _query_params.append(('max_match_id', max_match_id))
+            
+        if hero_build_id is not None:
+            
+            _query_params.append(('hero_build_id', hero_build_id))
+            
+        if min_matches is not None:
+            
+            _query_params.append(('min_matches', min_matches))
+            
+        if account_id is not None:
+            
+            _query_params.append(('account_id', account_id))
+            
+        if account_ids is not None:
+            
+            _query_params.append(('account_ids', account_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/analytics/hero-build-stats/{hero_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

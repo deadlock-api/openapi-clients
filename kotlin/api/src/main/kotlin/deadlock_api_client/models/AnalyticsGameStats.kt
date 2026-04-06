@@ -46,11 +46,15 @@ import java.io.Serializable
  * @param avgEndingLevel 
  * @param avgFirstMidBossTimeS 
  * @param avgGoldBoss 
+ * @param avgGoldBossOrb 
  * @param avgGoldDeathLoss 
  * @param avgGoldDenied 
  * @param avgGoldLaneCreep 
+ * @param avgGoldLaneCreepOrbs 
  * @param avgGoldNeutralCreep 
+ * @param avgGoldNeutralCreepOrbs 
  * @param avgGoldPlayer 
+ * @param avgGoldPlayerOrbs 
  * @param avgGoldTreasure 
  * @param avgHealPrevented 
  * @param avgKdRatio 
@@ -123,6 +127,9 @@ data class AnalyticsGameStats (
     @Json(name = "avg_gold_boss")
     val avgGoldBoss: kotlin.Double,
 
+    @Json(name = "avg_gold_boss_orb")
+    val avgGoldBossOrb: kotlin.Double,
+
     @Json(name = "avg_gold_death_loss")
     val avgGoldDeathLoss: kotlin.Double,
 
@@ -132,11 +139,20 @@ data class AnalyticsGameStats (
     @Json(name = "avg_gold_lane_creep")
     val avgGoldLaneCreep: kotlin.Double,
 
+    @Json(name = "avg_gold_lane_creep_orbs")
+    val avgGoldLaneCreepOrbs: kotlin.Double,
+
     @Json(name = "avg_gold_neutral_creep")
     val avgGoldNeutralCreep: kotlin.Double,
 
+    @Json(name = "avg_gold_neutral_creep_orbs")
+    val avgGoldNeutralCreepOrbs: kotlin.Double,
+
     @Json(name = "avg_gold_player")
     val avgGoldPlayer: kotlin.Double,
+
+    @Json(name = "avg_gold_player_orbs")
+    val avgGoldPlayerOrbs: kotlin.Double,
 
     @Json(name = "avg_gold_treasure")
     val avgGoldTreasure: kotlin.Double,

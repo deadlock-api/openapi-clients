@@ -67,6 +67,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | *AnalyticsApi* | [**gameStats**](docs/AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats |
+| *AnalyticsApi* | [**heroBanStats**](docs/AnalyticsApi.md#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats |
+| *AnalyticsApi* | [**heroBuildStats**](docs/AnalyticsApi.md#herobuildstats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats |
 | *AnalyticsApi* | [**heroCombStats**](docs/AnalyticsApi.md#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | *AnalyticsApi* | [**heroCountersStats**](docs/AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | *AnalyticsApi* | [**heroScoreboard**](docs/AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
@@ -156,6 +158,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.GameMode](docs/GameMode.md)
  - [deadlock_api_client.models.GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [deadlock_api_client.models.HashMapValue](docs/HashMapValue.md)
+ - [deadlock_api_client.models.HeroBanStats](docs/HeroBanStats.md)
+ - [deadlock_api_client.models.HeroBuildStats](docs/HeroBuildStats.md)
  - [deadlock_api_client.models.HeroCombStats](docs/HeroCombStats.md)
  - [deadlock_api_client.models.HeroCounterStats](docs/HeroCounterStats.md)
  - [deadlock_api_client.models.HeroEntry](docs/HeroEntry.md)

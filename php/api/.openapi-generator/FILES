@@ -47,6 +47,8 @@ api/Model/EnemyStats.php
 api/Model/GameMode.php
 api/Model/GetCustomMatchIdResponse.php
 api/Model/HashMapValue.php
+api/Model/HeroBanStats.php
+api/Model/HeroBuildStats.php
 api/Model/HeroCombStats.php
 api/Model/HeroCounterStats.php
 api/Model/HeroEntry.php
@@ -126,6 +128,8 @@ docs/Model/EnemyStats.md
 docs/Model/GameMode.md
 docs/Model/GetCustomMatchIdResponse.md
 docs/Model/HashMapValue.md
+docs/Model/HeroBanStats.md
+docs/Model/HeroBuildStats.md
 docs/Model/HeroCombStats.md
 docs/Model/HeroCounterStats.md
 docs/Model/HeroEntry.md
@@ -204,6 +208,8 @@ test/Model/EnemyStatsTest.php
 test/Model/GameModeTest.php
 test/Model/GetCustomMatchIdResponseTest.php
 test/Model/HashMapValueTest.php
+test/Model/HeroBanStatsTest.php
+test/Model/HeroBuildStatsTest.php
 test/Model/HeroCombStatsTest.php
 test/Model/HeroCounterStatsTest.php
 test/Model/HeroEntryTest.php

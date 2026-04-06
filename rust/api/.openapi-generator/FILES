@@ -34,6 +34,8 @@ docs/EnemyStats.md
 docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
+docs/HeroBanStats.md
+docs/HeroBuildStats.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
 docs/HeroEntry.md
@@ -123,6 +125,8 @@ src/models/enemy_stats.rs
 src/models/game_mode.rs
 src/models/get_custom_match_id_response.rs
 src/models/hash_map_value.rs
+src/models/hero_ban_stats.rs
+src/models/hero_build_stats.rs
 src/models/hero_comb_stats.rs
 src/models/hero_counter_stats.rs
 src/models/hero_entry.rs

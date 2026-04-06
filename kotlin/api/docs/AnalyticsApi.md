@@ -8,6 +8,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**badgeDistribution**](AnalyticsApi.md#badgeDistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | [**buildItemStats**](AnalyticsApi.md#buildItemStats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | [**gameStats**](AnalyticsApi.md#gameStats) | **GET** /v1/analytics/game-stats | Game Stats |
+| [**heroBanStats**](AnalyticsApi.md#heroBanStats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats |
+| [**heroBuildStats**](AnalyticsApi.md#heroBuildStats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats |
 | [**heroCombStats**](AnalyticsApi.md#heroCombStats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | [**heroCountersStats**](AnalyticsApi.md#heroCountersStats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | [**heroScoreboard**](AnalyticsApi.md#heroScoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
@@ -70,7 +72,7 @@ try {
 ### Parameters
 | **heroId** | **kotlin.Int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -142,7 +144,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -199,7 +201,7 @@ try {
 
 ### Parameters
 | **heroId** | **kotlin.Int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **maxLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
@@ -257,7 +259,7 @@ try {
 ### Parameters
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -271,6 +273,136 @@ try {
 ### Return type
 
 [**kotlin.collections.List&lt;AnalyticsGameStats&gt;**](AnalyticsGameStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="heroBanStats"></a>
+# **heroBanStats**
+> kotlin.collections.List&lt;HeroBanStats&gt; heroBanStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+
+Hero Ban Stats
+
+ Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = AnalyticsApi()
+val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+try {
+    val result : kotlin.collections.List<HeroBanStats> = apiInstance.heroBanStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AnalyticsApi#heroBanStats")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AnalyticsApi#heroBanStats")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1772755200L] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+
+### Return type
+
+[**kotlin.collections.List&lt;HeroBanStats&gt;**](HeroBanStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="heroBuildStats"></a>
+# **heroBuildStats**
+> kotlin.collections.List&lt;HeroBuildStats&gt; heroBuildStats(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds)
+
+Hero Build Stats
+
+ Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = AnalyticsApi()
+val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
+val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+val heroBuildId : kotlin.Long = 789 // kotlin.Long | Filter results for a specific hero build.
+val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of matches played for a build to be included in the response.
+val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
+val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+try {
+    val result : kotlin.collections.List<HeroBuildStats> = apiInstance.heroBuildStats(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AnalyticsApi#heroBuildStats")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AnalyticsApi#heroBuildStats")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **heroId** | **kotlin.Int**| The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1772755200L] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **heroBuildId** | **kotlin.Long**| Filter results for a specific hero build. | [optional] |
+| **minMatches** | **kotlin.Long**| The minimum number of matches played for a build to be included in the response. | [optional] [default to 20L] |
+| **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+
+### Return type
+
+[**kotlin.collections.List&lt;HeroBuildStats&gt;**](HeroBuildStats.md)
 
 ### Authorization
 
@@ -330,7 +462,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -412,7 +544,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -493,7 +625,7 @@ try {
 | **sortDirection** | **kotlin.String**| The direction to sort heroes in. | [optional] [enum: desc, asc] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
 | **minMatches** | **kotlin.Int**| Filter by min number of matches played. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -571,7 +703,7 @@ try {
 ### Parameters
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -650,7 +782,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -731,7 +863,7 @@ try {
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -813,7 +945,7 @@ try {
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -900,7 +1032,7 @@ try {
 ### Parameters
 | **team** | **kotlin.Int**| Filter by team number. | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -983,7 +1115,7 @@ try {
 ### Parameters
 | **resolution** | **kotlin.Int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1141,7 +1273,7 @@ try {
 ### Parameters
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

@@ -10,6 +10,8 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**badgeDistribution()**](AnalyticsApi.md#badgeDistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | [**buildItemStats()**](AnalyticsApi.md#buildItemStats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | [**gameStats()**](AnalyticsApi.md#gameStats) | **GET** /v1/analytics/game-stats | Game Stats |
+| [**heroBanStats()**](AnalyticsApi.md#heroBanStats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats |
+| [**heroBuildStats()**](AnalyticsApi.md#heroBuildStats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats |
 | [**heroCombStats()**](AnalyticsApi.md#heroCombStats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | [**heroCountersStats()**](AnalyticsApi.md#heroCountersStats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | [**heroScoreboard()**](AnalyticsApi.md#heroScoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
@@ -48,7 +50,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -80,7 +82,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -139,7 +141,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -162,7 +164,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -213,7 +215,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_last_updated_unix_timestamp = 1772668800; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
+$min_last_updated_unix_timestamp = 1772755200; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
 $max_last_updated_unix_timestamp = 56; // int | Filter builds based on their last updated time (Unix timestamp).
 
 try {
@@ -229,7 +231,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
 
 ### Return type
@@ -274,7 +276,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -297,7 +299,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -309,6 +311,156 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\AnalyticsGameStats[]**](../Model/AnalyticsGameStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `heroBanStats()`
+
+```php
+heroBanStats($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id): \OpenAPI\Client\Model\HeroBanStats[]
+```
+
+Hero Ban Stats
+
+Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+$max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
+$min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$min_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+$max_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+$min_match_id = 56; // int | Filter matches based on their ID.
+$max_match_id = 56; // int | Filter matches based on their ID.
+
+try {
+    $result = $apiInstance->heroBanStats($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->heroBanStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1772755200] |
+| **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
+| **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\HeroBanStats[]**](../Model/HeroBanStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `heroBuildStats()`
+
+```php
+heroBuildStats($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids): \OpenAPI\Client\Model\HeroBuildStats[]
+```
+
+Hero Build Stats
+
+Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$hero_id = 56; // int | The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+$max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
+$min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$min_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+$max_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+$min_match_id = 56; // int | Filter matches based on their ID.
+$max_match_id = 56; // int | Filter matches based on their ID.
+$hero_build_id = 56; // int | Filter results for a specific hero build.
+$min_matches = 20; // int | The minimum number of matches played for a build to be included in the response.
+$account_id = 56; // int | Filter for matches with a specific player account ID.
+$account_ids = array(56); // int[] | Comma separated list of account ids to include
+
+try {
+    $result = $apiInstance->heroBuildStats($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->heroBuildStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **hero_id** | **int**| The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1772755200] |
+| **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] |
+| **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
+| **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
+| **hero_build_id** | **int**| Filter results for a specific hero build. | [optional] |
+| **min_matches** | **int**| The minimum number of matches played for a build to be included in the response. | [optional] [default to 20] |
+| **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
+| **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\HeroBuildStats[]**](../Model/HeroBuildStats.md)
 
 ### Authorization
 
@@ -347,7 +499,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -380,7 +532,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -441,7 +593,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -472,7 +624,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -534,7 +686,7 @@ $sort_by = 'sort_by_example'; // string | The field to sort by.
 $sort_direction = 'sort_direction_example'; // string | The direction to sort heroes in.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $min_matches = 56; // int | Filter by min number of matches played.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -563,7 +715,7 @@ try {
 | **sort_direction** | **string**| The direction to sort heroes in. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **min_matches** | **int**| Filter by min number of matches played. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -618,7 +770,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -651,7 +803,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -711,7 +863,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -740,7 +892,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -801,7 +953,7 @@ $comb_size = 2; // int | The combination size to return.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $hero_id = 56; // int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -831,7 +983,7 @@ try {
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -888,7 +1040,7 @@ $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by 
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $hero_id = 56; // int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -923,7 +1075,7 @@ try {
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -984,7 +1136,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $team = 56; // int | Filter by team number.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1020,7 +1172,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **team** | **int**| Filter by team number. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1084,7 +1236,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $resolution = 10; // int | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1113,7 +1265,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **resolution** | **int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1262,7 +1414,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1291,7 +1443,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772668800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1772755200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

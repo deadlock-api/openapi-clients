@@ -37,6 +37,8 @@ docs/EnemyStats.md
 docs/GameMode.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
+docs/HeroBanStats.md
+docs/HeroBuildStats.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
 docs/HeroEntry.md

@@ -19,11 +19,15 @@ Name | Type | Description | Notes
 **AvgEndingLevel** | **double** |  | 
 **AvgFirstMidBossTimeS** | **double** |  | 
 **AvgGoldBoss** | **double** |  | 
+**AvgGoldBossOrb** | **double** |  | 
 **AvgGoldDeathLoss** | **double** |  | 
 **AvgGoldDenied** | **double** |  | 
 **AvgGoldLaneCreep** | **double** |  | 
+**AvgGoldLaneCreepOrbs** | **double** |  | 
 **AvgGoldNeutralCreep** | **double** |  | 
+**AvgGoldNeutralCreepOrbs** | **double** |  | 
 **AvgGoldPlayer** | **double** |  | 
+**AvgGoldPlayerOrbs** | **double** |  | 
 **AvgGoldTreasure** | **double** |  | 
 **AvgHealPrevented** | **double** |  | 
 **AvgKdRatio** | **double** |  | 

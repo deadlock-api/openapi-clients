@@ -54,6 +54,20 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
+    def test_hero_ban_stats(self) -> None:
+        """Test case for hero_ban_stats
+
+        Hero Ban Stats
+        """
+        pass
+
+    def test_hero_build_stats(self) -> None:
+        """Test case for hero_build_stats
+
+        Hero Build Stats
+        """
+        pass
+
     def test_hero_comb_stats(self) -> None:
         """Test case for hero_comb_stats
 

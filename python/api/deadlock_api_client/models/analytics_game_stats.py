@@ -43,11 +43,15 @@ class AnalyticsGameStats(BaseModel):
     avg_ending_level: Union[StrictFloat, StrictInt]
     avg_first_mid_boss_time_s: Union[StrictFloat, StrictInt]
     avg_gold_boss: Union[StrictFloat, StrictInt]
+    avg_gold_boss_orb: Union[StrictFloat, StrictInt]
     avg_gold_death_loss: Union[StrictFloat, StrictInt]
     avg_gold_denied: Union[StrictFloat, StrictInt]
     avg_gold_lane_creep: Union[StrictFloat, StrictInt]
+    avg_gold_lane_creep_orbs: Union[StrictFloat, StrictInt]
     avg_gold_neutral_creep: Union[StrictFloat, StrictInt]
+    avg_gold_neutral_creep_orbs: Union[StrictFloat, StrictInt]
     avg_gold_player: Union[StrictFloat, StrictInt]
+    avg_gold_player_orbs: Union[StrictFloat, StrictInt]
     avg_gold_treasure: Union[StrictFloat, StrictInt]
     avg_heal_prevented: Union[StrictFloat, StrictInt]
     avg_kd_ratio: Union[StrictFloat, StrictInt]
@@ -70,7 +74,7 @@ class AnalyticsGameStats(BaseModel):
     team0_wins: Annotated[int, Field(strict=True, ge=0)]
     team1_wins: Annotated[int, Field(strict=True, ge=0)]
     total_matches: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_gold_boss", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_neutral_creep", "avg_gold_player", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_objectives_destroyed_time_s", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "team0_wins", "team1_wins", "total_matches"]
+    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_gold_boss", "avg_gold_boss_orb", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_lane_creep_orbs", "avg_gold_neutral_creep", "avg_gold_neutral_creep_orbs", "avg_gold_player", "avg_gold_player_orbs", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_objectives_destroyed_time_s", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "team0_wins", "team1_wins", "total_matches"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -138,11 +142,15 @@ class AnalyticsGameStats(BaseModel):
             "avg_ending_level": obj.get("avg_ending_level"),
             "avg_first_mid_boss_time_s": obj.get("avg_first_mid_boss_time_s"),
             "avg_gold_boss": obj.get("avg_gold_boss"),
+            "avg_gold_boss_orb": obj.get("avg_gold_boss_orb"),
             "avg_gold_death_loss": obj.get("avg_gold_death_loss"),
             "avg_gold_denied": obj.get("avg_gold_denied"),
             "avg_gold_lane_creep": obj.get("avg_gold_lane_creep"),
+            "avg_gold_lane_creep_orbs": obj.get("avg_gold_lane_creep_orbs"),
             "avg_gold_neutral_creep": obj.get("avg_gold_neutral_creep"),
+            "avg_gold_neutral_creep_orbs": obj.get("avg_gold_neutral_creep_orbs"),
             "avg_gold_player": obj.get("avg_gold_player"),
+            "avg_gold_player_orbs": obj.get("avg_gold_player_orbs"),
             "avg_gold_treasure": obj.get("avg_gold_treasure"),
             "avg_heal_prevented": obj.get("avg_heal_prevented"),
             "avg_kd_ratio": obj.get("avg_kd_ratio"),

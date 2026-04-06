@@ -123,6 +123,12 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgGoldBoss shouldBe ("TODO")
         }
 
+        // to test the property `avgGoldBossOrb`
+        should("test avgGoldBossOrb") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldBossOrb shouldBe ("TODO")
+        }
+
         // to test the property `avgGoldDeathLoss`
         should("test avgGoldDeathLoss") {
             // uncomment below to test the property
@@ -141,16 +147,34 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgGoldLaneCreep shouldBe ("TODO")
         }
 
+        // to test the property `avgGoldLaneCreepOrbs`
+        should("test avgGoldLaneCreepOrbs") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldLaneCreepOrbs shouldBe ("TODO")
+        }
+
         // to test the property `avgGoldNeutralCreep`
         should("test avgGoldNeutralCreep") {
             // uncomment below to test the property
             //modelInstance.avgGoldNeutralCreep shouldBe ("TODO")
         }
 
+        // to test the property `avgGoldNeutralCreepOrbs`
+        should("test avgGoldNeutralCreepOrbs") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldNeutralCreepOrbs shouldBe ("TODO")
+        }
+
         // to test the property `avgGoldPlayer`
         should("test avgGoldPlayer") {
             // uncomment below to test the property
             //modelInstance.avgGoldPlayer shouldBe ("TODO")
+        }
+
+        // to test the property `avgGoldPlayerOrbs`
+        should("test avgGoldPlayerOrbs") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldPlayerOrbs shouldBe ("TODO")
         }
 
         // to test the property `avgGoldTreasure`

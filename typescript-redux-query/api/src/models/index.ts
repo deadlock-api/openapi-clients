@@ -25,6 +25,8 @@ export * from './EnemyStats';
 export * from './GameMode';
 export * from './GetCustomMatchIdResponse';
 export * from './HashMapValue';
+export * from './HeroBanStats';
+export * from './HeroBuildStats';
 export * from './HeroCombStats';
 export * from './HeroCounterStats';
 export * from './HeroEntry';

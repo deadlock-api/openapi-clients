@@ -118,6 +118,58 @@ pub struct GameStatsParams {
     pub max_match_id: Option<u64>
 }
 
+/// struct for passing parameters to the method [`hero_ban_stats`]
+#[derive(Clone, Debug)]
+pub struct HeroBanStatsParams {
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>
+}
+
+/// struct for passing parameters to the method [`hero_build_stats`]
+#[derive(Clone, Debug)]
+pub struct HeroBuildStatsParams {
+    /// The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub hero_id: u32,
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>,
+    /// Filter results for a specific hero build.
+    pub hero_build_id: Option<u64>,
+    /// The minimum number of matches played for a build to be included in the response.
+    pub min_matches: Option<u64>,
+    /// Filter for matches with a specific player account ID.
+    pub account_id: Option<u32>,
+    /// Comma separated list of account ids to include
+    pub account_ids: Option<Vec<u32>>
+}
+
 /// struct for passing parameters to the method [`hero_comb_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroCombStatsParams {
@@ -616,6 +668,24 @@ pub enum GameStatsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`hero_ban_stats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum HeroBanStatsError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`hero_build_stats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum HeroBuildStatsError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`hero_comb_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -985,6 +1055,139 @@ pub async fn game_stats(configuration: &configuration::Configuration, params: Ga
     } else {
         let content = resp.text().await?;
         let entity: Option<GameStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+pub async fn hero_ban_stats(configuration: &configuration::Configuration, params: HeroBanStatsParams) -> Result<Vec<models::HeroBanStats>, Error<HeroBanStatsError>> {
+
+    let uri_str = format!("{}/v1/analytics/hero-ban-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::HeroBanStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::HeroBanStats&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<HeroBanStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+pub async fn hero_build_stats(configuration: &configuration::Configuration, params: HeroBuildStatsParams) -> Result<Vec<models::HeroBuildStats>, Error<HeroBuildStatsError>> {
+
+    let uri_str = format!("{}/v1/analytics/hero-build-stats/{hero_id}", configuration.base_path, hero_id=params.hero_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.hero_build_id {
+        req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::HeroBuildStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::HeroBuildStats&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<HeroBuildStatsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

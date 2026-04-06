@@ -215,6 +215,15 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_gold_boss_orb"
+     */
+    public function testPropertyAvgGoldBossOrb()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_death_loss"
      */
     public function testPropertyAvgGoldDeathLoss()
@@ -242,6 +251,15 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_gold_lane_creep_orbs"
+     */
+    public function testPropertyAvgGoldLaneCreepOrbs()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_neutral_creep"
      */
     public function testPropertyAvgGoldNeutralCreep()
@@ -251,9 +269,27 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_gold_neutral_creep_orbs"
+     */
+    public function testPropertyAvgGoldNeutralCreepOrbs()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_player"
      */
     public function testPropertyAvgGoldPlayer()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_gold_player_orbs"
+     */
+    public function testPropertyAvgGoldPlayerOrbs()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

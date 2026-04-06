@@ -44,6 +44,8 @@ docs/models/EnemyStats.md
 docs/models/GameMode.md
 docs/models/GetCustomMatchIdResponse.md
 docs/models/HashMapValue.md
+docs/models/HeroBanStats.md
+docs/models/HeroBuildStats.md
 docs/models/HeroCombStats.md
 docs/models/HeroCounterStats.md
 docs/models/HeroEntry.md
@@ -125,6 +127,8 @@ src/DeadlockApiClient.Test/Model/EnemyStatsTests.cs
 src/DeadlockApiClient.Test/Model/GameModeTests.cs
 src/DeadlockApiClient.Test/Model/GetCustomMatchIdResponseTests.cs
 src/DeadlockApiClient.Test/Model/HashMapValueTests.cs
+src/DeadlockApiClient.Test/Model/HeroBanStatsTests.cs
+src/DeadlockApiClient.Test/Model/HeroBuildStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroCombStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroCounterStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroEntryTests.cs
@@ -227,6 +231,8 @@ src/DeadlockApiClient/Model/EnemyStats.cs
 src/DeadlockApiClient/Model/GameMode.cs
 src/DeadlockApiClient/Model/GetCustomMatchIdResponse.cs
 src/DeadlockApiClient/Model/HashMapValue.cs
+src/DeadlockApiClient/Model/HeroBanStats.cs
+src/DeadlockApiClient/Model/HeroBuildStats.cs
 src/DeadlockApiClient/Model/HeroCombStats.cs
 src/DeadlockApiClient/Model/HeroCounterStats.cs
 src/DeadlockApiClient/Model/HeroEntry.cs

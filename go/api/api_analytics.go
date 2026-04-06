@@ -16,6 +16,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"reflect"
 )
 
@@ -224,7 +225,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -488,7 +489,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -653,7 +654,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -847,7 +848,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -871,6 +872,460 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	}
 	if r.maxMatchId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiHeroBanStatsRequest struct {
+	ctx context.Context
+	ApiService *AnalyticsAPIService
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	minAverageBadge *int32
+	maxAverageBadge *int32
+	minMatchId *int64
+	maxMatchId *int64
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+func (r ApiHeroBanStatsRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiHeroBanStatsRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiHeroBanStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHeroBanStatsRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiHeroBanStatsRequest) MinDurationS(minDurationS int64) ApiHeroBanStatsRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiHeroBanStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroBanStatsRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiHeroBanStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroBanStatsRequest {
+	r.minAverageBadge = &minAverageBadge
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiHeroBanStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroBanStatsRequest {
+	r.maxAverageBadge = &maxAverageBadge
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiHeroBanStatsRequest) MinMatchId(minMatchId int64) ApiHeroBanStatsRequest {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiHeroBanStatsRequest) MaxMatchId(maxMatchId int64) ApiHeroBanStatsRequest {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+func (r ApiHeroBanStatsRequest) Execute() ([]HeroBanStats, *http.Response, error) {
+	return r.ApiService.HeroBanStatsExecute(r)
+}
+
+/*
+HeroBanStats Hero Ban Stats
+
+
+Retrieves ban statistics for each hero based on historical match data from demo analysis.
+
+Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.
+
+Results are cached for **1 hour** based on the combination of query parameters provided.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiHeroBanStatsRequest
+*/
+func (a *AnalyticsAPIService) HeroBanStats(ctx context.Context) ApiHeroBanStatsRequest {
+	return ApiHeroBanStatsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []HeroBanStats
+func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]HeroBanStats, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []HeroBanStats
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.HeroBanStats")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/analytics/hero-ban-stats"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+		var defaultValue int64 = 1772755200
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+		r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.minAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
+	}
+	if r.maxAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiHeroBuildStatsRequest struct {
+	ctx context.Context
+	ApiService *AnalyticsAPIService
+	heroId int32
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	minAverageBadge *int32
+	maxAverageBadge *int32
+	minMatchId *int64
+	maxMatchId *int64
+	heroBuildId *int64
+	minMatches *int64
+	accountId *int32
+	accountIds *[]int32
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+func (r ApiHeroBuildStatsRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiHeroBuildStatsRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiHeroBuildStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHeroBuildStatsRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiHeroBuildStatsRequest) MinDurationS(minDurationS int64) ApiHeroBuildStatsRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiHeroBuildStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroBuildStatsRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiHeroBuildStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroBuildStatsRequest {
+	r.minAverageBadge = &minAverageBadge
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+func (r ApiHeroBuildStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroBuildStatsRequest {
+	r.maxAverageBadge = &maxAverageBadge
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiHeroBuildStatsRequest) MinMatchId(minMatchId int64) ApiHeroBuildStatsRequest {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiHeroBuildStatsRequest) MaxMatchId(maxMatchId int64) ApiHeroBuildStatsRequest {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+// Filter results for a specific hero build.
+func (r ApiHeroBuildStatsRequest) HeroBuildId(heroBuildId int64) ApiHeroBuildStatsRequest {
+	r.heroBuildId = &heroBuildId
+	return r
+}
+
+// The minimum number of matches played for a build to be included in the response.
+func (r ApiHeroBuildStatsRequest) MinMatches(minMatches int64) ApiHeroBuildStatsRequest {
+	r.minMatches = &minMatches
+	return r
+}
+
+// Filter for matches with a specific player account ID.
+// Deprecated
+func (r ApiHeroBuildStatsRequest) AccountId(accountId int32) ApiHeroBuildStatsRequest {
+	r.accountId = &accountId
+	return r
+}
+
+// Comma separated list of account ids to include
+func (r ApiHeroBuildStatsRequest) AccountIds(accountIds []int32) ApiHeroBuildStatsRequest {
+	r.accountIds = &accountIds
+	return r
+}
+
+func (r ApiHeroBuildStatsRequest) Execute() ([]HeroBuildStats, *http.Response, error) {
+	return r.ApiService.HeroBuildStatsExecute(r)
+}
+
+/*
+HeroBuildStats Hero Build Stats
+
+
+Retrieves performance statistics for hero builds based on historical match data from demo analysis.
+
+Only includes builds that exist in the hero builds database.
+
+The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.
+
+Results are cached for **1 hour** based on the combination of query parameters provided.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param heroId The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @return ApiHeroBuildStatsRequest
+*/
+func (a *AnalyticsAPIService) HeroBuildStats(ctx context.Context, heroId int32) ApiHeroBuildStatsRequest {
+	return ApiHeroBuildStatsRequest{
+		ApiService: a,
+		ctx: ctx,
+		heroId: heroId,
+	}
+}
+
+// Execute executes the request
+//  @return []HeroBuildStats
+func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) ([]HeroBuildStats, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []HeroBuildStats
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.HeroBuildStats")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/analytics/hero-build-stats/{hero_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"hero_id"+"}", url.PathEscape(parameterValueToString(r.heroId, "heroId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.heroId < 0 {
+		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
+	}
+
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+		var defaultValue int64 = 1772755200
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+		r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.minAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
+	}
+	if r.maxAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	if r.heroBuildId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_build_id", r.heroBuildId, "form", "")
+	}
+	if r.minMatches != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
+	} else {
+		var defaultValue int64 = 20
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
+		r.minMatches = &defaultValue
+	}
+	if r.accountId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "form", "")
+	}
+	if r.accountIds != nil {
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1129,7 +1584,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1480,7 +1935,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1785,7 +2240,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2088,7 +2543,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2398,7 +2853,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2721,7 +3176,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3047,7 +3502,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3408,7 +3863,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3715,7 +4170,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4330,7 +4785,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1772668800
+		var defaultValue int64 = 1772755200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

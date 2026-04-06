@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1772668800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1772755200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -111,6 +111,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**badgeDistribution**](docs/Api/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buildItemStats**](docs/Api/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsApi* | [**gameStats**](docs/Api/AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats
+*AnalyticsApi* | [**heroBanStats**](docs/Api/AnalyticsApi.md#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats
+*AnalyticsApi* | [**heroBuildStats**](docs/Api/AnalyticsApi.md#herobuildstats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats
 *AnalyticsApi* | [**heroCombStats**](docs/Api/AnalyticsApi.md#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**heroCountersStats**](docs/Api/AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**heroScoreboard**](docs/Api/AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -198,6 +200,8 @@ Class | Method | HTTP request | Description
 - [GameMode](docs/Model/GameMode.md)
 - [GetCustomMatchIdResponse](docs/Model/GetCustomMatchIdResponse.md)
 - [HashMapValue](docs/Model/HashMapValue.md)
+- [HeroBanStats](docs/Model/HeroBanStats.md)
+- [HeroBuildStats](docs/Model/HeroBuildStats.md)
 - [HeroCombStats](docs/Model/HeroCombStats.md)
 - [HeroCounterStats](docs/Model/HeroCounterStats.md)
 - [HeroEntry](docs/Model/HeroEntry.md)

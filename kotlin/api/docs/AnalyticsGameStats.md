@@ -19,11 +19,15 @@
 | **avgEndingLevel** | **kotlin.Double** |  |  |
 | **avgFirstMidBossTimeS** | **kotlin.Double** |  |  |
 | **avgGoldBoss** | **kotlin.Double** |  |  |
+| **avgGoldBossOrb** | **kotlin.Double** |  |  |
 | **avgGoldDeathLoss** | **kotlin.Double** |  |  |
 | **avgGoldDenied** | **kotlin.Double** |  |  |
 | **avgGoldLaneCreep** | **kotlin.Double** |  |  |
+| **avgGoldLaneCreepOrbs** | **kotlin.Double** |  |  |
 | **avgGoldNeutralCreep** | **kotlin.Double** |  |  |
+| **avgGoldNeutralCreepOrbs** | **kotlin.Double** |  |  |
 | **avgGoldPlayer** | **kotlin.Double** |  |  |
+| **avgGoldPlayerOrbs** | **kotlin.Double** |  |  |
 | **avgGoldTreasure** | **kotlin.Double** |  |  |
 | **avgHealPrevented** | **kotlin.Double** |  |  |
 | **avgKdRatio** | **kotlin.Double** |  |  |

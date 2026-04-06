@@ -55,6 +55,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsApi* | [**gameStats**](docs/AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats
+*AnalyticsApi* | [**heroBanStats**](docs/AnalyticsApi.md#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats
+*AnalyticsApi* | [**heroBuildStats**](docs/AnalyticsApi.md#herobuildstats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats
 *AnalyticsApi* | [**heroCombStats**](docs/AnalyticsApi.md#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**heroCountersStats**](docs/AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**heroScoreboard**](docs/AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -143,6 +145,8 @@ Class | Method | HTTP request | Description
  - [GameMode](docs/GameMode.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [HashMapValue](docs/HashMapValue.md)
+ - [HeroBanStats](docs/HeroBanStats.md)
+ - [HeroBuildStats](docs/HeroBuildStats.md)
  - [HeroCombStats](docs/HeroCombStats.md)
  - [HeroCounterStats](docs/HeroCounterStats.md)
  - [HeroEntry](docs/HeroEntry.md)

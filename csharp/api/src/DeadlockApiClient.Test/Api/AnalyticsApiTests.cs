@@ -137,6 +137,49 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test HeroBanStats
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task HeroBanStatsAsyncTest()
+        {
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            var response = await _instance.HeroBanStatsAsync(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+            var model = response.Ok();
+            Assert.IsType<List<HeroBanStats>>(model);
+        }
+
+        /// <summary>
+        /// Test HeroBuildStats
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task HeroBuildStatsAsyncTest()
+        {
+            int heroId = default!;
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            Client.Option<long?> heroBuildId = default!;
+            Client.Option<long?> minMatches = default!;
+            Client.Option<int?> accountId = default!;
+            Client.Option<List<int>?> accountIds = default!;
+            var response = await _instance.HeroBuildStatsAsync(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds);
+            var model = response.Ok();
+            Assert.IsType<List<HeroBuildStats>>(model);
+        }
+
+        /// <summary>
         /// Test HeroCombStats
         /// </summary>
         [Fact (Skip = "not implemented")]

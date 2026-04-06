@@ -142,11 +142,15 @@ export interface AnalyticsGameStats {
     'avg_ending_level': number;
     'avg_first_mid_boss_time_s': number;
     'avg_gold_boss': number;
+    'avg_gold_boss_orb': number;
     'avg_gold_death_loss': number;
     'avg_gold_denied': number;
     'avg_gold_lane_creep': number;
+    'avg_gold_lane_creep_orbs': number;
     'avg_gold_neutral_creep': number;
+    'avg_gold_neutral_creep_orbs': number;
     'avg_gold_player': number;
+    'avg_gold_player_orbs': number;
     'avg_gold_treasure': number;
     'avg_heal_prevented': number;
     'avg_kd_ratio': number;
@@ -354,6 +358,42 @@ export interface HashMapValue {
     'percentile95': number;
     'percentile99': number;
     'std': number;
+}
+export interface HeroBanStats {
+    /**
+     * The number of matches in which this hero was banned.
+     */
+    'bans': number;
+    /**
+     * The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+     */
+    'hero_id': number;
+}
+export interface HeroBuildStats {
+    /**
+     * The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
+     */
+    'hero_build_id': number;
+    /**
+     * The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+     */
+    'hero_id': number;
+    /**
+     * The number of losses with this build.
+     */
+    'losses': number;
+    /**
+     * The total number of matches played with this build (`wins + losses`).
+     */
+    'matches': number;
+    /**
+     * The number of unique players who used this build.
+     */
+    'players': number;
+    /**
+     * The number of wins with this build.
+     */
+    'wins': number;
 }
 export interface HeroCombStats {
     /**
@@ -1311,6 +1351,170 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (maxMatchId !== undefined) {
                 localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Hero Ban Stats
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroBanStats: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/analytics/hero-ban-stats`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (minAverageBadge !== undefined) {
+                localVarQueryParameter['min_average_badge'] = minAverageBadge;
+            }
+
+            if (maxAverageBadge !== undefined) {
+                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Hero Build Stats
+         * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+         * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
+         * @param {number | null} [accountId] Filter for matches with a specific player account ID.
+         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroBuildStats: async (heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'heroId' is not null or undefined
+            assertParamExists('heroBuildStats', 'heroId', heroId)
+            const localVarPath = `/v1/analytics/hero-build-stats/{hero_id}`
+                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (minAverageBadge !== undefined) {
+                localVarQueryParameter['min_average_badge'] = minAverageBadge;
+            }
+
+            if (maxAverageBadge !== undefined) {
+                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+            if (heroBuildId !== undefined) {
+                localVarQueryParameter['hero_build_id'] = heroBuildId;
+            }
+
+            if (minMatches !== undefined) {
+                localVarQueryParameter['min_matches'] = minMatches;
+            }
+
+            if (accountId !== undefined) {
+                localVarQueryParameter['account_id'] = accountId;
+            }
+
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -2773,6 +2977,51 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Hero Ban Stats
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async heroBanStats(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBanStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroBanStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroBanStats']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Hero Build Stats
+         * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+         * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
+         * @param {number | null} [accountId] Filter for matches with a specific player account ID.
+         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async heroBuildStats(heroId: number, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroBuildStats(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroBuildStats']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Hero Comb Stats
          * @param {HeroCombStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3157,6 +3406,26 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.gameStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
+         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Hero Ban Stats
+         * @param {AnalyticsApiHeroBanStatsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroBanStats(requestParameters: AnalyticsApiHeroBanStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroBanStats>> {
+            return localVarFp.heroBanStats(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Hero Build Stats
+         * @param {AnalyticsApiHeroBuildStatsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroBuildStats>> {
+            return localVarFp.heroBuildStats(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Hero Comb Stats
          * @param {AnalyticsApiHeroCombStatsRequest} requestParameters Request parameters.
@@ -3497,6 +3766,121 @@ export interface AnalyticsApiGameStatsRequest {
      * Filter matches based on their ID.
      */
     readonly maxMatchId?: number | null
+}
+
+/**
+ * Request parameters for heroBanStats operation in AnalyticsApi.
+ */
+export interface AnalyticsApiHeroBanStatsRequest {
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
+}
+
+/**
+ * Request parameters for heroBuildStats operation in AnalyticsApi.
+ */
+export interface AnalyticsApiHeroBuildStatsRequest {
+    /**
+     * The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly heroId: number
+
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null
+
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
+
+    /**
+     * Filter results for a specific hero build.
+     */
+    readonly heroBuildId?: number | null
+
+    /**
+     * The minimum number of matches played for a build to be included in the response.
+     */
+    readonly minMatches?: number | null
+
+    /**
+     * Filter for matches with a specific player account ID.
+     */
+    readonly accountId?: number | null
+
+    /**
+     * Comma separated list of account ids to include
+     */
+    readonly accountIds?: Array<number> | null
 }
 
 /**
@@ -4615,6 +4999,28 @@ export class AnalyticsApi extends BaseAPI {
      */
     public gameStats(requestParameters: AnalyticsApiGameStatsRequest = {}, options?: RawAxiosRequestConfig) {
         return AnalyticsApiFp(this.configuration).gameStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Hero Ban Stats
+     * @param {AnalyticsApiHeroBanStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public heroBanStats(requestParameters: AnalyticsApiHeroBanStatsRequest = {}, options?: RawAxiosRequestConfig) {
+        return AnalyticsApiFp(this.configuration).heroBanStats(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Hero Build Stats
+     * @param {AnalyticsApiHeroBuildStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig) {
+        return AnalyticsApiFp(this.configuration).heroBuildStats(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

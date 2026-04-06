@@ -18,6 +18,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**badgeDistribution**](Apis/AnalyticsApi.http#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buildItemStats**](Apis/AnalyticsApi.http#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsApi* | [**gameStats**](Apis/AnalyticsApi.http#gamestats) | **GET** /v1/analytics/game-stats | Game Stats
+*AnalyticsApi* | [**heroBanStats**](Apis/AnalyticsApi.http#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats
+*AnalyticsApi* | [**heroBuildStats**](Apis/AnalyticsApi.http#herobuildstats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats
 *AnalyticsApi* | [**heroCombStats**](Apis/AnalyticsApi.http#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**heroCountersStats**](Apis/AnalyticsApi.http#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**heroScoreboard**](Apis/AnalyticsApi.http#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard

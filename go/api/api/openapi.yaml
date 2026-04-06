@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -369,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -501,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -575,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -680,6 +680,310 @@ paths:
       summary: Game Stats
       tags:
       - Analytics
+  /v1/analytics/hero-ban-stats:
+    get:
+      description: "\nRetrieves ban statistics for each hero based on historical match\
+        \ data from demo analysis.\n\nOnly matches with successfully extracted ban\
+        \ data are included. Matches where ban extraction failed (empty `banned_hero_ids`)\
+        \ are excluded entirely.\n\nResults are cached for **1 hour** based on the\
+        \ combination of query parameters provided.\n\n### Rate Limits:\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
+        \ |\n    "
+      operationId: hero_ban_stats
+      parameters:
+      - description: "Filter matches based on their start time (Unix timestamp). **Default:**\
+          \ 30 days ago. **Minimum:** March 1, 2026."
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1772755200
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/HeroBanStats"
+                type: array
+          description: Hero Ban Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch hero ban stats
+      summary: Hero Ban Stats
+      tags:
+      - Analytics
+  /v1/analytics/hero-build-stats/{hero_id}:
+    get:
+      description: "\nRetrieves performance statistics for hero builds based on historical\
+        \ match data from demo analysis.\n\nOnly includes builds that exist in the\
+        \ hero builds database.\n\nThe `hero_build_id` is the first build the player\
+        \ had selected when the game started. It does not reflect any build changes\
+        \ made during the match.\n\nResults are cached for **1 hour** based on the\
+        \ combination of query parameters provided.\n\n### Rate Limits:\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
+        \ |\n    "
+      operationId: hero_build_stats
+      parameters:
+      - description: "The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: false
+        in: path
+        name: hero_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: "Filter matches based on their start time (Unix timestamp). **Default:**\
+          \ 30 days ago. **Minimum:** March 1, 2026."
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1772755200
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter results for a specific hero build.
+        explode: true
+        in: query
+        name: hero_build_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: The minimum number of matches played for a build to be included
+          in the response.
+        explode: true
+        in: query
+        name: min_matches
+        required: false
+        schema:
+          default: 20
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - deprecated: true
+        description: Filter for matches with a specific player account ID.
+        explode: true
+        in: query
+        name: account_id
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Comma separated list of account ids to include
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          nullable: true
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/HeroBuildStats"
+                type: array
+          description: Hero Build Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch hero build stats
+      summary: Hero Build Stats
+      tags:
+      - Analytics
   /v1/analytics/hero-comb-stats:
     get:
       description: "\nRetrieves overall statistics for each hero combination.\n\n\
@@ -711,7 +1015,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -989,7 +1293,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -1243,7 +1547,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -1505,7 +1809,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -1772,7 +2076,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -1998,7 +2302,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -2263,7 +2567,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -2553,7 +2857,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -2772,7 +3076,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -3069,7 +3373,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -5293,7 +5597,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -5412,7 +5716,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772668800
+          default: 1772755200
           format: int64
           nullable: true
           type: integer
@@ -6598,46 +6902,50 @@ components:
     AnalyticsGameStats:
       example:
         avg_creep_kills: 2.3021358869347655
-        avg_net_worth: 3.5571952270680973
+        avg_net_worth: 6.778324963048013
         avg_deaths: 2.027123023002322
-        avg_gold_lane_creep: 1.1730742509559433
-        avg_objectives_destroyed_time_s: 2.8841621266687802
-        avg_neutral_damage: 6.965117697638846
-        avg_neutral_kills: 1.284659006116532
-        avg_tech_power: 3.0937452626664474
-        avg_weapon_power: 7.143538047012306
-        avg_max_health: 6.438423552598547
+        avg_gold_lane_creep: 4.965218492984954
+        avg_gold_player_orbs: 8.762042012749001
+        avg_objectives_destroyed_time_s: 6.704019297950036
+        avg_neutral_damage: 6.878052220127876
+        avg_neutral_kills: 5.944895607614016
+        avg_tech_power: 6.519180951018382
+        avg_weapon_power: 0.10263654006109402
+        avg_max_health: 2.8841621266687802
         avg_damage_mitigated: 3.616076749251911
-        avg_gold_player: 5.025004791520295
-        avg_self_healing: 3.353193347011243
+        avg_gold_neutral_creep_orbs: 9.369310271410669
+        avg_gold_player: 6.683562403749608
+        avg_self_healing: 7.058770351582356
         avg_creep_damage: 5.637376656633329
-        avg_player_damage_taken: 6.878052220127876
-        avg_player_damage: 6.778324963048013
+        avg_player_damage_taken: 3.0937452626664474
+        avg_player_damage: 3.353193347011243
         team0_wins: 0
         avg_gold_boss: 1.4894159098541704
         avg_accuracy: 6.027456183070403
-        avg_last_hits: 9.018348186070783
-        avg_gold_death_loss: 6.84685269835264
-        avg_heal_prevented: 9.369310271410669
+        avg_last_hits: 1.284659006116532
+        avg_gold_boss_orb: 6.84685269835264
+        avg_gold_death_loss: 7.457744773683766
+        avg_heal_prevented: 6.438423552598547
         total_matches: 0
         avg_crit_rate: 7.061401241503109
-        mid_boss_kill_rate: 7.058770351582356
+        mid_boss_kill_rate: 8.969578798196912
         avg_assists: 1.4658129805029452
-        avg_gold_denied: 7.457744773683766
-        avg_kills: 8.762042012749001
+        avg_gold_denied: 1.1730742509559433
+        avg_kills: 6.965117697638846
         avg_damage_absorbed: 9.301444243932576
+        avg_gold_lane_creep_orbs: 5.025004791520295
         abandon_rate: 0.8008281904610115
         bucket: 0
-        avg_gold_treasure: 9.965781217890562
+        avg_gold_treasure: 9.018348186070783
         team1_wins: 0
         avg_first_mid_boss_time_s: 1.0246457001441578
         avg_denies: 4.145608029883936
         avg_duration_s: 7.386281948385884
         avg_ending_level: 1.2315135367772556
-        avg_kd_ratio: 6.683562403749608
-        avg_gold_neutral_creep: 4.965218492984954
-        avg_player_healing: 5.944895607614016
-        avg_possible_creeps: 6.704019297950036
+        avg_kd_ratio: 3.5571952270680973
+        avg_gold_neutral_creep: 9.965781217890562
+        avg_player_healing: 7.143538047012306
+        avg_possible_creeps: 0.8851374739011653
         avg_boss_damage: 5.962133916683182
       properties:
         abandon_rate:
@@ -6685,6 +6993,9 @@ components:
         avg_gold_boss:
           format: double
           type: number
+        avg_gold_boss_orb:
+          format: double
+          type: number
         avg_gold_death_loss:
           format: double
           type: number
@@ -6694,10 +7005,19 @@ components:
         avg_gold_lane_creep:
           format: double
           type: number
+        avg_gold_lane_creep_orbs:
+          format: double
+          type: number
         avg_gold_neutral_creep:
           format: double
           type: number
+        avg_gold_neutral_creep_orbs:
+          format: double
+          type: number
         avg_gold_player:
+          format: double
+          type: number
+        avg_gold_player_orbs:
           format: double
           type: number
         avg_gold_treasure:
@@ -6786,11 +7106,15 @@ components:
       - avg_ending_level
       - avg_first_mid_boss_time_s
       - avg_gold_boss
+      - avg_gold_boss_orb
       - avg_gold_death_loss
       - avg_gold_denied
       - avg_gold_lane_creep
+      - avg_gold_lane_creep_orbs
       - avg_gold_neutral_creep
+      - avg_gold_neutral_creep_orbs
       - avg_gold_player
+      - avg_gold_player_orbs
       - avg_gold_treasure
       - avg_heal_prevented
       - avg_kd_ratio
@@ -7536,6 +7860,72 @@ components:
     HashMap:
       additionalProperties:
         $ref: "#/components/schemas/HashMap_value"
+    HeroBanStats:
+      example:
+        bans: 0
+        hero_id: 0
+      properties:
+        bans:
+          description: The number of matches in which this hero was banned.
+          format: int64
+          minimum: 0
+          type: integer
+        hero_id:
+          description: "The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - bans
+      - hero_id
+    HeroBuildStats:
+      example:
+        wins: 0
+        players: 0
+        hero_id: 0
+        losses: 0
+        matches: 0
+        hero_build_id: 0
+      properties:
+        hero_build_id:
+          description: The ID of the hero build. The `hero_build_id` is the first
+            build the player had selected when the game started.
+          format: int64
+          minimum: 0
+          type: integer
+        hero_id:
+          description: "The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          format: int32
+          minimum: 0
+          type: integer
+        losses:
+          description: The number of losses with this build.
+          format: int64
+          minimum: 0
+          type: integer
+        matches:
+          description: The total number of matches played with this build (`wins +
+            losses`).
+          format: int64
+          minimum: 0
+          type: integer
+        players:
+          description: The number of unique players who used this build.
+          format: int64
+          minimum: 0
+          type: integer
+        wins:
+          description: The number of wins with this build.
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - hero_build_id
+      - hero_id
+      - losses
+      - matches
+      - players
+      - wins
     HeroCombStats:
       example:
         wins: 0

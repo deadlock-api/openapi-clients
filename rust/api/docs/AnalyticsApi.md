@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**badge_distribution**](AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 [**build_item_stats**](AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 [**game_stats**](AnalyticsApi.md#game_stats) | **GET** /v1/analytics/game-stats | Game Stats
+[**hero_ban_stats**](AnalyticsApi.md#hero_ban_stats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats
+[**hero_build_stats**](AnalyticsApi.md#hero_build_stats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats
 [**hero_comb_stats**](AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 [**hero_counters_stats**](AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 [**hero_scoreboard**](AnalyticsApi.md#hero_scoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
@@ -36,7 +38,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | **u32** | See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -83,7 +85,7 @@ Badge Distribution
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -122,7 +124,7 @@ Build Item Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | Option<**u32**> | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). |  |
 
 ### Return type
@@ -155,7 +157,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -167,6 +169,85 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**Vec<models::AnalyticsGameStats>**](AnalyticsGameStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## hero_ban_stats
+
+> Vec<models::HeroBanStats> hero_ban_stats(min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id)
+Hero Ban Stats
+
+ Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1772755200]
+**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+
+### Return type
+
+[**Vec<models::HeroBanStats>**](HeroBanStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## hero_build_stats
+
+> Vec<models::HeroBuildStats> hero_build_stats(hero_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_build_id, min_matches, account_id, account_ids)
+Hero Build Stats
+
+ Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**hero_id** | **u32** | The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> | [required] |
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1772755200]
+**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**hero_build_id** | Option<**u64**> | Filter results for a specific hero build. |  |
+**min_matches** | Option<**u64**> | The minimum number of matches played for a build to be included in the response. |  |[default to 20]
+**account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
+**account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
+
+### Return type
+
+[**Vec<models::HeroBuildStats>**](HeroBuildStats.md)
 
 ### Authorization
 
@@ -193,7 +274,7 @@ Hero Comb Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -242,7 +323,7 @@ Hero Counter Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -292,7 +373,7 @@ Name | Type | Description  | Required | Notes
 **sort_direction** | Option<**String**> | The direction to sort heroes in. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **min_matches** | Option<**u32**> | Filter by min number of matches played. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -335,7 +416,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -383,7 +464,7 @@ Hero Synergy Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -432,7 +513,7 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -477,7 +558,7 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -526,7 +607,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **team** | Option<**u32**> | Filter by team number. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -578,7 +659,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **resolution** | Option<**u32**> | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). |  |[default to 10]
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -671,7 +752,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772668800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1772755200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |

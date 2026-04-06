@@ -33,6 +33,12 @@ import {
     HashMapValue,
     HashMapValueFromJSON,
     HashMapValueToJSON,
+    HeroBanStats,
+    HeroBanStatsFromJSON,
+    HeroBanStatsToJSON,
+    HeroBuildStats,
+    HeroBuildStatsFromJSON,
+    HeroBuildStatsToJSON,
     HeroCombStats,
     HeroCombStatsFromJSON,
     HeroCombStatsToJSON,
@@ -114,6 +120,33 @@ export interface GameStatsRequest {
     maxAverageBadge?: number;
     minMatchId?: number;
     maxMatchId?: number;
+}
+
+export interface HeroBanStatsRequest {
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
+}
+
+export interface HeroBuildStatsRequest {
+    heroId: number;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
+    heroBuildId?: number;
+    minMatches?: number;
+    accountId?: number;
+    accountIds?: Array<number>;
 }
 
 export interface HeroCombStatsRequest {
@@ -745,6 +778,200 @@ function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: run
 */
 export function gameStats<T>(requestParameters: GameStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsGameStats>>): QueryConfig<T> {
     return gameStatsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ * Hero Ban Stats
+ */
+function heroBanStatsRaw<T>(requestParameters: HeroBanStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBanStats>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/hero-ban-stats`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(HeroBanStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+* Hero Ban Stats
+*/
+export function heroBanStats<T>(requestParameters: HeroBanStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBanStats>>): QueryConfig<T> {
+    return heroBanStatsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ * Hero Build Stats
+ */
+function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBuildStats>> = {}): QueryConfig<T> {
+    if (requestParameters.heroId === null || requestParameters.heroId === undefined) {
+        throw new runtime.RequiredError('heroId','Required parameter requestParameters.heroId was null or undefined when calling heroBuildStats.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
+    }
+
+
+    if (requestParameters.minMatches !== undefined) {
+        queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
+    if (requestParameters.accountId !== undefined) {
+        queryParameters['account_id'] = requestParameters.accountId;
+    }
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/hero-build-stats/{hero_id}`.replace(`{${"hero_id"}}`, encodeURIComponent(String(requestParameters.heroId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(HeroBuildStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+* Hero Build Stats
+*/
+export function heroBuildStats<T>(requestParameters: HeroBuildStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBuildStats>>): QueryConfig<T> {
+    return heroBuildStatsRaw(requestParameters, requestConfig);
 }
 
 /**

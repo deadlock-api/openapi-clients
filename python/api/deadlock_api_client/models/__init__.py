@@ -40,6 +40,8 @@ from deadlock_api_client.models.enemy_stats import EnemyStats
 from deadlock_api_client.models.game_mode import GameMode
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
 from deadlock_api_client.models.hash_map_value import HashMapValue
+from deadlock_api_client.models.hero_ban_stats import HeroBanStats
+from deadlock_api_client.models.hero_build_stats import HeroBuildStats
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats
 from deadlock_api_client.models.hero_counter_stats import HeroCounterStats
 from deadlock_api_client.models.hero_entry import HeroEntry

@@ -19,11 +19,15 @@ Name | Type | Description | Notes
 **avg_ending_level** | **f64** |  | 
 **avg_first_mid_boss_time_s** | **f64** |  | 
 **avg_gold_boss** | **f64** |  | 
+**avg_gold_boss_orb** | **f64** |  | 
 **avg_gold_death_loss** | **f64** |  | 
 **avg_gold_denied** | **f64** |  | 
 **avg_gold_lane_creep** | **f64** |  | 
+**avg_gold_lane_creep_orbs** | **f64** |  | 
 **avg_gold_neutral_creep** | **f64** |  | 
+**avg_gold_neutral_creep_orbs** | **f64** |  | 
 **avg_gold_player** | **f64** |  | 
+**avg_gold_player_orbs** | **f64** |  | 
 **avg_gold_treasure** | **f64** |  | 
 **avg_heal_prevented** | **f64** |  | 
 **avg_kd_ratio** | **f64** |  | 
