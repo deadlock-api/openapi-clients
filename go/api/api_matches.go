@@ -293,6 +293,7 @@ type ApiBulkMetadataRequest struct {
 	includePlayerStats *bool
 	includePlayerDeathDetails *bool
 	gameMode *string
+	matchMode *string
 	matchIds *[]int64
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
@@ -372,6 +373,12 @@ func (r ApiBulkMetadataRequest) IncludePlayerDeathDetails(includePlayerDeathDeta
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
 func (r ApiBulkMetadataRequest) GameMode(gameMode string) ApiBulkMetadataRequest {
 	r.gameMode = &gameMode
+	return r
+}
+
+// Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+func (r ApiBulkMetadataRequest) MatchMode(matchMode string) ApiBulkMetadataRequest {
+	r.matchMode = &matchMode
 	return r
 }
 
@@ -581,6 +588,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	}
 	if r.gameMode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
+	if r.matchMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "match_mode", r.matchMode, "form", "")
 	}
 	if r.matchIds != nil {
 		t := *r.matchIds

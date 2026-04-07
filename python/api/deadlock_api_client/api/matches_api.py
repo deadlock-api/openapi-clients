@@ -588,6 +588,7 @@ class MatchesApi:
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -645,6 +646,8 @@ class MatchesApi:
         :type include_player_death_details: bool
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
         :param match_ids: Comma separated list of match ids, limited by `limit`
         :type match_ids: List[int]
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -718,6 +721,7 @@ class MatchesApi:
             include_player_stats=include_player_stats,
             include_player_death_details=include_player_death_details,
             game_mode=game_mode,
+            match_mode=match_mode,
             match_ids=match_ids,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
@@ -773,6 +777,7 @@ class MatchesApi:
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -830,6 +835,8 @@ class MatchesApi:
         :type include_player_death_details: bool
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
         :param match_ids: Comma separated list of match ids, limited by `limit`
         :type match_ids: List[int]
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -903,6 +910,7 @@ class MatchesApi:
             include_player_stats=include_player_stats,
             include_player_death_details=include_player_death_details,
             game_mode=game_mode,
+            match_mode=match_mode,
             match_ids=match_ids,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
@@ -958,6 +966,7 @@ class MatchesApi:
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         match_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of match ids, limited by `limit`")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -1015,6 +1024,8 @@ class MatchesApi:
         :type include_player_death_details: bool
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
         :param match_ids: Comma separated list of match ids, limited by `limit`
         :type match_ids: List[int]
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1088,6 +1099,7 @@ class MatchesApi:
             include_player_stats=include_player_stats,
             include_player_death_details=include_player_death_details,
             game_mode=game_mode,
+            match_mode=match_mode,
             match_ids=match_ids,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
@@ -1138,6 +1150,7 @@ class MatchesApi:
         include_player_stats,
         include_player_death_details,
         game_mode,
+        match_mode,
         match_ids,
         min_unix_timestamp,
         max_unix_timestamp,
@@ -1221,6 +1234,10 @@ class MatchesApi:
         if game_mode is not None:
             
             _query_params.append(('game_mode', game_mode))
+            
+        if match_mode is not None:
+            
+            _query_params.append(('match_mode', match_mode))
             
         if match_ids is not None:
             

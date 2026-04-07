@@ -45,6 +45,7 @@ export interface BulkMetadataRequest {
     includePlayerStats?: boolean;
     includePlayerDeathDetails?: boolean;
     gameMode?: BulkMetadataGameModeEnum;
+    matchMode?: string;
     matchIds?: Array<number>;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
@@ -241,6 +242,11 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 

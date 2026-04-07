@@ -46,6 +46,8 @@ pub struct BulkMetadataParams {
     pub include_player_death_details: Option<bool>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
+    /// Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+    pub match_mode: Option<String>,
     /// Comma separated list of match ids, limited by `limit`
     pub match_ids: Option<Vec<u64>>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -310,6 +312,9 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     }
     if let Some(ref param_value) = params.game_mode {
         req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.match_mode {
+        req_builder = req_builder.query(&[("match_mode", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.match_ids {
         req_builder = match "multi" {

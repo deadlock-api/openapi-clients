@@ -122,7 +122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -369,7 +369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -501,7 +501,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -575,7 +575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -698,7 +698,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -830,7 +830,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -1015,7 +1015,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -1293,7 +1293,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -1547,7 +1547,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -1809,7 +1809,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -2076,7 +2076,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -2302,7 +2302,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -2567,7 +2567,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -2857,7 +2857,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -3076,7 +3076,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -3373,7 +3373,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -4852,6 +4852,17 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: "Filter matches based on the match mode. Valid values: `unranked`,\
+          \ `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`.\
+          \ **Default:** `ranked,unranked`."
+        explode: true
+        in: query
+        name: match_mode
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - description: "Comma separated list of match ids, limited by `limit`"
         explode: true
         in: query
@@ -5597,7 +5608,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
@@ -5716,7 +5727,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1772755200
+          default: 1772841600
           format: int64
           nullable: true
           type: integer
