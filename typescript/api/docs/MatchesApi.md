@@ -139,7 +139,7 @@ let includePlayerKda: boolean; //Include only K/D/A fields (`kills`, `deaths`, `
 let includePlayerItems: boolean; //Include player items in the response. (optional) (default to undefined)
 let includePlayerStats: boolean; //Include player stats in the response. (optional) (default to undefined)
 let includePlayerDeathDetails: boolean; //Include player death details in the response. (optional) (default to undefined)
-let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
+let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let matchMode: string; //Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional) (default to undefined)
 let matchIds: Array<number>; //Comma separated list of match ids, limited by `limit` (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
@@ -210,7 +210,7 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **includePlayerItems** | [**boolean**] | Include player items in the response. | (optional) defaults to undefined|
 | **includePlayerStats** | [**boolean**] | Include player stats in the response. | (optional) defaults to undefined|
 | **includePlayerDeathDetails** | [**boolean**] | Include player death details in the response. | (optional) defaults to undefined|
-| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
+| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **matchMode** | [**string**] | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | (optional) defaults to undefined|
 | **matchIds** | **Array&lt;number&gt;** | Comma separated list of match ids, limited by &#x60;limit&#x60; | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|

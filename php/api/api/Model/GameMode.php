@@ -48,6 +48,8 @@ class GameMode
 
     public const EXPLORE_N_Y_C = 'explore_n_y_c';
 
+    public const INTERNAL = 'internal';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -57,7 +59,8 @@ class GameMode
         return [
             self::NORMAL,
             self::STREET_BRAWL,
-            self::EXPLORE_N_Y_C
+            self::EXPLORE_N_Y_C,
+            self::INTERNAL
         ];
     }
 }

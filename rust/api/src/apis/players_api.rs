@@ -59,9 +59,7 @@ pub struct MatchHistoryParams {
     /// The players `SteamID3`
     pub account_id: u32,
     /// Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
-    pub force_refetch: Option<bool>,
-    /// Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.
-    pub only_stored_history: Option<bool>
+    pub force_refetch: Option<bool>
 }
 
 /// struct for passing parameters to the method [`mate_stats`]
@@ -333,7 +331,7 @@ pub async fn enemy_stats(configuration: &configuration::Configuration, params: E
     }
 }
 
-///  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+///  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
 pub async fn match_history(configuration: &configuration::Configuration, params: MatchHistoryParams) -> Result<Vec<models::PlayerMatchHistoryEntry>, Error<MatchHistoryError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/match-history", configuration.base_path, account_id=params.account_id);
@@ -341,9 +339,6 @@ pub async fn match_history(configuration: &configuration::Configuration, params:
 
     if let Some(ref param_value) = params.force_refetch {
         req_builder = req_builder.query(&[("force_refetch", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.only_stored_history {
-        req_builder = req_builder.query(&[("only_stored_history", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

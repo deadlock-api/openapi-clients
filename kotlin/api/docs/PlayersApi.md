@@ -144,7 +144,7 @@ try {
 
 ### Parameters
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
+| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -171,11 +171,11 @@ No authorization required
 
 <a id="matchHistory"></a>
 # **matchHistory**
-> kotlin.collections.List&lt;PlayerMatchHistoryEntry&gt; matchHistory(accountId, forceRefetch, onlyStoredHistory)
+> kotlin.collections.List&lt;PlayerMatchHistoryEntry&gt; matchHistory(accountId, forceRefetch)
 
 Match History
 
- This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+ This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
 
 ### Example
 ```kotlin
@@ -186,9 +186,8 @@ Match History
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
 val forceRefetch : kotlin.Boolean = true // kotlin.Boolean | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
-val onlyStoredHistory : kotlin.Boolean = true // kotlin.Boolean | Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.
 try {
-    val result : kotlin.collections.List<PlayerMatchHistoryEntry> = apiInstance.matchHistory(accountId, forceRefetch, onlyStoredHistory)
+    val result : kotlin.collections.List<PlayerMatchHistoryEntry> = apiInstance.matchHistory(accountId, forceRefetch)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#matchHistory")
@@ -201,10 +200,9 @@ try {
 
 ### Parameters
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-| **forceRefetch** | **kotlin.Boolean**| Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **onlyStoredHistory** | **kotlin.Boolean**| Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. | [optional] |
+| **forceRefetch** | **kotlin.Boolean**| Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional] |
 
 ### Return type
 
@@ -258,7 +256,7 @@ try {
 
 ### Parameters
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
+| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -325,7 +323,7 @@ try {
 
 ### Parameters
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
-| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c] |
+| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |

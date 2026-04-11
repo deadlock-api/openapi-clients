@@ -62,7 +62,6 @@ export interface EnemyStatsRequest {
 export interface MatchHistoryRequest {
     accountId: number;
     forceRefetch?: boolean;
-    onlyStoredHistory?: boolean;
 }
 
 export interface MateStatsRequest {
@@ -290,7 +289,7 @@ export function enemyStats<T>(requestParameters: EnemyStatsRequest, requestConfi
 }
 
 /**
- *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+ *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
  * Match History
  */
 function matchHistoryRaw<T>(requestParameters: MatchHistoryRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerMatchHistoryEntry>> = {}): QueryConfig<T> {
@@ -305,11 +304,6 @@ function matchHistoryRaw<T>(requestParameters: MatchHistoryRequest, requestConfi
 
     if (requestParameters.forceRefetch !== undefined) {
         queryParameters['force_refetch'] = requestParameters.forceRefetch;
-    }
-
-
-    if (requestParameters.onlyStoredHistory !== undefined) {
-        queryParameters['only_stored_history'] = requestParameters.onlyStoredHistory;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -341,7 +335,7 @@ function matchHistoryRaw<T>(requestParameters: MatchHistoryRequest, requestConfi
 }
 
 /**
-*  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+*  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
 * Match History
 */
 export function matchHistory<T>(requestParameters: MatchHistoryRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerMatchHistoryEntry>>): QueryConfig<T> {
@@ -612,7 +606,8 @@ export function rankPredict<T>(requestParameters: RankPredictRequest, requestCon
 export enum EnemyStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -621,7 +616,8 @@ export enum EnemyStatsGameModeEnum {
 export enum MateStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -630,5 +626,6 @@ export enum MateStatsGameModeEnum {
 export enum PlayerHeroStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }

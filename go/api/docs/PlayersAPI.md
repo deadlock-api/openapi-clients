@@ -244,7 +244,7 @@ No authorization required
 
 ## MatchHistory
 
-> []PlayerMatchHistoryEntry MatchHistory(ctx, accountId).ForceRefetch(forceRefetch).OnlyStoredHistory(onlyStoredHistory).Execute()
+> []PlayerMatchHistoryEntry MatchHistory(ctx, accountId).ForceRefetch(forceRefetch).Execute()
 
 Match History
 
@@ -265,11 +265,10 @@ import (
 func main() {
 	accountId := int32(56) // int32 | The players `SteamID3`
 	forceRefetch := true // bool | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit. (optional)
-	onlyStoredHistory := true // bool | Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.MatchHistory(context.Background(), accountId).ForceRefetch(forceRefetch).OnlyStoredHistory(onlyStoredHistory).Execute()
+	resp, r, err := apiClient.PlayersAPI.MatchHistory(context.Background(), accountId).ForceRefetch(forceRefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.MatchHistory``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -296,7 +295,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **forceRefetch** | **bool** | Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | 
- **onlyStoredHistory** | **bool** | Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. | 
 
 ### Return type
 

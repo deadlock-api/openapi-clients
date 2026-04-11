@@ -338,6 +338,7 @@ export const GameMode = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 
 export type GameMode = typeof GameMode[keyof typeof GameMode];
@@ -5149,12 +5150,14 @@ export const AbilityOrderStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type AbilityOrderStatsGameModeEnum = typeof AbilityOrderStatsGameModeEnum[keyof typeof AbilityOrderStatsGameModeEnum];
 export const BadgeDistributionGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type BadgeDistributionGameModeEnum = typeof BadgeDistributionGameModeEnum[keyof typeof BadgeDistributionGameModeEnum];
 export const GameStatsBucketEnum = {
@@ -5170,18 +5173,21 @@ export const GameStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type GameStatsGameModeEnum = typeof GameStatsGameModeEnum[keyof typeof GameStatsGameModeEnum];
 export const HeroCombStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type HeroCombStatsGameModeEnum = typeof HeroCombStatsGameModeEnum[keyof typeof HeroCombStatsGameModeEnum];
 export const HeroCountersStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum[keyof typeof HeroCountersStatsGameModeEnum];
 export const HeroScoreboardSortByEnum = {
@@ -5257,6 +5263,7 @@ export const HeroScoreboardGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type HeroScoreboardGameModeEnum = typeof HeroScoreboardGameModeEnum[keyof typeof HeroScoreboardGameModeEnum];
 export const HeroStatsBucketEnum = {
@@ -5272,18 +5279,21 @@ export const HeroStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type HeroStatsGameModeEnum = typeof HeroStatsGameModeEnum[keyof typeof HeroStatsGameModeEnum];
 export const HeroSynergiesStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type HeroSynergiesStatsGameModeEnum = typeof HeroSynergiesStatsGameModeEnum[keyof typeof HeroSynergiesStatsGameModeEnum];
 export const ItemPermutationStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type ItemPermutationStatsGameModeEnum = typeof ItemPermutationStatsGameModeEnum[keyof typeof ItemPermutationStatsGameModeEnum];
 export const ItemStatsBucketEnum = {
@@ -5307,18 +5317,21 @@ export const ItemStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type ItemStatsGameModeEnum = typeof ItemStatsGameModeEnum[keyof typeof ItemStatsGameModeEnum];
 export const KillDeathStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type KillDeathStatsGameModeEnum = typeof KillDeathStatsGameModeEnum[keyof typeof KillDeathStatsGameModeEnum];
 export const PlayerPerformanceCurveGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGameModeEnum[keyof typeof PlayerPerformanceCurveGameModeEnum];
 export const PlayerScoreboardSortByEnum = {
@@ -5394,12 +5407,14 @@ export const PlayerScoreboardGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type PlayerScoreboardGameModeEnum = typeof PlayerScoreboardGameModeEnum[keyof typeof PlayerScoreboardGameModeEnum];
 export const PlayerStatsMetricsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type PlayerStatsMetricsGameModeEnum = typeof PlayerStatsMetricsGameModeEnum[keyof typeof PlayerStatsMetricsGameModeEnum];
 
@@ -9003,6 +9018,7 @@ export const BulkMetadataGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type BulkMetadataGameModeEnum = typeof BulkMetadataGameModeEnum[keyof typeof BulkMetadataGameModeEnum];
 export const BulkMetadataOrderByEnum = {
@@ -9326,15 +9342,14 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
          * @summary Match History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {boolean} [forceRefetch] Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
-         * @param {boolean} [onlyStoredHistory] Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        matchHistory: async (accountId: number, forceRefetch?: boolean, onlyStoredHistory?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        matchHistory: async (accountId: number, forceRefetch?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('matchHistory', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/match-history`
@@ -9352,10 +9367,6 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (forceRefetch !== undefined) {
                 localVarQueryParameter['force_refetch'] = forceRefetch;
-            }
-
-            if (onlyStoredHistory !== undefined) {
-                localVarQueryParameter['only_stored_history'] = onlyStoredHistory;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9637,16 +9648,15 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
          * @summary Match History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {boolean} [forceRefetch] Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
-         * @param {boolean} [onlyStoredHistory] Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async matchHistory(accountId: number, forceRefetch?: boolean, onlyStoredHistory?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerMatchHistoryEntry>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.matchHistory(accountId, forceRefetch, onlyStoredHistory, options);
+        async matchHistory(accountId: number, forceRefetch?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerMatchHistoryEntry>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.matchHistory(accountId, forceRefetch, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.matchHistory']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -9751,14 +9761,14 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.enemyStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
          * @summary Match History
          * @param {PlayersApiMatchHistoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         matchHistory(requestParameters: PlayersApiMatchHistoryRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerMatchHistoryEntry>> {
-            return localVarFp.matchHistory(requestParameters.accountId, requestParameters.forceRefetch, requestParameters.onlyStoredHistory, options).then((request) => request(axios, basePath));
+            return localVarFp.matchHistory(requestParameters.accountId, requestParameters.forceRefetch, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -9881,11 +9891,6 @@ export interface PlayersApiMatchHistoryRequest {
      * Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
      */
     readonly forceRefetch?: boolean
-
-    /**
-     * Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;.
-     */
-    readonly onlyStoredHistory?: boolean
 }
 
 /**
@@ -10061,14 +10066,14 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+     *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
      * @summary Match History
      * @param {PlayersApiMatchHistoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public matchHistory(requestParameters: PlayersApiMatchHistoryRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).matchHistory(requestParameters.accountId, requestParameters.forceRefetch, requestParameters.onlyStoredHistory, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).matchHistory(requestParameters.accountId, requestParameters.forceRefetch, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10109,18 +10114,21 @@ export const EnemyStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type EnemyStatsGameModeEnum = typeof EnemyStatsGameModeEnum[keyof typeof EnemyStatsGameModeEnum];
 export const MateStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type MateStatsGameModeEnum = typeof MateStatsGameModeEnum[keyof typeof MateStatsGameModeEnum];
 export const PlayerHeroStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
 } as const;
 export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
 

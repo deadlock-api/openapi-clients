@@ -17,7 +17,7 @@ Accept: application/json
 
 ### Match History
 ## Match History
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/match-history?forceRefetch={{forceRefetch}}&onlyStoredHistory={{onlyStoredHistory}}
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/match-history?forceRefetch={{forceRefetch}}
 Accept: application/json
 
 ### Mate Stats

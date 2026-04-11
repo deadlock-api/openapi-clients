@@ -211,7 +211,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      enum class GameModeEnemyStats(val value: kotlin.String) {
          @Json(name = "normal") normal("normal"),
          @Json(name = "street_brawl") street_brawl("street_brawl"),
-         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c");
+         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c"),
+         @Json(name = "internal") `internal`("internal");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use
@@ -355,10 +356,9 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/match-history
      * Match History
-     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param onlyStoredHistory Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @return kotlin.collections.List<PlayerMatchHistoryEntry>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -368,8 +368,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun matchHistory(accountId: kotlin.Int, forceRefetch: kotlin.Boolean? = null, onlyStoredHistory: kotlin.Boolean? = null) : kotlin.collections.List<PlayerMatchHistoryEntry> {
-        val localVarResponse = matchHistoryWithHttpInfo(accountId = accountId, forceRefetch = forceRefetch, onlyStoredHistory = onlyStoredHistory)
+    fun matchHistory(accountId: kotlin.Int, forceRefetch: kotlin.Boolean? = null) : kotlin.collections.List<PlayerMatchHistoryEntry> {
+        val localVarResponse = matchHistoryWithHttpInfo(accountId = accountId, forceRefetch = forceRefetch)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlayerMatchHistoryEntry>
@@ -389,18 +389,17 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/match-history
      * Match History
-     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param onlyStoredHistory Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @return ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun matchHistoryWithHttpInfo(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?, onlyStoredHistory: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?> {
-        val localVariableConfig = matchHistoryRequestConfig(accountId = accountId, forceRefetch = forceRefetch, onlyStoredHistory = onlyStoredHistory)
+    fun matchHistoryWithHttpInfo(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?> {
+        val localVariableConfig = matchHistoryRequestConfig(accountId = accountId, forceRefetch = forceRefetch)
 
         return request<Unit, kotlin.collections.List<PlayerMatchHistoryEntry>>(
             localVariableConfig
@@ -412,18 +411,14 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param onlyStoredHistory Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @return RequestConfig
      */
-    fun matchHistoryRequestConfig(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?, onlyStoredHistory: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun matchHistoryRequestConfig(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (forceRefetch != null) {
                     put("force_refetch", listOf(forceRefetch.toString()))
-                }
-                if (onlyStoredHistory != null) {
-                    put("only_stored_history", listOf(onlyStoredHistory.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -445,7 +440,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      enum class GameModeMateStats(val value: kotlin.String) {
          @Json(name = "normal") normal("normal"),
          @Json(name = "street_brawl") street_brawl("street_brawl"),
-         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c");
+         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c"),
+         @Json(name = "internal") `internal`("internal");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use
@@ -592,7 +588,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      enum class GameModePlayerHeroStats(val value: kotlin.String) {
          @Json(name = "normal") normal("normal"),
          @Json(name = "street_brawl") street_brawl("street_brawl"),
-         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c");
+         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c"),
+         @Json(name = "internal") `internal`("internal");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use

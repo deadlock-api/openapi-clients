@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: normal,street_brawl,explore_n_y_c
+ * Values: normal,street_brawl,explore_n_y_c,`internal`
  */
 
 @JsonClass(generateAdapter = false)
@@ -43,7 +43,10 @@ enum class GameMode(val value: kotlin.String) {
     street_brawl("street_brawl"),
 
     @Json(name = "explore_n_y_c")
-    explore_n_y_c("explore_n_y_c");
+    explore_n_y_c("explore_n_y_c"),
+
+    @Json(name = "internal")
+    `internal`("internal");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

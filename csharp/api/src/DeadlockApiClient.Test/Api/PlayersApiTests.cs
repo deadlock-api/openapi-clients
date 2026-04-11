@@ -103,8 +103,7 @@ namespace DeadlockApiClient.Test.Api
         {
             int accountId = default!;
             Client.Option<bool> forceRefetch = default!;
-            Client.Option<bool> onlyStoredHistory = default!;
-            var response = await _instance.MatchHistoryAsync(accountId, forceRefetch, onlyStoredHistory);
+            var response = await _instance.MatchHistoryAsync(accountId, forceRefetch);
             var model = response.Ok();
             Assert.IsType<List<PlayerMatchHistoryEntry>>(model);
         }

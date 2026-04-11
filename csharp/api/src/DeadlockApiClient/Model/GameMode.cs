@@ -43,7 +43,12 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Enum ExploreNYC for value: explore_n_y_c
         /// </summary>
-        ExploreNYC = 3
+        ExploreNYC = 3,
+
+        /// <summary>
+        /// Enum Internal for value: internal
+        /// </summary>
+        Internal = 4
     }
 
     /// <summary>
@@ -67,6 +72,9 @@ namespace DeadlockApiClient.Model
             if (value.Equals("explore_n_y_c"))
                 return GameMode.ExploreNYC;
 
+            if (value.Equals("internal"))
+                return GameMode.Internal;
+
             throw new NotImplementedException($"Could not convert value to type GameMode: '{value}'");
         }
 
@@ -85,6 +93,9 @@ namespace DeadlockApiClient.Model
 
             if (value.Equals("explore_n_y_c"))
                 return GameMode.ExploreNYC;
+
+            if (value.Equals("internal"))
+                return GameMode.Internal;
 
             return null;
         }
@@ -105,6 +116,9 @@ namespace DeadlockApiClient.Model
 
             if (value == GameMode.ExploreNYC)
                 return "explore_n_y_c";
+
+            if (value == GameMode.Internal)
+                return "internal";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }

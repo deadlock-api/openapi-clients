@@ -2500,7 +2500,8 @@ export function playerStatsMetrics<T>(requestParameters: PlayerStatsMetricsReque
 export enum AbilityOrderStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2509,7 +2510,8 @@ export enum AbilityOrderStatsGameModeEnum {
 export enum BadgeDistributionGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2530,7 +2532,8 @@ export enum GameStatsBucketEnum {
 export enum GameStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2539,7 +2542,8 @@ export enum GameStatsGameModeEnum {
 export enum HeroCombStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2548,7 +2552,8 @@ export enum HeroCombStatsGameModeEnum {
 export enum HeroCountersStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2632,7 +2637,8 @@ export enum HeroScoreboardSortDirectionEnum {
 export enum HeroScoreboardGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2653,7 +2659,8 @@ export enum HeroStatsBucketEnum {
 export enum HeroStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2662,7 +2669,8 @@ export enum HeroStatsGameModeEnum {
 export enum HeroSynergiesStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2671,7 +2679,8 @@ export enum HeroSynergiesStatsGameModeEnum {
 export enum ItemPermutationStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2700,7 +2709,8 @@ export enum ItemStatsBucketEnum {
 export enum ItemStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2709,7 +2719,8 @@ export enum ItemStatsGameModeEnum {
 export enum KillDeathStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2718,7 +2729,8 @@ export enum KillDeathStatsGameModeEnum {
 export enum PlayerPerformanceCurveGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2802,7 +2814,8 @@ export enum PlayerScoreboardSortDirectionEnum {
 export enum PlayerScoreboardGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }
 /**
     * @export
@@ -2811,5 +2824,6 @@ export enum PlayerScoreboardGameModeEnum {
 export enum PlayerStatsMetricsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c'
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
 }

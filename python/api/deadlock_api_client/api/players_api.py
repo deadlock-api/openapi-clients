@@ -1012,7 +1012,6 @@ class PlayersApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.")] = None,
-        only_stored_history: Annotated[Optional[StrictBool], Field(description="Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1028,14 +1027,12 @@ class PlayersApi:
     ) -> List[PlayerMatchHistoryEntry]:
         """Match History
 
-         This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param force_refetch: Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
         :type force_refetch: bool
-        :param only_stored_history: Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.
-        :type only_stored_history: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1061,7 +1058,6 @@ class PlayersApi:
         _param = self._match_history_serialize(
             account_id=account_id,
             force_refetch=force_refetch,
-            only_stored_history=only_stored_history,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1090,7 +1086,6 @@ class PlayersApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.")] = None,
-        only_stored_history: Annotated[Optional[StrictBool], Field(description="Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1106,14 +1101,12 @@ class PlayersApi:
     ) -> ApiResponse[List[PlayerMatchHistoryEntry]]:
         """Match History
 
-         This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param force_refetch: Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
         :type force_refetch: bool
-        :param only_stored_history: Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.
-        :type only_stored_history: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1139,7 +1132,6 @@ class PlayersApi:
         _param = self._match_history_serialize(
             account_id=account_id,
             force_refetch=force_refetch,
-            only_stored_history=only_stored_history,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1168,7 +1160,6 @@ class PlayersApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.")] = None,
-        only_stored_history: Annotated[Optional[StrictBool], Field(description="Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1184,14 +1175,12 @@ class PlayersApi:
     ) -> RESTResponseType:
         """Match History
 
-         This endpoint returns the player match history for the given `account_id`.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |     
+         This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 3req/h<br>With `force_refetch=true`: 1req/h | | Key | 300req/h<br>With `force_refetch=true`: 5req/h | | Global | 1500req/h<br>With `force_refetch=true`: 10req/h |     
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param force_refetch: Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
         :type force_refetch: bool
-        :param only_stored_history: Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.
-        :type only_stored_history: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1217,7 +1206,6 @@ class PlayersApi:
         _param = self._match_history_serialize(
             account_id=account_id,
             force_refetch=force_refetch,
-            only_stored_history=only_stored_history,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1241,7 +1229,6 @@ class PlayersApi:
         self,
         account_id,
         force_refetch,
-        only_stored_history,
         _request_auth,
         _content_type,
         _headers,
@@ -1269,10 +1256,6 @@ class PlayersApi:
         if force_refetch is not None:
             
             _query_params.append(('force_refetch', force_refetch))
-            
-        if only_stored_history is not None:
-            
-            _query_params.append(('only_stored_history', only_stored_history))
             
         # process the header parameters
         # process the form parameters

@@ -78,8 +78,7 @@ class PlayersApiTest : ShouldSpec() {
             // uncomment below to test matchHistory
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
             //val forceRefetch : kotlin.Boolean = true // kotlin.Boolean | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
-            //val onlyStoredHistory : kotlin.Boolean = true // kotlin.Boolean | Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`.
-            //val result : kotlin.collections.List<PlayerMatchHistoryEntry> = apiInstance.matchHistory(accountId, forceRefetch, onlyStoredHistory)
+            //val result : kotlin.collections.List<PlayerMatchHistoryEntry> = apiInstance.matchHistory(accountId, forceRefetch)
             //result shouldBe ("TODO")
         }
 

@@ -297,14 +297,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **match_history**
-> List[PlayerMatchHistoryEntry] match_history(account_id, force_refetch=force_refetch, only_stored_history=only_stored_history)
+> List[PlayerMatchHistoryEntry] match_history(account_id, force_refetch=force_refetch)
 
 Match History
 
 
 This endpoint returns the player match history for the given `account_id`.
 
-The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.
+If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.
+If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.
 
 Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 
@@ -312,12 +313,12 @@ Relevant Protobuf Messages:
 - CMsgClientToGcGetMatchHistory
 - CMsgClientToGcGetMatchHistoryResponse
 
-### Rate Limits:
+### Rate Limits (only applies to bot friends):
 | Type | Limit |
 | ---- | ----- |
-| IP | 3req/h<br>With `only_stored_history=true`: 100req/s<br>With `force_refetch=true`: 1req/h |
-| Key | 300req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 5req/h |
-| Global | 1500req/h<br>With `only_stored_history=true`: -<br>With `force_refetch=true`: 10req/h |
+| IP | 3req/h<br>With `force_refetch=true`: 1req/h |
+| Key | 300req/h<br>With `force_refetch=true`: 5req/h |
+| Global | 1500req/h<br>With `force_refetch=true`: 10req/h |
     
 
 ### Example
@@ -342,11 +343,10 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.PlayersApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     force_refetch = True # bool | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit. (optional)
-    only_stored_history = True # bool | Return only the already stored match history from `ClickHouse`. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with `force_refetch`. (optional)
 
     try:
         # Match History
-        api_response = api_instance.match_history(account_id, force_refetch=force_refetch, only_stored_history=only_stored_history)
+        api_response = api_instance.match_history(account_id, force_refetch=force_refetch)
         print("The response of PlayersApi->match_history:\n")
         pprint(api_response)
     except Exception as e:
@@ -362,7 +362,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
  **force_refetch** | **bool**| Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional] 
- **only_stored_history** | **bool**| Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. | [optional] 
 
 ### Return type
 

@@ -1122,16 +1122,15 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  bool|null $force_refetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param  bool|null $only_stored_history Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['matchHistory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlayerMatchHistoryEntry[]|\OpenAPI\Client\Model\PlayerMatchHistoryEntry[]
      */
-    public function matchHistory($account_id, $force_refetch = null, $only_stored_history = null, string $contentType = self::contentTypes['matchHistory'][0])
+    public function matchHistory($account_id, $force_refetch = null, string $contentType = self::contentTypes['matchHistory'][0])
     {
-        list($response) = $this->matchHistoryWithHttpInfo($account_id, $force_refetch, $only_stored_history, $contentType);
+        list($response) = $this->matchHistoryWithHttpInfo($account_id, $force_refetch, $contentType);
         return $response;
     }
 
@@ -1142,16 +1141,15 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  bool|null $force_refetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param  bool|null $only_stored_history Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['matchHistory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlayerMatchHistoryEntry[]|\OpenAPI\Client\Model\PlayerMatchHistoryEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function matchHistoryWithHttpInfo($account_id, $force_refetch = null, $only_stored_history = null, string $contentType = self::contentTypes['matchHistory'][0])
+    public function matchHistoryWithHttpInfo($account_id, $force_refetch = null, string $contentType = self::contentTypes['matchHistory'][0])
     {
-        $request = $this->matchHistoryRequest($account_id, $force_refetch, $only_stored_history, $contentType);
+        $request = $this->matchHistoryRequest($account_id, $force_refetch, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1243,15 +1241,14 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  bool|null $force_refetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param  bool|null $only_stored_history Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['matchHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function matchHistoryAsync($account_id, $force_refetch = null, $only_stored_history = null, string $contentType = self::contentTypes['matchHistory'][0])
+    public function matchHistoryAsync($account_id, $force_refetch = null, string $contentType = self::contentTypes['matchHistory'][0])
     {
-        return $this->matchHistoryAsyncWithHttpInfo($account_id, $force_refetch, $only_stored_history, $contentType)
+        return $this->matchHistoryAsyncWithHttpInfo($account_id, $force_refetch, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1266,16 +1263,15 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  bool|null $force_refetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param  bool|null $only_stored_history Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['matchHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function matchHistoryAsyncWithHttpInfo($account_id, $force_refetch = null, $only_stored_history = null, string $contentType = self::contentTypes['matchHistory'][0])
+    public function matchHistoryAsyncWithHttpInfo($account_id, $force_refetch = null, string $contentType = self::contentTypes['matchHistory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlayerMatchHistoryEntry[]';
-        $request = $this->matchHistoryRequest($account_id, $force_refetch, $only_stored_history, $contentType);
+        $request = $this->matchHistoryRequest($account_id, $force_refetch, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1318,13 +1314,12 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  bool|null $force_refetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
-     * @param  bool|null $only_stored_history Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['matchHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function matchHistoryRequest($account_id, $force_refetch = null, $only_stored_history = null, string $contentType = self::contentTypes['matchHistory'][0])
+    public function matchHistoryRequest($account_id, $force_refetch = null, string $contentType = self::contentTypes['matchHistory'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -1339,7 +1334,6 @@ class PlayersApi
         
 
 
-
         $resourcePath = '/v1/players/{account_id}/match-history';
         $formParams = [];
         $queryParams = [];
@@ -1351,15 +1345,6 @@ class PlayersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $force_refetch,
             'force_refetch', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $only_stored_history,
-            'only_stored_history', // param base name
             'boolean', // openApiType
             'form', // style
             true, // explode

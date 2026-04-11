@@ -128,28 +128,26 @@ namespace DeadlockApiClient.Api
         /// Match History
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
-        /// <param name="onlyStoredHistory">Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>&gt;</returns>
-        Task<IMatchHistoryApiResponse> MatchHistoryAsync(int accountId, Option<bool> forceRefetch = default, Option<bool> onlyStoredHistory = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMatchHistoryApiResponse> MatchHistoryAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Match History
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
-        /// <param name="onlyStoredHistory">Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>?&gt;</returns>
-        Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(int accountId, Option<bool> forceRefetch = default, Option<bool> onlyStoredHistory = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Mate Stats
@@ -1510,7 +1508,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMatchHistory(ref int accountId, ref Option<bool> forceRefetch, ref Option<bool> onlyStoredHistory);
+        partial void FormatMatchHistory(ref int accountId, ref Option<bool> forceRefetch);
 
         /// <summary>
         /// Processes the server response
@@ -1518,11 +1516,10 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        /// <param name="onlyStoredHistory"></param>
-        private void AfterMatchHistoryDefaultImplementation(IMatchHistoryApiResponse apiResponseLocalVar, int accountId, Option<bool> forceRefetch, Option<bool> onlyStoredHistory)
+        private void AfterMatchHistoryDefaultImplementation(IMatchHistoryApiResponse apiResponseLocalVar, int accountId, Option<bool> forceRefetch)
         {
             bool suppressDefaultLog = false;
-            AfterMatchHistory(ref suppressDefaultLog, apiResponseLocalVar, accountId, forceRefetch, onlyStoredHistory);
+            AfterMatchHistory(ref suppressDefaultLog, apiResponseLocalVar, accountId, forceRefetch);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1534,8 +1531,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        /// <param name="onlyStoredHistory"></param>
-        partial void AfterMatchHistory(ref bool suppressDefaultLog, IMatchHistoryApiResponse apiResponseLocalVar, int accountId, Option<bool> forceRefetch, Option<bool> onlyStoredHistory);
+        partial void AfterMatchHistory(ref bool suppressDefaultLog, IMatchHistoryApiResponse apiResponseLocalVar, int accountId, Option<bool> forceRefetch);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1545,11 +1541,10 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        /// <param name="onlyStoredHistory"></param>
-        private void OnErrorMatchHistoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<bool> forceRefetch, Option<bool> onlyStoredHistory)
+        private void OnErrorMatchHistoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<bool> forceRefetch)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorMatchHistory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, forceRefetch, onlyStoredHistory);
+            OnErrorMatchHistory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, forceRefetch);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1563,22 +1558,20 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        /// <param name="onlyStoredHistory"></param>
-        partial void OnErrorMatchHistory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<bool> forceRefetch, Option<bool> onlyStoredHistory);
+        partial void OnErrorMatchHistory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<bool> forceRefetch);
 
         /// <summary>
-        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
-        /// <param name="onlyStoredHistory">Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>&gt;</returns>
-        public async Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(int accountId, Option<bool> forceRefetch = default, Option<bool> onlyStoredHistory = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await MatchHistoryAsync(accountId, forceRefetch, onlyStoredHistory, cancellationToken).ConfigureAwait(false);
+                return await MatchHistoryAsync(accountId, forceRefetch, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1587,21 +1580,20 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  The player match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: 100req/s&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;only_stored_history&#x3D;true&#x60;: -&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 3req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
-        /// <param name="onlyStoredHistory">Return only the already stored match history from &#x60;ClickHouse&#x60;. There is no rate limit for this option, so if you need a lot of data, you can use this option. This option is not compatible with &#x60;force_refetch&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>&gt;</returns>
-        public async Task<IMatchHistoryApiResponse> MatchHistoryAsync(int accountId, Option<bool> forceRefetch = default, Option<bool> onlyStoredHistory = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMatchHistoryApiResponse> MatchHistoryAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatMatchHistory(ref accountId, ref forceRefetch, ref onlyStoredHistory);
+                FormatMatchHistory(ref accountId, ref forceRefetch);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1617,9 +1609,6 @@ namespace DeadlockApiClient.Api
 
                     if (forceRefetch.IsSet)
                         parseQueryStringLocalVar["force_refetch"] = ClientUtils.ParameterToString(forceRefetch.Value);
-
-                    if (onlyStoredHistory.IsSet)
-                        parseQueryStringLocalVar["only_stored_history"] = ClientUtils.ParameterToString(onlyStoredHistory.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -1652,7 +1641,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterMatchHistoryDefaultImplementation(apiResponseLocalVar, accountId, forceRefetch, onlyStoredHistory);
+                        AfterMatchHistoryDefaultImplementation(apiResponseLocalVar, accountId, forceRefetch);
 
                         Events.ExecuteOnMatchHistory(apiResponseLocalVar);
 
@@ -1662,7 +1651,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorMatchHistoryDefaultImplementation(e, "/v1/players/{account_id}/match-history", uriBuilderLocalVar.Path, accountId, forceRefetch, onlyStoredHistory);
+                OnErrorMatchHistoryDefaultImplementation(e, "/v1/players/{account_id}/match-history", uriBuilderLocalVar.Path, accountId, forceRefetch);
                 Events.ExecuteOnErrorMatchHistory(e);
                 throw;
             }
