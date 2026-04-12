@@ -40,7 +40,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let heroId: number; //See more: <https://assets.deadlock-api.com/v2/heroes> (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -87,7 +87,7 @@ const { status, data } = await apiInstance.abilityOrderStats(
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -146,7 +146,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -175,7 +175,7 @@ const { status, data } = await apiInstance.badgeDistribution(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -226,7 +226,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let heroId: number; //Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
-let minLastUpdatedUnixTimestamp: number; //Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minLastUpdatedUnixTimestamp: number; //Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxLastUpdatedUnixTimestamp: number; //Filter builds based on their last updated time (Unix timestamp). (optional) (default to undefined)
 
 const { status, data } = await apiInstance.buildItemStats(
@@ -241,7 +241,7 @@ const { status, data } = await apiInstance.buildItemStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
-| **minLastUpdatedUnixTimestamp** | [**number**] | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minLastUpdatedUnixTimestamp** | [**number**] | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxLastUpdatedUnixTimestamp** | [**number**] | Filter builds based on their last updated time (Unix timestamp). | (optional) defaults to undefined|
 
 
@@ -286,7 +286,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let bucket: 'no_bucket' | 'avg_badge' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month'; //Bucket allows you to group the stats by a specific field. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -315,7 +315,7 @@ const { status, data } = await apiInstance.gameStats(
 |------------- | ------------- | ------------- | -------------|
 | **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_hour&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39; | &#39;start_time_month&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_hour&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39; &#124; &#39;start_time_month&#39;>** | Bucket allows you to group the stats by a specific field. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -364,7 +364,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -389,7 +389,7 @@ const { status, data } = await apiInstance.heroBanStats(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -439,7 +439,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let heroId: number; //The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -474,7 +474,7 @@ const { status, data } = await apiInstance.heroBuildStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -528,7 +528,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -577,7 +577,7 @@ const { status, data } = await apiInstance.heroCombStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -638,7 +638,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -683,7 +683,7 @@ const { status, data } = await apiInstance.heroCountersStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -745,7 +745,7 @@ let sortBy: 'matches' | 'wins' | 'losses' | 'winrate' | 'max_kills_per_match' | 
 let sortDirection: 'desc' | 'asc'; //The direction to sort heroes in. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let minMatches: number; //Filter by min number of matches played. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -786,7 +786,7 @@ const { status, data } = await apiInstance.heroScoreboard(
 | **sortDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to sort heroes in. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **minMatches** | [**number**] | Filter by min number of matches played. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -841,7 +841,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let bucket: 'no_bucket' | 'avg_badge' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month'; //Bucket allows you to group the stats by a specific field. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -890,7 +890,7 @@ const { status, data } = await apiInstance.heroStats(
 |------------- | ------------- | ------------- | -------------|
 | **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_hour&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39; | &#39;start_time_month&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_hour&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39; &#124; &#39;start_time_month&#39;>** | Bucket allows you to group the stats by a specific field. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -950,7 +950,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -991,7 +991,7 @@ const { status, data } = await apiInstance.heroSynergiesStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1052,7 +1052,7 @@ let combSize: number; //The combination size to return. (optional) (default to 2
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
 let heroId: number; //Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1095,7 +1095,7 @@ const { status, data } = await apiInstance.itemPermutationStats(
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
 | **heroId** | [**number**] | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1152,7 +1152,7 @@ let bucket: 'no_bucket' | 'hero' | 'team' | 'start_time_hour' | 'start_time_day'
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
 let heroId: number; //Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1205,7 +1205,7 @@ const { status, data } = await apiInstance.itemStats(
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
 | **heroId** | [**number**] | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1266,7 +1266,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let team: number; //Filter by team number. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1321,7 +1321,7 @@ const { status, data } = await apiInstance.killDeathStats(
 |------------- | ------------- | ------------- | -------------|
 | **team** | [**number**] | Filter by team number. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1385,7 +1385,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let resolution: number; //Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional) (default to 10)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1426,7 +1426,7 @@ const { status, data } = await apiInstance.playerPerformanceCurve(
 |------------- | ------------- | ------------- | -------------|
 | **resolution** | [**number**] | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | (optional) defaults to 10|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1590,7 +1590,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773187200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773273600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1631,7 +1631,7 @@ const { status, data } = await apiInstance.playerStatsMetrics(
 |------------- | ------------- | ------------- | -------------|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773187200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1773273600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
