@@ -123,6 +123,7 @@ class AnalyticsApiTest : ShouldSpec() {
         // to test heroBanStats
         should("test heroBanStats") {
             // uncomment below to test heroBanStats
+            //val bucket : kotlin.String = bucket_example // kotlin.String | Bucket allows you to group the stats by a specific field.
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -131,7 +132,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
-            //val result : kotlin.collections.List<HeroBanStats> = apiInstance.heroBanStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+            //val result : kotlin.collections.List<HeroBanStats> = apiInstance.heroBanStats(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
             //result shouldBe ("TODO")
         }
 

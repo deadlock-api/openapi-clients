@@ -212,6 +212,7 @@ namespace DeadlockApiClient.Api
         ///  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -222,7 +223,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroBanStatsApiResponse"/>&gt;</returns>
-        Task<IHeroBanStatsApiResponse> HeroBanStatsAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IHeroBanStatsApiResponse> HeroBanStatsAsync(Option<string> bucket = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Ban Stats
@@ -230,6 +231,7 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         ///  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -240,7 +242,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroBanStatsApiResponse"/>?&gt;</returns>
-        Task<IHeroBanStatsApiResponse?> HeroBanStatsOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IHeroBanStatsApiResponse?> HeroBanStatsOrDefaultAsync(Option<string> bucket = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Build Stats
@@ -3070,12 +3072,24 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatHeroBanStats(ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
+        partial void FormatHeroBanStats(ref Option<string> bucket, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="bucket"></param>
+        /// <returns></returns>
+        private void ValidateHeroBanStats(Option<string> bucket)
+        {
+            if (bucket.IsSet && bucket.Value == null)
+                throw new ArgumentNullException(nameof(bucket));
+        }
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
+        /// <param name="bucket"></param>
         /// <param name="minUnixTimestamp"></param>
         /// <param name="maxUnixTimestamp"></param>
         /// <param name="minDurationS"></param>
@@ -3084,10 +3098,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        private void AfterHeroBanStatsDefaultImplementation(IHeroBanStatsApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
+        private void AfterHeroBanStatsDefaultImplementation(IHeroBanStatsApiResponse apiResponseLocalVar, Option<string> bucket, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
         {
             bool suppressDefaultLog = false;
-            AfterHeroBanStats(ref suppressDefaultLog, apiResponseLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+            AfterHeroBanStats(ref suppressDefaultLog, apiResponseLocalVar, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3097,6 +3111,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
+        /// <param name="bucket"></param>
         /// <param name="minUnixTimestamp"></param>
         /// <param name="maxUnixTimestamp"></param>
         /// <param name="minDurationS"></param>
@@ -3105,7 +3120,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        partial void AfterHeroBanStats(ref bool suppressDefaultLog, IHeroBanStatsApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
+        partial void AfterHeroBanStats(ref bool suppressDefaultLog, IHeroBanStatsApiResponse apiResponseLocalVar, Option<string> bucket, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3113,6 +3128,7 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
+        /// <param name="bucket"></param>
         /// <param name="minUnixTimestamp"></param>
         /// <param name="maxUnixTimestamp"></param>
         /// <param name="minDurationS"></param>
@@ -3121,10 +3137,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        private void OnErrorHeroBanStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
+        private void OnErrorHeroBanStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> bucket, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorHeroBanStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+            OnErrorHeroBanStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3136,6 +3152,7 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
+        /// <param name="bucket"></param>
         /// <param name="minUnixTimestamp"></param>
         /// <param name="maxUnixTimestamp"></param>
         /// <param name="minDurationS"></param>
@@ -3144,11 +3161,12 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        partial void OnErrorHeroBanStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
+        partial void OnErrorHeroBanStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> bucket, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
         /// Hero Ban Stats  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3159,11 +3177,11 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroBanStatsApiResponse"/>&gt;</returns>
-        public async Task<IHeroBanStatsApiResponse?> HeroBanStatsOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IHeroBanStatsApiResponse?> HeroBanStatsOrDefaultAsync(Option<string> bucket = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await HeroBanStatsAsync(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, cancellationToken).ConfigureAwait(false);
+                return await HeroBanStatsAsync(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3175,6 +3193,7 @@ namespace DeadlockApiClient.Api
         /// Hero Ban Stats  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3185,13 +3204,15 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroBanStatsApiResponse"/>&gt;</returns>
-        public async Task<IHeroBanStatsApiResponse> HeroBanStatsAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IHeroBanStatsApiResponse> HeroBanStatsAsync(Option<string> bucket = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatHeroBanStats(ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId);
+                ValidateHeroBanStats(bucket);
+
+                FormatHeroBanStats(ref bucket, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3203,6 +3224,9 @@ namespace DeadlockApiClient.Api
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/analytics/hero-ban-stats");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (bucket.IsSet)
+                        parseQueryStringLocalVar["bucket"] = ClientUtils.ParameterToString(bucket.Value);
 
                     if (minUnixTimestamp.IsSet)
                         parseQueryStringLocalVar["min_unix_timestamp"] = ClientUtils.ParameterToString(minUnixTimestamp.Value);
@@ -3259,7 +3283,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterHeroBanStatsDefaultImplementation(apiResponseLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+                        AfterHeroBanStatsDefaultImplementation(apiResponseLocalVar, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
 
                         Events.ExecuteOnHeroBanStats(apiResponseLocalVar);
 
@@ -3269,7 +3293,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorHeroBanStatsDefaultImplementation(e, "/v1/analytics/hero-ban-stats", uriBuilderLocalVar.Path, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+                OnErrorHeroBanStatsDefaultImplementation(e, "/v1/analytics/hero-ban-stats", uriBuilderLocalVar.Path, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
                 Events.ExecuteOnErrorHeroBanStats(e);
                 throw;
             }

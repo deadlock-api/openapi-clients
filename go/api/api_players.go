@@ -518,9 +518,9 @@ Relevant Protobuf Messages:
 ### Rate Limits (only applies to bot friends):
 | Type | Limit |
 | ---- | ----- |
-| IP | 3req/h<br>With `force_refetch=true`: 1req/h |
-| Key | 300req/h<br>With `force_refetch=true`: 5req/h |
-| Global | 1500req/h<br>With `force_refetch=true`: 10req/h |
+| IP | 100req/s<br>Bot-Friend: 3req/h<br>With `force_refetch=true`: 1req/h |
+| Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h |
+| Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

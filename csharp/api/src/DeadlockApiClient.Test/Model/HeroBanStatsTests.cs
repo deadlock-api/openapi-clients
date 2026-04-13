@@ -63,6 +63,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Bucket'
+        /// </summary>
+        [Fact]
+        public void BucketTest()
+        {
+            // TODO unit test for the property 'Bucket'
+        }
+
+        /// <summary>
         /// Test the property 'HeroId'
         /// </summary>
         [Fact]

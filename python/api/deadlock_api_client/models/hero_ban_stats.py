@@ -29,8 +29,9 @@ class HeroBanStats(BaseModel):
     HeroBanStats
     """ # noqa: E501
     bans: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of matches in which this hero was banned.")
+    bucket: Annotated[int, Field(strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter).")
     hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>")
-    __properties: ClassVar[List[str]] = ["bans", "hero_id"]
+    __properties: ClassVar[List[str]] = ["bans", "bucket", "hero_id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -84,6 +85,7 @@ class HeroBanStats(BaseModel):
 
         _obj = cls.model_validate({
             "bans": obj.get("bans"),
+            "bucket": obj.get("bucket"),
             "hero_id": obj.get("hero_id")
         })
         return _obj

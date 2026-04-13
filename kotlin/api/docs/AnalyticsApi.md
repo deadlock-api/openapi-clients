@@ -285,7 +285,7 @@ No authorization required
 
 <a id="heroBanStats"></a>
 # **heroBanStats**
-> kotlin.collections.List&lt;HeroBanStats&gt; heroBanStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+> kotlin.collections.List&lt;HeroBanStats&gt; heroBanStats(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
 
 Hero Ban Stats
 
@@ -298,6 +298,7 @@ Hero Ban Stats
 //import deadlock_api_client.models.*
 
 val apiInstance = AnalyticsApi()
+val bucket : kotlin.String = bucket_example // kotlin.String | Bucket allows you to group the stats by a specific field.
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -307,7 +308,7 @@ val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on th
 val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 try {
-    val result : kotlin.collections.List<HeroBanStats> = apiInstance.heroBanStats(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
+    val result : kotlin.collections.List<HeroBanStats> = apiInstance.heroBanStats(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#heroBanStats")
@@ -319,6 +320,7 @@ try {
 ```
 
 ### Parameters
+| **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1773446400L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

@@ -930,6 +930,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 type ApiHeroBanStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
+	bucket *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
@@ -938,6 +939,12 @@ type ApiHeroBanStatsRequest struct {
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
+}
+
+// Bucket allows you to group the stats by a specific field.
+func (r ApiHeroBanStatsRequest) Bucket(bucket string) ApiHeroBanStatsRequest {
+	r.bucket = &bucket
+	return r
 }
 
 // Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
@@ -1041,6 +1048,9 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.bucket != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bucket", r.bucket, "form", "")
+	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {

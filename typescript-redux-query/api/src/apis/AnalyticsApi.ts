@@ -123,6 +123,7 @@ export interface GameStatsRequest {
 }
 
 export interface HeroBanStatsRequest {
+    bucket?: HeroBanStatsBucketEnum;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -788,6 +789,11 @@ function heroBanStatsRaw<T>(requestParameters: HeroBanStatsRequest, requestConfi
     let queryParameters = null;
 
     queryParameters = {};
+
+
+    if (requestParameters.bucket !== undefined) {
+        queryParameters['bucket'] = requestParameters.bucket;
+    }
 
 
     if (requestParameters.minUnixTimestamp !== undefined) {
@@ -2534,6 +2540,18 @@ export enum GameStatsGameModeEnum {
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
     Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum HeroBanStatsBucketEnum {
+    NoBucket = 'no_bucket',
+    AvgBadge = 'avg_badge',
+    StartTimeHour = 'start_time_hour',
+    StartTimeDay = 'start_time_day',
+    StartTimeWeek = 'start_time_week',
+    StartTimeMonth = 'start_time_month'
 }
 /**
     * @export

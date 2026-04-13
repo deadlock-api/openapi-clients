@@ -328,7 +328,7 @@ No authorization required
 ## `heroBanStats()`
 
 ```php
-heroBanStats($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id): \OpenAPI\Client\Model\HeroBanStats[]
+heroBanStats($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id): \OpenAPI\Client\Model\HeroBanStats[]
 ```
 
 Hero Ban Stats
@@ -348,6 +348,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $min_unix_timestamp = 1773446400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -358,7 +359,7 @@ $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 
 try {
-    $result = $apiInstance->heroBanStats($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id);
+    $result = $apiInstance->heroBanStats($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->heroBanStats: ', $e->getMessage(), PHP_EOL;
@@ -369,6 +370,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1773446400] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

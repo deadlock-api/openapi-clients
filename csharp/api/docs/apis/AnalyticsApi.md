@@ -214,7 +214,7 @@ No authorization required
 
 <a id="herobanstats"></a>
 # **HeroBanStats**
-> List&lt;HeroBanStats&gt; HeroBanStats (long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null)
+> List&lt;HeroBanStats&gt; HeroBanStats (string bucket = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null)
 
 Hero Ban Stats
 
@@ -225,6 +225,7 @@ Hero Ban Stats
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **bucket** | **string** | Bucket allows you to group the stats by a specific field. | [optional]  |
 | **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1773446400] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |

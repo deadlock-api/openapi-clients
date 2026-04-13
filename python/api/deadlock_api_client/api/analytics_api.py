@@ -1778,6 +1778,7 @@ class AnalyticsApi:
     @validate_call
     def hero_ban_stats(
         self,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1803,6 +1804,8 @@ class AnalyticsApi:
 
          Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param bucket: Bucket allows you to group the stats by a specific field.
+        :type bucket: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1842,6 +1845,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_ban_stats_serialize(
+            bucket=bucket,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -1875,6 +1879,7 @@ class AnalyticsApi:
     @validate_call
     def hero_ban_stats_with_http_info(
         self,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1900,6 +1905,8 @@ class AnalyticsApi:
 
          Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param bucket: Bucket allows you to group the stats by a specific field.
+        :type bucket: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -1939,6 +1946,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_ban_stats_serialize(
+            bucket=bucket,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -1972,6 +1980,7 @@ class AnalyticsApi:
     @validate_call
     def hero_ban_stats_without_preload_content(
         self,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -1997,6 +2006,8 @@ class AnalyticsApi:
 
          Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 
+        :param bucket: Bucket allows you to group the stats by a specific field.
+        :type bucket: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -2036,6 +2047,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._hero_ban_stats_serialize(
+            bucket=bucket,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -2064,6 +2076,7 @@ class AnalyticsApi:
 
     def _hero_ban_stats_serialize(
         self,
+        bucket,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -2094,6 +2107,10 @@ class AnalyticsApi:
 
         # process the path parameters
         # process the query parameters
+        if bucket is not None:
+            
+            _query_params.append(('bucket', bucket))
+            
         if min_unix_timestamp is not None:
             
             _query_params.append(('min_unix_timestamp', min_unix_timestamp))

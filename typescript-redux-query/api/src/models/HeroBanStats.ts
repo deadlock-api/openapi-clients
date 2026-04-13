@@ -25,6 +25,12 @@ export interface HeroBanStats  {
      */
     bans: number;
     /**
+     * The bucket value (depends on the bucket query parameter).
+     * @type {number}
+     * @memberof HeroBanStats
+     */
+    bucket: number;
+    /**
      * The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
      * @type {number}
      * @memberof HeroBanStats
@@ -35,6 +41,7 @@ export interface HeroBanStats  {
 export function HeroBanStatsFromJSON(json: any): HeroBanStats {
     return {
         'bans': json['bans'],
+        'bucket': json['bucket'],
         'heroId': json['hero_id'],
     };
 }
@@ -45,6 +52,7 @@ export function HeroBanStatsToJSON(value?: HeroBanStats): any {
     }
     return {
         'bans': value.bans,
+        'bucket': value.bucket,
         'hero_id': value.heroId,
     };
 }

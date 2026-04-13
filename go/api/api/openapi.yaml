@@ -694,6 +694,21 @@ paths:
         \ |\n    "
       operationId: hero_ban_stats
       parameters:
+      - description: Bucket allows you to group the stats by a specific field.
+        explode: true
+        in: query
+        name: bucket
+        required: false
+        schema:
+          enum:
+          - no_bucket
+          - avg_badge
+          - start_time_hour
+          - start_time_day
+          - start_time_week
+          - start_time_month
+          type: string
+        style: form
       - description: "Filter matches based on their start time (Unix timestamp). **Default:**\
           \ 30 days ago. **Minimum:** March 1, 2026."
         explode: true
@@ -6222,9 +6237,10 @@ paths:
         \ is returned.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
         \nRelevant Protobuf Messages:\n- CMsgClientToGcGetMatchHistory\n- CMsgClientToGcGetMatchHistoryResponse\n\
         \n### Rate Limits (only applies to bot friends):\n| Type | Limit |\n| ----\
-        \ | ----- |\n| IP | 3req/h<br>With `force_refetch=true`: 1req/h |\n| Key |\
-        \ 300req/h<br>With `force_refetch=true`: 5req/h |\n| Global | 1500req/h<br>With\
-        \ `force_refetch=true`: 10req/h |\n    "
+        \ | ----- |\n| IP | 100req/s<br>Bot-Friend: 3req/h<br>With `force_refetch=true`:\
+        \ 1req/h |\n| Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`:\
+        \ 5req/h |\n| Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`:\
+        \ 10req/h |\n    "
       operationId: match_history
       parameters:
       - description: The players `SteamID3`
@@ -7883,12 +7899,18 @@ components:
         $ref: "#/components/schemas/HashMap_value"
     HeroBanStats:
       example:
+        bucket: 0
         bans: 0
         hero_id: 0
       properties:
         bans:
           description: The number of matches in which this hero was banned.
           format: int64
+          minimum: 0
+          type: integer
+        bucket:
+          description: The bucket value (depends on the bucket query parameter).
+          format: int32
           minimum: 0
           type: integer
         hero_id:
@@ -7898,6 +7920,7 @@ components:
           type: integer
       required:
       - bans
+      - bucket
       - hero_id
     HeroBuildStats:
       example:

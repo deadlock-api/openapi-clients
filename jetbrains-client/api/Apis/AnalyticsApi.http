@@ -22,7 +22,7 @@ Accept: application/json
 
 ### Hero Ban Stats
 ## Hero Ban Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-ban-stats?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
+GET https://api.deadlock-api.com/v1/analytics/hero-ban-stats?bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
 ### Hero Build Stats

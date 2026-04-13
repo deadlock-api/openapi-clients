@@ -34,11 +34,13 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="HeroBanStats" /> class.
         /// </summary>
         /// <param name="bans">The number of matches in which this hero was banned.</param>
+        /// <param name="bucket">The bucket value (depends on the bucket query parameter).</param>
         /// <param name="heroId">The ID of the banned hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
         [JsonConstructor]
-        public HeroBanStats(long bans, int heroId)
+        public HeroBanStats(long bans, int bucket, int heroId)
         {
             Bans = bans;
+            Bucket = bucket;
             HeroId = heroId;
             OnCreated();
         }
@@ -51,6 +53,13 @@ namespace DeadlockApiClient.Model
         /// <value>The number of matches in which this hero was banned.</value>
         [JsonPropertyName("bans")]
         public long Bans { get; set; }
+
+        /// <summary>
+        /// The bucket value (depends on the bucket query parameter).
+        /// </summary>
+        /// <value>The bucket value (depends on the bucket query parameter).</value>
+        [JsonPropertyName("bucket")]
+        public int Bucket { get; set; }
 
         /// <summary>
         /// The ID of the banned hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
@@ -68,6 +77,7 @@ namespace DeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class HeroBanStats {\n");
             sb.Append("  Bans: ").Append(Bans).Append("\n");
+            sb.Append("  Bucket: ").Append(Bucket).Append("\n");
             sb.Append("  HeroId: ").Append(HeroId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -84,6 +94,12 @@ namespace DeadlockApiClient.Model
             if (this.Bans < (long)0)
             {
                 yield return new ValidationResult("Invalid value for Bans, must be a value greater than or equal to 0.", new [] { "Bans" });
+            }
+
+            // Bucket (int) minimum
+            if (this.Bucket < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
 
             // HeroId (int) minimum
@@ -119,6 +135,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<long?> bans = default;
+            Option<int?> bucket = default;
             Option<int?> heroId = default;
 
             while (utf8JsonReader.Read())
@@ -139,6 +156,9 @@ namespace DeadlockApiClient.Model
                         case "bans":
                             bans = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
+                        case "bucket":
+                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
                         case "hero_id":
                             heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
@@ -151,16 +171,22 @@ namespace DeadlockApiClient.Model
             if (!bans.IsSet)
                 throw new ArgumentException("Property is required for class HeroBanStats.", nameof(bans));
 
+            if (!bucket.IsSet)
+                throw new ArgumentException("Property is required for class HeroBanStats.", nameof(bucket));
+
             if (!heroId.IsSet)
                 throw new ArgumentException("Property is required for class HeroBanStats.", nameof(heroId));
 
             if (bans.IsSet && bans.Value == null)
                 throw new ArgumentNullException(nameof(bans), "Property is not nullable for class HeroBanStats.");
 
+            if (bucket.IsSet && bucket.Value == null)
+                throw new ArgumentNullException(nameof(bucket), "Property is not nullable for class HeroBanStats.");
+
             if (heroId.IsSet && heroId.Value == null)
                 throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class HeroBanStats.");
 
-            return new HeroBanStats(bans.Value!.Value!, heroId.Value!.Value!);
+            return new HeroBanStats(bans.Value!.Value!, bucket.Value!.Value!, heroId.Value!.Value!);
         }
 
         /// <summary>
@@ -188,6 +214,8 @@ namespace DeadlockApiClient.Model
         public void WriteProperties(Utf8JsonWriter writer, HeroBanStats heroBanStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("bans", heroBanStats.Bans);
+
+            writer.WriteNumber("bucket", heroBanStats.Bucket);
 
             writer.WriteNumber("hero_id", heroBanStats.HeroId);
         }

@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bans** | **int64** | The number of matches in which this hero was banned. | 
+**Bucket** | **int32** | The bucket value (depends on the bucket query parameter). | 
 **HeroId** | **int32** | The ID of the banned hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
 
 ## Methods
 
 ### NewHeroBanStats
 
-`func NewHeroBanStats(bans int64, heroId int32, ) *HeroBanStats`
+`func NewHeroBanStats(bans int64, bucket int32, heroId int32, ) *HeroBanStats`
 
 NewHeroBanStats instantiates a new HeroBanStats object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +45,26 @@ and a boolean to check if the value has been set.
 `func (o *HeroBanStats) SetBans(v int64)`
 
 SetBans sets Bans field to given value.
+
+
+### GetBucket
+
+`func (o *HeroBanStats) GetBucket() int32`
+
+GetBucket returns the Bucket field if non-nil, zero value otherwise.
+
+### GetBucketOk
+
+`func (o *HeroBanStats) GetBucketOk() (*int32, bool)`
+
+GetBucketOk returns a tuple with the Bucket field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBucket
+
+`func (o *HeroBanStats) SetBucket(v int32)`
+
+SetBucket sets Bucket field to given value.
 
 
 ### GetHeroId

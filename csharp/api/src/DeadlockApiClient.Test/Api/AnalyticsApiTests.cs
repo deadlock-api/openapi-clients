@@ -142,6 +142,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task HeroBanStatsAsyncTest()
         {
+            Client.Option<string> bucket = default!;
             Client.Option<long?> minUnixTimestamp = default!;
             Client.Option<long?> maxUnixTimestamp = default!;
             Client.Option<long?> minDurationS = default!;
@@ -150,7 +151,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> maxAverageBadge = default!;
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
-            var response = await _instance.HeroBanStatsAsync(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+            var response = await _instance.HeroBanStatsAsync(bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
             var model = response.Ok();
             Assert.IsType<List<HeroBanStats>>(model);
         }

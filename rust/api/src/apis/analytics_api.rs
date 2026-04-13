@@ -121,6 +121,8 @@ pub struct GameStatsParams {
 /// struct for passing parameters to the method [`hero_ban_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroBanStatsParams {
+    /// Bucket allows you to group the stats by a specific field.
+    pub bucket: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -1065,6 +1067,9 @@ pub async fn hero_ban_stats(configuration: &configuration::Configuration, params
     let uri_str = format!("{}/v1/analytics/hero-ban-stats", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.bucket {
+        req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
     }

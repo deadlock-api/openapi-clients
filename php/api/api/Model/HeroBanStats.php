@@ -58,6 +58,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'bans' => 'int',
+        'bucket' => 'int',
         'hero_id' => 'int'
     ];
 
@@ -70,6 +71,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'bans' => 'int64',
+        'bucket' => 'int32',
         'hero_id' => 'int32'
     ];
 
@@ -80,6 +82,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'bans' => false,
+        'bucket' => false,
         'hero_id' => false
     ];
 
@@ -170,6 +173,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'bans' => 'bans',
+        'bucket' => 'bucket',
         'hero_id' => 'hero_id'
     ];
 
@@ -180,6 +184,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'bans' => 'setBans',
+        'bucket' => 'setBucket',
         'hero_id' => 'setHeroId'
     ];
 
@@ -190,6 +195,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'bans' => 'getBans',
+        'bucket' => 'getBucket',
         'hero_id' => 'getHeroId'
     ];
 
@@ -251,6 +257,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('bans', $data ?? [], null);
+        $this->setIfExists('bucket', $data ?? [], null);
         $this->setIfExists('hero_id', $data ?? [], null);
     }
 
@@ -286,6 +293,13 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['bans'] < 0)) {
             $invalidProperties[] = "invalid value for 'bans', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['bucket'] === null) {
+            $invalidProperties[] = "'bucket' can't be null";
+        }
+        if (($this->container['bucket'] < 0)) {
+            $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
         }
 
         if ($this->container['hero_id'] === null) {
@@ -338,6 +352,38 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['bans'] = $bans;
+
+        return $this;
+    }
+
+    /**
+     * Gets bucket
+     *
+     * @return int
+     */
+    public function getBucket()
+    {
+        return $this->container['bucket'];
+    }
+
+    /**
+     * Sets bucket
+     *
+     * @param int $bucket The bucket value (depends on the bucket query parameter).
+     *
+     * @return self
+     */
+    public function setBucket($bucket)
+    {
+        if (is_null($bucket)) {
+            throw new \InvalidArgumentException('non-nullable bucket cannot be null');
+        }
+
+        if (($bucket < 0)) {
+            throw new \InvalidArgumentException('invalid value for $bucket when calling HeroBanStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['bucket'] = $bucket;
 
         return $this;
     }

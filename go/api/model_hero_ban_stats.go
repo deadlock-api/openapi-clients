@@ -23,6 +23,8 @@ var _ MappedNullable = &HeroBanStats{}
 type HeroBanStats struct {
 	// The number of matches in which this hero was banned.
 	Bans int64 `json:"bans"`
+	// The bucket value (depends on the bucket query parameter).
+	Bucket int32 `json:"bucket"`
 	// The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
 	HeroId int32 `json:"hero_id"`
 }
@@ -33,9 +35,10 @@ type _HeroBanStats HeroBanStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroBanStats(bans int64, heroId int32) *HeroBanStats {
+func NewHeroBanStats(bans int64, bucket int32, heroId int32) *HeroBanStats {
 	this := HeroBanStats{}
 	this.Bans = bans
+	this.Bucket = bucket
 	this.HeroId = heroId
 	return &this
 }
@@ -70,6 +73,30 @@ func (o *HeroBanStats) GetBansOk() (*int64, bool) {
 // SetBans sets field value
 func (o *HeroBanStats) SetBans(v int64) {
 	o.Bans = v
+}
+
+// GetBucket returns the Bucket field value
+func (o *HeroBanStats) GetBucket() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Bucket
+}
+
+// GetBucketOk returns a tuple with the Bucket field value
+// and a boolean to check if the value has been set.
+func (o *HeroBanStats) GetBucketOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Bucket, true
+}
+
+// SetBucket sets field value
+func (o *HeroBanStats) SetBucket(v int32) {
+	o.Bucket = v
 }
 
 // GetHeroId returns the HeroId field value
@@ -107,6 +134,7 @@ func (o HeroBanStats) MarshalJSON() ([]byte, error) {
 func (o HeroBanStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["bans"] = o.Bans
+	toSerialize["bucket"] = o.Bucket
 	toSerialize["hero_id"] = o.HeroId
 	return toSerialize, nil
 }
@@ -117,6 +145,7 @@ func (o *HeroBanStats) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"bans",
+		"bucket",
 		"hero_id",
 	}
 

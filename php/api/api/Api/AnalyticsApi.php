@@ -1920,6 +1920,7 @@ class AnalyticsApi
      *
      * Hero Ban Stats
      *
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1934,9 +1935,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroBanStats[]
      */
-    public function heroBanStats($min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStats($bucket = null, $min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
-        list($response) = $this->heroBanStatsWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        list($response) = $this->heroBanStatsWithHttpInfo($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
         return $response;
     }
 
@@ -1945,6 +1946,7 @@ class AnalyticsApi
      *
      * Hero Ban Stats
      *
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1959,9 +1961,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroBanStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroBanStatsWithHttpInfo($min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsWithHttpInfo($bucket = null, $min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
-        $request = $this->heroBanStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        $request = $this->heroBanStatsRequest($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2037,6 +2039,7 @@ class AnalyticsApi
      *
      * Hero Ban Stats
      *
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2050,9 +2053,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBanStatsAsync($min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsAsync($bucket = null, $min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
-        return $this->heroBanStatsAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType)
+        return $this->heroBanStatsAsyncWithHttpInfo($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2065,6 +2068,7 @@ class AnalyticsApi
      *
      * Hero Ban Stats
      *
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2078,10 +2082,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBanStatsAsyncWithHttpInfo($min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsAsyncWithHttpInfo($bucket = null, $min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroBanStats[]';
-        $request = $this->heroBanStatsRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
+        $request = $this->heroBanStatsRequest($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2122,6 +2126,7 @@ class AnalyticsApi
     /**
      * Create request for operation 'heroBanStats'
      *
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1773446400)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2135,8 +2140,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroBanStatsRequest($min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsRequest($bucket = null, $min_unix_timestamp = 1773446400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
+
 
 
 
@@ -2184,6 +2190,15 @@ class AnalyticsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $bucket,
+            'bucket', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $min_unix_timestamp,

@@ -32,6 +32,7 @@ import java.io.Serializable
  * 
  *
  * @param bans The number of matches in which this hero was banned.
+ * @param bucket The bucket value (depends on the bucket query parameter).
  * @param heroId The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
  */
 
@@ -41,6 +42,10 @@ data class HeroBanStats (
     /* The number of matches in which this hero was banned. */
     @Json(name = "bans")
     val bans: kotlin.Long,
+
+    /* The bucket value (depends on the bucket query parameter). */
+    @Json(name = "bucket")
+    val bucket: kotlin.Int,
 
     /* The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes> */
     @Json(name = "hero_id")

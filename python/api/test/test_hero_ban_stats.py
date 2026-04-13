@@ -36,11 +36,13 @@ class TestHeroBanStats(unittest.TestCase):
         if include_optional:
             return HeroBanStats(
                 bans = 0,
+                bucket = 0,
                 hero_id = 0
             )
         else:
             return HeroBanStats(
                 bans = 0,
+                bucket = 0,
                 hero_id = 0,
         )
         """
