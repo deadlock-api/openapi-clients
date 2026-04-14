@@ -32,6 +32,7 @@ docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
 docs/GameMode.md
+docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
@@ -49,6 +50,7 @@ docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
+docs/ListServersResponse.md
 docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
@@ -73,6 +75,9 @@ docs/RankPredictResponse.md
 docs/RankPrediction.md
 docs/RegionMode.md
 docs/ServerRegion.md
+docs/ServerStatusRequest.md
+docs/ServerStatusResponse.md
+docs/ServersApi.md
 docs/SqlApi.md
 docs/Status.md
 docs/StatusServices.md
@@ -95,6 +100,7 @@ src/apis/mmr_api.rs
 src/apis/mod.rs
 src/apis/patches_api.rs
 src/apis/players_api.rs
+src/apis/servers_api.rs
 src/apis/sql_api.rs
 src/apis/steam_api.rs
 src/lib.rs
@@ -123,6 +129,7 @@ src/models/create_custom_response.rs
 src/models/distribution_entry.rs
 src/models/enemy_stats.rs
 src/models/game_mode.rs
+src/models/game_server_info.rs
 src/models/get_custom_match_id_response.rs
 src/models/hash_map_value.rs
 src/models/hero_ban_stats.rs
@@ -137,6 +144,7 @@ src/models/item_stats.rs
 src/models/kill_death_stats.rs
 src/models/leaderboard.rs
 src/models/leaderboard_entry.rs
+src/models/list_servers_response.rs
 src/models/match_salts_response.rs
 src/models/match_spectate_response.rs
 src/models/mate_stats.rs
@@ -158,6 +166,8 @@ src/models/rank_predict_response.rs
 src/models/rank_prediction.rs
 src/models/region_mode.rs
 src/models/server_region.rs
+src/models/server_status_request.rs
+src/models/server_status_response.rs
 src/models/status.rs
 src/models/status_services.rs
 src/models/steam_profile.rs

@@ -150,6 +150,8 @@ Class | Method | HTTP request | Description
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
 *SQLAPI* | [**Sql**](docs/SQLAPI.md#sql) | **Get** /v1/sql | Query
 *SQLAPI* | [**TableSchema**](docs/SQLAPI.md#tableschema) | **Get** /v1/sql/tables/{table}/schema | Table Schema
+*ServersAPI* | [**List**](docs/ServersAPI.md#list) | **Get** /v1/servers | List Game Servers
+*ServersAPI* | [**Status**](docs/ServersAPI.md#status) | **Post** /v1/servers/status | Game Server Status
 *SteamAPI* | [**Steam**](docs/SteamAPI.md#steam) | **Get** /v1/players/steam | Batch Steam Profile
 *SteamAPI* | [**SteamSearch**](docs/SteamAPI.md#steamsearch) | **Get** /v1/players/steam-search | Steam Profile Search
 
@@ -181,6 +183,7 @@ Class | Method | HTTP request | Description
  - [DistributionEntry](docs/DistributionEntry.md)
  - [EnemyStats](docs/EnemyStats.md)
  - [GameMode](docs/GameMode.md)
+ - [GameServerInfo](docs/GameServerInfo.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [HashMapValue](docs/HashMapValue.md)
  - [HeroBanStats](docs/HeroBanStats.md)
@@ -195,6 +198,7 @@ Class | Method | HTTP request | Description
  - [KillDeathStats](docs/KillDeathStats.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
+ - [ListServersResponse](docs/ListServersResponse.md)
  - [MMRHistory](docs/MMRHistory.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
@@ -215,6 +219,8 @@ Class | Method | HTTP request | Description
  - [RankPrediction](docs/RankPrediction.md)
  - [RegionMode](docs/RegionMode.md)
  - [ServerRegion](docs/ServerRegion.md)
+ - [ServerStatusRequest](docs/ServerStatusRequest.md)
+ - [ServerStatusResponse](docs/ServerStatusResponse.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamProfile](docs/SteamProfile.md)

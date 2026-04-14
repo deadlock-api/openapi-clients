@@ -30,6 +30,7 @@ __all__ = [
     "PatchesApi",
     "PlayersApi",
     "SQLApi",
+    "ServersApi",
     "SteamApi",
     "ApiResponse",
     "ApiClient",
@@ -65,6 +66,7 @@ __all__ = [
     "DistributionEntry",
     "EnemyStats",
     "GameMode",
+    "GameServerInfo",
     "GetCustomMatchIdResponse",
     "HashMapValue",
     "HeroBanStats",
@@ -79,6 +81,7 @@ __all__ = [
     "KillDeathStats",
     "Leaderboard",
     "LeaderboardEntry",
+    "ListServersResponse",
     "MMRHistory",
     "MatchSaltsResponse",
     "MatchSpectateResponse",
@@ -99,6 +102,8 @@ __all__ = [
     "RankPrediction",
     "RegionMode",
     "ServerRegion",
+    "ServerStatusRequest",
+    "ServerStatusResponse",
     "Status",
     "StatusServices",
     "SteamProfile",
@@ -120,6 +125,7 @@ from deadlock_api_client.api.matches_api import MatchesApi as MatchesApi
 from deadlock_api_client.api.patches_api import PatchesApi as PatchesApi
 from deadlock_api_client.api.players_api import PlayersApi as PlayersApi
 from deadlock_api_client.api.sql_api import SQLApi as SQLApi
+from deadlock_api_client.api.servers_api import ServersApi as ServersApi
 from deadlock_api_client.api.steam_api import SteamApi as SteamApi
 
 # import ApiClient
@@ -159,6 +165,7 @@ from deadlock_api_client.models.create_custom_response import CreateCustomRespon
 from deadlock_api_client.models.distribution_entry import DistributionEntry as DistributionEntry
 from deadlock_api_client.models.enemy_stats import EnemyStats as EnemyStats
 from deadlock_api_client.models.game_mode import GameMode as GameMode
+from deadlock_api_client.models.game_server_info import GameServerInfo as GameServerInfo
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse as GetCustomMatchIdResponse
 from deadlock_api_client.models.hash_map_value import HashMapValue as HashMapValue
 from deadlock_api_client.models.hero_ban_stats import HeroBanStats as HeroBanStats
@@ -173,6 +180,7 @@ from deadlock_api_client.models.item_stats import ItemStats as ItemStats
 from deadlock_api_client.models.kill_death_stats import KillDeathStats as KillDeathStats
 from deadlock_api_client.models.leaderboard import Leaderboard as Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry as LeaderboardEntry
+from deadlock_api_client.models.list_servers_response import ListServersResponse as ListServersResponse
 from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse as MatchSpectateResponse
@@ -193,6 +201,8 @@ from deadlock_api_client.models.rank_predict_response import RankPredictResponse
 from deadlock_api_client.models.rank_prediction import RankPrediction as RankPrediction
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode
 from deadlock_api_client.models.server_region import ServerRegion as ServerRegion
+from deadlock_api_client.models.server_status_request import ServerStatusRequest as ServerStatusRequest
+from deadlock_api_client.models.server_status_response import ServerStatusResponse as ServerStatusResponse
 from deadlock_api_client.models.status import Status as Status
 from deadlock_api_client.models.status_services import StatusServices as StatusServices
 from deadlock_api_client.models.steam_profile import SteamProfile as SteamProfile

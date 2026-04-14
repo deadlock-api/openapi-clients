@@ -123,6 +123,7 @@ pub mod matches_api;
 pub mod patches_api;
 pub mod players_api;
 pub mod sql_api;
+pub mod servers_api;
 pub mod steam_api;
 
 pub mod configuration;

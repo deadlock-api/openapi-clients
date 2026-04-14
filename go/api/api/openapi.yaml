@@ -83,6 +83,11 @@ tags:
     Database exploration endpoints for direct SQL access.
     Provides functionality to execute custom SQL queries with rate limiting protection, list available tables, and inspect table schemas.
   name: SQL
+- description: |2
+
+    Game server status and listing endpoints.
+    Used by game servers to report their status and by clients to discover available servers.
+  name: Servers
 paths:
   /v1/analytics/ability-order-stats:
     get:
@@ -123,7 +128,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -371,7 +376,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -503,7 +508,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -578,7 +583,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -716,7 +721,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -848,7 +853,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -1034,7 +1039,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -1313,7 +1318,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -1568,7 +1573,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -1831,7 +1836,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -2099,7 +2104,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -2326,7 +2331,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -2592,7 +2597,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -2883,7 +2888,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -3103,7 +3108,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -3401,7 +3406,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -5639,7 +5644,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -5758,7 +5763,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1773446400
+          default: 1773532800
           format: int64
           nullable: true
           type: integer
@@ -6568,6 +6573,46 @@ paths:
       summary: Rank Predict
       tags:
       - Players
+  /v1/servers:
+    get:
+      description: Returns all currently active game servers.
+      operationId: list
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListServersResponse"
+          description: ""
+      summary: List Game Servers
+      tags:
+      - Servers
+  /v1/servers/status:
+    post:
+      description: "\nReports the current status of a game server.\nGame servers must\
+        \ call this endpoint at least once every 30 seconds to remain active.\nRequires\
+        \ a valid game server secret as a Bearer token.\n    "
+      operationId: status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServerStatusRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServerStatusResponse"
+          description: ""
+        "400":
+          description: Invalid request body.
+        "401":
+          description: Invalid or missing game server secret.
+      summary: Game Server Status
+      tags:
+      - Servers
   /v1/sql:
     get:
       description: "\nExecutes a SQL query on the database.\n\n### Rate Limits:\n\
@@ -7884,6 +7929,42 @@ components:
       - explore_n_y_c
       - internal
       type: string
+    GameServerInfo:
+      example:
+        last_updated: last_updated
+        current_player_count: 0
+        port: 0
+        ip: ip
+        game_mode: game_mode
+        region: region
+        server_id: server_id
+      properties:
+        current_player_count:
+          format: int32
+          minimum: 0
+          type: integer
+        game_mode:
+          type: string
+        ip:
+          type: string
+        last_updated:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+        region:
+          type: string
+        server_id:
+          type: string
+      required:
+      - current_player_count
+      - game_mode
+      - ip
+      - last_updated
+      - port
+      - region
+      - server_id
     GetCustomMatchIdResponse:
       example:
         match_id: 0
@@ -8713,6 +8794,30 @@ components:
             minimum: 0
             type: integer
           type: array
+    ListServersResponse:
+      example:
+        servers:
+        - last_updated: last_updated
+          current_player_count: 0
+          port: 0
+          ip: ip
+          game_mode: game_mode
+          region: region
+          server_id: server_id
+        - last_updated: last_updated
+          current_player_count: 0
+          port: 0
+          ip: ip
+          game_mode: game_mode
+          region: region
+          server_id: server_id
+      properties:
+        servers:
+          items:
+            $ref: "#/components/schemas/GameServerInfo"
+          type: array
+      required:
+      - servers
     MMRHistory:
       example:
         division: 0
@@ -9407,6 +9512,61 @@ components:
       - argentina
       - south_america
       type: string
+    ServerStatusRequest:
+      example:
+        current_player_count: 0
+        port: 0
+        ip: ip
+        game_mode: game_mode
+        region: region
+        server_id: server_id
+      properties:
+        current_player_count:
+          description: Current number of players on this server
+          format: int32
+          minimum: 0
+          type: integer
+        game_mode:
+          description: "Game mode this server is running (e.g. \"ranked\", \"unranked\"\
+            )"
+          type: string
+        ip:
+          description: IP address of the game server
+          type: string
+        port:
+          description: Port the game server is listening on
+          format: int32
+          minimum: 0
+          type: integer
+        region:
+          description: "Region the server is located in (e.g. \"eu\", \"na\", \"sa\"\
+            , \"asia\", \"oceania\")"
+          type: string
+        server_id:
+          description: Unique identifier for the game server
+          type: string
+      required:
+      - current_player_count
+      - game_mode
+      - ip
+      - port
+      - region
+      - server_id
+    ServerStatusResponse:
+      example:
+        ttl_secs: 0
+        server_id: server_id
+      properties:
+        server_id:
+          description: The server ID that reported status
+          type: string
+        ttl_secs:
+          description: TTL in seconds before this registration expires
+          format: int64
+          type: integer
+      required:
+      - server_id
+      - ttl_secs
     Status:
       example:
         services: ""

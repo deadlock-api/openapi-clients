@@ -344,6 +344,15 @@ export const GameMode = {
 export type GameMode = typeof GameMode[keyof typeof GameMode];
 
 
+export interface GameServerInfo {
+    'current_player_count': number;
+    'game_mode': string;
+    'ip': string;
+    'last_updated': string;
+    'port': number;
+    'region': string;
+    'server_id': string;
+}
 export interface GetCustomMatchIdResponse {
     'match_id': number;
 }
@@ -697,6 +706,9 @@ export interface LeaderboardEntry {
      */
     'top_hero_ids'?: Array<number>;
 }
+export interface ListServersResponse {
+    'servers': Array<GameServerInfo>;
+}
 export interface MMRHistory {
     'account_id': number;
     /**
@@ -945,6 +957,42 @@ export const ServerRegion = {
 export type ServerRegion = typeof ServerRegion[keyof typeof ServerRegion];
 
 
+export interface ServerStatusRequest {
+    /**
+     * Current number of players on this server
+     */
+    'current_player_count': number;
+    /**
+     * Game mode this server is running (e.g. \"ranked\", \"unranked\")
+     */
+    'game_mode': string;
+    /**
+     * IP address of the game server
+     */
+    'ip': string;
+    /**
+     * Port the game server is listening on
+     */
+    'port': number;
+    /**
+     * Region the server is located in (e.g. \"eu\", \"na\", \"sa\", \"asia\", \"oceania\")
+     */
+    'region': string;
+    /**
+     * Unique identifier for the game server
+     */
+    'server_id': string;
+}
+export interface ServerStatusResponse {
+    /**
+     * The server ID that reported status
+     */
+    'server_id': string;
+    /**
+     * TTL in seconds before this registration expires
+     */
+    'ttl_secs': number;
+}
 export interface Status {
     /**
      * Status of the services.
@@ -10405,6 +10453,176 @@ export class SQLApi extends BaseAPI {
      */
     public tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig) {
         return SQLApiFp(this.configuration).tableSchema(requestParameters.table, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * ServersApi - axios parameter creator
+ */
+export const ServersApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Returns all currently active game servers.
+         * @summary List Game Servers
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        list: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/servers`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Reports the current status of a game server. Game servers must call this endpoint at least once every 30 seconds to remain active. Requires a valid game server secret as a Bearer token.     
+         * @summary Game Server Status
+         * @param {ServerStatusRequest} serverStatusRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        status: async (serverStatusRequest: ServerStatusRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'serverStatusRequest' is not null or undefined
+            assertParamExists('status', 'serverStatusRequest', serverStatusRequest)
+            const localVarPath = `/v1/servers/status`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(serverStatusRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ServersApi - functional programming interface
+ */
+export const ServersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ServersApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Returns all currently active game servers.
+         * @summary List Game Servers
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async list(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListServersResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.list(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ServersApi.list']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Reports the current status of a game server. Game servers must call this endpoint at least once every 30 seconds to remain active. Requires a valid game server secret as a Bearer token.     
+         * @summary Game Server Status
+         * @param {ServerStatusRequest} serverStatusRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async status(serverStatusRequest: ServerStatusRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServerStatusResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.status(serverStatusRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ServersApi.status']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * ServersApi - factory interface
+ */
+export const ServersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ServersApiFp(configuration)
+    return {
+        /**
+         * Returns all currently active game servers.
+         * @summary List Game Servers
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        list(options?: RawAxiosRequestConfig): AxiosPromise<ListServersResponse> {
+            return localVarFp.list(options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Reports the current status of a game server. Game servers must call this endpoint at least once every 30 seconds to remain active. Requires a valid game server secret as a Bearer token.     
+         * @summary Game Server Status
+         * @param {ServersApiStatusRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        status(requestParameters: ServersApiStatusRequest, options?: RawAxiosRequestConfig): AxiosPromise<ServerStatusResponse> {
+            return localVarFp.status(requestParameters.serverStatusRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for status operation in ServersApi.
+ */
+export interface ServersApiStatusRequest {
+    readonly serverStatusRequest: ServerStatusRequest
+}
+
+/**
+ * ServersApi - object-oriented interface
+ */
+export class ServersApi extends BaseAPI {
+    /**
+     * Returns all currently active game servers.
+     * @summary List Game Servers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public list(options?: RawAxiosRequestConfig) {
+        return ServersApiFp(this.configuration).list(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Reports the current status of a game server. Game servers must call this endpoint at least once every 30 seconds to remain active. Requires a valid game server secret as a Bearer token.     
+     * @summary Game Server Status
+     * @param {ServersApiStatusRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public status(requestParameters: ServersApiStatusRequest, options?: RawAxiosRequestConfig) {
+        return ServersApiFp(this.configuration).status(requestParameters.serverStatusRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

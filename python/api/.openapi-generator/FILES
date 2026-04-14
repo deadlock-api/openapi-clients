@@ -17,6 +17,7 @@ deadlock_api_client/api/matches_api.py
 deadlock_api_client/api/mmr_api.py
 deadlock_api_client/api/patches_api.py
 deadlock_api_client/api/players_api.py
+deadlock_api_client/api/servers_api.py
 deadlock_api_client/api/sql_api.py
 deadlock_api_client/api/steam_api.py
 deadlock_api_client/api_client.py
@@ -49,6 +50,7 @@ deadlock_api_client/models/create_custom_response.py
 deadlock_api_client/models/distribution_entry.py
 deadlock_api_client/models/enemy_stats.py
 deadlock_api_client/models/game_mode.py
+deadlock_api_client/models/game_server_info.py
 deadlock_api_client/models/get_custom_match_id_response.py
 deadlock_api_client/models/hash_map_value.py
 deadlock_api_client/models/hero_ban_stats.py
@@ -63,6 +65,7 @@ deadlock_api_client/models/item_stats.py
 deadlock_api_client/models/kill_death_stats.py
 deadlock_api_client/models/leaderboard.py
 deadlock_api_client/models/leaderboard_entry.py
+deadlock_api_client/models/list_servers_response.py
 deadlock_api_client/models/match_salts_response.py
 deadlock_api_client/models/match_spectate_response.py
 deadlock_api_client/models/mate_stats.py
@@ -83,6 +86,8 @@ deadlock_api_client/models/rank_predict_response.py
 deadlock_api_client/models/rank_prediction.py
 deadlock_api_client/models/region_mode.py
 deadlock_api_client/models/server_region.py
+deadlock_api_client/models/server_status_request.py
+deadlock_api_client/models/server_status_response.py
 deadlock_api_client/models/status.py
 deadlock_api_client/models/status_services.py
 deadlock_api_client/models/steam_profile.py
@@ -120,6 +125,7 @@ docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
 docs/GameMode.md
+docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
@@ -137,6 +143,7 @@ docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
+docs/ListServersResponse.md
 docs/MMRApi.md
 docs/MMRHistory.md
 docs/MatchSaltsResponse.md
@@ -162,6 +169,9 @@ docs/RankPrediction.md
 docs/RegionMode.md
 docs/SQLApi.md
 docs/ServerRegion.md
+docs/ServerStatusRequest.md
+docs/ServerStatusResponse.md
+docs/ServersApi.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
@@ -205,6 +215,7 @@ test/test_custom_matches_api.py
 test/test_distribution_entry.py
 test/test_enemy_stats.py
 test/test_game_mode.py
+test/test_game_server_info.py
 test/test_get_custom_match_id_response.py
 test/test_hash_map_value.py
 test/test_hero_ban_stats.py
@@ -222,6 +233,7 @@ test/test_kill_death_stats.py
 test/test_leaderboard.py
 test/test_leaderboard_api.py
 test/test_leaderboard_entry.py
+test/test_list_servers_response.py
 test/test_match_salts_response.py
 test/test_match_spectate_response.py
 test/test_matches_api.py
@@ -246,6 +258,9 @@ test/test_rank_predict_response.py
 test/test_rank_prediction.py
 test/test_region_mode.py
 test/test_server_region.py
+test/test_server_status_request.py
+test/test_server_status_response.py
+test/test_servers_api.py
 test/test_sql_api.py
 test/test_status.py
 test/test_status_services.py

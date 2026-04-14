@@ -35,6 +35,7 @@ docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
 docs/GameMode.md
+docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
@@ -52,6 +53,7 @@ docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
+docs/ListServersResponse.md
 docs/MMRApi.md
 docs/MMRHistory.md
 docs/MatchSaltsResponse.md
@@ -77,6 +79,9 @@ docs/RankPrediction.md
 docs/RegionMode.md
 docs/SQLApi.md
 docs/ServerRegion.md
+docs/ServerStatusRequest.md
+docs/ServerStatusResponse.md
+docs/ServersApi.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md

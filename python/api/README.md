@@ -87,7 +87,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1773446400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773446400)
+    min_unix_timestamp = 1773532800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1773532800)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -182,6 +182,8 @@ Class | Method | HTTP request | Description
 *SQLApi* | [**list_tables**](docs/SQLApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**table_schema**](docs/SQLApi.md#table_schema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
+*ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers
+*ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
 *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steam_search**](docs/SteamApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 
@@ -213,6 +215,7 @@ Class | Method | HTTP request | Description
  - [DistributionEntry](docs/DistributionEntry.md)
  - [EnemyStats](docs/EnemyStats.md)
  - [GameMode](docs/GameMode.md)
+ - [GameServerInfo](docs/GameServerInfo.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [HashMapValue](docs/HashMapValue.md)
  - [HeroBanStats](docs/HeroBanStats.md)
@@ -227,6 +230,7 @@ Class | Method | HTTP request | Description
  - [KillDeathStats](docs/KillDeathStats.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
+ - [ListServersResponse](docs/ListServersResponse.md)
  - [MMRHistory](docs/MMRHistory.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
@@ -247,6 +251,8 @@ Class | Method | HTTP request | Description
  - [RankPrediction](docs/RankPrediction.md)
  - [RegionMode](docs/RegionMode.md)
  - [ServerRegion](docs/ServerRegion.md)
+ - [ServerStatusRequest](docs/ServerStatusRequest.md)
+ - [ServerStatusResponse](docs/ServerStatusResponse.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamProfile](docs/SteamProfile.md)

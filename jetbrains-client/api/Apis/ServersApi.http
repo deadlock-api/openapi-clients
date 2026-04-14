@@ -1,0 +1,22 @@
+## ServersApi
+
+### List Game Servers
+## List Game Servers
+GET https://api.deadlock-api.com/v1/servers
+Accept: application/json
+
+### Game Server Status
+## Game Server Status
+POST https://api.deadlock-api.com/v1/servers/status
+Content-Type: application/json
+Accept: application/json
+
+{
+ "current_player_count": "<number>",
+ "game_mode": "<string>",
+ "ip": "<string>",
+ "port": "<number>",
+ "region": "<string>",
+ "server_id": "<string>"
+}
+

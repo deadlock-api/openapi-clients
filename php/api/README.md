@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1773446400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1773532800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -168,6 +168,8 @@ Class | Method | HTTP request | Description
 *SQLApi* | [**listTables**](docs/Api/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/Api/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](docs/Api/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
+*ServersApi* | [**callList**](docs/Api/ServersApi.md#calllist) | **GET** /v1/servers | List Game Servers
+*ServersApi* | [**status**](docs/Api/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
 *SteamApi* | [**steam**](docs/Api/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steamSearch**](docs/Api/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 
@@ -198,6 +200,7 @@ Class | Method | HTTP request | Description
 - [DistributionEntry](docs/Model/DistributionEntry.md)
 - [EnemyStats](docs/Model/EnemyStats.md)
 - [GameMode](docs/Model/GameMode.md)
+- [GameServerInfo](docs/Model/GameServerInfo.md)
 - [GetCustomMatchIdResponse](docs/Model/GetCustomMatchIdResponse.md)
 - [HashMapValue](docs/Model/HashMapValue.md)
 - [HeroBanStats](docs/Model/HeroBanStats.md)
@@ -212,6 +215,7 @@ Class | Method | HTTP request | Description
 - [KillDeathStats](docs/Model/KillDeathStats.md)
 - [Leaderboard](docs/Model/Leaderboard.md)
 - [LeaderboardEntry](docs/Model/LeaderboardEntry.md)
+- [ListServersResponse](docs/Model/ListServersResponse.md)
 - [MMRHistory](docs/Model/MMRHistory.md)
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)
 - [MatchSpectateResponse](docs/Model/MatchSpectateResponse.md)
@@ -232,6 +236,8 @@ Class | Method | HTTP request | Description
 - [RankPrediction](docs/Model/RankPrediction.md)
 - [RegionMode](docs/Model/RegionMode.md)
 - [ServerRegion](docs/Model/ServerRegion.md)
+- [ServerStatusRequest](docs/Model/ServerStatusRequest.md)
+- [ServerStatusResponse](docs/Model/ServerStatusResponse.md)
 - [Status](docs/Model/Status.md)
 - [StatusServices](docs/Model/StatusServices.md)
 - [SteamProfile](docs/Model/SteamProfile.md)

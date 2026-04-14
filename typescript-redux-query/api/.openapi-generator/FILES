@@ -15,6 +15,7 @@ src/apis/MatchesApi.ts
 src/apis/PatchesApi.ts
 src/apis/PlayersApi.ts
 src/apis/SQLApi.ts
+src/apis/ServersApi.ts
 src/apis/SteamApi.ts
 src/apis/index.ts
 src/index.ts
@@ -43,6 +44,7 @@ src/models/CreateCustomResponse.ts
 src/models/DistributionEntry.ts
 src/models/EnemyStats.ts
 src/models/GameMode.ts
+src/models/GameServerInfo.ts
 src/models/GetCustomMatchIdResponse.ts
 src/models/HashMapValue.ts
 src/models/HeroBanStats.ts
@@ -57,6 +59,7 @@ src/models/ItemStats.ts
 src/models/KillDeathStats.ts
 src/models/Leaderboard.ts
 src/models/LeaderboardEntry.ts
+src/models/ListServersResponse.ts
 src/models/MMRHistory.ts
 src/models/MatchSaltsResponse.ts
 src/models/MatchSpectateResponse.ts
@@ -77,6 +80,8 @@ src/models/RankPredictResponse.ts
 src/models/RankPrediction.ts
 src/models/RegionMode.ts
 src/models/ServerRegion.ts
+src/models/ServerStatusRequest.ts
+src/models/ServerStatusResponse.ts
 src/models/Status.ts
 src/models/StatusServices.ts
 src/models/SteamProfile.ts

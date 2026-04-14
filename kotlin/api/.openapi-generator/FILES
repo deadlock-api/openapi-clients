@@ -30,6 +30,7 @@ docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
 docs/GameMode.md
+docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
@@ -47,6 +48,7 @@ docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
+docs/ListServersResponse.md
 docs/MMRApi.md
 docs/MMRHistory.md
 docs/MatchSaltsResponse.md
@@ -72,6 +74,9 @@ docs/RankPrediction.md
 docs/RegionMode.md
 docs/SQLApi.md
 docs/ServerRegion.md
+docs/ServerStatusRequest.md
+docs/ServerStatusResponse.md
+docs/ServersApi.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
@@ -92,6 +97,7 @@ src/main/kotlin/deadlock_api_client/apis/MatchesApi.kt
 src/main/kotlin/deadlock_api_client/apis/PatchesApi.kt
 src/main/kotlin/deadlock_api_client/apis/PlayersApi.kt
 src/main/kotlin/deadlock_api_client/apis/SQLApi.kt
+src/main/kotlin/deadlock_api_client/apis/ServersApi.kt
 src/main/kotlin/deadlock_api_client/apis/SteamApi.kt
 src/main/kotlin/deadlock_api_client/infrastructure/ApiAbstractions.kt
 src/main/kotlin/deadlock_api_client/infrastructure/ApiClient.kt
@@ -135,6 +141,7 @@ src/main/kotlin/deadlock_api_client/models/CreateCustomResponse.kt
 src/main/kotlin/deadlock_api_client/models/DistributionEntry.kt
 src/main/kotlin/deadlock_api_client/models/EnemyStats.kt
 src/main/kotlin/deadlock_api_client/models/GameMode.kt
+src/main/kotlin/deadlock_api_client/models/GameServerInfo.kt
 src/main/kotlin/deadlock_api_client/models/GetCustomMatchIdResponse.kt
 src/main/kotlin/deadlock_api_client/models/HashMapValue.kt
 src/main/kotlin/deadlock_api_client/models/HeroBanStats.kt
@@ -149,6 +156,7 @@ src/main/kotlin/deadlock_api_client/models/ItemStats.kt
 src/main/kotlin/deadlock_api_client/models/KillDeathStats.kt
 src/main/kotlin/deadlock_api_client/models/Leaderboard.kt
 src/main/kotlin/deadlock_api_client/models/LeaderboardEntry.kt
+src/main/kotlin/deadlock_api_client/models/ListServersResponse.kt
 src/main/kotlin/deadlock_api_client/models/MMRHistory.kt
 src/main/kotlin/deadlock_api_client/models/MatchSaltsResponse.kt
 src/main/kotlin/deadlock_api_client/models/MatchSpectateResponse.kt
@@ -169,6 +177,8 @@ src/main/kotlin/deadlock_api_client/models/RankPredictResponse.kt
 src/main/kotlin/deadlock_api_client/models/RankPrediction.kt
 src/main/kotlin/deadlock_api_client/models/RegionMode.kt
 src/main/kotlin/deadlock_api_client/models/ServerRegion.kt
+src/main/kotlin/deadlock_api_client/models/ServerStatusRequest.kt
+src/main/kotlin/deadlock_api_client/models/ServerStatusResponse.kt
 src/main/kotlin/deadlock_api_client/models/Status.kt
 src/main/kotlin/deadlock_api_client/models/StatusServices.kt
 src/main/kotlin/deadlock_api_client/models/SteamProfile.kt
@@ -187,6 +197,7 @@ src/test/kotlin/deadlock_api_client/apis/MatchesApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/PatchesApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/PlayersApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/SQLApiTest.kt
+src/test/kotlin/deadlock_api_client/apis/ServersApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/SteamApiTest.kt
 src/test/kotlin/deadlock_api_client/models/APIInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchGameModeTest.kt
@@ -213,6 +224,7 @@ src/test/kotlin/deadlock_api_client/models/CreateCustomResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/DistributionEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/EnemyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/GameModeTest.kt
+src/test/kotlin/deadlock_api_client/models/GameServerInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/GetCustomMatchIdResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapValueTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroBanStatsTest.kt
@@ -227,6 +239,7 @@ src/test/kotlin/deadlock_api_client/models/ItemStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/KillDeathStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/LeaderboardEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/LeaderboardTest.kt
+src/test/kotlin/deadlock_api_client/models/ListServersResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/MMRHistoryTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSaltsResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSpectateResponseTest.kt
@@ -247,6 +260,8 @@ src/test/kotlin/deadlock_api_client/models/RankPredictResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/RankPredictionTest.kt
 src/test/kotlin/deadlock_api_client/models/RegionModeTest.kt
 src/test/kotlin/deadlock_api_client/models/ServerRegionTest.kt
+src/test/kotlin/deadlock_api_client/models/ServerStatusRequestTest.kt
+src/test/kotlin/deadlock_api_client/models/ServerStatusResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusServicesTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamProfileTest.kt

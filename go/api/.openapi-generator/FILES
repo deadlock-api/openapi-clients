@@ -14,6 +14,7 @@ api_matches.go
 api_mmr.go
 api_patches.go
 api_players.go
+api_servers.go
 api_sql.go
 api_steam.go
 client.go
@@ -47,6 +48,7 @@ docs/CustomMatchesAPI.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
 docs/GameMode.md
+docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
@@ -64,6 +66,7 @@ docs/KillDeathStats.md
 docs/Leaderboard.md
 docs/LeaderboardAPI.md
 docs/LeaderboardEntry.md
+docs/ListServersResponse.md
 docs/MMRAPI.md
 docs/MMRHistory.md
 docs/MatchSaltsResponse.md
@@ -89,6 +92,9 @@ docs/RankPrediction.md
 docs/RegionMode.md
 docs/SQLAPI.md
 docs/ServerRegion.md
+docs/ServerStatusRequest.md
+docs/ServerStatusResponse.md
+docs/ServersAPI.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamAPI.md
@@ -124,6 +130,7 @@ model_create_custom_response.go
 model_distribution_entry.go
 model_enemy_stats.go
 model_game_mode.go
+model_game_server_info.go
 model_get_custom_match_id_response.go
 model_hash_map_value.go
 model_hero_ban_stats.go
@@ -138,6 +145,7 @@ model_item_stats.go
 model_kill_death_stats.go
 model_leaderboard.go
 model_leaderboard_entry.go
+model_list_servers_response.go
 model_match_salts_response.go
 model_match_spectate_response.go
 model_mate_stats.go
@@ -158,6 +166,8 @@ model_rank_predict_response.go
 model_rank_prediction.go
 model_region_mode.go
 model_server_region.go
+model_server_status_request.go
+model_server_status_response.go
 model_status.go
 model_status_services.go
 model_steam_profile.go
@@ -176,6 +186,7 @@ test/api_matches_test.go
 test/api_mmr_test.go
 test/api_patches_test.go
 test/api_players_test.go
+test/api_servers_test.go
 test/api_sql_test.go
 test/api_steam_test.go
 utils.go

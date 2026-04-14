@@ -16,6 +16,7 @@ docs/apis/MatchesApi.md
 docs/apis/PatchesApi.md
 docs/apis/PlayersApi.md
 docs/apis/SQLApi.md
+docs/apis/ServersApi.md
 docs/apis/SteamApi.md
 docs/models/APIInfo.md
 docs/models/ActiveMatch.md
@@ -42,6 +43,7 @@ docs/models/CreateCustomResponse.md
 docs/models/DistributionEntry.md
 docs/models/EnemyStats.md
 docs/models/GameMode.md
+docs/models/GameServerInfo.md
 docs/models/GetCustomMatchIdResponse.md
 docs/models/HashMapValue.md
 docs/models/HeroBanStats.md
@@ -56,6 +58,7 @@ docs/models/ItemStats.md
 docs/models/KillDeathStats.md
 docs/models/Leaderboard.md
 docs/models/LeaderboardEntry.md
+docs/models/ListServersResponse.md
 docs/models/MMRHistory.md
 docs/models/MatchSaltsResponse.md
 docs/models/MatchSpectateResponse.md
@@ -76,6 +79,8 @@ docs/models/RankPredictResponse.md
 docs/models/RankPrediction.md
 docs/models/RegionMode.md
 docs/models/ServerRegion.md
+docs/models/ServerStatusRequest.md
+docs/models/ServerStatusResponse.md
 docs/models/Status.md
 docs/models/StatusServices.md
 docs/models/SteamProfile.md
@@ -98,6 +103,7 @@ src/DeadlockApiClient.Test/Api/MatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/PatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/PlayersApiTests.cs
 src/DeadlockApiClient.Test/Api/SQLApiTests.cs
+src/DeadlockApiClient.Test/Api/ServersApiTests.cs
 src/DeadlockApiClient.Test/Api/SteamApiTests.cs
 src/DeadlockApiClient.Test/DeadlockApiClient.Test.csproj
 src/DeadlockApiClient.Test/Model/APIInfoTests.cs
@@ -125,6 +131,7 @@ src/DeadlockApiClient.Test/Model/CreateCustomResponseTests.cs
 src/DeadlockApiClient.Test/Model/DistributionEntryTests.cs
 src/DeadlockApiClient.Test/Model/EnemyStatsTests.cs
 src/DeadlockApiClient.Test/Model/GameModeTests.cs
+src/DeadlockApiClient.Test/Model/GameServerInfoTests.cs
 src/DeadlockApiClient.Test/Model/GetCustomMatchIdResponseTests.cs
 src/DeadlockApiClient.Test/Model/HashMapValueTests.cs
 src/DeadlockApiClient.Test/Model/HeroBanStatsTests.cs
@@ -139,6 +146,7 @@ src/DeadlockApiClient.Test/Model/ItemStatsTests.cs
 src/DeadlockApiClient.Test/Model/KillDeathStatsTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardEntryTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardTests.cs
+src/DeadlockApiClient.Test/Model/ListServersResponseTests.cs
 src/DeadlockApiClient.Test/Model/MMRHistoryTests.cs
 src/DeadlockApiClient.Test/Model/MatchSaltsResponseTests.cs
 src/DeadlockApiClient.Test/Model/MatchSpectateResponseTests.cs
@@ -159,6 +167,8 @@ src/DeadlockApiClient.Test/Model/RankPredictResponseTests.cs
 src/DeadlockApiClient.Test/Model/RankPredictionTests.cs
 src/DeadlockApiClient.Test/Model/RegionModeTests.cs
 src/DeadlockApiClient.Test/Model/ServerRegionTests.cs
+src/DeadlockApiClient.Test/Model/ServerStatusRequestTests.cs
+src/DeadlockApiClient.Test/Model/ServerStatusResponseTests.cs
 src/DeadlockApiClient.Test/Model/StatusServicesTests.cs
 src/DeadlockApiClient.Test/Model/StatusTests.cs
 src/DeadlockApiClient.Test/Model/SteamProfileTests.cs
@@ -179,6 +189,7 @@ src/DeadlockApiClient/Api/MatchesApi.cs
 src/DeadlockApiClient/Api/PatchesApi.cs
 src/DeadlockApiClient/Api/PlayersApi.cs
 src/DeadlockApiClient/Api/SQLApi.cs
+src/DeadlockApiClient/Api/ServersApi.cs
 src/DeadlockApiClient/Api/SteamApi.cs
 src/DeadlockApiClient/Client/ApiException.cs
 src/DeadlockApiClient/Client/ApiFactory.cs
@@ -229,6 +240,7 @@ src/DeadlockApiClient/Model/CreateCustomResponse.cs
 src/DeadlockApiClient/Model/DistributionEntry.cs
 src/DeadlockApiClient/Model/EnemyStats.cs
 src/DeadlockApiClient/Model/GameMode.cs
+src/DeadlockApiClient/Model/GameServerInfo.cs
 src/DeadlockApiClient/Model/GetCustomMatchIdResponse.cs
 src/DeadlockApiClient/Model/HashMapValue.cs
 src/DeadlockApiClient/Model/HeroBanStats.cs
@@ -243,6 +255,7 @@ src/DeadlockApiClient/Model/ItemStats.cs
 src/DeadlockApiClient/Model/KillDeathStats.cs
 src/DeadlockApiClient/Model/Leaderboard.cs
 src/DeadlockApiClient/Model/LeaderboardEntry.cs
+src/DeadlockApiClient/Model/ListServersResponse.cs
 src/DeadlockApiClient/Model/MMRHistory.cs
 src/DeadlockApiClient/Model/MatchSaltsResponse.cs
 src/DeadlockApiClient/Model/MatchSpectateResponse.cs
@@ -263,6 +276,8 @@ src/DeadlockApiClient/Model/RankPredictResponse.cs
 src/DeadlockApiClient/Model/RankPrediction.cs
 src/DeadlockApiClient/Model/RegionMode.cs
 src/DeadlockApiClient/Model/ServerRegion.cs
+src/DeadlockApiClient/Model/ServerStatusRequest.cs
+src/DeadlockApiClient/Model/ServerStatusResponse.cs
 src/DeadlockApiClient/Model/Status.cs
 src/DeadlockApiClient/Model/StatusServices.cs
 src/DeadlockApiClient/Model/SteamProfile.cs

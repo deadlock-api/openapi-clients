@@ -13,5 +13,6 @@ from deadlock_api_client.api.matches_api import MatchesApi
 from deadlock_api_client.api.patches_api import PatchesApi
 from deadlock_api_client.api.players_api import PlayersApi
 from deadlock_api_client.api.sql_api import SQLApi
+from deadlock_api_client.api.servers_api import ServersApi
 from deadlock_api_client.api.steam_api import SteamApi
 

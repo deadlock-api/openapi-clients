@@ -124,6 +124,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
 | *SQLApi* | [**tableSchema**](docs/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema |
+| *ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers |
+| *ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status |
 | *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
 | *SteamApi* | [**steamSearch**](docs/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 
@@ -156,6 +158,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.DistributionEntry](docs/DistributionEntry.md)
  - [deadlock_api_client.models.EnemyStats](docs/EnemyStats.md)
  - [deadlock_api_client.models.GameMode](docs/GameMode.md)
+ - [deadlock_api_client.models.GameServerInfo](docs/GameServerInfo.md)
  - [deadlock_api_client.models.GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [deadlock_api_client.models.HashMapValue](docs/HashMapValue.md)
  - [deadlock_api_client.models.HeroBanStats](docs/HeroBanStats.md)
@@ -170,6 +173,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.KillDeathStats](docs/KillDeathStats.md)
  - [deadlock_api_client.models.Leaderboard](docs/Leaderboard.md)
  - [deadlock_api_client.models.LeaderboardEntry](docs/LeaderboardEntry.md)
+ - [deadlock_api_client.models.ListServersResponse](docs/ListServersResponse.md)
  - [deadlock_api_client.models.MMRHistory](docs/MMRHistory.md)
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [deadlock_api_client.models.MatchSpectateResponse](docs/MatchSpectateResponse.md)
@@ -190,6 +194,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.RankPrediction](docs/RankPrediction.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
  - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
+ - [deadlock_api_client.models.ServerStatusRequest](docs/ServerStatusRequest.md)
+ - [deadlock_api_client.models.ServerStatusResponse](docs/ServerStatusResponse.md)
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)

@@ -15,6 +15,7 @@ api/Api/MatchesApi.php
 api/Api/PatchesApi.php
 api/Api/PlayersApi.php
 api/Api/SQLApi.php
+api/Api/ServersApi.php
 api/Api/SteamApi.php
 api/ApiException.php
 api/Configuration.php
@@ -45,6 +46,7 @@ api/Model/CreateCustomResponse.php
 api/Model/DistributionEntry.php
 api/Model/EnemyStats.php
 api/Model/GameMode.php
+api/Model/GameServerInfo.php
 api/Model/GetCustomMatchIdResponse.php
 api/Model/HashMapValue.php
 api/Model/HeroBanStats.php
@@ -59,6 +61,7 @@ api/Model/ItemStats.php
 api/Model/KillDeathStats.php
 api/Model/Leaderboard.php
 api/Model/LeaderboardEntry.php
+api/Model/ListServersResponse.php
 api/Model/MMRHistory.php
 api/Model/MatchSaltsResponse.php
 api/Model/MatchSpectateResponse.php
@@ -80,6 +83,8 @@ api/Model/RankPredictResponse.php
 api/Model/RankPrediction.php
 api/Model/RegionMode.php
 api/Model/ServerRegion.php
+api/Model/ServerStatusRequest.php
+api/Model/ServerStatusResponse.php
 api/Model/Status.php
 api/Model/StatusServices.php
 api/Model/SteamProfile.php
@@ -100,6 +105,7 @@ docs/Api/MatchesApi.md
 docs/Api/PatchesApi.md
 docs/Api/PlayersApi.md
 docs/Api/SQLApi.md
+docs/Api/ServersApi.md
 docs/Api/SteamApi.md
 docs/Model/APIInfo.md
 docs/Model/ActiveMatch.md
@@ -126,6 +132,7 @@ docs/Model/CreateCustomResponse.md
 docs/Model/DistributionEntry.md
 docs/Model/EnemyStats.md
 docs/Model/GameMode.md
+docs/Model/GameServerInfo.md
 docs/Model/GetCustomMatchIdResponse.md
 docs/Model/HashMapValue.md
 docs/Model/HeroBanStats.md
@@ -140,6 +147,7 @@ docs/Model/ItemStats.md
 docs/Model/KillDeathStats.md
 docs/Model/Leaderboard.md
 docs/Model/LeaderboardEntry.md
+docs/Model/ListServersResponse.md
 docs/Model/MMRHistory.md
 docs/Model/MatchSaltsResponse.md
 docs/Model/MatchSpectateResponse.md
@@ -160,6 +168,8 @@ docs/Model/RankPredictResponse.md
 docs/Model/RankPrediction.md
 docs/Model/RegionMode.md
 docs/Model/ServerRegion.md
+docs/Model/ServerStatusRequest.md
+docs/Model/ServerStatusResponse.md
 docs/Model/Status.md
 docs/Model/StatusServices.md
 docs/Model/SteamProfile.md
@@ -180,6 +190,7 @@ test/Api/MatchesApiTest.php
 test/Api/PatchesApiTest.php
 test/Api/PlayersApiTest.php
 test/Api/SQLApiTest.php
+test/Api/ServersApiTest.php
 test/Api/SteamApiTest.php
 test/Model/APIInfoTest.php
 test/Model/ActiveMatchGameModeTest.php
@@ -206,6 +217,7 @@ test/Model/CreateCustomResponseTest.php
 test/Model/DistributionEntryTest.php
 test/Model/EnemyStatsTest.php
 test/Model/GameModeTest.php
+test/Model/GameServerInfoTest.php
 test/Model/GetCustomMatchIdResponseTest.php
 test/Model/HashMapValueTest.php
 test/Model/HeroBanStatsTest.php
@@ -220,6 +232,7 @@ test/Model/ItemStatsTest.php
 test/Model/KillDeathStatsTest.php
 test/Model/LeaderboardEntryTest.php
 test/Model/LeaderboardTest.php
+test/Model/ListServersResponseTest.php
 test/Model/MMRHistoryTest.php
 test/Model/MatchSaltsResponseTest.php
 test/Model/MatchSpectateResponseTest.php
@@ -240,6 +253,8 @@ test/Model/RankPredictResponseTest.php
 test/Model/RankPredictionTest.php
 test/Model/RegionModeTest.php
 test/Model/ServerRegionTest.php
+test/Model/ServerStatusRequestTest.php
+test/Model/ServerStatusResponseTest.php
 test/Model/StatusServicesTest.php
 test/Model/StatusTest.php
 test/Model/SteamProfileTest.php

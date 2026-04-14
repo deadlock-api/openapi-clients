@@ -72,6 +72,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new EnemyStatsJsonConverter());
             _jsonOptions.Converters.Add(new GameModeJsonConverter());
             _jsonOptions.Converters.Add(new GameModeNullableJsonConverter());
+            _jsonOptions.Converters.Add(new GameServerInfoJsonConverter());
             _jsonOptions.Converters.Add(new GetCustomMatchIdResponseJsonConverter());
             _jsonOptions.Converters.Add(new HashMapValueJsonConverter());
             _jsonOptions.Converters.Add(new HeroBanStatsJsonConverter());
@@ -86,6 +87,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new KillDeathStatsJsonConverter());
             _jsonOptions.Converters.Add(new LeaderboardJsonConverter());
             _jsonOptions.Converters.Add(new LeaderboardEntryJsonConverter());
+            _jsonOptions.Converters.Add(new ListServersResponseJsonConverter());
             _jsonOptions.Converters.Add(new MMRHistoryJsonConverter());
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());
             _jsonOptions.Converters.Add(new MatchSpectateResponseJsonConverter());
@@ -108,6 +110,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RegionModeNullableJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionNullableJsonConverter());
+            _jsonOptions.Converters.Add(new ServerStatusRequestJsonConverter());
+            _jsonOptions.Converters.Add(new ServerStatusResponseJsonConverter());
             _jsonOptions.Converters.Add(new StatusJsonConverter());
             _jsonOptions.Converters.Add(new StatusServicesJsonConverter());
             _jsonOptions.Converters.Add(new SteamProfileJsonConverter());
@@ -130,6 +134,7 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<PatchesApiEvents>();
             _services.AddSingleton<PlayersApiEvents>();
             _services.AddSingleton<SQLApiEvents>();
+            _services.AddSingleton<ServersApiEvents>();
             _services.AddSingleton<SteamApiEvents>();
         }
 
@@ -160,6 +165,7 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IPatchesApi, PatchesApi>("DeadlockApiClient.Api.IPatchesApi", client));
             builders.Add(_services.AddHttpClient<IPlayersApi, PlayersApi>("DeadlockApiClient.Api.IPlayersApi", client));
             builders.Add(_services.AddHttpClient<ISQLApi, SQLApi>("DeadlockApiClient.Api.ISQLApi", client));
+            builders.Add(_services.AddHttpClient<IServersApi, ServersApi>("DeadlockApiClient.Api.IServersApi", client));
             builders.Add(_services.AddHttpClient<ISteamApi, SteamApi>("DeadlockApiClient.Api.ISteamApi", client));
             
             if (builder != null)
