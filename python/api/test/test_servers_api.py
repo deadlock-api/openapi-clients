@@ -26,6 +26,13 @@ class TestServersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_ingest(self) -> None:
+        """Test case for ingest
+
+        Game Server Metric Ingest
+        """
+        pass
+
     def test_list(self) -> None:
         """Test case for list
 

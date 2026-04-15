@@ -75,6 +75,7 @@ Class | Method | HTTP request | Description
 *SQLApi* | [**listTables**](Apis/SQLApi.http#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](Apis/SQLApi.http#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](Apis/SQLApi.http#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
+*ServersApi* | [**ingest**](Apis/ServersApi.http#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 *ServersApi* | [**list**](Apis/ServersApi.http#list) | **GET** /v1/servers | List Game Servers
 *ServersApi* | [**status**](Apis/ServersApi.http#status) | **POST** /v1/servers/status | Game Server Status
 *SteamApi* | [**steam**](Apis/SteamApi.http#steam) | **GET** /v1/players/steam | Batch Steam Profile

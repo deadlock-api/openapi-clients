@@ -124,6 +124,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
 | *SQLApi* | [**tableSchema**](docs/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema |
+| *ServersApi* | [**ingest**](docs/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest |
 | *ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers |
 | *ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status |
 | *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
@@ -178,6 +179,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [deadlock_api_client.models.MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [deadlock_api_client.models.MateStats](docs/MateStats.md)
+ - [deadlock_api_client.models.MetricIngestRequest](docs/MetricIngestRequest.md)
  - [deadlock_api_client.models.Patch](docs/Patch.md)
  - [deadlock_api_client.models.PatchCategory](docs/PatchCategory.md)
  - [deadlock_api_client.models.PatchGuid](docs/PatchGuid.md)

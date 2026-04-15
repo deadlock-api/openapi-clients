@@ -751,6 +751,44 @@ export interface MateStats {
     'mate_id': number;
     'wins': number;
 }
+export interface MetricIngestRequest {
+    /**
+     * Steam account id (`UInt32`) of the player this metric is about
+     */
+    'account_id': number;
+    /**
+     * Game mode this metric applies to (e.g. \"speedrun\")
+     */
+    'game_mode': string;
+    /**
+     * Optional game-mode version tag (e.g. \"v2\", \"season3\") for versioning leaderboards
+     */
+    'game_mode_version'?: string | null;
+    /**
+     * Optional map identifier the metric was produced on
+     */
+    'map'?: string | null;
+    /**
+     * Free-form key/value metadata for game-mode-specific context
+     */
+    'metadata'?: { [key: string]: string; };
+    /**
+     * Name of the metric (e.g. `run_time`)
+     */
+    'metric_name': string;
+    /**
+     * The primary numeric measurement for this metric
+     */
+    'metric_value': number;
+    /**
+     * Region the server is located in (e.g. \"eu\", \"na\")
+     */
+    'region': string;
+    /**
+     * Unique identifier for the game server reporting the metric
+     */
+    'server_id': string;
+}
 export interface Patch {
     'author': string;
     'category': PatchCategory;
@@ -10464,6 +10502,40 @@ export class SQLApi extends BaseAPI {
 export const ServersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         *  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+         * @summary Game Server Metric Ingest
+         * @param {MetricIngestRequest} metricIngestRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingest: async (metricIngestRequest: MetricIngestRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'metricIngestRequest' is not null or undefined
+            assertParamExists('ingest', 'metricIngestRequest', metricIngestRequest)
+            const localVarPath = `/v1/servers/metrics`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(metricIngestRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns all currently active game servers.
          * @summary List Game Servers
          * @param {*} [options] Override http request option.
@@ -10538,6 +10610,19 @@ export const ServersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ServersApiAxiosParamCreator(configuration)
     return {
         /**
+         *  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+         * @summary Game Server Metric Ingest
+         * @param {MetricIngestRequest} metricIngestRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ingest(metricIngestRequest: MetricIngestRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ingest(metricIngestRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ServersApi.ingest']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Returns all currently active game servers.
          * @summary List Game Servers
          * @param {*} [options] Override http request option.
@@ -10572,6 +10657,16 @@ export const ServersApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = ServersApiFp(configuration)
     return {
         /**
+         *  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+         * @summary Game Server Metric Ingest
+         * @param {ServersApiIngestRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingest(requestParameters: ServersApiIngestRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.ingest(requestParameters.metricIngestRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns all currently active game servers.
          * @summary List Game Servers
          * @param {*} [options] Override http request option.
@@ -10594,6 +10689,13 @@ export const ServersApiFactory = function (configuration?: Configuration, basePa
 };
 
 /**
+ * Request parameters for ingest operation in ServersApi.
+ */
+export interface ServersApiIngestRequest {
+    readonly metricIngestRequest: MetricIngestRequest
+}
+
+/**
  * Request parameters for status operation in ServersApi.
  */
 export interface ServersApiStatusRequest {
@@ -10604,6 +10706,17 @@ export interface ServersApiStatusRequest {
  * ServersApi - object-oriented interface
  */
 export class ServersApi extends BaseAPI {
+    /**
+     *  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+     * @summary Game Server Metric Ingest
+     * @param {ServersApiIngestRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public ingest(requestParameters: ServersApiIngestRequest, options?: RawAxiosRequestConfig) {
+        return ServersApiFp(this.configuration).ingest(requestParameters.metricIngestRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Returns all currently active game servers.
      * @summary List Game Servers

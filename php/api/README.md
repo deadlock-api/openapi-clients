@@ -169,6 +169,7 @@ Class | Method | HTTP request | Description
 *SQLApi* | [**sql**](docs/Api/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](docs/Api/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
 *ServersApi* | [**callList**](docs/Api/ServersApi.md#calllist) | **GET** /v1/servers | List Game Servers
+*ServersApi* | [**ingest**](docs/Api/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 *ServersApi* | [**status**](docs/Api/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
 *SteamApi* | [**steam**](docs/Api/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steamSearch**](docs/Api/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
@@ -220,6 +221,7 @@ Class | Method | HTTP request | Description
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)
 - [MatchSpectateResponse](docs/Model/MatchSpectateResponse.md)
 - [MateStats](docs/Model/MateStats.md)
+- [MetricIngestRequest](docs/Model/MetricIngestRequest.md)
 - [Patch](docs/Model/Patch.md)
 - [PatchCategory](docs/Model/PatchCategory.md)
 - [PatchGuid](docs/Model/PatchGuid.md)

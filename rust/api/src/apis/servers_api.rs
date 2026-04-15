@@ -14,12 +14,27 @@ use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
+/// struct for passing parameters to the method [`ingest`]
+#[derive(Clone, Debug)]
+pub struct IngestParams {
+    pub metric_ingest_request: models::MetricIngestRequest
+}
+
 /// struct for passing parameters to the method [`status`]
 #[derive(Clone, Debug)]
 pub struct StatusParams {
     pub server_status_request: models::ServerStatusRequest
 }
 
+
+/// struct for typed errors of method [`ingest`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum IngestError {
+    Status400(),
+    Status401(),
+    UnknownValue(serde_json::Value),
+}
 
 /// struct for typed errors of method [`list`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -37,6 +52,31 @@ pub enum StatusError {
     UnknownValue(serde_json::Value),
 }
 
+
+///  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+pub async fn ingest(configuration: &configuration::Configuration, params: IngestParams) -> Result<(), Error<IngestError>> {
+
+    let uri_str = format!("{}/v1/servers/metrics", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.metric_ingest_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<IngestError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
 
 /// Returns all currently active game servers.
 pub async fn list(configuration: &configuration::Configuration) -> Result<models::ListServersResponse, Error<ListError>> {

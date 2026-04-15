@@ -28,6 +28,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock_api_client.models.ListServersResponse
+import deadlock_api_client.models.MetricIngestRequest
 import deadlock_api_client.models.ServerStatusRequest
 import deadlock_api_client.models.ServerStatusResponse
 
@@ -53,6 +54,77 @@ open class ServersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         val defaultBasePath: String by lazy {
             System.getProperties().getProperty(ApiClient.BASE_URL_KEY, "https://api.deadlock-api.com")
         }
+    }
+
+    /**
+     * POST /v1/servers/metrics
+     * Game Server Metric Ingest
+     *  Ingests a single metric event reported by a game server. The schema is intentionally flexible: &#x60;metric_value&#x60; carries the primary numeric measurement and &#x60;metadata&#x60; holds arbitrary key/value context that varies per game mode or metric. Optional &#x60;map&#x60; and &#x60;game_mode_version&#x60; let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+     * @param metricIngestRequest 
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun ingest(metricIngestRequest: MetricIngestRequest) : Unit {
+        val localVarResponse = ingestWithHttpInfo(metricIngestRequest = metricIngestRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * POST /v1/servers/metrics
+     * Game Server Metric Ingest
+     *  Ingests a single metric event reported by a game server. The schema is intentionally flexible: &#x60;metric_value&#x60; carries the primary numeric measurement and &#x60;metadata&#x60; holds arbitrary key/value context that varies per game mode or metric. Optional &#x60;map&#x60; and &#x60;game_mode_version&#x60; let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+     * @param metricIngestRequest 
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun ingestWithHttpInfo(metricIngestRequest: MetricIngestRequest) : ApiResponse<Unit?> {
+        val localVariableConfig = ingestRequestConfig(metricIngestRequest = metricIngestRequest)
+
+        return request<MetricIngestRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation ingest
+     *
+     * @param metricIngestRequest 
+     * @return RequestConfig
+     */
+    fun ingestRequestConfig(metricIngestRequest: MetricIngestRequest) : RequestConfig<MetricIngestRequest> {
+        val localVariableBody = metricIngestRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/v1/servers/metrics",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
     }
 
     /**

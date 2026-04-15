@@ -150,6 +150,7 @@ Class | Method | HTTP request | Description
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
 *SQLAPI* | [**Sql**](docs/SQLAPI.md#sql) | **Get** /v1/sql | Query
 *SQLAPI* | [**TableSchema**](docs/SQLAPI.md#tableschema) | **Get** /v1/sql/tables/{table}/schema | Table Schema
+*ServersAPI* | [**Ingest**](docs/ServersAPI.md#ingest) | **Post** /v1/servers/metrics | Game Server Metric Ingest
 *ServersAPI* | [**List**](docs/ServersAPI.md#list) | **Get** /v1/servers | List Game Servers
 *ServersAPI* | [**Status**](docs/ServersAPI.md#status) | **Post** /v1/servers/status | Game Server Status
 *SteamAPI* | [**Steam**](docs/SteamAPI.md#steam) | **Get** /v1/players/steam | Batch Steam Profile
@@ -203,6 +204,7 @@ Class | Method | HTTP request | Description
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
+ - [MetricIngestRequest](docs/MetricIngestRequest.md)
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)

@@ -55,6 +55,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
+docs/MetricIngestRequest.md
 docs/MmrApi.md
 docs/MmrHistory.md
 docs/Patch.md
@@ -148,6 +149,7 @@ src/models/list_servers_response.rs
 src/models/match_salts_response.rs
 src/models/match_spectate_response.rs
 src/models/mate_stats.rs
+src/models/metric_ingest_request.rs
 src/models/mmr_history.rs
 src/models/mod.rs
 src/models/patch.rs

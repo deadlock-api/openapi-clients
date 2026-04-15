@@ -77,6 +77,9 @@ class ServersApi
         'callList' => [
             'application/json',
         ],
+        'ingest' => [
+            'application/json',
+        ],
         'status' => [
             'application/json',
         ],
@@ -370,6 +373,223 @@ class ServersApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation ingest
+     *
+     * Game Server Metric Ingest
+     *
+     * @param  \OpenAPI\Client\Model\MetricIngestRequest $metric_ingest_request metric_ingest_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingest'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function ingest($metric_ingest_request, string $contentType = self::contentTypes['ingest'][0])
+    {
+        $this->ingestWithHttpInfo($metric_ingest_request, $contentType);
+    }
+
+    /**
+     * Operation ingestWithHttpInfo
+     *
+     * Game Server Metric Ingest
+     *
+     * @param  \OpenAPI\Client\Model\MetricIngestRequest $metric_ingest_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingest'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function ingestWithHttpInfo($metric_ingest_request, string $contentType = self::contentTypes['ingest'][0])
+    {
+        $request = $this->ingestRequest($metric_ingest_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation ingestAsync
+     *
+     * Game Server Metric Ingest
+     *
+     * @param  \OpenAPI\Client\Model\MetricIngestRequest $metric_ingest_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingest'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function ingestAsync($metric_ingest_request, string $contentType = self::contentTypes['ingest'][0])
+    {
+        return $this->ingestAsyncWithHttpInfo($metric_ingest_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation ingestAsyncWithHttpInfo
+     *
+     * Game Server Metric Ingest
+     *
+     * @param  \OpenAPI\Client\Model\MetricIngestRequest $metric_ingest_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingest'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function ingestAsyncWithHttpInfo($metric_ingest_request, string $contentType = self::contentTypes['ingest'][0])
+    {
+        $returnType = '';
+        $request = $this->ingestRequest($metric_ingest_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'ingest'
+     *
+     * @param  \OpenAPI\Client\Model\MetricIngestRequest $metric_ingest_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingest'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function ingestRequest($metric_ingest_request, string $contentType = self::contentTypes['ingest'][0])
+    {
+
+        // verify the required parameter 'metric_ingest_request' is set
+        if ($metric_ingest_request === null || (is_array($metric_ingest_request) && count($metric_ingest_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $metric_ingest_request when calling ingest'
+            );
+        }
+
+
+        $resourcePath = '/v1/servers/metrics';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($metric_ingest_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($metric_ingest_request));
+            } else {
+                $httpBody = $metric_ingest_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

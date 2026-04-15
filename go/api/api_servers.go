@@ -22,6 +22,111 @@ import (
 // ServersAPIService ServersAPI service
 type ServersAPIService service
 
+type ApiIngestRequest struct {
+	ctx context.Context
+	ApiService *ServersAPIService
+	metricIngestRequest *MetricIngestRequest
+}
+
+func (r ApiIngestRequest) MetricIngestRequest(metricIngestRequest MetricIngestRequest) ApiIngestRequest {
+	r.metricIngestRequest = &metricIngestRequest
+	return r
+}
+
+func (r ApiIngestRequest) Execute() (*http.Response, error) {
+	return r.ApiService.IngestExecute(r)
+}
+
+/*
+Ingest Game Server Metric Ingest
+
+
+Ingests a single metric event reported by a game server. The schema is intentionally
+flexible: `metric_value` carries the primary numeric measurement and `metadata` holds
+arbitrary key/value context that varies per game mode or metric. Optional `map` and
+`game_mode_version` let callers segment leaderboards per map or per ruleset revision.
+Requires a valid game server secret as a Bearer token.
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiIngestRequest
+*/
+func (a *ServersAPIService) Ingest(ctx context.Context) ApiIngestRequest {
+	return ApiIngestRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *ServersAPIService) IngestExecute(r ApiIngestRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServersAPIService.Ingest")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/servers/metrics"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.metricIngestRequest == nil {
+		return nil, reportError("metricIngestRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.metricIngestRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiListRequest struct {
 	ctx context.Context
 	ApiService *ServersAPIService

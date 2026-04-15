@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *SqlApi* | [**list_tables**](docs/SqlApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
 *SqlApi* | [**sql**](docs/SqlApi.md#sql) | **GET** /v1/sql | Query
 *SqlApi* | [**table_schema**](docs/SqlApi.md#table_schema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
+*ServersApi* | [**ingest**](docs/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 *ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers
 *ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
 *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
@@ -157,6 +158,7 @@ Class | Method | HTTP request | Description
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
+ - [MetricIngestRequest](docs/MetricIngestRequest.md)
  - [MmrHistory](docs/MmrHistory.md)
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)

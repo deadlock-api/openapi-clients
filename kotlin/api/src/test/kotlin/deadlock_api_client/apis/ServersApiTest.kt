@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.ServersApi
 import deadlock_api_client.models.ListServersResponse
+import deadlock_api_client.models.MetricIngestRequest
 import deadlock_api_client.models.ServerStatusRequest
 import deadlock_api_client.models.ServerStatusResponse
 
@@ -35,6 +36,13 @@ class ServersApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of ServersApi
         //val apiInstance = ServersApi()
+
+        // to test ingest
+        should("test ingest") {
+            // uncomment below to test ingest
+            //val metricIngestRequest : MetricIngestRequest =  // MetricIngestRequest | 
+            //apiInstance.ingest(metricIngestRequest)
+        }
 
         // to test list
         should("test list") {

@@ -22,6 +22,17 @@ func Test_deadlock_api_client_ServersAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ServersAPIService Ingest", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.ServersAPI.Ingest(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ServersAPIService List", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

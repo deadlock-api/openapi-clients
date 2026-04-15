@@ -6587,6 +6587,31 @@ paths:
       summary: List Game Servers
       tags:
       - Servers
+  /v1/servers/metrics:
+    post:
+      description: "\nIngests a single metric event reported by a game server. The\
+        \ schema is intentionally\nflexible: `metric_value` carries the primary numeric\
+        \ measurement and `metadata` holds\narbitrary key/value context that varies\
+        \ per game mode or metric. Optional `map` and\n`game_mode_version` let callers\
+        \ segment leaderboards per map or per ruleset revision.\nRequires a valid\
+        \ game server secret as a Bearer token.\n    "
+      operationId: ingest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MetricIngestRequest"
+        required: true
+      responses:
+        "202":
+          description: Metric accepted for ingestion.
+        "400":
+          description: Invalid request body.
+        "401":
+          description: Invalid or missing game server secret.
+      summary: Game Server Metric Ingest
+      tags:
+      - Servers
   /v1/servers/status:
     post:
       description: "\nReports the current status of a game server.\nGame servers must\
@@ -8952,6 +8977,60 @@ components:
       - matches_played
       - mate_id
       - wins
+    MetricIngestRequest:
+      example:
+        game_mode_version: game_mode_version
+        metadata:
+          key: metadata
+        account_id: 0
+        metric_name: metric_name
+        game_mode: game_mode
+        metric_value: 6.027456183070403
+        region: region
+        server_id: server_id
+        map: map
+      properties:
+        account_id:
+          description: Steam account id (`UInt32`) of the player this metric is about
+          format: int32
+          minimum: 0
+          type: integer
+        game_mode:
+          description: Game mode this metric applies to (e.g. "speedrun")
+          type: string
+        game_mode_version:
+          description: "Optional game-mode version tag (e.g. \"v2\", \"season3\")\
+            \ for versioning leaderboards"
+          nullable: true
+          type: string
+        map:
+          description: Optional map identifier the metric was produced on
+          nullable: true
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          description: Free-form key/value metadata for game-mode-specific context
+        metric_name:
+          description: Name of the metric (e.g. `run_time`)
+          type: string
+        metric_value:
+          description: The primary numeric measurement for this metric
+          format: double
+          type: number
+        region:
+          description: "Region the server is located in (e.g. \"eu\", \"na\")"
+          type: string
+        server_id:
+          description: Unique identifier for the game server reporting the metric
+          type: string
+      required:
+      - account_id
+      - game_mode
+      - metric_name
+      - metric_value
+      - region
+      - server_id
     Patch:
       example:
         pub_date: 2000-01-23T04:56:07.000+00:00

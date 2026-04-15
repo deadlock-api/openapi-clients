@@ -64,6 +64,7 @@ src/models/MMRHistory.ts
 src/models/MatchSaltsResponse.ts
 src/models/MatchSpectateResponse.ts
 src/models/MateStats.ts
+src/models/MetricIngestRequest.ts
 src/models/Patch.ts
 src/models/PatchCategory.ts
 src/models/PatchGuid.ts

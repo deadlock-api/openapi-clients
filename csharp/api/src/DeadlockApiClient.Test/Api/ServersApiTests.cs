@@ -51,6 +51,16 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test Ingest
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task IngestAsyncTest()
+        {
+            MetricIngestRequest metricIngestRequest = default!;
+            await _instance.IngestAsync(metricIngestRequest);
+        }
+
+        /// <summary>
         /// Test List
         /// </summary>
         [Fact (Skip = "not implemented")]

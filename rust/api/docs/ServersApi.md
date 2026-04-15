@@ -4,9 +4,40 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ingest**](ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 [**list**](ServersApi.md#list) | **GET** /v1/servers | List Game Servers
 [**status**](ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
 
+
+
+## ingest
+
+> ingest(metric_ingest_request)
+Game Server Metric Ingest
+
+ Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**metric_ingest_request** | [**MetricIngestRequest**](MetricIngestRequest.md) |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## list

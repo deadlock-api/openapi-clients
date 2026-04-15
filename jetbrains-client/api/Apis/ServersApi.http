@@ -1,5 +1,23 @@
 ## ServersApi
 
+### Game Server Metric Ingest
+## Game Server Metric Ingest
+POST https://api.deadlock-api.com/v1/servers/metrics
+Content-Type: application/json
+
+{
+ "account_id": "<number>",
+ "game_mode": "<string>",
+ "game_mode_version": "<string>",
+ "map": "<string>",
+ "metadata": "<string>",
+ "metric_name": "<string>",
+ "metric_value": "<number>",
+ "region": "<string>",
+ "server_id": "<string>"
+}
+
+
 ### List Game Servers
 ## List Game Servers
 GET https://api.deadlock-api.com/v1/servers

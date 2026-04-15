@@ -38,6 +38,29 @@ namespace DeadlockApiClient.Api
         ServersApiEvents Events { get; }
 
         /// <summary>
+        /// Game Server Metric Ingest
+        /// </summary>
+        /// <remarks>
+        ///  Ingests a single metric event reported by a game server. The schema is intentionally flexible: &#x60;metric_value&#x60; carries the primary numeric measurement and &#x60;metadata&#x60; holds arbitrary key/value context that varies per game mode or metric. Optional &#x60;map&#x60; and &#x60;game_mode_version&#x60; let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metricIngestRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestApiResponse"/>&gt;</returns>
+        Task<IIngestApiResponse> IngestAsync(MetricIngestRequest metricIngestRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Game Server Metric Ingest
+        /// </summary>
+        /// <remarks>
+        ///  Ingests a single metric event reported by a game server. The schema is intentionally flexible: &#x60;metric_value&#x60; carries the primary numeric measurement and &#x60;metadata&#x60; holds arbitrary key/value context that varies per game mode or metric. Optional &#x60;map&#x60; and &#x60;game_mode_version&#x60; let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+        /// </remarks>
+        /// <param name="metricIngestRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestApiResponse"/>?&gt;</returns>
+        Task<IIngestApiResponse?> IngestOrDefaultAsync(MetricIngestRequest metricIngestRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// List Game Servers
         /// </summary>
         /// <remarks>
@@ -83,6 +106,30 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
+    /// The <see cref="IIngestApiResponse"/>
+    /// </summary>
+    public interface IIngestApiResponse : DeadlockApiClient.Client.IApiResponse
+    {
+        /// <summary>
+        /// Returns true if the response is 202 Accepted
+        /// </summary>
+        /// <returns></returns>
+        bool IsAccepted { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 401 Unauthorized
+        /// </summary>
+        /// <returns></returns>
+        bool IsUnauthorized { get; }
+    }
+
+    /// <summary>
     /// The <see cref="IListApiResponse"/>
     /// </summary>
     public interface IListApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.ListServersResponse?>
@@ -123,6 +170,26 @@ namespace DeadlockApiClient.Api
     /// </summary>
     public class ServersApiEvents
     {
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnIngest;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorIngest;
+
+        internal void ExecuteOnIngest(ServersApi.IngestApiResponse apiResponse)
+        {
+            OnIngest?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorIngest(Exception exception)
+        {
+            OnErrorIngest?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
         /// <summary>
         /// The event raised after the server response
         /// </summary>
@@ -209,6 +276,231 @@ namespace DeadlockApiClient.Api
             HttpClient = httpClient;
             Events = serversApiEvents;
             ApiKeyProvider = apiKeyProvider;
+        }
+
+        partial void FormatIngest(MetricIngestRequest metricIngestRequest);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="metricIngestRequest"></param>
+        /// <returns></returns>
+        private void ValidateIngest(MetricIngestRequest metricIngestRequest)
+        {
+            if (metricIngestRequest == null)
+                throw new ArgumentNullException(nameof(metricIngestRequest));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="metricIngestRequest"></param>
+        private void AfterIngestDefaultImplementation(IIngestApiResponse apiResponseLocalVar, MetricIngestRequest metricIngestRequest)
+        {
+            bool suppressDefaultLog = false;
+            AfterIngest(ref suppressDefaultLog, apiResponseLocalVar, metricIngestRequest);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="metricIngestRequest"></param>
+        partial void AfterIngest(ref bool suppressDefaultLog, IIngestApiResponse apiResponseLocalVar, MetricIngestRequest metricIngestRequest);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="metricIngestRequest"></param>
+        private void OnErrorIngestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, MetricIngestRequest metricIngestRequest)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorIngest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, metricIngestRequest);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="metricIngestRequest"></param>
+        partial void OnErrorIngest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, MetricIngestRequest metricIngestRequest);
+
+        /// <summary>
+        /// Game Server Metric Ingest  Ingests a single metric event reported by a game server. The schema is intentionally flexible: &#x60;metric_value&#x60; carries the primary numeric measurement and &#x60;metadata&#x60; holds arbitrary key/value context that varies per game mode or metric. Optional &#x60;map&#x60; and &#x60;game_mode_version&#x60; let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+        /// </summary>
+        /// <param name="metricIngestRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestApiResponse"/>&gt;</returns>
+        public async Task<IIngestApiResponse?> IngestOrDefaultAsync(MetricIngestRequest metricIngestRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await IngestAsync(metricIngestRequest, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Game Server Metric Ingest  Ingests a single metric event reported by a game server. The schema is intentionally flexible: &#x60;metric_value&#x60; carries the primary numeric measurement and &#x60;metadata&#x60; holds arbitrary key/value context that varies per game mode or metric. Optional &#x60;map&#x60; and &#x60;game_mode_version&#x60; let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metricIngestRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestApiResponse"/>&gt;</returns>
+        public async Task<IIngestApiResponse> IngestAsync(MetricIngestRequest metricIngestRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateIngest(metricIngestRequest);
+
+                FormatIngest(metricIngestRequest);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/servers/metrics"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/servers/metrics");
+
+                    httpRequestMessageLocalVar.Content = (metricIngestRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
+                        : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(metricIngestRequest, _jsonSerializerOptions));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] contentTypes = new string[] {
+                        "application/json"
+                    };
+
+                    string? contentTypeLocalVar = ClientUtils.SelectHeaderContentType(contentTypes);
+
+                    if (contentTypeLocalVar != null && httpRequestMessageLocalVar.Content != null)
+                        httpRequestMessageLocalVar.Content.Headers.ContentType = new MediaTypeHeaderValue(contentTypeLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<IngestApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<IngestApiResponse>();
+                        IngestApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/servers/metrics", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterIngestDefaultImplementation(apiResponseLocalVar, metricIngestRequest);
+
+                        Events.ExecuteOnIngest(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorIngestDefaultImplementation(e, "/v1/servers/metrics", uriBuilderLocalVar.Path, metricIngestRequest);
+                Events.ExecuteOnErrorIngest(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="IngestApiResponse"/>
+        /// </summary>
+        public partial class IngestApiResponse : DeadlockApiClient.Client.ApiResponse, IIngestApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<IngestApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="IngestApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public IngestApiResponse(ILogger<IngestApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="IngestApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public IngestApiResponse(ILogger<IngestApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 202 Accepted
+            /// </summary>
+            /// <returns></returns>
+            public bool IsAccepted => 202 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 401 Unauthorized
+            /// </summary>
+            /// <returns></returns>
+            public bool IsUnauthorized => 401 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
         /// <summary>

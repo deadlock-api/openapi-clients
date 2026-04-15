@@ -58,6 +58,7 @@ from deadlock_api_client.models.mmr_history import MMRHistory
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse
 from deadlock_api_client.models.mate_stats import MateStats
+from deadlock_api_client.models.metric_ingest_request import MetricIngestRequest
 from deadlock_api_client.models.patch import Patch
 from deadlock_api_client.models.patch_category import PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid

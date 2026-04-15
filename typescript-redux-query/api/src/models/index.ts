@@ -43,6 +43,7 @@ export * from './MMRHistory';
 export * from './MatchSaltsResponse';
 export * from './MatchSpectateResponse';
 export * from './MateStats';
+export * from './MetricIngestRequest';
 export * from './Patch';
 export * from './PatchCategory';
 export * from './PatchGuid';

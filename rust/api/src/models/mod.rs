@@ -86,6 +86,8 @@ pub mod match_spectate_response;
 pub use self::match_spectate_response::MatchSpectateResponse;
 pub mod mate_stats;
 pub use self::mate_stats::MateStats;
+pub mod metric_ingest_request;
+pub use self::metric_ingest_request::MetricIngestRequest;
 pub mod mmr_history;
 pub use self::mmr_history::MmrHistory;
 pub mod patch;

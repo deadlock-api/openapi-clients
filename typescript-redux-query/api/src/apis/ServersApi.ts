@@ -18,6 +18,9 @@ import {
     ListServersResponse,
     ListServersResponseFromJSON,
     ListServersResponseToJSON,
+    MetricIngestRequest,
+    MetricIngestRequestFromJSON,
+    MetricIngestRequestToJSON,
     ServerStatusRequest,
     ServerStatusRequestFromJSON,
     ServerStatusRequestToJSON,
@@ -26,10 +29,63 @@ import {
     ServerStatusResponseToJSON,
 } from '../models';
 
+export interface IngestRequest {
+    metricIngestRequest: MetricIngestRequest;
+}
+
 export interface StatusRequest {
     serverStatusRequest: ServerStatusRequest;
 }
 
+
+/**
+ *  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+ * Game Server Metric Ingest
+ */
+function ingestRaw<T>(requestParameters: IngestRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
+    if (requestParameters.metricIngestRequest === null || requestParameters.metricIngestRequest === undefined) {
+        throw new runtime.RequiredError('metricIngestRequest','Required parameter requestParameters.metricIngestRequest was null or undefined when calling ingest.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/servers/metrics`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'POST',
+            headers: headerParameters,
+        },
+        body: queryParameters || MetricIngestRequestToJSON(requestParameters.metricIngestRequest),
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+*  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
+* Game Server Metric Ingest
+*/
+export function ingest<T>(requestParameters: IngestRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
+    return ingestRaw(requestParameters, requestConfig);
+}
 
 /**
  * Returns all currently active game servers.

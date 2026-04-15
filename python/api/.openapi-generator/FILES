@@ -69,6 +69,7 @@ deadlock_api_client/models/list_servers_response.py
 deadlock_api_client/models/match_salts_response.py
 deadlock_api_client/models/match_spectate_response.py
 deadlock_api_client/models/mate_stats.py
+deadlock_api_client/models/metric_ingest_request.py
 deadlock_api_client/models/mmr_history.py
 deadlock_api_client/models/patch.py
 deadlock_api_client/models/patch_category.py
@@ -150,6 +151,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
+docs/MetricIngestRequest.md
 docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
@@ -238,6 +240,7 @@ test/test_match_salts_response.py
 test/test_match_spectate_response.py
 test/test_matches_api.py
 test/test_mate_stats.py
+test/test_metric_ingest_request.py
 test/test_mmr_api.py
 test/test_mmr_history.py
 test/test_patch.py
