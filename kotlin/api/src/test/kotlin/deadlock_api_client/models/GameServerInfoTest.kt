@@ -75,5 +75,11 @@ class GameServerInfoTest : ShouldSpec() {
             //modelInstance.serverId shouldBe ("TODO")
         }
 
+        // to test the property `hostname`
+        should("test hostname") {
+            // uncomment below to test the property
+            //modelInstance.hostname shouldBe ("TODO")
+        }
+
     }
 }

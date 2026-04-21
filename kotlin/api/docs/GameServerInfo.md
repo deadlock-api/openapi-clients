@@ -11,6 +11,7 @@
 | **port** | **kotlin.Int** |  |  |
 | **region** | **kotlin.String** |  |  |
 | **serverId** | **kotlin.String** |  |  |
+| **hostname** | **kotlin.String** |  |  [optional] |
 
 
 

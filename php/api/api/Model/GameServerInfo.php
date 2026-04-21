@@ -59,6 +59,7 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'current_player_count' => 'int',
         'game_mode' => 'string',
+        'hostname' => 'string',
         'ip' => 'string',
         'last_updated' => 'string',
         'port' => 'int',
@@ -76,6 +77,7 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'current_player_count' => 'int32',
         'game_mode' => null,
+        'hostname' => null,
         'ip' => null,
         'last_updated' => null,
         'port' => 'int32',
@@ -91,6 +93,7 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'current_player_count' => false,
         'game_mode' => false,
+        'hostname' => true,
         'ip' => false,
         'last_updated' => false,
         'port' => false,
@@ -186,6 +189,7 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'current_player_count' => 'current_player_count',
         'game_mode' => 'game_mode',
+        'hostname' => 'hostname',
         'ip' => 'ip',
         'last_updated' => 'last_updated',
         'port' => 'port',
@@ -201,6 +205,7 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'current_player_count' => 'setCurrentPlayerCount',
         'game_mode' => 'setGameMode',
+        'hostname' => 'setHostname',
         'ip' => 'setIp',
         'last_updated' => 'setLastUpdated',
         'port' => 'setPort',
@@ -216,6 +221,7 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'current_player_count' => 'getCurrentPlayerCount',
         'game_mode' => 'getGameMode',
+        'hostname' => 'getHostname',
         'ip' => 'getIp',
         'last_updated' => 'getLastUpdated',
         'port' => 'getPort',
@@ -282,6 +288,7 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('current_player_count', $data ?? [], null);
         $this->setIfExists('game_mode', $data ?? [], null);
+        $this->setIfExists('hostname', $data ?? [], null);
         $this->setIfExists('ip', $data ?? [], null);
         $this->setIfExists('last_updated', $data ?? [], null);
         $this->setIfExists('port', $data ?? [], null);
@@ -415,6 +422,40 @@ class GameServerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable game_mode cannot be null');
         }
         $this->container['game_mode'] = $game_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets hostname
+     *
+     * @return string|null
+     */
+    public function getHostname()
+    {
+        return $this->container['hostname'];
+    }
+
+    /**
+     * Sets hostname
+     *
+     * @param string|null $hostname hostname
+     *
+     * @return self
+     */
+    public function setHostname($hostname)
+    {
+        if (is_null($hostname)) {
+            array_push($this->openAPINullablesSetToNull, 'hostname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hostname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['hostname'] = $hostname;
 
         return $this;
     }

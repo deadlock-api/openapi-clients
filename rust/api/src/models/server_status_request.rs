@@ -19,6 +19,9 @@ pub struct ServerStatusRequest {
     /// Game mode this server is running (e.g. \"ranked\", \"unranked\")
     #[serde(rename = "game_mode")]
     pub game_mode: String,
+    /// Hostname of the game server
+    #[serde(rename = "hostname", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hostname: Option<Option<String>>,
     /// IP address of the game server
     #[serde(rename = "ip")]
     pub ip: String,
@@ -38,6 +41,7 @@ impl ServerStatusRequest {
         ServerStatusRequest {
             current_player_count,
             game_mode,
+            hostname: None,
             ip,
             port,
             region,

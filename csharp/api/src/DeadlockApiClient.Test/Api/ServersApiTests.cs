@@ -82,5 +82,16 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<ServerStatusResponse>(model);
         }
+
+        /// <summary>
+        /// Test SteamList
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task SteamListAsyncTest()
+        {
+            var response = await _instance.SteamListAsync();
+            var model = response.Ok();
+            Assert.IsType<List<SteamServer>>(model);
+        }
     }
 }

@@ -108,6 +108,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**ingest**](docs/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 *ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers
 *ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
+*ServersApi* | [**steam_list**](docs/ServersApi.md#steam_list) | **GET** /v1/servers/steam | List Steam Game Servers
 *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steam_search**](docs/SteamApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 
@@ -181,6 +182,7 @@ Class | Method | HTTP request | Description
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamProfile](docs/SteamProfile.md)
+ - [SteamServer](docs/SteamServer.md)
  - [TableSize](docs/TableSize.md)
  - [VariableCategory](docs/VariableCategory.md)
  - [VariableDescription](docs/VariableDescription.md)

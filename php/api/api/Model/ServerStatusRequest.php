@@ -59,6 +59,7 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'current_player_count' => 'int',
         'game_mode' => 'string',
+        'hostname' => 'string',
         'ip' => 'string',
         'port' => 'int',
         'region' => 'string',
@@ -75,6 +76,7 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'current_player_count' => 'int32',
         'game_mode' => null,
+        'hostname' => null,
         'ip' => null,
         'port' => 'int32',
         'region' => null,
@@ -89,6 +91,7 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPINullables = [
         'current_player_count' => false,
         'game_mode' => false,
+        'hostname' => true,
         'ip' => false,
         'port' => false,
         'region' => false,
@@ -183,6 +186,7 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'current_player_count' => 'current_player_count',
         'game_mode' => 'game_mode',
+        'hostname' => 'hostname',
         'ip' => 'ip',
         'port' => 'port',
         'region' => 'region',
@@ -197,6 +201,7 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'current_player_count' => 'setCurrentPlayerCount',
         'game_mode' => 'setGameMode',
+        'hostname' => 'setHostname',
         'ip' => 'setIp',
         'port' => 'setPort',
         'region' => 'setRegion',
@@ -211,6 +216,7 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'current_player_count' => 'getCurrentPlayerCount',
         'game_mode' => 'getGameMode',
+        'hostname' => 'getHostname',
         'ip' => 'getIp',
         'port' => 'getPort',
         'region' => 'getRegion',
@@ -276,6 +282,7 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->setIfExists('current_player_count', $data ?? [], null);
         $this->setIfExists('game_mode', $data ?? [], null);
+        $this->setIfExists('hostname', $data ?? [], null);
         $this->setIfExists('ip', $data ?? [], null);
         $this->setIfExists('port', $data ?? [], null);
         $this->setIfExists('region', $data ?? [], null);
@@ -405,6 +412,40 @@ class ServerStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable game_mode cannot be null');
         }
         $this->container['game_mode'] = $game_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets hostname
+     *
+     * @return string|null
+     */
+    public function getHostname()
+    {
+        return $this->container['hostname'];
+    }
+
+    /**
+     * Sets hostname
+     *
+     * @param string|null $hostname Hostname of the game server
+     *
+     * @return self
+     */
+    public function setHostname($hostname)
+    {
+        if (is_null($hostname)) {
+            array_push($this->openAPINullablesSetToNull, 'hostname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hostname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['hostname'] = $hostname;
 
         return $this;
     }

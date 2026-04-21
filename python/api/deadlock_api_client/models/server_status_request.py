@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,11 +30,12 @@ class ServerStatusRequest(BaseModel):
     """ # noqa: E501
     current_player_count: Annotated[int, Field(strict=True, ge=0)] = Field(description="Current number of players on this server")
     game_mode: StrictStr = Field(description="Game mode this server is running (e.g. \"ranked\", \"unranked\")")
+    hostname: Optional[StrictStr] = Field(default=None, description="Hostname of the game server")
     ip: StrictStr = Field(description="IP address of the game server")
     port: Annotated[int, Field(strict=True, ge=0)] = Field(description="Port the game server is listening on")
     region: StrictStr = Field(description="Region the server is located in (e.g. \"eu\", \"na\", \"sa\", \"asia\", \"oceania\")")
     server_id: StrictStr = Field(description="Unique identifier for the game server")
-    __properties: ClassVar[List[str]] = ["current_player_count", "game_mode", "ip", "port", "region", "server_id"]
+    __properties: ClassVar[List[str]] = ["current_player_count", "game_mode", "hostname", "ip", "port", "region", "server_id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -75,6 +76,11 @@ class ServerStatusRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if hostname (nullable) is None
+        # and model_fields_set contains the field
+        if self.hostname is None and "hostname" in self.model_fields_set:
+            _dict['hostname'] = None
+
         return _dict
 
     @classmethod
@@ -89,6 +95,7 @@ class ServerStatusRequest(BaseModel):
         _obj = cls.model_validate({
             "current_player_count": obj.get("current_player_count"),
             "game_mode": obj.get("game_mode"),
+            "hostname": obj.get("hostname"),
             "ip": obj.get("ip"),
             "port": obj.get("port"),
             "region": obj.get("region"),

@@ -115,5 +115,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'ServerId'
         }
+
+        /// <summary>
+        /// Test the property 'Hostname'
+        /// </summary>
+        [Fact]
+        public void HostnameTest()
+        {
+            // TODO unit test for the property 'Hostname'
+        }
     }
 }

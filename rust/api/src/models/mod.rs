@@ -132,6 +132,8 @@ pub mod status_services;
 pub use self::status_services::StatusServices;
 pub mod steam_profile;
 pub use self::steam_profile::SteamProfile;
+pub mod steam_server;
+pub use self::steam_server::SteamServer;
 pub mod table_size;
 pub use self::table_size::TableSize;
 pub mod variable_category;

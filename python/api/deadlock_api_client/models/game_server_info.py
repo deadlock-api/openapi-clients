@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,12 +30,13 @@ class GameServerInfo(BaseModel):
     """ # noqa: E501
     current_player_count: Annotated[int, Field(strict=True, ge=0)]
     game_mode: StrictStr
+    hostname: Optional[StrictStr] = None
     ip: StrictStr
     last_updated: StrictStr
     port: Annotated[int, Field(strict=True, ge=0)]
     region: StrictStr
     server_id: StrictStr
-    __properties: ClassVar[List[str]] = ["current_player_count", "game_mode", "ip", "last_updated", "port", "region", "server_id"]
+    __properties: ClassVar[List[str]] = ["current_player_count", "game_mode", "hostname", "ip", "last_updated", "port", "region", "server_id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -76,6 +77,11 @@ class GameServerInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if hostname (nullable) is None
+        # and model_fields_set contains the field
+        if self.hostname is None and "hostname" in self.model_fields_set:
+            _dict['hostname'] = None
+
         return _dict
 
     @classmethod
@@ -90,6 +96,7 @@ class GameServerInfo(BaseModel):
         _obj = cls.model_validate({
             "current_player_count": obj.get("current_player_count"),
             "game_mode": obj.get("game_mode"),
+            "hostname": obj.get("hostname"),
             "ip": obj.get("ip"),
             "last_updated": obj.get("last_updated"),
             "port": obj.get("port"),

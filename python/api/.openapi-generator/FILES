@@ -92,6 +92,7 @@ deadlock_api_client/models/server_status_response.py
 deadlock_api_client/models/status.py
 deadlock_api_client/models/status_services.py
 deadlock_api_client/models/steam_profile.py
+deadlock_api_client/models/steam_server.py
 deadlock_api_client/models/table_size.py
 deadlock_api_client/models/variable_category.py
 deadlock_api_client/models/variable_description.py
@@ -178,6 +179,7 @@ docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
 docs/SteamProfile.md
+docs/SteamServer.md
 docs/TableSize.md
 docs/VariableCategory.md
 docs/VariableDescription.md
@@ -269,6 +271,7 @@ test/test_status.py
 test/test_status_services.py
 test/test_steam_api.py
 test/test_steam_profile.py
+test/test_steam_server.py
 test/test_table_size.py
 test/test_variable_category.py
 test/test_variable_description.py

@@ -85,6 +85,7 @@ docs/models/ServerStatusResponse.md
 docs/models/Status.md
 docs/models/StatusServices.md
 docs/models/SteamProfile.md
+docs/models/SteamServer.md
 docs/models/TableSize.md
 docs/models/VariableCategory.md
 docs/models/VariableDescription.md
@@ -174,6 +175,7 @@ src/DeadlockApiClient.Test/Model/ServerStatusResponseTests.cs
 src/DeadlockApiClient.Test/Model/StatusServicesTests.cs
 src/DeadlockApiClient.Test/Model/StatusTests.cs
 src/DeadlockApiClient.Test/Model/SteamProfileTests.cs
+src/DeadlockApiClient.Test/Model/SteamServerTests.cs
 src/DeadlockApiClient.Test/Model/TableSizeTests.cs
 src/DeadlockApiClient.Test/Model/VariableCategoryTests.cs
 src/DeadlockApiClient.Test/Model/VariableDescriptionTests.cs
@@ -284,6 +286,7 @@ src/DeadlockApiClient/Model/ServerStatusResponse.cs
 src/DeadlockApiClient/Model/Status.cs
 src/DeadlockApiClient/Model/StatusServices.cs
 src/DeadlockApiClient/Model/SteamProfile.cs
+src/DeadlockApiClient/Model/SteamServer.cs
 src/DeadlockApiClient/Model/TableSize.cs
 src/DeadlockApiClient/Model/VariableCategory.cs
 src/DeadlockApiClient/Model/VariableDescription.cs

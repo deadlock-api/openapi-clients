@@ -25,6 +25,8 @@ type ServerStatusRequest struct {
 	CurrentPlayerCount int32 `json:"current_player_count"`
 	// Game mode this server is running (e.g. \"ranked\", \"unranked\")
 	GameMode string `json:"game_mode"`
+	// Hostname of the game server
+	Hostname NullableString `json:"hostname,omitempty"`
 	// IP address of the game server
 	Ip string `json:"ip"`
 	// Port the game server is listening on
@@ -106,6 +108,48 @@ func (o *ServerStatusRequest) GetGameModeOk() (*string, bool) {
 // SetGameMode sets field value
 func (o *ServerStatusRequest) SetGameMode(v string) {
 	o.GameMode = v
+}
+
+// GetHostname returns the Hostname field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ServerStatusRequest) GetHostname() string {
+	if o == nil || IsNil(o.Hostname.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Hostname.Get()
+}
+
+// GetHostnameOk returns a tuple with the Hostname field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ServerStatusRequest) GetHostnameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Hostname.Get(), o.Hostname.IsSet()
+}
+
+// HasHostname returns a boolean if a field has been set.
+func (o *ServerStatusRequest) HasHostname() bool {
+	if o != nil && o.Hostname.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHostname gets a reference to the given NullableString and assigns it to the Hostname field.
+func (o *ServerStatusRequest) SetHostname(v string) {
+	o.Hostname.Set(&v)
+}
+// SetHostnameNil sets the value for Hostname to be an explicit nil
+func (o *ServerStatusRequest) SetHostnameNil() {
+	o.Hostname.Set(nil)
+}
+
+// UnsetHostname ensures that no value is present for Hostname, not even an explicit nil
+func (o *ServerStatusRequest) UnsetHostname() {
+	o.Hostname.Unset()
 }
 
 // GetIp returns the Ip field value
@@ -216,6 +260,9 @@ func (o ServerStatusRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["current_player_count"] = o.CurrentPlayerCount
 	toSerialize["game_mode"] = o.GameMode
+	if o.Hostname.IsSet() {
+		toSerialize["hostname"] = o.Hostname.Get()
+	}
 	toSerialize["ip"] = o.Ip
 	toSerialize["port"] = o.Port
 	toSerialize["region"] = o.Region

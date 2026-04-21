@@ -86,6 +86,7 @@ src/models/ServerStatusResponse.ts
 src/models/Status.ts
 src/models/StatusServices.ts
 src/models/SteamProfile.ts
+src/models/SteamServer.ts
 src/models/TableSize.ts
 src/models/VariableCategory.ts
 src/models/VariableDescription.ts

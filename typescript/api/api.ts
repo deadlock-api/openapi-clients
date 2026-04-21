@@ -347,6 +347,7 @@ export type GameMode = typeof GameMode[keyof typeof GameMode];
 export interface GameServerInfo {
     'current_player_count': number;
     'game_mode': string;
+    'hostname'?: string | null;
     'ip': string;
     'last_updated': string;
     'port': number;
@@ -1005,6 +1006,10 @@ export interface ServerStatusRequest {
      */
     'game_mode': string;
     /**
+     * Hostname of the game server
+     */
+    'hostname'?: string | null;
+    /**
      * IP address of the game server
      */
     'ip': string;
@@ -1061,6 +1066,76 @@ export interface SteamProfile {
     'personaname': string;
     'profileurl': string;
     'realname'?: string | null;
+}
+export interface SteamServer {
+    /**
+     * Full address of the server including port (e.g. `1.2.3.4:27015`)
+     */
+    'addr': string;
+    /**
+     * Steam appid of the game running on this server
+     */
+    'appid': number;
+    /**
+     * Number of bots on the server
+     */
+    'bots': number;
+    /**
+     * Whether this is a dedicated server
+     */
+    'dedicated': boolean;
+    /**
+     * Internal game directory name
+     */
+    'gamedir': string;
+    /**
+     * Game port the server is listening on
+     */
+    'gameport': number;
+    /**
+     * Steam gametype tags
+     */
+    'gametype': string;
+    /**
+     * Current map
+     */
+    'map': string;
+    /**
+     * Maximum player count
+     */
+    'max_players': number;
+    /**
+     * Server name as advertised to Steam
+     */
+    'name': string;
+    /**
+     * Operating system the server is running on (e.g. `l` for Linux, `w` for Windows)
+     */
+    'os': string;
+    /**
+     * Current player count
+     */
+    'players': number;
+    /**
+     * Product identifier reported by the server
+     */
+    'product': string;
+    /**
+     * Steam region code reported by the server
+     */
+    'region': number;
+    /**
+     * Whether the server is VAC-secured
+     */
+    'secure': boolean;
+    /**
+     * `SteamID` of the server
+     */
+    'steamid': string;
+    /**
+     * Server build version
+     */
+    'version': string;
 }
 export interface TableSize {
     /**
@@ -9667,7 +9742,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.940 | | MAE    | 1.40 sub-ranks | | RMSE   | 2.22 sub-ranks | | Within ±1 sub-rank | 69.1% | | Within ±3 sub-ranks | 90.4% | | Within ±5 sub-ranks | 96.7% | | Within ±6 sub-ranks | 97.7% | | Within ±10 sub-ranks | 99.7% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 430 | 4.79 sub-ranks | | Mid (5-7)  | 1350 | 3.11 sub-ranks | | High (8-11)| 25020 | 1.25 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.925 | | MAE    | 1.19 sub-ranks | | RMSE   | 2.06 sub-ranks | | Within ±1 sub-rank | 74.3% | | Within ±3 sub-rank | 93.2% | | Within ±5 sub-rank | 97.4% | | Within ±6 sub-rank | 98.3% | | Within ±10 sub-rank | 99.4% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 760 | 5.24 sub-ranks | | Mid (5-7)  | 2065 | 3.02 sub-ranks | | High (8-11)| 72340 | 1.09 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Rank Predict
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {*} [options] Override http request option.
@@ -9819,7 +9894,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.940 | | MAE    | 1.40 sub-ranks | | RMSE   | 2.22 sub-ranks | | Within ±1 sub-rank | 69.1% | | Within ±3 sub-ranks | 90.4% | | Within ±5 sub-ranks | 96.7% | | Within ±6 sub-ranks | 97.7% | | Within ±10 sub-ranks | 99.7% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 430 | 4.79 sub-ranks | | Mid (5-7)  | 1350 | 3.11 sub-ranks | | High (8-11)| 25020 | 1.25 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.925 | | MAE    | 1.19 sub-ranks | | RMSE   | 2.06 sub-ranks | | Within ±1 sub-rank | 74.3% | | Within ±3 sub-rank | 93.2% | | Within ±5 sub-rank | 97.4% | | Within ±6 sub-rank | 98.3% | | Within ±10 sub-rank | 99.4% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 760 | 5.24 sub-ranks | | Mid (5-7)  | 2065 | 3.02 sub-ranks | | High (8-11)| 72340 | 1.09 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Rank Predict
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {*} [options] Override http request option.
@@ -9901,7 +9976,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.playerHeroStats(requestParameters.accountIds, requestParameters.gameMode, requestParameters.heroIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.940 | | MAE    | 1.40 sub-ranks | | RMSE   | 2.22 sub-ranks | | Within ±1 sub-rank | 69.1% | | Within ±3 sub-ranks | 90.4% | | Within ±5 sub-ranks | 96.7% | | Within ±6 sub-ranks | 97.7% | | Within ±10 sub-ranks | 99.7% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 430 | 4.79 sub-ranks | | Mid (5-7)  | 1350 | 3.11 sub-ranks | | High (8-11)| 25020 | 1.25 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+         *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.925 | | MAE    | 1.19 sub-ranks | | RMSE   | 2.06 sub-ranks | | Within ±1 sub-rank | 74.3% | | Within ±3 sub-rank | 93.2% | | Within ±5 sub-rank | 97.4% | | Within ±6 sub-rank | 98.3% | | Within ±10 sub-rank | 99.4% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 760 | 5.24 sub-ranks | | Mid (5-7)  | 2065 | 3.02 sub-ranks | | High (8-11)| 72340 | 1.09 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Rank Predict
          * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -10209,7 +10284,7 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.940 | | MAE    | 1.40 sub-ranks | | RMSE   | 2.22 sub-ranks | | Within ±1 sub-rank | 69.1% | | Within ±3 sub-ranks | 90.4% | | Within ±5 sub-ranks | 96.7% | | Within ±6 sub-ranks | 97.7% | | Within ±10 sub-ranks | 99.7% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 430 | 4.79 sub-ranks | | Mid (5-7)  | 1350 | 3.11 sub-ranks | | High (8-11)| 25020 | 1.25 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+     *  Predicts a player\'s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player\'s > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |--------|-------| | R²     | 0.925 | | MAE    | 1.19 sub-ranks | | RMSE   | 2.06 sub-ranks | | Within ±1 sub-rank | 74.3% | | Within ±3 sub-rank | 93.2% | | Within ±5 sub-rank | 97.4% | | Within ±6 sub-rank | 98.3% | | Within ±10 sub-rank | 99.4% |  Accuracy by tier:  | Tier range | n | MAE | |------------|---|-----| | Low (1-4)  | 760 | 5.24 sub-ranks | | Mid (5-7)  | 2065 | 3.02 sub-ranks | | High (8-11)| 72340 | 1.09 sub-ranks |  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Rank Predict
      * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -10600,6 +10675,36 @@ export const ServersApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock\'s appid.     
+         * @summary List Steam Game Servers
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        steamList: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/servers/steam`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -10647,6 +10752,18 @@ export const ServersApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['ServersApi.status']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock\'s appid.     
+         * @summary List Steam Game Servers
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async steamList(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamServer>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.steamList(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ServersApi.steamList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -10684,6 +10801,15 @@ export const ServersApiFactory = function (configuration?: Configuration, basePa
          */
         status(requestParameters: ServersApiStatusRequest, options?: RawAxiosRequestConfig): AxiosPromise<ServerStatusResponse> {
             return localVarFp.status(requestParameters.serverStatusRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock\'s appid.     
+         * @summary List Steam Game Servers
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        steamList(options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamServer>> {
+            return localVarFp.steamList(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10736,6 +10862,16 @@ export class ServersApi extends BaseAPI {
      */
     public status(requestParameters: ServersApiStatusRequest, options?: RawAxiosRequestConfig) {
         return ServersApiFp(this.configuration).status(requestParameters.serverStatusRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock\'s appid.     
+     * @summary List Steam Game Servers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public steamList(options?: RawAxiosRequestConfig) {
+        return ServersApiFp(this.configuration).steamList(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

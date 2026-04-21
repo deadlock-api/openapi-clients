@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **current_player_count** | **number** |  | [default to undefined]
 **game_mode** | **string** |  | [default to undefined]
+**hostname** | **string** |  | [optional] [default to undefined]
 **ip** | **string** |  | [default to undefined]
 **last_updated** | **string** |  | [default to undefined]
 **port** | **number** |  | [default to undefined]
@@ -21,6 +22,7 @@ import { GameServerInfo } from 'deadlock_api_client';
 const instance: GameServerInfo = {
     current_player_count,
     game_mode,
+    hostname,
     ip,
     last_updated,
     port,

@@ -17,6 +17,8 @@ pub struct GameServerInfo {
     pub current_player_count: u32,
     #[serde(rename = "game_mode")]
     pub game_mode: String,
+    #[serde(rename = "hostname", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hostname: Option<Option<String>>,
     #[serde(rename = "ip")]
     pub ip: String,
     #[serde(rename = "last_updated")]
@@ -34,6 +36,7 @@ impl GameServerInfo {
         GameServerInfo {
             current_player_count,
             game_mode,
+            hostname: None,
             ip,
             last_updated,
             port,

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CurrentPlayerCount** | **int32** |  | 
 **GameMode** | **string** |  | 
+**Hostname** | Pointer to **NullableString** |  | [optional] 
 **Ip** | **string** |  | 
 **LastUpdated** | **string** |  | 
 **Port** | **int32** |  | 
@@ -71,6 +72,41 @@ and a boolean to check if the value has been set.
 SetGameMode sets GameMode field to given value.
 
 
+### GetHostname
+
+`func (o *GameServerInfo) GetHostname() string`
+
+GetHostname returns the Hostname field if non-nil, zero value otherwise.
+
+### GetHostnameOk
+
+`func (o *GameServerInfo) GetHostnameOk() (*string, bool)`
+
+GetHostnameOk returns a tuple with the Hostname field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostname
+
+`func (o *GameServerInfo) SetHostname(v string)`
+
+SetHostname sets Hostname field to given value.
+
+### HasHostname
+
+`func (o *GameServerInfo) HasHostname() bool`
+
+HasHostname returns a boolean if a field has been set.
+
+### SetHostnameNil
+
+`func (o *GameServerInfo) SetHostnameNil(b bool)`
+
+ SetHostnameNil sets the value for Hostname to be an explicit nil
+
+### UnsetHostname
+`func (o *GameServerInfo) UnsetHostname()`
+
+UnsetHostname ensures that no value is present for Hostname, not even an explicit nil
 ### GetIp
 
 `func (o *GameServerInfo) GetIp() string`

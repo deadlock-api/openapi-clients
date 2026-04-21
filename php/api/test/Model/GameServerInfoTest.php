@@ -98,6 +98,15 @@ class GameServerInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "hostname"
+     */
+    public function testPropertyHostname()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "ip"
      */
     public function testPropertyIp()

@@ -37,6 +37,7 @@ class TestServerStatusRequest(unittest.TestCase):
             return ServerStatusRequest(
                 current_player_count = 0,
                 game_mode = '',
+                hostname = '',
                 ip = '',
                 port = 0,
                 region = '',

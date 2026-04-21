@@ -31,6 +31,7 @@ import deadlock_api_client.models.ListServersResponse
 import deadlock_api_client.models.MetricIngestRequest
 import deadlock_api_client.models.ServerStatusRequest
 import deadlock_api_client.models.ServerStatusResponse
+import deadlock_api_client.models.SteamServer
 
 import com.squareup.moshi.Json
 
@@ -264,6 +265,76 @@ open class ServersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/servers/status",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/servers/steam
+     * List Steam Game Servers
+     *  Returns the list of Deadlock game servers registered with the Steam master server (&#x60;IGameServersService/GetServerList&#x60;), filtered to Deadlock&#39;s appid.     
+     * @return kotlin.collections.List<SteamServer>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun steamList() : kotlin.collections.List<SteamServer> {
+        val localVarResponse = steamListWithHttpInfo()
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SteamServer>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/servers/steam
+     * List Steam Game Servers
+     *  Returns the list of Deadlock game servers registered with the Steam master server (&#x60;IGameServersService/GetServerList&#x60;), filtered to Deadlock&#39;s appid.     
+     * @return ApiResponse<kotlin.collections.List<SteamServer>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun steamListWithHttpInfo() : ApiResponse<kotlin.collections.List<SteamServer>?> {
+        val localVariableConfig = steamListRequestConfig()
+
+        return request<Unit, kotlin.collections.List<SteamServer>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation steamList
+     *
+     * @return RequestConfig
+     */
+    fun steamListRequestConfig() : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/servers/steam",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -57,4 +57,16 @@ func Test_deadlock_api_client_ServersAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ServersAPIService SteamList", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ServersAPI.SteamList(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

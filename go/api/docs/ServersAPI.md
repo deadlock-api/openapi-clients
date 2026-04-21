@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**Ingest**](ServersAPI.md#Ingest) | **Post** /v1/servers/metrics | Game Server Metric Ingest
 [**List**](ServersAPI.md#List) | **Get** /v1/servers | List Game Servers
 [**Status**](ServersAPI.md#Status) | **Post** /v1/servers/status | Game Server Status
+[**SteamList**](ServersAPI.md#SteamList) | **Get** /v1/servers/steam | List Steam Game Servers
 
 
 
@@ -194,6 +195,67 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SteamList
+
+> []SteamServer SteamList(ctx).Execute()
+
+List Steam Game Servers
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServersAPI.SteamList(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServersAPI.SteamList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SteamList`: []SteamServer
+	fmt.Fprintf(os.Stdout, "Response from `ServersAPI.SteamList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSteamListRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]SteamServer**](SteamServer.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

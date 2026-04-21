@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **current_player_count** | **number** | Current number of players on this server | [default to undefined]
 **game_mode** | **string** | Game mode this server is running (e.g. \&quot;ranked\&quot;, \&quot;unranked\&quot;) | [default to undefined]
+**hostname** | **string** | Hostname of the game server | [optional] [default to undefined]
 **ip** | **string** | IP address of the game server | [default to undefined]
 **port** | **number** | Port the game server is listening on | [default to undefined]
 **region** | **string** | Region the server is located in (e.g. \&quot;eu\&quot;, \&quot;na\&quot;, \&quot;sa\&quot;, \&quot;asia\&quot;, \&quot;oceania\&quot;) | [default to undefined]
@@ -20,6 +21,7 @@ import { ServerStatusRequest } from 'deadlock_api_client';
 const instance: ServerStatusRequest = {
     current_player_count,
     game_mode,
+    hostname,
     ip,
     port,
     region,

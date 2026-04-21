@@ -128,7 +128,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -376,7 +376,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -508,7 +508,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -583,7 +583,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -721,7 +721,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -853,7 +853,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -1039,7 +1039,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -1318,7 +1318,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -1573,7 +1573,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -1836,7 +1836,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -2104,7 +2104,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -2331,7 +2331,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -2597,7 +2597,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -2888,7 +2888,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -3108,7 +3108,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -3406,7 +3406,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -5644,7 +5644,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -5763,7 +5763,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774051200
+          default: 1774137600
           format: int64
           nullable: true
           type: integer
@@ -6516,22 +6516,22 @@ paths:
 
         | Metric | Value |
         |--------|-------|
-        | R²     | 0.940 |
-        | MAE    | 1.40 sub-ranks |
-        | RMSE   | 2.22 sub-ranks |
-        | Within ±1 sub-rank | 69.1% |
-        | Within ±3 sub-ranks | 90.4% |
-        | Within ±5 sub-ranks | 96.7% |
-        | Within ±6 sub-ranks | 97.7% |
-        | Within ±10 sub-ranks | 99.7% |
+        | R²     | 0.925 |
+        | MAE    | 1.19 sub-ranks |
+        | RMSE   | 2.06 sub-ranks |
+        | Within ±1 sub-rank | 74.3% |
+        | Within ±3 sub-rank | 93.2% |
+        | Within ±5 sub-rank | 97.4% |
+        | Within ±6 sub-rank | 98.3% |
+        | Within ±10 sub-rank | 99.4% |
 
         Accuracy by tier:
 
         | Tier range | n | MAE |
         |------------|---|-----|
-        | Low (1-4)  | 430 | 4.79 sub-ranks |
-        | Mid (5-7)  | 1350 | 3.11 sub-ranks |
-        | High (8-11)| 25020 | 1.25 sub-ranks |
+        | Low (1-4)  | 760 | 5.24 sub-ranks |
+        | Mid (5-7)  | 2065 | 3.02 sub-ranks |
+        | High (8-11)| 72340 | 1.09 sub-ranks |
 
         ### Rate Limits:
         | Type | Limit |
@@ -6636,6 +6636,26 @@ paths:
         "401":
           description: Invalid or missing game server secret.
       summary: Game Server Status
+      tags:
+      - Servers
+  /v1/servers/steam:
+    get:
+      description: "\nReturns the list of Deadlock game servers registered with the\
+        \ Steam master server\n(`IGameServersService/GetServerList`), filtered to\
+        \ Deadlock's appid.\n    "
+      operationId: steam_list
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/SteamServer"
+                type: array
+          description: ""
+        "500":
+          description: Fetching the Steam server list failed.
+      summary: List Steam Game Servers
       tags:
       - Servers
   /v1/sql:
@@ -7956,6 +7976,7 @@ components:
       type: string
     GameServerInfo:
       example:
+        hostname: hostname
         last_updated: last_updated
         current_player_count: 0
         port: 0
@@ -7969,6 +7990,9 @@ components:
           minimum: 0
           type: integer
         game_mode:
+          type: string
+        hostname:
+          nullable: true
           type: string
         ip:
           type: string
@@ -8822,14 +8846,16 @@ components:
     ListServersResponse:
       example:
         servers:
-        - last_updated: last_updated
+        - hostname: hostname
+          last_updated: last_updated
           current_player_count: 0
           port: 0
           ip: ip
           game_mode: game_mode
           region: region
           server_id: server_id
-        - last_updated: last_updated
+        - hostname: hostname
+          last_updated: last_updated
           current_player_count: 0
           port: 0
           ip: ip
@@ -9593,6 +9619,7 @@ components:
       type: string
     ServerStatusRequest:
       example:
+        hostname: hostname
         current_player_count: 0
         port: 0
         ip: ip
@@ -9608,6 +9635,10 @@ components:
         game_mode:
           description: "Game mode this server is running (e.g. \"ranked\", \"unranked\"\
             )"
+          type: string
+        hostname:
+          description: Hostname of the game server
+          nullable: true
           type: string
         ip:
           description: IP address of the game server
@@ -9714,6 +9745,107 @@ components:
       - last_updated
       - personaname
       - profileurl
+    SteamServer:
+      example:
+        dedicated: true
+        bots: 0
+        product: product
+        os: os
+        players: 0
+        gameport: 0
+        gamedir: gamedir
+        secure: true
+        version: version
+        steamid: steamid
+        appid: 0
+        gametype: gametype
+        name: name
+        max_players: 0
+        addr: addr
+        region: 2
+        map: map
+      properties:
+        addr:
+          description: Full address of the server including port (e.g. `1.2.3.4:27015`)
+          type: string
+        appid:
+          description: Steam appid of the game running on this server
+          format: int32
+          minimum: 0
+          type: integer
+        bots:
+          description: Number of bots on the server
+          format: int32
+          minimum: 0
+          type: integer
+        dedicated:
+          description: Whether this is a dedicated server
+          type: boolean
+        gamedir:
+          description: Internal game directory name
+          type: string
+        gameport:
+          description: Game port the server is listening on
+          format: int32
+          minimum: 0
+          type: integer
+        gametype:
+          description: Steam gametype tags
+          type: string
+        map:
+          description: Current map
+          type: string
+        max_players:
+          description: Maximum player count
+          format: int32
+          minimum: 0
+          type: integer
+        name:
+          description: Server name as advertised to Steam
+          type: string
+        os:
+          description: "Operating system the server is running on (e.g. `l` for Linux,\
+            \ `w` for Windows)"
+          type: string
+        players:
+          description: Current player count
+          format: int32
+          minimum: 0
+          type: integer
+        product:
+          description: Product identifier reported by the server
+          type: string
+        region:
+          description: Steam region code reported by the server
+          format: int32
+          type: integer
+        secure:
+          description: Whether the server is VAC-secured
+          type: boolean
+        steamid:
+          description: '`SteamID` of the server'
+          type: string
+        version:
+          description: Server build version
+          type: string
+      required:
+      - addr
+      - appid
+      - bots
+      - dedicated
+      - gamedir
+      - gameport
+      - gametype
+      - map
+      - max_players
+      - name
+      - os
+      - players
+      - product
+      - region
+      - secure
+      - steamid
+      - version
     TableSize:
       example:
         data_compressed_bytes: 0

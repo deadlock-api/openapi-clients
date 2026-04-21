@@ -87,7 +87,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1774051200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774051200)
+    min_unix_timestamp = 1774137600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774137600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -185,6 +185,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**ingest**](docs/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 *ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers
 *ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
+*ServersApi* | [**steam_list**](docs/ServersApi.md#steam_list) | **GET** /v1/servers/steam | List Steam Game Servers
 *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steam_search**](docs/SteamApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 
@@ -258,6 +259,7 @@ Class | Method | HTTP request | Description
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamProfile](docs/SteamProfile.md)
+ - [SteamServer](docs/SteamServer.md)
  - [TableSize](docs/TableSize.md)
  - [VariableCategory](docs/VariableCategory.md)
  - [VariableDescription](docs/VariableDescription.md)

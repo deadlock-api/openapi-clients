@@ -82,6 +82,7 @@ docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
 docs/SteamProfile.md
+docs/SteamServer.md
 docs/TableSize.md
 docs/VariableCategory.md
 docs/VariableDescription.md
@@ -184,6 +185,7 @@ src/main/kotlin/deadlock_api_client/models/ServerStatusResponse.kt
 src/main/kotlin/deadlock_api_client/models/Status.kt
 src/main/kotlin/deadlock_api_client/models/StatusServices.kt
 src/main/kotlin/deadlock_api_client/models/SteamProfile.kt
+src/main/kotlin/deadlock_api_client/models/SteamServer.kt
 src/main/kotlin/deadlock_api_client/models/TableSize.kt
 src/main/kotlin/deadlock_api_client/models/VariableCategory.kt
 src/main/kotlin/deadlock_api_client/models/VariableDescription.kt
@@ -268,6 +270,7 @@ src/test/kotlin/deadlock_api_client/models/ServerStatusResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusServicesTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamProfileTest.kt
+src/test/kotlin/deadlock_api_client/models/SteamServerTest.kt
 src/test/kotlin/deadlock_api_client/models/TableSizeTest.kt
 src/test/kotlin/deadlock_api_client/models/VariableCategoryTest.kt
 src/test/kotlin/deadlock_api_client/models/VariableDescriptionTest.kt

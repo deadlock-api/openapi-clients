@@ -32,9 +32,15 @@ Accept: application/json
 {
  "current_player_count": "<number>",
  "game_mode": "<string>",
+ "hostname": "<string>",
  "ip": "<string>",
  "port": "<number>",
  "region": "<string>",
  "server_id": "<string>"
 }
 
+
+### List Steam Game Servers
+## List Steam Game Servers
+GET https://api.deadlock-api.com/v1/servers/steam
+Accept: application/json

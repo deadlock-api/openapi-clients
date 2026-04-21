@@ -78,6 +78,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**ingest**](Apis/ServersApi.http#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 *ServersApi* | [**list**](Apis/ServersApi.http#list) | **GET** /v1/servers | List Game Servers
 *ServersApi* | [**status**](Apis/ServersApi.http#status) | **POST** /v1/servers/status | Game Server Status
+*ServersApi* | [**steamList**](Apis/ServersApi.http#steamlist) | **GET** /v1/servers/steam | List Steam Game Servers
 *SteamApi* | [**steam**](Apis/SteamApi.http#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steamSearch**](Apis/SteamApi.http#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 

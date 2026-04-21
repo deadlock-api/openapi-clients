@@ -106,4 +106,16 @@ class ServersApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for steamList
+     *
+     * List Steam Game Servers.
+     *
+     */
+    public function testSteamList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

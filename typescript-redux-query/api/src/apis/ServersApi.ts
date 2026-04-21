@@ -27,6 +27,9 @@ import {
     ServerStatusResponse,
     ServerStatusResponseFromJSON,
     ServerStatusResponseToJSON,
+    SteamServer,
+    SteamServerFromJSON,
+    SteamServerToJSON,
 } from '../models';
 
 export interface IngestRequest {
@@ -179,5 +182,49 @@ function statusRaw<T>(requestParameters: StatusRequest, requestConfig: runtime.T
 */
 export function status<T>(requestParameters: StatusRequest, requestConfig?: runtime.TypedQueryConfig<T, ServerStatusResponse>): QueryConfig<T> {
     return statusRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock\'s appid.     
+ * List Steam Game Servers
+ */
+function steamListRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<SteamServer>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/servers/steam`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(SteamServerFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock\'s appid.     
+* List Steam Game Servers
+*/
+export function steamList<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<SteamServer>>): QueryConfig<T> {
+    return steamListRaw( requestConfig);
 }
 

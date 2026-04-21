@@ -39,8 +39,9 @@ namespace DeadlockApiClient.Model
         /// <param name="port">Port the game server is listening on</param>
         /// <param name="region">Region the server is located in (e.g. \&quot;eu\&quot;, \&quot;na\&quot;, \&quot;sa\&quot;, \&quot;asia\&quot;, \&quot;oceania\&quot;)</param>
         /// <param name="serverId">Unique identifier for the game server</param>
+        /// <param name="hostname">Hostname of the game server</param>
         [JsonConstructor]
-        public ServerStatusRequest(int currentPlayerCount, string gameMode, string ip, int port, string region, string serverId)
+        public ServerStatusRequest(int currentPlayerCount, string gameMode, string ip, int port, string region, string serverId, Option<string?> hostname = default)
         {
             CurrentPlayerCount = currentPlayerCount;
             GameMode = gameMode;
@@ -48,6 +49,7 @@ namespace DeadlockApiClient.Model
             Port = port;
             Region = region;
             ServerId = serverId;
+            HostnameOption = hostname;
             OnCreated();
         }
 
@@ -96,6 +98,20 @@ namespace DeadlockApiClient.Model
         public string ServerId { get; set; }
 
         /// <summary>
+        /// Used to track the state of Hostname
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> HostnameOption { get; private set; }
+
+        /// <summary>
+        /// Hostname of the game server
+        /// </summary>
+        /// <value>Hostname of the game server</value>
+        [JsonPropertyName("hostname")]
+        public string? Hostname { get { return this.HostnameOption; } set { this.HostnameOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +125,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Port: ").Append(Port).Append("\n");
             sb.Append("  Region: ").Append(Region).Append("\n");
             sb.Append("  ServerId: ").Append(ServerId).Append("\n");
+            sb.Append("  Hostname: ").Append(Hostname).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +181,7 @@ namespace DeadlockApiClient.Model
             Option<int?> port = default;
             Option<string?> region = default;
             Option<string?> serverId = default;
+            Option<string?> hostname = default;
 
             while (utf8JsonReader.Read())
             {
@@ -197,6 +215,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "server_id":
                             serverId = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "hostname":
+                            hostname = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
@@ -240,7 +261,7 @@ namespace DeadlockApiClient.Model
             if (serverId.IsSet && serverId.Value == null)
                 throw new ArgumentNullException(nameof(serverId), "Property is not nullable for class ServerStatusRequest.");
 
-            return new ServerStatusRequest(currentPlayerCount.Value!.Value!, gameMode.Value!, ip.Value!, port.Value!.Value!, region.Value!, serverId.Value!);
+            return new ServerStatusRequest(currentPlayerCount.Value!.Value!, gameMode.Value!, ip.Value!, port.Value!.Value!, region.Value!, serverId.Value!, hostname);
         }
 
         /// <summary>
@@ -290,6 +311,12 @@ namespace DeadlockApiClient.Model
             writer.WriteString("region", serverStatusRequest.Region);
 
             writer.WriteString("server_id", serverStatusRequest.ServerId);
+
+            if (serverStatusRequest.HostnameOption.IsSet)
+                if (serverStatusRequest.HostnameOption.Value != null)
+                    writer.WriteString("hostname", serverStatusRequest.Hostname);
+                else
+                    writer.WriteNull("hostname");
         }
     }
 }

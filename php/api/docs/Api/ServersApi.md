@@ -9,6 +9,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**callList()**](ServersApi.md#callList) | **GET** /v1/servers | List Game Servers |
 | [**ingest()**](ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest |
 | [**status()**](ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status |
+| [**steamList()**](ServersApi.md#steamList) | **GET** /v1/servers/steam | List Steam Game Servers |
 
 
 ## `callList()`
@@ -169,6 +170,59 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `steamList()`
+
+```php
+steamList(): \OpenAPI\Client\Model\SteamServer[]
+```
+
+List Steam Game Servers
+
+Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock's appid.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ServersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->steamList();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ServersApi->steamList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\SteamServer[]**](../Model/SteamServer.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**ingest**](ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest |
 | [**list**](ServersApi.md#list) | **GET** /v1/servers | List Game Servers |
 | [**status**](ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status |
+| [**steamList**](ServersApi.md#steamList) | **GET** /v1/servers/steam | List Steam Game Servers |
 
 
 <a id="ingest"></a>
@@ -141,5 +142,48 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="steamList"></a>
+# **steamList**
+> kotlin.collections.List&lt;SteamServer&gt; steamList()
+
+List Steam Game Servers
+
+ Returns the list of Deadlock game servers registered with the Steam master server (&#x60;IGameServersService/GetServerList&#x60;), filtered to Deadlock&#39;s appid.     
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = ServersApi()
+try {
+    val result : kotlin.collections.List<SteamServer> = apiInstance.steamList()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ServersApi#steamList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ServersApi#steamList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**kotlin.collections.List&lt;SteamServer&gt;**](SteamServer.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ingest**](ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
 [**list**](ServersApi.md#list) | **GET** /v1/servers | List Game Servers
 [**status**](ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
+[**steam_list**](ServersApi.md#steam_list) | **GET** /v1/servers/steam | List Steam Game Servers
 
 
 
@@ -92,6 +93,33 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## steam_list
+
+> Vec<models::SteamServer> steam_list()
+List Steam Game Servers
+
+ Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock's appid.     
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Vec<models::SteamServer>**](SteamServer.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

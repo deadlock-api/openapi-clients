@@ -108,6 +108,7 @@ __all__ = [
     "Status",
     "StatusServices",
     "SteamProfile",
+    "SteamServer",
     "TableSize",
     "VariableCategory",
     "VariableDescription",
@@ -208,6 +209,7 @@ from deadlock_api_client.models.server_status_response import ServerStatusRespon
 from deadlock_api_client.models.status import Status as Status
 from deadlock_api_client.models.status_services import StatusServices as StatusServices
 from deadlock_api_client.models.steam_profile import SteamProfile as SteamProfile
+from deadlock_api_client.models.steam_server import SteamServer as SteamServer
 from deadlock_api_client.models.table_size import TableSize as TableSize
 from deadlock_api_client.models.variable_category import VariableCategory as VariableCategory
 from deadlock_api_client.models.variable_description import VariableDescription as VariableDescription

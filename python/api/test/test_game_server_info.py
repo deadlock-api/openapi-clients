@@ -37,6 +37,7 @@ class TestGameServerInfo(unittest.TestCase):
             return GameServerInfo(
                 current_player_count = 0,
                 game_mode = '',
+                hostname = '',
                 ip = '',
                 last_updated = '',
                 port = 0,

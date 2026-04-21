@@ -40,8 +40,9 @@ namespace DeadlockApiClient.Model
         /// <param name="port">port</param>
         /// <param name="region">region</param>
         /// <param name="serverId">serverId</param>
+        /// <param name="hostname">hostname</param>
         [JsonConstructor]
-        public GameServerInfo(int currentPlayerCount, string gameMode, string ip, string lastUpdated, int port, string region, string serverId)
+        public GameServerInfo(int currentPlayerCount, string gameMode, string ip, string lastUpdated, int port, string region, string serverId, Option<string?> hostname = default)
         {
             CurrentPlayerCount = currentPlayerCount;
             GameMode = gameMode;
@@ -50,6 +51,7 @@ namespace DeadlockApiClient.Model
             Port = port;
             Region = region;
             ServerId = serverId;
+            HostnameOption = hostname;
             OnCreated();
         }
 
@@ -98,6 +100,19 @@ namespace DeadlockApiClient.Model
         public string ServerId { get; set; }
 
         /// <summary>
+        /// Used to track the state of Hostname
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> HostnameOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Hostname
+        /// </summary>
+        [JsonPropertyName("hostname")]
+        public string? Hostname { get { return this.HostnameOption; } set { this.HostnameOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +127,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Port: ").Append(Port).Append("\n");
             sb.Append("  Region: ").Append(Region).Append("\n");
             sb.Append("  ServerId: ").Append(ServerId).Append("\n");
+            sb.Append("  Hostname: ").Append(Hostname).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,6 +184,7 @@ namespace DeadlockApiClient.Model
             Option<int?> port = default;
             Option<string?> region = default;
             Option<string?> serverId = default;
+            Option<string?> hostname = default;
 
             while (utf8JsonReader.Read())
             {
@@ -204,6 +221,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "server_id":
                             serverId = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "hostname":
+                            hostname = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
@@ -253,7 +273,7 @@ namespace DeadlockApiClient.Model
             if (serverId.IsSet && serverId.Value == null)
                 throw new ArgumentNullException(nameof(serverId), "Property is not nullable for class GameServerInfo.");
 
-            return new GameServerInfo(currentPlayerCount.Value!.Value!, gameMode.Value!, ip.Value!, lastUpdated.Value!, port.Value!.Value!, region.Value!, serverId.Value!);
+            return new GameServerInfo(currentPlayerCount.Value!.Value!, gameMode.Value!, ip.Value!, lastUpdated.Value!, port.Value!.Value!, region.Value!, serverId.Value!, hostname);
         }
 
         /// <summary>
@@ -308,6 +328,12 @@ namespace DeadlockApiClient.Model
             writer.WriteString("region", gameServerInfo.Region);
 
             writer.WriteString("server_id", gameServerInfo.ServerId);
+
+            if (gameServerInfo.HostnameOption.IsSet)
+                if (gameServerInfo.HostnameOption.Value != null)
+                    writer.WriteString("hostname", gameServerInfo.Hostname);
+                else
+                    writer.WriteNull("hostname");
         }
     }
 }

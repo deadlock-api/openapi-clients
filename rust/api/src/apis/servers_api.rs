@@ -52,6 +52,14 @@ pub enum StatusError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`steam_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SteamListError {
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
 
 ///  Ingests a single metric event reported by a game server. The schema is intentionally flexible: `metric_value` carries the primary numeric measurement and `metadata` holds arbitrary key/value context that varies per game mode or metric. Optional `map` and `game_mode_version` let callers segment leaderboards per map or per ruleset revision. Requires a valid game server secret as a Bearer token.     
 pub async fn ingest(configuration: &configuration::Configuration, params: IngestParams) -> Result<(), Error<IngestError>> {
@@ -145,6 +153,41 @@ pub async fn status(configuration: &configuration::Configuration, params: Status
     } else {
         let content = resp.text().await?;
         let entity: Option<StatusError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock's appid.     
+pub async fn steam_list(configuration: &configuration::Configuration) -> Result<Vec<models::SteamServer>, Error<SteamListError>> {
+
+    let uri_str = format!("{}/v1/servers/steam", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::SteamServer&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::SteamServer&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SteamListError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

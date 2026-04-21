@@ -127,6 +127,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *ServersApi* | [**ingest**](docs/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest |
 | *ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers |
 | *ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status |
+| *ServersApi* | [**steamList**](docs/ServersApi.md#steamlist) | **GET** /v1/servers/steam | List Steam Game Servers |
 | *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
 | *SteamApi* | [**steamSearch**](docs/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 
@@ -201,6 +202,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)
+ - [deadlock_api_client.models.SteamServer](docs/SteamServer.md)
  - [deadlock_api_client.models.TableSize](docs/TableSize.md)
  - [deadlock_api_client.models.VariableCategory](docs/VariableCategory.md)
  - [deadlock_api_client.models.VariableDescription](docs/VariableDescription.md)

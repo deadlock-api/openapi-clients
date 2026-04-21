@@ -47,6 +47,13 @@ class TestServersApi(unittest.TestCase):
         """
         pass
 
+    def test_steam_list(self) -> None:
+        """Test case for steam_list
+
+        List Steam Game Servers
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

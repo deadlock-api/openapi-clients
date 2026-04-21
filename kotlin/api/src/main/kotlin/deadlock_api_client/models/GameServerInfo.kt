@@ -38,6 +38,7 @@ import java.io.Serializable
  * @param port 
  * @param region 
  * @param serverId 
+ * @param hostname 
  */
 
 
@@ -62,7 +63,10 @@ data class GameServerInfo (
     val region: kotlin.String,
 
     @Json(name = "server_id")
-    val serverId: kotlin.String
+    val serverId: kotlin.String,
+
+    @Json(name = "hostname")
+    val hostname: kotlin.String? = null
 
 ) : Serializable {
     companion object {

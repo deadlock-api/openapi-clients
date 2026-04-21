@@ -39,6 +39,7 @@ class TestListServersResponse(unittest.TestCase):
                     deadlock_api_client.models.game_server_info.GameServerInfo(
                         current_player_count = 0, 
                         game_mode = '', 
+                        hostname = '', 
                         ip = '', 
                         last_updated = '', 
                         port = 0, 
@@ -52,6 +53,7 @@ class TestListServersResponse(unittest.TestCase):
                     deadlock_api_client.models.game_server_info.GameServerInfo(
                         current_player_count = 0, 
                         game_mode = '', 
+                        hostname = '', 
                         ip = '', 
                         last_updated = '', 
                         port = 0, 

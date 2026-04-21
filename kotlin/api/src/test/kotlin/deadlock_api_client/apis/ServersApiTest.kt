@@ -31,6 +31,7 @@ import deadlock_api_client.models.ListServersResponse
 import deadlock_api_client.models.MetricIngestRequest
 import deadlock_api_client.models.ServerStatusRequest
 import deadlock_api_client.models.ServerStatusResponse
+import deadlock_api_client.models.SteamServer
 
 class ServersApiTest : ShouldSpec() {
     init {
@@ -56,6 +57,13 @@ class ServersApiTest : ShouldSpec() {
             // uncomment below to test status
             //val serverStatusRequest : ServerStatusRequest =  // ServerStatusRequest | 
             //val result : ServerStatusResponse = apiInstance.status(serverStatusRequest)
+            //result shouldBe ("TODO")
+        }
+
+        // to test steamList
+        should("test steamList") {
+            // uncomment below to test steamList
+            //val result : kotlin.collections.List<SteamServer> = apiInstance.steamList()
             //result shouldBe ("TODO")
         }
 

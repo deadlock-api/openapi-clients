@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **current_player_count** | **int** |  |
 **game_mode** | **string** |  |
+**hostname** | **string** |  | [optional]
 **ip** | **string** |  |
 **last_updated** | **string** |  |
 **port** | **int** |  |

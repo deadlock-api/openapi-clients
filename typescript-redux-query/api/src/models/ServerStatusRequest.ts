@@ -31,6 +31,12 @@ export interface ServerStatusRequest  {
      */
     gameMode: string;
     /**
+     * Hostname of the game server
+     * @type {string}
+     * @memberof ServerStatusRequest
+     */
+    hostname?: string;
+    /**
      * IP address of the game server
      * @type {string}
      * @memberof ServerStatusRequest
@@ -60,6 +66,7 @@ export function ServerStatusRequestFromJSON(json: any): ServerStatusRequest {
     return {
         'currentPlayerCount': json['current_player_count'],
         'gameMode': json['game_mode'],
+        'hostname': !exists(json, 'hostname') ? undefined : json['hostname'],
         'ip': json['ip'],
         'port': json['port'],
         'region': json['region'],
@@ -74,6 +81,7 @@ export function ServerStatusRequestToJSON(value?: ServerStatusRequest): any {
     return {
         'current_player_count': value.currentPlayerCount,
         'game_mode': value.gameMode,
+        'hostname': value.hostname,
         'ip': value.ip,
         'port': value.port,
         'region': value.region,

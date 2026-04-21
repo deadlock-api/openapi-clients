@@ -37,6 +37,7 @@ import java.io.Serializable
  * @param port Port the game server is listening on
  * @param region Region the server is located in (e.g. \"eu\", \"na\", \"sa\", \"asia\", \"oceania\")
  * @param serverId Unique identifier for the game server
+ * @param hostname Hostname of the game server
  */
 
 
@@ -64,7 +65,11 @@ data class ServerStatusRequest (
 
     /* Unique identifier for the game server */
     @Json(name = "server_id")
-    val serverId: kotlin.String
+    val serverId: kotlin.String,
+
+    /* Hostname of the game server */
+    @Json(name = "hostname")
+    val hostname: kotlin.String? = null
 
 ) : Serializable {
     companion object {

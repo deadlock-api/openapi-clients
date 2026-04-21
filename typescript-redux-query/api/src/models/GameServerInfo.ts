@@ -35,6 +35,12 @@ export interface GameServerInfo  {
      * @type {string}
      * @memberof GameServerInfo
      */
+    hostname?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameServerInfo
+     */
     ip: string;
     /**
      * 
@@ -66,6 +72,7 @@ export function GameServerInfoFromJSON(json: any): GameServerInfo {
     return {
         'currentPlayerCount': json['current_player_count'],
         'gameMode': json['game_mode'],
+        'hostname': !exists(json, 'hostname') ? undefined : json['hostname'],
         'ip': json['ip'],
         'lastUpdated': json['last_updated'],
         'port': json['port'],
@@ -81,6 +88,7 @@ export function GameServerInfoToJSON(value?: GameServerInfo): any {
     return {
         'current_player_count': value.currentPlayerCount,
         'game_mode': value.gameMode,
+        'hostname': value.hostname,
         'ip': value.ip,
         'last_updated': value.lastUpdated,
         'port': value.port,
