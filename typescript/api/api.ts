@@ -10354,7 +10354,7 @@ export const SQLApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
+         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
          * @param {*} [options] Override http request option.
@@ -10446,7 +10446,7 @@ export const SQLApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
+         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
          * @param {*} [options] Override http request option.
@@ -10490,7 +10490,7 @@ export const SQLApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.listTables(options).then((request) => request(axios, basePath));
         },
         /**
-         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
+         *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {SQLApiSqlRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -10547,7 +10547,7 @@ export class SQLApi extends BaseAPI {
     }
 
     /**
-     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
+     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @summary Query
      * @param {SQLApiSqlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

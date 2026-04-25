@@ -68,7 +68,7 @@ export function listTables<T>( requestConfig?: runtime.TypedQueryConfig<T, Array
 }
 
 /**
- *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
+ *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
  * Query
  */
 function sqlRaw<T>(requestParameters: SqlRequest, requestConfig: runtime.TypedQueryConfig<T, string> = {}): QueryConfig<T> {
@@ -114,7 +114,7 @@ function sqlRaw<T>(requestParameters: SqlRequest, requestConfig: runtime.TypedQu
 }
 
 /**
-*  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
+*  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 * Query
 */
 export function sql<T>(requestParameters: SqlRequest, requestConfig?: runtime.TypedQueryConfig<T, string>): QueryConfig<T> {

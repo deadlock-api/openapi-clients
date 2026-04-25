@@ -89,7 +89,7 @@ pub async fn list_tables(configuration: &configuration::Configuration) -> Result
     }
 }
 
-///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 10req/min | | Global | 30req/min |     
+///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 pub async fn sql(configuration: &configuration::Configuration, params: SqlParams) -> Result<String, Error<SqlError>> {
 
     let uri_str = format!("{}/v1/sql", configuration.base_path);
