@@ -213,7 +213,7 @@ No authorization required
 
 <a id="metadata"></a>
 # **metadata**
-> metadata(matchId, isCustom)
+> metadata(matchId, isCustom, disableSteam)
 
 Metadata
 
@@ -228,8 +228,9 @@ Metadata
 val apiInstance = MatchesApi()
 val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
 val isCustom : kotlin.Boolean = true // kotlin.Boolean | 
+val disableSteam : kotlin.Boolean = true // kotlin.Boolean | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
 try {
-    apiInstance.metadata(matchId, isCustom)
+    apiInstance.metadata(matchId, isCustom, disableSteam)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#metadata")
     e.printStackTrace()
@@ -241,9 +242,10 @@ try {
 
 ### Parameters
 | **matchId** | **kotlin.Long**| The match ID | |
+| **isCustom** | **kotlin.Boolean**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **isCustom** | **kotlin.Boolean**|  | [optional] |
+| **disableSteam** | **kotlin.Boolean**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] |
 
 ### Return type
 
@@ -260,7 +262,7 @@ No authorization required
 
 <a id="metadataRaw"></a>
 # **metadataRaw**
-> kotlin.collections.List&lt;kotlin.Int&gt; metadataRaw(matchId, isCustom)
+> kotlin.collections.List&lt;kotlin.Int&gt; metadataRaw(matchId, isCustom, disableSteam)
 
 Metadata as Protobuf
 
@@ -275,8 +277,9 @@ Metadata as Protobuf
 val apiInstance = MatchesApi()
 val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
 val isCustom : kotlin.Boolean = true // kotlin.Boolean | 
+val disableSteam : kotlin.Boolean = true // kotlin.Boolean | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.metadataRaw(matchId, isCustom)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.metadataRaw(matchId, isCustom, disableSteam)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#metadataRaw")
@@ -289,9 +292,10 @@ try {
 
 ### Parameters
 | **matchId** | **kotlin.Long**| The match ID | |
+| **isCustom** | **kotlin.Boolean**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **isCustom** | **kotlin.Boolean**|  | [optional] |
+| **disableSteam** | **kotlin.Boolean**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] |
 
 ### Return type
 

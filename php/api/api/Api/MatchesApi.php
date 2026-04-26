@@ -1446,15 +1446,16 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadata'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function metadata($match_id, $is_custom = null, string $contentType = self::contentTypes['metadata'][0])
+    public function metadata($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
-        $this->metadataWithHttpInfo($match_id, $is_custom, $contentType);
+        $this->metadataWithHttpInfo($match_id, $is_custom, $disable_steam, $contentType);
     }
 
     /**
@@ -1464,15 +1465,16 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadata'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function metadataWithHttpInfo($match_id, $is_custom = null, string $contentType = self::contentTypes['metadata'][0])
+    public function metadataWithHttpInfo($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
-        $request = $this->metadataRequest($match_id, $is_custom, $contentType);
+        $request = $this->metadataRequest($match_id, $is_custom, $disable_steam, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1514,14 +1516,15 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadata'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataAsync($match_id, $is_custom = null, string $contentType = self::contentTypes['metadata'][0])
+    public function metadataAsync($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
-        return $this->metadataAsyncWithHttpInfo($match_id, $is_custom, $contentType)
+        return $this->metadataAsyncWithHttpInfo($match_id, $is_custom, $disable_steam, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1536,15 +1539,16 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadata'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataAsyncWithHttpInfo($match_id, $is_custom = null, string $contentType = self::contentTypes['metadata'][0])
+    public function metadataAsyncWithHttpInfo($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
         $returnType = '';
-        $request = $this->metadataRequest($match_id, $is_custom, $contentType);
+        $request = $this->metadataRequest($match_id, $is_custom, $disable_steam, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1574,12 +1578,13 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadata'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function metadataRequest($match_id, $is_custom = null, string $contentType = self::contentTypes['metadata'][0])
+    public function metadataRequest($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
 
         // verify the required parameter 'match_id' is set
@@ -1594,6 +1599,7 @@ class MatchesApi
         
 
 
+
         $resourcePath = '/v1/matches/{match_id}/metadata';
         $formParams = [];
         $queryParams = [];
@@ -1605,6 +1611,15 @@ class MatchesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $is_custom,
             'is_custom', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $disable_steam,
+            'disable_steam', // param base name
             'boolean', // openApiType
             'form', // style
             true, // explode
@@ -1682,15 +1697,16 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function metadataRaw($match_id, $is_custom = null, string $contentType = self::contentTypes['metadataRaw'][0])
+    public function metadataRaw($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadataRaw'][0])
     {
-        list($response) = $this->metadataRawWithHttpInfo($match_id, $is_custom, $contentType);
+        list($response) = $this->metadataRawWithHttpInfo($match_id, $is_custom, $disable_steam, $contentType);
         return $response;
     }
 
@@ -1701,15 +1717,16 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function metadataRawWithHttpInfo($match_id, $is_custom = null, string $contentType = self::contentTypes['metadataRaw'][0])
+    public function metadataRawWithHttpInfo($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadataRaw'][0])
     {
-        $request = $this->metadataRawRequest($match_id, $is_custom, $contentType);
+        $request = $this->metadataRawRequest($match_id, $is_custom, $disable_steam, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1787,14 +1804,15 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataRawAsync($match_id, $is_custom = null, string $contentType = self::contentTypes['metadataRaw'][0])
+    public function metadataRawAsync($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadataRaw'][0])
     {
-        return $this->metadataRawAsyncWithHttpInfo($match_id, $is_custom, $contentType)
+        return $this->metadataRawAsyncWithHttpInfo($match_id, $is_custom, $disable_steam, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1809,15 +1827,16 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function metadataRawAsyncWithHttpInfo($match_id, $is_custom = null, string $contentType = self::contentTypes['metadataRaw'][0])
+    public function metadataRawAsyncWithHttpInfo($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadataRaw'][0])
     {
         $returnType = 'int[]';
-        $request = $this->metadataRawRequest($match_id, $is_custom, $contentType);
+        $request = $this->metadataRawRequest($match_id, $is_custom, $disable_steam, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1860,12 +1879,13 @@ class MatchesApi
      *
      * @param  int $match_id The match ID (required)
      * @param  bool|null $is_custom (optional)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['metadataRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function metadataRawRequest($match_id, $is_custom = null, string $contentType = self::contentTypes['metadataRaw'][0])
+    public function metadataRawRequest($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadataRaw'][0])
     {
 
         // verify the required parameter 'match_id' is set
@@ -1880,6 +1900,7 @@ class MatchesApi
         
 
 
+
         $resourcePath = '/v1/matches/{match_id}/metadata/raw';
         $formParams = [];
         $queryParams = [];
@@ -1891,6 +1912,15 @@ class MatchesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $is_custom,
             'is_custom', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $disable_steam,
+            'disable_steam', // param base name
             'boolean', // openApiType
             'form', // style
             true, // explode

@@ -731,10 +731,17 @@ type ApiMetadataRequest struct {
 	ApiService *MatchesAPIService
 	matchId int64
 	isCustom *bool
+	disableSteam *bool
 }
 
 func (r ApiMetadataRequest) IsCustom(isCustom bool) ApiMetadataRequest {
 	r.isCustom = &isCustom
+	return r
+}
+
+// If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+func (r ApiMetadataRequest) DisableSteam(disableSteam bool) ApiMetadataRequest {
+	r.disableSteam = &disableSteam
 	return r
 }
 
@@ -804,6 +811,9 @@ func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (*http.Respons
 	if r.isCustom != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "is_custom", r.isCustom, "form", "")
 	}
+	if r.disableSteam != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "disable_steam", r.disableSteam, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -854,10 +864,17 @@ type ApiMetadataRawRequest struct {
 	ApiService *MatchesAPIService
 	matchId int64
 	isCustom *bool
+	disableSteam *bool
 }
 
 func (r ApiMetadataRawRequest) IsCustom(isCustom bool) ApiMetadataRawRequest {
 	r.isCustom = &isCustom
+	return r
+}
+
+// If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+func (r ApiMetadataRawRequest) DisableSteam(disableSteam bool) ApiMetadataRawRequest {
+	r.disableSteam = &disableSteam
 	return r
 }
 
@@ -926,6 +943,9 @@ func (a *MatchesAPIService) MetadataRawExecute(r ApiMetadataRawRequest) ([]int32
 
 	if r.isCustom != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "is_custom", r.isCustom, "form", "")
+	}
+	if r.disableSteam != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "disable_steam", r.disableSteam, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

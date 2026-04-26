@@ -1360,6 +1360,7 @@ class MatchesApi:
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
         is_custom: Optional[StrictBool] = None,
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1381,6 +1382,8 @@ class MatchesApi:
         :type match_id: int
         :param is_custom:
         :type is_custom: bool
+        :param disable_steam: If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1406,6 +1409,7 @@ class MatchesApi:
         _param = self._metadata_serialize(
             match_id=match_id,
             is_custom=is_custom,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1435,6 +1439,7 @@ class MatchesApi:
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
         is_custom: Optional[StrictBool] = None,
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1456,6 +1461,8 @@ class MatchesApi:
         :type match_id: int
         :param is_custom:
         :type is_custom: bool
+        :param disable_steam: If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1481,6 +1488,7 @@ class MatchesApi:
         _param = self._metadata_serialize(
             match_id=match_id,
             is_custom=is_custom,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1510,6 +1518,7 @@ class MatchesApi:
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
         is_custom: Optional[StrictBool] = None,
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1531,6 +1540,8 @@ class MatchesApi:
         :type match_id: int
         :param is_custom:
         :type is_custom: bool
+        :param disable_steam: If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1556,6 +1567,7 @@ class MatchesApi:
         _param = self._metadata_serialize(
             match_id=match_id,
             is_custom=is_custom,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1580,6 +1592,7 @@ class MatchesApi:
         self,
         match_id,
         is_custom,
+        disable_steam,
         _request_auth,
         _content_type,
         _headers,
@@ -1607,6 +1620,10 @@ class MatchesApi:
         if is_custom is not None:
             
             _query_params.append(('is_custom', is_custom))
+            
+        if disable_steam is not None:
+            
+            _query_params.append(('disable_steam', disable_steam))
             
         # process the header parameters
         # process the form parameters
@@ -1642,6 +1659,7 @@ class MatchesApi:
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
         is_custom: Optional[StrictBool] = None,
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1663,6 +1681,8 @@ class MatchesApi:
         :type match_id: int
         :param is_custom:
         :type is_custom: bool
+        :param disable_steam: If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1688,6 +1708,7 @@ class MatchesApi:
         _param = self._metadata_raw_serialize(
             match_id=match_id,
             is_custom=is_custom,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1717,6 +1738,7 @@ class MatchesApi:
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
         is_custom: Optional[StrictBool] = None,
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1738,6 +1760,8 @@ class MatchesApi:
         :type match_id: int
         :param is_custom:
         :type is_custom: bool
+        :param disable_steam: If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1763,6 +1787,7 @@ class MatchesApi:
         _param = self._metadata_raw_serialize(
             match_id=match_id,
             is_custom=is_custom,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1792,6 +1817,7 @@ class MatchesApi:
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
         is_custom: Optional[StrictBool] = None,
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1813,6 +1839,8 @@ class MatchesApi:
         :type match_id: int
         :param is_custom:
         :type is_custom: bool
+        :param disable_steam: If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1838,6 +1866,7 @@ class MatchesApi:
         _param = self._metadata_raw_serialize(
             match_id=match_id,
             is_custom=is_custom,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1862,6 +1891,7 @@ class MatchesApi:
         self,
         match_id,
         is_custom,
+        disable_steam,
         _request_auth,
         _content_type,
         _headers,
@@ -1889,6 +1919,10 @@ class MatchesApi:
         if is_custom is not None:
             
             _query_params.append(('is_custom', is_custom))
+            
+        if disable_steam is not None:
+            
+            _query_params.append(('disable_steam', disable_steam))
             
         # process the header parameters
         # process the form parameters

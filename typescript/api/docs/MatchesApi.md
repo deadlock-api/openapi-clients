@@ -275,10 +275,12 @@ const apiInstance = new MatchesApi(configuration);
 
 let matchId: number; //The match ID (default to undefined)
 let isCustom: boolean; // (optional) (default to undefined)
+let disableSteam: boolean; //If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.metadata(
     matchId,
-    isCustom
+    isCustom,
+    disableSteam
 );
 ```
 
@@ -288,6 +290,7 @@ const { status, data } = await apiInstance.metadata(
 |------------- | ------------- | ------------- | -------------|
 | **matchId** | [**number**] | The match ID | defaults to undefined|
 | **isCustom** | [**boolean**] |  | (optional) defaults to undefined|
+| **disableSteam** | [**boolean**] | If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -333,10 +336,12 @@ const apiInstance = new MatchesApi(configuration);
 
 let matchId: number; //The match ID (default to undefined)
 let isCustom: boolean; // (optional) (default to undefined)
+let disableSteam: boolean; //If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.metadataRaw(
     matchId,
-    isCustom
+    isCustom,
+    disableSteam
 );
 ```
 
@@ -346,6 +351,7 @@ const { status, data } = await apiInstance.metadataRaw(
 |------------- | ------------- | ------------- | -------------|
 | **matchId** | [**number**] | The match ID | defaults to undefined|
 | **isCustom** | [**boolean**] |  | (optional) defaults to undefined|
+| **disableSteam** | [**boolean**] | If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | (optional) defaults to undefined|
 
 
 ### Return type

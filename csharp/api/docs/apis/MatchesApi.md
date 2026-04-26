@@ -155,7 +155,7 @@ No authorization required
 
 <a id="metadata"></a>
 # **Metadata**
-> void Metadata (long matchId, bool isCustom = null)
+> void Metadata (long matchId, bool isCustom = null, bool disableSteam = null)
 
 Metadata
 
@@ -168,6 +168,7 @@ Metadata
 |------|------|-------------|-------|
 | **matchId** | **long** | The match ID |  |
 | **isCustom** | **bool** |  | [optional]  |
+| **disableSteam** | **bool** | If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional]  |
 
 ### Return type
 
@@ -196,7 +197,7 @@ No authorization required
 
 <a id="metadataraw"></a>
 # **MetadataRaw**
-> List&lt;int&gt; MetadataRaw (long matchId, bool isCustom = null)
+> List&lt;int&gt; MetadataRaw (long matchId, bool isCustom = null, bool disableSteam = null)
 
 Metadata as Protobuf
 
@@ -209,6 +210,7 @@ Metadata as Protobuf
 |------|------|-------------|-------|
 | **matchId** | **long** | The match ID |  |
 | **isCustom** | **bool** |  | [optional]  |
+| **disableSteam** | **bool** | If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional]  |
 
 ### Return type
 

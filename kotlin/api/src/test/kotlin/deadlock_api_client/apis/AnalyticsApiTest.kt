@@ -312,6 +312,11 @@ class AnalyticsApiTest : ShouldSpec() {
             //val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
             //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
             //val heroId : kotlin.Int = 56 // kotlin.Int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val enemyHeroIds : kotlin.String = enemyHeroIds_example // kotlin.String | Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val enemyHeroIdsAllMatch : kotlin.Boolean = true // kotlin.Boolean | When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
+            //val minEnemyNetworth : kotlin.Long = 789 // kotlin.Long | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+            //val maxEnemyNetworth : kotlin.Long = 789 // kotlin.Long | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+            //val sameLaneFilter : kotlin.Boolean = true // kotlin.Boolean | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -330,7 +335,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
             //val minBoughtAtS : kotlin.Int = 56 // kotlin.Int | Filter items bought after this game time (seconds).
             //val maxBoughtAtS : kotlin.Int = 56 // kotlin.Int | Filter items bought before this game time (seconds).
-            //val result : kotlin.collections.List<ItemStats> = apiInstance.itemStats(bucket, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS)
+            //val result : kotlin.collections.List<ItemStats> = apiInstance.itemStats(bucket, gameMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS)
             //result shouldBe ("TODO")
         }
 

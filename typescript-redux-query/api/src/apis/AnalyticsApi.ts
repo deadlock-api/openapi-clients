@@ -280,6 +280,11 @@ export interface ItemStatsRequest {
     gameMode?: ItemStatsGameModeEnum;
     heroIds?: string;
     heroId?: number;
+    enemyHeroIds?: string;
+    enemyHeroIdsAllMatch?: boolean;
+    minEnemyNetworth?: number;
+    maxEnemyNetworth?: number;
+    sameLaneFilter?: boolean;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -1816,6 +1821,31 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 
     if (requestParameters.heroId !== undefined) {
         queryParameters['hero_id'] = requestParameters.heroId;
+    }
+
+
+    if (requestParameters.enemyHeroIds !== undefined) {
+        queryParameters['enemy_hero_ids'] = requestParameters.enemyHeroIds;
+    }
+
+
+    if (requestParameters.enemyHeroIdsAllMatch !== undefined) {
+        queryParameters['enemy_hero_ids_all_match'] = requestParameters.enemyHeroIdsAllMatch;
+    }
+
+
+    if (requestParameters.minEnemyNetworth !== undefined) {
+        queryParameters['min_enemy_networth'] = requestParameters.minEnemyNetworth;
+    }
+
+
+    if (requestParameters.maxEnemyNetworth !== undefined) {
+        queryParameters['max_enemy_networth'] = requestParameters.maxEnemyNetworth;
+    }
+
+
+    if (requestParameters.sameLaneFilter !== undefined) {
+        queryParameters['same_lane_filter'] = requestParameters.sameLaneFilter;
     }
 
 

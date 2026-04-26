@@ -528,6 +528,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -536,8 +537,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun metadata(matchId: kotlin.Long, isCustom: kotlin.Boolean? = null) : Unit {
-        val localVarResponse = metadataWithHttpInfo(matchId = matchId, isCustom = isCustom)
+    fun metadata(matchId: kotlin.Long, isCustom: kotlin.Boolean? = null, disableSteam: kotlin.Boolean? = null) : Unit {
+        val localVarResponse = metadataWithHttpInfo(matchId = matchId, isCustom = isCustom, disableSteam = disableSteam)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -560,13 +561,14 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun metadataWithHttpInfo(matchId: kotlin.Long, isCustom: kotlin.Boolean?) : ApiResponse<Unit?> {
-        val localVariableConfig = metadataRequestConfig(matchId = matchId, isCustom = isCustom)
+    fun metadataWithHttpInfo(matchId: kotlin.Long, isCustom: kotlin.Boolean?, disableSteam: kotlin.Boolean?) : ApiResponse<Unit?> {
+        val localVariableConfig = metadataRequestConfig(matchId = matchId, isCustom = isCustom, disableSteam = disableSteam)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -578,14 +580,18 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param matchId The match ID
      * @param isCustom  (optional)
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @return RequestConfig
      */
-    fun metadataRequestConfig(matchId: kotlin.Long, isCustom: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun metadataRequestConfig(matchId: kotlin.Long, isCustom: kotlin.Boolean?, disableSteam: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (isCustom != null) {
                     put("is_custom", listOf(isCustom.toString()))
+                }
+                if (disableSteam != null) {
+                    put("disable_steam", listOf(disableSteam.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -606,6 +612,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @return kotlin.collections.List<kotlin.Int>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -615,8 +622,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun metadataRaw(matchId: kotlin.Long, isCustom: kotlin.Boolean? = null) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = metadataRawWithHttpInfo(matchId = matchId, isCustom = isCustom)
+    fun metadataRaw(matchId: kotlin.Long, isCustom: kotlin.Boolean? = null, disableSteam: kotlin.Boolean? = null) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = metadataRawWithHttpInfo(matchId = matchId, isCustom = isCustom, disableSteam = disableSteam)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
@@ -639,14 +646,15 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun metadataRawWithHttpInfo(matchId: kotlin.Long, isCustom: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = metadataRawRequestConfig(matchId = matchId, isCustom = isCustom)
+    fun metadataRawWithHttpInfo(matchId: kotlin.Long, isCustom: kotlin.Boolean?, disableSteam: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = metadataRawRequestConfig(matchId = matchId, isCustom = isCustom, disableSteam = disableSteam)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
             localVariableConfig
@@ -658,14 +666,18 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param matchId The match ID
      * @param isCustom  (optional)
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
      * @return RequestConfig
      */
-    fun metadataRawRequestConfig(matchId: kotlin.Long, isCustom: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun metadataRawRequestConfig(matchId: kotlin.Long, isCustom: kotlin.Boolean?, disableSteam: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (isCustom != null) {
                     put("is_custom", listOf(isCustom.toString()))
+                }
+                if (disableSteam != null) {
+                    put("disable_steam", listOf(disableSteam.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

@@ -17,11 +17,11 @@ Accept: application/octet-stream
 
 ### Metadata
 ## Metadata
-GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata?isCustom={{isCustom}}
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata?isCustom={{isCustom}}&disableSteam={{disableSteam}}
 
 ### Metadata as Protobuf
 ## Metadata as Protobuf
-GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata/raw?isCustom={{isCustom}}
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata/raw?isCustom={{isCustom}}&disableSteam={{disableSteam}}
 Accept: application/octet-stream
 
 ### Recently Fetched

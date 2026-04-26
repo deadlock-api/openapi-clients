@@ -322,7 +322,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **metadata**
-> metadata(match_id, is_custom=is_custom)
+> metadata(match_id, is_custom=is_custom, disable_steam=disable_steam)
 
 Metadata
 
@@ -368,10 +368,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
     is_custom = True # bool |  (optional)
+    disable_steam = True # bool | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
 
     try:
         # Metadata
-        api_instance.metadata(match_id, is_custom=is_custom)
+        api_instance.metadata(match_id, is_custom=is_custom, disable_steam=disable_steam)
     except Exception as e:
         print("Exception when calling MatchesApi->metadata: %s\n" % e)
 ```
@@ -385,6 +386,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **int**| The match ID | 
  **is_custom** | **bool**|  | [optional] 
+ **disable_steam** | **bool**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] 
 
 ### Return type
 
@@ -412,7 +414,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **metadata_raw**
-> List[int] metadata_raw(match_id, is_custom=is_custom)
+> List[int] metadata_raw(match_id, is_custom=is_custom, disable_steam=disable_steam)
 
 Metadata as Protobuf
 
@@ -456,10 +458,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
     is_custom = True # bool |  (optional)
+    disable_steam = True # bool | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
 
     try:
         # Metadata as Protobuf
-        api_response = api_instance.metadata_raw(match_id, is_custom=is_custom)
+        api_response = api_instance.metadata_raw(match_id, is_custom=is_custom, disable_steam=disable_steam)
         print("The response of MatchesApi->metadata_raw:\n")
         pprint(api_response)
     except Exception as e:
@@ -475,6 +478,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **int**| The match ID | 
  **is_custom** | **bool**|  | [optional] 
+ **disable_steam** | **bool**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] 
 
 ### Return type
 

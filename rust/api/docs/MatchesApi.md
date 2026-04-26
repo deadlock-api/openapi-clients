@@ -135,7 +135,7 @@ No authorization required
 
 ## metadata
 
-> metadata(match_id, is_custom)
+> metadata(match_id, is_custom, disable_steam)
 Metadata
 
  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
@@ -147,6 +147,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_id** | **u64** | The match ID | [required] |
 **is_custom** | Option<**bool**> |  |  |
+**disable_steam** | Option<**bool**> | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. |  |
 
 ### Return type
 
@@ -166,7 +167,7 @@ No authorization required
 
 ## metadata_raw
 
-> Vec<u32> metadata_raw(match_id, is_custom)
+> Vec<u32> metadata_raw(match_id, is_custom, disable_steam)
 Metadata as Protobuf
 
  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
@@ -178,6 +179,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_id** | **u64** | The match ID | [required] |
 **is_custom** | Option<**bool**> |  |  |
+**disable_steam** | Option<**bool**> | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. |  |
 
 ### Return type
 

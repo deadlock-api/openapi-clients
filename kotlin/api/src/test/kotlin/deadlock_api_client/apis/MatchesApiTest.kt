@@ -96,7 +96,8 @@ class MatchesApiTest : ShouldSpec() {
             // uncomment below to test metadata
             //val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
             //val isCustom : kotlin.Boolean = true // kotlin.Boolean | 
-            //apiInstance.metadata(matchId, isCustom)
+            //val disableSteam : kotlin.Boolean = true // kotlin.Boolean | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+            //apiInstance.metadata(matchId, isCustom, disableSteam)
         }
 
         // to test metadataRaw
@@ -104,7 +105,8 @@ class MatchesApiTest : ShouldSpec() {
             // uncomment below to test metadataRaw
             //val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
             //val isCustom : kotlin.Boolean = true // kotlin.Boolean | 
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.metadataRaw(matchId, isCustom)
+            //val disableSteam : kotlin.Boolean = true // kotlin.Boolean | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.metadataRaw(matchId, isCustom, disableSteam)
             //result shouldBe ("TODO")
         }
 

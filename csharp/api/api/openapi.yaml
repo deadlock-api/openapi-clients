@@ -128,7 +128,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -376,7 +376,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -508,7 +508,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -583,7 +583,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -721,7 +721,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -853,7 +853,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -1039,7 +1039,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -1318,7 +1318,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -1573,7 +1573,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -1836,7 +1836,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -2104,7 +2104,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -2324,6 +2324,64 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: "Filter to matches where one or more of these heroes were on\
+          \ the opposing team. Comma separated. When set, returns \"what items beat\
+          \ hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        explode: true
+        in: query
+        name: enemy_hero_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "When `true`, requires *all* of the specified `enemy_hero_ids`\
+          \ to be on the same enemy team. When `false` (default), matches if *any*\
+          \ of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids`\
+          \ is unset."
+        explode: true
+        in: query
+        name: enemy_hero_ids_all_match
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter the specified enemy hero(es) by their final net worth.
+          Ignored when `enemy_hero_ids` is unset.
+        explode: true
+        in: query
+        name: min_enemy_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter the specified enemy hero(es) by their final net worth.
+          Ignored when `enemy_hero_ids` is unset.
+        explode: true
+        in: query
+        name: max_enemy_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "When `true`, only counts buyers in the same `assigned_lane`\
+          \ as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is\
+          \ unset. **Default:** `false`."
+        explode: true
+        in: query
+        name: same_lane_filter
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
           30 days ago.
         explode: true
@@ -2331,7 +2389,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -2597,7 +2655,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -2888,7 +2946,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -3108,7 +3166,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -3406,7 +3464,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -5261,6 +5319,17 @@ paths:
           nullable: true
           type: boolean
         style: form
+      - description: |-
+          If `true`, skip the Steam fallback when the metadata is not available in S3
+          and return an error instead.
+        explode: true
+        in: query
+        name: disable_steam
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
       responses:
         "200":
           description: "Match metadata, see protobuf type: CMsgMatchMetaDataContents"
@@ -5300,6 +5369,17 @@ paths:
       - explode: true
         in: query
         name: is_custom
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: |-
+          If `true`, skip the Steam fallback when the metadata is not available in S3
+          and return an error instead.
+        explode: true
+        in: query
+        name: disable_steam
         required: false
         schema:
           nullable: true
@@ -5644,7 +5724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer
@@ -5763,7 +5843,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774396800
+          default: 1774483200
           format: int64
           nullable: true
           type: integer

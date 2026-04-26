@@ -47,7 +47,7 @@ import (
 func main() {
 	heroId := int32(56) // int32 | See more: <https://assets.deadlock-api.com/v2/heroes>
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -148,7 +148,7 @@ import (
 
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -182,7 +182,7 @@ Other parameters are passed through a pointer to a apiBadgeDistributionRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -232,7 +232,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -259,7 +259,7 @@ Other parameters are passed through a pointer to a apiBuildItemStatsRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroId** | **int32** | Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). | 
 
 ### Return type
@@ -303,7 +303,7 @@ import (
 func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -386,7 +386,7 @@ import (
 
 func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -419,7 +419,7 @@ Other parameters are passed through a pointer to a apiHeroBanStatsRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -468,7 +468,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -509,7 +509,7 @@ Other parameters are passed through a pointer to a apiHeroBuildStatsRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -562,7 +562,7 @@ import (
 
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -606,7 +606,7 @@ Other parameters are passed through a pointer to a apiHeroCombStatsRequest struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -666,7 +666,7 @@ import (
 
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -708,7 +708,7 @@ Other parameters are passed through a pointer to a apiHeroCountersStatsRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -769,7 +769,7 @@ func main() {
 	sortDirection := "sortDirection_example" // string | The direction to sort heroes in. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	minMatches := int32(56) // int32 | Filter by min number of matches played. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
  **sortDirection** | **string** | The direction to sort heroes in. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **minMatches** | **int32** | Filter by min number of matches played. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -863,7 +863,7 @@ import (
 func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -907,7 +907,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -966,7 +966,7 @@ import (
 
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1006,7 +1006,7 @@ Other parameters are passed through a pointer to a apiHeroSynergiesStatsRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1066,7 +1066,7 @@ func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1140,7 +1140,7 @@ No authorization required
 
 ## ItemStats
 
-> []ItemStats ItemStats(ctx).Bucket(bucket).GameMode(gameMode).HeroIds(heroIds).HeroId(heroId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).Execute()
+> []ItemStats ItemStats(ctx).Bucket(bucket).GameMode(gameMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).Execute()
 
 Item Stats
 
@@ -1163,7 +1163,12 @@ func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	enemyHeroIds := "enemyHeroIds_example" // string | Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
+	enemyHeroIdsAllMatch := true // bool | When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset. (optional)
+	minEnemyNetworth := int64(789) // int64 | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. (optional)
+	maxEnemyNetworth := int64(789) // int64 | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. (optional)
+	sameLaneFilter := true // bool | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`. (optional)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1184,7 +1189,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.ItemStats(context.Background()).Bucket(bucket).GameMode(gameMode).HeroIds(heroIds).HeroId(heroId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.ItemStats(context.Background()).Bucket(bucket).GameMode(gameMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.ItemStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1209,7 +1214,12 @@ Name | Type | Description  | Notes
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **enemyHeroIds** | **string** | Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \&quot;what items beat hero(es) X?\&quot; stats. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+ **enemyHeroIdsAllMatch** | **bool** | When &#x60;true&#x60;, requires *all* of the specified &#x60;enemy_hero_ids&#x60; to be on the same enemy team. When &#x60;false&#x60; (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | 
+ **minEnemyNetworth** | **int64** | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | 
+ **maxEnemyNetworth** | **int64** | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | 
+ **sameLaneFilter** | **bool** | When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | 
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1269,7 +1279,7 @@ import (
 func main() {
 	team := int32(56) // int32 | Filter by team number. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1316,7 +1326,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team** | **int32** | Filter by team number. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1379,7 +1389,7 @@ import (
 func main() {
 	resolution := int32(56) // int32 | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional) (default to 10)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1419,7 +1429,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resolution** | **int32** | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [default to 10]
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -1577,7 +1587,7 @@ import (
 func main() {
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774396800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774483200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1617,7 +1627,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774396800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1774483200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 

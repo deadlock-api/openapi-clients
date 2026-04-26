@@ -2423,6 +2423,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {ItemStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {string | null} [enemyHeroIds] Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \&quot;what items beat hero(es) X?\&quot; stats. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {boolean | null} [enemyHeroIdsAllMatch] When &#x60;true&#x60;, requires *all* of the specified &#x60;enemy_hero_ids&#x60; to be on the same enemy team. When &#x60;false&#x60; (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+         * @param {number | null} [minEnemyNetworth] Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+         * @param {number | null} [maxEnemyNetworth] Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+         * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -2444,7 +2449,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemStats: async (bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemStats: async (bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, enemyHeroIds?: string | null, enemyHeroIdsAllMatch?: boolean | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, sameLaneFilter?: boolean | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/analytics/item-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2471,6 +2476,26 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (heroId !== undefined) {
                 localVarQueryParameter['hero_id'] = heroId;
+            }
+
+            if (enemyHeroIds !== undefined) {
+                localVarQueryParameter['enemy_hero_ids'] = enemyHeroIds;
+            }
+
+            if (enemyHeroIdsAllMatch !== undefined) {
+                localVarQueryParameter['enemy_hero_ids_all_match'] = enemyHeroIdsAllMatch;
+            }
+
+            if (minEnemyNetworth !== undefined) {
+                localVarQueryParameter['min_enemy_networth'] = minEnemyNetworth;
+            }
+
+            if (maxEnemyNetworth !== undefined) {
+                localVarQueryParameter['max_enemy_networth'] = maxEnemyNetworth;
+            }
+
+            if (sameLaneFilter !== undefined) {
+                localVarQueryParameter['same_lane_filter'] = sameLaneFilter;
             }
 
             if (minUnixTimestamp !== undefined) {
@@ -3379,6 +3404,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {ItemStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {string | null} [enemyHeroIds] Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \&quot;what items beat hero(es) X?\&quot; stats. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {boolean | null} [enemyHeroIdsAllMatch] When &#x60;true&#x60;, requires *all* of the specified &#x60;enemy_hero_ids&#x60; to be on the same enemy team. When &#x60;false&#x60; (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+         * @param {number | null} [minEnemyNetworth] Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+         * @param {number | null} [maxEnemyNetworth] Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+         * @param {boolean | null} [sameLaneFilter] When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -3400,8 +3430,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemStats(bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.itemStats(bucket, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, options);
+        async itemStats(bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, enemyHeroIds?: string | null, enemyHeroIdsAllMatch?: boolean | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, sameLaneFilter?: boolean | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.itemStats(bucket, gameMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.itemStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3665,7 +3695,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         itemStats(requestParameters: AnalyticsApiItemStatsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<ItemStats>> {
-            return localVarFp.itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, options).then((request) => request(axios, basePath));
+            return localVarFp.itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.enemyHeroIds, requestParameters.enemyHeroIdsAllMatch, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.sameLaneFilter, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -4650,6 +4680,31 @@ export interface AnalyticsApiItemStatsRequest {
     readonly heroId?: number | null
 
     /**
+     * Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \&quot;what items beat hero(es) X?\&quot; stats. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     */
+    readonly enemyHeroIds?: string | null
+
+    /**
+     * When &#x60;true&#x60;, requires *all* of the specified &#x60;enemy_hero_ids&#x60; to be on the same enemy team. When &#x60;false&#x60; (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+     */
+    readonly enemyHeroIdsAllMatch?: boolean | null
+
+    /**
+     * Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+     */
+    readonly minEnemyNetworth?: number | null
+
+    /**
+     * Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset.
+     */
+    readonly maxEnemyNetworth?: number | null
+
+    /**
+     * When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;.
+     */
+    readonly sameLaneFilter?: boolean | null
+
+    /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
      */
     readonly minUnixTimestamp?: number | null
@@ -5274,7 +5329,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public itemStats(requestParameters: AnalyticsApiItemStatsRequest = {}, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.enemyHeroIds, requestParameters.enemyHeroIdsAllMatch, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.sameLaneFilter, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8485,10 +8540,11 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @summary Metadata
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        metadata: async (matchId: number, isCustom?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        metadata: async (matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('metadata', 'matchId', matchId)
             const localVarPath = `/v1/matches/{match_id}/metadata`
@@ -8508,6 +8564,10 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['is_custom'] = isCustom;
             }
 
+            if (disableSteam !== undefined) {
+                localVarQueryParameter['disable_steam'] = disableSteam;
+            }
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8523,10 +8583,11 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @summary Metadata as Protobuf
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        metadataRaw: async (matchId: number, isCustom?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        metadataRaw: async (matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('metadataRaw', 'matchId', matchId)
             const localVarPath = `/v1/matches/{match_id}/metadata/raw`
@@ -8544,6 +8605,10 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
 
             if (isCustom !== undefined) {
                 localVarQueryParameter['is_custom'] = isCustom;
+            }
+
+            if (disableSteam !== undefined) {
+                localVarQueryParameter['disable_steam'] = disableSteam;
             }
 
             localVarHeaderParameter['Accept'] = 'application/octet-stream';
@@ -8738,11 +8803,12 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @summary Metadata
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async metadata(matchId: number, isCustom?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.metadata(matchId, isCustom, options);
+        async metadata(matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.metadata(matchId, isCustom, disableSteam, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.metadata']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -8752,11 +8818,12 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @summary Metadata as Protobuf
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom] 
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async metadataRaw(matchId: number, isCustom?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.metadataRaw(matchId, isCustom, options);
+        async metadataRaw(matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.metadataRaw(matchId, isCustom, disableSteam, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.metadataRaw']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -8845,7 +8912,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.metadata(requestParameters.matchId, requestParameters.isCustom, options).then((request) => request(axios, basePath));
+            return localVarFp.metadata(requestParameters.matchId, requestParameters.isCustom, requestParameters.disableSteam, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
@@ -8855,7 +8922,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         metadataRaw(requestParameters: MatchesApiMetadataRawRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
-            return localVarFp.metadataRaw(requestParameters.matchId, requestParameters.isCustom, options).then((request) => request(axios, basePath));
+            return localVarFp.metadataRaw(requestParameters.matchId, requestParameters.isCustom, requestParameters.disableSteam, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -9074,6 +9141,11 @@ export interface MatchesApiMetadataRequest {
     readonly matchId: number
 
     readonly isCustom?: boolean | null
+
+    /**
+     * If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+     */
+    readonly disableSteam?: boolean | null
 }
 
 /**
@@ -9086,6 +9158,11 @@ export interface MatchesApiMetadataRawRequest {
     readonly matchId: number
 
     readonly isCustom?: boolean | null
+
+    /**
+     * If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+     */
+    readonly disableSteam?: boolean | null
 }
 
 /**
@@ -9152,7 +9229,7 @@ export class MatchesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).metadata(requestParameters.matchId, requestParameters.isCustom, options).then((request) => request(this.axios, this.basePath));
+        return MatchesApiFp(this.configuration).metadata(requestParameters.matchId, requestParameters.isCustom, requestParameters.disableSteam, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9163,7 +9240,7 @@ export class MatchesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public metadataRaw(requestParameters: MatchesApiMetadataRawRequest, options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).metadataRaw(requestParameters.matchId, requestParameters.isCustom, options).then((request) => request(this.axios, this.basePath));
+        return MatchesApiFp(this.configuration).metadataRaw(requestParameters.matchId, requestParameters.isCustom, requestParameters.disableSteam, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

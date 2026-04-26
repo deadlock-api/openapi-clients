@@ -95,7 +95,9 @@ pub struct BulkMetadataParams {
 pub struct MetadataParams {
     /// The match ID
     pub match_id: u64,
-    pub is_custom: Option<bool>
+    pub is_custom: Option<bool>,
+    /// If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+    pub disable_steam: Option<bool>
 }
 
 /// struct for passing parameters to the method [`metadata_raw`]
@@ -103,7 +105,9 @@ pub struct MetadataParams {
 pub struct MetadataRawParams {
     /// The match ID
     pub match_id: u64,
-    pub is_custom: Option<bool>
+    pub is_custom: Option<bool>,
+    /// If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
+    pub disable_steam: Option<bool>
 }
 
 /// struct for passing parameters to the method [`salts`]
@@ -420,6 +424,9 @@ pub async fn metadata(configuration: &configuration::Configuration, params: Meta
     if let Some(ref param_value) = params.is_custom {
         req_builder = req_builder.query(&[("is_custom", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.disable_steam {
+        req_builder = req_builder.query(&[("disable_steam", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -446,6 +453,9 @@ pub async fn metadata_raw(configuration: &configuration::Configuration, params: 
 
     if let Some(ref param_value) = params.is_custom {
         req_builder = req_builder.query(&[("is_custom", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.disable_steam {
+        req_builder = req_builder.query(&[("disable_steam", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

@@ -246,7 +246,7 @@ No authorization required
 ## `metadata()`
 
 ```php
-metadata($match_id, $is_custom)
+metadata($match_id, $is_custom, $disable_steam)
 ```
 
 Metadata
@@ -268,9 +268,10 @@ $apiInstance = new OpenAPI\Client\Api\MatchesApi(
 );
 $match_id = 56; // int | The match ID
 $is_custom = True; // bool
+$disable_steam = True; // bool | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
 
 try {
-    $apiInstance->metadata($match_id, $is_custom);
+    $apiInstance->metadata($match_id, $is_custom, $disable_steam);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->metadata: ', $e->getMessage(), PHP_EOL;
 }
@@ -282,6 +283,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **match_id** | **int**| The match ID | |
 | **is_custom** | **bool**|  | [optional] |
+| **disable_steam** | **bool**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] |
 
 ### Return type
 
@@ -303,7 +305,7 @@ No authorization required
 ## `metadataRaw()`
 
 ```php
-metadataRaw($match_id, $is_custom): int[]
+metadataRaw($match_id, $is_custom, $disable_steam): int[]
 ```
 
 Metadata as Protobuf
@@ -325,9 +327,10 @@ $apiInstance = new OpenAPI\Client\Api\MatchesApi(
 );
 $match_id = 56; // int | The match ID
 $is_custom = True; // bool
+$disable_steam = True; // bool | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
 
 try {
-    $result = $apiInstance->metadataRaw($match_id, $is_custom);
+    $result = $apiInstance->metadataRaw($match_id, $is_custom, $disable_steam);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->metadataRaw: ', $e->getMessage(), PHP_EOL;
@@ -340,6 +343,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **match_id** | **int**| The match ID | |
 | **is_custom** | **bool**|  | [optional] |
+| **disable_steam** | **bool**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] |
 
 ### Return type
 

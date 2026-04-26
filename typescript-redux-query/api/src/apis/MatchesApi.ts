@@ -71,11 +71,13 @@ export interface BulkMetadataRequest {
 export interface MetadataRequest {
     matchId: number;
     isCustom?: boolean;
+    disableSteam?: boolean;
 }
 
 export interface MetadataRawRequest {
     matchId: number;
     isCustom?: boolean;
+    disableSteam?: boolean;
 }
 
 export interface SaltsRequest {
@@ -402,6 +404,11 @@ function metadataRaw<T>(requestParameters: MetadataRequest, requestConfig: runti
         queryParameters['is_custom'] = requestParameters.isCustom;
     }
 
+
+    if (requestParameters.disableSteam !== undefined) {
+        queryParameters['disable_steam'] = requestParameters.disableSteam;
+    }
+
     const headerParameters : runtime.HttpHeaders = {};
 
 
@@ -453,6 +460,11 @@ function metadataRawRaw<T>(requestParameters: MetadataRawRequest, requestConfig:
 
     if (requestParameters.isCustom !== undefined) {
         queryParameters['is_custom'] = requestParameters.isCustom;
+    }
+
+
+    if (requestParameters.disableSteam !== undefined) {
+        queryParameters['disable_steam'] = requestParameters.disableSteam;
     }
 
     const headerParameters : runtime.HttpHeaders = {};

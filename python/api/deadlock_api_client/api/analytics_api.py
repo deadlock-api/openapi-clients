@@ -5995,6 +5995,11 @@ class AnalyticsApi:
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        enemy_hero_ids_all_match: Annotated[Optional[StrictBool], Field(description="When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.")] = None,
+        min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
+        max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
+        same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -6038,6 +6043,16 @@ class AnalyticsApi:
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_id: int
+        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type enemy_hero_ids: str
+        :param enemy_hero_ids_all_match: When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
+        :type enemy_hero_ids_all_match: bool
+        :param min_enemy_networth: Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+        :type min_enemy_networth: int
+        :param max_enemy_networth: Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+        :type max_enemy_networth: int
+        :param same_lane_filter: When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.
+        :type same_lane_filter: bool
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -6101,6 +6116,11 @@ class AnalyticsApi:
             game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
+            enemy_hero_ids=enemy_hero_ids,
+            enemy_hero_ids_all_match=enemy_hero_ids_all_match,
+            min_enemy_networth=min_enemy_networth,
+            max_enemy_networth=max_enemy_networth,
+            same_lane_filter=same_lane_filter,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -6148,6 +6168,11 @@ class AnalyticsApi:
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        enemy_hero_ids_all_match: Annotated[Optional[StrictBool], Field(description="When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.")] = None,
+        min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
+        max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
+        same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -6191,6 +6216,16 @@ class AnalyticsApi:
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_id: int
+        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type enemy_hero_ids: str
+        :param enemy_hero_ids_all_match: When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
+        :type enemy_hero_ids_all_match: bool
+        :param min_enemy_networth: Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+        :type min_enemy_networth: int
+        :param max_enemy_networth: Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+        :type max_enemy_networth: int
+        :param same_lane_filter: When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.
+        :type same_lane_filter: bool
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -6254,6 +6289,11 @@ class AnalyticsApi:
             game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
+            enemy_hero_ids=enemy_hero_ids,
+            enemy_hero_ids_all_match=enemy_hero_ids_all_match,
+            min_enemy_networth=min_enemy_networth,
+            max_enemy_networth=max_enemy_networth,
+            same_lane_filter=same_lane_filter,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -6301,6 +6341,11 @@ class AnalyticsApi:
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        enemy_hero_ids_all_match: Annotated[Optional[StrictBool], Field(description="When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.")] = None,
+        min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
+        max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
+        same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -6344,6 +6389,16 @@ class AnalyticsApi:
         :type hero_ids: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
         :type hero_id: int
+        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :type enemy_hero_ids: str
+        :param enemy_hero_ids_all_match: When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
+        :type enemy_hero_ids_all_match: bool
+        :param min_enemy_networth: Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+        :type min_enemy_networth: int
+        :param max_enemy_networth: Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+        :type max_enemy_networth: int
+        :param same_lane_filter: When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.
+        :type same_lane_filter: bool
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -6407,6 +6462,11 @@ class AnalyticsApi:
             game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
+            enemy_hero_ids=enemy_hero_ids,
+            enemy_hero_ids_all_match=enemy_hero_ids_all_match,
+            min_enemy_networth=min_enemy_networth,
+            max_enemy_networth=max_enemy_networth,
+            same_lane_filter=same_lane_filter,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -6449,6 +6509,11 @@ class AnalyticsApi:
         game_mode,
         hero_ids,
         hero_id,
+        enemy_hero_ids,
+        enemy_hero_ids_all_match,
+        min_enemy_networth,
+        max_enemy_networth,
+        same_lane_filter,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -6507,6 +6572,26 @@ class AnalyticsApi:
         if hero_id is not None:
             
             _query_params.append(('hero_id', hero_id))
+            
+        if enemy_hero_ids is not None:
+            
+            _query_params.append(('enemy_hero_ids', enemy_hero_ids))
+            
+        if enemy_hero_ids_all_match is not None:
+            
+            _query_params.append(('enemy_hero_ids_all_match', enemy_hero_ids_all_match))
+            
+        if min_enemy_networth is not None:
+            
+            _query_params.append(('min_enemy_networth', min_enemy_networth))
+            
+        if max_enemy_networth is not None:
+            
+            _query_params.append(('max_enemy_networth', max_enemy_networth))
+            
+        if same_lane_filter is not None:
+            
+            _query_params.append(('same_lane_filter', same_lane_filter))
             
         if min_unix_timestamp is not None:
             

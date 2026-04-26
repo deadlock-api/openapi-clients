@@ -175,9 +175,10 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataApiResponse"/>&gt;</returns>
-        Task<IMetadataApiResponse> MetadataAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMetadataApiResponse> MetadataAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Metadata
@@ -187,9 +188,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataApiResponse"/>?&gt;</returns>
-        Task<IMetadataApiResponse?> MetadataOrDefaultAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMetadataApiResponse?> MetadataOrDefaultAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Metadata as Protobuf
@@ -200,9 +202,10 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataRawApiResponse"/>&gt;</returns>
-        Task<IMetadataRawApiResponse> MetadataRawAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMetadataRawApiResponse> MetadataRawAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Metadata as Protobuf
@@ -212,9 +215,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataRawApiResponse"/>?&gt;</returns>
-        Task<IMetadataRawApiResponse?> MetadataRawOrDefaultAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMetadataRawApiResponse?> MetadataRawOrDefaultAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Recently Fetched
@@ -1727,7 +1731,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMetadata(ref long matchId, ref Option<bool?> isCustom);
+        partial void FormatMetadata(ref long matchId, ref Option<bool?> isCustom, ref Option<bool?> disableSteam);
 
         /// <summary>
         /// Processes the server response
@@ -1735,10 +1739,11 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        private void AfterMetadataDefaultImplementation(IMetadataApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom)
+        /// <param name="disableSteam"></param>
+        private void AfterMetadataDefaultImplementation(IMetadataApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam)
         {
             bool suppressDefaultLog = false;
-            AfterMetadata(ref suppressDefaultLog, apiResponseLocalVar, matchId, isCustom);
+            AfterMetadata(ref suppressDefaultLog, apiResponseLocalVar, matchId, isCustom, disableSteam);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1750,7 +1755,8 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        partial void AfterMetadata(ref bool suppressDefaultLog, IMetadataApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom);
+        /// <param name="disableSteam"></param>
+        partial void AfterMetadata(ref bool suppressDefaultLog, IMetadataApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1760,10 +1766,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        private void OnErrorMetadataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom)
+        /// <param name="disableSteam"></param>
+        private void OnErrorMetadataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorMetadata(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, matchId, isCustom);
+            OnErrorMetadata(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, matchId, isCustom, disableSteam);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1777,20 +1784,22 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        partial void OnErrorMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom);
+        /// <param name="disableSteam"></param>
+        partial void OnErrorMetadata(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam);
 
         /// <summary>
         /// Metadata  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataApiResponse"/>&gt;</returns>
-        public async Task<IMetadataApiResponse?> MetadataOrDefaultAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMetadataApiResponse?> MetadataOrDefaultAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await MetadataAsync(matchId, isCustom, cancellationToken).ConfigureAwait(false);
+                return await MetadataAsync(matchId, isCustom, disableSteam, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1804,15 +1813,16 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataApiResponse"/>&gt;</returns>
-        public async Task<IMetadataApiResponse> MetadataAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMetadataApiResponse> MetadataAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatMetadata(ref matchId, ref isCustom);
+                FormatMetadata(ref matchId, ref isCustom, ref disableSteam);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1828,6 +1838,9 @@ namespace DeadlockApiClient.Api
 
                     if (isCustom.IsSet)
                         parseQueryStringLocalVar["is_custom"] = ClientUtils.ParameterToString(isCustom.Value);
+
+                    if (disableSteam.IsSet)
+                        parseQueryStringLocalVar["disable_steam"] = ClientUtils.ParameterToString(disableSteam.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -1851,7 +1864,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterMetadataDefaultImplementation(apiResponseLocalVar, matchId, isCustom);
+                        AfterMetadataDefaultImplementation(apiResponseLocalVar, matchId, isCustom, disableSteam);
 
                         Events.ExecuteOnMetadata(apiResponseLocalVar);
 
@@ -1861,7 +1874,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorMetadataDefaultImplementation(e, "/v1/matches/{match_id}/metadata", uriBuilderLocalVar.Path, matchId, isCustom);
+                OnErrorMetadataDefaultImplementation(e, "/v1/matches/{match_id}/metadata", uriBuilderLocalVar.Path, matchId, isCustom, disableSteam);
                 Events.ExecuteOnErrorMetadata(e);
                 throw;
             }
@@ -1952,7 +1965,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMetadataRaw(ref long matchId, ref Option<bool?> isCustom);
+        partial void FormatMetadataRaw(ref long matchId, ref Option<bool?> isCustom, ref Option<bool?> disableSteam);
 
         /// <summary>
         /// Processes the server response
@@ -1960,10 +1973,11 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        private void AfterMetadataRawDefaultImplementation(IMetadataRawApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom)
+        /// <param name="disableSteam"></param>
+        private void AfterMetadataRawDefaultImplementation(IMetadataRawApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam)
         {
             bool suppressDefaultLog = false;
-            AfterMetadataRaw(ref suppressDefaultLog, apiResponseLocalVar, matchId, isCustom);
+            AfterMetadataRaw(ref suppressDefaultLog, apiResponseLocalVar, matchId, isCustom, disableSteam);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1975,7 +1989,8 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        partial void AfterMetadataRaw(ref bool suppressDefaultLog, IMetadataRawApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom);
+        /// <param name="disableSteam"></param>
+        partial void AfterMetadataRaw(ref bool suppressDefaultLog, IMetadataRawApiResponse apiResponseLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1985,10 +2000,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        private void OnErrorMetadataRawDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom)
+        /// <param name="disableSteam"></param>
+        private void OnErrorMetadataRawDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorMetadataRaw(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, matchId, isCustom);
+            OnErrorMetadataRaw(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, matchId, isCustom, disableSteam);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2002,20 +2018,22 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="matchId"></param>
         /// <param name="isCustom"></param>
-        partial void OnErrorMetadataRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom);
+        /// <param name="disableSteam"></param>
+        partial void OnErrorMetadataRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> isCustom, Option<bool?> disableSteam);
 
         /// <summary>
         /// Metadata as Protobuf  This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataRawApiResponse"/>&gt;</returns>
-        public async Task<IMetadataRawApiResponse?> MetadataRawOrDefaultAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMetadataRawApiResponse?> MetadataRawOrDefaultAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await MetadataRawAsync(matchId, isCustom, cancellationToken).ConfigureAwait(false);
+                return await MetadataRawAsync(matchId, isCustom, disableSteam, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2029,15 +2047,16 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
         /// <param name="isCustom"> (optional)</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMetadataRawApiResponse"/>&gt;</returns>
-        public async Task<IMetadataRawApiResponse> MetadataRawAsync(long matchId, Option<bool?> isCustom = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMetadataRawApiResponse> MetadataRawAsync(long matchId, Option<bool?> isCustom = default, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatMetadataRaw(ref matchId, ref isCustom);
+                FormatMetadataRaw(ref matchId, ref isCustom, ref disableSteam);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2053,6 +2072,9 @@ namespace DeadlockApiClient.Api
 
                     if (isCustom.IsSet)
                         parseQueryStringLocalVar["is_custom"] = ClientUtils.ParameterToString(isCustom.Value);
+
+                    if (disableSteam.IsSet)
+                        parseQueryStringLocalVar["disable_steam"] = ClientUtils.ParameterToString(disableSteam.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -2085,7 +2107,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterMetadataRawDefaultImplementation(apiResponseLocalVar, matchId, isCustom);
+                        AfterMetadataRawDefaultImplementation(apiResponseLocalVar, matchId, isCustom, disableSteam);
 
                         Events.ExecuteOnMetadataRaw(apiResponseLocalVar);
 
@@ -2095,7 +2117,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorMetadataRawDefaultImplementation(e, "/v1/matches/{match_id}/metadata/raw", uriBuilderLocalVar.Path, matchId, isCustom);
+                OnErrorMetadataRawDefaultImplementation(e, "/v1/matches/{match_id}/metadata/raw", uriBuilderLocalVar.Path, matchId, isCustom, disableSteam);
                 Events.ExecuteOnErrorMetadataRaw(e);
                 throw;
             }

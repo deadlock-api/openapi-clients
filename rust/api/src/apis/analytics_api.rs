@@ -427,6 +427,16 @@ pub struct ItemStatsParams {
     pub hero_ids: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
     pub hero_id: Option<u32>,
+    /// Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+    pub enemy_hero_ids: Option<String>,
+    /// When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
+    pub enemy_hero_ids_all_match: Option<bool>,
+    /// Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+    pub min_enemy_networth: Option<u64>,
+    /// Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
+    pub max_enemy_networth: Option<u64>,
+    /// When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.
+    pub same_lane_filter: Option<bool>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -1782,6 +1792,21 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
     }
     if let Some(ref param_value) = params.hero_id {
         req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.enemy_hero_ids {
+        req_builder = req_builder.query(&[("enemy_hero_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.enemy_hero_ids_all_match {
+        req_builder = req_builder.query(&[("enemy_hero_ids_all_match", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_enemy_networth {
+        req_builder = req_builder.query(&[("min_enemy_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_enemy_networth {
+        req_builder = req_builder.query(&[("max_enemy_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.same_lane_filter {
+        req_builder = req_builder.query(&[("same_lane_filter", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);

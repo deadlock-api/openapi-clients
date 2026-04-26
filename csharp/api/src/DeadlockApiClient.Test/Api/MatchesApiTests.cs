@@ -124,7 +124,8 @@ namespace DeadlockApiClient.Test.Api
         {
             long matchId = default!;
             Client.Option<bool?> isCustom = default!;
-            await _instance.MetadataAsync(matchId, isCustom);
+            Client.Option<bool?> disableSteam = default!;
+            await _instance.MetadataAsync(matchId, isCustom, disableSteam);
         }
 
         /// <summary>
@@ -135,7 +136,8 @@ namespace DeadlockApiClient.Test.Api
         {
             long matchId = default!;
             Client.Option<bool?> isCustom = default!;
-            var response = await _instance.MetadataRawAsync(matchId, isCustom);
+            Client.Option<bool?> disableSteam = default!;
+            var response = await _instance.MetadataRawAsync(matchId, isCustom, disableSteam);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }

@@ -272,7 +272,7 @@ No authorization required
 
 ## Metadata
 
-> Metadata(ctx, matchId).IsCustom(isCustom).Execute()
+> Metadata(ctx, matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
 
 Metadata
 
@@ -293,10 +293,11 @@ import (
 func main() {
 	matchId := int64(789) // int64 | The match ID
 	isCustom := true // bool |  (optional)
+	disableSteam := true // bool | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.MatchesAPI.Metadata(context.Background(), matchId).IsCustom(isCustom).Execute()
+	r, err := apiClient.MatchesAPI.Metadata(context.Background(), matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.Metadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -321,6 +322,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **isCustom** | **bool** |  | 
+ **disableSteam** | **bool** | If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | 
 
 ### Return type
 
@@ -342,7 +344,7 @@ No authorization required
 
 ## MetadataRaw
 
-> []int32 MetadataRaw(ctx, matchId).IsCustom(isCustom).Execute()
+> []int32 MetadataRaw(ctx, matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
 
 Metadata as Protobuf
 
@@ -363,10 +365,11 @@ import (
 func main() {
 	matchId := int64(789) // int64 | The match ID
 	isCustom := true // bool |  (optional)
+	disableSteam := true // bool | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.MetadataRaw(context.Background(), matchId).IsCustom(isCustom).Execute()
+	resp, r, err := apiClient.MatchesAPI.MetadataRaw(context.Background(), matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.MetadataRaw``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -393,6 +396,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **isCustom** | **bool** |  | 
+ **disableSteam** | **bool** | If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | 
 
 ### Return type
 
