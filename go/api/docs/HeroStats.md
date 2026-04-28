@@ -31,13 +31,18 @@ Name | Type | Description | Notes
 **ObjDamagePerMin** | **float64** |  | 
 **ObjDamagePerSoul** | **float64** |  | 
 **TimePlayed** | **int64** |  | 
+**TotalBossDamage** | **int64** |  | 
+**TotalCreepDamage** | **int64** |  | 
+**TotalNeutralDamage** | **int64** |  | 
+**TotalPlayerDamage** | **int64** |  | 
+**TotalPlayerDamageTaken** | **int64** |  | 
 **Wins** | **int64** |  | 
 
 ## Methods
 
 ### NewHeroStats
 
-`func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, wins int64, ) *HeroStats`
+`func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64, ) *HeroStats`
 
 NewHeroStats instantiates a new HeroStats object
 This constructor will assign default values to properties that have it defined,
@@ -590,6 +595,106 @@ and a boolean to check if the value has been set.
 `func (o *HeroStats) SetTimePlayed(v int64)`
 
 SetTimePlayed sets TimePlayed field to given value.
+
+
+### GetTotalBossDamage
+
+`func (o *HeroStats) GetTotalBossDamage() int64`
+
+GetTotalBossDamage returns the TotalBossDamage field if non-nil, zero value otherwise.
+
+### GetTotalBossDamageOk
+
+`func (o *HeroStats) GetTotalBossDamageOk() (*int64, bool)`
+
+GetTotalBossDamageOk returns a tuple with the TotalBossDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalBossDamage
+
+`func (o *HeroStats) SetTotalBossDamage(v int64)`
+
+SetTotalBossDamage sets TotalBossDamage field to given value.
+
+
+### GetTotalCreepDamage
+
+`func (o *HeroStats) GetTotalCreepDamage() int64`
+
+GetTotalCreepDamage returns the TotalCreepDamage field if non-nil, zero value otherwise.
+
+### GetTotalCreepDamageOk
+
+`func (o *HeroStats) GetTotalCreepDamageOk() (*int64, bool)`
+
+GetTotalCreepDamageOk returns a tuple with the TotalCreepDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalCreepDamage
+
+`func (o *HeroStats) SetTotalCreepDamage(v int64)`
+
+SetTotalCreepDamage sets TotalCreepDamage field to given value.
+
+
+### GetTotalNeutralDamage
+
+`func (o *HeroStats) GetTotalNeutralDamage() int64`
+
+GetTotalNeutralDamage returns the TotalNeutralDamage field if non-nil, zero value otherwise.
+
+### GetTotalNeutralDamageOk
+
+`func (o *HeroStats) GetTotalNeutralDamageOk() (*int64, bool)`
+
+GetTotalNeutralDamageOk returns a tuple with the TotalNeutralDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalNeutralDamage
+
+`func (o *HeroStats) SetTotalNeutralDamage(v int64)`
+
+SetTotalNeutralDamage sets TotalNeutralDamage field to given value.
+
+
+### GetTotalPlayerDamage
+
+`func (o *HeroStats) GetTotalPlayerDamage() int64`
+
+GetTotalPlayerDamage returns the TotalPlayerDamage field if non-nil, zero value otherwise.
+
+### GetTotalPlayerDamageOk
+
+`func (o *HeroStats) GetTotalPlayerDamageOk() (*int64, bool)`
+
+GetTotalPlayerDamageOk returns a tuple with the TotalPlayerDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalPlayerDamage
+
+`func (o *HeroStats) SetTotalPlayerDamage(v int64)`
+
+SetTotalPlayerDamage sets TotalPlayerDamage field to given value.
+
+
+### GetTotalPlayerDamageTaken
+
+`func (o *HeroStats) GetTotalPlayerDamageTaken() int64`
+
+GetTotalPlayerDamageTaken returns the TotalPlayerDamageTaken field if non-nil, zero value otherwise.
+
+### GetTotalPlayerDamageTakenOk
+
+`func (o *HeroStats) GetTotalPlayerDamageTakenOk() (*int64, bool)`
+
+GetTotalPlayerDamageTakenOk returns a tuple with the TotalPlayerDamageTaken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalPlayerDamageTaken
+
+`func (o *HeroStats) SetTotalPlayerDamageTaken(v int64)`
+
+SetTotalPlayerDamageTaken sets TotalPlayerDamageTaken field to given value.
 
 
 ### GetWins

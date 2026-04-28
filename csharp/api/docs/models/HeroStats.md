@@ -31,6 +31,11 @@ Name | Type | Description | Notes
 **ObjDamagePerMin** | **double** |  | 
 **ObjDamagePerSoul** | **double** |  | 
 **TimePlayed** | **long** |  | 
+**TotalBossDamage** | **long** |  | 
+**TotalCreepDamage** | **long** |  | 
+**TotalNeutralDamage** | **long** |  | 
+**TotalPlayerDamage** | **long** |  | 
+**TotalPlayerDamageTaken** | **long** |  | 
 **Wins** | **long** |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

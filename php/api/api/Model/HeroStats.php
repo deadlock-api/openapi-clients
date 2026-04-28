@@ -84,6 +84,11 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'obj_damage_per_min' => 'float',
         'obj_damage_per_soul' => 'float',
         'time_played' => 'int',
+        'total_boss_damage' => 'int',
+        'total_creep_damage' => 'int',
+        'total_neutral_damage' => 'int',
+        'total_player_damage' => 'int',
+        'total_player_damage_taken' => 'int',
         'wins' => 'int'
     ];
 
@@ -122,6 +127,11 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'obj_damage_per_min' => 'double',
         'obj_damage_per_soul' => 'double',
         'time_played' => 'int64',
+        'total_boss_damage' => 'int64',
+        'total_creep_damage' => 'int64',
+        'total_neutral_damage' => 'int64',
+        'total_player_damage' => 'int64',
+        'total_player_damage_taken' => 'int64',
         'wins' => 'int64'
     ];
 
@@ -158,6 +168,11 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'obj_damage_per_min' => false,
         'obj_damage_per_soul' => false,
         'time_played' => false,
+        'total_boss_damage' => false,
+        'total_creep_damage' => false,
+        'total_neutral_damage' => false,
+        'total_player_damage' => false,
+        'total_player_damage_taken' => false,
         'wins' => false
     ];
 
@@ -274,6 +289,11 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'obj_damage_per_min' => 'obj_damage_per_min',
         'obj_damage_per_soul' => 'obj_damage_per_soul',
         'time_played' => 'time_played',
+        'total_boss_damage' => 'total_boss_damage',
+        'total_creep_damage' => 'total_creep_damage',
+        'total_neutral_damage' => 'total_neutral_damage',
+        'total_player_damage' => 'total_player_damage',
+        'total_player_damage_taken' => 'total_player_damage_taken',
         'wins' => 'wins'
     ];
 
@@ -310,6 +330,11 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'obj_damage_per_min' => 'setObjDamagePerMin',
         'obj_damage_per_soul' => 'setObjDamagePerSoul',
         'time_played' => 'setTimePlayed',
+        'total_boss_damage' => 'setTotalBossDamage',
+        'total_creep_damage' => 'setTotalCreepDamage',
+        'total_neutral_damage' => 'setTotalNeutralDamage',
+        'total_player_damage' => 'setTotalPlayerDamage',
+        'total_player_damage_taken' => 'setTotalPlayerDamageTaken',
         'wins' => 'setWins'
     ];
 
@@ -346,6 +371,11 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'obj_damage_per_min' => 'getObjDamagePerMin',
         'obj_damage_per_soul' => 'getObjDamagePerSoul',
         'time_played' => 'getTimePlayed',
+        'total_boss_damage' => 'getTotalBossDamage',
+        'total_creep_damage' => 'getTotalCreepDamage',
+        'total_neutral_damage' => 'getTotalNeutralDamage',
+        'total_player_damage' => 'getTotalPlayerDamage',
+        'total_player_damage_taken' => 'getTotalPlayerDamageTaken',
         'wins' => 'getWins'
     ];
 
@@ -433,6 +463,11 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('obj_damage_per_min', $data ?? [], null);
         $this->setIfExists('obj_damage_per_soul', $data ?? [], null);
         $this->setIfExists('time_played', $data ?? [], null);
+        $this->setIfExists('total_boss_damage', $data ?? [], null);
+        $this->setIfExists('total_creep_damage', $data ?? [], null);
+        $this->setIfExists('total_neutral_damage', $data ?? [], null);
+        $this->setIfExists('total_player_damage', $data ?? [], null);
+        $this->setIfExists('total_player_damage_taken', $data ?? [], null);
         $this->setIfExists('wins', $data ?? [], null);
     }
 
@@ -574,6 +609,41 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['time_played'] < 0)) {
             $invalidProperties[] = "invalid value for 'time_played', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['total_boss_damage'] === null) {
+            $invalidProperties[] = "'total_boss_damage' can't be null";
+        }
+        if (($this->container['total_boss_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_boss_damage', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['total_creep_damage'] === null) {
+            $invalidProperties[] = "'total_creep_damage' can't be null";
+        }
+        if (($this->container['total_creep_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_creep_damage', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['total_neutral_damage'] === null) {
+            $invalidProperties[] = "'total_neutral_damage' can't be null";
+        }
+        if (($this->container['total_neutral_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_neutral_damage', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['total_player_damage'] === null) {
+            $invalidProperties[] = "'total_player_damage' can't be null";
+        }
+        if (($this->container['total_player_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_player_damage', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['total_player_damage_taken'] === null) {
+            $invalidProperties[] = "'total_player_damage_taken' can't be null";
+        }
+        if (($this->container['total_player_damage_taken'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_player_damage_taken', must be bigger than or equal to 0.";
         }
 
         if ($this->container['wins'] === null) {
@@ -1365,6 +1435,166 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['time_played'] = $time_played;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_boss_damage
+     *
+     * @return int
+     */
+    public function getTotalBossDamage()
+    {
+        return $this->container['total_boss_damage'];
+    }
+
+    /**
+     * Sets total_boss_damage
+     *
+     * @param int $total_boss_damage total_boss_damage
+     *
+     * @return self
+     */
+    public function setTotalBossDamage($total_boss_damage)
+    {
+        if (is_null($total_boss_damage)) {
+            throw new \InvalidArgumentException('non-nullable total_boss_damage cannot be null');
+        }
+
+        if (($total_boss_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_boss_damage when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_boss_damage'] = $total_boss_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_creep_damage
+     *
+     * @return int
+     */
+    public function getTotalCreepDamage()
+    {
+        return $this->container['total_creep_damage'];
+    }
+
+    /**
+     * Sets total_creep_damage
+     *
+     * @param int $total_creep_damage total_creep_damage
+     *
+     * @return self
+     */
+    public function setTotalCreepDamage($total_creep_damage)
+    {
+        if (is_null($total_creep_damage)) {
+            throw new \InvalidArgumentException('non-nullable total_creep_damage cannot be null');
+        }
+
+        if (($total_creep_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_creep_damage when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_creep_damage'] = $total_creep_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_neutral_damage
+     *
+     * @return int
+     */
+    public function getTotalNeutralDamage()
+    {
+        return $this->container['total_neutral_damage'];
+    }
+
+    /**
+     * Sets total_neutral_damage
+     *
+     * @param int $total_neutral_damage total_neutral_damage
+     *
+     * @return self
+     */
+    public function setTotalNeutralDamage($total_neutral_damage)
+    {
+        if (is_null($total_neutral_damage)) {
+            throw new \InvalidArgumentException('non-nullable total_neutral_damage cannot be null');
+        }
+
+        if (($total_neutral_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_neutral_damage when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_neutral_damage'] = $total_neutral_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_player_damage
+     *
+     * @return int
+     */
+    public function getTotalPlayerDamage()
+    {
+        return $this->container['total_player_damage'];
+    }
+
+    /**
+     * Sets total_player_damage
+     *
+     * @param int $total_player_damage total_player_damage
+     *
+     * @return self
+     */
+    public function setTotalPlayerDamage($total_player_damage)
+    {
+        if (is_null($total_player_damage)) {
+            throw new \InvalidArgumentException('non-nullable total_player_damage cannot be null');
+        }
+
+        if (($total_player_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_player_damage when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_player_damage'] = $total_player_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_player_damage_taken
+     *
+     * @return int
+     */
+    public function getTotalPlayerDamageTaken()
+    {
+        return $this->container['total_player_damage_taken'];
+    }
+
+    /**
+     * Sets total_player_damage_taken
+     *
+     * @param int $total_player_damage_taken total_player_damage_taken
+     *
+     * @return self
+     */
+    public function setTotalPlayerDamageTaken($total_player_damage_taken)
+    {
+        if (is_null($total_player_damage_taken)) {
+            throw new \InvalidArgumentException('non-nullable total_player_damage_taken cannot be null');
+        }
+
+        if (($total_player_damage_taken < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_player_damage_taken when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_player_damage_taken'] = $total_player_damage_taken;
 
         return $this;
     }

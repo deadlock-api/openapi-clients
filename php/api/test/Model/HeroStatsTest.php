@@ -323,6 +323,51 @@ class HeroStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "total_boss_damage"
+     */
+    public function testPropertyTotalBossDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_creep_damage"
+     */
+    public function testPropertyTotalCreepDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_neutral_damage"
+     */
+    public function testPropertyTotalNeutralDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_player_damage"
+     */
+    public function testPropertyTotalPlayerDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_player_damage_taken"
+     */
+    public function testPropertyTotalPlayerDamageTaken()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "wins"
      */
     public function testPropertyWins()

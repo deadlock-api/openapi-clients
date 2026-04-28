@@ -55,8 +55,13 @@ class HeroStats(BaseModel):
     obj_damage_per_min: Union[StrictFloat, StrictInt]
     obj_damage_per_soul: Union[StrictFloat, StrictInt]
     time_played: Annotated[int, Field(strict=True, ge=0)]
+    total_boss_damage: Annotated[int, Field(strict=True, ge=0)]
+    total_creep_damage: Annotated[int, Field(strict=True, ge=0)]
+    total_neutral_damage: Annotated[int, Field(strict=True, ge=0)]
+    total_player_damage: Annotated[int, Field(strict=True, ge=0)]
+    total_player_damage_taken: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["account_id", "accuracy", "assists", "assists_per_min", "creeps_per_min", "crit_shot_rate", "damage_mitigated_per_min", "damage_per_min", "damage_per_soul", "damage_taken_per_min", "damage_taken_per_soul", "deaths", "deaths_per_min", "denies_per_match", "denies_per_min", "ending_level", "hero_id", "kills", "kills_per_min", "last_hits_per_min", "last_played", "matches", "matches_played", "networth_per_min", "obj_damage_per_min", "obj_damage_per_soul", "time_played", "wins"]
+    __properties: ClassVar[List[str]] = ["account_id", "accuracy", "assists", "assists_per_min", "creeps_per_min", "crit_shot_rate", "damage_mitigated_per_min", "damage_per_min", "damage_per_soul", "damage_taken_per_min", "damage_taken_per_soul", "deaths", "deaths_per_min", "denies_per_match", "denies_per_min", "ending_level", "hero_id", "kills", "kills_per_min", "last_hits_per_min", "last_played", "matches", "matches_played", "networth_per_min", "obj_damage_per_min", "obj_damage_per_soul", "time_played", "total_boss_damage", "total_creep_damage", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -136,6 +141,11 @@ class HeroStats(BaseModel):
             "obj_damage_per_min": obj.get("obj_damage_per_min"),
             "obj_damage_per_soul": obj.get("obj_damage_per_soul"),
             "time_played": obj.get("time_played"),
+            "total_boss_damage": obj.get("total_boss_damage"),
+            "total_creep_damage": obj.get("total_creep_damage"),
+            "total_neutral_damage": obj.get("total_neutral_damage"),
+            "total_player_damage": obj.get("total_player_damage"),
+            "total_player_damage_taken": obj.get("total_player_damage_taken"),
             "wins": obj.get("wins")
         })
         return _obj

@@ -50,6 +50,11 @@ type HeroStats struct {
 	ObjDamagePerMin float64 `json:"obj_damage_per_min"`
 	ObjDamagePerSoul float64 `json:"obj_damage_per_soul"`
 	TimePlayed int64 `json:"time_played"`
+	TotalBossDamage int64 `json:"total_boss_damage"`
+	TotalCreepDamage int64 `json:"total_creep_damage"`
+	TotalNeutralDamage int64 `json:"total_neutral_damage"`
+	TotalPlayerDamage int64 `json:"total_player_damage"`
+	TotalPlayerDamageTaken int64 `json:"total_player_damage_taken"`
 	Wins int64 `json:"wins"`
 }
 
@@ -59,7 +64,7 @@ type _HeroStats HeroStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, wins int64) *HeroStats {
+func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64) *HeroStats {
 	this := HeroStats{}
 	this.AccountId = accountId
 	this.Accuracy = accuracy
@@ -88,6 +93,11 @@ func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMi
 	this.ObjDamagePerMin = objDamagePerMin
 	this.ObjDamagePerSoul = objDamagePerSoul
 	this.TimePlayed = timePlayed
+	this.TotalBossDamage = totalBossDamage
+	this.TotalCreepDamage = totalCreepDamage
+	this.TotalNeutralDamage = totalNeutralDamage
+	this.TotalPlayerDamage = totalPlayerDamage
+	this.TotalPlayerDamageTaken = totalPlayerDamageTaken
 	this.Wins = wins
 	return &this
 }
@@ -751,6 +761,126 @@ func (o *HeroStats) SetTimePlayed(v int64) {
 	o.TimePlayed = v
 }
 
+// GetTotalBossDamage returns the TotalBossDamage field value
+func (o *HeroStats) GetTotalBossDamage() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalBossDamage
+}
+
+// GetTotalBossDamageOk returns a tuple with the TotalBossDamage field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetTotalBossDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalBossDamage, true
+}
+
+// SetTotalBossDamage sets field value
+func (o *HeroStats) SetTotalBossDamage(v int64) {
+	o.TotalBossDamage = v
+}
+
+// GetTotalCreepDamage returns the TotalCreepDamage field value
+func (o *HeroStats) GetTotalCreepDamage() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalCreepDamage
+}
+
+// GetTotalCreepDamageOk returns a tuple with the TotalCreepDamage field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetTotalCreepDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalCreepDamage, true
+}
+
+// SetTotalCreepDamage sets field value
+func (o *HeroStats) SetTotalCreepDamage(v int64) {
+	o.TotalCreepDamage = v
+}
+
+// GetTotalNeutralDamage returns the TotalNeutralDamage field value
+func (o *HeroStats) GetTotalNeutralDamage() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalNeutralDamage
+}
+
+// GetTotalNeutralDamageOk returns a tuple with the TotalNeutralDamage field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetTotalNeutralDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalNeutralDamage, true
+}
+
+// SetTotalNeutralDamage sets field value
+func (o *HeroStats) SetTotalNeutralDamage(v int64) {
+	o.TotalNeutralDamage = v
+}
+
+// GetTotalPlayerDamage returns the TotalPlayerDamage field value
+func (o *HeroStats) GetTotalPlayerDamage() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalPlayerDamage
+}
+
+// GetTotalPlayerDamageOk returns a tuple with the TotalPlayerDamage field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetTotalPlayerDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalPlayerDamage, true
+}
+
+// SetTotalPlayerDamage sets field value
+func (o *HeroStats) SetTotalPlayerDamage(v int64) {
+	o.TotalPlayerDamage = v
+}
+
+// GetTotalPlayerDamageTaken returns the TotalPlayerDamageTaken field value
+func (o *HeroStats) GetTotalPlayerDamageTaken() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalPlayerDamageTaken
+}
+
+// GetTotalPlayerDamageTakenOk returns a tuple with the TotalPlayerDamageTaken field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetTotalPlayerDamageTakenOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalPlayerDamageTaken, true
+}
+
+// SetTotalPlayerDamageTaken sets field value
+func (o *HeroStats) SetTotalPlayerDamageTaken(v int64) {
+	o.TotalPlayerDamageTaken = v
+}
+
 // GetWins returns the Wins field value
 func (o *HeroStats) GetWins() int64 {
 	if o == nil {
@@ -812,6 +942,11 @@ func (o HeroStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["obj_damage_per_min"] = o.ObjDamagePerMin
 	toSerialize["obj_damage_per_soul"] = o.ObjDamagePerSoul
 	toSerialize["time_played"] = o.TimePlayed
+	toSerialize["total_boss_damage"] = o.TotalBossDamage
+	toSerialize["total_creep_damage"] = o.TotalCreepDamage
+	toSerialize["total_neutral_damage"] = o.TotalNeutralDamage
+	toSerialize["total_player_damage"] = o.TotalPlayerDamage
+	toSerialize["total_player_damage_taken"] = o.TotalPlayerDamageTaken
 	toSerialize["wins"] = o.Wins
 	return toSerialize, nil
 }
@@ -848,6 +983,11 @@ func (o *HeroStats) UnmarshalJSON(data []byte) (err error) {
 		"obj_damage_per_min",
 		"obj_damage_per_soul",
 		"time_played",
+		"total_boss_damage",
+		"total_creep_damage",
+		"total_neutral_damage",
+		"total_player_damage",
+		"total_player_damage_taken",
 		"wins",
 	}
 

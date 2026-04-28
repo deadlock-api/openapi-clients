@@ -311,6 +311,8 @@ type ApiBulkMetadataRequest struct {
 	itemFilterHeroId *int32
 	includeItemIds *string
 	excludeItemIds *string
+	extraMatchColumns *string
+	extraPlayerColumns *string
 	orderBy *string
 	orderDirection *string
 	limit *int32
@@ -481,6 +483,18 @@ func (r ApiBulkMetadataRequest) IncludeItemIds(includeItemIds string) ApiBulkMet
 // Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
 func (r ApiBulkMetadataRequest) ExcludeItemIds(excludeItemIds string) ApiBulkMetadataRequest {
 	r.excludeItemIds = &excludeItemIds
+	return r
+}
+
+// Comma separated list of extra match-level columns to include in the response. Each column is aggregated with &#x60;any(...)&#x60;. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;objectives_mask_team0,team_score&#x60;.
+func (r ApiBulkMetadataRequest) ExtraMatchColumns(extraMatchColumns string) ApiBulkMetadataRequest {
+	r.extraMatchColumns = &extraMatchColumns
+	return r
+}
+
+// Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;stats.player_damage,stats.player_healing&#x60;. Implicitly enables player fields.
+func (r ApiBulkMetadataRequest) ExtraPlayerColumns(extraPlayerColumns string) ApiBulkMetadataRequest {
+	r.extraPlayerColumns = &extraPlayerColumns
 	return r
 }
 
@@ -658,6 +672,12 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	}
 	if r.excludeItemIds != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", r.excludeItemIds, "form", "")
+	}
+	if r.extraMatchColumns != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "extra_match_columns", r.extraMatchColumns, "form", "")
+	}
+	if r.extraPlayerColumns != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "extra_player_columns", r.extraPlayerColumns, "form", "")
 	}
 	if r.orderBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", r.orderBy, "form", "")

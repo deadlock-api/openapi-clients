@@ -58,6 +58,11 @@ import java.io.Serializable
  * @param objDamagePerMin 
  * @param objDamagePerSoul 
  * @param timePlayed 
+ * @param totalBossDamage 
+ * @param totalCreepDamage 
+ * @param totalNeutralDamage 
+ * @param totalPlayerDamage 
+ * @param totalPlayerDamageTaken 
  * @param wins 
  */
 
@@ -146,6 +151,21 @@ data class HeroStats (
 
     @Json(name = "time_played")
     val timePlayed: kotlin.Long,
+
+    @Json(name = "total_boss_damage")
+    val totalBossDamage: kotlin.Long,
+
+    @Json(name = "total_creep_damage")
+    val totalCreepDamage: kotlin.Long,
+
+    @Json(name = "total_neutral_damage")
+    val totalNeutralDamage: kotlin.Long,
+
+    @Json(name = "total_player_damage")
+    val totalPlayerDamage: kotlin.Long,
+
+    @Json(name = "total_player_damage_taken")
+    val totalPlayerDamageTaken: kotlin.Long,
 
     @Json(name = "wins")
     val wins: kotlin.Long

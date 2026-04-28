@@ -75,7 +75,7 @@ No authorization required
 
 ## bulk_metadata
 
-> Vec<u32> bulk_metadata(include_info, include_more_info, include_objectives, include_mid_boss, include_player_info, include_player_kda, include_player_items, include_player_stats, include_player_death_details, game_mode, match_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, item_filter_hero_id, include_item_ids, exclude_item_ids, order_by, order_direction, limit)
+> Vec<u32> bulk_metadata(include_info, include_more_info, include_objectives, include_mid_boss, include_player_info, include_player_kda, include_player_items, include_player_stats, include_player_death_details, game_mode, match_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, item_filter_hero_id, include_item_ids, exclude_item_ids, extra_match_columns, extra_player_columns, order_by, order_direction, limit)
 Bulk Metadata
 
  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
@@ -113,6 +113,8 @@ Name | Type | Description  | Required | Notes
 **item_filter_hero_id** | Option<**u32**> | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. |  |
 **include_item_ids** | Option<**String**> | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. |  |
 **exclude_item_ids** | Option<**String**> | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items. |  |
+**extra_match_columns** | Option<**String**> | Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`. |  |
+**extra_player_columns** | Option<**String**> | Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields. |  |
 **order_by** | Option<**String**> | The field to order the results by. |  |
 **order_direction** | Option<**String**> | The direction to order the results by. |  |
 **limit** | Option<**u32**> | The maximum number of matches to return. |  |[default to 1000]

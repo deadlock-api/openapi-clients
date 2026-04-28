@@ -195,6 +195,36 @@ class HeroStatsTest : ShouldSpec() {
             //modelInstance.timePlayed shouldBe ("TODO")
         }
 
+        // to test the property `totalBossDamage`
+        should("test totalBossDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalBossDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalCreepDamage`
+        should("test totalCreepDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalCreepDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalNeutralDamage`
+        should("test totalNeutralDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalNeutralDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalPlayerDamage`
+        should("test totalPlayerDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalPlayerDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalPlayerDamageTaken`
+        should("test totalPlayerDamageTaken") {
+            // uncomment below to test the property
+            //modelInstance.totalPlayerDamageTaken shouldBe ("TODO")
+        }
+
         // to test the property `wins`
         should("test wins") {
             // uncomment below to test the property

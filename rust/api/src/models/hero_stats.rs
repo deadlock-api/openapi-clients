@@ -68,12 +68,22 @@ pub struct HeroStats {
     pub obj_damage_per_soul: f64,
     #[serde(rename = "time_played")]
     pub time_played: u64,
+    #[serde(rename = "total_boss_damage")]
+    pub total_boss_damage: u64,
+    #[serde(rename = "total_creep_damage")]
+    pub total_creep_damage: u64,
+    #[serde(rename = "total_neutral_damage")]
+    pub total_neutral_damage: u64,
+    #[serde(rename = "total_player_damage")]
+    pub total_player_damage: u64,
+    #[serde(rename = "total_player_damage_taken")]
+    pub total_player_damage_taken: u64,
     #[serde(rename = "wins")]
     pub wins: u64,
 }
 
 impl HeroStats {
-    pub fn new(account_id: u32, accuracy: f64, assists: u64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: u64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: u32, kills: u64, kills_per_min: f64, last_hits_per_min: f64, last_played: u32, matches: Vec<u64>, matches_played: u64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, time_played: u64, wins: u64) -> HeroStats {
+    pub fn new(account_id: u32, accuracy: f64, assists: u64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: u64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: u32, kills: u64, kills_per_min: f64, last_hits_per_min: f64, last_played: u32, matches: Vec<u64>, matches_played: u64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, time_played: u64, total_boss_damage: u64, total_creep_damage: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, wins: u64) -> HeroStats {
         HeroStats {
             account_id,
             accuracy,
@@ -102,6 +112,11 @@ impl HeroStats {
             obj_damage_per_min,
             obj_damage_per_soul,
             time_played,
+            total_boss_damage,
+            total_creep_damage,
+            total_neutral_damage,
+            total_player_damage,
+            total_player_damage_taken,
             wins,
         }
     }

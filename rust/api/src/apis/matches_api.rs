@@ -82,6 +82,10 @@ pub struct BulkMetadataParams {
     pub include_item_ids: Option<String>,
     /// Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
     pub exclude_item_ids: Option<String>,
+    /// Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.
+    pub extra_match_columns: Option<String>,
+    /// Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields.
+    pub extra_player_columns: Option<String>,
     /// The field to order the results by.
     pub order_by: Option<String>,
     /// The direction to order the results by.
@@ -376,6 +380,12 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     }
     if let Some(ref param_value) = params.exclude_item_ids {
         req_builder = req_builder.query(&[("exclude_item_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.extra_match_columns {
+        req_builder = req_builder.query(&[("extra_match_columns", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.extra_player_columns {
+        req_builder = req_builder.query(&[("extra_player_columns", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.order_by {
         req_builder = req_builder.query(&[("order_by", &param_value.to_string())]);

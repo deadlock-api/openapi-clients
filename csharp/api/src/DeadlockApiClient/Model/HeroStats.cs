@@ -60,9 +60,14 @@ namespace DeadlockApiClient.Model
         /// <param name="objDamagePerMin">objDamagePerMin</param>
         /// <param name="objDamagePerSoul">objDamagePerSoul</param>
         /// <param name="timePlayed">timePlayed</param>
+        /// <param name="totalBossDamage">totalBossDamage</param>
+        /// <param name="totalCreepDamage">totalCreepDamage</param>
+        /// <param name="totalNeutralDamage">totalNeutralDamage</param>
+        /// <param name="totalPlayerDamage">totalPlayerDamage</param>
+        /// <param name="totalPlayerDamageTaken">totalPlayerDamageTaken</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public HeroStats(int accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, int lastPlayed, List<long> matches, long matchesPlayed, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long timePlayed, long wins)
+        public HeroStats(int accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, int lastPlayed, List<long> matches, long matchesPlayed, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long timePlayed, long totalBossDamage, long totalCreepDamage, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long wins)
         {
             AccountId = accountId;
             Accuracy = accuracy;
@@ -91,6 +96,11 @@ namespace DeadlockApiClient.Model
             ObjDamagePerMin = objDamagePerMin;
             ObjDamagePerSoul = objDamagePerSoul;
             TimePlayed = timePlayed;
+            TotalBossDamage = totalBossDamage;
+            TotalCreepDamage = totalCreepDamage;
+            TotalNeutralDamage = totalNeutralDamage;
+            TotalPlayerDamage = totalPlayerDamage;
+            TotalPlayerDamageTaken = totalPlayerDamageTaken;
             Wins = wins;
             OnCreated();
         }
@@ -262,6 +272,36 @@ namespace DeadlockApiClient.Model
         public long TimePlayed { get; set; }
 
         /// <summary>
+        /// Gets or Sets TotalBossDamage
+        /// </summary>
+        [JsonPropertyName("total_boss_damage")]
+        public long TotalBossDamage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalCreepDamage
+        /// </summary>
+        [JsonPropertyName("total_creep_damage")]
+        public long TotalCreepDamage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalNeutralDamage
+        /// </summary>
+        [JsonPropertyName("total_neutral_damage")]
+        public long TotalNeutralDamage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayerDamage
+        /// </summary>
+        [JsonPropertyName("total_player_damage")]
+        public long TotalPlayerDamage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayerDamageTaken
+        /// </summary>
+        [JsonPropertyName("total_player_damage_taken")]
+        public long TotalPlayerDamageTaken { get; set; }
+
+        /// <summary>
         /// Gets or Sets Wins
         /// </summary>
         [JsonPropertyName("wins")]
@@ -302,6 +342,11 @@ namespace DeadlockApiClient.Model
             sb.Append("  ObjDamagePerMin: ").Append(ObjDamagePerMin).Append("\n");
             sb.Append("  ObjDamagePerSoul: ").Append(ObjDamagePerSoul).Append("\n");
             sb.Append("  TimePlayed: ").Append(TimePlayed).Append("\n");
+            sb.Append("  TotalBossDamage: ").Append(TotalBossDamage).Append("\n");
+            sb.Append("  TotalCreepDamage: ").Append(TotalCreepDamage).Append("\n");
+            sb.Append("  TotalNeutralDamage: ").Append(TotalNeutralDamage).Append("\n");
+            sb.Append("  TotalPlayerDamage: ").Append(TotalPlayerDamage).Append("\n");
+            sb.Append("  TotalPlayerDamageTaken: ").Append(TotalPlayerDamageTaken).Append("\n");
             sb.Append("  Wins: ").Append(Wins).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -360,6 +405,36 @@ namespace DeadlockApiClient.Model
             if (this.TimePlayed < (long)0)
             {
                 yield return new ValidationResult("Invalid value for TimePlayed, must be a value greater than or equal to 0.", new [] { "TimePlayed" });
+            }
+
+            // TotalBossDamage (long) minimum
+            if (this.TotalBossDamage < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalBossDamage, must be a value greater than or equal to 0.", new [] { "TotalBossDamage" });
+            }
+
+            // TotalCreepDamage (long) minimum
+            if (this.TotalCreepDamage < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalCreepDamage, must be a value greater than or equal to 0.", new [] { "TotalCreepDamage" });
+            }
+
+            // TotalNeutralDamage (long) minimum
+            if (this.TotalNeutralDamage < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalNeutralDamage, must be a value greater than or equal to 0.", new [] { "TotalNeutralDamage" });
+            }
+
+            // TotalPlayerDamage (long) minimum
+            if (this.TotalPlayerDamage < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalPlayerDamage, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamage" });
+            }
+
+            // TotalPlayerDamageTaken (long) minimum
+            if (this.TotalPlayerDamageTaken < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalPlayerDamageTaken, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamageTaken" });
             }
 
             // Wins (long) minimum
@@ -421,6 +496,11 @@ namespace DeadlockApiClient.Model
             Option<double?> objDamagePerMin = default;
             Option<double?> objDamagePerSoul = default;
             Option<long?> timePlayed = default;
+            Option<long?> totalBossDamage = default;
+            Option<long?> totalCreepDamage = default;
+            Option<long?> totalNeutralDamage = default;
+            Option<long?> totalPlayerDamage = default;
+            Option<long?> totalPlayerDamageTaken = default;
             Option<long?> wins = default;
 
             while (utf8JsonReader.Read())
@@ -519,6 +599,21 @@ namespace DeadlockApiClient.Model
                         case "time_played":
                             timePlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
+                        case "total_boss_damage":
+                            totalBossDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_creep_damage":
+                            totalCreepDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_neutral_damage":
+                            totalNeutralDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_player_damage":
+                            totalPlayerDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_player_damage_taken":
+                            totalPlayerDamageTaken = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
                         case "wins":
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
@@ -609,6 +704,21 @@ namespace DeadlockApiClient.Model
             if (!timePlayed.IsSet)
                 throw new ArgumentException("Property is required for class HeroStats.", nameof(timePlayed));
 
+            if (!totalBossDamage.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(totalBossDamage));
+
+            if (!totalCreepDamage.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(totalCreepDamage));
+
+            if (!totalNeutralDamage.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(totalNeutralDamage));
+
+            if (!totalPlayerDamage.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(totalPlayerDamage));
+
+            if (!totalPlayerDamageTaken.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(totalPlayerDamageTaken));
+
             if (!wins.IsSet)
                 throw new ArgumentException("Property is required for class HeroStats.", nameof(wins));
 
@@ -693,10 +803,25 @@ namespace DeadlockApiClient.Model
             if (timePlayed.IsSet && timePlayed.Value == null)
                 throw new ArgumentNullException(nameof(timePlayed), "Property is not nullable for class HeroStats.");
 
+            if (totalBossDamage.IsSet && totalBossDamage.Value == null)
+                throw new ArgumentNullException(nameof(totalBossDamage), "Property is not nullable for class HeroStats.");
+
+            if (totalCreepDamage.IsSet && totalCreepDamage.Value == null)
+                throw new ArgumentNullException(nameof(totalCreepDamage), "Property is not nullable for class HeroStats.");
+
+            if (totalNeutralDamage.IsSet && totalNeutralDamage.Value == null)
+                throw new ArgumentNullException(nameof(totalNeutralDamage), "Property is not nullable for class HeroStats.");
+
+            if (totalPlayerDamage.IsSet && totalPlayerDamage.Value == null)
+                throw new ArgumentNullException(nameof(totalPlayerDamage), "Property is not nullable for class HeroStats.");
+
+            if (totalPlayerDamageTaken.IsSet && totalPlayerDamageTaken.Value == null)
+                throw new ArgumentNullException(nameof(totalPlayerDamageTaken), "Property is not nullable for class HeroStats.");
+
             if (wins.IsSet && wins.Value == null)
                 throw new ArgumentNullException(nameof(wins), "Property is not nullable for class HeroStats.");
 
-            return new HeroStats(accountId.Value!.Value!, accuracy.Value!.Value!, assists.Value!.Value!, assistsPerMin.Value!.Value!, creepsPerMin.Value!.Value!, critShotRate.Value!.Value!, damageMitigatedPerMin.Value!.Value!, damagePerMin.Value!.Value!, damagePerSoul.Value!.Value!, damageTakenPerMin.Value!.Value!, damageTakenPerSoul.Value!.Value!, deaths.Value!.Value!, deathsPerMin.Value!.Value!, deniesPerMatch.Value!.Value!, deniesPerMin.Value!.Value!, endingLevel.Value!.Value!, heroId.Value!.Value!, kills.Value!.Value!, killsPerMin.Value!.Value!, lastHitsPerMin.Value!.Value!, lastPlayed.Value!.Value!, matches.Value!, matchesPlayed.Value!.Value!, networthPerMin.Value!.Value!, objDamagePerMin.Value!.Value!, objDamagePerSoul.Value!.Value!, timePlayed.Value!.Value!, wins.Value!.Value!);
+            return new HeroStats(accountId.Value!.Value!, accuracy.Value!.Value!, assists.Value!.Value!, assistsPerMin.Value!.Value!, creepsPerMin.Value!.Value!, critShotRate.Value!.Value!, damageMitigatedPerMin.Value!.Value!, damagePerMin.Value!.Value!, damagePerSoul.Value!.Value!, damageTakenPerMin.Value!.Value!, damageTakenPerSoul.Value!.Value!, deaths.Value!.Value!, deathsPerMin.Value!.Value!, deniesPerMatch.Value!.Value!, deniesPerMin.Value!.Value!, endingLevel.Value!.Value!, heroId.Value!.Value!, kills.Value!.Value!, killsPerMin.Value!.Value!, lastHitsPerMin.Value!.Value!, lastPlayed.Value!.Value!, matches.Value!, matchesPlayed.Value!.Value!, networthPerMin.Value!.Value!, objDamagePerMin.Value!.Value!, objDamagePerSoul.Value!.Value!, timePlayed.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -779,6 +904,16 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("obj_damage_per_soul", heroStats.ObjDamagePerSoul);
 
             writer.WriteNumber("time_played", heroStats.TimePlayed);
+
+            writer.WriteNumber("total_boss_damage", heroStats.TotalBossDamage);
+
+            writer.WriteNumber("total_creep_damage", heroStats.TotalCreepDamage);
+
+            writer.WriteNumber("total_neutral_damage", heroStats.TotalNeutralDamage);
+
+            writer.WriteNumber("total_player_damage", heroStats.TotalPlayerDamage);
+
+            writer.WriteNumber("total_player_damage_taken", heroStats.TotalPlayerDamageTaken);
 
             writer.WriteNumber("wins", heroStats.Wins);
         }

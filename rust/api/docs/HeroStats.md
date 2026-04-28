@@ -31,6 +31,11 @@ Name | Type | Description | Notes
 **obj_damage_per_min** | **f64** |  | 
 **obj_damage_per_soul** | **f64** |  | 
 **time_played** | **u64** |  | 
+**total_boss_damage** | **u64** |  | 
+**total_creep_damage** | **u64** |  | 
+**total_neutral_damage** | **u64** |  | 
+**total_player_damage** | **u64** |  | 
+**total_player_damage_taken** | **u64** |  | 
 **wins** | **u64** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

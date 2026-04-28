@@ -297,6 +297,51 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'TotalBossDamage'
+        /// </summary>
+        [Fact]
+        public void TotalBossDamageTest()
+        {
+            // TODO unit test for the property 'TotalBossDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalCreepDamage'
+        /// </summary>
+        [Fact]
+        public void TotalCreepDamageTest()
+        {
+            // TODO unit test for the property 'TotalCreepDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalNeutralDamage'
+        /// </summary>
+        [Fact]
+        public void TotalNeutralDamageTest()
+        {
+            // TODO unit test for the property 'TotalNeutralDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalPlayerDamage'
+        /// </summary>
+        [Fact]
+        public void TotalPlayerDamageTest()
+        {
+            // TODO unit test for the property 'TotalPlayerDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalPlayerDamageTaken'
+        /// </summary>
+        [Fact]
+        public void TotalPlayerDamageTakenTest()
+        {
+            // TODO unit test for the property 'TotalPlayerDamageTaken'
+        }
+
+        /// <summary>
         /// Test the property 'Wins'
         /// </summary>
         [Fact]

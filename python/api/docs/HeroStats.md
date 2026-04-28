@@ -32,6 +32,11 @@ Name | Type | Description | Notes
 **obj_damage_per_min** | **float** |  | 
 **obj_damage_per_soul** | **float** |  | 
 **time_played** | **int** |  | 
+**total_boss_damage** | **int** |  | 
+**total_creep_damage** | **int** |  | 
+**total_neutral_damage** | **int** |  | 
+**total_player_damage** | **int** |  | 
+**total_player_damage_taken** | **int** |  | 
 **wins** | **int** |  | 
 
 ## Example

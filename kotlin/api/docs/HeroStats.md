@@ -31,6 +31,11 @@
 | **objDamagePerMin** | **kotlin.Double** |  |  |
 | **objDamagePerSoul** | **kotlin.Double** |  |  |
 | **timePlayed** | **kotlin.Long** |  |  |
+| **totalBossDamage** | **kotlin.Long** |  |  |
+| **totalCreepDamage** | **kotlin.Long** |  |  |
+| **totalNeutralDamage** | **kotlin.Long** |  |  |
+| **totalPlayerDamage** | **kotlin.Long** |  |  |
+| **totalPlayerDamageTaken** | **kotlin.Long** |  |  |
 | **wins** | **kotlin.Long** |  |  |
 
 

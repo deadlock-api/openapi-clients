@@ -63,6 +63,8 @@ export interface BulkMetadataRequest {
     itemFilterHeroId?: number;
     includeItemIds?: string;
     excludeItemIds?: string;
+    extraMatchColumns?: string;
+    extraPlayerColumns?: string;
     orderBy?: BulkMetadataOrderByEnum;
     orderDirection?: BulkMetadataOrderDirectionEnum;
     limit?: number;
@@ -334,6 +336,16 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 
     if (requestParameters.excludeItemIds !== undefined) {
         queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
+    }
+
+
+    if (requestParameters.extraMatchColumns !== undefined) {
+        queryParameters['extra_match_columns'] = requestParameters.extraMatchColumns;
+    }
+
+
+    if (requestParameters.extraPlayerColumns !== undefined) {
+        queryParameters['extra_player_columns'] = requestParameters.extraPlayerColumns;
     }
 
 

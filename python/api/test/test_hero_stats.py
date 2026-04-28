@@ -64,6 +64,11 @@ class TestHeroStats(unittest.TestCase):
                 obj_damage_per_min = 1.337,
                 obj_damage_per_soul = 1.337,
                 time_played = 0,
+                total_boss_damage = 0,
+                total_creep_damage = 0,
+                total_neutral_damage = 0,
+                total_player_damage = 0,
+                total_player_damage_taken = 0,
                 wins = 0
             )
         else:
@@ -97,6 +102,11 @@ class TestHeroStats(unittest.TestCase):
                 obj_damage_per_min = 1.337,
                 obj_damage_per_soul = 1.337,
                 time_played = 0,
+                total_boss_damage = 0,
+                total_creep_damage = 0,
+                total_neutral_damage = 0,
+                total_player_damage = 0,
+                total_player_damage_taken = 0,
                 wins = 0,
         )
         """

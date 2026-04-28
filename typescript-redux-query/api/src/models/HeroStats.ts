@@ -185,6 +185,36 @@ export interface HeroStats  {
      * @type {number}
      * @memberof HeroStats
      */
+    totalBossDamage: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroStats
+     */
+    totalCreepDamage: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroStats
+     */
+    totalNeutralDamage: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroStats
+     */
+    totalPlayerDamage: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroStats
+     */
+    totalPlayerDamageTaken: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroStats
+     */
     wins: number;
 }
 
@@ -217,6 +247,11 @@ export function HeroStatsFromJSON(json: any): HeroStats {
         'objDamagePerMin': json['obj_damage_per_min'],
         'objDamagePerSoul': json['obj_damage_per_soul'],
         'timePlayed': json['time_played'],
+        'totalBossDamage': json['total_boss_damage'],
+        'totalCreepDamage': json['total_creep_damage'],
+        'totalNeutralDamage': json['total_neutral_damage'],
+        'totalPlayerDamage': json['total_player_damage'],
+        'totalPlayerDamageTaken': json['total_player_damage_taken'],
         'wins': json['wins'],
     };
 }
@@ -253,6 +288,11 @@ export function HeroStatsToJSON(value?: HeroStats): any {
         'obj_damage_per_min': value.objDamagePerMin,
         'obj_damage_per_soul': value.objDamagePerSoul,
         'time_played': value.timePlayed,
+        'total_boss_damage': value.totalBossDamage,
+        'total_creep_damage': value.totalCreepDamage,
+        'total_neutral_damage': value.totalNeutralDamage,
+        'total_player_damage': value.totalPlayerDamage,
+        'total_player_damage_taken': value.totalPlayerDamageTaken,
         'wins': value.wins,
     };
 }

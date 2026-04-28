@@ -158,6 +158,8 @@ let heroIds: string; //Filter matches based on the hero IDs. See more: <https://
 let itemFilterHeroId: number; //Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. (optional) (default to undefined)
 let includeItemIds: string; //Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. (optional) (default to undefined)
 let excludeItemIds: string; //Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items. (optional) (default to undefined)
+let extraMatchColumns: string; //Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`. (optional) (default to undefined)
+let extraPlayerColumns: string; //Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields. (optional) (default to undefined)
 let orderBy: 'match_id' | 'start_time' | 'average_badge'; //The field to order the results by. (optional) (default to undefined)
 let orderDirection: 'desc' | 'asc'; //The direction to order the results by. (optional) (default to undefined)
 let limit: number; //The maximum number of matches to return. (optional) (default to 1000)
@@ -191,6 +193,8 @@ const { status, data } = await apiInstance.bulkMetadata(
     itemFilterHeroId,
     includeItemIds,
     excludeItemIds,
+    extraMatchColumns,
+    extraPlayerColumns,
     orderBy,
     orderDirection,
     limit
@@ -229,6 +233,8 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **itemFilterHeroId** | [**number**] | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | (optional) defaults to undefined|
 | **includeItemIds** | [**string**] | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | (optional) defaults to undefined|
 | **excludeItemIds** | [**string**] | Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | (optional) defaults to undefined|
+| **extraMatchColumns** | [**string**] | Comma separated list of extra match-level columns to include in the response. Each column is aggregated with &#x60;any(...)&#x60;. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;objectives_mask_team0,team_score&#x60;. | (optional) defaults to undefined|
+| **extraPlayerColumns** | [**string**] | Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;stats.player_damage,stats.player_healing&#x60;. Implicitly enables player fields. | (optional) defaults to undefined|
 | **orderBy** | [**&#39;match_id&#39; | &#39;start_time&#39; | &#39;average_badge&#39;**]**Array<&#39;match_id&#39; &#124; &#39;start_time&#39; &#124; &#39;average_badge&#39;>** | The field to order the results by. | (optional) defaults to undefined|
 | **orderDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to order the results by. | (optional) defaults to undefined|
 | **limit** | [**number**] | The maximum number of matches to return. | (optional) defaults to 1000|

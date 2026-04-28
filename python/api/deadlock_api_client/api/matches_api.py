@@ -606,6 +606,8 @@ class MatchesApi:
         item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
         include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
         exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
+        extra_match_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.")] = None,
+        extra_player_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields.")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -682,6 +684,10 @@ class MatchesApi:
         :type include_item_ids: str
         :param exclude_item_ids: Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
         :type exclude_item_ids: str
+        :param extra_match_columns: Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.
+        :type extra_match_columns: str
+        :param extra_player_columns: Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields.
+        :type extra_player_columns: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -739,6 +745,8 @@ class MatchesApi:
             item_filter_hero_id=item_filter_hero_id,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            extra_match_columns=extra_match_columns,
+            extra_player_columns=extra_player_columns,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -795,6 +803,8 @@ class MatchesApi:
         item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
         include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
         exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
+        extra_match_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.")] = None,
+        extra_player_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields.")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -871,6 +881,10 @@ class MatchesApi:
         :type include_item_ids: str
         :param exclude_item_ids: Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
         :type exclude_item_ids: str
+        :param extra_match_columns: Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.
+        :type extra_match_columns: str
+        :param extra_player_columns: Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields.
+        :type extra_player_columns: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -928,6 +942,8 @@ class MatchesApi:
             item_filter_hero_id=item_filter_hero_id,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            extra_match_columns=extra_match_columns,
+            extra_player_columns=extra_player_columns,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -984,6 +1000,8 @@ class MatchesApi:
         item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
         include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
         exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
+        extra_match_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.")] = None,
+        extra_player_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields.")] = None,
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
@@ -1060,6 +1078,10 @@ class MatchesApi:
         :type include_item_ids: str
         :param exclude_item_ids: Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
         :type exclude_item_ids: str
+        :param extra_match_columns: Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.
+        :type extra_match_columns: str
+        :param extra_player_columns: Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `stats.player_damage,stats.player_healing`. Implicitly enables player fields.
+        :type extra_player_columns: str
         :param order_by: The field to order the results by.
         :type order_by: str
         :param order_direction: The direction to order the results by.
@@ -1117,6 +1139,8 @@ class MatchesApi:
             item_filter_hero_id=item_filter_hero_id,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            extra_match_columns=extra_match_columns,
+            extra_player_columns=extra_player_columns,
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
@@ -1168,6 +1192,8 @@ class MatchesApi:
         item_filter_hero_id,
         include_item_ids,
         exclude_item_ids,
+        extra_match_columns,
+        extra_player_columns,
         order_by,
         order_direction,
         limit,
@@ -1306,6 +1332,14 @@ class MatchesApi:
         if exclude_item_ids is not None:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if extra_match_columns is not None:
+            
+            _query_params.append(('extra_match_columns', extra_match_columns))
+            
+        if extra_player_columns is not None:
+            
+            _query_params.append(('extra_player_columns', extra_player_columns))
             
         if order_by is not None:
             

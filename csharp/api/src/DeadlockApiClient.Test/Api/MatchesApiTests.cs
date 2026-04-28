@@ -108,10 +108,12 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> itemFilterHeroId = default!;
             Client.Option<string?> includeItemIds = default!;
             Client.Option<string?> excludeItemIds = default!;
+            Client.Option<string?> extraMatchColumns = default!;
+            Client.Option<string?> extraPlayerColumns = default!;
             Client.Option<string> orderBy = default!;
             Client.Option<string> orderDirection = default!;
             Client.Option<int> limit = default!;
-            var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, orderBy, orderDirection, limit);
+            var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }

@@ -32,6 +32,11 @@ Name | Type | Description | Notes
 **obj_damage_per_min** | **number** |  | [default to undefined]
 **obj_damage_per_soul** | **number** |  | [default to undefined]
 **time_played** | **number** |  | [default to undefined]
+**total_boss_damage** | **number** |  | [default to undefined]
+**total_creep_damage** | **number** |  | [default to undefined]
+**total_neutral_damage** | **number** |  | [default to undefined]
+**total_player_damage** | **number** |  | [default to undefined]
+**total_player_damage_taken** | **number** |  | [default to undefined]
 **wins** | **number** |  | [default to undefined]
 
 ## Example
@@ -67,6 +72,11 @@ const instance: HeroStats = {
     obj_damage_per_min,
     obj_damage_per_soul,
     time_played,
+    total_boss_damage,
+    total_creep_damage,
+    total_neutral_damage,
+    total_player_damage,
+    total_player_damage_taken,
     wins,
 };
 ```
