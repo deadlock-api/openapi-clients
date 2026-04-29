@@ -1633,7 +1633,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('heroBuildStats', 'heroId', heroId)
             const localVarPath = `/v1/analytics/hero-build-stats/{hero_id}`
-                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+                .replace('{hero_id}', encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6454,7 +6454,7 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'partyId' is not null or undefined
             assertParamExists('getCustom', 'partyId', partyId)
             const localVarPath = `/v1/matches/custom/{party_id}/match-id`
-                .replace(`{${"party_id"}}`, encodeURIComponent(String(partyId)));
+                .replace('{party_id}', encodeURIComponent(String(partyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6488,7 +6488,7 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'lobbyId' is not null or undefined
             assertParamExists('leave', 'lobbyId', lobbyId)
             const localVarPath = `/v1/matches/custom/{lobby_id}/leave`
-                .replace(`{${"lobby_id"}}`, encodeURIComponent(String(lobbyId)));
+                .replace('{lobby_id}', encodeURIComponent(String(lobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6521,7 +6521,7 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'lobbyId' is not null or undefined
             assertParamExists('readyUp', 'lobbyId', lobbyId)
             const localVarPath = `/v1/matches/custom/{lobby_id}/ready`
-                .replace(`{${"lobby_id"}}`, encodeURIComponent(String(lobbyId)));
+                .replace('{lobby_id}', encodeURIComponent(String(lobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6554,7 +6554,7 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'lobbyId' is not null or undefined
             assertParamExists('start', 'lobbyId', lobbyId)
             const localVarPath = `/v1/matches/custom/{lobby_id}/start`
-                .replace(`{${"lobby_id"}}`, encodeURIComponent(String(lobbyId)));
+                .replace('{lobby_id}', encodeURIComponent(String(lobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6587,7 +6587,7 @@ export const CustomMatchesApiAxiosParamCreator = function (configuration?: Confi
             // verify required parameter 'lobbyId' is not null or undefined
             assertParamExists('unready', 'lobbyId', lobbyId)
             const localVarPath = `/v1/matches/custom/{lobby_id}/unready`
-                .replace(`{${"lobby_id"}}`, encodeURIComponent(String(lobbyId)));
+                .replace('{lobby_id}', encodeURIComponent(String(lobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7162,7 +7162,7 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'region' is not null or undefined
             assertParamExists('leaderboard', 'region', region)
             const localVarPath = `/v1/leaderboard/{region}`
-                .replace(`{${"region"}}`, encodeURIComponent(String(region)));
+                .replace('{region}', encodeURIComponent(String(region)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7199,8 +7199,8 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('leaderboardHero', 'heroId', heroId)
             const localVarPath = `/v1/leaderboard/{region}/{hero_id}`
-                .replace(`{${"region"}}`, encodeURIComponent(String(region)))
-                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+                .replace('{region}', encodeURIComponent(String(region)))
+                .replace('{hero_id}', encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7237,8 +7237,8 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('leaderboardHeroRaw', 'heroId', heroId)
             const localVarPath = `/v1/leaderboard/{region}/{hero_id}/raw`
-                .replace(`{${"region"}}`, encodeURIComponent(String(region)))
-                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+                .replace('{region}', encodeURIComponent(String(region)))
+                .replace('{hero_id}', encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7272,7 +7272,7 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'region' is not null or undefined
             assertParamExists('leaderboardRaw', 'region', region)
             const localVarPath = `/v1/leaderboard/{region}/raw`
-                .replace(`{${"region"}}`, encodeURIComponent(String(region)));
+                .replace('{region}', encodeURIComponent(String(region)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7563,7 +7563,7 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('heroMmr', 'heroId', heroId)
             const localVarPath = `/v1/players/mmr/{hero_id}`
-                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+                .replace('{hero_id}', encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7614,7 +7614,7 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('heroMmrDistribution', 'heroId', heroId)
             const localVarPath = `/v1/players/mmr/distribution/{hero_id}`
-                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+                .replace('{hero_id}', encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7687,8 +7687,8 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('heroMmrHistory', 'heroId', heroId)
             const localVarPath = `/v1/players/{account_id}/mmr-history/{hero_id}`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"hero_id"}}`, encodeURIComponent(String(heroId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)))
+                .replace('{hero_id}', encodeURIComponent(String(heroId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7839,7 +7839,7 @@ export const MMRApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('mmrHistory', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/mmr-history`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8563,7 +8563,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('metadata', 'matchId', matchId)
             const localVarPath = `/v1/matches/{match_id}/metadata`
-                .replace(`{${"match_id"}}`, encodeURIComponent(String(matchId)));
+                .replace('{match_id}', encodeURIComponent(String(matchId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8606,7 +8606,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('metadataRaw', 'matchId', matchId)
             const localVarPath = `/v1/matches/{match_id}/metadata/raw`
-                .replace(`{${"match_id"}}`, encodeURIComponent(String(matchId)));
+                .replace('{match_id}', encodeURIComponent(String(matchId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8678,7 +8678,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('salts', 'matchId', matchId)
             const localVarPath = `/v1/matches/{match_id}/salts`
-                .replace(`{${"match_id"}}`, encodeURIComponent(String(matchId)));
+                .replace('{match_id}', encodeURIComponent(String(matchId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8712,7 +8712,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('url', 'matchId', matchId)
             const localVarPath = `/v1/matches/{match_id}/live/url`
-                .replace(`{${"match_id"}}`, encodeURIComponent(String(matchId)));
+                .replace('{match_id}', encodeURIComponent(String(matchId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9494,7 +9494,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('accountStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/account-stats`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9528,7 +9528,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('card', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/card`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9571,7 +9571,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('enemyStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/enemy-stats`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9642,7 +9642,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('matchHistory', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/match-history`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9689,7 +9689,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('mateStats', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/mate-stats`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9856,7 +9856,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('rankPredict', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/rank-predict`
-                .replace(`{${"account_id"}}`, encodeURIComponent(String(accountId)));
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -10505,7 +10505,7 @@ export const SQLApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'table' is not null or undefined
             assertParamExists('tableSchema', 'table', table)
             const localVarPath = `/v1/sql/tables/{table}/schema`
-                .replace(`{${"table"}}`, encodeURIComponent(String(table)));
+                .replace('{table}', encodeURIComponent(String(table)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

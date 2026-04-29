@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletResist
         /// </summary>
         [JsonPropertyName("bullet_resist")]
-        public int? BulletResist { get { return this.BulletResistOption; } set { this.BulletResistOption = new(value); } }
+        public int? BulletResist { get { return this.BulletResistOption.Value; } set { this.BulletResistOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletResistReductionPerHero
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletResistReductionPerHero
         /// </summary>
         [JsonPropertyName("bullet_resist_reduction_per_hero")]
-        public int? BulletResistReductionPerHero { get { return this.BulletResistReductionPerHeroOption; } set { this.BulletResistReductionPerHeroOption = new(value); } }
+        public int? BulletResistReductionPerHero { get { return this.BulletResistReductionPerHeroOption.Value; } set { this.BulletResistReductionPerHeroOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

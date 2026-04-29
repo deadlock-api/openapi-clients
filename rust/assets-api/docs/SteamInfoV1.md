@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **source_revision** | **i32** |  | 
 **version_date** | **String** |  | 
 **version_time** | **String** |  | 
-**version_datetime** | **String** |  | [readonly]
+**version_datetime** | **chrono::DateTime<chrono::FixedOffset>** |  | [readonly]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

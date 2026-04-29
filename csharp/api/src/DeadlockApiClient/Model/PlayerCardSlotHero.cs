@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
         [JsonPropertyName("id")]
-        public int? Id { get { return this.IdOption; } set { this.IdOption = new(value); } }
+        public int? Id { get { return this.IdOption.Value; } set { this.IdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Kills
@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Kills
         /// </summary>
         [JsonPropertyName("kills")]
-        public int? Kills { get { return this.KillsOption; } set { this.KillsOption = new(value); } }
+        public int? Kills { get { return this.KillsOption.Value; } set { this.KillsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Wins
@@ -85,7 +85,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Wins
         /// </summary>
         [JsonPropertyName("wins")]
-        public int? Wins { get { return this.WinsOption; } set { this.WinsOption = new(value); } }
+        public int? Wins { get { return this.WinsOption.Value; } set { this.WinsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

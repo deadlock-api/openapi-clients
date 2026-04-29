@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ImportantProperty
         /// </summary>
         [JsonPropertyName("important_property")]
-        public string? ImportantProperty { get { return this.ImportantPropertyOption; } set { this.ImportantPropertyOption = new(value); } }
+        public string? ImportantProperty { get { return this.ImportantPropertyOption.Value; } set { this.ImportantPropertyOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -287,7 +287,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ItemDraftWeights
         /// </summary>
         [JsonPropertyName("item_draft_weights")]
-        public Dictionary<string, decimal>? ItemDraftWeights { get { return this.ItemDraftWeightsOption; } set { this.ItemDraftWeightsOption = new(value); } }
+        public Dictionary<string, decimal>? ItemDraftWeights { get { return this.ItemDraftWeightsOption.Value; } set { this.ItemDraftWeightsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AvailableInHeroLabs
@@ -300,7 +300,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AvailableInHeroLabs
         /// </summary>
         [JsonPropertyName("available_in_hero_labs")]
-        public bool? AvailableInHeroLabs { get { return this.AvailableInHeroLabsOption; } set { this.AvailableInHeroLabsOption = new(value); } }
+        public bool? AvailableInHeroLabs { get { return this.AvailableInHeroLabsOption.Value; } set { this.AvailableInHeroLabsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PrereleaseOnly
@@ -313,7 +313,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PrereleaseOnly
         /// </summary>
         [JsonPropertyName("prerelease_only")]
-        public bool? PrereleaseOnly { get { return this.PrereleaseOnlyOption; } set { this.PrereleaseOnlyOption = new(value); } }
+        public bool? PrereleaseOnly { get { return this.PrereleaseOnlyOption.Value; } set { this.PrereleaseOnlyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IconHeroCard
@@ -326,7 +326,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconHeroCard
         /// </summary>
         [JsonPropertyName("icon_hero_card")]
-        public string? IconHeroCard { get { return this.IconHeroCardOption; } set { this.IconHeroCardOption = new(value); } }
+        public string? IconHeroCard { get { return this.IconHeroCardOption.Value; } set { this.IconHeroCardOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IconImageSmall
@@ -339,7 +339,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconImageSmall
         /// </summary>
         [JsonPropertyName("icon_image_small")]
-        public string? IconImageSmall { get { return this.IconImageSmallOption; } set { this.IconImageSmallOption = new(value); } }
+        public string? IconImageSmall { get { return this.IconImageSmallOption.Value; } set { this.IconImageSmallOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinimapImage
@@ -352,7 +352,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MinimapImage
         /// </summary>
         [JsonPropertyName("minimap_image")]
-        public string? MinimapImage { get { return this.MinimapImageOption; } set { this.MinimapImageOption = new(value); } }
+        public string? MinimapImage { get { return this.MinimapImageOption.Value; } set { this.MinimapImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NameImage
@@ -365,7 +365,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets NameImage
         /// </summary>
         [JsonPropertyName("name_image")]
-        public string? NameImage { get { return this.NameImageOption; } set { this.NameImageOption = new(value); } }
+        public string? NameImage { get { return this.NameImageOption.Value; } set { this.NameImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroCardCritical
@@ -378,7 +378,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HeroCardCritical
         /// </summary>
         [JsonPropertyName("hero_card_critical")]
-        public string? HeroCardCritical { get { return this.HeroCardCriticalOption; } set { this.HeroCardCriticalOption = new(value); } }
+        public string? HeroCardCritical { get { return this.HeroCardCriticalOption.Value; } set { this.HeroCardCriticalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroCardGloat
@@ -391,7 +391,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HeroCardGloat
         /// </summary>
         [JsonPropertyName("hero_card_gloat")]
-        public string? HeroCardGloat { get { return this.HeroCardGloatOption; } set { this.HeroCardGloatOption = new(value); } }
+        public string? HeroCardGloat { get { return this.HeroCardGloatOption.Value; } set { this.HeroCardGloatOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TopBarVerticalImage
@@ -404,7 +404,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TopBarVerticalImage
         /// </summary>
         [JsonPropertyName("top_bar_vertical_image")]
-        public string? TopBarVerticalImage { get { return this.TopBarVerticalImageOption; } set { this.TopBarVerticalImageOption = new(value); } }
+        public string? TopBarVerticalImage { get { return this.TopBarVerticalImageOption.Value; } set { this.TopBarVerticalImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Tags
@@ -417,7 +417,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Tags
         /// </summary>
         [JsonPropertyName("tags")]
-        public List<string>? Tags { get { return this.TagsOption; } set { this.TagsOption = new(value); } }
+        public List<string>? Tags { get { return this.TagsOption.Value; } set { this.TagsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GunTag
@@ -430,7 +430,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GunTag
         /// </summary>
         [JsonPropertyName("gun_tag")]
-        public string? GunTag { get { return this.GunTagOption; } set { this.GunTagOption = new(value); } }
+        public string? GunTag { get { return this.GunTagOption.Value; } set { this.GunTagOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HideoutRichPresence
@@ -443,7 +443,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HideoutRichPresence
         /// </summary>
         [JsonPropertyName("hideout_rich_presence")]
-        public string? HideoutRichPresence { get { return this.HideoutRichPresenceOption; } set { this.HideoutRichPresenceOption = new(value); } }
+        public string? HideoutRichPresence { get { return this.HideoutRichPresenceOption.Value; } set { this.HideoutRichPresenceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CollisionHeight
@@ -456,7 +456,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CollisionHeight
         /// </summary>
         [JsonPropertyName("collision_height")]
-        public decimal? CollisionHeight { get { return this.CollisionHeightOption; } set { this.CollisionHeightOption = new(value); } }
+        public decimal? CollisionHeight { get { return this.CollisionHeightOption.Value; } set { this.CollisionHeightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CollisionRadius
@@ -469,7 +469,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CollisionRadius
         /// </summary>
         [JsonPropertyName("collision_radius")]
-        public decimal? CollisionRadius { get { return this.CollisionRadiusOption; } set { this.CollisionRadiusOption = new(value); } }
+        public decimal? CollisionRadius { get { return this.CollisionRadiusOption.Value; } set { this.CollisionRadiusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FootstepSoundTravelDistanceMeters
@@ -482,7 +482,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets FootstepSoundTravelDistanceMeters
         /// </summary>
         [JsonPropertyName("footstep_sound_travel_distance_meters")]
-        public decimal? FootstepSoundTravelDistanceMeters { get { return this.FootstepSoundTravelDistanceMetersOption; } set { this.FootstepSoundTravelDistanceMetersOption = new(value); } }
+        public decimal? FootstepSoundTravelDistanceMeters { get { return this.FootstepSoundTravelDistanceMetersOption.Value; } set { this.FootstepSoundTravelDistanceMetersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StepHeight
@@ -495,7 +495,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StepHeight
         /// </summary>
         [JsonPropertyName("step_height")]
-        public decimal? StepHeight { get { return this.StepHeightOption; } set { this.StepHeightOption = new(value); } }
+        public decimal? StepHeight { get { return this.StepHeightOption.Value; } set { this.StepHeightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StepSoundTime
@@ -508,7 +508,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StepSoundTime
         /// </summary>
         [JsonPropertyName("step_sound_time")]
-        public decimal? StepSoundTime { get { return this.StepSoundTimeOption; } set { this.StepSoundTimeOption = new(value); } }
+        public decimal? StepSoundTime { get { return this.StepSoundTimeOption.Value; } set { this.StepSoundTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StepSoundTimeSprinting
@@ -521,7 +521,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StepSoundTimeSprinting
         /// </summary>
         [JsonPropertyName("step_sound_time_sprinting")]
-        public decimal? StepSoundTimeSprinting { get { return this.StepSoundTimeSprintingOption; } set { this.StepSoundTimeSprintingOption = new(value); } }
+        public decimal? StepSoundTimeSprinting { get { return this.StepSoundTimeSprintingOption.Value; } set { this.StepSoundTimeSprintingOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PurchaseBonuses
@@ -534,7 +534,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PurchaseBonuses
         /// </summary>
         [JsonPropertyName("purchase_bonuses")]
-        public Dictionary<string, List<RawHeroPurchaseBonusV2>>? PurchaseBonuses { get { return this.PurchaseBonusesOption; } set { this.PurchaseBonusesOption = new(value); } }
+        public Dictionary<string, List<RawHeroPurchaseBonusV2>>? PurchaseBonuses { get { return this.PurchaseBonusesOption.Value; } set { this.PurchaseBonusesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ItemDraftBucketing
@@ -547,7 +547,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ItemDraftBucketing
         /// </summary>
         [JsonPropertyName("item_draft_bucketing")]
-        public Dictionary<string, HeroV2ItemDraftBucketingValue>? ItemDraftBucketing { get { return this.ItemDraftBucketingOption; } set { this.ItemDraftBucketingOption = new(value); } }
+        public Dictionary<string, HeroV2ItemDraftBucketingValue>? ItemDraftBucketing { get { return this.ItemDraftBucketingOption.Value; } set { this.ItemDraftBucketingOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets BackgroundImage

@@ -116,7 +116,7 @@ function accountStatsRaw<T>(requestParameters: AccountStatsRequest, requestConfi
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/account-stats`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/account-stats`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -164,7 +164,7 @@ function cardRaw<T>(requestParameters: CardRequest, requestConfig: runtime.Typed
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/card`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/card`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -258,7 +258,7 @@ function enemyStatsRaw<T>(requestParameters: EnemyStatsRequest, requestConfig: r
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/enemy-stats`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/enemy-stats`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -312,7 +312,7 @@ function matchHistoryRaw<T>(requestParameters: MatchHistoryRequest, requestConfi
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/match-history`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/match-history`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -406,7 +406,7 @@ function mateStatsRaw<T>(requestParameters: MateStatsRequest, requestConfig: run
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/mate-stats`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/mate-stats`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -568,7 +568,7 @@ function rankPredictRaw<T>(requestParameters: RankPredictRequest, requestConfig:
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank-predict`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank-predict`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

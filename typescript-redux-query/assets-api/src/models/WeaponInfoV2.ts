@@ -415,49 +415,49 @@ export interface WeaponInfoV2  {
      */
     verticalRecoil?: RawWeaponInfoVerticalRecoilV2;
     /**
-     * 
+     * Calculates the shots per second of the weapon
      * @type {number}
      * @memberof WeaponInfoV2
      */
     readonly shotsPerSecond: number;
     /**
-     * 
+     * Calculates the shots per second of the weapon adjusted for reload time
      * @type {number}
      * @memberof WeaponInfoV2
      */
     readonly shotsPerSecondWithReload: number;
     /**
-     * 
+     * Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.
      * @type {number}
      * @memberof WeaponInfoV2
      */
     readonly bulletsPerSecond: number;
     /**
-     * 
+     * Calculates the bullets per second of the weapon adjusted for reload time.
      * @type {number}
      * @memberof WeaponInfoV2
      */
     readonly bulletsPerSecondWithReload: number;
     /**
-     * 
+     * Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.
      * @type {number}
      * @memberof WeaponInfoV2
      */
     readonly damagePerSecond: number;
     /**
-     * 
+     * Calculates the damage per second of the weapon adjusted for reload time.
      * @type {number}
      * @memberof WeaponInfoV2
      */
     readonly damagePerSecondWithReload: number;
     /**
-     * 
+     * Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.
      * @type {number}
      * @memberof WeaponInfoV2
      */
     readonly damagePerShot: number;
     /**
-     * 
+     * Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.
      * @type {number}
      * @memberof WeaponInfoV2
      */

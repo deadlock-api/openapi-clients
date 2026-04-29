@@ -464,7 +464,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/leaderboard/{region}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/leaderboard/{region}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -724,7 +724,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/leaderboard/{region}/{hero_id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/leaderboard/{region}/{hero_id}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}/{hero_id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bhero_id%7D", Uri.EscapeDataString(heroId.ToString()));
 
@@ -985,7 +985,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/leaderboard/{region}/{hero_id}/raw"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/leaderboard/{region}/{hero_id}/raw");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}/{hero_id}/raw");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bhero_id%7D", Uri.EscapeDataString(heroId.ToString()));
 
@@ -1240,7 +1240,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/leaderboard/{region}/raw"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/leaderboard/{region}/raw");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}/raw");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;

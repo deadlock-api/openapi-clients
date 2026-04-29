@@ -68,7 +68,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ClassName
         /// </summary>
         [JsonPropertyName("class_name")]
-        public string? ClassName { get { return this.ClassNameOption; } set { this.ClassNameOption = new(value); } }
+        public string? ClassName { get { return this.ClassNameOption.Value; } set { this.ClassNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SubclassName
@@ -81,7 +81,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SubclassName
         /// </summary>
         [JsonPropertyName("subclass_name")]
-        public string? SubclassName { get { return this.SubclassNameOption; } set { this.SubclassNameOption = new(value); } }
+        public string? SubclassName { get { return this.SubclassNameOption.Value; } set { this.SubclassNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Duration
@@ -94,7 +94,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Duration
         /// </summary>
         [JsonPropertyName("duration")]
-        public decimal? Duration { get { return this.DurationOption; } set { this.DurationOption = new(value); } }
+        public decimal? Duration { get { return this.DurationOption.Value; } set { this.DurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TimeMin
@@ -107,7 +107,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TimeMin
         /// </summary>
         [JsonPropertyName("time_min")]
-        public decimal? TimeMin { get { return this.TimeMinOption; } set { this.TimeMinOption = new(value); } }
+        public decimal? TimeMin { get { return this.TimeMinOption.Value; } set { this.TimeMinOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TimeMax
@@ -120,7 +120,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TimeMax
         /// </summary>
         [JsonPropertyName("time_max")]
-        public decimal? TimeMax { get { return this.TimeMaxOption; } set { this.TimeMaxOption = new(value); } }
+        public decimal? TimeMax { get { return this.TimeMaxOption.Value; } set { this.TimeMaxOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AlwaysShowInUi
@@ -133,7 +133,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AlwaysShowInUi
         /// </summary>
         [JsonPropertyName("always_show_in_ui")]
-        public List<string>? AlwaysShowInUi { get { return this.AlwaysShowInUiOption; } set { this.AlwaysShowInUiOption = new(value); } }
+        public List<string>? AlwaysShowInUi { get { return this.AlwaysShowInUiOption.Value; } set { this.AlwaysShowInUiOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ModifierValues
@@ -146,7 +146,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ModifierValues
         /// </summary>
         [JsonPropertyName("modifier_values")]
-        public List<ModifierValue>? ModifierValues { get { return this.ModifierValuesOption; } set { this.ModifierValuesOption = new(value); } }
+        public List<ModifierValue>? ModifierValues { get { return this.ModifierValuesOption.Value; } set { this.ModifierValuesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ScriptValues
@@ -159,7 +159,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ScriptValues
         /// </summary>
         [JsonPropertyName("script_values")]
-        public List<ModifierValue>? ScriptValues { get { return this.ScriptValuesOption; } set { this.ScriptValuesOption = new(value); } }
+        public List<ModifierValue>? ScriptValues { get { return this.ScriptValuesOption.Value; } set { this.ScriptValuesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

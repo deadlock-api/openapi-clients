@@ -97,7 +97,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("average_badge_team0")]
-        public int? AverageBadgeTeam0 { get { return this.AverageBadgeTeam0Option; } set { this.AverageBadgeTeam0Option = new(value); } }
+        public int? AverageBadgeTeam0 { get { return this.AverageBadgeTeam0Option.Value; } set { this.AverageBadgeTeam0Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of AverageBadgeTeam1
@@ -111,7 +111,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("average_badge_team1")]
-        public int? AverageBadgeTeam1 { get { return this.AverageBadgeTeam1Option; } set { this.AverageBadgeTeam1Option = new(value); } }
+        public int? AverageBadgeTeam1 { get { return this.AverageBadgeTeam1Option.Value; } set { this.AverageBadgeTeam1Option = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

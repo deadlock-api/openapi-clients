@@ -76,7 +76,7 @@ function getHeroByNameV2HeroesByNameNameGetRaw<T>(requestParameters: GetHeroByNa
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/heroes/by-name/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+        url: `${runtime.Configuration.basePath}/v2/heroes/by-name/{name}`.replace('{name}', encodeURIComponent(String(requestParameters.name))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -133,7 +133,7 @@ function getHeroV2HeroesIdGetRaw<T>(requestParameters: GetHeroV2HeroesIdGetReque
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/heroes/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/v2/heroes/{id}`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

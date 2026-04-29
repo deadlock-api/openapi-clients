@@ -26,7 +26,7 @@ pub struct Patch {
     #[serde(rename = "link")]
     pub link: String,
     #[serde(rename = "pub_date")]
-    pub pub_date: String,
+    pub pub_date: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "slash_comments")]
     pub slash_comments: String,
     #[serde(rename = "title")]
@@ -34,7 +34,7 @@ pub struct Patch {
 }
 
 impl Patch {
-    pub fn new(author: String, category: models::PatchCategory, content_encoded: String, dc_creator: String, guid: models::PatchGuid, link: String, pub_date: String, slash_comments: String, title: String) -> Patch {
+    pub fn new(author: String, category: models::PatchCategory, content_encoded: String, dc_creator: String, guid: models::PatchGuid, link: String, pub_date: chrono::DateTime<chrono::FixedOffset>, slash_comments: String, title: String) -> Patch {
         Patch {
             author,
             category: Box::new(category),

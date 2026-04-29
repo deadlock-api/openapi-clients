@@ -38,49 +38,49 @@ class WeaponInfoV2Test : ShouldSpec() {
         // uncomment below to create an instance of WeaponInfoV2
         //val modelInstance = WeaponInfoV2()
 
-        // to test the property `shotsPerSecond`
+        // to test the property `shotsPerSecond` - Calculates the shots per second of the weapon
         should("test shotsPerSecond") {
             // uncomment below to test the property
             //modelInstance.shotsPerSecond shouldBe ("TODO")
         }
 
-        // to test the property `shotsPerSecondWithReload`
+        // to test the property `shotsPerSecondWithReload` - Calculates the shots per second of the weapon adjusted for reload time
         should("test shotsPerSecondWithReload") {
             // uncomment below to test the property
             //modelInstance.shotsPerSecondWithReload shouldBe ("TODO")
         }
 
-        // to test the property `bulletsPerSecond`
+        // to test the property `bulletsPerSecond` - Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.
         should("test bulletsPerSecond") {
             // uncomment below to test the property
             //modelInstance.bulletsPerSecond shouldBe ("TODO")
         }
 
-        // to test the property `bulletsPerSecondWithReload`
+        // to test the property `bulletsPerSecondWithReload` - Calculates the bullets per second of the weapon adjusted for reload time.
         should("test bulletsPerSecondWithReload") {
             // uncomment below to test the property
             //modelInstance.bulletsPerSecondWithReload shouldBe ("TODO")
         }
 
-        // to test the property `damagePerSecond`
+        // to test the property `damagePerSecond` - Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.
         should("test damagePerSecond") {
             // uncomment below to test the property
             //modelInstance.damagePerSecond shouldBe ("TODO")
         }
 
-        // to test the property `damagePerSecondWithReload`
+        // to test the property `damagePerSecondWithReload` - Calculates the damage per second of the weapon adjusted for reload time.
         should("test damagePerSecondWithReload") {
             // uncomment below to test the property
             //modelInstance.damagePerSecondWithReload shouldBe ("TODO")
         }
 
-        // to test the property `damagePerShot`
+        // to test the property `damagePerShot` - Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.
         should("test damagePerShot") {
             // uncomment below to test the property
             //modelInstance.damagePerShot shouldBe ("TODO")
         }
 
-        // to test the property `damagePerMagazine`
+        // to test the property `damagePerMagazine` - Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.
         should("test damagePerMagazine") {
             // uncomment below to test the property
             //modelInstance.damagePerMagazine shouldBe ("TODO")

@@ -96,14 +96,14 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="bulletSpeedCurve">bulletSpeedCurve</param>
         /// <param name="horizontalRecoil">horizontalRecoil</param>
         /// <param name="verticalRecoil">verticalRecoil</param>
-        /// <param name="shotsPerSecond">shotsPerSecond</param>
-        /// <param name="shotsPerSecondWithReload">shotsPerSecondWithReload</param>
-        /// <param name="bulletsPerSecond">bulletsPerSecond</param>
-        /// <param name="bulletsPerSecondWithReload">bulletsPerSecondWithReload</param>
-        /// <param name="damagePerSecond">damagePerSecond</param>
-        /// <param name="damagePerSecondWithReload">damagePerSecondWithReload</param>
-        /// <param name="damagePerShot">damagePerShot</param>
-        /// <param name="damagePerMagazine">damagePerMagazine</param>
+        /// <param name="shotsPerSecond">Calculates the shots per second of the weapon</param>
+        /// <param name="shotsPerSecondWithReload">Calculates the shots per second of the weapon adjusted for reload time</param>
+        /// <param name="bulletsPerSecond">Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.</param>
+        /// <param name="bulletsPerSecondWithReload">Calculates the bullets per second of the weapon adjusted for reload time.</param>
+        /// <param name="damagePerSecond">Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.</param>
+        /// <param name="damagePerSecondWithReload">Calculates the damage per second of the weapon adjusted for reload time.</param>
+        /// <param name="damagePerShot">Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.</param>
+        /// <param name="damagePerMagazine">Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.</param>
         [JsonConstructor]
         public WeaponInfoV2(Option<bool?> canZoom = default, Option<decimal?> bulletDamage = default, Option<decimal?> bulletGravityScale = default, Option<decimal?> bulletInheritShooterVelocityScale = default, Option<decimal?> bulletLifetime = default, Option<decimal?> bulletRadius = default, Option<decimal?> bulletRadiusVsWorld = default, Option<decimal?> bulletReflectAmount = default, Option<decimal?> bulletReflectScale = default, Option<decimal?> bulletWhizDistance = default, Option<decimal?> burstShotCooldown = default, Option<decimal?> critBonusAgainstNpcs = default, Option<decimal?> critBonusEnd = default, Option<decimal?> critBonusEndRange = default, Option<decimal?> critBonusStart = default, Option<decimal?> critBonusStartRange = default, Option<decimal?> cycleTime = default, Option<bool?> spinsUp = default, Option<bool?> isSemiAuto = default, Option<decimal?> semiAutoCycleRate = default, Option<decimal?> maxSpinCycleTime = default, Option<decimal?> spinIncreaseRate = default, Option<decimal?> spinDecayRate = default, Option<decimal?> buildUpRate = default, Option<decimal?> intraBurstCycleTime = default, Option<decimal?> damageFalloffBias = default, Option<decimal?> damageFalloffEndRange = default, Option<decimal?> damageFalloffEndScale = default, Option<decimal?> damageFalloffStartRange = default, Option<decimal?> damageFalloffStartScale = default, Option<decimal?> horizontalPunch = default, Option<decimal?> range = default, Option<decimal?> recoilRecoveryDelayFactor = default, Option<decimal?> bulletSpeed = default, Option<decimal?> recoilRecoverySpeed = default, Option<decimal?> recoilShotIndexRecoveryTimeFactor = default, Option<decimal?> recoilSpeed = default, Option<decimal?> reloadMoveSpeed = default, Option<decimal?> scatterYawScale = default, Option<AimingShotSpreadPenalty?> aimingShotSpreadPenalty = default, Option<StandingShotSpreadPenalty?> standingShotSpreadPenalty = default, Option<decimal?> shootMoveSpeedPercent = default, Option<decimal?> shootSpreadPenaltyDecay = default, Option<decimal?> shootSpreadPenaltyDecayDelay = default, Option<decimal?> shootSpreadPenaltyPerShot = default, Option<decimal?> shootingUpSpreadPenalty = default, Option<decimal?> verticalPunch = default, Option<decimal?> zoomFov = default, Option<decimal?> zoomMoveSpeedPercent = default, Option<int?> bullets = default, Option<decimal?> reloadSingleBulletsInitialDelay = default, Option<bool?> reloadSingleBullets = default, Option<bool?> reloadSingleBulletsAllowCancel = default, Option<int?> burstShotCount = default, Option<int?> clipSize = default, Option<decimal?> spread = default, Option<decimal?> standingSpread = default, Option<decimal?> lowAmmoIndicatorThreshold = default, Option<decimal?> recoilSeed = default, Option<decimal?> reloadDuration = default, Option<RawItemWeaponInfoBulletSpeedCurveV2?> bulletSpeedCurve = default, Option<RawWeaponInfoHorizontalRecoilV2?> horizontalRecoil = default, Option<RawWeaponInfoVerticalRecoilV2?> verticalRecoil = default, decimal? shotsPerSecond = default, decimal? shotsPerSecondWithReload = default, decimal? bulletsPerSecond = default, decimal? bulletsPerSecondWithReload = default, decimal? damagePerSecond = default, decimal? damagePerSecondWithReload = default, decimal? damagePerShot = default, decimal? damagePerMagazine = default)
         {
@@ -194,7 +194,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CanZoom
         /// </summary>
         [JsonPropertyName("can_zoom")]
-        public bool? CanZoom { get { return this.CanZoomOption; } set { this.CanZoomOption = new(value); } }
+        public bool? CanZoom { get { return this.CanZoomOption.Value; } set { this.CanZoomOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletDamage
@@ -207,7 +207,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletDamage
         /// </summary>
         [JsonPropertyName("bullet_damage")]
-        public decimal? BulletDamage { get { return this.BulletDamageOption; } set { this.BulletDamageOption = new(value); } }
+        public decimal? BulletDamage { get { return this.BulletDamageOption.Value; } set { this.BulletDamageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletGravityScale
@@ -220,7 +220,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletGravityScale
         /// </summary>
         [JsonPropertyName("bullet_gravity_scale")]
-        public decimal? BulletGravityScale { get { return this.BulletGravityScaleOption; } set { this.BulletGravityScaleOption = new(value); } }
+        public decimal? BulletGravityScale { get { return this.BulletGravityScaleOption.Value; } set { this.BulletGravityScaleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletInheritShooterVelocityScale
@@ -233,7 +233,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletInheritShooterVelocityScale
         /// </summary>
         [JsonPropertyName("bullet_inherit_shooter_velocity_scale")]
-        public decimal? BulletInheritShooterVelocityScale { get { return this.BulletInheritShooterVelocityScaleOption; } set { this.BulletInheritShooterVelocityScaleOption = new(value); } }
+        public decimal? BulletInheritShooterVelocityScale { get { return this.BulletInheritShooterVelocityScaleOption.Value; } set { this.BulletInheritShooterVelocityScaleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletLifetime
@@ -246,7 +246,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletLifetime
         /// </summary>
         [JsonPropertyName("bullet_lifetime")]
-        public decimal? BulletLifetime { get { return this.BulletLifetimeOption; } set { this.BulletLifetimeOption = new(value); } }
+        public decimal? BulletLifetime { get { return this.BulletLifetimeOption.Value; } set { this.BulletLifetimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletRadius
@@ -259,7 +259,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletRadius
         /// </summary>
         [JsonPropertyName("bullet_radius")]
-        public decimal? BulletRadius { get { return this.BulletRadiusOption; } set { this.BulletRadiusOption = new(value); } }
+        public decimal? BulletRadius { get { return this.BulletRadiusOption.Value; } set { this.BulletRadiusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletRadiusVsWorld
@@ -272,7 +272,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletRadiusVsWorld
         /// </summary>
         [JsonPropertyName("bullet_radius_vs_world")]
-        public decimal? BulletRadiusVsWorld { get { return this.BulletRadiusVsWorldOption; } set { this.BulletRadiusVsWorldOption = new(value); } }
+        public decimal? BulletRadiusVsWorld { get { return this.BulletRadiusVsWorldOption.Value; } set { this.BulletRadiusVsWorldOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletReflectAmount
@@ -285,7 +285,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletReflectAmount
         /// </summary>
         [JsonPropertyName("bullet_reflect_amount")]
-        public decimal? BulletReflectAmount { get { return this.BulletReflectAmountOption; } set { this.BulletReflectAmountOption = new(value); } }
+        public decimal? BulletReflectAmount { get { return this.BulletReflectAmountOption.Value; } set { this.BulletReflectAmountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletReflectScale
@@ -298,7 +298,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletReflectScale
         /// </summary>
         [JsonPropertyName("bullet_reflect_scale")]
-        public decimal? BulletReflectScale { get { return this.BulletReflectScaleOption; } set { this.BulletReflectScaleOption = new(value); } }
+        public decimal? BulletReflectScale { get { return this.BulletReflectScaleOption.Value; } set { this.BulletReflectScaleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletWhizDistance
@@ -311,7 +311,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletWhizDistance
         /// </summary>
         [JsonPropertyName("bullet_whiz_distance")]
-        public decimal? BulletWhizDistance { get { return this.BulletWhizDistanceOption; } set { this.BulletWhizDistanceOption = new(value); } }
+        public decimal? BulletWhizDistance { get { return this.BulletWhizDistanceOption.Value; } set { this.BulletWhizDistanceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BurstShotCooldown
@@ -324,7 +324,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BurstShotCooldown
         /// </summary>
         [JsonPropertyName("burst_shot_cooldown")]
-        public decimal? BurstShotCooldown { get { return this.BurstShotCooldownOption; } set { this.BurstShotCooldownOption = new(value); } }
+        public decimal? BurstShotCooldown { get { return this.BurstShotCooldownOption.Value; } set { this.BurstShotCooldownOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CritBonusAgainstNpcs
@@ -337,7 +337,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CritBonusAgainstNpcs
         /// </summary>
         [JsonPropertyName("crit_bonus_against_npcs")]
-        public decimal? CritBonusAgainstNpcs { get { return this.CritBonusAgainstNpcsOption; } set { this.CritBonusAgainstNpcsOption = new(value); } }
+        public decimal? CritBonusAgainstNpcs { get { return this.CritBonusAgainstNpcsOption.Value; } set { this.CritBonusAgainstNpcsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CritBonusEnd
@@ -350,7 +350,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CritBonusEnd
         /// </summary>
         [JsonPropertyName("crit_bonus_end")]
-        public decimal? CritBonusEnd { get { return this.CritBonusEndOption; } set { this.CritBonusEndOption = new(value); } }
+        public decimal? CritBonusEnd { get { return this.CritBonusEndOption.Value; } set { this.CritBonusEndOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CritBonusEndRange
@@ -363,7 +363,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CritBonusEndRange
         /// </summary>
         [JsonPropertyName("crit_bonus_end_range")]
-        public decimal? CritBonusEndRange { get { return this.CritBonusEndRangeOption; } set { this.CritBonusEndRangeOption = new(value); } }
+        public decimal? CritBonusEndRange { get { return this.CritBonusEndRangeOption.Value; } set { this.CritBonusEndRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CritBonusStart
@@ -376,7 +376,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CritBonusStart
         /// </summary>
         [JsonPropertyName("crit_bonus_start")]
-        public decimal? CritBonusStart { get { return this.CritBonusStartOption; } set { this.CritBonusStartOption = new(value); } }
+        public decimal? CritBonusStart { get { return this.CritBonusStartOption.Value; } set { this.CritBonusStartOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CritBonusStartRange
@@ -389,7 +389,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CritBonusStartRange
         /// </summary>
         [JsonPropertyName("crit_bonus_start_range")]
-        public decimal? CritBonusStartRange { get { return this.CritBonusStartRangeOption; } set { this.CritBonusStartRangeOption = new(value); } }
+        public decimal? CritBonusStartRange { get { return this.CritBonusStartRangeOption.Value; } set { this.CritBonusStartRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CycleTime
@@ -402,7 +402,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CycleTime
         /// </summary>
         [JsonPropertyName("cycle_time")]
-        public decimal? CycleTime { get { return this.CycleTimeOption; } set { this.CycleTimeOption = new(value); } }
+        public decimal? CycleTime { get { return this.CycleTimeOption.Value; } set { this.CycleTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpinsUp
@@ -415,7 +415,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SpinsUp
         /// </summary>
         [JsonPropertyName("spins_up")]
-        public bool? SpinsUp { get { return this.SpinsUpOption; } set { this.SpinsUpOption = new(value); } }
+        public bool? SpinsUp { get { return this.SpinsUpOption.Value; } set { this.SpinsUpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsSemiAuto
@@ -428,7 +428,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IsSemiAuto
         /// </summary>
         [JsonPropertyName("is_semi_auto")]
-        public bool? IsSemiAuto { get { return this.IsSemiAutoOption; } set { this.IsSemiAutoOption = new(value); } }
+        public bool? IsSemiAuto { get { return this.IsSemiAutoOption.Value; } set { this.IsSemiAutoOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SemiAutoCycleRate
@@ -441,7 +441,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SemiAutoCycleRate
         /// </summary>
         [JsonPropertyName("semi_auto_cycle_rate")]
-        public decimal? SemiAutoCycleRate { get { return this.SemiAutoCycleRateOption; } set { this.SemiAutoCycleRateOption = new(value); } }
+        public decimal? SemiAutoCycleRate { get { return this.SemiAutoCycleRateOption.Value; } set { this.SemiAutoCycleRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MaxSpinCycleTime
@@ -454,7 +454,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MaxSpinCycleTime
         /// </summary>
         [JsonPropertyName("max_spin_cycle_time")]
-        public decimal? MaxSpinCycleTime { get { return this.MaxSpinCycleTimeOption; } set { this.MaxSpinCycleTimeOption = new(value); } }
+        public decimal? MaxSpinCycleTime { get { return this.MaxSpinCycleTimeOption.Value; } set { this.MaxSpinCycleTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpinIncreaseRate
@@ -467,7 +467,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SpinIncreaseRate
         /// </summary>
         [JsonPropertyName("spin_increase_rate")]
-        public decimal? SpinIncreaseRate { get { return this.SpinIncreaseRateOption; } set { this.SpinIncreaseRateOption = new(value); } }
+        public decimal? SpinIncreaseRate { get { return this.SpinIncreaseRateOption.Value; } set { this.SpinIncreaseRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpinDecayRate
@@ -480,7 +480,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SpinDecayRate
         /// </summary>
         [JsonPropertyName("spin_decay_rate")]
-        public decimal? SpinDecayRate { get { return this.SpinDecayRateOption; } set { this.SpinDecayRateOption = new(value); } }
+        public decimal? SpinDecayRate { get { return this.SpinDecayRateOption.Value; } set { this.SpinDecayRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BuildUpRate
@@ -493,7 +493,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BuildUpRate
         /// </summary>
         [JsonPropertyName("build_up_rate")]
-        public decimal? BuildUpRate { get { return this.BuildUpRateOption; } set { this.BuildUpRateOption = new(value); } }
+        public decimal? BuildUpRate { get { return this.BuildUpRateOption.Value; } set { this.BuildUpRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IntraBurstCycleTime
@@ -506,7 +506,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IntraBurstCycleTime
         /// </summary>
         [JsonPropertyName("intra_burst_cycle_time")]
-        public decimal? IntraBurstCycleTime { get { return this.IntraBurstCycleTimeOption; } set { this.IntraBurstCycleTimeOption = new(value); } }
+        public decimal? IntraBurstCycleTime { get { return this.IntraBurstCycleTimeOption.Value; } set { this.IntraBurstCycleTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamageFalloffBias
@@ -519,7 +519,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamageFalloffBias
         /// </summary>
         [JsonPropertyName("damage_falloff_bias")]
-        public decimal? DamageFalloffBias { get { return this.DamageFalloffBiasOption; } set { this.DamageFalloffBiasOption = new(value); } }
+        public decimal? DamageFalloffBias { get { return this.DamageFalloffBiasOption.Value; } set { this.DamageFalloffBiasOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamageFalloffEndRange
@@ -532,7 +532,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamageFalloffEndRange
         /// </summary>
         [JsonPropertyName("damage_falloff_end_range")]
-        public decimal? DamageFalloffEndRange { get { return this.DamageFalloffEndRangeOption; } set { this.DamageFalloffEndRangeOption = new(value); } }
+        public decimal? DamageFalloffEndRange { get { return this.DamageFalloffEndRangeOption.Value; } set { this.DamageFalloffEndRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamageFalloffEndScale
@@ -545,7 +545,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamageFalloffEndScale
         /// </summary>
         [JsonPropertyName("damage_falloff_end_scale")]
-        public decimal? DamageFalloffEndScale { get { return this.DamageFalloffEndScaleOption; } set { this.DamageFalloffEndScaleOption = new(value); } }
+        public decimal? DamageFalloffEndScale { get { return this.DamageFalloffEndScaleOption.Value; } set { this.DamageFalloffEndScaleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamageFalloffStartRange
@@ -558,7 +558,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamageFalloffStartRange
         /// </summary>
         [JsonPropertyName("damage_falloff_start_range")]
-        public decimal? DamageFalloffStartRange { get { return this.DamageFalloffStartRangeOption; } set { this.DamageFalloffStartRangeOption = new(value); } }
+        public decimal? DamageFalloffStartRange { get { return this.DamageFalloffStartRangeOption.Value; } set { this.DamageFalloffStartRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamageFalloffStartScale
@@ -571,7 +571,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamageFalloffStartScale
         /// </summary>
         [JsonPropertyName("damage_falloff_start_scale")]
-        public decimal? DamageFalloffStartScale { get { return this.DamageFalloffStartScaleOption; } set { this.DamageFalloffStartScaleOption = new(value); } }
+        public decimal? DamageFalloffStartScale { get { return this.DamageFalloffStartScaleOption.Value; } set { this.DamageFalloffStartScaleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HorizontalPunch
@@ -584,7 +584,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HorizontalPunch
         /// </summary>
         [JsonPropertyName("horizontal_punch")]
-        public decimal? HorizontalPunch { get { return this.HorizontalPunchOption; } set { this.HorizontalPunchOption = new(value); } }
+        public decimal? HorizontalPunch { get { return this.HorizontalPunchOption.Value; } set { this.HorizontalPunchOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Range
@@ -597,7 +597,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Range
         /// </summary>
         [JsonPropertyName("range")]
-        public decimal? Range { get { return this.RangeOption; } set { this.RangeOption = new(value); } }
+        public decimal? Range { get { return this.RangeOption.Value; } set { this.RangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RecoilRecoveryDelayFactor
@@ -610,7 +610,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RecoilRecoveryDelayFactor
         /// </summary>
         [JsonPropertyName("recoil_recovery_delay_factor")]
-        public decimal? RecoilRecoveryDelayFactor { get { return this.RecoilRecoveryDelayFactorOption; } set { this.RecoilRecoveryDelayFactorOption = new(value); } }
+        public decimal? RecoilRecoveryDelayFactor { get { return this.RecoilRecoveryDelayFactorOption.Value; } set { this.RecoilRecoveryDelayFactorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletSpeed
@@ -623,7 +623,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletSpeed
         /// </summary>
         [JsonPropertyName("bullet_speed")]
-        public decimal? BulletSpeed { get { return this.BulletSpeedOption; } set { this.BulletSpeedOption = new(value); } }
+        public decimal? BulletSpeed { get { return this.BulletSpeedOption.Value; } set { this.BulletSpeedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RecoilRecoverySpeed
@@ -636,7 +636,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RecoilRecoverySpeed
         /// </summary>
         [JsonPropertyName("recoil_recovery_speed")]
-        public decimal? RecoilRecoverySpeed { get { return this.RecoilRecoverySpeedOption; } set { this.RecoilRecoverySpeedOption = new(value); } }
+        public decimal? RecoilRecoverySpeed { get { return this.RecoilRecoverySpeedOption.Value; } set { this.RecoilRecoverySpeedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RecoilShotIndexRecoveryTimeFactor
@@ -649,7 +649,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RecoilShotIndexRecoveryTimeFactor
         /// </summary>
         [JsonPropertyName("recoil_shot_index_recovery_time_factor")]
-        public decimal? RecoilShotIndexRecoveryTimeFactor { get { return this.RecoilShotIndexRecoveryTimeFactorOption; } set { this.RecoilShotIndexRecoveryTimeFactorOption = new(value); } }
+        public decimal? RecoilShotIndexRecoveryTimeFactor { get { return this.RecoilShotIndexRecoveryTimeFactorOption.Value; } set { this.RecoilShotIndexRecoveryTimeFactorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RecoilSpeed
@@ -662,7 +662,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RecoilSpeed
         /// </summary>
         [JsonPropertyName("recoil_speed")]
-        public decimal? RecoilSpeed { get { return this.RecoilSpeedOption; } set { this.RecoilSpeedOption = new(value); } }
+        public decimal? RecoilSpeed { get { return this.RecoilSpeedOption.Value; } set { this.RecoilSpeedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReloadMoveSpeed
@@ -675,7 +675,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ReloadMoveSpeed
         /// </summary>
         [JsonPropertyName("reload_move_speed")]
-        public decimal? ReloadMoveSpeed { get { return this.ReloadMoveSpeedOption; } set { this.ReloadMoveSpeedOption = new(value); } }
+        public decimal? ReloadMoveSpeed { get { return this.ReloadMoveSpeedOption.Value; } set { this.ReloadMoveSpeedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ScatterYawScale
@@ -688,7 +688,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ScatterYawScale
         /// </summary>
         [JsonPropertyName("scatter_yaw_scale")]
-        public decimal? ScatterYawScale { get { return this.ScatterYawScaleOption; } set { this.ScatterYawScaleOption = new(value); } }
+        public decimal? ScatterYawScale { get { return this.ScatterYawScaleOption.Value; } set { this.ScatterYawScaleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AimingShotSpreadPenalty
@@ -701,7 +701,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AimingShotSpreadPenalty
         /// </summary>
         [JsonPropertyName("aiming_shot_spread_penalty")]
-        public AimingShotSpreadPenalty? AimingShotSpreadPenalty { get { return this.AimingShotSpreadPenaltyOption; } set { this.AimingShotSpreadPenaltyOption = new(value); } }
+        public AimingShotSpreadPenalty? AimingShotSpreadPenalty { get { return this.AimingShotSpreadPenaltyOption.Value; } set { this.AimingShotSpreadPenaltyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StandingShotSpreadPenalty
@@ -714,7 +714,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StandingShotSpreadPenalty
         /// </summary>
         [JsonPropertyName("standing_shot_spread_penalty")]
-        public StandingShotSpreadPenalty? StandingShotSpreadPenalty { get { return this.StandingShotSpreadPenaltyOption; } set { this.StandingShotSpreadPenaltyOption = new(value); } }
+        public StandingShotSpreadPenalty? StandingShotSpreadPenalty { get { return this.StandingShotSpreadPenaltyOption.Value; } set { this.StandingShotSpreadPenaltyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShootMoveSpeedPercent
@@ -727,7 +727,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ShootMoveSpeedPercent
         /// </summary>
         [JsonPropertyName("shoot_move_speed_percent")]
-        public decimal? ShootMoveSpeedPercent { get { return this.ShootMoveSpeedPercentOption; } set { this.ShootMoveSpeedPercentOption = new(value); } }
+        public decimal? ShootMoveSpeedPercent { get { return this.ShootMoveSpeedPercentOption.Value; } set { this.ShootMoveSpeedPercentOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShootSpreadPenaltyDecay
@@ -740,7 +740,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ShootSpreadPenaltyDecay
         /// </summary>
         [JsonPropertyName("shoot_spread_penalty_decay")]
-        public decimal? ShootSpreadPenaltyDecay { get { return this.ShootSpreadPenaltyDecayOption; } set { this.ShootSpreadPenaltyDecayOption = new(value); } }
+        public decimal? ShootSpreadPenaltyDecay { get { return this.ShootSpreadPenaltyDecayOption.Value; } set { this.ShootSpreadPenaltyDecayOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShootSpreadPenaltyDecayDelay
@@ -753,7 +753,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ShootSpreadPenaltyDecayDelay
         /// </summary>
         [JsonPropertyName("shoot_spread_penalty_decay_delay")]
-        public decimal? ShootSpreadPenaltyDecayDelay { get { return this.ShootSpreadPenaltyDecayDelayOption; } set { this.ShootSpreadPenaltyDecayDelayOption = new(value); } }
+        public decimal? ShootSpreadPenaltyDecayDelay { get { return this.ShootSpreadPenaltyDecayDelayOption.Value; } set { this.ShootSpreadPenaltyDecayDelayOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShootSpreadPenaltyPerShot
@@ -766,7 +766,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ShootSpreadPenaltyPerShot
         /// </summary>
         [JsonPropertyName("shoot_spread_penalty_per_shot")]
-        public decimal? ShootSpreadPenaltyPerShot { get { return this.ShootSpreadPenaltyPerShotOption; } set { this.ShootSpreadPenaltyPerShotOption = new(value); } }
+        public decimal? ShootSpreadPenaltyPerShot { get { return this.ShootSpreadPenaltyPerShotOption.Value; } set { this.ShootSpreadPenaltyPerShotOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShootingUpSpreadPenalty
@@ -779,7 +779,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ShootingUpSpreadPenalty
         /// </summary>
         [JsonPropertyName("shooting_up_spread_penalty")]
-        public decimal? ShootingUpSpreadPenalty { get { return this.ShootingUpSpreadPenaltyOption; } set { this.ShootingUpSpreadPenaltyOption = new(value); } }
+        public decimal? ShootingUpSpreadPenalty { get { return this.ShootingUpSpreadPenaltyOption.Value; } set { this.ShootingUpSpreadPenaltyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of VerticalPunch
@@ -792,7 +792,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets VerticalPunch
         /// </summary>
         [JsonPropertyName("vertical_punch")]
-        public decimal? VerticalPunch { get { return this.VerticalPunchOption; } set { this.VerticalPunchOption = new(value); } }
+        public decimal? VerticalPunch { get { return this.VerticalPunchOption.Value; } set { this.VerticalPunchOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ZoomFov
@@ -805,7 +805,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ZoomFov
         /// </summary>
         [JsonPropertyName("zoom_fov")]
-        public decimal? ZoomFov { get { return this.ZoomFovOption; } set { this.ZoomFovOption = new(value); } }
+        public decimal? ZoomFov { get { return this.ZoomFovOption.Value; } set { this.ZoomFovOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ZoomMoveSpeedPercent
@@ -818,7 +818,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ZoomMoveSpeedPercent
         /// </summary>
         [JsonPropertyName("zoom_move_speed_percent")]
-        public decimal? ZoomMoveSpeedPercent { get { return this.ZoomMoveSpeedPercentOption; } set { this.ZoomMoveSpeedPercentOption = new(value); } }
+        public decimal? ZoomMoveSpeedPercent { get { return this.ZoomMoveSpeedPercentOption.Value; } set { this.ZoomMoveSpeedPercentOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Bullets
@@ -831,7 +831,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Bullets
         /// </summary>
         [JsonPropertyName("bullets")]
-        public int? Bullets { get { return this.BulletsOption; } set { this.BulletsOption = new(value); } }
+        public int? Bullets { get { return this.BulletsOption.Value; } set { this.BulletsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReloadSingleBulletsInitialDelay
@@ -844,7 +844,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ReloadSingleBulletsInitialDelay
         /// </summary>
         [JsonPropertyName("reload_single_bullets_initial_delay")]
-        public decimal? ReloadSingleBulletsInitialDelay { get { return this.ReloadSingleBulletsInitialDelayOption; } set { this.ReloadSingleBulletsInitialDelayOption = new(value); } }
+        public decimal? ReloadSingleBulletsInitialDelay { get { return this.ReloadSingleBulletsInitialDelayOption.Value; } set { this.ReloadSingleBulletsInitialDelayOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReloadSingleBullets
@@ -857,7 +857,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ReloadSingleBullets
         /// </summary>
         [JsonPropertyName("reload_single_bullets")]
-        public bool? ReloadSingleBullets { get { return this.ReloadSingleBulletsOption; } set { this.ReloadSingleBulletsOption = new(value); } }
+        public bool? ReloadSingleBullets { get { return this.ReloadSingleBulletsOption.Value; } set { this.ReloadSingleBulletsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReloadSingleBulletsAllowCancel
@@ -870,7 +870,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ReloadSingleBulletsAllowCancel
         /// </summary>
         [JsonPropertyName("reload_single_bullets_allow_cancel")]
-        public bool? ReloadSingleBulletsAllowCancel { get { return this.ReloadSingleBulletsAllowCancelOption; } set { this.ReloadSingleBulletsAllowCancelOption = new(value); } }
+        public bool? ReloadSingleBulletsAllowCancel { get { return this.ReloadSingleBulletsAllowCancelOption.Value; } set { this.ReloadSingleBulletsAllowCancelOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BurstShotCount
@@ -883,7 +883,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BurstShotCount
         /// </summary>
         [JsonPropertyName("burst_shot_count")]
-        public int? BurstShotCount { get { return this.BurstShotCountOption; } set { this.BurstShotCountOption = new(value); } }
+        public int? BurstShotCount { get { return this.BurstShotCountOption.Value; } set { this.BurstShotCountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ClipSize
@@ -896,7 +896,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ClipSize
         /// </summary>
         [JsonPropertyName("clip_size")]
-        public int? ClipSize { get { return this.ClipSizeOption; } set { this.ClipSizeOption = new(value); } }
+        public int? ClipSize { get { return this.ClipSizeOption.Value; } set { this.ClipSizeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Spread
@@ -909,7 +909,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Spread
         /// </summary>
         [JsonPropertyName("spread")]
-        public decimal? Spread { get { return this.SpreadOption; } set { this.SpreadOption = new(value); } }
+        public decimal? Spread { get { return this.SpreadOption.Value; } set { this.SpreadOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StandingSpread
@@ -922,7 +922,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StandingSpread
         /// </summary>
         [JsonPropertyName("standing_spread")]
-        public decimal? StandingSpread { get { return this.StandingSpreadOption; } set { this.StandingSpreadOption = new(value); } }
+        public decimal? StandingSpread { get { return this.StandingSpreadOption.Value; } set { this.StandingSpreadOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LowAmmoIndicatorThreshold
@@ -935,7 +935,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LowAmmoIndicatorThreshold
         /// </summary>
         [JsonPropertyName("low_ammo_indicator_threshold")]
-        public decimal? LowAmmoIndicatorThreshold { get { return this.LowAmmoIndicatorThresholdOption; } set { this.LowAmmoIndicatorThresholdOption = new(value); } }
+        public decimal? LowAmmoIndicatorThreshold { get { return this.LowAmmoIndicatorThresholdOption.Value; } set { this.LowAmmoIndicatorThresholdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RecoilSeed
@@ -948,7 +948,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RecoilSeed
         /// </summary>
         [JsonPropertyName("recoil_seed")]
-        public decimal? RecoilSeed { get { return this.RecoilSeedOption; } set { this.RecoilSeedOption = new(value); } }
+        public decimal? RecoilSeed { get { return this.RecoilSeedOption.Value; } set { this.RecoilSeedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReloadDuration
@@ -961,7 +961,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ReloadDuration
         /// </summary>
         [JsonPropertyName("reload_duration")]
-        public decimal? ReloadDuration { get { return this.ReloadDurationOption; } set { this.ReloadDurationOption = new(value); } }
+        public decimal? ReloadDuration { get { return this.ReloadDurationOption.Value; } set { this.ReloadDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletSpeedCurve
@@ -974,7 +974,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletSpeedCurve
         /// </summary>
         [JsonPropertyName("bullet_speed_curve")]
-        public RawItemWeaponInfoBulletSpeedCurveV2? BulletSpeedCurve { get { return this.BulletSpeedCurveOption; } set { this.BulletSpeedCurveOption = new(value); } }
+        public RawItemWeaponInfoBulletSpeedCurveV2? BulletSpeedCurve { get { return this.BulletSpeedCurveOption.Value; } set { this.BulletSpeedCurveOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HorizontalRecoil
@@ -987,7 +987,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HorizontalRecoil
         /// </summary>
         [JsonPropertyName("horizontal_recoil")]
-        public RawWeaponInfoHorizontalRecoilV2? HorizontalRecoil { get { return this.HorizontalRecoilOption; } set { this.HorizontalRecoilOption = new(value); } }
+        public RawWeaponInfoHorizontalRecoilV2? HorizontalRecoil { get { return this.HorizontalRecoilOption.Value; } set { this.HorizontalRecoilOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of VerticalRecoil
@@ -1000,53 +1000,61 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets VerticalRecoil
         /// </summary>
         [JsonPropertyName("vertical_recoil")]
-        public RawWeaponInfoVerticalRecoilV2? VerticalRecoil { get { return this.VerticalRecoilOption; } set { this.VerticalRecoilOption = new(value); } }
+        public RawWeaponInfoVerticalRecoilV2? VerticalRecoil { get { return this.VerticalRecoilOption.Value; } set { this.VerticalRecoilOption = new(value); } }
 
         /// <summary>
-        /// Gets or Sets ShotsPerSecond
+        /// Calculates the shots per second of the weapon
         /// </summary>
+        /// <value>Calculates the shots per second of the weapon</value>
         [JsonPropertyName("shots_per_second")]
         public decimal? ShotsPerSecond { get; }
 
         /// <summary>
-        /// Gets or Sets ShotsPerSecondWithReload
+        /// Calculates the shots per second of the weapon adjusted for reload time
         /// </summary>
+        /// <value>Calculates the shots per second of the weapon adjusted for reload time</value>
         [JsonPropertyName("shots_per_second_with_reload")]
         public decimal? ShotsPerSecondWithReload { get; }
 
         /// <summary>
-        /// Gets or Sets BulletsPerSecond
+        /// Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.
         /// </summary>
+        /// <value>Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.</value>
         [JsonPropertyName("bullets_per_second")]
         public decimal? BulletsPerSecond { get; }
 
         /// <summary>
-        /// Gets or Sets BulletsPerSecondWithReload
+        /// Calculates the bullets per second of the weapon adjusted for reload time.
         /// </summary>
+        /// <value>Calculates the bullets per second of the weapon adjusted for reload time.</value>
         [JsonPropertyName("bullets_per_second_with_reload")]
         public decimal? BulletsPerSecondWithReload { get; }
 
         /// <summary>
-        /// Gets or Sets DamagePerSecond
+        /// Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.
         /// </summary>
+        /// <value>Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.</value>
         [JsonPropertyName("damage_per_second")]
         public decimal? DamagePerSecond { get; }
 
         /// <summary>
-        /// Gets or Sets DamagePerSecondWithReload
+        /// Calculates the damage per second of the weapon adjusted for reload time.
         /// </summary>
+        /// <value>Calculates the damage per second of the weapon adjusted for reload time.</value>
         [JsonPropertyName("damage_per_second_with_reload")]
         public decimal? DamagePerSecondWithReload { get; }
 
         /// <summary>
-        /// Gets or Sets DamagePerShot
+        /// Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.
         /// </summary>
+        /// <value>Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.</value>
         [JsonPropertyName("damage_per_shot")]
         public decimal? DamagePerShot { get; }
 
         /// <summary>
-        /// Gets or Sets DamagePerMagazine
+        /// Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.
         /// </summary>
+        /// <value>Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.</value>
         [JsonPropertyName("damage_per_magazine")]
         public decimal? DamagePerMagazine { get; }
 

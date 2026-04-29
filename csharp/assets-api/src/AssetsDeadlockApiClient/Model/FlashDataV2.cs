@@ -94,7 +94,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BrightnessInLightSensitivityMode
         /// </summary>
         [JsonPropertyName("brightness_in_light_sensitivity_mode")]
-        public decimal? BrightnessInLightSensitivityMode { get { return this.BrightnessInLightSensitivityModeOption; } set { this.BrightnessInLightSensitivityModeOption = new(value); } }
+        public decimal? BrightnessInLightSensitivityMode { get { return this.BrightnessInLightSensitivityModeOption.Value; } set { this.BrightnessInLightSensitivityModeOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

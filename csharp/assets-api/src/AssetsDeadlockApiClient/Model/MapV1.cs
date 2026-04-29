@@ -81,7 +81,7 @@ namespace AssetsDeadlockApiClient.Model
         /// </summary>
         /// <value>The radius of the map.</value>
         [JsonPropertyName("radius")]
-        public int? Radius { get { return this.RadiusOption; } set { this.RadiusOption = new(value); } }
+        public int? Radius { get { return this.RadiusOption.Value; } set { this.RadiusOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

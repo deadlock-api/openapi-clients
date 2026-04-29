@@ -75,7 +75,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("ranked_badge_level")]
-        public int? RankedBadgeLevel { get { return this.RankedBadgeLevelOption; } set { this.RankedBadgeLevelOption = new(value); } }
+        public int? RankedBadgeLevel { get { return this.RankedBadgeLevelOption.Value; } set { this.RankedBadgeLevelOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankedRank
@@ -89,7 +89,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("ranked_rank")]
-        public int? RankedRank { get { return this.RankedRankOption; } set { this.RankedRankOption = new(value); } }
+        public int? RankedRank { get { return this.RankedRankOption.Value; } set { this.RankedRankOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankedSubrank
@@ -103,7 +103,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("ranked_subrank")]
-        public int? RankedSubrank { get { return this.RankedSubrankOption; } set { this.RankedSubrankOption = new(value); } }
+        public int? RankedSubrank { get { return this.RankedSubrankOption.Value; } set { this.RankedSubrankOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

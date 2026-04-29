@@ -281,7 +281,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ItemDraftWeights
         /// </summary>
         [JsonPropertyName("item_draft_weights")]
-        public Dictionary<string, decimal>? ItemDraftWeights { get { return this.ItemDraftWeightsOption; } set { this.ItemDraftWeightsOption = new(value); } }
+        public Dictionary<string, decimal>? ItemDraftWeights { get { return this.ItemDraftWeightsOption.Value; } set { this.ItemDraftWeightsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Tags
@@ -294,7 +294,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Tags
         /// </summary>
         [JsonPropertyName("tags")]
-        public List<string>? Tags { get { return this.TagsOption; } set { this.TagsOption = new(value); } }
+        public List<string>? Tags { get { return this.TagsOption.Value; } set { this.TagsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GunTag
@@ -307,7 +307,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GunTag
         /// </summary>
         [JsonPropertyName("gun_tag")]
-        public string? GunTag { get { return this.GunTagOption; } set { this.GunTagOption = new(value); } }
+        public string? GunTag { get { return this.GunTagOption.Value; } set { this.GunTagOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HideoutRichPresence
@@ -320,7 +320,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HideoutRichPresence
         /// </summary>
         [JsonPropertyName("hideout_rich_presence")]
-        public string? HideoutRichPresence { get { return this.HideoutRichPresenceOption; } set { this.HideoutRichPresenceOption = new(value); } }
+        public string? HideoutRichPresence { get { return this.HideoutRichPresenceOption.Value; } set { this.HideoutRichPresenceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PrereleaseOnly
@@ -333,7 +333,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PrereleaseOnly
         /// </summary>
         [JsonPropertyName("prerelease_only")]
-        public bool? PrereleaseOnly { get { return this.PrereleaseOnlyOption; } set { this.PrereleaseOnlyOption = new(value); } }
+        public bool? PrereleaseOnly { get { return this.PrereleaseOnlyOption.Value; } set { this.PrereleaseOnlyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CostBonuses
@@ -346,7 +346,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CostBonuses
         /// </summary>
         [JsonPropertyName("cost_bonuses")]
-        public Dictionary<string, List<RawHeroMapModCostBonusesV2>>? CostBonuses { get { return this.CostBonusesOption; } set { this.CostBonusesOption = new(value); } }
+        public Dictionary<string, List<RawHeroMapModCostBonusesV2>>? CostBonuses { get { return this.CostBonusesOption.Value; } set { this.CostBonusesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ItemDraftBucketing
@@ -359,7 +359,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ItemDraftBucketing
         /// </summary>
         [JsonPropertyName("item_draft_bucketing")]
-        public Dictionary<string, HeroV2ItemDraftBucketingValue>? ItemDraftBucketing { get { return this.ItemDraftBucketingOption; } set { this.ItemDraftBucketingOption = new(value); } }
+        public Dictionary<string, HeroV2ItemDraftBucketingValue>? ItemDraftBucketing { get { return this.ItemDraftBucketingOption.Value; } set { this.ItemDraftBucketingOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

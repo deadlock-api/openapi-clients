@@ -6636,34 +6636,49 @@ components:
           - $ref: "#/components/schemas/RawWeaponInfoVerticalRecoilV2"
           nullable: true
         shots_per_second:
+          description: Calculates the shots per second of the weapon
           nullable: true
           readOnly: true
           type: number
         shots_per_second_with_reload:
+          description: Calculates the shots per second of the weapon adjusted for
+            reload time
           nullable: true
           readOnly: true
           type: number
         bullets_per_second:
+          description: "Calculates the bullets per second of the weapon, by multiplying\
+            \ shots per second by bullets per shot."
           nullable: true
           readOnly: true
           type: number
         bullets_per_second_with_reload:
+          description: Calculates the bullets per second of the weapon adjusted for
+            reload time.
           nullable: true
           readOnly: true
           type: number
         damage_per_second:
+          description: "Calculates the damage per second of the weapon, by multiplying\
+            \ bullets per second by bullet damage."
           nullable: true
           readOnly: true
           type: number
         damage_per_second_with_reload:
+          description: Calculates the damage per second of the weapon adjusted for
+            reload time.
           nullable: true
           readOnly: true
           type: number
         damage_per_shot:
+          description: "Calculates the damage per shot of the weapon, by multiplying\
+            \ bullets per shot by bullet damage."
           nullable: true
           readOnly: true
           type: number
         damage_per_magazine:
+          description: "Calculates the damage per magazine of the weapon, by multiplying\
+            \ clip size by damage per shot."
           nullable: true
           readOnly: true
           type: number

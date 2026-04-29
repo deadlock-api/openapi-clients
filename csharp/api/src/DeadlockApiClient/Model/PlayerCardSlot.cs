@@ -58,7 +58,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Hero
         /// </summary>
         [JsonPropertyName("hero")]
-        public PlayerCardSlotHero? Hero { get { return this.HeroOption; } set { this.HeroOption = new(value); } }
+        public PlayerCardSlotHero? Hero { get { return this.HeroOption.Value; } set { this.HeroOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SlotId
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets SlotId
         /// </summary>
         [JsonPropertyName("slot_id")]
-        public int? SlotId { get { return this.SlotIdOption; } set { this.SlotIdOption = new(value); } }
+        public int? SlotId { get { return this.SlotIdOption.Value; } set { this.SlotIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Stat
@@ -84,7 +84,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Stat
         /// </summary>
         [JsonPropertyName("stat")]
-        public PlayerCardSlotStat? Stat { get { return this.StatOption; } set { this.StatOption = new(value); } }
+        public PlayerCardSlotStat? Stat { get { return this.StatOption.Value; } set { this.StatOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

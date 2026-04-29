@@ -64,7 +64,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets UseStandardUpgrade
         /// </summary>
         [JsonPropertyName("use_standard_upgrade")]
-        public bool? UseStandardUpgrade { get { return this.UseStandardUpgradeOption; } set { this.UseStandardUpgradeOption = new(value); } }
+        public bool? UseStandardUpgrade { get { return this.UseStandardUpgradeOption.Value; } set { this.UseStandardUpgradeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BonusCurrencies
@@ -77,7 +77,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BonusCurrencies
         /// </summary>
         [JsonPropertyName("bonus_currencies")]
-        public Dictionary<string, int>? BonusCurrencies { get { return this.BonusCurrenciesOption; } set { this.BonusCurrenciesOption = new(value); } }
+        public Dictionary<string, int>? BonusCurrencies { get { return this.BonusCurrenciesOption.Value; } set { this.BonusCurrenciesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

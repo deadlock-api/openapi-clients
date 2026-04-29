@@ -390,7 +390,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/accolades/by-name/{name}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/accolades/by-name/{name}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/accolades/by-name/{name}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bname%7D", Uri.EscapeDataString(name.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -679,7 +679,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/accolades/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/accolades/{id}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/accolades/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -962,7 +962,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/accolades"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/accolades");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/accolades");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 

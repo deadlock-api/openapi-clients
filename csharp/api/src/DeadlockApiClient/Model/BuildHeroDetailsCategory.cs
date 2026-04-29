@@ -70,7 +70,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Description
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get { return this.DescriptionOption; } set { this.DescriptionOption = new(value); } }
+        public string? Description { get { return this.DescriptionOption.Value; } set { this.DescriptionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Height
@@ -83,7 +83,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Height
         /// </summary>
         [JsonPropertyName("height")]
-        public float? Height { get { return this.HeightOption; } set { this.HeightOption = new(value); } }
+        public float? Height { get { return this.HeightOption.Value; } set { this.HeightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Mods
@@ -96,7 +96,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Mods
         /// </summary>
         [JsonPropertyName("mods")]
-        public List<BuildHeroDetailsCategoryAbility>? Mods { get { return this.ModsOption; } set { this.ModsOption = new(value); } }
+        public List<BuildHeroDetailsCategoryAbility>? Mods { get { return this.ModsOption.Value; } set { this.ModsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Optional
@@ -109,7 +109,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Optional
         /// </summary>
         [JsonPropertyName("optional")]
-        public bool? Optional { get { return this.OptionalOption; } set { this.OptionalOption = new(value); } }
+        public bool? Optional { get { return this.OptionalOption.Value; } set { this.OptionalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Width
@@ -122,7 +122,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Width
         /// </summary>
         [JsonPropertyName("width")]
-        public float? Width { get { return this.WidthOption; } set { this.WidthOption = new(value); } }
+        public float? Width { get { return this.WidthOption.Value; } set { this.WidthOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

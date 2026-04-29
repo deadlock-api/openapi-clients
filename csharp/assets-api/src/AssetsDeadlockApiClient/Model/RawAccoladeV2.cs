@@ -102,7 +102,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EnabledGameModes
         /// </summary>
         [JsonPropertyName("enabled_game_modes")]
-        public List<GameMode>? EnabledGameModes { get { return this.EnabledGameModesOption; } set { this.EnabledGameModesOption = new(value); } }
+        public List<GameMode>? EnabledGameModes { get { return this.EnabledGameModesOption.Value; } set { this.EnabledGameModesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

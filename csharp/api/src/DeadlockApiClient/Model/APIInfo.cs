@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The number of matches fetched in the last 24 hours.</value>
         [JsonPropertyName("fetched_matches_per_day")]
-        public long? FetchedMatchesPerDay { get { return this.FetchedMatchesPerDayOption; } set { this.FetchedMatchesPerDayOption = new(value); } }
+        public long? FetchedMatchesPerDay { get { return this.FetchedMatchesPerDayOption.Value; } set { this.FetchedMatchesPerDayOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TableSizes
@@ -73,7 +73,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The sizes of all tables in the database.</value>
         [JsonPropertyName("table_sizes")]
-        public Dictionary<string, TableSize>? TableSizes { get { return this.TableSizesOption; } set { this.TableSizesOption = new(value); } }
+        public Dictionary<string, TableSize>? TableSizes { get { return this.TableSizesOption.Value; } set { this.TableSizesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UserIngestedMatchesLast24h
@@ -88,7 +88,7 @@ namespace DeadlockApiClient.Model
         /// <value>The number of matches ingested in the last 24 hours.</value>
         [JsonPropertyName("user_ingested_matches_last24h")]
         [Obsolete]
-        public long? UserIngestedMatchesLast24h { get { return this.UserIngestedMatchesLast24hOption; } set { this.UserIngestedMatchesLast24hOption = new(value); } }
+        public long? UserIngestedMatchesLast24h { get { return this.UserIngestedMatchesLast24hOption.Value; } set { this.UserIngestedMatchesLast24hOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -58,7 +58,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GrowthPerMinute
         /// </summary>
         [JsonPropertyName("growth_per_minute")]
-        public int? GrowthPerMinute { get { return this.GrowthPerMinuteOption; } set { this.GrowthPerMinuteOption = new(value); } }
+        public int? GrowthPerMinute { get { return this.GrowthPerMinuteOption.Value; } set { this.GrowthPerMinuteOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TickRate
@@ -71,7 +71,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TickRate
         /// </summary>
         [JsonPropertyName("tick_rate")]
-        public decimal? TickRate { get { return this.TickRateOption; } set { this.TickRateOption = new(value); } }
+        public decimal? TickRate { get { return this.TickRateOption.Value; } set { this.TickRateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GrowthStartTimeInMinutes
@@ -84,7 +84,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GrowthStartTimeInMinutes
         /// </summary>
         [JsonPropertyName("growth_start_time_in_minutes")]
-        public int? GrowthStartTimeInMinutes { get { return this.GrowthStartTimeInMinutesOption; } set { this.GrowthStartTimeInMinutesOption = new(value); } }
+        public int? GrowthStartTimeInMinutes { get { return this.GrowthStartTimeInMinutesOption.Value; } set { this.GrowthStartTimeInMinutesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

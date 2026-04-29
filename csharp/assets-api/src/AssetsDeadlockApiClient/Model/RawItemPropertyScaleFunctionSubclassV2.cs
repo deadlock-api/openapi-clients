@@ -64,7 +64,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ClassName
         /// </summary>
         [JsonPropertyName("class_name")]
-        public string? ClassName { get { return this.ClassNameOption; } set { this.ClassNameOption = new(value); } }
+        public string? ClassName { get { return this.ClassNameOption.Value; } set { this.ClassNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SubclassName
@@ -77,7 +77,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SubclassName
         /// </summary>
         [JsonPropertyName("subclass_name")]
-        public string? SubclassName { get { return this.SubclassNameOption; } set { this.SubclassNameOption = new(value); } }
+        public string? SubclassName { get { return this.SubclassNameOption.Value; } set { this.SubclassNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpecificStatScaleType
@@ -90,7 +90,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SpecificStatScaleType
         /// </summary>
         [JsonPropertyName("specific_stat_scale_type")]
-        public string? SpecificStatScaleType { get { return this.SpecificStatScaleTypeOption; } set { this.SpecificStatScaleTypeOption = new(value); } }
+        public string? SpecificStatScaleType { get { return this.SpecificStatScaleTypeOption.Value; } set { this.SpecificStatScaleTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ScalingStats
@@ -103,7 +103,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ScalingStats
         /// </summary>
         [JsonPropertyName("scaling_stats")]
-        public List<string>? ScalingStats { get { return this.ScalingStatsOption; } set { this.ScalingStatsOption = new(value); } }
+        public List<string>? ScalingStats { get { return this.ScalingStatsOption.Value; } set { this.ScalingStatsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StatScale
@@ -116,7 +116,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StatScale
         /// </summary>
         [JsonPropertyName("stat_scale")]
-        public decimal? StatScale { get { return this.StatScaleOption; } set { this.StatScaleOption = new(value); } }
+        public decimal? StatScale { get { return this.StatScaleOption.Value; } set { this.StatScaleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StreetBrawlStatScale
@@ -129,7 +129,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StreetBrawlStatScale
         /// </summary>
         [JsonPropertyName("street_brawl_stat_scale")]
-        public decimal? StreetBrawlStatScale { get { return this.StreetBrawlStatScaleOption; } set { this.StreetBrawlStatScaleOption = new(value); } }
+        public decimal? StreetBrawlStatScale { get { return this.StreetBrawlStatScaleOption.Value; } set { this.StreetBrawlStatScaleOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

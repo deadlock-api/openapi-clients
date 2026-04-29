@@ -80,7 +80,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Input
         /// </summary>
         [JsonPropertyName("input")]
-        public Object? Input { get { return this.InputOption; } set { this.InputOption = new(value); } }
+        public Object? Input { get { return this.InputOption.Value; } set { this.InputOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Ctx
@@ -93,7 +93,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Ctx
         /// </summary>
         [JsonPropertyName("ctx")]
-        public Object? Ctx { get { return this.CtxOption; } set { this.CtxOption = new(value); } }
+        public Object? Ctx { get { return this.CtxOption.Value; } set { this.CtxOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

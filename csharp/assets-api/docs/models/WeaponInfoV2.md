@@ -67,14 +67,14 @@ Name | Type | Description | Notes
 **BulletSpeedCurve** | [**RawItemWeaponInfoBulletSpeedCurveV2**](RawItemWeaponInfoBulletSpeedCurveV2.md) |  | [optional] 
 **HorizontalRecoil** | [**RawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] 
 **VerticalRecoil** | [**RawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] 
-**ShotsPerSecond** | **decimal** |  | [readonly] 
-**ShotsPerSecondWithReload** | **decimal** |  | [readonly] 
-**BulletsPerSecond** | **decimal** |  | [readonly] 
-**BulletsPerSecondWithReload** | **decimal** |  | [readonly] 
-**DamagePerSecond** | **decimal** |  | [readonly] 
-**DamagePerSecondWithReload** | **decimal** |  | [readonly] 
-**DamagePerShot** | **decimal** |  | [readonly] 
-**DamagePerMagazine** | **decimal** |  | [readonly] 
+**ShotsPerSecond** | **decimal** | Calculates the shots per second of the weapon | [readonly] 
+**ShotsPerSecondWithReload** | **decimal** | Calculates the shots per second of the weapon adjusted for reload time | [readonly] 
+**BulletsPerSecond** | **decimal** | Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot. | [readonly] 
+**BulletsPerSecondWithReload** | **decimal** | Calculates the bullets per second of the weapon adjusted for reload time. | [readonly] 
+**DamagePerSecond** | **decimal** | Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage. | [readonly] 
+**DamagePerSecondWithReload** | **decimal** | Calculates the damage per second of the weapon adjusted for reload time. | [readonly] 
+**DamagePerShot** | **decimal** | Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage. | [readonly] 
+**DamagePerMagazine** | **decimal** | Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot. | [readonly] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

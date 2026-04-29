@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PickupName
         /// </summary>
         [JsonPropertyName("pickup_name")]
-        public string? PickupName { get { return this.PickupNameOption; } set { this.PickupNameOption = new(value); } }
+        public string? PickupName { get { return this.PickupNameOption.Value; } set { this.PickupNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PickupWeight
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PickupWeight
         /// </summary>
         [JsonPropertyName("pickup_weight")]
-        public decimal? PickupWeight { get { return this.PickupWeightOption; } set { this.PickupWeightOption = new(value); } }
+        public decimal? PickupWeight { get { return this.PickupWeightOption.Value; } set { this.PickupWeightOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -68,14 +68,14 @@ Name | Type | Description | Notes
 **bullet_speed_curve** | [**RawItemWeaponInfoBulletSpeedCurveV2**](RawItemWeaponInfoBulletSpeedCurveV2.md) |  | [optional] [default to undefined]
 **horizontal_recoil** | [**RawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] [default to undefined]
 **vertical_recoil** | [**RawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] [default to undefined]
-**shots_per_second** | **number** |  | [readonly] [default to undefined]
-**shots_per_second_with_reload** | **number** |  | [readonly] [default to undefined]
-**bullets_per_second** | **number** |  | [readonly] [default to undefined]
-**bullets_per_second_with_reload** | **number** |  | [readonly] [default to undefined]
-**damage_per_second** | **number** |  | [readonly] [default to undefined]
-**damage_per_second_with_reload** | **number** |  | [readonly] [default to undefined]
-**damage_per_shot** | **number** |  | [readonly] [default to undefined]
-**damage_per_magazine** | **number** |  | [readonly] [default to undefined]
+**shots_per_second** | **number** | Calculates the shots per second of the weapon | [readonly] [default to undefined]
+**shots_per_second_with_reload** | **number** | Calculates the shots per second of the weapon adjusted for reload time | [readonly] [default to undefined]
+**bullets_per_second** | **number** | Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot. | [readonly] [default to undefined]
+**bullets_per_second_with_reload** | **number** | Calculates the bullets per second of the weapon adjusted for reload time. | [readonly] [default to undefined]
+**damage_per_second** | **number** | Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage. | [readonly] [default to undefined]
+**damage_per_second_with_reload** | **number** | Calculates the damage per second of the weapon adjusted for reload time. | [readonly] [default to undefined]
+**damage_per_shot** | **number** | Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage. | [readonly] [default to undefined]
+**damage_per_magazine** | **number** | Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot. | [readonly] [default to undefined]
 
 ## Example
 

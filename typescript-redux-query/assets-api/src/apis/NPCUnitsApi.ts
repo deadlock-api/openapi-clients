@@ -59,7 +59,7 @@ function getNpcUnitV2NpcUnitsIdOrClassNameGetRaw<T>(requestParameters: GetNpcUni
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/npc-units/{id_or_class_name}`.replace(`{${"id_or_class_name"}}`, encodeURIComponent(String(requestParameters.idOrClassName))),
+        url: `${runtime.Configuration.basePath}/v2/npc-units/{id_or_class_name}`.replace('{id_or_class_name}', encodeURIComponent(String(requestParameters.idOrClassName))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

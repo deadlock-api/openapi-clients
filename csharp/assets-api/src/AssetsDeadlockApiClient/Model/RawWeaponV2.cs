@@ -139,7 +139,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StartTrained
         /// </summary>
         [JsonPropertyName("start_trained")]
-        public bool? StartTrained { get { return this.StartTrainedOption; } set { this.StartTrainedOption = new(value); } }
+        public bool? StartTrained { get { return this.StartTrainedOption.Value; } set { this.StartTrainedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Image
@@ -152,7 +152,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Image
         /// </summary>
         [JsonPropertyName("image")]
-        public string? Image { get { return this.ImageOption; } set { this.ImageOption = new(value); } }
+        public string? Image { get { return this.ImageOption.Value; } set { this.ImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UpdateTime
@@ -165,7 +165,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets UpdateTime
         /// </summary>
         [JsonPropertyName("update_time")]
-        public int? UpdateTime { get { return this.UpdateTimeOption; } set { this.UpdateTimeOption = new(value); } }
+        public int? UpdateTime { get { return this.UpdateTimeOption.Value; } set { this.UpdateTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Properties
@@ -178,7 +178,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Properties
         /// </summary>
         [JsonPropertyName("properties")]
-        public Dictionary<string, RawItemPropertyV2>? Properties { get { return this.PropertiesOption; } set { this.PropertiesOption = new(value); } }
+        public Dictionary<string, RawItemPropertyV2>? Properties { get { return this.PropertiesOption.Value; } set { this.PropertiesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WeaponInfo
@@ -191,7 +191,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WeaponInfo
         /// </summary>
         [JsonPropertyName("weapon_info")]
-        public RawWeaponInfoV2? WeaponInfo { get { return this.WeaponInfoOption; } set { this.WeaponInfoOption = new(value); } }
+        public RawWeaponInfoV2? WeaponInfo { get { return this.WeaponInfoOption.Value; } set { this.WeaponInfoOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CssClass
@@ -204,7 +204,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CssClass
         /// </summary>
         [JsonPropertyName("css_class")]
-        public string? CssClass { get { return this.CssClassOption; } set { this.CssClassOption = new(value); } }
+        public string? CssClass { get { return this.CssClassOption.Value; } set { this.CssClassOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

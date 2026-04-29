@@ -60,7 +60,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ValueType
         /// </summary>
         [JsonPropertyName("value_type")]
-        public string? ValueType { get { return this.ValueTypeOption; } set { this.ValueTypeOption = new(value); } }
+        public string? ValueType { get { return this.ValueTypeOption.Value; } set { this.ValueTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Value
@@ -73,7 +73,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Value
         /// </summary>
         [JsonPropertyName("value")]
-        public decimal? Value { get { return this.ValueOption; } set { this.ValueOption = new(value); } }
+        public decimal? Value { get { return this.ValueOption.Value; } set { this.ValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ValueMin
@@ -86,7 +86,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ValueMin
         /// </summary>
         [JsonPropertyName("value_min")]
-        public decimal? ValueMin { get { return this.ValueMinOption; } set { this.ValueMinOption = new(value); } }
+        public decimal? ValueMin { get { return this.ValueMinOption.Value; } set { this.ValueMinOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ValueMax
@@ -99,7 +99,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ValueMax
         /// </summary>
         [JsonPropertyName("value_max")]
-        public decimal? ValueMax { get { return this.ValueMaxOption; } set { this.ValueMaxOption = new(value); } }
+        public decimal? ValueMax { get { return this.ValueMaxOption.Value; } set { this.ValueMaxOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

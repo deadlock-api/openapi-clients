@@ -630,7 +630,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/custom/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/create");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/custom/create");
 
                     httpRequestMessageLocalVar.Content = (createCustomRequest as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -889,7 +889,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/custom/{party_id}/match-id"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/{party_id}/match-id");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/custom/{party_id}/match-id");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bparty_id%7D", Uri.EscapeDataString(partyId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1149,7 +1149,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/custom/{lobby_id}/leave"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/{lobby_id}/leave");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/custom/{lobby_id}/leave");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Blobby_id%7D", Uri.EscapeDataString(lobbyId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1368,7 +1368,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/custom/{lobby_id}/ready"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/{lobby_id}/ready");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/custom/{lobby_id}/ready");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Blobby_id%7D", Uri.EscapeDataString(lobbyId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1587,7 +1587,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/custom/{lobby_id}/start"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/{lobby_id}/start");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/custom/{lobby_id}/start");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Blobby_id%7D", Uri.EscapeDataString(lobbyId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1806,7 +1806,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/custom/{lobby_id}/unready"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/custom/{lobby_id}/unready");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/custom/{lobby_id}/unready");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Blobby_id%7D", Uri.EscapeDataString(lobbyId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;

@@ -58,7 +58,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Lore
         /// </summary>
         [JsonPropertyName("lore")]
-        public string? Lore { get { return this.LoreOption; } set { this.LoreOption = new(value); } }
+        public string? Lore { get { return this.LoreOption.Value; } set { this.LoreOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Role
@@ -71,7 +71,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Role
         /// </summary>
         [JsonPropertyName("role")]
-        public string? Role { get { return this.RoleOption; } set { this.RoleOption = new(value); } }
+        public string? Role { get { return this.RoleOption.Value; } set { this.RoleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Playstyle
@@ -84,7 +84,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Playstyle
         /// </summary>
         [JsonPropertyName("playstyle")]
-        public string? Playstyle { get { return this.PlaystyleOption; } set { this.PlaystyleOption = new(value); } }
+        public string? Playstyle { get { return this.PlaystyleOption.Value; } set { this.PlaystyleOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

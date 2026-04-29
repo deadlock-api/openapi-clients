@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ModifierValue
         /// </summary>
         [JsonPropertyName("modifier_value")]
-        public string? ModifierValue { get { return this.ModifierValueOption; } set { this.ModifierValueOption = new(value); } }
+        public string? ModifierValue { get { return this.ModifierValueOption.Value; } set { this.ModifierValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Value
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Value
         /// </summary>
         [JsonPropertyName("value")]
-        public decimal? Value { get { return this.ValueOption; } set { this.ValueOption = new(value); } }
+        public decimal? Value { get { return this.ValueOption.Value; } set { this.ValueOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

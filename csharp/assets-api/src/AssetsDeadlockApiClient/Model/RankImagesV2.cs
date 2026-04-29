@@ -108,7 +108,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Large
         /// </summary>
         [JsonPropertyName("large")]
-        public string? Large { get { return this.LargeOption; } set { this.LargeOption = new(value); } }
+        public string? Large { get { return this.LargeOption.Value; } set { this.LargeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeWebp
@@ -121,7 +121,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeWebp
         /// </summary>
         [JsonPropertyName("large_webp")]
-        public string? LargeWebp { get { return this.LargeWebpOption; } set { this.LargeWebpOption = new(value); } }
+        public string? LargeWebp { get { return this.LargeWebpOption.Value; } set { this.LargeWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank1
@@ -134,7 +134,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank1
         /// </summary>
         [JsonPropertyName("large_subrank1")]
-        public string? LargeSubrank1 { get { return this.LargeSubrank1Option; } set { this.LargeSubrank1Option = new(value); } }
+        public string? LargeSubrank1 { get { return this.LargeSubrank1Option.Value; } set { this.LargeSubrank1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank1Webp
@@ -147,7 +147,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank1Webp
         /// </summary>
         [JsonPropertyName("large_subrank1_webp")]
-        public string? LargeSubrank1Webp { get { return this.LargeSubrank1WebpOption; } set { this.LargeSubrank1WebpOption = new(value); } }
+        public string? LargeSubrank1Webp { get { return this.LargeSubrank1WebpOption.Value; } set { this.LargeSubrank1WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank2
@@ -160,7 +160,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank2
         /// </summary>
         [JsonPropertyName("large_subrank2")]
-        public string? LargeSubrank2 { get { return this.LargeSubrank2Option; } set { this.LargeSubrank2Option = new(value); } }
+        public string? LargeSubrank2 { get { return this.LargeSubrank2Option.Value; } set { this.LargeSubrank2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank2Webp
@@ -173,7 +173,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank2Webp
         /// </summary>
         [JsonPropertyName("large_subrank2_webp")]
-        public string? LargeSubrank2Webp { get { return this.LargeSubrank2WebpOption; } set { this.LargeSubrank2WebpOption = new(value); } }
+        public string? LargeSubrank2Webp { get { return this.LargeSubrank2WebpOption.Value; } set { this.LargeSubrank2WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank3
@@ -186,7 +186,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank3
         /// </summary>
         [JsonPropertyName("large_subrank3")]
-        public string? LargeSubrank3 { get { return this.LargeSubrank3Option; } set { this.LargeSubrank3Option = new(value); } }
+        public string? LargeSubrank3 { get { return this.LargeSubrank3Option.Value; } set { this.LargeSubrank3Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank3Webp
@@ -199,7 +199,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank3Webp
         /// </summary>
         [JsonPropertyName("large_subrank3_webp")]
-        public string? LargeSubrank3Webp { get { return this.LargeSubrank3WebpOption; } set { this.LargeSubrank3WebpOption = new(value); } }
+        public string? LargeSubrank3Webp { get { return this.LargeSubrank3WebpOption.Value; } set { this.LargeSubrank3WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank4
@@ -212,7 +212,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank4
         /// </summary>
         [JsonPropertyName("large_subrank4")]
-        public string? LargeSubrank4 { get { return this.LargeSubrank4Option; } set { this.LargeSubrank4Option = new(value); } }
+        public string? LargeSubrank4 { get { return this.LargeSubrank4Option.Value; } set { this.LargeSubrank4Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank4Webp
@@ -225,7 +225,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank4Webp
         /// </summary>
         [JsonPropertyName("large_subrank4_webp")]
-        public string? LargeSubrank4Webp { get { return this.LargeSubrank4WebpOption; } set { this.LargeSubrank4WebpOption = new(value); } }
+        public string? LargeSubrank4Webp { get { return this.LargeSubrank4WebpOption.Value; } set { this.LargeSubrank4WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank5
@@ -238,7 +238,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank5
         /// </summary>
         [JsonPropertyName("large_subrank5")]
-        public string? LargeSubrank5 { get { return this.LargeSubrank5Option; } set { this.LargeSubrank5Option = new(value); } }
+        public string? LargeSubrank5 { get { return this.LargeSubrank5Option.Value; } set { this.LargeSubrank5Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank5Webp
@@ -251,7 +251,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank5Webp
         /// </summary>
         [JsonPropertyName("large_subrank5_webp")]
-        public string? LargeSubrank5Webp { get { return this.LargeSubrank5WebpOption; } set { this.LargeSubrank5WebpOption = new(value); } }
+        public string? LargeSubrank5Webp { get { return this.LargeSubrank5WebpOption.Value; } set { this.LargeSubrank5WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank6
@@ -264,7 +264,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank6
         /// </summary>
         [JsonPropertyName("large_subrank6")]
-        public string? LargeSubrank6 { get { return this.LargeSubrank6Option; } set { this.LargeSubrank6Option = new(value); } }
+        public string? LargeSubrank6 { get { return this.LargeSubrank6Option.Value; } set { this.LargeSubrank6Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of LargeSubrank6Webp
@@ -277,7 +277,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LargeSubrank6Webp
         /// </summary>
         [JsonPropertyName("large_subrank6_webp")]
-        public string? LargeSubrank6Webp { get { return this.LargeSubrank6WebpOption; } set { this.LargeSubrank6WebpOption = new(value); } }
+        public string? LargeSubrank6Webp { get { return this.LargeSubrank6WebpOption.Value; } set { this.LargeSubrank6WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Small
@@ -290,7 +290,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Small
         /// </summary>
         [JsonPropertyName("small")]
-        public string? Small { get { return this.SmallOption; } set { this.SmallOption = new(value); } }
+        public string? Small { get { return this.SmallOption.Value; } set { this.SmallOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallWebp
@@ -303,7 +303,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallWebp
         /// </summary>
         [JsonPropertyName("small_webp")]
-        public string? SmallWebp { get { return this.SmallWebpOption; } set { this.SmallWebpOption = new(value); } }
+        public string? SmallWebp { get { return this.SmallWebpOption.Value; } set { this.SmallWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank1
@@ -316,7 +316,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank1
         /// </summary>
         [JsonPropertyName("small_subrank1")]
-        public string? SmallSubrank1 { get { return this.SmallSubrank1Option; } set { this.SmallSubrank1Option = new(value); } }
+        public string? SmallSubrank1 { get { return this.SmallSubrank1Option.Value; } set { this.SmallSubrank1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank1Webp
@@ -329,7 +329,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank1Webp
         /// </summary>
         [JsonPropertyName("small_subrank1_webp")]
-        public string? SmallSubrank1Webp { get { return this.SmallSubrank1WebpOption; } set { this.SmallSubrank1WebpOption = new(value); } }
+        public string? SmallSubrank1Webp { get { return this.SmallSubrank1WebpOption.Value; } set { this.SmallSubrank1WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank2
@@ -342,7 +342,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank2
         /// </summary>
         [JsonPropertyName("small_subrank2")]
-        public string? SmallSubrank2 { get { return this.SmallSubrank2Option; } set { this.SmallSubrank2Option = new(value); } }
+        public string? SmallSubrank2 { get { return this.SmallSubrank2Option.Value; } set { this.SmallSubrank2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank2Webp
@@ -355,7 +355,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank2Webp
         /// </summary>
         [JsonPropertyName("small_subrank2_webp")]
-        public string? SmallSubrank2Webp { get { return this.SmallSubrank2WebpOption; } set { this.SmallSubrank2WebpOption = new(value); } }
+        public string? SmallSubrank2Webp { get { return this.SmallSubrank2WebpOption.Value; } set { this.SmallSubrank2WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank3
@@ -368,7 +368,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank3
         /// </summary>
         [JsonPropertyName("small_subrank3")]
-        public string? SmallSubrank3 { get { return this.SmallSubrank3Option; } set { this.SmallSubrank3Option = new(value); } }
+        public string? SmallSubrank3 { get { return this.SmallSubrank3Option.Value; } set { this.SmallSubrank3Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank3Webp
@@ -381,7 +381,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank3Webp
         /// </summary>
         [JsonPropertyName("small_subrank3_webp")]
-        public string? SmallSubrank3Webp { get { return this.SmallSubrank3WebpOption; } set { this.SmallSubrank3WebpOption = new(value); } }
+        public string? SmallSubrank3Webp { get { return this.SmallSubrank3WebpOption.Value; } set { this.SmallSubrank3WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank4
@@ -394,7 +394,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank4
         /// </summary>
         [JsonPropertyName("small_subrank4")]
-        public string? SmallSubrank4 { get { return this.SmallSubrank4Option; } set { this.SmallSubrank4Option = new(value); } }
+        public string? SmallSubrank4 { get { return this.SmallSubrank4Option.Value; } set { this.SmallSubrank4Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank4Webp
@@ -407,7 +407,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank4Webp
         /// </summary>
         [JsonPropertyName("small_subrank4_webp")]
-        public string? SmallSubrank4Webp { get { return this.SmallSubrank4WebpOption; } set { this.SmallSubrank4WebpOption = new(value); } }
+        public string? SmallSubrank4Webp { get { return this.SmallSubrank4WebpOption.Value; } set { this.SmallSubrank4WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank5
@@ -420,7 +420,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank5
         /// </summary>
         [JsonPropertyName("small_subrank5")]
-        public string? SmallSubrank5 { get { return this.SmallSubrank5Option; } set { this.SmallSubrank5Option = new(value); } }
+        public string? SmallSubrank5 { get { return this.SmallSubrank5Option.Value; } set { this.SmallSubrank5Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank5Webp
@@ -433,7 +433,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank5Webp
         /// </summary>
         [JsonPropertyName("small_subrank5_webp")]
-        public string? SmallSubrank5Webp { get { return this.SmallSubrank5WebpOption; } set { this.SmallSubrank5WebpOption = new(value); } }
+        public string? SmallSubrank5Webp { get { return this.SmallSubrank5WebpOption.Value; } set { this.SmallSubrank5WebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank6
@@ -446,7 +446,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank6
         /// </summary>
         [JsonPropertyName("small_subrank6")]
-        public string? SmallSubrank6 { get { return this.SmallSubrank6Option; } set { this.SmallSubrank6Option = new(value); } }
+        public string? SmallSubrank6 { get { return this.SmallSubrank6Option.Value; } set { this.SmallSubrank6Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of SmallSubrank6Webp
@@ -459,7 +459,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SmallSubrank6Webp
         /// </summary>
         [JsonPropertyName("small_subrank6_webp")]
-        public string? SmallSubrank6Webp { get { return this.SmallSubrank6WebpOption; } set { this.SmallSubrank6WebpOption = new(value); } }
+        public string? SmallSubrank6Webp { get { return this.SmallSubrank6WebpOption.Value; } set { this.SmallSubrank6WebpOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

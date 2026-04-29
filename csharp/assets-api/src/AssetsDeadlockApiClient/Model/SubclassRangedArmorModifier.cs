@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Subclass
         /// </summary>
         [JsonPropertyName("subclass")]
-        public RangedArmorModifier? Subclass { get { return this.SubclassOption; } set { this.SubclassOption = new(value); } }
+        public RangedArmorModifier? Subclass { get { return this.SubclassOption.Value; } set { this.SubclassOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

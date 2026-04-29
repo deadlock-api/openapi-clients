@@ -86,7 +86,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconHeroCard
         /// </summary>
         [JsonPropertyName("icon_hero_card")]
-        public string? IconHeroCard { get { return this.IconHeroCardOption; } set { this.IconHeroCardOption = new(value); } }
+        public string? IconHeroCard { get { return this.IconHeroCardOption.Value; } set { this.IconHeroCardOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IconHeroCardWebp
@@ -99,7 +99,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconHeroCardWebp
         /// </summary>
         [JsonPropertyName("icon_hero_card_webp")]
-        public string? IconHeroCardWebp { get { return this.IconHeroCardWebpOption; } set { this.IconHeroCardWebpOption = new(value); } }
+        public string? IconHeroCardWebp { get { return this.IconHeroCardWebpOption.Value; } set { this.IconHeroCardWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IconImageSmall
@@ -112,7 +112,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconImageSmall
         /// </summary>
         [JsonPropertyName("icon_image_small")]
-        public string? IconImageSmall { get { return this.IconImageSmallOption; } set { this.IconImageSmallOption = new(value); } }
+        public string? IconImageSmall { get { return this.IconImageSmallOption.Value; } set { this.IconImageSmallOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IconImageSmallWebp
@@ -125,7 +125,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconImageSmallWebp
         /// </summary>
         [JsonPropertyName("icon_image_small_webp")]
-        public string? IconImageSmallWebp { get { return this.IconImageSmallWebpOption; } set { this.IconImageSmallWebpOption = new(value); } }
+        public string? IconImageSmallWebp { get { return this.IconImageSmallWebpOption.Value; } set { this.IconImageSmallWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinimapImage
@@ -138,7 +138,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MinimapImage
         /// </summary>
         [JsonPropertyName("minimap_image")]
-        public string? MinimapImage { get { return this.MinimapImageOption; } set { this.MinimapImageOption = new(value); } }
+        public string? MinimapImage { get { return this.MinimapImageOption.Value; } set { this.MinimapImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinimapImageWebp
@@ -151,7 +151,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MinimapImageWebp
         /// </summary>
         [JsonPropertyName("minimap_image_webp")]
-        public string? MinimapImageWebp { get { return this.MinimapImageWebpOption; } set { this.MinimapImageWebpOption = new(value); } }
+        public string? MinimapImageWebp { get { return this.MinimapImageWebpOption.Value; } set { this.MinimapImageWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroCardCritical
@@ -164,7 +164,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HeroCardCritical
         /// </summary>
         [JsonPropertyName("hero_card_critical")]
-        public string? HeroCardCritical { get { return this.HeroCardCriticalOption; } set { this.HeroCardCriticalOption = new(value); } }
+        public string? HeroCardCritical { get { return this.HeroCardCriticalOption.Value; } set { this.HeroCardCriticalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroCardCriticalWebp
@@ -177,7 +177,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HeroCardCriticalWebp
         /// </summary>
         [JsonPropertyName("hero_card_critical_webp")]
-        public string? HeroCardCriticalWebp { get { return this.HeroCardCriticalWebpOption; } set { this.HeroCardCriticalWebpOption = new(value); } }
+        public string? HeroCardCriticalWebp { get { return this.HeroCardCriticalWebpOption.Value; } set { this.HeroCardCriticalWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroCardGloat
@@ -190,7 +190,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HeroCardGloat
         /// </summary>
         [JsonPropertyName("hero_card_gloat")]
-        public string? HeroCardGloat { get { return this.HeroCardGloatOption; } set { this.HeroCardGloatOption = new(value); } }
+        public string? HeroCardGloat { get { return this.HeroCardGloatOption.Value; } set { this.HeroCardGloatOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroCardGloatWebp
@@ -203,7 +203,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HeroCardGloatWebp
         /// </summary>
         [JsonPropertyName("hero_card_gloat_webp")]
-        public string? HeroCardGloatWebp { get { return this.HeroCardGloatWebpOption; } set { this.HeroCardGloatWebpOption = new(value); } }
+        public string? HeroCardGloatWebp { get { return this.HeroCardGloatWebpOption.Value; } set { this.HeroCardGloatWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TopBarVerticalImage
@@ -216,7 +216,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TopBarVerticalImage
         /// </summary>
         [JsonPropertyName("top_bar_vertical_image")]
-        public string? TopBarVerticalImage { get { return this.TopBarVerticalImageOption; } set { this.TopBarVerticalImageOption = new(value); } }
+        public string? TopBarVerticalImage { get { return this.TopBarVerticalImageOption.Value; } set { this.TopBarVerticalImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TopBarVerticalImageWebp
@@ -229,7 +229,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TopBarVerticalImageWebp
         /// </summary>
         [JsonPropertyName("top_bar_vertical_image_webp")]
-        public string? TopBarVerticalImageWebp { get { return this.TopBarVerticalImageWebpOption; } set { this.TopBarVerticalImageWebpOption = new(value); } }
+        public string? TopBarVerticalImageWebp { get { return this.TopBarVerticalImageWebpOption.Value; } set { this.TopBarVerticalImageWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WeaponImage
@@ -242,7 +242,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WeaponImage
         /// </summary>
         [JsonPropertyName("weapon_image")]
-        public string? WeaponImage { get { return this.WeaponImageOption; } set { this.WeaponImageOption = new(value); } }
+        public string? WeaponImage { get { return this.WeaponImageOption.Value; } set { this.WeaponImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WeaponImageWebp
@@ -255,7 +255,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WeaponImageWebp
         /// </summary>
         [JsonPropertyName("weapon_image_webp")]
-        public string? WeaponImageWebp { get { return this.WeaponImageWebpOption; } set { this.WeaponImageWebpOption = new(value); } }
+        public string? WeaponImageWebp { get { return this.WeaponImageWebpOption.Value; } set { this.WeaponImageWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BackgroundImage
@@ -268,7 +268,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BackgroundImage
         /// </summary>
         [JsonPropertyName("background_image")]
-        public string? BackgroundImage { get { return this.BackgroundImageOption; } set { this.BackgroundImageOption = new(value); } }
+        public string? BackgroundImage { get { return this.BackgroundImageOption.Value; } set { this.BackgroundImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BackgroundImageWebp
@@ -281,7 +281,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BackgroundImageWebp
         /// </summary>
         [JsonPropertyName("background_image_webp")]
-        public string? BackgroundImageWebp { get { return this.BackgroundImageWebpOption; } set { this.BackgroundImageWebpOption = new(value); } }
+        public string? BackgroundImageWebp { get { return this.BackgroundImageWebpOption.Value; } set { this.BackgroundImageWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NameImage
@@ -294,7 +294,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets NameImage
         /// </summary>
         [JsonPropertyName("name_image")]
-        public string? NameImage { get { return this.NameImageOption; } set { this.NameImageOption = new(value); } }
+        public string? NameImage { get { return this.NameImageOption.Value; } set { this.NameImageOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

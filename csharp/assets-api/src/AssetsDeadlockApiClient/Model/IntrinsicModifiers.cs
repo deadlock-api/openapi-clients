@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ScriptValues
         /// </summary>
         [JsonPropertyName("script_values")]
-        public List<ScriptValues>? ScriptValues { get { return this.ScriptValuesOption; } set { this.ScriptValuesOption = new(value); } }
+        public List<ScriptValues>? ScriptValues { get { return this.ScriptValuesOption.Value; } set { this.ScriptValuesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

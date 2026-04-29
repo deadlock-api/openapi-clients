@@ -265,7 +265,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/salts"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/salts");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/salts");
 
                     httpRequestMessageLocalVar.Content = (clickhouseSalts as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)

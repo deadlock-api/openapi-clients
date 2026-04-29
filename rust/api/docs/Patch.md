@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **dc_creator** | **String** |  | 
 **guid** | [**models::PatchGuid**](PatchGuid.md) |  | 
 **link** | **String** |  | 
-**pub_date** | **String** |  | 
+**pub_date** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **slash_comments** | **String** |  | 
 **title** | **String** |  | 
 

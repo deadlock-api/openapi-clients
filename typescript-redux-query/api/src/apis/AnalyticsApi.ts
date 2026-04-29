@@ -955,7 +955,7 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/analytics/hero-build-stats/{hero_id}`.replace(`{${"hero_id"}}`, encodeURIComponent(String(requestParameters.heroId))),
+        url: `${runtime.Configuration.basePath}/v1/analytics/hero-build-stats/{hero_id}`.replace('{hero_id}', encodeURIComponent(String(requestParameters.heroId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

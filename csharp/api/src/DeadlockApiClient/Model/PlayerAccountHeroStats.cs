@@ -94,7 +94,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets HeroId
         /// </summary>
         [JsonPropertyName("hero_id")]
-        public int? HeroId { get { return this.HeroIdOption; } set { this.HeroIdOption = new(value); } }
+        public int? HeroId { get { return this.HeroIdOption.Value; } set { this.HeroIdOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

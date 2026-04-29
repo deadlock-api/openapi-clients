@@ -154,7 +154,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets CompatVersion
         /// </summary>
         [JsonPropertyName("compat_version")]
-        public int? CompatVersion { get { return this.CompatVersionOption; } set { this.CompatVersionOption = new(value); } }
+        public int? CompatVersion { get { return this.CompatVersionOption.Value; } set { this.CompatVersionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DurationS
@@ -167,7 +167,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets DurationS
         /// </summary>
         [JsonPropertyName("duration_s")]
-        public int? DurationS { get { return this.DurationSOption; } set { this.DurationSOption = new(value); } }
+        public int? DurationS { get { return this.DurationSOption.Value; } set { this.DurationSOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GameMode
@@ -180,7 +180,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets GameMode
         /// </summary>
         [JsonPropertyName("game_mode")]
-        public int? GameMode { get { return this.GameModeOption; } set { this.GameModeOption = new(value); } }
+        public int? GameMode { get { return this.GameModeOption.Value; } set { this.GameModeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GameModeVersion
@@ -193,7 +193,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets GameModeVersion
         /// </summary>
         [JsonPropertyName("game_mode_version")]
-        public int? GameModeVersion { get { return this.GameModeVersionOption; } set { this.GameModeVersionOption = new(value); } }
+        public int? GameModeVersion { get { return this.GameModeVersionOption.Value; } set { this.GameModeVersionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LobbyId
@@ -206,7 +206,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets LobbyId
         /// </summary>
         [JsonPropertyName("lobby_id")]
-        public long? LobbyId { get { return this.LobbyIdOption; } set { this.LobbyIdOption = new(value); } }
+        public long? LobbyId { get { return this.LobbyIdOption.Value; } set { this.LobbyIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchId
@@ -219,7 +219,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MatchId
         /// </summary>
         [JsonPropertyName("match_id")]
-        public long? MatchId { get { return this.MatchIdOption; } set { this.MatchIdOption = new(value); } }
+        public long? MatchId { get { return this.MatchIdOption.Value; } set { this.MatchIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchMode
@@ -232,7 +232,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MatchMode
         /// </summary>
         [JsonPropertyName("match_mode")]
-        public int? MatchMode { get { return this.MatchModeOption; } set { this.MatchModeOption = new(value); } }
+        public int? MatchMode { get { return this.MatchModeOption.Value; } set { this.MatchModeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchScore
@@ -245,7 +245,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MatchScore
         /// </summary>
         [JsonPropertyName("match_score")]
-        public int? MatchScore { get { return this.MatchScoreOption; } set { this.MatchScoreOption = new(value); } }
+        public int? MatchScore { get { return this.MatchScoreOption.Value; } set { this.MatchScoreOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NetWorthTeam0
@@ -258,7 +258,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets NetWorthTeam0
         /// </summary>
         [JsonPropertyName("net_worth_team_0")]
-        public int? NetWorthTeam0 { get { return this.NetWorthTeam0Option; } set { this.NetWorthTeam0Option = new(value); } }
+        public int? NetWorthTeam0 { get { return this.NetWorthTeam0Option.Value; } set { this.NetWorthTeam0Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of NetWorthTeam1
@@ -271,7 +271,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets NetWorthTeam1
         /// </summary>
         [JsonPropertyName("net_worth_team_1")]
-        public int? NetWorthTeam1 { get { return this.NetWorthTeam1Option; } set { this.NetWorthTeam1Option = new(value); } }
+        public int? NetWorthTeam1 { get { return this.NetWorthTeam1Option.Value; } set { this.NetWorthTeam1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectivesMaskTeam0
@@ -284,7 +284,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ObjectivesMaskTeam0
         /// </summary>
         [JsonPropertyName("objectives_mask_team0")]
-        public long? ObjectivesMaskTeam0 { get { return this.ObjectivesMaskTeam0Option; } set { this.ObjectivesMaskTeam0Option = new(value); } }
+        public long? ObjectivesMaskTeam0 { get { return this.ObjectivesMaskTeam0Option.Value; } set { this.ObjectivesMaskTeam0Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectivesMaskTeam1
@@ -297,7 +297,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ObjectivesMaskTeam1
         /// </summary>
         [JsonPropertyName("objectives_mask_team1")]
-        public long? ObjectivesMaskTeam1 { get { return this.ObjectivesMaskTeam1Option; } set { this.ObjectivesMaskTeam1Option = new(value); } }
+        public long? ObjectivesMaskTeam1 { get { return this.ObjectivesMaskTeam1Option.Value; } set { this.ObjectivesMaskTeam1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of OpenSpectatorSlots
@@ -310,7 +310,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets OpenSpectatorSlots
         /// </summary>
         [JsonPropertyName("open_spectator_slots")]
-        public int? OpenSpectatorSlots { get { return this.OpenSpectatorSlotsOption; } set { this.OpenSpectatorSlotsOption = new(value); } }
+        public int? OpenSpectatorSlots { get { return this.OpenSpectatorSlotsOption.Value; } set { this.OpenSpectatorSlotsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RegionMode
@@ -323,7 +323,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets RegionMode
         /// </summary>
         [JsonPropertyName("region_mode")]
-        public int? RegionMode { get { return this.RegionModeOption; } set { this.RegionModeOption = new(value); } }
+        public int? RegionMode { get { return this.RegionModeOption.Value; } set { this.RegionModeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Spectators
@@ -336,7 +336,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Spectators
         /// </summary>
         [JsonPropertyName("spectators")]
-        public int? Spectators { get { return this.SpectatorsOption; } set { this.SpectatorsOption = new(value); } }
+        public int? Spectators { get { return this.SpectatorsOption.Value; } set { this.SpectatorsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StartTime
@@ -349,7 +349,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets StartTime
         /// </summary>
         [JsonPropertyName("start_time")]
-        public int? StartTime { get { return this.StartTimeOption; } set { this.StartTimeOption = new(value); } }
+        public int? StartTime { get { return this.StartTimeOption.Value; } set { this.StartTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WinningTeam
@@ -362,7 +362,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets WinningTeam
         /// </summary>
         [JsonPropertyName("winning_team")]
-        public int? WinningTeam { get { return this.WinningTeamOption; } set { this.WinningTeamOption = new(value); } }
+        public int? WinningTeam { get { return this.WinningTeamOption.Value; } set { this.WinningTeamOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

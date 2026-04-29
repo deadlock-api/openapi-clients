@@ -91,7 +91,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The default label for the variable.</value>
         [JsonPropertyName("default_label")]
-        public string? DefaultLabel { get { return this.DefaultLabelOption; } set { this.DefaultLabelOption = new(value); } }
+        public string? DefaultLabel { get { return this.DefaultLabelOption.Value; } set { this.DefaultLabelOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

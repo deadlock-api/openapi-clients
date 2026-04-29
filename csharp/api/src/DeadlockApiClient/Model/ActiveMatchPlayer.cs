@@ -75,7 +75,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Abandoned
         /// </summary>
         [JsonPropertyName("abandoned")]
-        public bool? Abandoned { get { return this.AbandonedOption; } set { this.AbandonedOption = new(value); } }
+        public bool? Abandoned { get { return this.AbandonedOption.Value; } set { this.AbandonedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AccountId
@@ -88,7 +88,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int? AccountId { get { return this.AccountIdOption; } set { this.AccountIdOption = new(value); } }
+        public int? AccountId { get { return this.AccountIdOption.Value; } set { this.AccountIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroId
@@ -102,7 +102,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
-        public int? HeroId { get { return this.HeroIdOption; } set { this.HeroIdOption = new(value); } }
+        public int? HeroId { get { return this.HeroIdOption.Value; } set { this.HeroIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Team
@@ -115,7 +115,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Team
         /// </summary>
         [JsonPropertyName("team")]
-        public int? Team { get { return this.TeamOption; } set { this.TeamOption = new(value); } }
+        public int? Team { get { return this.TeamOption.Value; } set { this.TeamOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

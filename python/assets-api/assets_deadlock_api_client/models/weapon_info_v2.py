@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from assets_deadlock_api_client.models.aiming_shot_spread_penalty import AimingShotSpreadPenalty
 from assets_deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_v2 import RawItemWeaponInfoBulletSpeedCurveV2
@@ -95,14 +95,14 @@ class WeaponInfoV2(BaseModel):
     bullet_speed_curve: Optional[RawItemWeaponInfoBulletSpeedCurveV2] = None
     horizontal_recoil: Optional[RawWeaponInfoHorizontalRecoilV2] = None
     vertical_recoil: Optional[RawWeaponInfoVerticalRecoilV2] = None
-    shots_per_second: Optional[Union[StrictFloat, StrictInt]]
-    shots_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]]
-    bullets_per_second: Optional[Union[StrictFloat, StrictInt]]
-    bullets_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]]
-    damage_per_second: Optional[Union[StrictFloat, StrictInt]]
-    damage_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]]
-    damage_per_shot: Optional[Union[StrictFloat, StrictInt]]
-    damage_per_magazine: Optional[Union[StrictFloat, StrictInt]]
+    shots_per_second: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the shots per second of the weapon")
+    shots_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the shots per second of the weapon adjusted for reload time")
+    bullets_per_second: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.")
+    bullets_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the bullets per second of the weapon adjusted for reload time.")
+    damage_per_second: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.")
+    damage_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the damage per second of the weapon adjusted for reload time.")
+    damage_per_shot: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.")
+    damage_per_magazine: Optional[Union[StrictFloat, StrictInt]] = Field(description="Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.")
     __properties: ClassVar[List[str]] = ["can_zoom", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_whiz_distance", "burst_shot_cooldown", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "spins_up", "is_semi_auto", "semi_auto_cycle_rate", "max_spin_cycle_time", "spin_increase_rate", "spin_decay_rate", "build_up_rate", "intra_burst_cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "horizontal_punch", "range", "recoil_recovery_delay_factor", "bullet_speed", "recoil_recovery_speed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_move_speed", "scatter_yaw_scale", "aiming_shot_spread_penalty", "standing_shot_spread_penalty", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "vertical_punch", "zoom_fov", "zoom_move_speed_percent", "bullets", "reload_single_bullets_initial_delay", "reload_single_bullets", "reload_single_bullets_allow_cancel", "burst_shot_count", "clip_size", "spread", "standing_spread", "low_ammo_indicator_threshold", "recoil_seed", "reload_duration", "bullet_speed_curve", "horizontal_recoil", "vertical_recoil", "shots_per_second", "shots_per_second_with_reload", "bullets_per_second", "bullets_per_second_with_reload", "damage_per_second", "damage_per_second_with_reload", "damage_per_shot", "damage_per_magazine"]
 
     model_config = ConfigDict(

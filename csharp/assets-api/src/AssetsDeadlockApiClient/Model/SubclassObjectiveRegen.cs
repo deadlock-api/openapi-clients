@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Subclass
         /// </summary>
         [JsonPropertyName("subclass")]
-        public ObjectiveRegen? Subclass { get { return this.SubclassOption; } set { this.SubclassOption = new(value); } }
+        public ObjectiveRegen? Subclass { get { return this.SubclassOption.Value; } set { this.SubclassOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

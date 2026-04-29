@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Normal
         /// </summary>
         [JsonPropertyName("normal")]
-        public decimal? Normal { get { return this.NormalOption; } set { this.NormalOption = new(value); } }
+        public decimal? Normal { get { return this.NormalOption.Value; } set { this.NormalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Good
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Good
         /// </summary>
         [JsonPropertyName("good")]
-        public decimal? Good { get { return this.GoodOption; } set { this.GoodOption = new(value); } }
+        public decimal? Good { get { return this.GoodOption.Value; } set { this.GoodOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

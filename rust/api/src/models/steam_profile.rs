@@ -24,7 +24,7 @@ pub struct SteamProfile {
     #[serde(rename = "countrycode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub countrycode: Option<Option<String>>,
     #[serde(rename = "last_updated")]
-    pub last_updated: String,
+    pub last_updated: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "personaname")]
     pub personaname: String,
     #[serde(rename = "profileurl")]
@@ -34,7 +34,7 @@ pub struct SteamProfile {
 }
 
 impl SteamProfile {
-    pub fn new(account_id: u32, avatar: String, avatarfull: String, avatarmedium: String, last_updated: String, personaname: String, profileurl: String) -> SteamProfile {
+    pub fn new(account_id: u32, avatar: String, avatarfull: String, avatarmedium: String, last_updated: chrono::DateTime<chrono::FixedOffset>, personaname: String, profileurl: String) -> SteamProfile {
         SteamProfile {
             account_id,
             avatar,

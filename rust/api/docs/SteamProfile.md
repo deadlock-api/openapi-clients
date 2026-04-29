@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **avatarfull** | **String** |  | 
 **avatarmedium** | **String** |  | 
 **countrycode** | Option<**String**> |  | [optional]
-**last_updated** | **String** |  | 
+**last_updated** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **personaname** | **String** |  | 
 **profileurl** | **String** |  | 
 **realname** | Option<**String**> |  | [optional]

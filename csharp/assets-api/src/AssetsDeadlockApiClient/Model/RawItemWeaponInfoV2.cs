@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletSpeedCurve
         /// </summary>
         [JsonPropertyName("bullet_speed_curve")]
-        public RawItemWeaponInfoBulletSpeedCurveV2? BulletSpeedCurve { get { return this.BulletSpeedCurveOption; } set { this.BulletSpeedCurveOption = new(value); } }
+        public RawItemWeaponInfoBulletSpeedCurveV2? BulletSpeedCurve { get { return this.BulletSpeedCurveOption.Value; } set { this.BulletSpeedCurveOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

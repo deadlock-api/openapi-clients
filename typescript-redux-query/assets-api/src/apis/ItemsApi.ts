@@ -96,7 +96,7 @@ function getItemV2ItemsIdOrClassNameGetRaw<T>(requestParameters: GetItemV2ItemsI
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/items/{id_or_class_name}`.replace(`{${"id_or_class_name"}}`, encodeURIComponent(String(requestParameters.idOrClassName))),
+        url: `${runtime.Configuration.basePath}/v2/items/{id_or_class_name}`.replace('{id_or_class_name}', encodeURIComponent(String(requestParameters.idOrClassName))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -153,7 +153,7 @@ function getItemsByHeroIdV2ItemsByHeroIdIdGetRaw<T>(requestParameters: GetItemsB
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/items/by-hero-id/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/v2/items/by-hero-id/{id}`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -210,7 +210,7 @@ function getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGetRaw<T>(requestParameters:
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/items/by-slot-type/{slot_type}`.replace(`{${"slot_type"}}`, encodeURIComponent(String(requestParameters.slotType))),
+        url: `${runtime.Configuration.basePath}/v2/items/by-slot-type/{slot_type}`.replace('{slot_type}', encodeURIComponent(String(requestParameters.slotType))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -267,7 +267,7 @@ function getItemsByTypeV2ItemsByTypeTypeGetRaw<T>(requestParameters: GetItemsByT
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/items/by-type/{type}`.replace(`{${"type"}}`, encodeURIComponent(String(requestParameters.type))),
+        url: `${runtime.Configuration.basePath}/v2/items/by-type/{type}`.replace('{type}', encodeURIComponent(String(requestParameters.type))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

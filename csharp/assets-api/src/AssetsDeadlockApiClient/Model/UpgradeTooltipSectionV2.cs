@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SectionAttributes
         /// </summary>
         [JsonPropertyName("section_attributes")]
-        public List<UpgradeTooltipSectionAttributeV2>? SectionAttributes { get { return this.SectionAttributesOption; } set { this.SectionAttributesOption = new(value); } }
+        public List<UpgradeTooltipSectionAttributeV2>? SectionAttributes { get { return this.SectionAttributesOption.Value; } set { this.SectionAttributesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

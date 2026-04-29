@@ -159,7 +159,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StartTrained
         /// </summary>
         [JsonPropertyName("start_trained")]
-        public bool? StartTrained { get { return this.StartTrainedOption; } set { this.StartTrainedOption = new(value); } }
+        public bool? StartTrained { get { return this.StartTrainedOption.Value; } set { this.StartTrainedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Image
@@ -172,7 +172,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Image
         /// </summary>
         [JsonPropertyName("image")]
-        public string? Image { get { return this.ImageOption; } set { this.ImageOption = new(value); } }
+        public string? Image { get { return this.ImageOption.Value; } set { this.ImageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImageWebp
@@ -185,7 +185,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ImageWebp
         /// </summary>
         [JsonPropertyName("image_webp")]
-        public string? ImageWebp { get { return this.ImageWebpOption; } set { this.ImageWebpOption = new(value); } }
+        public string? ImageWebp { get { return this.ImageWebpOption.Value; } set { this.ImageWebpOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Hero
@@ -198,7 +198,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Hero
         /// </summary>
         [JsonPropertyName("hero")]
-        public int? Hero { get { return this.HeroOption; } set { this.HeroOption = new(value); } }
+        public int? Hero { get { return this.HeroOption.Value; } set { this.HeroOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Heroes
@@ -211,7 +211,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Heroes
         /// </summary>
         [JsonPropertyName("heroes")]
-        public List<int>? Heroes { get { return this.HeroesOption; } set { this.HeroesOption = new(value); } }
+        public List<int>? Heroes { get { return this.HeroesOption.Value; } set { this.HeroesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UpdateTime
@@ -224,7 +224,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets UpdateTime
         /// </summary>
         [JsonPropertyName("update_time")]
-        public int? UpdateTime { get { return this.UpdateTimeOption; } set { this.UpdateTimeOption = new(value); } }
+        public int? UpdateTime { get { return this.UpdateTimeOption.Value; } set { this.UpdateTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Properties
@@ -237,7 +237,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Properties
         /// </summary>
         [JsonPropertyName("properties")]
-        public Dictionary<string, ItemPropertyV2>? Properties { get { return this.PropertiesOption; } set { this.PropertiesOption = new(value); } }
+        public Dictionary<string, ItemPropertyV2>? Properties { get { return this.PropertiesOption.Value; } set { this.PropertiesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WeaponInfo
@@ -250,7 +250,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WeaponInfo
         /// </summary>
         [JsonPropertyName("weapon_info")]
-        public WeaponInfoV2? WeaponInfo { get { return this.WeaponInfoOption; } set { this.WeaponInfoOption = new(value); } }
+        public WeaponInfoV2? WeaponInfo { get { return this.WeaponInfoOption.Value; } set { this.WeaponInfoOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

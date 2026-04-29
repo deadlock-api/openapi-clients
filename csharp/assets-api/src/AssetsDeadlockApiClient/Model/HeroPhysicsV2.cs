@@ -72,7 +72,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CollisionHeight
         /// </summary>
         [JsonPropertyName("collision_height")]
-        public decimal? CollisionHeight { get { return this.CollisionHeightOption; } set { this.CollisionHeightOption = new(value); } }
+        public decimal? CollisionHeight { get { return this.CollisionHeightOption.Value; } set { this.CollisionHeightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CollisionRadius
@@ -85,7 +85,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CollisionRadius
         /// </summary>
         [JsonPropertyName("collision_radius")]
-        public decimal? CollisionRadius { get { return this.CollisionRadiusOption; } set { this.CollisionRadiusOption = new(value); } }
+        public decimal? CollisionRadius { get { return this.CollisionRadiusOption.Value; } set { this.CollisionRadiusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StepHeight
@@ -98,7 +98,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StepHeight
         /// </summary>
         [JsonPropertyName("step_height")]
-        public decimal? StepHeight { get { return this.StepHeightOption; } set { this.StepHeightOption = new(value); } }
+        public decimal? StepHeight { get { return this.StepHeightOption.Value; } set { this.StepHeightOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FootstepSoundTravelDistanceMeters
@@ -111,7 +111,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets FootstepSoundTravelDistanceMeters
         /// </summary>
         [JsonPropertyName("footstep_sound_travel_distance_meters")]
-        public decimal? FootstepSoundTravelDistanceMeters { get { return this.FootstepSoundTravelDistanceMetersOption; } set { this.FootstepSoundTravelDistanceMetersOption = new(value); } }
+        public decimal? FootstepSoundTravelDistanceMeters { get { return this.FootstepSoundTravelDistanceMetersOption.Value; } set { this.FootstepSoundTravelDistanceMetersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StepSoundTime
@@ -124,7 +124,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StepSoundTime
         /// </summary>
         [JsonPropertyName("step_sound_time")]
-        public decimal? StepSoundTime { get { return this.StepSoundTimeOption; } set { this.StepSoundTimeOption = new(value); } }
+        public decimal? StepSoundTime { get { return this.StepSoundTimeOption.Value; } set { this.StepSoundTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StepSoundTimeSprinting
@@ -137,7 +137,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StepSoundTimeSprinting
         /// </summary>
         [JsonPropertyName("step_sound_time_sprinting")]
-        public decimal? StepSoundTimeSprinting { get { return this.StepSoundTimeSprintingOption; } set { this.StepSoundTimeSprintingOption = new(value); } }
+        public decimal? StepSoundTimeSprinting { get { return this.StepSoundTimeSprintingOption.Value; } set { this.StepSoundTimeSprintingOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

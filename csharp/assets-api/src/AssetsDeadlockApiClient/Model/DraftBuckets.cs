@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Bucket
         /// </summary>
         [JsonPropertyName("bucket")]
-        public DraftBucket? Bucket { get { return this.BucketOption; } set { this.BucketOption = new(value); } }
+        public DraftBucket? Bucket { get { return this.BucketOption.Value; } set { this.BucketOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Name
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Name
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get { return this.NameOption; } set { this.NameOption = new(value); } }
+        public string? Name { get { return this.NameOption.Value; } set { this.NameOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

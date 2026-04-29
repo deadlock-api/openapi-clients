@@ -66,7 +66,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Desc
         /// </summary>
         [JsonPropertyName("desc")]
-        public string? Desc { get { return this.DescOption; } set { this.DescOption = new(value); } }
+        public string? Desc { get { return this.DescOption.Value; } set { this.DescOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Quip
@@ -79,7 +79,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Quip
         /// </summary>
         [JsonPropertyName("quip")]
-        public string? Quip { get { return this.QuipOption; } set { this.QuipOption = new(value); } }
+        public string? Quip { get { return this.QuipOption.Value; } set { this.QuipOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T1Desc
@@ -92,7 +92,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T1Desc
         /// </summary>
         [JsonPropertyName("t1_desc")]
-        public string? T1Desc { get { return this.T1DescOption; } set { this.T1DescOption = new(value); } }
+        public string? T1Desc { get { return this.T1DescOption.Value; } set { this.T1DescOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T2Desc
@@ -105,7 +105,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T2Desc
         /// </summary>
         [JsonPropertyName("t2_desc")]
-        public string? T2Desc { get { return this.T2DescOption; } set { this.T2DescOption = new(value); } }
+        public string? T2Desc { get { return this.T2DescOption.Value; } set { this.T2DescOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T3Desc
@@ -118,7 +118,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T3Desc
         /// </summary>
         [JsonPropertyName("t3_desc")]
-        public string? T3Desc { get { return this.T3DescOption; } set { this.T3DescOption = new(value); } }
+        public string? T3Desc { get { return this.T3DescOption.Value; } set { this.T3DescOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Active
@@ -131,7 +131,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Active
         /// </summary>
         [JsonPropertyName("active")]
-        public string? Active { get { return this.ActiveOption; } set { this.ActiveOption = new(value); } }
+        public string? Active { get { return this.ActiveOption.Value; } set { this.ActiveOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Passive
@@ -144,7 +144,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Passive
         /// </summary>
         [JsonPropertyName("passive")]
-        public string? Passive { get { return this.PassiveOption; } set { this.PassiveOption = new(value); } }
+        public string? Passive { get { return this.PassiveOption.Value; } set { this.PassiveOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -62,7 +62,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LocString
         /// </summary>
         [JsonPropertyName("loc_string")]
-        public string? LocString { get { return this.LocStringOption; } set { this.LocStringOption = new(value); } }
+        public string? LocString { get { return this.LocStringOption.Value; } set { this.LocStringOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Properties
@@ -75,7 +75,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Properties
         /// </summary>
         [JsonPropertyName("properties")]
-        public List<string>? Properties { get { return this.PropertiesOption; } set { this.PropertiesOption = new(value); } }
+        public List<string>? Properties { get { return this.PropertiesOption.Value; } set { this.PropertiesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ElevatedProperties
@@ -88,7 +88,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ElevatedProperties
         /// </summary>
         [JsonPropertyName("elevated_properties")]
-        public List<string>? ElevatedProperties { get { return this.ElevatedPropertiesOption; } set { this.ElevatedPropertiesOption = new(value); } }
+        public List<string>? ElevatedProperties { get { return this.ElevatedPropertiesOption.Value; } set { this.ElevatedPropertiesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImportantProperties
@@ -101,7 +101,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ImportantProperties
         /// </summary>
         [JsonPropertyName("important_properties")]
-        public List<RawUpgradeTooltipSectionAttributeImportantPropertyV2>? ImportantProperties { get { return this.ImportantPropertiesOption; } set { this.ImportantPropertiesOption = new(value); } }
+        public List<RawUpgradeTooltipSectionAttributeImportantPropertyV2>? ImportantProperties { get { return this.ImportantPropertiesOption.Value; } set { this.ImportantPropertiesOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets ImportantPropertiesWithIconPath

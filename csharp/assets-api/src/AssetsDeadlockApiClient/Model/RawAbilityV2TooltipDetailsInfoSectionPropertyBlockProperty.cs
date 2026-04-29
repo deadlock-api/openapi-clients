@@ -62,7 +62,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RequiresAbilityUpgrade
         /// </summary>
         [JsonPropertyName("requires_ability_upgrade")]
-        public bool? RequiresAbilityUpgrade { get { return this.RequiresAbilityUpgradeOption; } set { this.RequiresAbilityUpgradeOption = new(value); } }
+        public bool? RequiresAbilityUpgrade { get { return this.RequiresAbilityUpgradeOption.Value; } set { this.RequiresAbilityUpgradeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShowPropertyValue
@@ -75,7 +75,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ShowPropertyValue
         /// </summary>
         [JsonPropertyName("show_property_value")]
-        public bool? ShowPropertyValue { get { return this.ShowPropertyValueOption; } set { this.ShowPropertyValueOption = new(value); } }
+        public bool? ShowPropertyValue { get { return this.ShowPropertyValueOption.Value; } set { this.ShowPropertyValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImportantProperty
@@ -88,7 +88,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ImportantProperty
         /// </summary>
         [JsonPropertyName("important_property")]
-        public string? ImportantProperty { get { return this.ImportantPropertyOption; } set { this.ImportantPropertyOption = new(value); } }
+        public string? ImportantProperty { get { return this.ImportantPropertyOption.Value; } set { this.ImportantPropertyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StatusEffectValue
@@ -101,7 +101,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StatusEffectValue
         /// </summary>
         [JsonPropertyName("status_effect_value")]
-        public string? StatusEffectValue { get { return this.StatusEffectValueOption; } set { this.StatusEffectValueOption = new(value); } }
+        public string? StatusEffectValue { get { return this.StatusEffectValueOption.Value; } set { this.StatusEffectValueOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets ImportantPropertyIconPath

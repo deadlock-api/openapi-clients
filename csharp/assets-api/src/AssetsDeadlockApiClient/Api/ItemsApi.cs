@@ -520,7 +520,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/items/{id_or_class_name}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/items/{id_or_class_name}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/items/{id_or_class_name}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid_or_class_name%7D", Uri.EscapeDataString(idOrClassName.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -809,7 +809,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/items/by-hero-id/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/items/by-hero-id/{id}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/items/by-hero-id/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1098,7 +1098,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/items/by-slot-type/{slot_type}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/items/by-slot-type/{slot_type}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/items/by-slot-type/{slot_type}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bslot_type%7D", Uri.EscapeDataString(slotType.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1387,7 +1387,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/items/by-type/{type}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/items/by-type/{type}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/items/by-type/{type}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Btype%7D", Uri.EscapeDataString(type.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1670,7 +1670,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/items"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/items");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/items");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 

@@ -57,7 +57,7 @@ function leaderboardRaw<T>(requestParameters: LeaderboardRequest, requestConfig:
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}`.replace(`{${"region"}}`, encodeURIComponent(String(requestParameters.region))),
+        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}`.replace('{region}', encodeURIComponent(String(requestParameters.region))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -109,7 +109,7 @@ function leaderboardHeroRaw<T>(requestParameters: LeaderboardHeroRequest, reques
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}/{hero_id}`.replace(`{${"region"}}`, encodeURIComponent(String(requestParameters.region))).replace(`{${"hero_id"}}`, encodeURIComponent(String(requestParameters.heroId))),
+        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}/{hero_id}`.replace('{region}', encodeURIComponent(String(requestParameters.region))).replace('{hero_id}', encodeURIComponent(String(requestParameters.heroId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -161,7 +161,7 @@ function leaderboardHeroRawRaw<T>(requestParameters: LeaderboardHeroRawRequest, 
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}/{hero_id}/raw`.replace(`{${"region"}}`, encodeURIComponent(String(requestParameters.region))).replace(`{${"hero_id"}}`, encodeURIComponent(String(requestParameters.heroId))),
+        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}/{hero_id}/raw`.replace('{region}', encodeURIComponent(String(requestParameters.region))).replace('{hero_id}', encodeURIComponent(String(requestParameters.heroId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -208,7 +208,7 @@ function leaderboardRawRaw<T>(requestParameters: LeaderboardRawRequest, requestC
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}/raw`.replace(`{${"region"}}`, encodeURIComponent(String(requestParameters.region))),
+        url: `${runtime.Configuration.basePath}/v1/leaderboard/{region}/raw`.replace('{region}', encodeURIComponent(String(requestParameters.region))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

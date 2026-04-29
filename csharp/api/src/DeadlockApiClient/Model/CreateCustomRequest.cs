@@ -97,7 +97,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>If a callback url is provided, we will send a POST request to this url when the match starts.</value>
         [JsonPropertyName("callback_url")]
-        public string? CallbackUrl { get { return this.CallbackUrlOption; } set { this.CallbackUrlOption = new(value); } }
+        public string? CallbackUrl { get { return this.CallbackUrlOption.Value; } set { this.CallbackUrlOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CheatsEnabled
@@ -110,7 +110,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets CheatsEnabled
         /// </summary>
         [JsonPropertyName("cheats_enabled")]
-        public bool? CheatsEnabled { get { return this.CheatsEnabledOption; } set { this.CheatsEnabledOption = new(value); } }
+        public bool? CheatsEnabled { get { return this.CheatsEnabledOption.Value; } set { this.CheatsEnabledOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DisableAutoReady
@@ -124,7 +124,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up.</value>
         [JsonPropertyName("disable_auto_ready")]
-        public bool? DisableAutoReady { get { return this.DisableAutoReadyOption; } set { this.DisableAutoReadyOption = new(value); } }
+        public bool? DisableAutoReady { get { return this.DisableAutoReadyOption.Value; } set { this.DisableAutoReadyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DuplicateHeroesEnabled
@@ -137,7 +137,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets DuplicateHeroesEnabled
         /// </summary>
         [JsonPropertyName("duplicate_heroes_enabled")]
-        public bool? DuplicateHeroesEnabled { get { return this.DuplicateHeroesEnabledOption; } set { this.DuplicateHeroesEnabledOption = new(value); } }
+        public bool? DuplicateHeroesEnabled { get { return this.DuplicateHeroesEnabledOption.Value; } set { this.DuplicateHeroesEnabledOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsPubliclyVisible
@@ -150,7 +150,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets IsPubliclyVisible
         /// </summary>
         [JsonPropertyName("is_publicly_visible")]
-        public bool? IsPubliclyVisible { get { return this.IsPubliclyVisibleOption; } set { this.IsPubliclyVisibleOption = new(value); } }
+        public bool? IsPubliclyVisible { get { return this.IsPubliclyVisibleOption.Value; } set { this.IsPubliclyVisibleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinRosterSize
@@ -163,7 +163,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MinRosterSize
         /// </summary>
         [JsonPropertyName("min_roster_size")]
-        public int? MinRosterSize { get { return this.MinRosterSizeOption; } set { this.MinRosterSizeOption = new(value); } }
+        public int? MinRosterSize { get { return this.MinRosterSizeOption.Value; } set { this.MinRosterSizeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RandomizeLanes
@@ -176,7 +176,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets RandomizeLanes
         /// </summary>
         [JsonPropertyName("randomize_lanes")]
-        public bool? RandomizeLanes { get { return this.RandomizeLanesOption; } set { this.RandomizeLanesOption = new(value); } }
+        public bool? RandomizeLanes { get { return this.RandomizeLanesOption.Value; } set { this.RandomizeLanesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

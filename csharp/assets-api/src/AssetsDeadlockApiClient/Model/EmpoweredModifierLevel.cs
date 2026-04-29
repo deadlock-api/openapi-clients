@@ -58,7 +58,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MaxHealth
         /// </summary>
         [JsonPropertyName("max_health")]
-        public int? MaxHealth { get { return this.MaxHealthOption; } set { this.MaxHealthOption = new(value); } }
+        public int? MaxHealth { get { return this.MaxHealthOption.Value; } set { this.MaxHealthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TransitionDuration
@@ -71,7 +71,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TransitionDuration
         /// </summary>
         [JsonPropertyName("transition_duration")]
-        public decimal? TransitionDuration { get { return this.TransitionDurationOption; } set { this.TransitionDurationOption = new(value); } }
+        public decimal? TransitionDuration { get { return this.TransitionDurationOption.Value; } set { this.TransitionDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ModelScale
@@ -84,7 +84,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ModelScale
         /// </summary>
         [JsonPropertyName("model_scale")]
-        public decimal? ModelScale { get { return this.ModelScaleOption; } set { this.ModelScaleOption = new(value); } }
+        public decimal? ModelScale { get { return this.ModelScaleOption.Value; } set { this.ModelScaleOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

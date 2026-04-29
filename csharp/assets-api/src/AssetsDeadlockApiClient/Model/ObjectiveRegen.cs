@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OutOfCombatHealthRegen
         /// </summary>
         [JsonPropertyName("out_of_combat_health_regen")]
-        public int? OutOfCombatHealthRegen { get { return this.OutOfCombatHealthRegenOption; } set { this.OutOfCombatHealthRegenOption = new(value); } }
+        public int? OutOfCombatHealthRegen { get { return this.OutOfCombatHealthRegenOption.Value; } set { this.OutOfCombatHealthRegenOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OutOfCombatRegenDelay
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OutOfCombatRegenDelay
         /// </summary>
         [JsonPropertyName("out_of_combat_regen_delay")]
-        public decimal? OutOfCombatRegenDelay { get { return this.OutOfCombatRegenDelayOption; } set { this.OutOfCombatRegenDelayOption = new(value); } }
+        public decimal? OutOfCombatRegenDelay { get { return this.OutOfCombatRegenDelayOption.Value; } set { this.OutOfCombatRegenDelayOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

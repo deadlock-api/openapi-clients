@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Webm
         /// </summary>
         [JsonPropertyName("webm")]
-        public string? Webm { get { return this.WebmOption; } set { this.WebmOption = new(value); } }
+        public string? Webm { get { return this.WebmOption.Value; } set { this.WebmOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Mp4
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Mp4
         /// </summary>
         [JsonPropertyName("mp4")]
-        public string? Mp4 { get { return this.Mp4Option; } set { this.Mp4Option = new(value); } }
+        public string? Mp4 { get { return this.Mp4Option.Value; } set { this.Mp4Option = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

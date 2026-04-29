@@ -68,7 +68,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ClusterId
         /// </summary>
         [JsonPropertyName("cluster_id")]
-        public int? ClusterId { get { return this.ClusterIdOption; } set { this.ClusterIdOption = new(value); } }
+        public int? ClusterId { get { return this.ClusterIdOption.Value; } set { this.ClusterIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MetadataSalt
@@ -81,7 +81,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MetadataSalt
         /// </summary>
         [JsonPropertyName("metadata_salt")]
-        public int? MetadataSalt { get { return this.MetadataSaltOption; } set { this.MetadataSaltOption = new(value); } }
+        public int? MetadataSalt { get { return this.MetadataSaltOption.Value; } set { this.MetadataSaltOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReplaySalt
@@ -94,7 +94,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ReplaySalt
         /// </summary>
         [JsonPropertyName("replay_salt")]
-        public int? ReplaySalt { get { return this.ReplaySaltOption; } set { this.ReplaySaltOption = new(value); } }
+        public int? ReplaySalt { get { return this.ReplaySaltOption.Value; } set { this.ReplaySaltOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Username
@@ -107,7 +107,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Username
         /// </summary>
         [JsonPropertyName("username")]
-        public string? Username { get { return this.UsernameOption; } set { this.UsernameOption = new(value); } }
+        public string? Username { get { return this.UsernameOption.Value; } set { this.UsernameOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

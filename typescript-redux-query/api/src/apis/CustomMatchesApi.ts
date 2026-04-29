@@ -119,7 +119,7 @@ function getCustomRaw<T>(requestParameters: GetCustomRequest, requestConfig: run
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/custom/{party_id}/match-id`.replace(`{${"party_id"}}`, encodeURIComponent(String(requestParameters.partyId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/custom/{party_id}/match-id`.replace('{party_id}', encodeURIComponent(String(requestParameters.partyId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -167,7 +167,7 @@ function leaveRaw<T>(requestParameters: LeaveRequest, requestConfig: runtime.Typ
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/leave`.replace(`{${"lobby_id"}}`, encodeURIComponent(String(requestParameters.lobbyId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/leave`.replace('{lobby_id}', encodeURIComponent(String(requestParameters.lobbyId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -214,7 +214,7 @@ function readyUpRaw<T>(requestParameters: ReadyUpRequest, requestConfig: runtime
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/ready`.replace(`{${"lobby_id"}}`, encodeURIComponent(String(requestParameters.lobbyId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/ready`.replace('{lobby_id}', encodeURIComponent(String(requestParameters.lobbyId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -261,7 +261,7 @@ function startRaw<T>(requestParameters: StartRequest, requestConfig: runtime.Typ
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/start`.replace(`{${"lobby_id"}}`, encodeURIComponent(String(requestParameters.lobbyId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/start`.replace('{lobby_id}', encodeURIComponent(String(requestParameters.lobbyId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -308,7 +308,7 @@ function unreadyRaw<T>(requestParameters: UnreadyRequest, requestConfig: runtime
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/unready`.replace(`{${"lobby_id"}}`, encodeURIComponent(String(requestParameters.lobbyId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/custom/{lobby_id}/unready`.replace('{lobby_id}', encodeURIComponent(String(requestParameters.lobbyId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

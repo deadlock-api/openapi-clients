@@ -74,7 +74,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CssClass
         /// </summary>
         [JsonPropertyName("css_class")]
-        public string? CssClass { get { return this.CssClassOption; } set { this.CssClassOption = new(value); } }
+        public string? CssClass { get { return this.CssClassOption.Value; } set { this.CssClassOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinimapZiplineColorOverride
@@ -87,7 +87,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MinimapZiplineColorOverride
         /// </summary>
         [JsonPropertyName("minimap_zipline_color_override")]
-        public ColorV1? MinimapZiplineColorOverride { get { return this.MinimapZiplineColorOverrideOption; } set { this.MinimapZiplineColorOverrideOption = new(value); } }
+        public ColorV1? MinimapZiplineColorOverride { get { return this.MinimapZiplineColorOverrideOption.Value; } set { this.MinimapZiplineColorOverrideOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectiveColor
@@ -100,7 +100,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ObjectiveColor
         /// </summary>
         [JsonPropertyName("objective_color")]
-        public ColorV1? ObjectiveColor { get { return this.ObjectiveColorOption; } set { this.ObjectiveColorOption = new(value); } }
+        public ColorV1? ObjectiveColor { get { return this.ObjectiveColorOption.Value; } set { this.ObjectiveColorOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

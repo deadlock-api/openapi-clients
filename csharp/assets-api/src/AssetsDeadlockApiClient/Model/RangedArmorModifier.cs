@@ -58,7 +58,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RangeMin
         /// </summary>
         [JsonPropertyName("range_min")]
-        public decimal? RangeMin { get { return this.RangeMinOption; } set { this.RangeMinOption = new(value); } }
+        public decimal? RangeMin { get { return this.RangeMinOption.Value; } set { this.RangeMinOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RangeMax
@@ -71,7 +71,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RangeMax
         /// </summary>
         [JsonPropertyName("range_max")]
-        public decimal? RangeMax { get { return this.RangeMaxOption; } set { this.RangeMaxOption = new(value); } }
+        public decimal? RangeMax { get { return this.RangeMaxOption.Value; } set { this.RangeMaxOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of InvulnRange
@@ -84,7 +84,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets InvulnRange
         /// </summary>
         [JsonPropertyName("invuln_range")]
-        public decimal? InvulnRange { get { return this.InvulnRangeOption; } set { this.InvulnRangeOption = new(value); } }
+        public decimal? InvulnRange { get { return this.InvulnRangeOption.Value; } set { this.InvulnRangeOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

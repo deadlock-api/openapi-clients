@@ -112,7 +112,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Countrycode
         /// </summary>
         [JsonPropertyName("countrycode")]
-        public string? Countrycode { get { return this.CountrycodeOption; } set { this.CountrycodeOption = new(value); } }
+        public string? Countrycode { get { return this.CountrycodeOption.Value; } set { this.CountrycodeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Realname
@@ -125,7 +125,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Realname
         /// </summary>
         [JsonPropertyName("realname")]
-        public string? Realname { get { return this.RealnameOption; } set { this.RealnameOption = new(value); } }
+        public string? Realname { get { return this.RealnameOption.Value; } set { this.RealnameOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

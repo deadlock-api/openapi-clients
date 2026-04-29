@@ -127,7 +127,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Description
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get { return this.DescriptionOption; } set { this.DescriptionOption = new(value); } }
+        public string? Description { get { return this.DescriptionOption.Value; } set { this.DescriptionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DevelopmentBuild
@@ -140,7 +140,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets DevelopmentBuild
         /// </summary>
         [JsonPropertyName("development_build")]
-        public bool? DevelopmentBuild { get { return this.DevelopmentBuildOption; } set { this.DevelopmentBuildOption = new(value); } }
+        public bool? DevelopmentBuild { get { return this.DevelopmentBuildOption.Value; } set { this.DevelopmentBuildOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LastUpdatedTimestamp
@@ -153,7 +153,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets LastUpdatedTimestamp
         /// </summary>
         [JsonPropertyName("last_updated_timestamp")]
-        public long? LastUpdatedTimestamp { get { return this.LastUpdatedTimestampOption; } set { this.LastUpdatedTimestampOption = new(value); } }
+        public long? LastUpdatedTimestamp { get { return this.LastUpdatedTimestampOption.Value; } set { this.LastUpdatedTimestampOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PublishTimestamp
@@ -166,7 +166,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets PublishTimestamp
         /// </summary>
         [JsonPropertyName("publish_timestamp")]
-        public long? PublishTimestamp { get { return this.PublishTimestampOption; } set { this.PublishTimestampOption = new(value); } }
+        public long? PublishTimestamp { get { return this.PublishTimestampOption.Value; } set { this.PublishTimestampOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Tags
@@ -179,7 +179,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Tags
         /// </summary>
         [JsonPropertyName("tags")]
-        public List<int>? Tags { get { return this.TagsOption; } set { this.TagsOption = new(value); } }
+        public List<int>? Tags { get { return this.TagsOption.Value; } set { this.TagsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

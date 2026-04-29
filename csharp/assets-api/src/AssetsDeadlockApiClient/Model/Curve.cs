@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Base
         /// </summary>
         [JsonPropertyName("base")]
-        public decimal? Base { get { return this.BaseOption; } set { this.BaseOption = new(value); } }
+        public decimal? Base { get { return this.BaseOption.Value; } set { this.BaseOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PerMinuteAfterStart
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PerMinuteAfterStart
         /// </summary>
         [JsonPropertyName("per_minute_after_start")]
-        public decimal? PerMinuteAfterStart { get { return this.PerMinuteAfterStartOption; } set { this.PerMinuteAfterStartOption = new(value); } }
+        public decimal? PerMinuteAfterStart { get { return this.PerMinuteAfterStartOption.Value; } set { this.PerMinuteAfterStartOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

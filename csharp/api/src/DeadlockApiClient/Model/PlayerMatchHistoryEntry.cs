@@ -207,7 +207,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AbandonedTimeS
         /// </summary>
         [JsonPropertyName("abandoned_time_s")]
-        public int? AbandonedTimeS { get { return this.AbandonedTimeSOption; } set { this.AbandonedTimeSOption = new(value); } }
+        public int? AbandonedTimeS { get { return this.AbandonedTimeSOption.Value; } set { this.AbandonedTimeSOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BrawlAvgRoundTimeS
@@ -220,7 +220,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets BrawlAvgRoundTimeS
         /// </summary>
         [JsonPropertyName("brawl_avg_round_time_s")]
-        public int? BrawlAvgRoundTimeS { get { return this.BrawlAvgRoundTimeSOption; } set { this.BrawlAvgRoundTimeSOption = new(value); } }
+        public int? BrawlAvgRoundTimeS { get { return this.BrawlAvgRoundTimeSOption.Value; } set { this.BrawlAvgRoundTimeSOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BrawlScoreTeam0
@@ -233,7 +233,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets BrawlScoreTeam0
         /// </summary>
         [JsonPropertyName("brawl_score_team0")]
-        public int? BrawlScoreTeam0 { get { return this.BrawlScoreTeam0Option; } set { this.BrawlScoreTeam0Option = new(value); } }
+        public int? BrawlScoreTeam0 { get { return this.BrawlScoreTeam0Option.Value; } set { this.BrawlScoreTeam0Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of BrawlScoreTeam1
@@ -246,7 +246,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets BrawlScoreTeam1
         /// </summary>
         [JsonPropertyName("brawl_score_team1")]
-        public int? BrawlScoreTeam1 { get { return this.BrawlScoreTeam1Option; } set { this.BrawlScoreTeam1Option = new(value); } }
+        public int? BrawlScoreTeam1 { get { return this.BrawlScoreTeam1Option.Value; } set { this.BrawlScoreTeam1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of TeamAbandoned
@@ -259,7 +259,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets TeamAbandoned
         /// </summary>
         [JsonPropertyName("team_abandoned")]
-        public bool? TeamAbandoned { get { return this.TeamAbandonedOption; } set { this.TeamAbandonedOption = new(value); } }
+        public bool? TeamAbandoned { get { return this.TeamAbandonedOption.Value; } set { this.TeamAbandonedOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

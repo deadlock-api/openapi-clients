@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Bucket
         /// </summary>
         [JsonPropertyName("bucket")]
-        public string? Bucket { get { return this.BucketOption; } set { this.BucketOption = new(value); } }
+        public string? Bucket { get { return this.BucketOption.Value; } set { this.BucketOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Weight
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Weight
         /// </summary>
         [JsonPropertyName("weight")]
-        public decimal? Weight { get { return this.WeightOption; } set { this.WeightOption = new(value); } }
+        public decimal? Weight { get { return this.WeightOption.Value; } set { this.WeightOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -109,7 +109,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Hostname of the game server</value>
         [JsonPropertyName("hostname")]
-        public string? Hostname { get { return this.HostnameOption; } set { this.HostnameOption = new(value); } }
+        public string? Hostname { get { return this.HostnameOption.Value; } set { this.HostnameOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

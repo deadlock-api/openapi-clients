@@ -102,7 +102,7 @@ function heroMmrRaw<T>(requestParameters: HeroMmrRequest, requestConfig: runtime
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/mmr/{hero_id}`.replace(`{${"hero_id"}}`, encodeURIComponent(String(requestParameters.heroId))),
+        url: `${runtime.Configuration.basePath}/v1/players/mmr/{hero_id}`.replace('{hero_id}', encodeURIComponent(String(requestParameters.heroId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -196,7 +196,7 @@ function heroMmrDistributionRaw<T>(requestParameters: HeroMmrDistributionRequest
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/mmr/distribution/{hero_id}`.replace(`{${"hero_id"}}`, encodeURIComponent(String(requestParameters.heroId))),
+        url: `${runtime.Configuration.basePath}/v1/players/mmr/distribution/{hero_id}`.replace('{hero_id}', encodeURIComponent(String(requestParameters.heroId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -248,7 +248,7 @@ function heroMmrHistoryRaw<T>(requestParameters: HeroMmrHistoryRequest, requestC
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/mmr-history/{hero_id}`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))).replace(`{${"hero_id"}}`, encodeURIComponent(String(requestParameters.heroId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/mmr-history/{hero_id}`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))).replace('{hero_id}', encodeURIComponent(String(requestParameters.heroId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -445,7 +445,7 @@ function mmrHistoryRaw<T>(requestParameters: MmrHistoryRequest, requestConfig: r
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/mmr-history`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/mmr-history`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

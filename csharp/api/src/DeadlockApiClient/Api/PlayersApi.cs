@@ -764,7 +764,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/account-stats"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/account-stats");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/account-stats");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1017,7 +1017,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/card"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/card");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/card");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1324,7 +1324,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/enemy-stats"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/enemy-stats");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/enemy-stats");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1602,7 +1602,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/match-history"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/match-history");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/match-history");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1942,7 +1942,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/mate-stats"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/mate-stats");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/mate-stats");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -2299,7 +2299,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/hero-stats"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/hero-stats");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/hero-stats");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2581,7 +2581,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/rank-predict"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/rank-predict");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/rank-predict");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;

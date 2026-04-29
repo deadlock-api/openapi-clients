@@ -134,7 +134,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Color
         /// </summary>
         [JsonPropertyName("color")]
-        public ColorV1? Color { get { return this.ColorOption; } set { this.ColorOption = new(value); } }
+        public ColorV1? Color { get { return this.ColorOption.Value; } set { this.ColorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of InitialSpawnTime
@@ -147,7 +147,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets InitialSpawnTime
         /// </summary>
         [JsonPropertyName("initial_spawn_time")]
-        public decimal? InitialSpawnTime { get { return this.InitialSpawnTimeOption; } set { this.InitialSpawnTimeOption = new(value); } }
+        public decimal? InitialSpawnTime { get { return this.InitialSpawnTimeOption.Value; } set { this.InitialSpawnTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RespawnTime
@@ -160,7 +160,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RespawnTime
         /// </summary>
         [JsonPropertyName("respawn_time")]
-        public decimal? RespawnTime { get { return this.RespawnTimeOption; } set { this.RespawnTimeOption = new(value); } }
+        public decimal? RespawnTime { get { return this.RespawnTimeOption.Value; } set { this.RespawnTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpawnInterval
@@ -173,7 +173,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SpawnInterval
         /// </summary>
         [JsonPropertyName("spawn_interval")]
-        public decimal? SpawnInterval { get { return this.SpawnIntervalOption; } set { this.SpawnIntervalOption = new(value); } }
+        public decimal? SpawnInterval { get { return this.SpawnIntervalOption.Value; } set { this.SpawnIntervalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of InitialSpawnDelayInSeconds
@@ -186,7 +186,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets InitialSpawnDelayInSeconds
         /// </summary>
         [JsonPropertyName("initial_spawn_delay_in_seconds")]
-        public int? InitialSpawnDelayInSeconds { get { return this.InitialSpawnDelayInSecondsOption; } set { this.InitialSpawnDelayInSecondsOption = new(value); } }
+        public int? InitialSpawnDelayInSeconds { get { return this.InitialSpawnDelayInSecondsOption.Value; } set { this.InitialSpawnDelayInSecondsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpawnIntervalInSeconds
@@ -199,7 +199,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SpawnIntervalInSeconds
         /// </summary>
         [JsonPropertyName("spawn_interval_in_seconds")]
-        public int? SpawnIntervalInSeconds { get { return this.SpawnIntervalInSecondsOption; } set { this.SpawnIntervalInSecondsOption = new(value); } }
+        public int? SpawnIntervalInSeconds { get { return this.SpawnIntervalInSecondsOption.Value; } set { this.SpawnIntervalInSecondsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchTimeMinsForLevel2Pickups
@@ -212,7 +212,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MatchTimeMinsForLevel2Pickups
         /// </summary>
         [JsonPropertyName("match_time_mins_for_level2_pickups")]
-        public int? MatchTimeMinsForLevel2Pickups { get { return this.MatchTimeMinsForLevel2PickupsOption; } set { this.MatchTimeMinsForLevel2PickupsOption = new(value); } }
+        public int? MatchTimeMinsForLevel2Pickups { get { return this.MatchTimeMinsForLevel2PickupsOption.Value; } set { this.MatchTimeMinsForLevel2PickupsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchTimeMinsForLevel3Pickups
@@ -225,7 +225,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MatchTimeMinsForLevel3Pickups
         /// </summary>
         [JsonPropertyName("match_time_mins_for_level3_pickups")]
-        public int? MatchTimeMinsForLevel3Pickups { get { return this.MatchTimeMinsForLevel3PickupsOption; } set { this.MatchTimeMinsForLevel3PickupsOption = new(value); } }
+        public int? MatchTimeMinsForLevel3Pickups { get { return this.MatchTimeMinsForLevel3PickupsOption.Value; } set { this.MatchTimeMinsForLevel3PickupsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LootListDeckSize
@@ -238,7 +238,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LootListDeckSize
         /// </summary>
         [JsonPropertyName("loot_list_deck_size")]
-        public int? LootListDeckSize { get { return this.LootListDeckSizeOption; } set { this.LootListDeckSizeOption = new(value); } }
+        public int? LootListDeckSize { get { return this.LootListDeckSizeOption.Value; } set { this.LootListDeckSizeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of InitialSpawnDelaySeconds
@@ -251,7 +251,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets InitialSpawnDelaySeconds
         /// </summary>
         [JsonPropertyName("initial_spawn_delay_seconds")]
-        public int? InitialSpawnDelaySeconds { get { return this.InitialSpawnDelaySecondsOption; } set { this.InitialSpawnDelaySecondsOption = new(value); } }
+        public int? InitialSpawnDelaySeconds { get { return this.InitialSpawnDelaySecondsOption.Value; } set { this.InitialSpawnDelaySecondsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Health
@@ -264,7 +264,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Health
         /// </summary>
         [JsonPropertyName("health")]
-        public int? Health { get { return this.HealthOption; } set { this.HealthOption = new(value); } }
+        public int? Health { get { return this.HealthOption.Value; } set { this.HealthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BreakOnDodgeTouch
@@ -277,7 +277,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BreakOnDodgeTouch
         /// </summary>
         [JsonPropertyName("break_on_dodge_touch")]
-        public bool? BreakOnDodgeTouch { get { return this.BreakOnDodgeTouchOption; } set { this.BreakOnDodgeTouchOption = new(value); } }
+        public bool? BreakOnDodgeTouch { get { return this.BreakOnDodgeTouchOption.Value; } set { this.BreakOnDodgeTouchOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SolidAfterDeath
@@ -290,7 +290,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SolidAfterDeath
         /// </summary>
         [JsonPropertyName("solid_after_death")]
-        public bool? SolidAfterDeath { get { return this.SolidAfterDeathOption; } set { this.SolidAfterDeathOption = new(value); } }
+        public bool? SolidAfterDeath { get { return this.SolidAfterDeathOption.Value; } set { this.SolidAfterDeathOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RenderAfterDeath
@@ -303,7 +303,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RenderAfterDeath
         /// </summary>
         [JsonPropertyName("render_after_death")]
-        public bool? RenderAfterDeath { get { return this.RenderAfterDeathOption; } set { this.RenderAfterDeathOption = new(value); } }
+        public bool? RenderAfterDeath { get { return this.RenderAfterDeathOption.Value; } set { this.RenderAfterDeathOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamagedByAbilities
@@ -316,7 +316,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamagedByAbilities
         /// </summary>
         [JsonPropertyName("damaged_by_abilities")]
-        public bool? DamagedByAbilities { get { return this.DamagedByAbilitiesOption; } set { this.DamagedByAbilitiesOption = new(value); } }
+        public bool? DamagedByAbilities { get { return this.DamagedByAbilitiesOption.Value; } set { this.DamagedByAbilitiesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamagedByMelee
@@ -329,7 +329,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamagedByMelee
         /// </summary>
         [JsonPropertyName("damaged_by_melee")]
-        public bool? DamagedByMelee { get { return this.DamagedByMeleeOption; } set { this.DamagedByMeleeOption = new(value); } }
+        public bool? DamagedByMelee { get { return this.DamagedByMeleeOption.Value; } set { this.DamagedByMeleeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DamagedByBullets
@@ -342,7 +342,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamagedByBullets
         /// </summary>
         [JsonPropertyName("damaged_by_bullets")]
-        public bool? DamagedByBullets { get { return this.DamagedByBulletsOption; } set { this.DamagedByBulletsOption = new(value); } }
+        public bool? DamagedByBullets { get { return this.DamagedByBulletsOption.Value; } set { this.DamagedByBulletsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IsMantleable
@@ -355,7 +355,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IsMantleable
         /// </summary>
         [JsonPropertyName("is_mantleable")]
-        public bool? IsMantleable { get { return this.IsMantleableOption; } set { this.IsMantleableOption = new(value); } }
+        public bool? IsMantleable { get { return this.IsMantleableOption.Value; } set { this.IsMantleableOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PrimaryDropChance
@@ -368,7 +368,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PrimaryDropChance
         /// </summary>
         [JsonPropertyName("primary_drop_chance")]
-        public decimal? PrimaryDropChance { get { return this.PrimaryDropChanceOption; } set { this.PrimaryDropChanceOption = new(value); } }
+        public decimal? PrimaryDropChance { get { return this.PrimaryDropChanceOption.Value; } set { this.PrimaryDropChanceOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PrimaryPickups
@@ -381,7 +381,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PrimaryPickups
         /// </summary>
         [JsonPropertyName("primary_pickups")]
-        public List<PickupDefinition>? PrimaryPickups { get { return this.PrimaryPickupsOption; } set { this.PrimaryPickupsOption = new(value); } }
+        public List<PickupDefinition>? PrimaryPickups { get { return this.PrimaryPickupsOption.Value; } set { this.PrimaryPickupsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MVecPickupsLv2
@@ -394,7 +394,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MVecPickupsLv2
         /// </summary>
         [JsonPropertyName("m_vecPickups_lv2")]
-        public List<PickupDefinition>? MVecPickupsLv2 { get { return this.MVecPickupsLv2Option; } set { this.MVecPickupsLv2Option = new(value); } }
+        public List<PickupDefinition>? MVecPickupsLv2 { get { return this.MVecPickupsLv2Option.Value; } set { this.MVecPickupsLv2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of MVecPickupsLv3
@@ -407,7 +407,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MVecPickupsLv3
         /// </summary>
         [JsonPropertyName("m_vecPickups_lv3")]
-        public List<PickupDefinition>? MVecPickupsLv3 { get { return this.MVecPickupsLv3Option; } set { this.MVecPickupsLv3Option = new(value); } }
+        public List<PickupDefinition>? MVecPickupsLv3 { get { return this.MVecPickupsLv3Option.Value; } set { this.MVecPickupsLv3Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of RollType
@@ -420,7 +420,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RollType
         /// </summary>
         [JsonPropertyName("roll_type")]
-        public string? RollType { get { return this.RollTypeOption; } set { this.RollTypeOption = new(value); } }
+        public string? RollType { get { return this.RollTypeOption.Value; } set { this.RollTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GoldAmount
@@ -433,7 +433,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GoldAmount
         /// </summary>
         [JsonPropertyName("gold_amount")]
-        public decimal? GoldAmount { get { return this.GoldAmountOption; } set { this.GoldAmountOption = new(value); } }
+        public decimal? GoldAmount { get { return this.GoldAmountOption.Value; } set { this.GoldAmountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GoldPerMinuteAmount
@@ -446,7 +446,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GoldPerMinuteAmount
         /// </summary>
         [JsonPropertyName("gold_per_minute_amount")]
-        public decimal? GoldPerMinuteAmount { get { return this.GoldPerMinuteAmountOption; } set { this.GoldPerMinuteAmountOption = new(value); } }
+        public decimal? GoldPerMinuteAmount { get { return this.GoldPerMinuteAmountOption.Value; } set { this.GoldPerMinuteAmountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Modifier
@@ -459,7 +459,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Modifier
         /// </summary>
         [JsonPropertyName("modifier")]
-        public SubclassModifierDefinition? Modifier { get { return this.ModifierOption; } set { this.ModifierOption = new(value); } }
+        public SubclassModifierDefinition? Modifier { get { return this.ModifierOption.Value; } set { this.ModifierOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PickupRadius
@@ -472,7 +472,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PickupRadius
         /// </summary>
         [JsonPropertyName("pickup_radius")]
-        public PickupRadius? PickupRadius { get { return this.PickupRadiusOption; } set { this.PickupRadiusOption = new(value); } }
+        public PickupRadius? PickupRadius { get { return this.PickupRadiusOption.Value; } set { this.PickupRadiusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ExpirationDuration
@@ -485,7 +485,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ExpirationDuration
         /// </summary>
         [JsonPropertyName("expiration_duration")]
-        public ExpirationDuration? ExpirationDuration { get { return this.ExpirationDurationOption; } set { this.ExpirationDurationOption = new(value); } }
+        public ExpirationDuration? ExpirationDuration { get { return this.ExpirationDurationOption.Value; } set { this.ExpirationDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShowOnMinimap
@@ -498,7 +498,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ShowOnMinimap
         /// </summary>
         [JsonPropertyName("show_on_minimap")]
-        public bool? ShowOnMinimap { get { return this.ShowOnMinimapOption; } set { this.ShowOnMinimapOption = new(value); } }
+        public bool? ShowOnMinimap { get { return this.ShowOnMinimapOption.Value; } set { this.ShowOnMinimapOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OrbSpawnDelayMin
@@ -511,7 +511,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OrbSpawnDelayMin
         /// </summary>
         [JsonPropertyName("orb_spawn_delay_min")]
-        public decimal? OrbSpawnDelayMin { get { return this.OrbSpawnDelayMinOption; } set { this.OrbSpawnDelayMinOption = new(value); } }
+        public decimal? OrbSpawnDelayMin { get { return this.OrbSpawnDelayMinOption.Value; } set { this.OrbSpawnDelayMinOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OrbSpawnDelayMax
@@ -524,7 +524,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OrbSpawnDelayMax
         /// </summary>
         [JsonPropertyName("orb_spawn_delay_max")]
-        public decimal? OrbSpawnDelayMax { get { return this.OrbSpawnDelayMaxOption; } set { this.OrbSpawnDelayMaxOption = new(value); } }
+        public decimal? OrbSpawnDelayMax { get { return this.OrbSpawnDelayMaxOption.Value; } set { this.OrbSpawnDelayMaxOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Lifetime
@@ -537,7 +537,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Lifetime
         /// </summary>
         [JsonPropertyName("lifetime")]
-        public decimal? Lifetime { get { return this.LifetimeOption; } set { this.LifetimeOption = new(value); } }
+        public decimal? Lifetime { get { return this.LifetimeOption.Value; } set { this.LifetimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CollisionRadius
@@ -550,7 +550,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CollisionRadius
         /// </summary>
         [JsonPropertyName("collision_radius")]
-        public decimal? CollisionRadius { get { return this.CollisionRadiusOption; } set { this.CollisionRadiusOption = new(value); } }
+        public decimal? CollisionRadius { get { return this.CollisionRadiusOption.Value; } set { this.CollisionRadiusOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

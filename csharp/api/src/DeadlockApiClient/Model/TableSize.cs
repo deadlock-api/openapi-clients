@@ -68,7 +68,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Compressed size of the table in bytes.</value>
         [JsonPropertyName("data_compressed_bytes")]
-        public long? DataCompressedBytes { get { return this.DataCompressedBytesOption; } set { this.DataCompressedBytesOption = new(value); } }
+        public long? DataCompressedBytes { get { return this.DataCompressedBytesOption.Value; } set { this.DataCompressedBytesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DataUncompressedBytes
@@ -82,7 +82,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Uncompressed size of the table in bytes.</value>
         [JsonPropertyName("data_uncompressed_bytes")]
-        public long? DataUncompressedBytes { get { return this.DataUncompressedBytesOption; } set { this.DataUncompressedBytesOption = new(value); } }
+        public long? DataUncompressedBytes { get { return this.DataUncompressedBytesOption.Value; } set { this.DataUncompressedBytesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Rows
@@ -96,7 +96,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Number of rows in the table.</value>
         [JsonPropertyName("rows")]
-        public long? Rows { get { return this.RowsOption; } set { this.RowsOption = new(value); } }
+        public long? Rows { get { return this.RowsOption.Value; } set { this.RowsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

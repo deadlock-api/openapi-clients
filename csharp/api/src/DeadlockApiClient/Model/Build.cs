@@ -70,7 +70,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets NumFavorites
         /// </summary>
         [JsonPropertyName("num_favorites")]
-        public int? NumFavorites { get { return this.NumFavoritesOption; } set { this.NumFavoritesOption = new(value); } }
+        public int? NumFavorites { get { return this.NumFavoritesOption.Value; } set { this.NumFavoritesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NumIgnores
@@ -83,7 +83,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets NumIgnores
         /// </summary>
         [JsonPropertyName("num_ignores")]
-        public int? NumIgnores { get { return this.NumIgnoresOption; } set { this.NumIgnoresOption = new(value); } }
+        public int? NumIgnores { get { return this.NumIgnoresOption.Value; } set { this.NumIgnoresOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NumReports
@@ -96,7 +96,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets NumReports
         /// </summary>
         [JsonPropertyName("num_reports")]
-        public int? NumReports { get { return this.NumReportsOption; } set { this.NumReportsOption = new(value); } }
+        public int? NumReports { get { return this.NumReportsOption.Value; } set { this.NumReportsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NumWeeklyFavorites
@@ -109,7 +109,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets NumWeeklyFavorites
         /// </summary>
         [JsonPropertyName("num_weekly_favorites")]
-        public int? NumWeeklyFavorites { get { return this.NumWeeklyFavoritesOption; } set { this.NumWeeklyFavoritesOption = new(value); } }
+        public int? NumWeeklyFavorites { get { return this.NumWeeklyFavoritesOption.Value; } set { this.NumWeeklyFavoritesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RollupCategory
@@ -122,7 +122,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets RollupCategory
         /// </summary>
         [JsonPropertyName("rollup_category")]
-        public int? RollupCategory { get { return this.RollupCategoryOption; } set { this.RollupCategoryOption = new(value); } }
+        public int? RollupCategory { get { return this.RollupCategoryOption.Value; } set { this.RollupCategoryOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

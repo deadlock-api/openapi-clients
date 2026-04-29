@@ -70,7 +70,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Spline
         /// </summary>
         [JsonPropertyName("spline")]
-        public List<RawItemWeaponInfoBulletSpeedCurveSplineV2>? Spline { get { return this.SplineOption; } set { this.SplineOption = new(value); } }
+        public List<RawItemWeaponInfoBulletSpeedCurveSplineV2>? Spline { get { return this.SplineOption.Value; } set { this.SplineOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

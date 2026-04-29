@@ -139,20 +139,28 @@ pub struct WeaponInfoV2 {
     pub horizontal_recoil: Option<Option<Box<models::RawWeaponInfoHorizontalRecoilV2>>>,
     #[serde(rename = "vertical_recoil", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub vertical_recoil: Option<Option<Box<models::RawWeaponInfoVerticalRecoilV2>>>,
+    /// Calculates the shots per second of the weapon
     #[serde(rename = "shots_per_second", deserialize_with = "Option::deserialize")]
     pub shots_per_second: Option<f64>,
+    /// Calculates the shots per second of the weapon adjusted for reload time
     #[serde(rename = "shots_per_second_with_reload", deserialize_with = "Option::deserialize")]
     pub shots_per_second_with_reload: Option<f64>,
+    /// Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.
     #[serde(rename = "bullets_per_second", deserialize_with = "Option::deserialize")]
     pub bullets_per_second: Option<f64>,
+    /// Calculates the bullets per second of the weapon adjusted for reload time.
     #[serde(rename = "bullets_per_second_with_reload", deserialize_with = "Option::deserialize")]
     pub bullets_per_second_with_reload: Option<f64>,
+    /// Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.
     #[serde(rename = "damage_per_second", deserialize_with = "Option::deserialize")]
     pub damage_per_second: Option<f64>,
+    /// Calculates the damage per second of the weapon adjusted for reload time.
     #[serde(rename = "damage_per_second_with_reload", deserialize_with = "Option::deserialize")]
     pub damage_per_second_with_reload: Option<f64>,
+    /// Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.
     #[serde(rename = "damage_per_shot", deserialize_with = "Option::deserialize")]
     pub damage_per_shot: Option<f64>,
+    /// Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.
     #[serde(rename = "damage_per_magazine", deserialize_with = "Option::deserialize")]
     pub damage_per_magazine: Option<f64>,
 }

@@ -139,7 +139,7 @@ function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig:
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/sql/tables/{table}/schema`.replace(`{${"table"}}`, encodeURIComponent(String(requestParameters.table))),
+        url: `${runtime.Configuration.basePath}/v1/sql/tables/{table}/schema`.replace('{table}', encodeURIComponent(String(requestParameters.table))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

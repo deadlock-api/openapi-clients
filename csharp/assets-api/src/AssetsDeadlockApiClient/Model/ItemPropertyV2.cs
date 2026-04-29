@@ -88,7 +88,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Value
         /// </summary>
         [JsonPropertyName("value")]
-        public Value1? Value { get { return this.ValueOption; } set { this.ValueOption = new(value); } }
+        public Value1? Value { get { return this.ValueOption.Value; } set { this.ValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StreetBrawlValue
@@ -101,7 +101,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StreetBrawlValue
         /// </summary>
         [JsonPropertyName("street_brawl_value")]
-        public StreetBrawlValue? StreetBrawlValue { get { return this.StreetBrawlValueOption; } set { this.StreetBrawlValueOption = new(value); } }
+        public StreetBrawlValue? StreetBrawlValue { get { return this.StreetBrawlValueOption.Value; } set { this.StreetBrawlValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CanSetTokenOverride
@@ -114,7 +114,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CanSetTokenOverride
         /// </summary>
         [JsonPropertyName("can_set_token_override")]
-        public bool? CanSetTokenOverride { get { return this.CanSetTokenOverrideOption; } set { this.CanSetTokenOverrideOption = new(value); } }
+        public bool? CanSetTokenOverride { get { return this.CanSetTokenOverrideOption.Value; } set { this.CanSetTokenOverrideOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ProvidedPropertyType
@@ -127,7 +127,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ProvidedPropertyType
         /// </summary>
         [JsonPropertyName("provided_property_type")]
-        public string? ProvidedPropertyType { get { return this.ProvidedPropertyTypeOption; } set { this.ProvidedPropertyTypeOption = new(value); } }
+        public string? ProvidedPropertyType { get { return this.ProvidedPropertyTypeOption.Value; } set { this.ProvidedPropertyTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CssClass
@@ -140,7 +140,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets CssClass
         /// </summary>
         [JsonPropertyName("css_class")]
-        public string? CssClass { get { return this.CssClassOption; } set { this.CssClassOption = new(value); } }
+        public string? CssClass { get { return this.CssClassOption.Value; } set { this.CssClassOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UsageFlags
@@ -153,7 +153,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets UsageFlags
         /// </summary>
         [JsonPropertyName("usage_flags")]
-        public UsageFlags? UsageFlags { get { return this.UsageFlagsOption; } set { this.UsageFlagsOption = new(value); } }
+        public UsageFlags? UsageFlags { get { return this.UsageFlagsOption.Value; } set { this.UsageFlagsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NegativeAttribute
@@ -166,7 +166,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets NegativeAttribute
         /// </summary>
         [JsonPropertyName("negative_attribute")]
-        public bool? NegativeAttribute { get { return this.NegativeAttributeOption; } set { this.NegativeAttributeOption = new(value); } }
+        public bool? NegativeAttribute { get { return this.NegativeAttributeOption.Value; } set { this.NegativeAttributeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DisableValue
@@ -179,7 +179,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DisableValue
         /// </summary>
         [JsonPropertyName("disable_value")]
-        public string? DisableValue { get { return this.DisableValueOption; } set { this.DisableValueOption = new(value); } }
+        public string? DisableValue { get { return this.DisableValueOption.Value; } set { this.DisableValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LocTokenOverride
@@ -192,7 +192,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LocTokenOverride
         /// </summary>
         [JsonPropertyName("loc_token_override")]
-        public string? LocTokenOverride { get { return this.LocTokenOverrideOption; } set { this.LocTokenOverrideOption = new(value); } }
+        public string? LocTokenOverride { get { return this.LocTokenOverrideOption.Value; } set { this.LocTokenOverrideOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DisplayUnits
@@ -205,7 +205,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DisplayUnits
         /// </summary>
         [JsonPropertyName("display_units")]
-        public string? DisplayUnits { get { return this.DisplayUnitsOption; } set { this.DisplayUnitsOption = new(value); } }
+        public string? DisplayUnits { get { return this.DisplayUnitsOption.Value; } set { this.DisplayUnitsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IconPath
@@ -218,7 +218,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconPath
         /// </summary>
         [JsonPropertyName("icon_path")]
-        public string? IconPath { get { return this.IconPathOption; } set { this.IconPathOption = new(value); } }
+        public string? IconPath { get { return this.IconPathOption.Value; } set { this.IconPathOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ScaleFunction
@@ -231,7 +231,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ScaleFunction
         /// </summary>
         [JsonPropertyName("scale_function")]
-        public RawItemPropertyScaleFunctionSubclassV2? ScaleFunction { get { return this.ScaleFunctionOption; } set { this.ScaleFunctionOption = new(value); } }
+        public RawItemPropertyScaleFunctionSubclassV2? ScaleFunction { get { return this.ScaleFunctionOption.Value; } set { this.ScaleFunctionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Prefix
@@ -244,7 +244,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Prefix
         /// </summary>
         [JsonPropertyName("prefix")]
-        public string? Prefix { get { return this.PrefixOption; } set { this.PrefixOption = new(value); } }
+        public string? Prefix { get { return this.PrefixOption.Value; } set { this.PrefixOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Label
@@ -257,7 +257,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Label
         /// </summary>
         [JsonPropertyName("label")]
-        public string? Label { get { return this.LabelOption; } set { this.LabelOption = new(value); } }
+        public string? Label { get { return this.LabelOption.Value; } set { this.LabelOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Postfix
@@ -270,7 +270,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Postfix
         /// </summary>
         [JsonPropertyName("postfix")]
-        public string? Postfix { get { return this.PostfixOption; } set { this.PostfixOption = new(value); } }
+        public string? Postfix { get { return this.PostfixOption.Value; } set { this.PostfixOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PostvalueLabel
@@ -283,7 +283,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PostvalueLabel
         /// </summary>
         [JsonPropertyName("postvalue_label")]
-        public string? PostvalueLabel { get { return this.PostvalueLabelOption; } set { this.PostvalueLabelOption = new(value); } }
+        public string? PostvalueLabel { get { return this.PostvalueLabelOption.Value; } set { this.PostvalueLabelOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Conditional
@@ -296,7 +296,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Conditional
         /// </summary>
         [JsonPropertyName("conditional")]
-        public string? Conditional { get { return this.ConditionalOption; } set { this.ConditionalOption = new(value); } }
+        public string? Conditional { get { return this.ConditionalOption.Value; } set { this.ConditionalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Icon
@@ -309,7 +309,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Icon
         /// </summary>
         [JsonPropertyName("icon")]
-        public string? Icon { get { return this.IconOption; } set { this.IconOption = new(value); } }
+        public string? Icon { get { return this.IconOption.Value; } set { this.IconOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

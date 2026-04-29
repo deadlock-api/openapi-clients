@@ -32,11 +32,11 @@ pub struct SteamInfoV1 {
     #[serde(rename = "version_time")]
     pub version_time: String,
     #[serde(rename = "version_datetime")]
-    pub version_datetime: String,
+    pub version_datetime: chrono::DateTime<chrono::FixedOffset>,
 }
 
 impl SteamInfoV1 {
-    pub fn new(client_version: i32, server_version: i32, product_name: String, app_id: i32, server_app_id: i32, tools_app_id: i32, source_revision: i32, version_date: String, version_time: String, version_datetime: String) -> SteamInfoV1 {
+    pub fn new(client_version: i32, server_version: i32, product_name: String, app_id: i32, server_app_id: i32, tools_app_id: i32, source_revision: i32, version_date: String, version_time: String, version_datetime: chrono::DateTime<chrono::FixedOffset>) -> SteamInfoV1 {
         SteamInfoV1 {
             client_version,
             server_version,

@@ -286,7 +286,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OutlineColorFriend
         /// </summary>
         [JsonPropertyName("outline_color_friend")]
-        public List<int>? OutlineColorFriend { get { return this.OutlineColorFriendOption; } set { this.OutlineColorFriendOption = new(value); } }
+        public List<int>? OutlineColorFriend { get { return this.OutlineColorFriendOption.Value; } set { this.OutlineColorFriendOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OutlineColorEnemy
@@ -299,7 +299,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OutlineColorEnemy
         /// </summary>
         [JsonPropertyName("outline_color_enemy")]
-        public List<int>? OutlineColorEnemy { get { return this.OutlineColorEnemyOption; } set { this.OutlineColorEnemyOption = new(value); } }
+        public List<int>? OutlineColorEnemy { get { return this.OutlineColorEnemyOption.Value; } set { this.OutlineColorEnemyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OutlineColorTeam1
@@ -312,7 +312,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OutlineColorTeam1
         /// </summary>
         [JsonPropertyName("outline_color_team1")]
-        public List<int>? OutlineColorTeam1 { get { return this.OutlineColorTeam1Option; } set { this.OutlineColorTeam1Option = new(value); } }
+        public List<int>? OutlineColorTeam1 { get { return this.OutlineColorTeam1Option.Value; } set { this.OutlineColorTeam1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of OutlineColorTeam2
@@ -325,7 +325,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OutlineColorTeam2
         /// </summary>
         [JsonPropertyName("outline_color_team2")]
-        public List<int>? OutlineColorTeam2 { get { return this.OutlineColorTeam2Option; } set { this.OutlineColorTeam2Option = new(value); } }
+        public List<int>? OutlineColorTeam2 { get { return this.OutlineColorTeam2Option.Value; } set { this.OutlineColorTeam2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of OutlineColorNeutral
@@ -338,7 +338,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets OutlineColorNeutral
         /// </summary>
         [JsonPropertyName("outline_color_neutral")]
-        public List<int>? OutlineColorNeutral { get { return this.OutlineColorNeutralOption; } set { this.OutlineColorNeutralOption = new(value); } }
+        public List<int>? OutlineColorNeutral { get { return this.OutlineColorNeutralOption.Value; } set { this.OutlineColorNeutralOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

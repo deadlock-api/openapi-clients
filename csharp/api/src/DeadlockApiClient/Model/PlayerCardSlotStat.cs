@@ -56,7 +56,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets StatId
         /// </summary>
         [JsonPropertyName("stat_id")]
-        public int? StatId { get { return this.StatIdOption; } set { this.StatIdOption = new(value); } }
+        public int? StatId { get { return this.StatIdOption.Value; } set { this.StatIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StatScore
@@ -69,7 +69,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets StatScore
         /// </summary>
         [JsonPropertyName("stat_score")]
-        public int? StatScore { get { return this.StatScoreOption; } set { this.StatScoreOption = new(value); } }
+        public int? StatScore { get { return this.StatScoreOption.Value; } set { this.StatScoreOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

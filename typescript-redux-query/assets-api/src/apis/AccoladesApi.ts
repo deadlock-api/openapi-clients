@@ -75,7 +75,7 @@ function getAccoladeByNameV2AccoladesByNameNameGetRaw<T>(requestParameters: GetA
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/accolades/by-name/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+        url: `${runtime.Configuration.basePath}/v2/accolades/by-name/{name}`.replace('{name}', encodeURIComponent(String(requestParameters.name))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -132,7 +132,7 @@ function getAccoladeV2AccoladesIdGetRaw<T>(requestParameters: GetAccoladeV2Accol
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v2/accolades/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+        url: `${runtime.Configuration.basePath}/v2/accolades/{id}`.replace('{id}', encodeURIComponent(String(requestParameters.id))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

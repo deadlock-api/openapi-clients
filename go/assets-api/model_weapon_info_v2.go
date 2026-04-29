@@ -84,13 +84,21 @@ type WeaponInfoV2 struct {
 	BulletSpeedCurve NullableRawItemWeaponInfoBulletSpeedCurveV2 `json:"bullet_speed_curve,omitempty"`
 	HorizontalRecoil NullableRawWeaponInfoHorizontalRecoilV2 `json:"horizontal_recoil,omitempty"`
 	VerticalRecoil NullableRawWeaponInfoVerticalRecoilV2 `json:"vertical_recoil,omitempty"`
+	// Calculates the shots per second of the weapon
 	ShotsPerSecond NullableFloat32 `json:"shots_per_second"`
+	// Calculates the shots per second of the weapon adjusted for reload time
 	ShotsPerSecondWithReload NullableFloat32 `json:"shots_per_second_with_reload"`
+	// Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.
 	BulletsPerSecond NullableFloat32 `json:"bullets_per_second"`
+	// Calculates the bullets per second of the weapon adjusted for reload time.
 	BulletsPerSecondWithReload NullableFloat32 `json:"bullets_per_second_with_reload"`
+	// Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.
 	DamagePerSecond NullableFloat32 `json:"damage_per_second"`
+	// Calculates the damage per second of the weapon adjusted for reload time.
 	DamagePerSecondWithReload NullableFloat32 `json:"damage_per_second_with_reload"`
+	// Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.
 	DamagePerShot NullableFloat32 `json:"damage_per_shot"`
+	// Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.
 	DamagePerMagazine NullableFloat32 `json:"damage_per_magazine"`
 }
 

@@ -60,7 +60,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Desc
         /// </summary>
         [JsonPropertyName("desc")]
-        public string? Desc { get { return this.DescOption; } set { this.DescOption = new(value); } }
+        public string? Desc { get { return this.DescOption.Value; } set { this.DescOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Desc2
@@ -73,7 +73,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Desc2
         /// </summary>
         [JsonPropertyName("desc2")]
-        public string? Desc2 { get { return this.Desc2Option; } set { this.Desc2Option = new(value); } }
+        public string? Desc2 { get { return this.Desc2Option.Value; } set { this.Desc2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of Active
@@ -86,7 +86,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Active
         /// </summary>
         [JsonPropertyName("active")]
-        public string? Active { get { return this.ActiveOption; } set { this.ActiveOption = new(value); } }
+        public string? Active { get { return this.ActiveOption.Value; } set { this.ActiveOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Passive
@@ -99,7 +99,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Passive
         /// </summary>
         [JsonPropertyName("passive")]
-        public string? Passive { get { return this.PassiveOption; } set { this.PassiveOption = new(value); } }
+        public string? Passive { get { return this.PassiveOption.Value; } set { this.PassiveOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -208,7 +208,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TechArmorDamageReduction
         /// </summary>
         [JsonPropertyName("tech_armor_damage_reduction")]
-        public HeroStartingStatV2? TechArmorDamageReduction { get { return this.TechArmorDamageReductionOption; } set { this.TechArmorDamageReductionOption = new(value); } }
+        public HeroStartingStatV2? TechArmorDamageReduction { get { return this.TechArmorDamageReductionOption.Value; } set { this.TechArmorDamageReductionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletArmorDamageReduction
@@ -221,7 +221,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BulletArmorDamageReduction
         /// </summary>
         [JsonPropertyName("bullet_armor_damage_reduction")]
-        public HeroStartingStatV2? BulletArmorDamageReduction { get { return this.BulletArmorDamageReductionOption; } set { this.BulletArmorDamageReductionOption = new(value); } }
+        public HeroStartingStatV2? BulletArmorDamageReduction { get { return this.BulletArmorDamageReductionOption.Value; } set { this.BulletArmorDamageReductionOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

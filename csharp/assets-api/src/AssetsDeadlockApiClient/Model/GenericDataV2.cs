@@ -184,7 +184,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MinimapTeamRebelsColor
         /// </summary>
         [JsonPropertyName("minimap_team_rebels_color")]
-        public ColorV1? MinimapTeamRebelsColor { get { return this.MinimapTeamRebelsColorOption; } set { this.MinimapTeamRebelsColorOption = new(value); } }
+        public ColorV1? MinimapTeamRebelsColor { get { return this.MinimapTeamRebelsColorOption.Value; } set { this.MinimapTeamRebelsColorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinimapTeamCombineColor
@@ -197,7 +197,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MinimapTeamCombineColor
         /// </summary>
         [JsonPropertyName("minimap_team_combine_color")]
-        public ColorV1? MinimapTeamCombineColor { get { return this.MinimapTeamCombineColorOption; } set { this.MinimapTeamCombineColorOption = new(value); } }
+        public ColorV1? MinimapTeamCombineColor { get { return this.MinimapTeamCombineColorOption.Value; } set { this.MinimapTeamCombineColorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EnemyObjectivesAndZiplineColor
@@ -210,7 +210,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EnemyObjectivesAndZiplineColor
         /// </summary>
         [JsonPropertyName("enemy_objectives_and_zipline_color")]
-        public ColorV1? EnemyObjectivesAndZiplineColor { get { return this.EnemyObjectivesAndZiplineColorOption; } set { this.EnemyObjectivesAndZiplineColorOption = new(value); } }
+        public ColorV1? EnemyObjectivesAndZiplineColor { get { return this.EnemyObjectivesAndZiplineColorOption.Value; } set { this.EnemyObjectivesAndZiplineColorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EnemyObjectivesColor
@@ -223,7 +223,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EnemyObjectivesColor
         /// </summary>
         [JsonPropertyName("enemy_objectives_color")]
-        public ColorV1? EnemyObjectivesColor { get { return this.EnemyObjectivesColorOption; } set { this.EnemyObjectivesColorOption = new(value); } }
+        public ColorV1? EnemyObjectivesColor { get { return this.EnemyObjectivesColorOption.Value; } set { this.EnemyObjectivesColorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EnemyZiplineColor
@@ -236,7 +236,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EnemyZiplineColor
         /// </summary>
         [JsonPropertyName("enemy_zipline_color")]
-        public ColorV1? EnemyZiplineColor { get { return this.EnemyZiplineColorOption; } set { this.EnemyZiplineColorOption = new(value); } }
+        public ColorV1? EnemyZiplineColor { get { return this.EnemyZiplineColorOption.Value; } set { this.EnemyZiplineColorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StreetBrawl
@@ -249,7 +249,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StreetBrawl
         /// </summary>
         [JsonPropertyName("street_brawl")]
-        public StreetBrawl? StreetBrawl { get { return this.StreetBrawlOption; } set { this.StreetBrawlOption = new(value); } }
+        public StreetBrawl? StreetBrawl { get { return this.StreetBrawlOption.Value; } set { this.StreetBrawlOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

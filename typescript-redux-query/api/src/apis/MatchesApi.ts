@@ -427,7 +427,7 @@ function metadataRaw<T>(requestParameters: MetadataRequest, requestConfig: runti
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/metadata`.replace(`{${"match_id"}}`, encodeURIComponent(String(requestParameters.matchId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/metadata`.replace('{match_id}', encodeURIComponent(String(requestParameters.matchId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -485,7 +485,7 @@ function metadataRawRaw<T>(requestParameters: MetadataRawRequest, requestConfig:
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/metadata/raw`.replace(`{${"match_id"}}`, encodeURIComponent(String(requestParameters.matchId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/metadata/raw`.replace('{match_id}', encodeURIComponent(String(requestParameters.matchId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -576,7 +576,7 @@ function saltsRaw<T>(requestParameters: SaltsRequest, requestConfig: runtime.Typ
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/salts`.replace(`{${"match_id"}}`, encodeURIComponent(String(requestParameters.matchId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/salts`.replace('{match_id}', encodeURIComponent(String(requestParameters.matchId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -624,7 +624,7 @@ function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQu
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/live/url`.replace(`{${"match_id"}}`, encodeURIComponent(String(requestParameters.matchId))),
+        url: `${runtime.Configuration.basePath}/v1/matches/{match_id}/live/url`.replace('{match_id}', encodeURIComponent(String(requestParameters.matchId))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

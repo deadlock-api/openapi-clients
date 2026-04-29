@@ -113,7 +113,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Optional game-mode version tag (e.g. \&quot;v2\&quot;, \&quot;season3\&quot;) for versioning leaderboards</value>
         [JsonPropertyName("game_mode_version")]
-        public string? GameModeVersion { get { return this.GameModeVersionOption; } set { this.GameModeVersionOption = new(value); } }
+        public string? GameModeVersion { get { return this.GameModeVersionOption.Value; } set { this.GameModeVersionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Map
@@ -127,7 +127,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Optional map identifier the metric was produced on</value>
         [JsonPropertyName("map")]
-        public string? Map { get { return this.MapOption; } set { this.MapOption = new(value); } }
+        public string? Map { get { return this.MapOption.Value; } set { this.MapOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Metadata
@@ -141,7 +141,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Free-form key/value metadata for game-mode-specific context</value>
         [JsonPropertyName("metadata")]
-        public Dictionary<string, string>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new(value); } }
+        public Dictionary<string, string>? Metadata { get { return this.MetadataOption.Value; } set { this.MetadataOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

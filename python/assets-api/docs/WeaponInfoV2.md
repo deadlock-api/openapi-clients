@@ -68,14 +68,14 @@ Name | Type | Description | Notes
 **bullet_speed_curve** | [**RawItemWeaponInfoBulletSpeedCurveV2**](RawItemWeaponInfoBulletSpeedCurveV2.md) |  | [optional] 
 **horizontal_recoil** | [**RawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] 
 **vertical_recoil** | [**RawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] 
-**shots_per_second** | **float** |  | [readonly] 
-**shots_per_second_with_reload** | **float** |  | [readonly] 
-**bullets_per_second** | **float** |  | [readonly] 
-**bullets_per_second_with_reload** | **float** |  | [readonly] 
-**damage_per_second** | **float** |  | [readonly] 
-**damage_per_second_with_reload** | **float** |  | [readonly] 
-**damage_per_shot** | **float** |  | [readonly] 
-**damage_per_magazine** | **float** |  | [readonly] 
+**shots_per_second** | **float** | Calculates the shots per second of the weapon | [readonly] 
+**shots_per_second_with_reload** | **float** | Calculates the shots per second of the weapon adjusted for reload time | [readonly] 
+**bullets_per_second** | **float** | Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot. | [readonly] 
+**bullets_per_second_with_reload** | **float** | Calculates the bullets per second of the weapon adjusted for reload time. | [readonly] 
+**damage_per_second** | **float** | Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage. | [readonly] 
+**damage_per_second_with_reload** | **float** | Calculates the damage per second of the weapon adjusted for reload time. | [readonly] 
+**damage_per_shot** | **float** | Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage. | [readonly] 
+**damage_per_magazine** | **float** | Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot. | [readonly] 
 
 ## Example
 

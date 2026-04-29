@@ -36,14 +36,14 @@ import java.io.Serializable
 /**
  * 
  *
- * @param shotsPerSecond 
- * @param shotsPerSecondWithReload 
- * @param bulletsPerSecond 
- * @param bulletsPerSecondWithReload 
- * @param damagePerSecond 
- * @param damagePerSecondWithReload 
- * @param damagePerShot 
- * @param damagePerMagazine 
+ * @param shotsPerSecond Calculates the shots per second of the weapon
+ * @param shotsPerSecondWithReload Calculates the shots per second of the weapon adjusted for reload time
+ * @param bulletsPerSecond Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.
+ * @param bulletsPerSecondWithReload Calculates the bullets per second of the weapon adjusted for reload time.
+ * @param damagePerSecond Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.
+ * @param damagePerSecondWithReload Calculates the damage per second of the weapon adjusted for reload time.
+ * @param damagePerShot Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.
+ * @param damagePerMagazine Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.
  * @param canZoom 
  * @param bulletDamage 
  * @param bulletGravityScale 
@@ -112,27 +112,35 @@ import java.io.Serializable
 
 data class WeaponInfoV2 (
 
+    /* Calculates the shots per second of the weapon */
     @Json(name = "shots_per_second")
     val shotsPerSecond: java.math.BigDecimal?,
 
+    /* Calculates the shots per second of the weapon adjusted for reload time */
     @Json(name = "shots_per_second_with_reload")
     val shotsPerSecondWithReload: java.math.BigDecimal?,
 
+    /* Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot. */
     @Json(name = "bullets_per_second")
     val bulletsPerSecond: java.math.BigDecimal?,
 
+    /* Calculates the bullets per second of the weapon adjusted for reload time. */
     @Json(name = "bullets_per_second_with_reload")
     val bulletsPerSecondWithReload: java.math.BigDecimal?,
 
+    /* Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage. */
     @Json(name = "damage_per_second")
     val damagePerSecond: java.math.BigDecimal?,
 
+    /* Calculates the damage per second of the weapon adjusted for reload time. */
     @Json(name = "damage_per_second_with_reload")
     val damagePerSecondWithReload: java.math.BigDecimal?,
 
+    /* Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage. */
     @Json(name = "damage_per_shot")
     val damagePerShot: java.math.BigDecimal?,
 
+    /* Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot. */
     @Json(name = "damage_per_magazine")
     val damagePerMagazine: java.math.BigDecimal?,
 

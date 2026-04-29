@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Detail
         /// </summary>
         [JsonPropertyName("detail")]
-        public List<ValidationError>? Detail { get { return this.DetailOption; } set { this.DetailOption = new(value); } }
+        public List<ValidationError>? Detail { get { return this.DetailOption.Value; } set { this.DetailOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

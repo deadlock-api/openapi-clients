@@ -60,7 +60,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Range
         /// </summary>
         [JsonPropertyName("range")]
-        public Range? Range { get { return this.RangeOption; } set { this.RangeOption = new(value); } }
+        public Range? Range { get { return this.RangeOption.Value; } set { this.RangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BurstExponent
@@ -73,7 +73,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BurstExponent
         /// </summary>
         [JsonPropertyName("burst_exponent")]
-        public decimal? BurstExponent { get { return this.BurstExponentOption; } set { this.BurstExponentOption = new(value); } }
+        public decimal? BurstExponent { get { return this.BurstExponentOption.Value; } set { this.BurstExponentOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BurstConstant
@@ -86,7 +86,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BurstConstant
         /// </summary>
         [JsonPropertyName("burst_constant")]
-        public decimal? BurstConstant { get { return this.BurstConstantOption; } set { this.BurstConstantOption = new(value); } }
+        public decimal? BurstConstant { get { return this.BurstConstantOption.Value; } set { this.BurstConstantOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BurstSlope
@@ -99,7 +99,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BurstSlope
         /// </summary>
         [JsonPropertyName("burst_slope")]
-        public decimal? BurstSlope { get { return this.BurstSlopeOption; } set { this.BurstSlopeOption = new(value); } }
+        public decimal? BurstSlope { get { return this.BurstSlopeOption.Value; } set { this.BurstSlopeOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

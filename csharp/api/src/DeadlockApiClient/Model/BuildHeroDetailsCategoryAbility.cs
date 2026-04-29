@@ -68,7 +68,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Annotation
         /// </summary>
         [JsonPropertyName("annotation")]
-        public string? Annotation { get { return this.AnnotationOption; } set { this.AnnotationOption = new(value); } }
+        public string? Annotation { get { return this.AnnotationOption.Value; } set { this.AnnotationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ImbueTargetAbilityId
@@ -81,7 +81,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ImbueTargetAbilityId
         /// </summary>
         [JsonPropertyName("imbue_target_ability_id")]
-        public int? ImbueTargetAbilityId { get { return this.ImbueTargetAbilityIdOption; } set { this.ImbueTargetAbilityIdOption = new(value); } }
+        public int? ImbueTargetAbilityId { get { return this.ImbueTargetAbilityIdOption.Value; } set { this.ImbueTargetAbilityIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RequiredFlexSlots
@@ -94,7 +94,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets RequiredFlexSlots
         /// </summary>
         [JsonPropertyName("required_flex_slots")]
-        public int? RequiredFlexSlots { get { return this.RequiredFlexSlotsOption; } set { this.RequiredFlexSlotsOption = new(value); } }
+        public int? RequiredFlexSlots { get { return this.RequiredFlexSlotsOption.Value; } set { this.RequiredFlexSlotsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SellPriority
@@ -107,7 +107,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets SellPriority
         /// </summary>
         [JsonPropertyName("sell_priority")]
-        public int? SellPriority { get { return this.SellPriorityOption; } set { this.SellPriorityOption = new(value); } }
+        public int? SellPriority { get { return this.SellPriorityOption.Value; } set { this.SellPriorityOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

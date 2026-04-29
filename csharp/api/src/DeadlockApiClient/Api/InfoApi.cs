@@ -287,7 +287,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/info/health"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/info/health");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/info/health");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -544,7 +544,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/info"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/info");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/info");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 

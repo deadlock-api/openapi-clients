@@ -1662,13 +1662,37 @@ export interface WeaponInfoV2 {
     'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;
     'horizontal_recoil'?: RawWeaponInfoHorizontalRecoilV2 | null;
     'vertical_recoil'?: RawWeaponInfoVerticalRecoilV2 | null;
+    /**
+     * Calculates the shots per second of the weapon
+     */
     'shots_per_second': number | null;
+    /**
+     * Calculates the shots per second of the weapon adjusted for reload time
+     */
     'shots_per_second_with_reload': number | null;
+    /**
+     * Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot.
+     */
     'bullets_per_second': number | null;
+    /**
+     * Calculates the bullets per second of the weapon adjusted for reload time.
+     */
     'bullets_per_second_with_reload': number | null;
+    /**
+     * Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage.
+     */
     'damage_per_second': number | null;
+    /**
+     * Calculates the damage per second of the weapon adjusted for reload time.
+     */
     'damage_per_second_with_reload': number | null;
+    /**
+     * Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage.
+     */
     'damage_per_shot': number | null;
+    /**
+     * Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot.
+     */
     'damage_per_magazine': number | null;
 }
 export interface WeaponV2 {
@@ -1734,7 +1758,7 @@ export const AccoladesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'name' is not null or undefined
             assertParamExists('getAccoladeByNameV2AccoladesByNameNameGet', 'name', name)
             const localVarPath = `/v2/accolades/by-name/{name}`
-                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+                .replace('{name}', encodeURIComponent(String(name)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1778,7 +1802,7 @@ export const AccoladesApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getAccoladeV2AccoladesIdGet', 'id', id)
             const localVarPath = `/v2/accolades/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3040,7 +3064,7 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
             // verify required parameter 'name' is not null or undefined
             assertParamExists('getHeroByNameV2HeroesByNameNameGet', 'name', name)
             const localVarPath = `/v2/heroes/by-name/{name}`
-                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+                .replace('{name}', encodeURIComponent(String(name)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3084,7 +3108,7 @@ export const HeroesApiAxiosParamCreator = function (configuration?: Configuratio
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getHeroV2HeroesIdGet', 'id', id)
             const localVarPath = `/v2/heroes/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3347,7 +3371,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'idOrClassName' is not null or undefined
             assertParamExists('getItemV2ItemsIdOrClassNameGet', 'idOrClassName', idOrClassName)
             const localVarPath = `/v2/items/{id_or_class_name}`
-                .replace(`{${"id_or_class_name"}}`, encodeURIComponent(String(idOrClassName)));
+                .replace('{id_or_class_name}', encodeURIComponent(String(idOrClassName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3391,7 +3415,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getItemsByHeroIdV2ItemsByHeroIdIdGet', 'id', id)
             const localVarPath = `/v2/items/by-hero-id/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3435,7 +3459,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'slotType' is not null or undefined
             assertParamExists('getItemsBySlotTypeV2ItemsBySlotTypeSlotTypeGet', 'slotType', slotType)
             const localVarPath = `/v2/items/by-slot-type/{slot_type}`
-                .replace(`{${"slot_type"}}`, encodeURIComponent(String(slotType)));
+                .replace('{slot_type}', encodeURIComponent(String(slotType)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3479,7 +3503,7 @@ export const ItemsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'type' is not null or undefined
             assertParamExists('getItemsByTypeV2ItemsByTypeTypeGet', 'type', type)
             const localVarPath = `/v2/items/by-type/{type}`
-                .replace(`{${"type"}}`, encodeURIComponent(String(type)));
+                .replace('{type}', encodeURIComponent(String(type)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3862,7 +3886,7 @@ export const MiscEntitiesApiAxiosParamCreator = function (configuration?: Config
             // verify required parameter 'idOrClassName' is not null or undefined
             assertParamExists('getMiscEntityV2MiscEntitiesIdOrClassNameGet', 'idOrClassName', idOrClassName)
             const localVarPath = `/v2/misc-entities/{id_or_class_name}`
-                .replace(`{${"id_or_class_name"}}`, encodeURIComponent(String(idOrClassName)));
+                .replace('{id_or_class_name}', encodeURIComponent(String(idOrClassName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4019,7 +4043,7 @@ export const NPCUnitsApiAxiosParamCreator = function (configuration?: Configurat
             // verify required parameter 'idOrClassName' is not null or undefined
             assertParamExists('getNpcUnitV2NpcUnitsIdOrClassNameGet', 'idOrClassName', idOrClassName)
             const localVarPath = `/v2/npc-units/{id_or_class_name}`
-                .replace(`{${"id_or_class_name"}}`, encodeURIComponent(String(idOrClassName)));
+                .replace('{id_or_class_name}', encodeURIComponent(String(idOrClassName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

@@ -67,14 +67,14 @@ Name | Type | Description | Notes
 **BulletSpeedCurve** | Pointer to [**NullableRawItemWeaponInfoBulletSpeedCurveV2**](RawItemWeaponInfoBulletSpeedCurveV2.md) |  | [optional] 
 **HorizontalRecoil** | Pointer to [**NullableRawWeaponInfoHorizontalRecoilV2**](RawWeaponInfoHorizontalRecoilV2.md) |  | [optional] 
 **VerticalRecoil** | Pointer to [**NullableRawWeaponInfoVerticalRecoilV2**](RawWeaponInfoVerticalRecoilV2.md) |  | [optional] 
-**ShotsPerSecond** | **NullableFloat32** |  | [readonly] 
-**ShotsPerSecondWithReload** | **NullableFloat32** |  | [readonly] 
-**BulletsPerSecond** | **NullableFloat32** |  | [readonly] 
-**BulletsPerSecondWithReload** | **NullableFloat32** |  | [readonly] 
-**DamagePerSecond** | **NullableFloat32** |  | [readonly] 
-**DamagePerSecondWithReload** | **NullableFloat32** |  | [readonly] 
-**DamagePerShot** | **NullableFloat32** |  | [readonly] 
-**DamagePerMagazine** | **NullableFloat32** |  | [readonly] 
+**ShotsPerSecond** | **NullableFloat32** | Calculates the shots per second of the weapon | [readonly] 
+**ShotsPerSecondWithReload** | **NullableFloat32** | Calculates the shots per second of the weapon adjusted for reload time | [readonly] 
+**BulletsPerSecond** | **NullableFloat32** | Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot. | [readonly] 
+**BulletsPerSecondWithReload** | **NullableFloat32** | Calculates the bullets per second of the weapon adjusted for reload time. | [readonly] 
+**DamagePerSecond** | **NullableFloat32** | Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage. | [readonly] 
+**DamagePerSecondWithReload** | **NullableFloat32** | Calculates the damage per second of the weapon adjusted for reload time. | [readonly] 
+**DamagePerShot** | **NullableFloat32** | Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage. | [readonly] 
+**DamagePerMagazine** | **NullableFloat32** | Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot. | [readonly] 
 
 ## Methods
 

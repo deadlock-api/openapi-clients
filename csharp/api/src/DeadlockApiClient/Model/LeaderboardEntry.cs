@@ -67,7 +67,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The account name of the player.</value>
         [JsonPropertyName("account_name")]
-        public string? AccountName { get { return this.AccountNameOption; } set { this.AccountNameOption = new(value); } }
+        public string? AccountName { get { return this.AccountNameOption.Value; } set { this.AccountNameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BadgeLevel
@@ -81,7 +81,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("badge_level")]
-        public int? BadgeLevel { get { return this.BadgeLevelOption; } set { this.BadgeLevelOption = new(value); } }
+        public int? BadgeLevel { get { return this.BadgeLevelOption.Value; } set { this.BadgeLevelOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PossibleAccountIds
@@ -95,7 +95,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</value>
         [JsonPropertyName("possible_account_ids")]
-        public List<int>? PossibleAccountIds { get { return this.PossibleAccountIdsOption; } set { this.PossibleAccountIdsOption = new(value); } }
+        public List<int>? PossibleAccountIds { get { return this.PossibleAccountIdsOption.Value; } set { this.PossibleAccountIdsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Rank
@@ -109,7 +109,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("rank")]
-        public int? Rank { get { return this.RankOption; } set { this.RankOption = new(value); } }
+        public int? Rank { get { return this.RankOption.Value; } set { this.RankOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankedRank
@@ -123,7 +123,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The ranked rank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("ranked_rank")]
-        public int? RankedRank { get { return this.RankedRankOption; } set { this.RankedRankOption = new(value); } }
+        public int? RankedRank { get { return this.RankedRankOption.Value; } set { this.RankedRankOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankedSubrank
@@ -137,7 +137,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The ranked subrank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
         [JsonPropertyName("ranked_subrank")]
-        public int? RankedSubrank { get { return this.RankedSubrankOption; } set { this.RankedSubrankOption = new(value); } }
+        public int? RankedSubrank { get { return this.RankedSubrankOption.Value; } set { this.RankedSubrankOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TopHeroIds
@@ -151,7 +151,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The top hero IDs of the player. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
         [JsonPropertyName("top_hero_ids")]
-        public List<int>? TopHeroIds { get { return this.TopHeroIdsOption; } set { this.TopHeroIdsOption = new(value); } }
+        public List<int>? TopHeroIds { get { return this.TopHeroIdsOption.Value; } set { this.TopHeroIdsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

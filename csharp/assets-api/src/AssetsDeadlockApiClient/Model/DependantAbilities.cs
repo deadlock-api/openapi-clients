@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Flags
         /// </summary>
         [JsonPropertyName("flags")]
-        public List<string>? Flags { get { return this.FlagsOption; } set { this.FlagsOption = new(value); } }
+        public List<string>? Flags { get { return this.FlagsOption.Value; } set { this.FlagsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

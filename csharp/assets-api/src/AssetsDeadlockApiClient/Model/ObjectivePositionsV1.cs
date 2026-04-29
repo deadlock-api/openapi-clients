@@ -188,7 +188,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Team0Tier22
         /// </summary>
         [JsonPropertyName("team0_tier2_2")]
-        public ObjectivePositionV1? Team0Tier22 { get { return this.Team0Tier22Option; } set { this.Team0Tier22Option = new(value); } }
+        public ObjectivePositionV1? Team0Tier22 { get { return this.Team0Tier22Option.Value; } set { this.Team0Tier22Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of Team1Tier22
@@ -201,7 +201,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Team1Tier22
         /// </summary>
         [JsonPropertyName("team1_tier2_2")]
-        public ObjectivePositionV1? Team1Tier22 { get { return this.Team1Tier22Option; } set { this.Team1Tier22Option = new(value); } }
+        public ObjectivePositionV1? Team1Tier22 { get { return this.Team1Tier22Option.Value; } set { this.Team1Tier22Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of Team0Tier12
@@ -214,7 +214,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Team0Tier12
         /// </summary>
         [JsonPropertyName("team0_tier1_2")]
-        public ObjectivePositionV1? Team0Tier12 { get { return this.Team0Tier12Option; } set { this.Team0Tier12Option = new(value); } }
+        public ObjectivePositionV1? Team0Tier12 { get { return this.Team0Tier12Option.Value; } set { this.Team0Tier12Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of Team1Tier12
@@ -227,7 +227,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Team1Tier12
         /// </summary>
         [JsonPropertyName("team1_tier1_2")]
-        public ObjectivePositionV1? Team1Tier12 { get { return this.Team1Tier12Option; } set { this.Team1Tier12Option = new(value); } }
+        public ObjectivePositionV1? Team1Tier12 { get { return this.Team1Tier12Option.Value; } set { this.Team1Tier12Option = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

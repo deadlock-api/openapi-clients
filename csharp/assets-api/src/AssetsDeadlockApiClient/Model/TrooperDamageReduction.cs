@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets DamageReductionForTroopers
         /// </summary>
         [JsonPropertyName("damage_reduction_for_troopers")]
-        public decimal? DamageReductionForTroopers { get { return this.DamageReductionForTroopersOption; } set { this.DamageReductionForTroopersOption = new(value); } }
+        public decimal? DamageReductionForTroopers { get { return this.DamageReductionForTroopersOption.Value; } set { this.DamageReductionForTroopersOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -70,7 +70,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LaneIndex
         /// </summary>
         [JsonPropertyName("lane_index")]
-        public int? LaneIndex { get { return this.LaneIndexOption; } set { this.LaneIndexOption = new(value); } }
+        public int? LaneIndex { get { return this.LaneIndexOption.Value; } set { this.LaneIndexOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

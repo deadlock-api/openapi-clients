@@ -315,7 +315,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/npc-units/{id_or_class_name}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/npc-units/{id_or_class_name}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/npc-units/{id_or_class_name}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid_or_class_name%7D", Uri.EscapeDataString(idOrClassName.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -589,7 +589,7 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v2/npc-units"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v2/npc-units");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v2/npc-units");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 

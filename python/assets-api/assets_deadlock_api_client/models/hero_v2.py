@@ -268,14 +268,12 @@ class HeroV2(BaseModel):
             "physics": HeroPhysicsV2.from_dict(obj["physics"]) if obj.get("physics") is not None else None,
             "colors": HeroColorsV2.from_dict(obj["colors"]) if obj.get("colors") is not None else None,
             "shop_stat_display": HeroShopStatDisplayV2.from_dict(obj["shop_stat_display"]) if obj.get("shop_stat_display") is not None else None,
-            "cost_bonuses": dict(
-                (_k,
-                        [RawHeroMapModCostBonusesV2.from_dict(_item) for _item in _v]
-                        if _v is not None
-                        else None
-                )
-                for _k, _v in obj.get("cost_bonuses", {}).items()
-            ),
+            "cost_bonuses": {
+                _k: [RawHeroMapModCostBonusesV2.from_dict(_item) for _item in _v] if _v is not None else None
+                for _k, _v in obj["cost_bonuses"].items()
+            }
+            if obj.get("cost_bonuses") is not None
+            else None,
             "stats_display": RawHeroStatsDisplayV2.from_dict(obj["stats_display"]) if obj.get("stats_display") is not None else None,
             "hero_stats_ui": RawHeroStatsUIV2.from_dict(obj["hero_stats_ui"]) if obj.get("hero_stats_ui") is not None else None,
             "level_info": dict(
@@ -290,14 +288,12 @@ class HeroV2(BaseModel):
             )
             if obj.get("scaling_stats") is not None
             else None,
-            "purchase_bonuses": dict(
-                (_k,
-                        [RawHeroPurchaseBonusV2.from_dict(_item) for _item in _v]
-                        if _v is not None
-                        else None
-                )
-                for _k, _v in obj.get("purchase_bonuses", {}).items()
-            ),
+            "purchase_bonuses": {
+                _k: [RawHeroPurchaseBonusV2.from_dict(_item) for _item in _v] if _v is not None else None
+                for _k, _v in obj["purchase_bonuses"].items()
+            }
+            if obj.get("purchase_bonuses") is not None
+            else None,
             "standard_level_up_upgrades": obj.get("standard_level_up_upgrades"),
             "item_draft_bucketing": dict(
                 (_k, HeroV2ItemDraftBucketingValue.from_dict(_v))

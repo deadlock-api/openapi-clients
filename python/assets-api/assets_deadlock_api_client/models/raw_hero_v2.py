@@ -338,14 +338,12 @@ class RawHeroV2(BaseModel):
             "hideout_rich_presence": obj.get("hideout_rich_presence"),
             "hero_type": obj.get("hero_type"),
             "shop_stat_display": RawHeroShopStatDisplayV2.from_dict(obj["shop_stat_display"]) if obj.get("shop_stat_display") is not None else None,
-            "cost_bonuses": dict(
-                (_k,
-                        [RawHeroMapModCostBonusesV2.from_dict(_item) for _item in _v]
-                        if _v is not None
-                        else None
-                )
-                for _k, _v in obj.get("cost_bonuses", {}).items()
-            ),
+            "cost_bonuses": {
+                _k: [RawHeroMapModCostBonusesV2.from_dict(_item) for _item in _v] if _v is not None else None
+                for _k, _v in obj["cost_bonuses"].items()
+            }
+            if obj.get("cost_bonuses") is not None
+            else None,
             "color_ui": obj.get("color_ui"),
             "collision_height": obj.get("collision_height"),
             "collision_radius": obj.get("collision_radius"),
@@ -369,14 +367,12 @@ class RawHeroV2(BaseModel):
             )
             if obj.get("level_info") is not None
             else None,
-            "purchase_bonuses": dict(
-                (_k,
-                        [RawHeroPurchaseBonusV2.from_dict(_item) for _item in _v]
-                        if _v is not None
-                        else None
-                )
-                for _k, _v in obj.get("purchase_bonuses", {}).items()
-            ),
+            "purchase_bonuses": {
+                _k: [RawHeroPurchaseBonusV2.from_dict(_item) for _item in _v] if _v is not None else None
+                for _k, _v in obj["purchase_bonuses"].items()
+            }
+            if obj.get("purchase_bonuses") is not None
+            else None,
             "scaling_stats": dict(
                 (_k, RawHeroScalingStatV2.from_dict(_v))
                 for _k, _v in obj["scaling_stats"].items()

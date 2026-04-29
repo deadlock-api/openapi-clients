@@ -70,7 +70,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ClusterId
         /// </summary>
         [JsonPropertyName("cluster_id")]
-        public int? ClusterId { get { return this.ClusterIdOption; } set { this.ClusterIdOption = new(value); } }
+        public int? ClusterId { get { return this.ClusterIdOption.Value; } set { this.ClusterIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DemoUrl
@@ -83,7 +83,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets DemoUrl
         /// </summary>
         [JsonPropertyName("demo_url")]
-        public string? DemoUrl { get { return this.DemoUrlOption; } set { this.DemoUrlOption = new(value); } }
+        public string? DemoUrl { get { return this.DemoUrlOption.Value; } set { this.DemoUrlOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MetadataSalt
@@ -96,7 +96,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MetadataSalt
         /// </summary>
         [JsonPropertyName("metadata_salt")]
-        public int? MetadataSalt { get { return this.MetadataSaltOption; } set { this.MetadataSaltOption = new(value); } }
+        public int? MetadataSalt { get { return this.MetadataSaltOption.Value; } set { this.MetadataSaltOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MetadataUrl
@@ -109,7 +109,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MetadataUrl
         /// </summary>
         [JsonPropertyName("metadata_url")]
-        public string? MetadataUrl { get { return this.MetadataUrlOption; } set { this.MetadataUrlOption = new(value); } }
+        public string? MetadataUrl { get { return this.MetadataUrlOption.Value; } set { this.MetadataUrlOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReplaySalt
@@ -122,7 +122,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ReplaySalt
         /// </summary>
         [JsonPropertyName("replay_salt")]
-        public int? ReplaySalt { get { return this.ReplaySaltOption; } set { this.ReplaySaltOption = new(value); } }
+        public int? ReplaySalt { get { return this.ReplaySaltOption.Value; } set { this.ReplaySaltOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

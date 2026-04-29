@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -92,7 +92,7 @@ namespace DeadlockApiClient.Api
         ///  Player Hero MMR Distribution 
         /// </remarks>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -162,7 +162,7 @@ namespace DeadlockApiClient.Api
         ///  Player MMR Distribution 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -181,7 +181,7 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         ///  Player MMR Distribution 
         /// </remarks>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -648,7 +648,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/mmr/{hero_id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/mmr/{hero_id}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/mmr/{hero_id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bhero_id%7D", Uri.EscapeDataString(heroId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -898,7 +898,7 @@ namespace DeadlockApiClient.Api
         /// Hero MMR Distribution  Player Hero MMR Distribution 
         /// </summary>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -926,7 +926,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -952,7 +952,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/mmr/distribution/{hero_id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/mmr/distribution/{hero_id}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/mmr/distribution/{hero_id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bhero_id%7D", Uri.EscapeDataString(heroId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1230,7 +1230,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/mmr-history/{hero_id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/mmr-history/{hero_id}");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/mmr-history/{hero_id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bhero_id%7D", Uri.EscapeDataString(heroId.ToString()));
 
@@ -1491,7 +1491,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/mmr"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/mmr");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/mmr");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1735,7 +1735,7 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// MMR Distribution  Player MMR Distribution 
         /// </summary>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1762,7 +1762,7 @@ namespace DeadlockApiClient.Api
         /// MMR Distribution  Player MMR Distribution 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774656000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1774742400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1788,7 +1788,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/mmr/distribution"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/mmr/distribution");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/mmr/distribution");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2059,7 +2059,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/players/{account_id}/mmr-history"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/players/{account_id}/mmr-history");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/mmr-history");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;

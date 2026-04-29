@@ -438,7 +438,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/servers/metrics"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/servers/metrics");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/servers/metrics");
 
                     httpRequestMessageLocalVar.Content = (metricIngestRequest as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -640,7 +640,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/servers"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/servers");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/servers");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -881,7 +881,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/servers/status"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/servers/status");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/servers/status");
 
                     httpRequestMessageLocalVar.Content = (serverStatusRequest as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -1124,7 +1124,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/servers/steam"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/servers/steam");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/servers/steam");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 

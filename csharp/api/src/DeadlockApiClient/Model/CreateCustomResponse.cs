@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>If a callback url is provided, this is the secret that should be used to verify the callback. The secret is a base64 encoded random string. To verify it you should compare it with the X-Callback-Secret header. If no callback url is provided, this will be None.</value>
         [JsonPropertyName("callback_secret")]
-        public string? CallbackSecret { get { return this.CallbackSecretOption; } set { this.CallbackSecretOption = new(value); } }
+        public string? CallbackSecret { get { return this.CallbackSecretOption.Value; } set { this.CallbackSecretOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

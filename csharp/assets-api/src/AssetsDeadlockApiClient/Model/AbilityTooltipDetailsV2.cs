@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets InfoSections
         /// </summary>
         [JsonPropertyName("info_sections")]
-        public List<AbilityTooltipDetailsInfoSectionV2>? InfoSections { get { return this.InfoSectionsOption; } set { this.InfoSectionsOption = new(value); } }
+        public List<AbilityTooltipDetailsInfoSectionV2>? InfoSections { get { return this.InfoSectionsOption.Value; } set { this.InfoSectionsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AdditionalHeaderProperties
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AdditionalHeaderProperties
         /// </summary>
         [JsonPropertyName("additional_header_properties")]
-        public List<string>? AdditionalHeaderProperties { get { return this.AdditionalHeaderPropertiesOption; } set { this.AdditionalHeaderPropertiesOption = new(value); } }
+        public List<string>? AdditionalHeaderProperties { get { return this.AdditionalHeaderPropertiesOption.Value; } set { this.AdditionalHeaderPropertiesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -72,7 +72,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ScaleStatFilter
         /// </summary>
         [JsonPropertyName("scale_stat_filter")]
-        public string? ScaleStatFilter { get { return this.ScaleStatFilterOption; } set { this.ScaleStatFilterOption = new(value); } }
+        public string? ScaleStatFilter { get { return this.ScaleStatFilterOption.Value; } set { this.ScaleStatFilterOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UpgradeType
@@ -85,7 +85,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets UpgradeType
         /// </summary>
         [JsonPropertyName("upgrade_type")]
-        public string? UpgradeType { get { return this.UpgradeTypeOption; } set { this.UpgradeTypeOption = new(value); } }
+        public string? UpgradeType { get { return this.UpgradeTypeOption.Value; } set { this.UpgradeTypeOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

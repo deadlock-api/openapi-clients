@@ -58,7 +58,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Name
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get { return this.NameOption; } set { this.NameOption = new(value); } }
+        public string? Name { get { return this.NameOption.Value; } set { this.NameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Icon
@@ -71,7 +71,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Icon
         /// </summary>
         [JsonPropertyName("icon")]
-        public string? Icon { get { return this.IconOption; } set { this.IconOption = new(value); } }
+        public string? Icon { get { return this.IconOption.Value; } set { this.IconOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LocalizedName
@@ -84,7 +84,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LocalizedName
         /// </summary>
         [JsonPropertyName("localized_name")]
-        public string? LocalizedName { get { return this.LocalizedNameOption; } set { this.LocalizedNameOption = new(value); } }
+        public string? LocalizedName { get { return this.LocalizedNameOption.Value; } set { this.LocalizedNameOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

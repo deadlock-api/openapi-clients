@@ -60,7 +60,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PropertyUpgradeRequired
         /// </summary>
         [JsonPropertyName("property_upgrade_required")]
-        public string? PropertyUpgradeRequired { get { return this.PropertyUpgradeRequiredOption; } set { this.PropertyUpgradeRequiredOption = new(value); } }
+        public string? PropertyUpgradeRequired { get { return this.PropertyUpgradeRequiredOption.Value; } set { this.PropertyUpgradeRequiredOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LocString
@@ -73,7 +73,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LocString
         /// </summary>
         [JsonPropertyName("loc_string")]
-        public string? LocString { get { return this.LocStringOption; } set { this.LocStringOption = new(value); } }
+        public string? LocString { get { return this.LocStringOption.Value; } set { this.LocStringOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PropertiesBlock
@@ -86,7 +86,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PropertiesBlock
         /// </summary>
         [JsonPropertyName("properties_block")]
-        public List<RawAbilityV2TooltipDetailsInfoSectionPropertyBlock>? PropertiesBlock { get { return this.PropertiesBlockOption; } set { this.PropertiesBlockOption = new(value); } }
+        public List<RawAbilityV2TooltipDetailsInfoSectionPropertyBlock>? PropertiesBlock { get { return this.PropertiesBlockOption.Value; } set { this.PropertiesBlockOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BasicProperties
@@ -99,7 +99,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BasicProperties
         /// </summary>
         [JsonPropertyName("basic_properties")]
-        public List<string>? BasicProperties { get { return this.BasicPropertiesOption; } set { this.BasicPropertiesOption = new(value); } }
+        public List<string>? BasicProperties { get { return this.BasicPropertiesOption.Value; } set { this.BasicPropertiesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -54,7 +54,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets CurrencyChanges
         /// </summary>
         [JsonPropertyName("currency_changes")]
-        public List<BuildHeroDetailsAbilityOrderCurrencyChange>? CurrencyChanges { get { return this.CurrencyChangesOption; } set { this.CurrencyChangesOption = new(value); } }
+        public List<BuildHeroDetailsAbilityOrderCurrencyChange>? CurrencyChanges { get { return this.CurrencyChangesOption.Value; } set { this.CurrencyChangesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

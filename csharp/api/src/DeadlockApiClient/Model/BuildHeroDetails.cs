@@ -62,7 +62,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AbilityOrder
         /// </summary>
         [JsonPropertyName("ability_order")]
-        public BuildHeroDetailsAbilityOrder? AbilityOrder { get { return this.AbilityOrderOption; } set { this.AbilityOrderOption = new(value); } }
+        public BuildHeroDetailsAbilityOrder? AbilityOrder { get { return this.AbilityOrderOption.Value; } set { this.AbilityOrderOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

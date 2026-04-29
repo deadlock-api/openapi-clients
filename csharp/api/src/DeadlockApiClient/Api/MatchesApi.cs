@@ -815,7 +815,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/active"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/active");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/active");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1055,7 +1055,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/active/raw"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/active/raw");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/active/raw");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -1498,7 +1498,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/metadata"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/metadata");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/metadata");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1853,7 +1853,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/{match_id}/metadata"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/{match_id}/metadata");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/{match_id}/metadata");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bmatch_id%7D", Uri.EscapeDataString(matchId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -2087,7 +2087,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/{match_id}/metadata/raw"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/{match_id}/metadata/raw");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/{match_id}/metadata/raw");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bmatch_id%7D", Uri.EscapeDataString(matchId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -2340,7 +2340,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/recently-fetched"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/recently-fetched");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/recently-fetched");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -2574,7 +2574,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/{match_id}/salts"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/{match_id}/salts");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/{match_id}/salts");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bmatch_id%7D", Uri.EscapeDataString(matchId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -2821,7 +2821,7 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/matches/{match_id}/live/url"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/v1/matches/{match_id}/live/url");
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/{match_id}/live/url");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bmatch_id%7D", Uri.EscapeDataString(matchId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;

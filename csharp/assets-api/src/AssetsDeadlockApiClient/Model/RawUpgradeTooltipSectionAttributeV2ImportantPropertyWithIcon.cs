@@ -56,7 +56,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Name
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get { return this.NameOption; } set { this.NameOption = new(value); } }
+        public string? Name { get { return this.NameOption.Value; } set { this.NameOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IconPath
@@ -69,7 +69,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IconPath
         /// </summary>
         [JsonPropertyName("icon_path")]
-        public string? IconPath { get { return this.IconPathOption; } set { this.IconPathOption = new(value); } }
+        public string? IconPath { get { return this.IconPathOption.Value; } set { this.IconPathOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

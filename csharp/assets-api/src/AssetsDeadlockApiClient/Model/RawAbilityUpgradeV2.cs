@@ -54,7 +54,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PropertyUpgrades
         /// </summary>
         [JsonPropertyName("property_upgrades")]
-        public List<RawAbilityUpgradePropertyUpgradeV2>? PropertyUpgrades { get { return this.PropertyUpgradesOption; } set { this.PropertyUpgradesOption = new(value); } }
+        public List<RawAbilityUpgradePropertyUpgradeV2>? PropertyUpgrades { get { return this.PropertyUpgradesOption.Value; } set { this.PropertyUpgradesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

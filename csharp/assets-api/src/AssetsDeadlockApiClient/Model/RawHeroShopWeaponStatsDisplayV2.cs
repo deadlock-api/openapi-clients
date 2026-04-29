@@ -72,7 +72,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WeaponAttributes
         /// </summary>
         [JsonPropertyName("weapon_attributes")]
-        public string? WeaponAttributes { get { return this.WeaponAttributesOption; } set { this.WeaponAttributesOption = new(value); } }
+        public string? WeaponAttributes { get { return this.WeaponAttributesOption.Value; } set { this.WeaponAttributesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WeaponImage
@@ -85,7 +85,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WeaponImage
         /// </summary>
         [JsonPropertyName("weapon_image")]
-        public string? WeaponImage { get { return this.WeaponImageOption; } set { this.WeaponImageOption = new(value); } }
+        public string? WeaponImage { get { return this.WeaponImageOption.Value; } set { this.WeaponImageOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

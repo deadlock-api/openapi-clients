@@ -78,7 +78,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Annotation
         /// </summary>
         [JsonPropertyName("annotation")]
-        public string? Annotation { get { return this.AnnotationOption; } set { this.AnnotationOption = new(value); } }
+        public string? Annotation { get { return this.AnnotationOption.Value; } set { this.AnnotationOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

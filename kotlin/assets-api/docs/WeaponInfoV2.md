@@ -4,14 +4,14 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **shotsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
-| **shotsPerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
-| **bulletsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
-| **bulletsPerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
-| **damagePerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
-| **damagePerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
-| **damagePerShot** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
-| **damagePerMagazine** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [readonly] |
+| **shotsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the shots per second of the weapon |  [readonly] |
+| **shotsPerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the shots per second of the weapon adjusted for reload time |  [readonly] |
+| **bulletsPerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the bullets per second of the weapon, by multiplying shots per second by bullets per shot. |  [readonly] |
+| **bulletsPerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the bullets per second of the weapon adjusted for reload time. |  [readonly] |
+| **damagePerSecond** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the damage per second of the weapon, by multiplying bullets per second by bullet damage. |  [readonly] |
+| **damagePerSecondWithReload** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the damage per second of the weapon adjusted for reload time. |  [readonly] |
+| **damagePerShot** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the damage per shot of the weapon, by multiplying bullets per shot by bullet damage. |  [readonly] |
+| **damagePerMagazine** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculates the damage per magazine of the weapon, by multiplying clip size by damage per shot. |  [readonly] |
 | **canZoom** | **kotlin.Boolean** |  |  [optional] |
 | **bulletDamage** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |
 | **bulletGravityScale** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  [optional] |

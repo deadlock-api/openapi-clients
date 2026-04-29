@@ -196,7 +196,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WeaponInfo
         /// </summary>
         [JsonPropertyName("weapon_info")]
-        public WeaponInfoV2? WeaponInfo { get { return this.WeaponInfoOption; } set { this.WeaponInfoOption = new(value); } }
+        public WeaponInfoV2? WeaponInfo { get { return this.WeaponInfoOption.Value; } set { this.WeaponInfoOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MaxHealth
@@ -209,7 +209,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MaxHealth
         /// </summary>
         [JsonPropertyName("max_health")]
-        public int? MaxHealth { get { return this.MaxHealthOption; } set { this.MaxHealthOption = new(value); } }
+        public int? MaxHealth { get { return this.MaxHealthOption.Value; } set { this.MaxHealthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Phase2Health
@@ -222,7 +222,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Phase2Health
         /// </summary>
         [JsonPropertyName("phase2_health")]
-        public int? Phase2Health { get { return this.Phase2HealthOption; } set { this.Phase2HealthOption = new(value); } }
+        public int? Phase2Health { get { return this.Phase2HealthOption.Value; } set { this.Phase2HealthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BoundAbilities
@@ -235,7 +235,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BoundAbilities
         /// </summary>
         [JsonPropertyName("bound_abilities")]
-        public Dictionary<string, string>? BoundAbilities { get { return this.BoundAbilitiesOption; } set { this.BoundAbilitiesOption = new(value); } }
+        public Dictionary<string, string>? BoundAbilities { get { return this.BoundAbilitiesOption.Value; } set { this.BoundAbilitiesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MaxHealthFinal
@@ -248,7 +248,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MaxHealthFinal
         /// </summary>
         [JsonPropertyName("max_health_final")]
-        public int? MaxHealthFinal { get { return this.MaxHealthFinalOption; } set { this.MaxHealthFinalOption = new(value); } }
+        public int? MaxHealthFinal { get { return this.MaxHealthFinalOption.Value; } set { this.MaxHealthFinalOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MaxHealthGenerator
@@ -261,7 +261,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MaxHealthGenerator
         /// </summary>
         [JsonPropertyName("max_health_generator")]
-        public int? MaxHealthGenerator { get { return this.MaxHealthGeneratorOption; } set { this.MaxHealthGeneratorOption = new(value); } }
+        public int? MaxHealthGenerator { get { return this.MaxHealthGeneratorOption.Value; } set { this.MaxHealthGeneratorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EnemyTrooperProtectionRange
@@ -274,7 +274,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EnemyTrooperProtectionRange
         /// </summary>
         [JsonPropertyName("enemy_trooper_protection_range")]
-        public decimal? EnemyTrooperProtectionRange { get { return this.EnemyTrooperProtectionRangeOption; } set { this.EnemyTrooperProtectionRangeOption = new(value); } }
+        public decimal? EnemyTrooperProtectionRange { get { return this.EnemyTrooperProtectionRangeOption.Value; } set { this.EnemyTrooperProtectionRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EmpoweredModifierLevel1
@@ -287,7 +287,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EmpoweredModifierLevel1
         /// </summary>
         [JsonPropertyName("empowered_modifier_level1")]
-        public SubclassEmpoweredModifierLevel? EmpoweredModifierLevel1 { get { return this.EmpoweredModifierLevel1Option; } set { this.EmpoweredModifierLevel1Option = new(value); } }
+        public SubclassEmpoweredModifierLevel? EmpoweredModifierLevel1 { get { return this.EmpoweredModifierLevel1Option.Value; } set { this.EmpoweredModifierLevel1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EmpoweredModifierLevel2
@@ -300,7 +300,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EmpoweredModifierLevel2
         /// </summary>
         [JsonPropertyName("empowered_modifier_level2")]
-        public SubclassEmpoweredModifierLevel? EmpoweredModifierLevel2 { get { return this.EmpoweredModifierLevel2Option; } set { this.EmpoweredModifierLevel2Option = new(value); } }
+        public SubclassEmpoweredModifierLevel? EmpoweredModifierLevel2 { get { return this.EmpoweredModifierLevel2Option.Value; } set { this.EmpoweredModifierLevel2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of BackdoorBulletResistModifier
@@ -313,7 +313,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BackdoorBulletResistModifier
         /// </summary>
         [JsonPropertyName("backdoor_bullet_resist_modifier")]
-        public SubclassBulletResistModifier? BackdoorBulletResistModifier { get { return this.BackdoorBulletResistModifierOption; } set { this.BackdoorBulletResistModifierOption = new(value); } }
+        public SubclassBulletResistModifier? BackdoorBulletResistModifier { get { return this.BackdoorBulletResistModifierOption.Value; } set { this.BackdoorBulletResistModifierOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectiveRegen
@@ -326,7 +326,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ObjectiveRegen
         /// </summary>
         [JsonPropertyName("objective_regen")]
-        public SubclassObjectiveRegen? ObjectiveRegen { get { return this.ObjectiveRegenOption; } set { this.ObjectiveRegenOption = new(value); } }
+        public SubclassObjectiveRegen? ObjectiveRegen { get { return this.ObjectiveRegenOption.Value; } set { this.ObjectiveRegenOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectiveHealthGrowthPhase1
@@ -339,7 +339,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ObjectiveHealthGrowthPhase1
         /// </summary>
         [JsonPropertyName("objective_health_growth_phase1")]
-        public SubclassObjectiveHealthGrowthPhase? ObjectiveHealthGrowthPhase1 { get { return this.ObjectiveHealthGrowthPhase1Option; } set { this.ObjectiveHealthGrowthPhase1Option = new(value); } }
+        public SubclassObjectiveHealthGrowthPhase? ObjectiveHealthGrowthPhase1 { get { return this.ObjectiveHealthGrowthPhase1Option.Value; } set { this.ObjectiveHealthGrowthPhase1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectiveHealthGrowthPhase2
@@ -352,7 +352,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets ObjectiveHealthGrowthPhase2
         /// </summary>
         [JsonPropertyName("objective_health_growth_phase2")]
-        public SubclassObjectiveHealthGrowthPhase? ObjectiveHealthGrowthPhase2 { get { return this.ObjectiveHealthGrowthPhase2Option; } set { this.ObjectiveHealthGrowthPhase2Option = new(value); } }
+        public SubclassObjectiveHealthGrowthPhase? ObjectiveHealthGrowthPhase2 { get { return this.ObjectiveHealthGrowthPhase2Option.Value; } set { this.ObjectiveHealthGrowthPhase2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of EnemyTrooperDamageReduction
@@ -365,7 +365,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets EnemyTrooperDamageReduction
         /// </summary>
         [JsonPropertyName("enemy_trooper_damage_reduction")]
-        public SubclassTrooperDamageReduction? EnemyTrooperDamageReduction { get { return this.EnemyTrooperDamageReductionOption; } set { this.EnemyTrooperDamageReductionOption = new(value); } }
+        public SubclassTrooperDamageReduction? EnemyTrooperDamageReduction { get { return this.EnemyTrooperDamageReductionOption.Value; } set { this.EnemyTrooperDamageReductionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RangedArmorModifier
@@ -378,7 +378,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RangedArmorModifier
         /// </summary>
         [JsonPropertyName("ranged_armor_modifier")]
-        public SubclassRangedArmorModifier? RangedArmorModifier { get { return this.RangedArmorModifierOption; } set { this.RangedArmorModifierOption = new(value); } }
+        public SubclassRangedArmorModifier? RangedArmorModifier { get { return this.RangedArmorModifierOption.Value; } set { this.RangedArmorModifierOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of IntrinsicModifiers
@@ -391,7 +391,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets IntrinsicModifiers
         /// </summary>
         [JsonPropertyName("intrinsic_modifiers")]
-        public List<SubclassIntrinsicModifiers>? IntrinsicModifiers { get { return this.IntrinsicModifiersOption; } set { this.IntrinsicModifiersOption = new(value); } }
+        public List<SubclassIntrinsicModifiers>? IntrinsicModifiers { get { return this.IntrinsicModifiersOption.Value; } set { this.IntrinsicModifiersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SightRangePlayers
@@ -404,7 +404,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SightRangePlayers
         /// </summary>
         [JsonPropertyName("sight_range_players")]
-        public decimal? SightRangePlayers { get { return this.SightRangePlayersOption; } set { this.SightRangePlayersOption = new(value); } }
+        public decimal? SightRangePlayers { get { return this.SightRangePlayersOption.Value; } set { this.SightRangePlayersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SightRangeNpcs
@@ -417,7 +417,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SightRangeNpcs
         /// </summary>
         [JsonPropertyName("sight_range_npcs")]
-        public decimal? SightRangeNpcs { get { return this.SightRangeNpcsOption; } set { this.SightRangeNpcsOption = new(value); } }
+        public decimal? SightRangeNpcs { get { return this.SightRangeNpcsOption.Value; } set { this.SightRangeNpcsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GoldReward
@@ -430,7 +430,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GoldReward
         /// </summary>
         [JsonPropertyName("gold_reward")]
-        public decimal? GoldReward { get { return this.GoldRewardOption; } set { this.GoldRewardOption = new(value); } }
+        public decimal? GoldReward { get { return this.GoldRewardOption.Value; } set { this.GoldRewardOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GoldRewardBonusPercentPerMinute
@@ -443,7 +443,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GoldRewardBonusPercentPerMinute
         /// </summary>
         [JsonPropertyName("gold_reward_bonus_percent_per_minute")]
-        public decimal? GoldRewardBonusPercentPerMinute { get { return this.GoldRewardBonusPercentPerMinuteOption; } set { this.GoldRewardBonusPercentPerMinuteOption = new(value); } }
+        public decimal? GoldRewardBonusPercentPerMinute { get { return this.GoldRewardBonusPercentPerMinuteOption.Value; } set { this.GoldRewardBonusPercentPerMinuteOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PlayerDamageResistPct
@@ -456,7 +456,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PlayerDamageResistPct
         /// </summary>
         [JsonPropertyName("player_damage_resist_pct")]
-        public decimal? PlayerDamageResistPct { get { return this.PlayerDamageResistPctOption; } set { this.PlayerDamageResistPctOption = new(value); } }
+        public decimal? PlayerDamageResistPct { get { return this.PlayerDamageResistPctOption.Value; } set { this.PlayerDamageResistPctOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TrooperDamageResistPct
@@ -469,7 +469,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TrooperDamageResistPct
         /// </summary>
         [JsonPropertyName("trooper_damage_resist_pct")]
-        public decimal? TrooperDamageResistPct { get { return this.TrooperDamageResistPctOption; } set { this.TrooperDamageResistPctOption = new(value); } }
+        public decimal? TrooperDamageResistPct { get { return this.TrooperDamageResistPctOption.Value; } set { this.TrooperDamageResistPctOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T1BossDamageResistPct
@@ -482,7 +482,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T1BossDamageResistPct
         /// </summary>
         [JsonPropertyName("t1_boss_damage_resist_pct")]
-        public decimal? T1BossDamageResistPct { get { return this.T1BossDamageResistPctOption; } set { this.T1BossDamageResistPctOption = new(value); } }
+        public decimal? T1BossDamageResistPct { get { return this.T1BossDamageResistPctOption.Value; } set { this.T1BossDamageResistPctOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T2BossDamageResistPct
@@ -495,7 +495,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T2BossDamageResistPct
         /// </summary>
         [JsonPropertyName("t2_boss_damage_resist_pct")]
-        public decimal? T2BossDamageResistPct { get { return this.T2BossDamageResistPctOption; } set { this.T2BossDamageResistPctOption = new(value); } }
+        public decimal? T2BossDamageResistPct { get { return this.T2BossDamageResistPctOption.Value; } set { this.T2BossDamageResistPctOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T3BossDamageResistPct
@@ -508,7 +508,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T3BossDamageResistPct
         /// </summary>
         [JsonPropertyName("t3_boss_damage_resist_pct")]
-        public decimal? T3BossDamageResistPct { get { return this.T3BossDamageResistPctOption; } set { this.T3BossDamageResistPctOption = new(value); } }
+        public decimal? T3BossDamageResistPct { get { return this.T3BossDamageResistPctOption.Value; } set { this.T3BossDamageResistPctOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BarrackGuardianDamageResistPct
@@ -521,7 +521,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BarrackGuardianDamageResistPct
         /// </summary>
         [JsonPropertyName("barrack_guardian_damage_resist_pct")]
-        public decimal? BarrackGuardianDamageResistPct { get { return this.BarrackGuardianDamageResistPctOption; } set { this.BarrackGuardianDamageResistPctOption = new(value); } }
+        public decimal? BarrackGuardianDamageResistPct { get { return this.BarrackGuardianDamageResistPctOption.Value; } set { this.BarrackGuardianDamageResistPctOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NearDeathDuration
@@ -534,7 +534,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets NearDeathDuration
         /// </summary>
         [JsonPropertyName("near_death_duration")]
-        public decimal? NearDeathDuration { get { return this.NearDeathDurationOption; } set { this.NearDeathDurationOption = new(value); } }
+        public decimal? NearDeathDuration { get { return this.NearDeathDurationOption.Value; } set { this.NearDeathDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LaserDpsToPlayers
@@ -547,7 +547,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LaserDpsToPlayers
         /// </summary>
         [JsonPropertyName("laser_dps_to_players")]
-        public decimal? LaserDpsToPlayers { get { return this.LaserDpsToPlayersOption; } set { this.LaserDpsToPlayersOption = new(value); } }
+        public decimal? LaserDpsToPlayers { get { return this.LaserDpsToPlayersOption.Value; } set { this.LaserDpsToPlayersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LaserDpsMaxHealth
@@ -560,7 +560,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets LaserDpsMaxHealth
         /// </summary>
         [JsonPropertyName("laser_dps_max_health")]
-        public decimal? LaserDpsMaxHealth { get { return this.LaserDpsMaxHealthOption; } set { this.LaserDpsMaxHealthOption = new(value); } }
+        public decimal? LaserDpsMaxHealth { get { return this.LaserDpsMaxHealthOption.Value; } set { this.LaserDpsMaxHealthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NoShieldLaserDpsToPlayers
@@ -573,7 +573,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets NoShieldLaserDpsToPlayers
         /// </summary>
         [JsonPropertyName("no_shield_laser_dps_to_players")]
-        public decimal? NoShieldLaserDpsToPlayers { get { return this.NoShieldLaserDpsToPlayersOption; } set { this.NoShieldLaserDpsToPlayersOption = new(value); } }
+        public decimal? NoShieldLaserDpsToPlayers { get { return this.NoShieldLaserDpsToPlayersOption.Value; } set { this.NoShieldLaserDpsToPlayersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StompDamage
@@ -586,7 +586,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StompDamage
         /// </summary>
         [JsonPropertyName("stomp_damage")]
-        public decimal? StompDamage { get { return this.StompDamageOption; } set { this.StompDamageOption = new(value); } }
+        public decimal? StompDamage { get { return this.StompDamageOption.Value; } set { this.StompDamageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StompDamageMaxHealthPercent
@@ -599,7 +599,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StompDamageMaxHealthPercent
         /// </summary>
         [JsonPropertyName("stomp_damage_max_health_percent")]
-        public decimal? StompDamageMaxHealthPercent { get { return this.StompDamageMaxHealthPercentOption; } set { this.StompDamageMaxHealthPercentOption = new(value); } }
+        public decimal? StompDamageMaxHealthPercent { get { return this.StompDamageMaxHealthPercentOption.Value; } set { this.StompDamageMaxHealthPercentOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StunDuration
@@ -612,7 +612,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StunDuration
         /// </summary>
         [JsonPropertyName("stun_duration")]
-        public decimal? StunDuration { get { return this.StunDurationOption; } set { this.StunDurationOption = new(value); } }
+        public decimal? StunDuration { get { return this.StunDurationOption.Value; } set { this.StunDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StompImpactRadius
@@ -625,7 +625,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets StompImpactRadius
         /// </summary>
         [JsonPropertyName("stomp_impact_radius")]
-        public decimal? StompImpactRadius { get { return this.StompImpactRadiusOption; } set { this.StompImpactRadiusOption = new(value); } }
+        public decimal? StompImpactRadius { get { return this.StompImpactRadiusOption.Value; } set { this.StompImpactRadiusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WalkSpeed
@@ -638,7 +638,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets WalkSpeed
         /// </summary>
         [JsonPropertyName("walk_speed")]
-        public decimal? WalkSpeed { get { return this.WalkSpeedOption; } set { this.WalkSpeedOption = new(value); } }
+        public decimal? WalkSpeed { get { return this.WalkSpeedOption.Value; } set { this.WalkSpeedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RunSpeed
@@ -651,7 +651,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets RunSpeed
         /// </summary>
         [JsonPropertyName("run_speed")]
-        public decimal? RunSpeed { get { return this.RunSpeedOption; } set { this.RunSpeedOption = new(value); } }
+        public decimal? RunSpeed { get { return this.RunSpeedOption.Value; } set { this.RunSpeedOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Acceleration
@@ -664,7 +664,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets Acceleration
         /// </summary>
         [JsonPropertyName("acceleration")]
-        public decimal? Acceleration { get { return this.AccelerationOption; } set { this.AccelerationOption = new(value); } }
+        public decimal? Acceleration { get { return this.AccelerationOption.Value; } set { this.AccelerationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MeleeDamage
@@ -677,7 +677,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MeleeDamage
         /// </summary>
         [JsonPropertyName("melee_damage")]
-        public decimal? MeleeDamage { get { return this.MeleeDamageOption; } set { this.MeleeDamageOption = new(value); } }
+        public decimal? MeleeDamage { get { return this.MeleeDamageOption.Value; } set { this.MeleeDamageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpawnBreakablesOnDeath
@@ -690,7 +690,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets SpawnBreakablesOnDeath
         /// </summary>
         [JsonPropertyName("spawn_breakables_on_death")]
-        public bool? SpawnBreakablesOnDeath { get { return this.SpawnBreakablesOnDeathOption; } set { this.SpawnBreakablesOnDeathOption = new(value); } }
+        public bool? SpawnBreakablesOnDeath { get { return this.SpawnBreakablesOnDeathOption.Value; } set { this.SpawnBreakablesOnDeathOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MeleeAttemptRange
@@ -703,7 +703,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MeleeAttemptRange
         /// </summary>
         [JsonPropertyName("melee_attempt_range")]
-        public decimal? MeleeAttemptRange { get { return this.MeleeAttemptRangeOption; } set { this.MeleeAttemptRangeOption = new(value); } }
+        public decimal? MeleeAttemptRange { get { return this.MeleeAttemptRangeOption.Value; } set { this.MeleeAttemptRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MeleeHitRange
@@ -716,7 +716,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MeleeHitRange
         /// </summary>
         [JsonPropertyName("melee_hit_range")]
-        public decimal? MeleeHitRange { get { return this.MeleeHitRangeOption; } set { this.MeleeHitRangeOption = new(value); } }
+        public decimal? MeleeHitRange { get { return this.MeleeHitRangeOption.Value; } set { this.MeleeHitRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MeleeDuration
@@ -729,7 +729,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets MeleeDuration
         /// </summary>
         [JsonPropertyName("melee_duration")]
-        public decimal? MeleeDuration { get { return this.MeleeDurationOption; } set { this.MeleeDurationOption = new(value); } }
+        public decimal? MeleeDuration { get { return this.MeleeDurationOption.Value; } set { this.MeleeDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AttackT1BossMaxRange
@@ -742,7 +742,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AttackT1BossMaxRange
         /// </summary>
         [JsonPropertyName("attack_t1_boss_max_range")]
-        public decimal? AttackT1BossMaxRange { get { return this.AttackT1BossMaxRangeOption; } set { this.AttackT1BossMaxRangeOption = new(value); } }
+        public decimal? AttackT1BossMaxRange { get { return this.AttackT1BossMaxRangeOption.Value; } set { this.AttackT1BossMaxRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AttackT3BossMaxRange
@@ -755,7 +755,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AttackT3BossMaxRange
         /// </summary>
         [JsonPropertyName("attack_t3_boss_max_range")]
-        public decimal? AttackT3BossMaxRange { get { return this.AttackT3BossMaxRangeOption; } set { this.AttackT3BossMaxRangeOption = new(value); } }
+        public decimal? AttackT3BossMaxRange { get { return this.AttackT3BossMaxRangeOption.Value; } set { this.AttackT3BossMaxRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AttackT3BossPhase2MaxRange
@@ -768,7 +768,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AttackT3BossPhase2MaxRange
         /// </summary>
         [JsonPropertyName("attack_t3_boss_phase2_max_range")]
-        public decimal? AttackT3BossPhase2MaxRange { get { return this.AttackT3BossPhase2MaxRangeOption; } set { this.AttackT3BossPhase2MaxRangeOption = new(value); } }
+        public decimal? AttackT3BossPhase2MaxRange { get { return this.AttackT3BossPhase2MaxRangeOption.Value; } set { this.AttackT3BossPhase2MaxRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AttackTrooperMaxRange
@@ -781,7 +781,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets AttackTrooperMaxRange
         /// </summary>
         [JsonPropertyName("attack_trooper_max_range")]
-        public decimal? AttackTrooperMaxRange { get { return this.AttackTrooperMaxRangeOption; } set { this.AttackTrooperMaxRangeOption = new(value); } }
+        public decimal? AttackTrooperMaxRange { get { return this.AttackTrooperMaxRangeOption.Value; } set { this.AttackTrooperMaxRangeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T1BossDps
@@ -794,7 +794,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T1BossDps
         /// </summary>
         [JsonPropertyName("t1_boss_dps")]
-        public decimal? T1BossDps { get { return this.T1BossDpsOption; } set { this.T1BossDpsOption = new(value); } }
+        public decimal? T1BossDps { get { return this.T1BossDpsOption.Value; } set { this.T1BossDpsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T1BossDpsbaseResist
@@ -807,7 +807,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T1BossDpsbaseResist
         /// </summary>
         [JsonPropertyName("t1_boss_dpsbase_resist")]
-        public decimal? T1BossDpsbaseResist { get { return this.T1BossDpsbaseResistOption; } set { this.T1BossDpsbaseResistOption = new(value); } }
+        public decimal? T1BossDpsbaseResist { get { return this.T1BossDpsbaseResistOption.Value; } set { this.T1BossDpsbaseResistOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T1BossDpsmaxResist
@@ -820,7 +820,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T1BossDpsmaxResist
         /// </summary>
         [JsonPropertyName("t1_boss_dpsmax_resist")]
-        public decimal? T1BossDpsmaxResist { get { return this.T1BossDpsmaxResistOption; } set { this.T1BossDpsmaxResistOption = new(value); } }
+        public decimal? T1BossDpsmaxResist { get { return this.T1BossDpsmaxResistOption.Value; } set { this.T1BossDpsmaxResistOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T1BossDpsmaxResistTimeInSeconds
@@ -833,7 +833,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T1BossDpsmaxResistTimeInSeconds
         /// </summary>
         [JsonPropertyName("t1_boss_dpsmax_resist_time_in_seconds")]
-        public decimal? T1BossDpsmaxResistTimeInSeconds { get { return this.T1BossDpsmaxResistTimeInSecondsOption; } set { this.T1BossDpsmaxResistTimeInSecondsOption = new(value); } }
+        public decimal? T1BossDpsmaxResistTimeInSeconds { get { return this.T1BossDpsmaxResistTimeInSecondsOption.Value; } set { this.T1BossDpsmaxResistTimeInSecondsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T2BossDps
@@ -846,7 +846,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T2BossDps
         /// </summary>
         [JsonPropertyName("t2_boss_dps")]
-        public decimal? T2BossDps { get { return this.T2BossDpsOption; } set { this.T2BossDpsOption = new(value); } }
+        public decimal? T2BossDps { get { return this.T2BossDpsOption.Value; } set { this.T2BossDpsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T2BossDpsbaseResist
@@ -859,7 +859,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T2BossDpsbaseResist
         /// </summary>
         [JsonPropertyName("t2_boss_dpsbase_resist")]
-        public decimal? T2BossDpsbaseResist { get { return this.T2BossDpsbaseResistOption; } set { this.T2BossDpsbaseResistOption = new(value); } }
+        public decimal? T2BossDpsbaseResist { get { return this.T2BossDpsbaseResistOption.Value; } set { this.T2BossDpsbaseResistOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T2BossDpsmaxResist
@@ -872,7 +872,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T2BossDpsmaxResist
         /// </summary>
         [JsonPropertyName("t2_boss_dpsmax_resist")]
-        public decimal? T2BossDpsmaxResist { get { return this.T2BossDpsmaxResistOption; } set { this.T2BossDpsmaxResistOption = new(value); } }
+        public decimal? T2BossDpsmaxResist { get { return this.T2BossDpsmaxResistOption.Value; } set { this.T2BossDpsmaxResistOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T2BossDpsmaxResistTimeInSeconds
@@ -885,7 +885,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T2BossDpsmaxResistTimeInSeconds
         /// </summary>
         [JsonPropertyName("t2_boss_dpsmax_resist_time_in_seconds")]
-        public decimal? T2BossDpsmaxResistTimeInSeconds { get { return this.T2BossDpsmaxResistTimeInSecondsOption; } set { this.T2BossDpsmaxResistTimeInSecondsOption = new(value); } }
+        public decimal? T2BossDpsmaxResistTimeInSeconds { get { return this.T2BossDpsmaxResistTimeInSecondsOption.Value; } set { this.T2BossDpsmaxResistTimeInSecondsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of T3BossDps
@@ -898,7 +898,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets T3BossDps
         /// </summary>
         [JsonPropertyName("t3_boss_dps")]
-        public decimal? T3BossDps { get { return this.T3BossDpsOption; } set { this.T3BossDpsOption = new(value); } }
+        public decimal? T3BossDps { get { return this.T3BossDpsOption.Value; } set { this.T3BossDpsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GeneratorBossDps
@@ -911,7 +911,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets GeneratorBossDps
         /// </summary>
         [JsonPropertyName("generator_boss_dps")]
-        public decimal? GeneratorBossDps { get { return this.GeneratorBossDpsOption; } set { this.GeneratorBossDpsOption = new(value); } }
+        public decimal? GeneratorBossDps { get { return this.GeneratorBossDpsOption.Value; } set { this.GeneratorBossDpsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BarrackBossDps
@@ -924,7 +924,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets BarrackBossDps
         /// </summary>
         [JsonPropertyName("barrack_boss_dps")]
-        public decimal? BarrackBossDps { get { return this.BarrackBossDpsOption; } set { this.BarrackBossDpsOption = new(value); } }
+        public decimal? BarrackBossDps { get { return this.BarrackBossDpsOption.Value; } set { this.BarrackBossDpsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PlayerDps
@@ -937,7 +937,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets PlayerDps
         /// </summary>
         [JsonPropertyName("player_dps")]
-        public decimal? PlayerDps { get { return this.PlayerDpsOption; } set { this.PlayerDpsOption = new(value); } }
+        public decimal? PlayerDps { get { return this.PlayerDpsOption.Value; } set { this.PlayerDpsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TrooperDps
@@ -950,7 +950,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets TrooperDps
         /// </summary>
         [JsonPropertyName("trooper_dps")]
-        public decimal? TrooperDps { get { return this.TrooperDpsOption; } set { this.TrooperDpsOption = new(value); } }
+        public decimal? TrooperDps { get { return this.TrooperDpsOption.Value; } set { this.TrooperDpsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HealthBarColorFriend
@@ -963,7 +963,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HealthBarColorFriend
         /// </summary>
         [JsonPropertyName("health_bar_color_friend")]
-        public ColorV1? HealthBarColorFriend { get { return this.HealthBarColorFriendOption; } set { this.HealthBarColorFriendOption = new(value); } }
+        public ColorV1? HealthBarColorFriend { get { return this.HealthBarColorFriendOption.Value; } set { this.HealthBarColorFriendOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HealthBarColorEnemy
@@ -976,7 +976,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HealthBarColorEnemy
         /// </summary>
         [JsonPropertyName("health_bar_color_enemy")]
-        public ColorV1? HealthBarColorEnemy { get { return this.HealthBarColorEnemyOption; } set { this.HealthBarColorEnemyOption = new(value); } }
+        public ColorV1? HealthBarColorEnemy { get { return this.HealthBarColorEnemyOption.Value; } set { this.HealthBarColorEnemyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HealthBarColorTeam1
@@ -989,7 +989,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HealthBarColorTeam1
         /// </summary>
         [JsonPropertyName("health_bar_color_team1")]
-        public ColorV1? HealthBarColorTeam1 { get { return this.HealthBarColorTeam1Option; } set { this.HealthBarColorTeam1Option = new(value); } }
+        public ColorV1? HealthBarColorTeam1 { get { return this.HealthBarColorTeam1Option.Value; } set { this.HealthBarColorTeam1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of HealthBarColorTeam2
@@ -1002,7 +1002,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HealthBarColorTeam2
         /// </summary>
         [JsonPropertyName("health_bar_color_team2")]
-        public ColorV1? HealthBarColorTeam2 { get { return this.HealthBarColorTeam2Option; } set { this.HealthBarColorTeam2Option = new(value); } }
+        public ColorV1? HealthBarColorTeam2 { get { return this.HealthBarColorTeam2Option.Value; } set { this.HealthBarColorTeam2Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of HealthBarColorTeamNeutral
@@ -1015,7 +1015,7 @@ namespace AssetsDeadlockApiClient.Model
         /// Gets or Sets HealthBarColorTeamNeutral
         /// </summary>
         [JsonPropertyName("health_bar_color_team_neutral")]
-        public ColorV1? HealthBarColorTeamNeutral { get { return this.HealthBarColorTeamNeutralOption; } set { this.HealthBarColorTeamNeutralOption = new(value); } }
+        public ColorV1? HealthBarColorTeamNeutral { get { return this.HealthBarColorTeamNeutralOption.Value; } set { this.HealthBarColorTeamNeutralOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object

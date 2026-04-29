@@ -62,7 +62,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets LobbyId
         /// </summary>
         [JsonPropertyName("lobby_id")]
-        public long? LobbyId { get { return this.LobbyIdOption; } set { this.LobbyIdOption = new(value); } }
+        public long? LobbyId { get { return this.LobbyIdOption.Value; } set { this.LobbyIdOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
