@@ -88,7 +88,6 @@ data class HeroStats (
     val critShotRate: kotlin.Double,
 
     @Json(name = "damage_mitigated_per_min")
-    @Deprecated(message = "This property is deprecated.")
     val damageMitigatedPerMin: kotlin.Double,
 
     @Json(name = "damage_per_min")

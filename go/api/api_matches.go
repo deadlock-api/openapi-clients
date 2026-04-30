@@ -372,7 +372,7 @@ func (r ApiBulkMetadataRequest) IncludePlayerDeathDetails(includePlayerDeathDeta
 	return r
 }
 
-// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
 func (r ApiBulkMetadataRequest) GameMode(gameMode string) ApiBulkMetadataRequest {
 	r.gameMode = &gameMode
 	return r

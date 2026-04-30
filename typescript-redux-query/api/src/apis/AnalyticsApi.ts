@@ -393,7 +393,7 @@ export interface PlayerStatsMetricsRequest {
 
 
 /**
- *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Ability Order Stats
  */
 function abilityOrderStatsRaw<T>(requestParameters: AbilityOrderStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsAbilityOrderStats>> = {}): QueryConfig<T> {
@@ -529,7 +529,7 @@ function abilityOrderStatsRaw<T>(requestParameters: AbilityOrderStatsRequest, re
 }
 
 /**
-*  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Ability Order Stats
 */
 export function abilityOrderStats<T>(requestParameters: AbilityOrderStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsAbilityOrderStats>>): QueryConfig<T> {
@@ -537,7 +537,7 @@ export function abilityOrderStats<T>(requestParameters: AbilityOrderStatsRequest
 }
 
 /**
- *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Badge Distribution
  */
 function badgeDistributionRaw<T>(requestParameters: BadgeDistributionRequest, requestConfig: runtime.TypedQueryConfig<T, Array<BadgeDistribution>> = {}): QueryConfig<T> {
@@ -624,7 +624,7 @@ function badgeDistributionRaw<T>(requestParameters: BadgeDistributionRequest, re
 }
 
 /**
-*  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Badge Distribution
 */
 export function badgeDistribution<T>(requestParameters: BadgeDistributionRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<BadgeDistribution>>): QueryConfig<T> {
@@ -632,7 +632,7 @@ export function badgeDistribution<T>(requestParameters: BadgeDistributionRequest
 }
 
 /**
- *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Build Item Stats
  */
 function buildItemStatsRaw<T>(requestParameters: BuildItemStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<BuildItemStats>> = {}): QueryConfig<T> {
@@ -684,7 +684,7 @@ function buildItemStatsRaw<T>(requestParameters: BuildItemStatsRequest, requestC
 }
 
 /**
-*  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Build Item Stats
 */
 export function buildItemStats<T>(requestParameters: BuildItemStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<BuildItemStats>>): QueryConfig<T> {
@@ -692,7 +692,7 @@ export function buildItemStats<T>(requestParameters: BuildItemStatsRequest, requ
 }
 
 /**
- *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Game Stats
  */
 function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsGameStats>> = {}): QueryConfig<T> {
@@ -779,7 +779,7 @@ function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: run
 }
 
 /**
-*  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Game Stats
 */
 export function gameStats<T>(requestParameters: GameStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsGameStats>>): QueryConfig<T> {
@@ -787,7 +787,7 @@ export function gameStats<T>(requestParameters: GameStatsRequest, requestConfig?
 }
 
 /**
- *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Ban Stats
  */
 function heroBanStatsRaw<T>(requestParameters: HeroBanStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBanStats>> = {}): QueryConfig<T> {
@@ -869,7 +869,7 @@ function heroBanStatsRaw<T>(requestParameters: HeroBanStatsRequest, requestConfi
 }
 
 /**
-*  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Ban Stats
 */
 export function heroBanStats<T>(requestParameters: HeroBanStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBanStats>>): QueryConfig<T> {
@@ -877,7 +877,7 @@ export function heroBanStats<T>(requestParameters: HeroBanStatsRequest, requestC
 }
 
 /**
- *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Build Stats
  */
 function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBuildStats>> = {}): QueryConfig<T> {
@@ -978,7 +978,7 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
 }
 
 /**
-*  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Build Stats
 */
 export function heroBuildStats<T>(requestParameters: HeroBuildStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBuildStats>>): QueryConfig<T> {
@@ -986,7 +986,7 @@ export function heroBuildStats<T>(requestParameters: HeroBuildStatsRequest, requ
 }
 
 /**
- *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Comb Stats
  */
 function heroCombStatsRaw<T>(requestParameters: HeroCombStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroCombStats>> = {}): QueryConfig<T> {
@@ -1123,7 +1123,7 @@ function heroCombStatsRaw<T>(requestParameters: HeroCombStatsRequest, requestCon
 }
 
 /**
-*  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Comb Stats
 */
 export function heroCombStats<T>(requestParameters: HeroCombStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroCombStats>>): QueryConfig<T> {
@@ -1131,7 +1131,7 @@ export function heroCombStats<T>(requestParameters: HeroCombStatsRequest, reques
 }
 
 /**
- *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Counter Stats
  */
 function heroCountersStatsRaw<T>(requestParameters: HeroCountersStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroCounterStats>> = {}): QueryConfig<T> {
@@ -1258,7 +1258,7 @@ function heroCountersStatsRaw<T>(requestParameters: HeroCountersStatsRequest, re
 }
 
 /**
-*  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Counter Stats
 */
 export function heroCountersStats<T>(requestParameters: HeroCountersStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroCounterStats>>): QueryConfig<T> {
@@ -1266,7 +1266,7 @@ export function heroCountersStats<T>(requestParameters: HeroCountersStatsRequest
 }
 
 /**
- *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Scoreboard
  */
 function heroScoreboardRaw<T>(requestParameters: HeroScoreboardRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroEntry>> = {}): QueryConfig<T> {
@@ -1387,7 +1387,7 @@ function heroScoreboardRaw<T>(requestParameters: HeroScoreboardRequest, requestC
 }
 
 /**
-*  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Scoreboard
 */
 export function heroScoreboard<T>(requestParameters: HeroScoreboardRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroEntry>>): QueryConfig<T> {
@@ -1395,7 +1395,7 @@ export function heroScoreboard<T>(requestParameters: HeroScoreboardRequest, requ
 }
 
 /**
- *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Stats
  */
 function heroStatsRaw<T>(requestParameters: HeroStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsHeroStats>> = {}): QueryConfig<T> {
@@ -1532,7 +1532,7 @@ function heroStatsRaw<T>(requestParameters: HeroStatsRequest, requestConfig: run
 }
 
 /**
-*  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Stats
 */
 export function heroStats<T>(requestParameters: HeroStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsHeroStats>>): QueryConfig<T> {
@@ -1540,7 +1540,7 @@ export function heroStats<T>(requestParameters: HeroStatsRequest, requestConfig?
 }
 
 /**
- *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Synergy Stats
  */
 function heroSynergiesStatsRaw<T>(requestParameters: HeroSynergiesStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroSynergyStats>> = {}): QueryConfig<T> {
@@ -1657,7 +1657,7 @@ function heroSynergiesStatsRaw<T>(requestParameters: HeroSynergiesStatsRequest, 
 }
 
 /**
-*  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Synergy Stats
 */
 export function heroSynergiesStats<T>(requestParameters: HeroSynergiesStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroSynergyStats>>): QueryConfig<T> {
@@ -1665,7 +1665,7 @@ export function heroSynergiesStats<T>(requestParameters: HeroSynergiesStatsReque
 }
 
 /**
- *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Permutation Stats
  */
 function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ItemPermutationStats>> = {}): QueryConfig<T> {
@@ -1787,7 +1787,7 @@ function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsReque
 }
 
 /**
-*  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Permutation Stats
 */
 export function itemPermutationStats<T>(requestParameters: ItemPermutationStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ItemPermutationStats>>): QueryConfig<T> {
@@ -1795,7 +1795,7 @@ export function itemPermutationStats<T>(requestParameters: ItemPermutationStatsR
 }
 
 /**
- *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Stats
  */
 function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ItemStats>> = {}): QueryConfig<T> {
@@ -1967,7 +1967,7 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 }
 
 /**
-*  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Stats
 */
 export function itemStats<T>(requestParameters: ItemStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ItemStats>>): QueryConfig<T> {
@@ -1975,7 +1975,7 @@ export function itemStats<T>(requestParameters: ItemStatsRequest, requestConfig?
 }
 
 /**
- *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Kill Death Stats
  */
 function killDeathStatsRaw<T>(requestParameters: KillDeathStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<KillDeathStats>> = {}): QueryConfig<T> {
@@ -2127,7 +2127,7 @@ function killDeathStatsRaw<T>(requestParameters: KillDeathStatsRequest, requestC
 }
 
 /**
-*  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Kill Death Stats
 */
 export function killDeathStats<T>(requestParameters: KillDeathStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<KillDeathStats>>): QueryConfig<T> {
@@ -2135,7 +2135,7 @@ export function killDeathStats<T>(requestParameters: KillDeathStatsRequest, requ
 }
 
 /**
- *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Performance Curve
  */
 function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerPerformanceCurvePoint>> = {}): QueryConfig<T> {
@@ -2252,7 +2252,7 @@ function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveR
 }
 
 /**
-*  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Player Performance Curve
 */
 export function playerPerformanceCurve<T>(requestParameters: PlayerPerformanceCurveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerPerformanceCurvePoint>>): QueryConfig<T> {
@@ -2260,7 +2260,7 @@ export function playerPerformanceCurve<T>(requestParameters: PlayerPerformanceCu
 }
 
 /**
- *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Scoreboard
  */
 function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerEntry>> = {}): QueryConfig<T> {
@@ -2396,7 +2396,7 @@ function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requ
 }
 
 /**
-*  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Player Scoreboard
 */
 export function playerScoreboard<T>(requestParameters: PlayerScoreboardRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerEntry>>): QueryConfig<T> {
@@ -2404,7 +2404,7 @@ export function playerScoreboard<T>(requestParameters: PlayerScoreboardRequest, 
 }
 
 /**
- *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Stats Metrics
  */
 function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: HashMapValue; }> = {}): QueryConfig<T> {
@@ -2521,7 +2521,7 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
 }
 
 /**
-*  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Player Stats Metrics
 */
 export function playerStatsMetrics<T>(requestParameters: PlayerStatsMetricsRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: HashMapValue; }>): QueryConfig<T> {

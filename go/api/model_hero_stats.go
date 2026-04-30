@@ -27,7 +27,6 @@ type HeroStats struct {
 	AssistsPerMin float64 `json:"assists_per_min"`
 	CreepsPerMin float64 `json:"creeps_per_min"`
 	CritShotRate float64 `json:"crit_shot_rate"`
-	// Deprecated
 	DamageMitigatedPerMin float64 `json:"damage_mitigated_per_min"`
 	DamagePerMin float64 `json:"damage_per_min"`
 	DamagePerSoul float64 `json:"damage_per_soul"`
@@ -255,7 +254,6 @@ func (o *HeroStats) SetCritShotRate(v float64) {
 }
 
 // GetDamageMitigatedPerMin returns the DamageMitigatedPerMin field value
-// Deprecated
 func (o *HeroStats) GetDamageMitigatedPerMin() float64 {
 	if o == nil {
 		var ret float64
@@ -267,7 +265,6 @@ func (o *HeroStats) GetDamageMitigatedPerMin() float64 {
 
 // GetDamageMitigatedPerMinOk returns a tuple with the DamageMitigatedPerMin field value
 // and a boolean to check if the value has been set.
-// Deprecated
 func (o *HeroStats) GetDamageMitigatedPerMinOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
@@ -276,7 +273,6 @@ func (o *HeroStats) GetDamageMitigatedPerMinOk() (*float64, bool) {
 }
 
 // SetDamageMitigatedPerMin sets field value
-// Deprecated
 func (o *HeroStats) SetDamageMitigatedPerMin(v float64) {
 	o.DamageMitigatedPerMin = v
 }

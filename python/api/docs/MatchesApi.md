@@ -227,7 +227,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     include_player_items = True # bool | Include player items in the response. (optional)
     include_player_stats = True # bool | Include player stats in the response. (optional)
     include_player_death_details = True # bool | Include player death details in the response. (optional)
-    game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
+    game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter. (optional)
     match_mode = 'match_mode_example' # str | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
     match_ids = [56] # List[int] | Comma separated list of match ids, limited by `limit` (optional)
     min_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
  **include_player_items** | **bool**| Include player items in the response. | [optional] 
  **include_player_stats** | **bool**| Include player stats in the response. | [optional] 
  **include_player_death_details** | **bool**| Include player death details in the response. | [optional] 
- **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
+ **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. | [optional] 
  **match_mode** | **str**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] 
  **match_ids** | [**List[int]**](int.md)| Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional] 
  **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 

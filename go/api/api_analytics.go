@@ -174,11 +174,13 @@ AbilityOrderStats Ability Order Stats
 Retrieves statistics for the ability order of a hero.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -225,7 +227,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -445,11 +447,13 @@ BadgeDistribution Badge Distribution
 This endpoint returns the player badge distribution.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -489,7 +493,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -610,11 +614,13 @@ Retrieves item statistics from hero builds.
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -654,7 +660,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -801,11 +807,13 @@ GameStats Game Stats
 Retrieves aggregate game-level statistics.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -848,7 +856,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1010,11 +1018,13 @@ Only matches with successfully extracted ban data are included. Matches where ba
 Results are cached for **1 hour** based on the combination of query parameters provided.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1054,7 +1064,7 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1241,11 +1251,13 @@ The `hero_build_id` is the first build the player had selected when the game sta
 Results are cached for **1 hour** based on the combination of query parameters provided.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1288,7 +1300,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1550,11 +1562,13 @@ Retrieves overall statistics for each hero combination.
 Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1594,7 +1608,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1901,11 +1915,13 @@ This endpoint analyzes completed matches to calculate how often a specific hero 
 Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1945,7 +1961,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2196,11 +2212,13 @@ HeroScoreboard Hero Scoreboard
 This endpoint returns the hero scoreboard.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2250,7 +2268,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2506,11 +2524,13 @@ HeroStats Hero Stats
 Retrieves performance statistics for each hero based on historical match data.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2553,7 +2573,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2819,11 +2839,13 @@ This endpoint analyzes completed matches to calculate how often a specific pair 
 Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2863,7 +2885,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3118,11 +3140,13 @@ Retrieves item permutation statistics based on historical match data.
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3186,7 +3210,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3494,11 +3518,13 @@ Retrieves item statistics based on historical match data.
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3562,7 +3588,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3876,11 +3902,13 @@ KillDeathStats Kill Death Stats
 This endpoint returns the kill-death statistics across a 128x128 pixel raster.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3923,7 +3951,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4179,11 +4207,13 @@ Retrieves player performance statistics (net worth, kills, deaths, assists) over
 Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4230,7 +4260,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4500,11 +4530,13 @@ PlayerScoreboard Player Scoreboard
 This endpoint returns the player scoreboard.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4798,11 +4830,13 @@ Results are cached for **1 hour** based on the unique combination of query param
 > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.
 
 ### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4845,7 +4879,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1774742400
+		var defaultValue int64 = 1774828800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

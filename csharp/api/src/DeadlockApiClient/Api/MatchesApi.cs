@@ -99,7 +99,7 @@ namespace DeadlockApiClient.Api
         /// <param name="includePlayerItems">Include player items in the response. (optional)</param>
         /// <param name="includePlayerStats">Include player stats in the response. (optional)</param>
         /// <param name="includePlayerDeathDetails">Include player death details in the response. (optional)</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="matchIds">Comma separated list of match ids, limited by &#x60;limit&#x60; (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
@@ -142,7 +142,7 @@ namespace DeadlockApiClient.Api
         /// <param name="includePlayerItems">Include player items in the response. (optional)</param>
         /// <param name="includePlayerStats">Include player stats in the response. (optional)</param>
         /// <param name="includePlayerDeathDetails">Include player death details in the response. (optional)</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="matchIds">Comma separated list of match ids, limited by &#x60;limit&#x60; (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
@@ -1404,7 +1404,7 @@ namespace DeadlockApiClient.Api
         /// <param name="includePlayerItems">Include player items in the response. (optional)</param>
         /// <param name="includePlayerStats">Include player stats in the response. (optional)</param>
         /// <param name="includePlayerDeathDetails">Include player death details in the response. (optional)</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="matchIds">Comma separated list of match ids, limited by &#x60;limit&#x60; (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
@@ -1455,7 +1455,7 @@ namespace DeadlockApiClient.Api
         /// <param name="includePlayerItems">Include player items in the response. (optional)</param>
         /// <param name="includePlayerStats">Include player stats in the response. (optional)</param>
         /// <param name="includePlayerDeathDetails">Include player death details in the response. (optional)</param>
-        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="matchIds">Comma separated list of match ids, limited by &#x60;limit&#x60; (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>

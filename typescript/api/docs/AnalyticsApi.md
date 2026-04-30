@@ -25,7 +25,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **abilityOrderStats**
 > Array<AnalyticsAbilityOrderStats> abilityOrderStats()
 
- Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -40,7 +40,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let heroId: number; //See more: <https://assets.deadlock-api.com/v2/heroes> (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -87,7 +87,7 @@ const { status, data } = await apiInstance.abilityOrderStats(
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -132,7 +132,7 @@ No authorization required
 # **badgeDistribution**
 > Array<BadgeDistribution> badgeDistribution()
 
- This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -146,7 +146,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -175,7 +175,7 @@ const { status, data } = await apiInstance.badgeDistribution(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -212,7 +212,7 @@ No authorization required
 # **buildItemStats**
 > Array<BuildItemStats> buildItemStats()
 
- Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -226,7 +226,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let heroId: number; //Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
-let minLastUpdatedUnixTimestamp: number; //Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minLastUpdatedUnixTimestamp: number; //Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxLastUpdatedUnixTimestamp: number; //Filter builds based on their last updated time (Unix timestamp). (optional) (default to undefined)
 
 const { status, data } = await apiInstance.buildItemStats(
@@ -241,7 +241,7 @@ const { status, data } = await apiInstance.buildItemStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
-| **minLastUpdatedUnixTimestamp** | [**number**] | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minLastUpdatedUnixTimestamp** | [**number**] | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxLastUpdatedUnixTimestamp** | [**number**] | Filter builds based on their last updated time (Unix timestamp). | (optional) defaults to undefined|
 
 
@@ -271,7 +271,7 @@ No authorization required
 # **gameStats**
 > Array<AnalyticsGameStats> gameStats()
 
- Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -286,7 +286,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let bucket: 'no_bucket' | 'avg_badge' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month'; //Bucket allows you to group the stats by a specific field. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -315,7 +315,7 @@ const { status, data } = await apiInstance.gameStats(
 |------------- | ------------- | ------------- | -------------|
 | **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_hour&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39; | &#39;start_time_month&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_hour&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39; &#124; &#39;start_time_month&#39;>** | Bucket allows you to group the stats by a specific field. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -351,7 +351,7 @@ No authorization required
 # **heroBanStats**
 > Array<HeroBanStats> heroBanStats()
 
- Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -365,7 +365,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let bucket: 'no_bucket' | 'avg_badge' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month'; //Bucket allows you to group the stats by a specific field. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -392,7 +392,7 @@ const { status, data } = await apiInstance.heroBanStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_hour&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39; | &#39;start_time_month&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_hour&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39; &#124; &#39;start_time_month&#39;>** | Bucket allows you to group the stats by a specific field. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -428,7 +428,7 @@ No authorization required
 # **heroBuildStats**
 > Array<HeroBuildStats> heroBuildStats()
 
- Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -442,7 +442,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let heroId: number; //The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -477,7 +477,7 @@ const { status, data } = await apiInstance.heroBuildStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -517,7 +517,7 @@ No authorization required
 # **heroCombStats**
 > Array<HeroCombStats> heroCombStats()
 
- Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -531,7 +531,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -580,7 +580,7 @@ const { status, data } = await apiInstance.heroCombStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -627,7 +627,7 @@ No authorization required
 # **heroCountersStats**
 > Array<HeroCounterStats> heroCountersStats()
 
- Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -641,7 +641,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -686,7 +686,7 @@ const { status, data } = await apiInstance.heroCountersStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -731,7 +731,7 @@ No authorization required
 # **heroScoreboard**
 > Array<HeroEntry> heroScoreboard()
 
- This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -748,7 +748,7 @@ let sortBy: 'matches' | 'wins' | 'losses' | 'winrate' | 'max_kills_per_match' | 
 let sortDirection: 'desc' | 'asc'; //The direction to sort heroes in. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let minMatches: number; //Filter by min number of matches played. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -789,7 +789,7 @@ const { status, data } = await apiInstance.heroScoreboard(
 | **sortDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to sort heroes in. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **minMatches** | [**number**] | Filter by min number of matches played. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -829,7 +829,7 @@ No authorization required
 # **heroStats**
 > Array<AnalyticsHeroStats> heroStats()
 
- Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -844,7 +844,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let bucket: 'no_bucket' | 'avg_badge' | 'start_time_hour' | 'start_time_day' | 'start_time_week' | 'start_time_month'; //Bucket allows you to group the stats by a specific field. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -893,7 +893,7 @@ const { status, data } = await apiInstance.heroStats(
 |------------- | ------------- | ------------- | -------------|
 | **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_hour&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39; | &#39;start_time_month&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_hour&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39; &#124; &#39;start_time_month&#39;>** | Bucket allows you to group the stats by a specific field. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -939,7 +939,7 @@ No authorization required
 # **heroSynergiesStats**
 > Array<HeroSynergyStats> heroSynergiesStats()
 
- Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -953,7 +953,7 @@ const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -994,7 +994,7 @@ const { status, data } = await apiInstance.heroSynergiesStats(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1037,7 +1037,7 @@ No authorization required
 # **itemPermutationStats**
 > Array<ItemPermutationStats> itemPermutationStats()
 
- Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -1055,7 +1055,7 @@ let combSize: number; //The combination size to return. (optional) (default to 2
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
 let heroId: number; //Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1098,7 +1098,7 @@ const { status, data } = await apiInstance.itemPermutationStats(
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
 | **heroId** | [**number**] | Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1138,7 +1138,7 @@ No authorization required
 # **itemStats**
 > Array<ItemStats> itemStats()
 
- Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -1160,7 +1160,7 @@ let enemyHeroIdsAllMatch: boolean; //When `true`, requires *all* of the specifie
 let minEnemyNetworth: number; //Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. (optional) (default to undefined)
 let maxEnemyNetworth: number; //Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. (optional) (default to undefined)
 let sameLaneFilter: boolean; //When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1223,7 +1223,7 @@ const { status, data } = await apiInstance.itemStats(
 | **minEnemyNetworth** | [**number**] | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | (optional) defaults to undefined|
 | **maxEnemyNetworth** | [**number**] | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | (optional) defaults to undefined|
 | **sameLaneFilter** | [**boolean**] | When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1269,7 +1269,7 @@ No authorization required
 # **killDeathStats**
 > Array<KillDeathStats> killDeathStats()
 
- This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -1284,7 +1284,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let team: number; //Filter by team number. (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1339,7 +1339,7 @@ const { status, data } = await apiInstance.killDeathStats(
 |------------- | ------------- | ------------- | -------------|
 | **team** | [**number**] | Filter by team number. | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1388,7 +1388,7 @@ No authorization required
 # **playerPerformanceCurve**
 > Array<PlayerPerformanceCurvePoint> playerPerformanceCurve()
 
- Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -1403,7 +1403,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let resolution: number; //Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional) (default to 10)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1444,7 +1444,7 @@ const { status, data } = await apiInstance.playerPerformanceCurve(
 |------------- | ------------- | ------------- | -------------|
 | **resolution** | [**number**] | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | (optional) defaults to 10|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -1486,7 +1486,7 @@ No authorization required
 # **playerScoreboard**
 > Array<PlayerEntry> playerScoreboard()
 
- This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -1593,7 +1593,7 @@ No authorization required
 # **playerStatsMetrics**
 > { [key: string]: HashMapValue; } playerStatsMetrics()
 
- Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -1608,7 +1608,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774742400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -1649,7 +1649,7 @@ const { status, data } = await apiInstance.playerStatsMetrics(
 |------------- | ------------- | ------------- | -------------|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774742400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1774828800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|

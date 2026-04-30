@@ -44,7 +44,7 @@ pub struct BulkMetadataParams {
     pub include_player_stats: Option<bool>,
     /// Include player death details in the response.
     pub include_player_death_details: Option<bool>,
-    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.
     pub game_mode: Option<String>,
     /// Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
     pub match_mode: Option<String>,

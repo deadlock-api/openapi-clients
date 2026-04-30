@@ -92,8 +92,9 @@ paths:
   /v1/analytics/ability-order-stats:
     get:
       description: "\nRetrieves statistics for the ability order of a hero.\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
+        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: ability_order_stats
       parameters:
       - description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -128,7 +129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -350,8 +351,9 @@ paths:
   /v1/analytics/badge-distribution:
     get:
       description: "\nThis endpoint returns the player badge distribution.\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
+        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: badge_distribution
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -376,7 +378,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -486,8 +488,9 @@ paths:
       description: "\nRetrieves item statistics from hero builds.\n\nResults are cached\
         \ for **1 hour** based on the unique combination of query parameters provided.\
         \ Subsequent identical requests within this timeframe will receive the cached\
-        \ response.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP\
-        \ | 100req/s |\n| Key | - |\n| Global | - |\n    "
+        \ response.\n\n### Rate Limits:\n> The rate limits below are **shared across\
+        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
+        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: build_item_stats
       parameters:
       - description: "Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -508,7 +511,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -542,8 +545,9 @@ paths:
   /v1/analytics/game-stats:
     get:
       description: "\nRetrieves aggregate game-level statistics.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+        > The rate limits below are **shared across all analytics endpoints**.\n\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
+        \ |\n| Global | 2000req/min |\n    "
       operationId: game_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -583,7 +587,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -694,9 +698,10 @@ paths:
         \ data from demo analysis.\n\nOnly matches with successfully extracted ban\
         \ data are included. Matches where ban extraction failed (empty `banned_hero_ids`)\
         \ are excluded entirely.\n\nResults are cached for **1 hour** based on the\
-        \ combination of query parameters provided.\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
-        \ |\n    "
+        \ combination of query parameters provided.\n\n### Rate Limits:\n> The rate\
+        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
+        \ Global | 2000req/min |\n    "
       operationId: hero_ban_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -721,7 +726,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -831,9 +836,10 @@ paths:
         \ hero builds database.\n\nThe `hero_build_id` is the first build the player\
         \ had selected when the game started. It does not reflect any build changes\
         \ made during the match.\n\nResults are cached for **1 hour** based on the\
-        \ combination of query parameters provided.\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
-        \ |\n    "
+        \ combination of query parameters provided.\n\n### Rate Limits:\n> The rate\
+        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
+        \ Global | 2000req/min |\n    "
       operationId: hero_build_stats
       parameters:
       - description: "The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -853,7 +859,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -1013,8 +1019,9 @@ paths:
         Results are cached for **1 hour**. The cache key is determined by the specific\
         \ combination of filter parameters used in the query. Subsequent requests\
         \ using the exact same filters within this timeframe will receive the cached\
-        \ response.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP\
-        \ | 100req/s |\n| Key | - |\n| Global | - |\n    "
+        \ response.\n\n### Rate Limits:\n> The rate limits below are **shared across\
+        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
+        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: hero_comb_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -1039,7 +1046,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -1291,9 +1298,10 @@ paths:
         \ and the total number of times they have faced each other under the specified\
         \ filter conditions.\n\nResults are cached for **1 hour** based on the combination\
         \ of query parameters provided. Subsequent identical requests within this\
-        \ timeframe will receive the cached response.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global |\
-        \ - |\n    "
+        \ timeframe will receive the cached response.\n\n### Rate Limits:\n> The rate\
+        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
+        \ Global | 2000req/min |\n    "
       operationId: hero_counters_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -1318,7 +1326,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -1532,8 +1540,9 @@ paths:
   /v1/analytics/hero-stats:
     get:
       description: "\nRetrieves performance statistics for each hero based on historical\
-        \ match data.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP\
-        \ | 100req/s |\n| Key | - |\n| Global | - |\n    "
+        \ match data.\n\n### Rate Limits:\n> The rate limits below are **shared across\
+        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
+        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: hero_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -1573,7 +1582,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -1810,8 +1819,9 @@ paths:
         \ under the specified filter conditions.\n\nResults are cached for **1 hour**\
         \ based on the combination of query parameters provided. Subsequent identical\
         \ requests within this timeframe will receive the cached response.\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
+        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: hero_synergies_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -1836,7 +1846,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -2030,9 +2040,10 @@ paths:
       description: "\nRetrieves item permutation statistics based on historical match\
         \ data.\n\nResults are cached for **1 hour** based on the unique combination\
         \ of query parameters provided. Subsequent identical requests within this\
-        \ timeframe will receive the cached response.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global |\
-        \ - |\n    "
+        \ timeframe will receive the cached response.\n\n### Rate Limits:\n> The rate\
+        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
+        \ Global | 2000req/min |\n    "
       operationId: item_permutation_stats
       parameters:
       - description: "Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>"
@@ -2104,7 +2115,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -2261,8 +2272,10 @@ paths:
       description: "\nRetrieves item statistics based on historical match data.\n\n\
         Results are cached for **1 hour** based on the unique combination of query\
         \ parameters provided. Subsequent identical requests within this timeframe\
-        \ will receive the cached response.\n\n### Rate Limits:\n| Type | Limit |\n\
-        | ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+        \ will receive the cached response.\n\n### Rate Limits:\n> The rate limits\
+        \ below are **shared across all analytics endpoints**.\n\n| Type | Limit |\n\
+        | ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
+        \ |\n    "
       operationId: item_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -2389,7 +2402,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -2617,8 +2630,9 @@ paths:
   /v1/analytics/kill-death-stats:
     get:
       description: "\nThis endpoint returns the kill-death statistics across a 128x128\
-        \ pixel raster.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+        \ pixel raster.\n\n### Rate Limits:\n> The rate limits below are **shared\
+        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
+        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: kill_death_stats
       parameters:
       - description: Filter by team number.
@@ -2655,7 +2669,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -2904,8 +2918,9 @@ paths:
       description: "\nRetrieves player performance statistics (net worth, kills, deaths,\
         \ assists) over time throughout matches.\n\nResults are cached for **1 hour**\
         \ based on the unique combination of query parameters provided.\n\n### Rate\
-        \ Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key |\
-        \ - |\n| Global | - |\n    "
+        \ Limits:\n> The rate limits below are **shared across all analytics endpoints**.\n\
+        \n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
+        \ |\n| Global | 2000req/min |\n    "
       operationId: player_performance_curve
       parameters:
       - description: |-
@@ -2946,7 +2961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -3131,8 +3146,9 @@ paths:
         \ will receive the cached response.\n\n> Note: Quantiles are calculated using\
         \ the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm,\
         \ so they are not exact but have a maximum relative error of 0.01.\n\n###\
-        \ Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key\
-        \ | - |\n| Global | - |\n    "
+        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: player_stats_metrics
       parameters:
       - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
@@ -3166,7 +3182,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -3346,8 +3362,9 @@ paths:
   /v1/analytics/scoreboards/heroes:
     get:
       description: "\nThis endpoint returns the hero scoreboard.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+        > The rate limits below are **shared across all analytics endpoints**.\n\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
+        \ |\n| Global | 2000req/min |\n    "
       operationId: hero_scoreboard
       parameters:
       - description: The field to sort by.
@@ -3464,7 +3481,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -3619,8 +3636,9 @@ paths:
   /v1/analytics/scoreboards/players:
     get:
       description: "\nThis endpoint returns the player scoreboard.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+        > The rate limits below are **shared across all analytics endpoints**.\n\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
+        \ |\n| Global | 2000req/min |\n    "
       operationId: player_scoreboard
       parameters:
       - description: The field to sort by.
@@ -4931,7 +4949,7 @@ paths:
           type: boolean
         style: form
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
-          \ `street_brawl`. **Default:** `normal`."
+          \ `street_brawl`. Omit or pass empty string for no filter."
         explode: true
         in: query
         name: game_mode
@@ -5750,7 +5768,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -5869,7 +5887,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774742400
+          default: 1774828800
           format: int64
           nullable: true
           type: integer
@@ -8079,6 +8097,7 @@ components:
       - street_brawl
       - explore_n_y_c
       - internal
+      nullable: true
       type: string
     GameServerInfo:
       example:
@@ -8474,7 +8493,6 @@ components:
           format: double
           type: number
         damage_mitigated_per_min:
-          deprecated: true
           format: double
           type: number
         damage_per_min:

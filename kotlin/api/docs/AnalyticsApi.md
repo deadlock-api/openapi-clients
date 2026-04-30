@@ -29,7 +29,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Ability Order Stats
 
- Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves statistics for the ability order of a hero.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -72,7 +72,7 @@ try {
 ### Parameters
 | **heroId** | **kotlin.Int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -111,7 +111,7 @@ No authorization required
 
 Badge Distribution
 
- This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the player badge distribution.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -144,7 +144,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -175,7 +175,7 @@ No authorization required
 
 Build Item Stats
 
- Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -201,7 +201,7 @@ try {
 
 ### Parameters
 | **heroId** | **kotlin.Int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **maxLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
@@ -225,7 +225,7 @@ No authorization required
 
 Game Stats
 
- Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves aggregate game-level statistics.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -259,7 +259,7 @@ try {
 ### Parameters
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -289,7 +289,7 @@ No authorization required
 
 Hero Ban Stats
 
- Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -321,7 +321,7 @@ try {
 
 ### Parameters
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -351,7 +351,7 @@ No authorization required
 
 Hero Build Stats
 
- Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -387,7 +387,7 @@ try {
 
 ### Parameters
 | **heroId** | **kotlin.Int**| The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -421,7 +421,7 @@ No authorization required
 
 Hero Comb Stats
 
- Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -464,7 +464,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -505,7 +505,7 @@ No authorization required
 
 Hero Counter Stats
 
- Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -546,7 +546,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -585,7 +585,7 @@ No authorization required
 
 Hero Scoreboard
 
- This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the hero scoreboard.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -627,7 +627,7 @@ try {
 | **sortDirection** | **kotlin.String**| The direction to sort heroes in. | [optional] [enum: desc, asc] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **minMatches** | **kotlin.Int**| Filter by min number of matches played. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -661,7 +661,7 @@ No authorization required
 
 Hero Stats
 
- Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -705,7 +705,7 @@ try {
 ### Parameters
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -745,7 +745,7 @@ No authorization required
 
 Hero Synergy Stats
 
- Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -784,7 +784,7 @@ try {
 
 ### Parameters
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -821,7 +821,7 @@ No authorization required
 
 Item Permutation Stats
 
- Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -865,7 +865,7 @@ try {
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -899,7 +899,7 @@ No authorization required
 
 Item Stats
 
- Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -957,7 +957,7 @@ try {
 | **minEnemyNetworth** | **kotlin.Long**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **maxEnemyNetworth** | **kotlin.Long**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **sameLaneFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -997,7 +997,7 @@ No authorization required
 
 Kill Death Stats
 
- This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -1044,7 +1044,7 @@ try {
 ### Parameters
 | **team** | **kotlin.Int**| Filter by team number. | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1087,7 +1087,7 @@ No authorization required
 
 Player Performance Curve
 
- Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -1127,7 +1127,7 @@ try {
 ### Parameters
 | **resolution** | **kotlin.Int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1163,7 +1163,7 @@ No authorization required
 
 Player Scoreboard
 
- This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the player scoreboard.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -1245,7 +1245,7 @@ No authorization required
 
 Player Stats Metrics
 
- Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin
@@ -1285,7 +1285,7 @@ try {
 ### Parameters
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

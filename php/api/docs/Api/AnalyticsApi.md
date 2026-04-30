@@ -33,7 +33,7 @@ abilityOrderStats($hero_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp
 
 Ability Order Stats
 
-Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -50,7 +50,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -82,7 +82,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -125,7 +125,7 @@ badgeDistribution($game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_dur
 
 Badge Distribution
 
-This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -141,7 +141,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -164,7 +164,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -199,7 +199,7 @@ buildItemStats($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_uni
 
 Build Item Stats
 
-Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -215,7 +215,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_last_updated_unix_timestamp = 1774742400; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
+$min_last_updated_unix_timestamp = 1774828800; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
 $max_last_updated_unix_timestamp = 56; // int | Filter builds based on their last updated time (Unix timestamp).
 
 try {
@@ -231,7 +231,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
 
 ### Return type
@@ -259,7 +259,7 @@ gameStats($bucket, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_du
 
 Game Stats
 
-Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -276,7 +276,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -299,7 +299,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -333,7 +333,7 @@ heroBanStats($bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s,
 
 Hero Ban Stats
 
-Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -349,7 +349,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -371,7 +371,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -405,7 +405,7 @@ heroBuildStats($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration
 
 Hero Build Stats
 
-Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -421,7 +421,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -447,7 +447,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -485,7 +485,7 @@ heroCombStats($game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duratio
 
 Hero Comb Stats
 
-Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -501,7 +501,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -534,7 +534,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -579,7 +579,7 @@ heroCountersStats($game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_dur
 
 Hero Counter Stats
 
-Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -595,7 +595,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -626,7 +626,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -669,7 +669,7 @@ heroScoreboard($sort_by, $sort_direction, $game_mode, $min_matches, $min_unix_ti
 
 Hero Scoreboard
 
-This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -688,7 +688,7 @@ $sort_by = 'sort_by_example'; // string | The field to sort by.
 $sort_direction = 'sort_direction_example'; // string | The direction to sort heroes in.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $min_matches = 56; // int | Filter by min number of matches played.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -717,7 +717,7 @@ try {
 | **sort_direction** | **string**| The direction to sort heroes in. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **min_matches** | **int**| Filter by min number of matches played. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -755,7 +755,7 @@ heroStats($bucket, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_du
 
 Hero Stats
 
-Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -772,7 +772,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -805,7 +805,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -849,7 +849,7 @@ heroSynergiesStats($game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_du
 
 Hero Synergy Stats
 
-Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -865,7 +865,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -894,7 +894,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -935,7 +935,7 @@ itemPermutationStats($item_ids, $comb_size, $game_mode, $hero_ids, $hero_id, $mi
 
 Item Permutation Stats
 
-Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -955,7 +955,7 @@ $comb_size = 2; // int | The combination size to return.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $hero_id = 56; // int | Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -985,7 +985,7 @@ try {
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1023,7 +1023,7 @@ itemStats($bucket, $game_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero
 
 Item Stats
 
-Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -1047,7 +1047,7 @@ $enemy_hero_ids_all_match = True; // bool | When `true`, requires *all* of the s
 $min_enemy_networth = 56; // int | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
 $max_enemy_networth = 56; // int | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
 $same_lane_filter = True; // bool | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1087,7 +1087,7 @@ try {
 | **min_enemy_networth** | **int**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **max_enemy_networth** | **int**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **same_lane_filter** | **bool**| When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1131,7 +1131,7 @@ killDeathStats($team, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min
 
 Kill Death Stats
 
-This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -1148,7 +1148,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $team = 56; // int | Filter by team number.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1184,7 +1184,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **team** | **int**| Filter by team number. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1231,7 +1231,7 @@ playerPerformanceCurve($resolution, $game_mode, $min_unix_timestamp, $max_unix_t
 
 Player Performance Curve
 
-Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -1248,7 +1248,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $resolution = 10; // int | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1277,7 +1277,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **resolution** | **int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1317,7 +1317,7 @@ playerScoreboard($sort_by, $sort_direction, $game_mode, $hero_id, $min_matches, 
 
 Player Scoreboard
 
-This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -1409,7 +1409,7 @@ playerStatsMetrics($hero_ids, $game_mode, $min_unix_timestamp, $max_unix_timesta
 
 Player Stats Metrics
 
-Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
 
 ### Example
 
@@ -1426,7 +1426,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774742400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1455,7 +1455,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774742400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1774828800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

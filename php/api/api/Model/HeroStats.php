@@ -844,7 +844,6 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets damage_mitigated_per_min
      *
      * @return float
-     * @deprecated
      */
     public function getDamageMitigatedPerMin()
     {
@@ -857,7 +856,6 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param float $damage_mitigated_per_min damage_mitigated_per_min
      *
      * @return self
-     * @deprecated
      */
     public function setDamageMitigatedPerMin($damage_mitigated_per_min)
     {

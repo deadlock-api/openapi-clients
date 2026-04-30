@@ -517,9 +517,6 @@ export interface HeroStats {
     'assists_per_min': number;
     'creeps_per_min': number;
     'crit_shot_rate': number;
-    /**
-     * @deprecated
-     */
     'damage_mitigated_per_min': number;
     'damage_per_min': number;
     'damage_per_soul': number;
@@ -1204,7 +1201,7 @@ export interface VariableDescription {
 export const AnalyticsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Ability Order Stats
          * @param {number} heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {AbilityOrderStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -1331,7 +1328,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Badge Distribution
          * @param {BadgeDistributionGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -1411,7 +1408,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Build Item Stats
          * @param {number | null} [heroId] Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minLastUpdatedUnixTimestamp] Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
@@ -1456,7 +1453,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Game Stats
          * @param {GameStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {GameStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -1536,7 +1533,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Ban Stats
          * @param {HeroBanStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
@@ -1611,7 +1608,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Build Stats
          * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
@@ -1705,7 +1702,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Comb Stats
          * @param {HeroCombStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -1835,7 +1832,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Counter Stats
          * @param {HeroCountersStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -1955,7 +1952,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Scoreboard
          * @param {HeroScoreboardSortByEnum} sortBy The field to sort by.
          * @param {HeroScoreboardSortDirectionEnum} [sortDirection] The direction to sort heroes in.
@@ -2067,7 +2064,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Stats
          * @param {HeroStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {HeroStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -2197,7 +2194,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Synergy Stats
          * @param {HeroSynergiesStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -2307,7 +2304,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Item Permutation Stats
          * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [combSize] The combination size to return.
@@ -2422,7 +2419,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Item Stats
          * @param {ItemStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {ItemStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -2587,7 +2584,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Kill Death Stats
          * @param {number | null} [team] Filter by team number.
          * @param {KillDeathStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -2732,7 +2729,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Performance Curve
          * @param {number | null} [resolution] Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
          * @param {PlayerPerformanceCurveGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -2842,7 +2839,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Scoreboard
          * @param {PlayerScoreboardSortByEnum} sortBy The field to sort by.
          * @param {PlayerScoreboardSortDirectionEnum} [sortDirection] The direction to sort players in.
@@ -2969,7 +2966,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Stats Metrics
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {PlayerStatsMetricsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3088,7 +3085,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AnalyticsApiAxiosParamCreator(configuration)
     return {
         /**
-         *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Ability Order Stats
          * @param {number} heroId See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {AbilityOrderStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3119,7 +3116,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Badge Distribution
          * @param {BadgeDistributionGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -3141,7 +3138,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Build Item Stats
          * @param {number | null} [heroId] Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minLastUpdatedUnixTimestamp] Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
@@ -3156,7 +3153,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Game Stats
          * @param {GameStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {GameStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3178,7 +3175,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Ban Stats
          * @param {HeroBanStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
@@ -3199,7 +3196,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Build Stats
          * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
@@ -3224,7 +3221,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Comb Stats
          * @param {HeroCombStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -3256,7 +3253,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Counter Stats
          * @param {HeroCountersStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -3286,7 +3283,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Scoreboard
          * @param {HeroScoreboardSortByEnum} sortBy The field to sort by.
          * @param {HeroScoreboardSortDirectionEnum} [sortDirection] The direction to sort heroes in.
@@ -3314,7 +3311,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Stats
          * @param {HeroStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {HeroStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3346,7 +3343,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Synergy Stats
          * @param {HeroSynergiesStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -3374,7 +3371,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Item Permutation Stats
          * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
          * @param {number | null} [combSize] The combination size to return.
@@ -3403,7 +3400,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Item Stats
          * @param {ItemStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
          * @param {ItemStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3442,7 +3439,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Kill Death Stats
          * @param {number | null} [team] Filter by team number.
          * @param {KillDeathStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3477,7 +3474,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Performance Curve
          * @param {number | null} [resolution] Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
          * @param {PlayerPerformanceCurveGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3505,7 +3502,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Scoreboard
          * @param {PlayerScoreboardSortByEnum} sortBy The field to sort by.
          * @param {PlayerScoreboardSortDirectionEnum} [sortDirection] The direction to sort players in.
@@ -3536,7 +3533,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Stats Metrics
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
          * @param {PlayerStatsMetricsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3573,7 +3570,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
     const localVarFp = AnalyticsApiFp(configuration)
     return {
         /**
-         *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Ability Order Stats
          * @param {AnalyticsApiAbilityOrderStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3583,7 +3580,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.abilityOrderStats(requestParameters.heroId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAbilityUpgrades, requestParameters.maxAbilityUpgrades, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Badge Distribution
          * @param {AnalyticsApiBadgeDistributionRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3593,7 +3590,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.badgeDistribution(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Build Item Stats
          * @param {AnalyticsApiBuildItemStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3603,7 +3600,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.buildItemStats(requestParameters.heroId, requestParameters.minLastUpdatedUnixTimestamp, requestParameters.maxLastUpdatedUnixTimestamp, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Game Stats
          * @param {AnalyticsApiGameStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3613,7 +3610,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.gameStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Ban Stats
          * @param {AnalyticsApiHeroBanStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3623,7 +3620,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.heroBanStats(requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Build Stats
          * @param {AnalyticsApiHeroBuildStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3633,7 +3630,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.heroBuildStats(requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Comb Stats
          * @param {AnalyticsApiHeroCombStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3643,7 +3640,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.heroCombStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeHeroIds, requestParameters.excludeHeroIds, requestParameters.includeEnemyHeroIds, requestParameters.excludeEnemyHeroIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.combSize, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Counter Stats
          * @param {AnalyticsApiHeroCountersStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3653,7 +3650,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.heroCountersStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Scoreboard
          * @param {AnalyticsApiHeroScoreboardRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3663,7 +3660,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.heroScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.minMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Stats
          * @param {AnalyticsApiHeroStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3673,7 +3670,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.heroStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minHeroMatches, requestParameters.maxHeroMatches, requestParameters.minHeroMatchesTotal, requestParameters.maxHeroMatchesTotal, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Hero Synergy Stats
          * @param {AnalyticsApiHeroSynergiesStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3683,7 +3680,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.heroSynergiesStats(requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Item Permutation Stats
          * @param {AnalyticsApiItemPermutationStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3693,7 +3690,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.itemPermutationStats(requestParameters.itemIds, requestParameters.combSize, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Item Stats
          * @param {AnalyticsApiItemStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3703,7 +3700,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.enemyHeroIds, requestParameters.enemyHeroIdsAllMatch, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.sameLaneFilter, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Kill Death Stats
          * @param {AnalyticsApiKillDeathStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3713,7 +3710,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.killDeathStats(requestParameters.team, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.accountIds, requestParameters.heroIds, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minKillsPerRaster, requestParameters.maxKillsPerRaster, requestParameters.minDeathsPerRaster, requestParameters.maxDeathsPerRaster, requestParameters.minGameTimeS, requestParameters.maxGameTimeS, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Performance Curve
          * @param {AnalyticsApiPlayerPerformanceCurveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3723,7 +3720,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.playerPerformanceCurve(requestParameters.resolution, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroIds, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Scoreboard
          * @param {AnalyticsApiPlayerScoreboardRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3733,7 +3730,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
             return localVarFp.playerScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.heroId, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.start, requestParameters.limit, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
          * @summary Player Stats Metrics
          * @param {AnalyticsApiPlayerStatsMetricsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -5195,7 +5192,7 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
  */
 export class AnalyticsApi extends BaseAPI {
     /**
-     *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Ability Order Stats
      * @param {AnalyticsApiAbilityOrderStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5206,7 +5203,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the player badge distribution.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Badge Distribution
      * @param {AnalyticsApiBadgeDistributionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5217,7 +5214,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Build Item Stats
      * @param {AnalyticsApiBuildItemStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5228,7 +5225,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves aggregate game-level statistics.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Game Stats
      * @param {AnalyticsApiGameStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5239,7 +5236,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Hero Ban Stats
      * @param {AnalyticsApiHeroBanStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5250,7 +5247,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Hero Build Stats
      * @param {AnalyticsApiHeroBuildStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5261,7 +5258,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Hero Comb Stats
      * @param {AnalyticsApiHeroCombStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5272,7 +5269,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Hero Counter Stats
      * @param {AnalyticsApiHeroCountersStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5283,7 +5280,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the hero scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Hero Scoreboard
      * @param {AnalyticsApiHeroScoreboardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5294,7 +5291,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Hero Stats
      * @param {AnalyticsApiHeroStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5305,7 +5302,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Hero Synergy Stats
      * @param {AnalyticsApiHeroSynergiesStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5316,7 +5313,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Item Permutation Stats
      * @param {AnalyticsApiItemPermutationStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5327,7 +5324,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Item Stats
      * @param {AnalyticsApiItemStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5338,7 +5335,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Kill Death Stats
      * @param {AnalyticsApiKillDeathStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5349,7 +5346,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Player Performance Curve
      * @param {AnalyticsApiPlayerPerformanceCurveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5360,7 +5357,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the player scoreboard.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Player Scoreboard
      * @param {AnalyticsApiPlayerScoreboardRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5371,7 +5368,7 @@ export class AnalyticsApi extends BaseAPI {
     }
 
     /**
-     *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @summary Player Stats Metrics
      * @param {AnalyticsApiPlayerStatsMetricsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -8367,7 +8364,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
-         * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+         * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
          * @param {Array<number> | null} [matchIds] Comma separated list of match ids, limited by &#x60;limit&#x60;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -8782,7 +8779,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
-         * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+         * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
          * @param {Array<number> | null} [matchIds] Comma separated list of match ids, limited by &#x60;limit&#x60;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -9038,7 +9035,7 @@ export interface MatchesApiBulkMetadataRequest {
     readonly includePlayerDeathDetails?: boolean
 
     /**
-     * Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     * Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
      */
     readonly gameMode?: BulkMetadataGameModeEnum
 

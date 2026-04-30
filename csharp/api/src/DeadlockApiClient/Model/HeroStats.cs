@@ -147,7 +147,6 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets DamageMitigatedPerMin
         /// </summary>
         [JsonPropertyName("damage_mitigated_per_min")]
-        [Obsolete]
         public double DamageMitigatedPerMin { get; set; }
 
         /// <summary>
