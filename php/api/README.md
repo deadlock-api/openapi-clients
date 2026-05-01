@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1774828800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1774915200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**recentlyFetched**](docs/Api/MatchesApi.md#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched
 *MatchesApi* | [**salts**](docs/Api/MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 *MatchesApi* | [**url**](docs/Api/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
+*MatchesApi* | [**urls**](docs/Api/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *PatchesApi* | [**bigPatchDays**](docs/Api/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/Api/PatchesApi.md#feed) | **GET** /v1/patches | Notes
 *PlayersApi* | [**accountStats**](docs/Api/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
@@ -218,6 +219,7 @@ Class | Method | HTTP request | Description
 - [Leaderboard](docs/Model/Leaderboard.md)
 - [LeaderboardEntry](docs/Model/LeaderboardEntry.md)
 - [ListServersResponse](docs/Model/ListServersResponse.md)
+- [LiveUrl](docs/Model/LiveUrl.md)
 - [MMRHistory](docs/Model/MMRHistory.md)
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)
 - [MatchSpectateResponse](docs/Model/MatchSpectateResponse.md)

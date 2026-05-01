@@ -38,3 +38,8 @@ Accept: application/json
 ## Live Broadcast URL
 GET https://api.deadlock-api.com/v1/matches/{{match_id}}/live/url
 Accept: application/json
+
+### Live Broadcast URLs
+## Live Broadcast URLs
+GET https://api.deadlock-api.com/v1/matches/live/urls
+Accept: application/json

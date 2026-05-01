@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**recently_fetched**](MatchesApi.md#recently_fetched) | **GET** /v1/matches/recently-fetched | Recently Fetched
 [**salts**](MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 [**url**](MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
+[**urls**](MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 
 
 # **active_matches**
@@ -746,6 +747,84 @@ No authorization required
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Spectating match failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **urls**
+> List[LiveUrl] urls()
+
+Live Broadcast URLs
+
+
+Returns a list of all currently available live broadcast URLs.
+
+These can be used in any demofile broadcast parser:
+- [Demofile-Net](https://github.com/saul/demofile-net)
+- [Haste](https://github.com/blukai/haste/)
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.live_url import LiveUrl
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.MatchesApi(api_client)
+
+    try:
+        # Live Broadcast URLs
+        api_response = api_instance.urls()
+        print("The response of MatchesApi->urls:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MatchesApi->urls: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List[LiveUrl]**](LiveUrl.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**500** | Fetching live URLs failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

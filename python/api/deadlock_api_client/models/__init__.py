@@ -54,6 +54,7 @@ from deadlock_api_client.models.kill_death_stats import KillDeathStats
 from deadlock_api_client.models.leaderboard import Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry
 from deadlock_api_client.models.list_servers_response import ListServersResponse
+from deadlock_api_client.models.live_url import LiveUrl
 from deadlock_api_client.models.mmr_history import MMRHistory
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse

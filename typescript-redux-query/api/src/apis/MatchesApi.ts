@@ -21,6 +21,9 @@ import {
     ClickhouseMatchInfo,
     ClickhouseMatchInfoFromJSON,
     ClickhouseMatchInfoToJSON,
+    LiveUrl,
+    LiveUrlFromJSON,
+    LiveUrlToJSON,
     MatchSaltsResponse,
     MatchSaltsResponseFromJSON,
     MatchSaltsResponseToJSON,
@@ -652,6 +655,50 @@ function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQu
 */
 export function url<T>(requestParameters: UrlRequest, requestConfig?: runtime.TypedQueryConfig<T, MatchSpectateResponse>): QueryConfig<T> {
     return urlRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ * Live Broadcast URLs
+ */
+function urlsRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<LiveUrl>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/matches/live/urls`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(LiveUrlFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+* Live Broadcast URLs
+*/
+export function urls<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<LiveUrl>>): QueryConfig<T> {
+    return urlsRaw( requestConfig);
 }
 
 

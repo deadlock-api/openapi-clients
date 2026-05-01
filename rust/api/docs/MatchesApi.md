@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**recently_fetched**](MatchesApi.md#recently_fetched) | **GET** /v1/matches/recently-fetched | Recently Fetched
 [**salts**](MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 [**url**](MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
+[**urls**](MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 
 
 
@@ -273,6 +274,33 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::MatchSpectateResponse**](MatchSpectateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## urls
+
+> Vec<models::LiveUrl> urls()
+Live Broadcast URLs
+
+ Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Vec<models::LiveUrl>**](LiveUrl.md)
 
 ### Authorization
 

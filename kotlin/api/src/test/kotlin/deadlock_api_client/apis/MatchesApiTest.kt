@@ -29,6 +29,7 @@ import io.kotlintest.specs.ShouldSpec
 import deadlock_api_client.apis.MatchesApi
 import deadlock_api_client.models.ActiveMatch
 import deadlock_api_client.models.ClickhouseMatchInfo
+import deadlock_api_client.models.LiveUrl
 import deadlock_api_client.models.MatchSaltsResponse
 import deadlock_api_client.models.MatchSpectateResponse
 
@@ -132,6 +133,13 @@ class MatchesApiTest : ShouldSpec() {
             // uncomment below to test url
             //val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
             //val result : MatchSpectateResponse = apiInstance.url(matchId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test urls
+        should("test urls") {
+            // uncomment below to test urls
+            //val result : kotlin.collections.List<LiveUrl> = apiInstance.urls()
             //result shouldBe ("TODO")
         }
 

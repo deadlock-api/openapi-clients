@@ -14,6 +14,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**recentlyFetched()**](MatchesApi.md#recentlyFetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
 | [**salts()**](MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts |
 | [**url()**](MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL |
+| [**urls()**](MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs |
 
 
 ## `activeMatches()`
@@ -517,6 +518,59 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\MatchSpectateResponse**](../Model/MatchSpectateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `urls()`
+
+```php
+urls(): \OpenAPI\Client\Model\LiveUrl[]
+```
+
+Live Broadcast URLs
+
+Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\MatchesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->urls();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MatchesApi->urls: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\LiveUrl[]**](../Model/LiveUrl.md)
 
 ### Authorization
 

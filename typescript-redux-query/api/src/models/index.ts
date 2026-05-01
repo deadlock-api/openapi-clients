@@ -39,6 +39,7 @@ export * from './KillDeathStats';
 export * from './Leaderboard';
 export * from './LeaderboardEntry';
 export * from './ListServersResponse';
+export * from './LiveUrl';
 export * from './MMRHistory';
 export * from './MatchSaltsResponse';
 export * from './MatchSpectateResponse';

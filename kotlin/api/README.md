@@ -112,6 +112,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *MatchesApi* | [**recentlyFetched**](docs/MatchesApi.md#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
 | *MatchesApi* | [**salts**](docs/MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts |
 | *MatchesApi* | [**url**](docs/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL |
+| *MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs |
 | *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days |
 | *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes |
 | *PlayersApi* | [**accountStats**](docs/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats |
@@ -176,6 +177,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Leaderboard](docs/Leaderboard.md)
  - [deadlock_api_client.models.LeaderboardEntry](docs/LeaderboardEntry.md)
  - [deadlock_api_client.models.ListServersResponse](docs/ListServersResponse.md)
+ - [deadlock_api_client.models.LiveUrl](docs/LiveUrl.md)
  - [deadlock_api_client.models.MMRHistory](docs/MMRHistory.md)
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [deadlock_api_client.models.MatchSpectateResponse](docs/MatchSpectateResponse.md)

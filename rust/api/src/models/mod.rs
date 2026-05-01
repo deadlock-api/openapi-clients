@@ -80,6 +80,8 @@ pub mod leaderboard_entry;
 pub use self::leaderboard_entry::LeaderboardEntry;
 pub mod list_servers_response;
 pub use self::list_servers_response::ListServersResponse;
+pub mod live_url;
+pub use self::live_url::LiveUrl;
 pub mod match_salts_response;
 pub use self::match_salts_response::MatchSaltsResponse;
 pub mod match_spectate_response;

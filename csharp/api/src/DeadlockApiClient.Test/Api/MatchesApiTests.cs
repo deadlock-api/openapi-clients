@@ -178,5 +178,16 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<MatchSpectateResponse>(model);
         }
+
+        /// <summary>
+        /// Test Urls
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task UrlsAsyncTest()
+        {
+            var response = await _instance.UrlsAsync();
+            var model = response.Ok();
+            Assert.IsType<List<LiveUrl>>(model);
+        }
     }
 }

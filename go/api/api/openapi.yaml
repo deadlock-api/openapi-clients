@@ -129,7 +129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -378,7 +378,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -511,7 +511,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -587,7 +587,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -726,7 +726,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -859,7 +859,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -1046,7 +1046,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -1326,7 +1326,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -1582,7 +1582,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -1846,7 +1846,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -2115,7 +2115,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -2402,7 +2402,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -2669,7 +2669,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -2961,7 +2961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -3182,7 +3182,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -3481,7 +3481,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -4862,6 +4862,28 @@ paths:
       summary: Get Match ID
       tags:
       - Custom Matches
+  /v1/matches/live/urls:
+    get:
+      description: "\nReturns a list of all currently available live broadcast URLs.\n\
+        \nThese can be used in any demofile broadcast parser:\n- [Demofile-Net](https://github.com/saul/demofile-net)\n\
+        - [Haste](https://github.com/blukai/haste/)\n\n### Rate Limits:\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
+        \ |\n    "
+      operationId: urls
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/LiveUrl"
+                type: array
+          description: ""
+        "500":
+          description: Fetching live URLs failed
+      summary: Live Broadcast URLs
+      tags:
+      - Matches
   /v1/matches/metadata:
     get:
       description: "\nThis endpoints lets you fetch multiple match metadata at once.\
@@ -5768,7 +5790,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -5887,7 +5909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1774828800
+          default: 1774915200
           format: int64
           nullable: true
           type: integer
@@ -9023,6 +9045,36 @@ components:
           type: array
       required:
       - servers
+    LiveUrl:
+      example:
+        updated_at: 5
+        match_id: 0
+        started_at: 1
+        broadcast_url: broadcast_url
+        lobby_id: 0
+      properties:
+        broadcast_url:
+          type: string
+        lobby_id:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        match_id:
+          format: int64
+          minimum: 0
+          type: integer
+        started_at:
+          format: int64
+          nullable: true
+          type: integer
+        updated_at:
+          format: int64
+          nullable: true
+          type: integer
+      required:
+      - broadcast_url
+      - match_id
     MMRHistory:
       example:
         division: 0

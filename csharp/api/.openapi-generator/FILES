@@ -59,6 +59,7 @@ docs/models/KillDeathStats.md
 docs/models/Leaderboard.md
 docs/models/LeaderboardEntry.md
 docs/models/ListServersResponse.md
+docs/models/LiveUrl.md
 docs/models/MMRHistory.md
 docs/models/MatchSaltsResponse.md
 docs/models/MatchSpectateResponse.md
@@ -149,6 +150,7 @@ src/DeadlockApiClient.Test/Model/KillDeathStatsTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardEntryTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardTests.cs
 src/DeadlockApiClient.Test/Model/ListServersResponseTests.cs
+src/DeadlockApiClient.Test/Model/LiveUrlTests.cs
 src/DeadlockApiClient.Test/Model/MMRHistoryTests.cs
 src/DeadlockApiClient.Test/Model/MatchSaltsResponseTests.cs
 src/DeadlockApiClient.Test/Model/MatchSpectateResponseTests.cs
@@ -260,6 +262,7 @@ src/DeadlockApiClient/Model/KillDeathStats.cs
 src/DeadlockApiClient/Model/Leaderboard.cs
 src/DeadlockApiClient/Model/LeaderboardEntry.cs
 src/DeadlockApiClient/Model/ListServersResponse.cs
+src/DeadlockApiClient/Model/LiveUrl.cs
 src/DeadlockApiClient/Model/MMRHistory.cs
 src/DeadlockApiClient/Model/MatchSaltsResponse.cs
 src/DeadlockApiClient/Model/MatchSpectateResponse.cs

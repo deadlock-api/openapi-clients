@@ -63,6 +63,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**recentlyFetched**](Apis/MatchesApi.http#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched
 *MatchesApi* | [**salts**](Apis/MatchesApi.http#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 *MatchesApi* | [**url**](Apis/MatchesApi.http#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
+*MatchesApi* | [**urls**](Apis/MatchesApi.http#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *PatchesApi* | [**bigPatchDays**](Apis/PatchesApi.http#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](Apis/PatchesApi.http#feed) | **GET** /v1/patches | Notes
 *PlayersApi* | [**accountStats**](Apis/PlayersApi.http#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats

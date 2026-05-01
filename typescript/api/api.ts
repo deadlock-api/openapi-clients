@@ -712,6 +712,13 @@ export interface LeaderboardEntry {
 export interface ListServersResponse {
     'servers': Array<GameServerInfo>;
 }
+export interface LiveUrl {
+    'broadcast_url': string;
+    'lobby_id'?: number | null;
+    'match_id': number;
+    'started_at'?: number | null;
+    'updated_at'?: number | null;
+}
 export interface MMRHistory {
     'account_id': number;
     /**
@@ -8732,6 +8739,36 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Live Broadcast URLs
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        urls: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/matches/live/urls`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -8880,6 +8917,18 @@ export const MatchesApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.url']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Live Broadcast URLs
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async urls(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LiveUrl>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.urls(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MatchesApi.urls']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -8966,6 +9015,15 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          */
         url(requestParameters: MatchesApiUrlRequest, options?: RawAxiosRequestConfig): AxiosPromise<MatchSpectateResponse> {
             return localVarFp.url(requestParameters.matchId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Live Broadcast URLs
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        urls(options?: RawAxiosRequestConfig): AxiosPromise<Array<LiveUrl>> {
+            return localVarFp.urls(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -9297,6 +9355,16 @@ export class MatchesApi extends BaseAPI {
      */
     public url(requestParameters: MatchesApiUrlRequest, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).url(requestParameters.matchId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Live Broadcast URLs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public urls(options?: RawAxiosRequestConfig) {
+        return MatchesApiFp(this.configuration).urls(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

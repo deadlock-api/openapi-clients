@@ -49,6 +49,7 @@ docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
 docs/ListServersResponse.md
+docs/LiveUrl.md
 docs/MMRApi.md
 docs/MMRHistory.md
 docs/MatchSaltsResponse.md
@@ -159,6 +160,7 @@ src/main/kotlin/deadlock_api_client/models/KillDeathStats.kt
 src/main/kotlin/deadlock_api_client/models/Leaderboard.kt
 src/main/kotlin/deadlock_api_client/models/LeaderboardEntry.kt
 src/main/kotlin/deadlock_api_client/models/ListServersResponse.kt
+src/main/kotlin/deadlock_api_client/models/LiveUrl.kt
 src/main/kotlin/deadlock_api_client/models/MMRHistory.kt
 src/main/kotlin/deadlock_api_client/models/MatchSaltsResponse.kt
 src/main/kotlin/deadlock_api_client/models/MatchSpectateResponse.kt
@@ -244,6 +246,7 @@ src/test/kotlin/deadlock_api_client/models/KillDeathStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/LeaderboardEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/LeaderboardTest.kt
 src/test/kotlin/deadlock_api_client/models/ListServersResponseTest.kt
+src/test/kotlin/deadlock_api_client/models/LiveUrlTest.kt
 src/test/kotlin/deadlock_api_client/models/MMRHistoryTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSaltsResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSpectateResponseTest.kt

@@ -82,6 +82,13 @@ class TestMatchesApi(unittest.TestCase):
         """
         pass
 
+    def test_urls(self) -> None:
+        """Test case for urls
+
+        Live Broadcast URLs
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

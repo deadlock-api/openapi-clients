@@ -51,6 +51,7 @@ docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
 docs/ListServersResponse.md
+docs/LiveUrl.md
 docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
@@ -147,6 +148,7 @@ src/models/kill_death_stats.rs
 src/models/leaderboard.rs
 src/models/leaderboard_entry.rs
 src/models/list_servers_response.rs
+src/models/live_url.rs
 src/models/match_salts_response.rs
 src/models/match_spectate_response.rs
 src/models/mate_stats.rs

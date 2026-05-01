@@ -60,6 +60,7 @@ src/models/KillDeathStats.ts
 src/models/Leaderboard.ts
 src/models/LeaderboardEntry.ts
 src/models/ListServersResponse.ts
+src/models/LiveUrl.ts
 src/models/MMRHistory.ts
 src/models/MatchSaltsResponse.ts
 src/models/MatchSpectateResponse.ts

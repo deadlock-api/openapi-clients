@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**RecentlyFetched**](MatchesAPI.md#RecentlyFetched) | **Get** /v1/matches/recently-fetched | Recently Fetched
 [**Salts**](MatchesAPI.md#Salts) | **Get** /v1/matches/{match_id}/salts | Salts
 [**Url**](MatchesAPI.md#Url) | **Get** /v1/matches/{match_id}/live/url | Live Broadcast URL
+[**Urls**](MatchesAPI.md#Urls) | **Get** /v1/matches/live/urls | Live Broadcast URLs
 
 
 
@@ -606,6 +607,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MatchSpectateResponse**](MatchSpectateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Urls
+
+> []LiveUrl Urls(ctx).Execute()
+
+Live Broadcast URLs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MatchesAPI.Urls(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.Urls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Urls`: []LiveUrl
+	fmt.Fprintf(os.Stdout, "Response from `MatchesAPI.Urls`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUrlsRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]LiveUrl**](LiveUrl.md)
 
 ### Authorization
 

@@ -12,6 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**recentlyFetched**](#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched|
 |[**salts**](#salts) | **GET** /v1/matches/{match_id}/salts | Salts|
 |[**url**](#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL|
+|[**urls**](#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs|
 
 # **activeMatches**
 > Array<ActiveMatch> activeMatches()
@@ -535,6 +536,51 @@ No authorization required
 |**400** | Provided parameters are invalid. |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Spectating match failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **urls**
+> Array<LiveUrl> urls()
+
+ Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Example
+
+```typescript
+import {
+    MatchesApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new MatchesApi(configuration);
+
+const { status, data } = await apiInstance.urls();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**Array<LiveUrl>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** |  |  -  |
+|**500** | Fetching live URLs failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

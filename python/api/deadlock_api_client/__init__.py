@@ -82,6 +82,7 @@ __all__ = [
     "Leaderboard",
     "LeaderboardEntry",
     "ListServersResponse",
+    "LiveUrl",
     "MMRHistory",
     "MatchSaltsResponse",
     "MatchSpectateResponse",
@@ -183,6 +184,7 @@ from deadlock_api_client.models.kill_death_stats import KillDeathStats as KillDe
 from deadlock_api_client.models.leaderboard import Leaderboard as Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry as LeaderboardEntry
 from deadlock_api_client.models.list_servers_response import ListServersResponse as ListServersResponse
+from deadlock_api_client.models.live_url import LiveUrl as LiveUrl
 from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse as MatchSpectateResponse

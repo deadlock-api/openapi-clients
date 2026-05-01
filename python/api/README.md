@@ -87,7 +87,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
     hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1774828800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774828800)
+    min_unix_timestamp = 1774915200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1774915200)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**recently_fetched**](docs/MatchesApi.md#recently_fetched) | **GET** /v1/matches/recently-fetched | Recently Fetched
 *MatchesApi* | [**salts**](docs/MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 *MatchesApi* | [**url**](docs/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
+*MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *PatchesApi* | [**big_patch_days**](docs/PatchesApi.md#big_patch_days) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes
 *PlayersApi* | [**account_stats**](docs/PlayersApi.md#account_stats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
@@ -233,6 +234,7 @@ Class | Method | HTTP request | Description
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
  - [ListServersResponse](docs/ListServersResponse.md)
+ - [LiveUrl](docs/LiveUrl.md)
  - [MMRHistory](docs/MMRHistory.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)

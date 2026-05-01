@@ -12,6 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**RecentlyFetched**](MatchesApi.md#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
 | [**Salts**](MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts |
 | [**Url**](MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL |
+| [**Urls**](MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs |
 
 <a id="activematches"></a>
 # **ActiveMatches**
@@ -347,6 +348,39 @@ No authorization required
 | **400** | Provided parameters are invalid. |  -  |
 | **429** | Rate limit exceeded |  -  |
 | **500** | Spectating match failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="urls"></a>
+# **Urls**
+> List&lt;LiveUrl&gt; Urls ()
+
+Live Broadcast URLs
+
+ Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;LiveUrl&gt;**](LiveUrl.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **500** | Fetching live URLs failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

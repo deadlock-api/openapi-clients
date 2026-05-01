@@ -93,6 +93,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**recently_fetched**](docs/MatchesApi.md#recently_fetched) | **GET** /v1/matches/recently-fetched | Recently Fetched
 *MatchesApi* | [**salts**](docs/MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 *MatchesApi* | [**url**](docs/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
+*MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *PatchesApi* | [**big_patch_days**](docs/PatchesApi.md#big_patch_days) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes
 *PlayersApi* | [**account_stats**](docs/PlayersApi.md#account_stats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
@@ -156,6 +157,7 @@ Class | Method | HTTP request | Description
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
  - [ListServersResponse](docs/ListServersResponse.md)
+ - [LiveUrl](docs/LiveUrl.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
