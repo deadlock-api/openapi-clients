@@ -40,7 +40,7 @@ import (
 
 func main() {
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -164,7 +164,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -228,7 +228,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -292,7 +292,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -356,7 +356,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -420,7 +420,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -484,7 +484,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -548,7 +548,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -613,7 +613,7 @@ import (
 
 func main() {
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -678,7 +678,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -742,7 +742,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6455) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6468) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
