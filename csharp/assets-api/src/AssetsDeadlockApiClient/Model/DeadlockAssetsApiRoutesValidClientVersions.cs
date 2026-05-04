@@ -31,6 +31,11 @@ namespace AssetsDeadlockApiClient.Model
     public enum DeadlockAssetsApiRoutesValidClientVersions
     {
         /// <summary>
+        /// Enum NUMBER_6484 for value: 6484
+        /// </summary>
+        NUMBER_6484 = 6484,
+
+        /// <summary>
         /// Enum NUMBER_6468 for value: 6468
         /// </summary>
         NUMBER_6468 = 6468,
@@ -433,6 +438,9 @@ namespace AssetsDeadlockApiClient.Model
         /// <returns></returns>
         public static DeadlockAssetsApiRoutesValidClientVersions FromString(string value)
         {
+            if (value.Equals((6484).ToString()))
+                return DeadlockAssetsApiRoutesValidClientVersions.NUMBER_6484;
+
             if (value.Equals((6468).ToString()))
                 return DeadlockAssetsApiRoutesValidClientVersions.NUMBER_6468;
 
@@ -677,6 +685,9 @@ namespace AssetsDeadlockApiClient.Model
         /// <returns></returns>
         public static DeadlockAssetsApiRoutesValidClientVersions? FromStringOrDefault(string value)
         {
+            if (value.Equals((6484).ToString()))
+                return DeadlockAssetsApiRoutesValidClientVersions.NUMBER_6484;
+
             if (value.Equals((6468).ToString()))
                 return DeadlockAssetsApiRoutesValidClientVersions.NUMBER_6468;
 
