@@ -64,7 +64,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Account Stats
      *  This endpoint returns the player account stats for the given &#x60;account_id&#x60;.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min &amp; 800req/h | | Global | 200req/min |     
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @return kotlin.collections.List<PlayerAccountStats>
+     * @return PlayerAccountStats
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -73,11 +73,11 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun accountStats(accountId: kotlin.Int) : kotlin.collections.List<PlayerAccountStats> {
+    fun accountStats(accountId: kotlin.Int) : PlayerAccountStats {
         val localVarResponse = accountStatsWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlayerAccountStats>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PlayerAccountStats
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -96,16 +96,16 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Account Stats
      *  This endpoint returns the player account stats for the given &#x60;account_id&#x60;.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min &amp; 800req/h | | Global | 200req/min |     
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @return ApiResponse<kotlin.collections.List<PlayerAccountStats>?>
+     * @return ApiResponse<PlayerAccountStats?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun accountStatsWithHttpInfo(accountId: kotlin.Int) : ApiResponse<kotlin.collections.List<PlayerAccountStats>?> {
+    fun accountStatsWithHttpInfo(accountId: kotlin.Int) : ApiResponse<PlayerAccountStats?> {
         val localVariableConfig = accountStatsRequestConfig(accountId = accountId)
 
-        return request<Unit, kotlin.collections.List<PlayerAccountStats>>(
+        return request<Unit, PlayerAccountStats>(
             localVariableConfig
         )
     }
@@ -137,7 +137,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Card
      *  This endpoint returns the player card for the given &#x60;account_id&#x60;.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min &amp; 800req/h | | Global | 200req/min |     
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @return kotlin.collections.List<PlayerCard>
+     * @return PlayerCard
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -146,11 +146,11 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun card(accountId: kotlin.Int) : kotlin.collections.List<PlayerCard> {
+    fun card(accountId: kotlin.Int) : PlayerCard {
         val localVarResponse = cardWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlayerCard>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PlayerCard
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -169,16 +169,16 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Card
      *  This endpoint returns the player card for the given &#x60;account_id&#x60;.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min &amp; 800req/h | | Global | 200req/min |     
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @return ApiResponse<kotlin.collections.List<PlayerCard>?>
+     * @return ApiResponse<PlayerCard?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun cardWithHttpInfo(accountId: kotlin.Int) : ApiResponse<kotlin.collections.List<PlayerCard>?> {
+    fun cardWithHttpInfo(accountId: kotlin.Int) : ApiResponse<PlayerCard?> {
         val localVariableConfig = cardRequestConfig(accountId = accountId)
 
-        return request<Unit, kotlin.collections.List<PlayerCard>>(
+        return request<Unit, PlayerCard>(
             localVariableConfig
         )
     }

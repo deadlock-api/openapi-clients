@@ -30,7 +30,7 @@ type ApiAccountStatsRequest struct {
 	accountId int32
 }
 
-func (r ApiAccountStatsRequest) Execute() ([]PlayerAccountStats, *http.Response, error) {
+func (r ApiAccountStatsRequest) Execute() (*PlayerAccountStats, *http.Response, error) {
 	return r.ApiService.AccountStatsExecute(r)
 }
 
@@ -73,13 +73,13 @@ func (a *PlayersAPIService) AccountStats(ctx context.Context, accountId int32) A
 }
 
 // Execute executes the request
-//  @return []PlayerAccountStats
-func (a *PlayersAPIService) AccountStatsExecute(r ApiAccountStatsRequest) ([]PlayerAccountStats, *http.Response, error) {
+//  @return PlayerAccountStats
+func (a *PlayersAPIService) AccountStatsExecute(r ApiAccountStatsRequest) (*PlayerAccountStats, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []PlayerAccountStats
+		localVarReturnValue  *PlayerAccountStats
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.AccountStats")
@@ -157,7 +157,7 @@ type ApiCardRequest struct {
 	accountId int32
 }
 
-func (r ApiCardRequest) Execute() ([]PlayerCard, *http.Response, error) {
+func (r ApiCardRequest) Execute() (*PlayerCard, *http.Response, error) {
 	return r.ApiService.CardExecute(r)
 }
 
@@ -200,13 +200,13 @@ func (a *PlayersAPIService) Card(ctx context.Context, accountId int32) ApiCardRe
 }
 
 // Execute executes the request
-//  @return []PlayerCard
-func (a *PlayersAPIService) CardExecute(r ApiCardRequest) ([]PlayerCard, *http.Response, error) {
+//  @return PlayerCard
+func (a *PlayersAPIService) CardExecute(r ApiCardRequest) (*PlayerCard, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []PlayerCard
+		localVarReturnValue  *PlayerCard
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.Card")

@@ -200,7 +200,7 @@ pub enum RankPredictError {
 
 
 ///  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-pub async fn account_stats(configuration: &configuration::Configuration, params: AccountStatsParams) -> Result<Vec<models::PlayerAccountStats>, Error<AccountStatsError>> {
+pub async fn account_stats(configuration: &configuration::Configuration, params: AccountStatsParams) -> Result<models::PlayerAccountStats, Error<AccountStatsError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/account-stats", configuration.base_path, account_id=params.account_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -224,8 +224,8 @@ pub async fn account_stats(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PlayerAccountStats&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PlayerAccountStats&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PlayerAccountStats`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PlayerAccountStats`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -235,7 +235,7 @@ pub async fn account_stats(configuration: &configuration::Configuration, params:
 }
 
 ///  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-pub async fn card(configuration: &configuration::Configuration, params: CardParams) -> Result<Vec<models::PlayerCard>, Error<CardError>> {
+pub async fn card(configuration: &configuration::Configuration, params: CardParams) -> Result<models::PlayerCard, Error<CardError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/card", configuration.base_path, account_id=params.account_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -259,8 +259,8 @@ pub async fn card(configuration: &configuration::Configuration, params: CardPara
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PlayerCard&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PlayerCard&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PlayerCard`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PlayerCard`")))),
         }
     } else {
         let content = resp.text().await?;

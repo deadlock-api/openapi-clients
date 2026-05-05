@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Test.Api
             int accountId = default!;
             var response = await _instance.AccountStatsAsync(accountId);
             var model = response.Ok();
-            Assert.IsType<List<PlayerAccountStats>>(model);
+            Assert.IsType<PlayerAccountStats>(model);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Test.Api
             int accountId = default!;
             var response = await _instance.CardAsync(accountId);
             var model = response.Ok();
-            Assert.IsType<List<PlayerCard>>(model);
+            Assert.IsType<PlayerCard>(model);
         }
 
         /// <summary>

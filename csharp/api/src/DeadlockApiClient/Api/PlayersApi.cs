@@ -264,7 +264,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IAccountStatsApiResponse"/>
     /// </summary>
-    public interface IAccountStatsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<PlayerAccountStats>?>
+    public interface IAccountStatsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.PlayerAccountStats?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -300,7 +300,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="ICardApiResponse"/>
     /// </summary>
-    public interface ICardApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<PlayerCard>?>
+    public interface ICardApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.PlayerCard?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -866,11 +866,11 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public List<PlayerAccountStats>? Ok()
+            public DeadlockApiClient.Model.PlayerAccountStats? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<List<PlayerAccountStats>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.PlayerAccountStats>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -879,7 +879,7 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out List<PlayerAccountStats>? result)
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.PlayerAccountStats? result)
             {
                 result = null;
 
@@ -1119,11 +1119,11 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public List<PlayerCard>? Ok()
+            public DeadlockApiClient.Model.PlayerCard? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<List<PlayerCard>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.PlayerCard>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -1132,7 +1132,7 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out List<PlayerCard>? result)
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.PlayerCard? result)
             {
                 result = null;
 

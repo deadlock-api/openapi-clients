@@ -60,7 +60,7 @@ class PlayersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[PlayerAccountStats]:
+    ) -> PlayerAccountStats:
         """Account Stats
 
          This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
@@ -98,7 +98,7 @@ class PlayersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PlayerAccountStats]",
+            '200': "PlayerAccountStats",
             '400': None,
             '403': None,
             '429': None,
@@ -131,7 +131,7 @@ class PlayersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[PlayerAccountStats]]:
+    ) -> ApiResponse[PlayerAccountStats]:
         """Account Stats
 
          This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
@@ -169,7 +169,7 @@ class PlayersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PlayerAccountStats]",
+            '200': "PlayerAccountStats",
             '400': None,
             '403': None,
             '429': None,
@@ -240,7 +240,7 @@ class PlayersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PlayerAccountStats]",
+            '200': "PlayerAccountStats",
             '400': None,
             '403': None,
             '429': None,
@@ -332,7 +332,7 @@ class PlayersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[PlayerCard]:
+    ) -> PlayerCard:
         """Card
 
          This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
@@ -370,7 +370,7 @@ class PlayersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PlayerCard]",
+            '200': "PlayerCard",
             '400': None,
             '403': None,
             '429': None,
@@ -403,7 +403,7 @@ class PlayersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[PlayerCard]]:
+    ) -> ApiResponse[PlayerCard]:
         """Card
 
          This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
@@ -441,7 +441,7 @@ class PlayersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PlayerCard]",
+            '200': "PlayerCard",
             '400': None,
             '403': None,
             '429': None,
@@ -512,7 +512,7 @@ class PlayersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[PlayerCard]",
+            '200': "PlayerCard",
             '400': None,
             '403': None,
             '429': None,

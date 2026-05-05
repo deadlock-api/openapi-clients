@@ -18,7 +18,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `accountStats()`
 
 ```php
-accountStats($account_id): \OpenAPI\Client\Model\PlayerAccountStats[]
+accountStats($account_id): \OpenAPI\Client\Model\PlayerAccountStats
 ```
 
 Account Stats
@@ -56,7 +56,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PlayerAccountStats[]**](../Model/PlayerAccountStats.md)
+[**\OpenAPI\Client\Model\PlayerAccountStats**](../Model/PlayerAccountStats.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 ## `card()`
 
 ```php
-card($account_id): \OpenAPI\Client\Model\PlayerCard[]
+card($account_id): \OpenAPI\Client\Model\PlayerCard
 ```
 
 Card
@@ -112,7 +112,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PlayerCard[]**](../Model/PlayerCard.md)
+[**\OpenAPI\Client\Model\PlayerCard**](../Model/PlayerCard.md)
 
 ### Authorization
 

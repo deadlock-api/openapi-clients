@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## account_stats
 
-> Vec<models::PlayerAccountStats> account_stats(account_id)
+> models::PlayerAccountStats account_stats(account_id)
 Account Stats
 
  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
@@ -30,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::PlayerAccountStats>**](PlayerAccountStats.md)
+[**models::PlayerAccountStats**](PlayerAccountStats.md)
 
 ### Authorization
 
@@ -46,7 +46,7 @@ No authorization required
 
 ## card
 
-> Vec<models::PlayerCard> card(account_id)
+> models::PlayerCard card(account_id)
 Card
 
  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
@@ -60,7 +60,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::PlayerCard>**](PlayerCard.md)
+[**models::PlayerCard**](PlayerCard.md)
 
 ### Authorization
 

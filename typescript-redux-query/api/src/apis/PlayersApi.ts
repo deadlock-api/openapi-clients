@@ -102,7 +102,7 @@ export interface RankPredictRequest {
  *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
  * Account Stats
  */
-function accountStatsRaw<T>(requestParameters: AccountStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerAccountStats>> = {}): QueryConfig<T> {
+function accountStatsRaw<T>(requestParameters: AccountStatsRequest, requestConfig: runtime.TypedQueryConfig<T, PlayerAccountStats> = {}): QueryConfig<T> {
     if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
         throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling accountStats.');
     }
@@ -132,7 +132,7 @@ function accountStatsRaw<T>(requestParameters: AccountStatsRequest, requestConfi
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(PlayerAccountStatsFromJSON), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(PlayerAccountStatsFromJSON(body), text);
     }
 
     return config;
@@ -142,7 +142,7 @@ function accountStatsRaw<T>(requestParameters: AccountStatsRequest, requestConfi
 *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
 * Account Stats
 */
-export function accountStats<T>(requestParameters: AccountStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerAccountStats>>): QueryConfig<T> {
+export function accountStats<T>(requestParameters: AccountStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, PlayerAccountStats>): QueryConfig<T> {
     return accountStatsRaw(requestParameters, requestConfig);
 }
 
@@ -150,7 +150,7 @@ export function accountStats<T>(requestParameters: AccountStatsRequest, requestC
  *  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
  * Card
  */
-function cardRaw<T>(requestParameters: CardRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerCard>> = {}): QueryConfig<T> {
+function cardRaw<T>(requestParameters: CardRequest, requestConfig: runtime.TypedQueryConfig<T, PlayerCard> = {}): QueryConfig<T> {
     if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
         throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling card.');
     }
@@ -180,7 +180,7 @@ function cardRaw<T>(requestParameters: CardRequest, requestConfig: runtime.Typed
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(PlayerCardFromJSON), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(PlayerCardFromJSON(body), text);
     }
 
     return config;
@@ -190,7 +190,7 @@ function cardRaw<T>(requestParameters: CardRequest, requestConfig: runtime.Typed
 *  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
 * Card
 */
-export function card<T>(requestParameters: CardRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerCard>>): QueryConfig<T> {
+export function card<T>(requestParameters: CardRequest, requestConfig?: runtime.TypedQueryConfig<T, PlayerCard>): QueryConfig<T> {
     return cardRaw(requestParameters, requestConfig);
 }
 

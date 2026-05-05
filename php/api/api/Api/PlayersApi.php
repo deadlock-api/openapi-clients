@@ -153,7 +153,7 @@ class PlayersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PlayerAccountStats[]
+     * @return \OpenAPI\Client\Model\PlayerAccountStats
      */
     public function accountStats($account_id, string $contentType = self::contentTypes['accountStats'][0])
     {
@@ -171,7 +171,7 @@ class PlayersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PlayerAccountStats[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\PlayerAccountStats, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountStatsWithHttpInfo($account_id, string $contentType = self::contentTypes['accountStats'][0])
     {
@@ -203,7 +203,7 @@ class PlayersApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\PlayerAccountStats[]',
+                        '\OpenAPI\Client\Model\PlayerAccountStats',
                         $request,
                         $response,
                     );
@@ -225,7 +225,7 @@ class PlayersApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\PlayerAccountStats[]',
+                '\OpenAPI\Client\Model\PlayerAccountStats',
                 $request,
                 $response,
             );
@@ -234,7 +234,7 @@ class PlayersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PlayerAccountStats[]',
+                        '\OpenAPI\Client\Model\PlayerAccountStats',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -280,7 +280,7 @@ class PlayersApi
      */
     public function accountStatsAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['accountStats'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\PlayerAccountStats[]';
+        $returnType = '\OpenAPI\Client\Model\PlayerAccountStats';
         $request = $this->accountStatsRequest($account_id, $contentType);
 
         return $this->client
@@ -424,7 +424,7 @@ class PlayersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PlayerCard[]
+     * @return \OpenAPI\Client\Model\PlayerCard
      */
     public function card($account_id, string $contentType = self::contentTypes['card'][0])
     {
@@ -442,7 +442,7 @@ class PlayersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PlayerCard[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\PlayerCard, HTTP status code, HTTP response headers (array of strings)
      */
     public function cardWithHttpInfo($account_id, string $contentType = self::contentTypes['card'][0])
     {
@@ -474,7 +474,7 @@ class PlayersApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\PlayerCard[]',
+                        '\OpenAPI\Client\Model\PlayerCard',
                         $request,
                         $response,
                     );
@@ -496,7 +496,7 @@ class PlayersApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\PlayerCard[]',
+                '\OpenAPI\Client\Model\PlayerCard',
                 $request,
                 $response,
             );
@@ -505,7 +505,7 @@ class PlayersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PlayerCard[]',
+                        '\OpenAPI\Client\Model\PlayerCard',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -551,7 +551,7 @@ class PlayersApi
      */
     public function cardAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['card'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\PlayerCard[]';
+        $returnType = '\OpenAPI\Client\Model\PlayerCard';
         $request = $this->cardRequest($account_id, $contentType);
 
         return $this->client

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **account_stats**
-> List[PlayerAccountStats] account_stats(account_id)
+> PlayerAccountStats account_stats(account_id)
 
 Account Stats
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PlayerAccountStats]**](PlayerAccountStats.md)
+[**PlayerAccountStats**](PlayerAccountStats.md)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **card**
-> List[PlayerCard] card(account_id)
+> PlayerCard card(account_id)
 
 Card
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PlayerCard]**](PlayerCard.md)
+[**PlayerCard**](PlayerCard.md)
 
 ### Authorization
 

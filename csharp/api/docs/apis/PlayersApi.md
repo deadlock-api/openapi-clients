@@ -14,7 +14,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="accountstats"></a>
 # **AccountStats**
-> List&lt;PlayerAccountStats&gt; AccountStats (int accountId)
+> PlayerAccountStats AccountStats (int accountId)
 
 Account Stats
 
@@ -29,7 +29,7 @@ Account Stats
 
 ### Return type
 
-[**List&lt;PlayerAccountStats&gt;**](PlayerAccountStats.md)
+[**PlayerAccountStats**](PlayerAccountStats.md)
 
 ### Authorization
 
@@ -54,7 +54,7 @@ No authorization required
 
 <a id="card"></a>
 # **Card**
-> List&lt;PlayerCard&gt; Card (int accountId)
+> PlayerCard Card (int accountId)
 
 Card
 
@@ -69,7 +69,7 @@ Card
 
 ### Return type
 
-[**List&lt;PlayerCard&gt;**](PlayerCard.md)
+[**PlayerCard**](PlayerCard.md)
 
 ### Authorization
 

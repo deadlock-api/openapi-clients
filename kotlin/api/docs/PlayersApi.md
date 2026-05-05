@@ -15,7 +15,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="accountStats"></a>
 # **accountStats**
-> kotlin.collections.List&lt;PlayerAccountStats&gt; accountStats(accountId)
+> PlayerAccountStats accountStats(accountId)
 
 Account Stats
 
@@ -30,7 +30,7 @@ Account Stats
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
 try {
-    val result : kotlin.collections.List<PlayerAccountStats> = apiInstance.accountStats(accountId)
+    val result : PlayerAccountStats = apiInstance.accountStats(accountId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#accountStats")
@@ -48,7 +48,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;PlayerAccountStats&gt;**](PlayerAccountStats.md)
+[**PlayerAccountStats**](PlayerAccountStats.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ No authorization required
 
 <a id="card"></a>
 # **card**
-> kotlin.collections.List&lt;PlayerCard&gt; card(accountId)
+> PlayerCard card(accountId)
 
 Card
 
@@ -76,7 +76,7 @@ Card
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
 try {
-    val result : kotlin.collections.List<PlayerCard> = apiInstance.card(accountId)
+    val result : PlayerCard = apiInstance.card(accountId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#card")
@@ -94,7 +94,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.List&lt;PlayerCard&gt;**](PlayerCard.md)
+[**PlayerCard**](PlayerCard.md)
 
 ### Authorization
 

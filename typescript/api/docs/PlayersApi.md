@@ -13,7 +13,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**rankPredict**](#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict|
 
 # **accountStats**
-> Array<PlayerAccountStats> accountStats()
+> PlayerAccountStats accountStats()
 
  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
 
@@ -44,7 +44,7 @@ const { status, data } = await apiInstance.accountStats(
 
 ### Return type
 
-**Array<PlayerAccountStats>**
+**PlayerAccountStats**
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **card**
-> Array<PlayerCard> card()
+> PlayerCard card()
 
  This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
 
@@ -99,7 +99,7 @@ const { status, data } = await apiInstance.card(
 
 ### Return type
 
-**Array<PlayerCard>**
+**PlayerCard**
 
 ### Authorization
 

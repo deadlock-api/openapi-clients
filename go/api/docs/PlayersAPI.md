@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## AccountStats
 
-> []PlayerAccountStats AccountStats(ctx, accountId).Execute()
+> PlayerAccountStats AccountStats(ctx, accountId).Execute()
 
 Account Stats
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.AccountStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AccountStats`: []PlayerAccountStats
+	// response from `AccountStats`: PlayerAccountStats
 	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.AccountStats`: %v\n", resp)
 }
 ```
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]PlayerAccountStats**](PlayerAccountStats.md)
+[**PlayerAccountStats**](PlayerAccountStats.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ No authorization required
 
 ## Card
 
-> []PlayerCard Card(ctx, accountId).Execute()
+> PlayerCard Card(ctx, accountId).Execute()
 
 Card
 
@@ -114,7 +114,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.Card``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `Card`: []PlayerCard
+	// response from `Card`: PlayerCard
 	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.Card`: %v\n", resp)
 }
 ```
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]PlayerCard**](PlayerCard.md)
+[**PlayerCard**](PlayerCard.md)
 
 ### Authorization
 

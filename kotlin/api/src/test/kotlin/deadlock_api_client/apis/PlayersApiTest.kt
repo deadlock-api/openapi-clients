@@ -44,7 +44,7 @@ class PlayersApiTest : ShouldSpec() {
         should("test accountStats") {
             // uncomment below to test accountStats
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-            //val result : kotlin.collections.List<PlayerAccountStats> = apiInstance.accountStats(accountId)
+            //val result : PlayerAccountStats = apiInstance.accountStats(accountId)
             //result shouldBe ("TODO")
         }
 
@@ -52,7 +52,7 @@ class PlayersApiTest : ShouldSpec() {
         should("test card") {
             // uncomment below to test card
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-            //val result : kotlin.collections.List<PlayerCard> = apiInstance.card(accountId)
+            //val result : PlayerCard = apiInstance.card(accountId)
             //result shouldBe ("TODO")
         }
 

@@ -9961,7 +9961,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async accountStats(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerAccountStats>>> {
+        async accountStats(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerAccountStats>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.accountStats(accountId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.accountStats']?.[localVarOperationServerIndex]?.url;
@@ -9974,7 +9974,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async card(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerCard>>> {
+        async card(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerCard>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.card(accountId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.card']?.[localVarOperationServerIndex]?.url;
@@ -10092,7 +10092,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        accountStats(requestParameters: PlayersApiAccountStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerAccountStats>> {
+        accountStats(requestParameters: PlayersApiAccountStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<PlayerAccountStats> {
             return localVarFp.accountStats(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -10102,7 +10102,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerCard>> {
+        card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig): AxiosPromise<PlayerCard> {
             return localVarFp.card(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
         /**
