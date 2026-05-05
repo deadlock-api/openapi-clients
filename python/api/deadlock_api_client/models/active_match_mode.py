@@ -34,6 +34,7 @@ class ActiveMatchMode(str, Enum):
     SERVERTEST = 'ServerTest'
     TUTORIAL = 'Tutorial'
     HEROLABS = 'HeroLabs'
+    CALIBRATION = 'Calibration'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

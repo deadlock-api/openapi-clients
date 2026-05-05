@@ -86,6 +86,7 @@ export const ActiveMatchMode = {
     ServerTest: 'ServerTest',
     Tutorial: 'Tutorial',
     HeroLabs: 'HeroLabs',
+    Calibration: 'Calibration',
 } as const;
 
 export type ActiveMatchMode = typeof ActiveMatchMode[keyof typeof ActiveMatchMode];

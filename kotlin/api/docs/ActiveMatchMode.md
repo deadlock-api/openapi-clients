@@ -20,5 +20,7 @@
 
     * `HeroLabs` (value: `"HeroLabs"`)
 
+    * `Calibration` (value: `"Calibration"`)
+
 
 

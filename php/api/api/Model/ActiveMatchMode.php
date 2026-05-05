@@ -58,6 +58,8 @@ class ActiveMatchMode
 
     public const HERO_LABS = 'HeroLabs';
 
+    public const CALIBRATION = 'Calibration';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -72,7 +74,8 @@ class ActiveMatchMode
             self::RANKED,
             self::SERVER_TEST,
             self::TUTORIAL,
-            self::HERO_LABS
+            self::HERO_LABS,
+            self::CALIBRATION
         ];
     }
 }

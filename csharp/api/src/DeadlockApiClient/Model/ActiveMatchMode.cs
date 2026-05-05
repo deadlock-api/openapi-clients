@@ -68,7 +68,12 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Enum HeroLabs for value: HeroLabs
         /// </summary>
-        HeroLabs = 8
+        HeroLabs = 8,
+
+        /// <summary>
+        /// Enum Calibration for value: Calibration
+        /// </summary>
+        Calibration = 9
     }
 
     /// <summary>
@@ -107,6 +112,9 @@ namespace DeadlockApiClient.Model
             if (value.Equals("HeroLabs"))
                 return ActiveMatchMode.HeroLabs;
 
+            if (value.Equals("Calibration"))
+                return ActiveMatchMode.Calibration;
+
             throw new NotImplementedException($"Could not convert value to type ActiveMatchMode: '{value}'");
         }
 
@@ -140,6 +148,9 @@ namespace DeadlockApiClient.Model
 
             if (value.Equals("HeroLabs"))
                 return ActiveMatchMode.HeroLabs;
+
+            if (value.Equals("Calibration"))
+                return ActiveMatchMode.Calibration;
 
             return null;
         }
@@ -175,6 +186,9 @@ namespace DeadlockApiClient.Model
 
             if (value == ActiveMatchMode.HeroLabs)
                 return "HeroLabs";
+
+            if (value == ActiveMatchMode.Calibration)
+                return "Calibration";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }
