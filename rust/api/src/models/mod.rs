@@ -132,6 +132,8 @@ pub mod status;
 pub use self::status::Status;
 pub mod status_services;
 pub use self::status_services::StatusServices;
+pub mod steam_friend;
+pub use self::steam_friend::SteamFriend;
 pub mod steam_profile;
 pub use self::steam_profile::SteamProfile;
 pub mod steam_server;

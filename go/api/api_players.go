@@ -641,6 +641,7 @@ type ApiMateStatsRequest struct {
 	maxMatchId *int64
 	minMatchesPlayed *int64
 	maxMatchesPlayed *int64
+	sameParty *bool
 }
 
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -694,6 +695,12 @@ func (r ApiMateStatsRequest) MinMatchesPlayed(minMatchesPlayed int64) ApiMateSta
 // Filter based on the number of matches played.
 func (r ApiMateStatsRequest) MaxMatchesPlayed(maxMatchesPlayed int64) ApiMateStatsRequest {
 	r.maxMatchesPlayed = &maxMatchesPlayed
+	return r
+}
+
+// Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list).
+func (r ApiMateStatsRequest) SameParty(sameParty bool) ApiMateStatsRequest {
+	r.sameParty = &sameParty
 	return r
 }
 
@@ -778,6 +785,13 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 	}
 	if r.maxMatchesPlayed != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches_played", r.maxMatchesPlayed, "form", "")
+	}
+	if r.sameParty != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", r.sameParty, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "same_party", defaultValue, "form", "")
+		r.sameParty = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Avatarfull** | **string** |  | 
 **Avatarmedium** | **string** |  | 
 **Countrycode** | Pointer to **NullableString** |  | [optional] 
+**Friends** | [**[]SteamFriend**](SteamFriend.md) |  | 
 **LastUpdated** | **time.Time** |  | 
 **Personaname** | **string** |  | 
 **Profileurl** | **string** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewSteamProfile
 
-`func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, lastUpdated time.Time, personaname string, profileurl string, ) *SteamProfile`
+`func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, personaname string, profileurl string, ) *SteamProfile`
 
 NewSteamProfile instantiates a new SteamProfile object
 This constructor will assign default values to properties that have it defined,
@@ -148,6 +149,26 @@ HasCountrycode returns a boolean if a field has been set.
 `func (o *SteamProfile) UnsetCountrycode()`
 
 UnsetCountrycode ensures that no value is present for Countrycode, not even an explicit nil
+### GetFriends
+
+`func (o *SteamProfile) GetFriends() []SteamFriend`
+
+GetFriends returns the Friends field if non-nil, zero value otherwise.
+
+### GetFriendsOk
+
+`func (o *SteamProfile) GetFriendsOk() (*[]SteamFriend, bool)`
+
+GetFriendsOk returns a tuple with the Friends field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFriends
+
+`func (o *SteamProfile) SetFriends(v []SteamFriend)`
+
+SetFriends sets Friends field to given value.
+
+
 ### GetLastUpdated
 
 `func (o *SteamProfile) GetLastUpdated() time.Time`

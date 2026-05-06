@@ -84,7 +84,9 @@ pub struct MateStatsParams {
     /// Filter based on the number of matches played.
     pub min_matches_played: Option<u64>,
     /// Filter based on the number of matches played.
-    pub max_matches_played: Option<u64>
+    pub max_matches_played: Option<u64>,
+    /// Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the `steam_profiles` friends list).
+    pub same_party: Option<bool>
 }
 
 /// struct for passing parameters to the method [`player_hero_stats`]
@@ -401,6 +403,9 @@ pub async fn mate_stats(configuration: &configuration::Configuration, params: Ma
     }
     if let Some(ref param_value) = params.max_matches_played {
         req_builder = req_builder.query(&[("max_matches_played", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.same_party {
+        req_builder = req_builder.query(&[("same_party", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

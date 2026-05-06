@@ -260,6 +260,7 @@ Class | Method | HTTP request | Description
  - [ServerStatusResponse](docs/ServerStatusResponse.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
+ - [SteamFriend](docs/SteamFriend.md)
  - [SteamProfile](docs/SteamProfile.md)
  - [SteamServer](docs/SteamServer.md)
  - [TableSize](docs/TableSize.md)

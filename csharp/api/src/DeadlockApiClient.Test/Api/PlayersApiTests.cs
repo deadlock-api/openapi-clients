@@ -124,7 +124,8 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> maxMatchId = default!;
             Client.Option<long?> minMatchesPlayed = default!;
             Client.Option<long?> maxMatchesPlayed = default!;
-            var response = await _instance.MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
+            Client.Option<bool> sameParty = default!;
+            var response = await _instance.MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
             var model = response.Ok();
             Assert.IsType<List<MateStats>>(model);
         }

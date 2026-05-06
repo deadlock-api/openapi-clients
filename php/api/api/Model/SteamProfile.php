@@ -62,6 +62,7 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarfull' => 'string',
         'avatarmedium' => 'string',
         'countrycode' => 'string',
+        'friends' => '\OpenAPI\Client\Model\SteamFriend[]',
         'last_updated' => '\DateTime',
         'personaname' => 'string',
         'profileurl' => 'string',
@@ -81,6 +82,7 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarfull' => null,
         'avatarmedium' => null,
         'countrycode' => null,
+        'friends' => null,
         'last_updated' => 'date-time',
         'personaname' => null,
         'profileurl' => null,
@@ -98,6 +100,7 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarfull' => false,
         'avatarmedium' => false,
         'countrycode' => true,
+        'friends' => false,
         'last_updated' => false,
         'personaname' => false,
         'profileurl' => false,
@@ -195,6 +198,7 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarfull' => 'avatarfull',
         'avatarmedium' => 'avatarmedium',
         'countrycode' => 'countrycode',
+        'friends' => 'friends',
         'last_updated' => 'last_updated',
         'personaname' => 'personaname',
         'profileurl' => 'profileurl',
@@ -212,6 +216,7 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarfull' => 'setAvatarfull',
         'avatarmedium' => 'setAvatarmedium',
         'countrycode' => 'setCountrycode',
+        'friends' => 'setFriends',
         'last_updated' => 'setLastUpdated',
         'personaname' => 'setPersonaname',
         'profileurl' => 'setProfileurl',
@@ -229,6 +234,7 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarfull' => 'getAvatarfull',
         'avatarmedium' => 'getAvatarmedium',
         'countrycode' => 'getCountrycode',
+        'friends' => 'getFriends',
         'last_updated' => 'getLastUpdated',
         'personaname' => 'getPersonaname',
         'profileurl' => 'getProfileurl',
@@ -297,6 +303,7 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('avatarfull', $data ?? [], null);
         $this->setIfExists('avatarmedium', $data ?? [], null);
         $this->setIfExists('countrycode', $data ?? [], null);
+        $this->setIfExists('friends', $data ?? [], null);
         $this->setIfExists('last_updated', $data ?? [], null);
         $this->setIfExists('personaname', $data ?? [], null);
         $this->setIfExists('profileurl', $data ?? [], null);
@@ -345,6 +352,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['avatarmedium'] === null) {
             $invalidProperties[] = "'avatarmedium' can't be null";
+        }
+        if ($this->container['friends'] === null) {
+            $invalidProperties[] = "'friends' can't be null";
         }
         if ($this->container['last_updated'] === null) {
             $invalidProperties[] = "'last_updated' can't be null";
@@ -513,6 +523,33 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['countrycode'] = $countrycode;
+
+        return $this;
+    }
+
+    /**
+     * Gets friends
+     *
+     * @return \OpenAPI\Client\Model\SteamFriend[]
+     */
+    public function getFriends()
+    {
+        return $this->container['friends'];
+    }
+
+    /**
+     * Sets friends
+     *
+     * @param \OpenAPI\Client\Model\SteamFriend[] $friends friends
+     *
+     * @return self
+     */
+    public function setFriends($friends)
+    {
+        if (is_null($friends)) {
+            throw new \InvalidArgumentException('non-nullable friends cannot be null');
+        }
+        $this->container['friends'] = $friends;
 
         return $this;
     }

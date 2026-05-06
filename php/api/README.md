@@ -245,6 +245,7 @@ Class | Method | HTTP request | Description
 - [ServerStatusResponse](docs/Model/ServerStatusResponse.md)
 - [Status](docs/Model/Status.md)
 - [StatusServices](docs/Model/StatusServices.md)
+- [SteamFriend](docs/Model/SteamFriend.md)
 - [SteamProfile](docs/Model/SteamProfile.md)
 - [SteamServer](docs/Model/SteamServer.md)
 - [TableSize](docs/Model/TableSize.md)

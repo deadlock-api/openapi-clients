@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Avatar** | **string** |  | 
 **Avatarfull** | **string** |  | 
 **Avatarmedium** | **string** |  | 
+**Friends** | [**List&lt;SteamFriend&gt;**](SteamFriend.md) |  | 
 **LastUpdated** | **DateTime** |  | 
 **Personaname** | **string** |  | 
 **Profileurl** | **string** |  | 

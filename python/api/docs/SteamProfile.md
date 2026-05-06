@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **avatarfull** | **str** |  | 
 **avatarmedium** | **str** |  | 
 **countrycode** | **str** |  | [optional] 
+**friends** | [**List[SteamFriend]**](SteamFriend.md) |  | 
 **last_updated** | **datetime** |  | 
 **personaname** | **str** |  | 
 **profileurl** | **str** |  | 

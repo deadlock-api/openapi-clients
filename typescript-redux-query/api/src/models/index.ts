@@ -65,6 +65,7 @@ export * from './ServerStatusRequest';
 export * from './ServerStatusResponse';
 export * from './Status';
 export * from './StatusServices';
+export * from './SteamFriend';
 export * from './SteamProfile';
 export * from './SteamServer';
 export * from './TableSize';

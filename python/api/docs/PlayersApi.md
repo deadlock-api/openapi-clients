@@ -388,7 +388,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mate_stats**
-> List[MateStats] mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played)
+> List[MateStats] mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played, same_party=same_party)
 
 Mate Stats
 
@@ -433,10 +433,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
     min_matches_played = 56 # int | Filter based on the number of matches played. (optional)
     max_matches_played = 56 # int | Filter based on the number of matches played. (optional)
+    same_party = False # bool | Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the `steam_profiles` friends list). (optional) (default to False)
 
     try:
         # Mate Stats
-        api_response = api_instance.mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played)
+        api_response = api_instance.mate_stats(account_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_match_id=min_match_id, max_match_id=max_match_id, min_matches_played=min_matches_played, max_matches_played=max_matches_played, same_party=same_party)
         print("The response of PlayersApi->mate_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -460,6 +461,7 @@ Name | Type | Description  | Notes
  **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
  **min_matches_played** | **int**| Filter based on the number of matches played. | [optional] 
  **max_matches_played** | **int**| Filter based on the number of matches played. | [optional] 
+ **same_party** | **bool**| Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). | [optional] [default to False]
 
 ### Return type
 

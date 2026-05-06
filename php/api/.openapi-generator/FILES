@@ -89,6 +89,7 @@ api/Model/ServerStatusRequest.php
 api/Model/ServerStatusResponse.php
 api/Model/Status.php
 api/Model/StatusServices.php
+api/Model/SteamFriend.php
 api/Model/SteamProfile.php
 api/Model/SteamServer.php
 api/Model/TableSize.php
@@ -177,6 +178,7 @@ docs/Model/ServerStatusRequest.md
 docs/Model/ServerStatusResponse.md
 docs/Model/Status.md
 docs/Model/StatusServices.md
+docs/Model/SteamFriend.md
 docs/Model/SteamProfile.md
 docs/Model/SteamServer.md
 docs/Model/TableSize.md
@@ -265,6 +267,7 @@ test/Model/ServerStatusRequestTest.php
 test/Model/ServerStatusResponseTest.php
 test/Model/StatusServicesTest.php
 test/Model/StatusTest.php
+test/Model/SteamFriendTest.php
 test/Model/SteamProfileTest.php
 test/Model/SteamServerTest.php
 test/Model/TableSizeTest.php

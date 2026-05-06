@@ -84,6 +84,7 @@ docs/SqlApi.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
+docs/SteamFriend.md
 docs/SteamProfile.md
 docs/SteamServer.md
 docs/TableSize.md
@@ -175,6 +176,7 @@ src/models/server_status_request.rs
 src/models/server_status_response.rs
 src/models/status.rs
 src/models/status_services.rs
+src/models/steam_friend.rs
 src/models/steam_profile.rs
 src/models/steam_server.rs
 src/models/table_size.rs

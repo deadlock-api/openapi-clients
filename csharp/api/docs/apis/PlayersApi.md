@@ -181,7 +181,7 @@ No authorization required
 
 <a id="matestats"></a>
 # **MateStats**
-> List&lt;MateStats&gt; MateStats (int accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null)
+> List&lt;MateStats&gt; MateStats (int accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null, bool sameParty = null)
 
 Mate Stats
 
@@ -202,6 +202,7 @@ Mate Stats
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **minMatchesPlayed** | **long** | Filter based on the number of matches played. | [optional]  |
 | **maxMatchesPlayed** | **long** | Filter based on the number of matches played. | [optional]  |
+| **sameParty** | **bool** | Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). | [optional] [default to false] |
 
 ### Return type
 

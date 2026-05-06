@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.steam_friend import SteamFriend
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -34,11 +35,12 @@ class SteamProfile(BaseModel):
     avatarfull: StrictStr
     avatarmedium: StrictStr
     countrycode: Optional[StrictStr] = None
+    friends: List[SteamFriend]
     last_updated: datetime
     personaname: StrictStr
     profileurl: StrictStr
     realname: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["account_id", "avatar", "avatarfull", "avatarmedium", "countrycode", "last_updated", "personaname", "profileurl", "realname"]
+    __properties: ClassVar[List[str]] = ["account_id", "avatar", "avatarfull", "avatarmedium", "countrycode", "friends", "last_updated", "personaname", "profileurl", "realname"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -79,6 +81,13 @@ class SteamProfile(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in friends (list)
+        _items = []
+        if self.friends:
+            for _item_friends in self.friends:
+                if _item_friends:
+                    _items.append(_item_friends.to_dict())
+            _dict['friends'] = _items
         # set to None if countrycode (nullable) is None
         # and model_fields_set contains the field
         if self.countrycode is None and "countrycode" in self.model_fields_set:
@@ -106,6 +115,7 @@ class SteamProfile(BaseModel):
             "avatarfull": obj.get("avatarfull"),
             "avatarmedium": obj.get("avatarmedium"),
             "countrycode": obj.get("countrycode"),
+            "friends": [SteamFriend.from_dict(_item) for _item in obj["friends"]] if obj.get("friends") is not None else None,
             "last_updated": obj.get("last_updated"),
             "personaname": obj.get("personaname"),
             "profileurl": obj.get("profileurl"),

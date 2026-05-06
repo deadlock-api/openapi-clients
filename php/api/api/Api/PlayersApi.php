@@ -1430,15 +1430,16 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
+     * @param  bool|null $same_party Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MateStats[]
      */
-    public function mateStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStats($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = false, string $contentType = self::contentTypes['mateStats'][0])
     {
-        list($response) = $this->mateStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        list($response) = $this->mateStatsWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
         return $response;
     }
 
@@ -1457,15 +1458,16 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
+     * @param  bool|null $same_party Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MateStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function mateStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = false, string $contentType = self::contentTypes['mateStats'][0])
     {
-        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1551,14 +1553,15 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
+     * @param  bool|null $same_party Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsync($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = false, string $contentType = self::contentTypes['mateStats'][0])
     {
-        return $this->mateStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType)
+        return $this->mateStatsAsyncWithHttpInfo($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1581,15 +1584,16 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
+     * @param  bool|null $same_party Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function mateStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsAsyncWithHttpInfo($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = false, string $contentType = self::contentTypes['mateStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MateStats[]';
-        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $contentType);
+        $request = $this->mateStatsRequest($account_id, $game_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_match_id, $max_match_id, $min_matches_played, $max_matches_played, $same_party, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1640,12 +1644,13 @@ class PlayersApi
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $min_matches_played Filter based on the number of matches played. (optional)
      * @param  int|null $max_matches_played Filter based on the number of matches played. (optional)
+     * @param  bool|null $same_party Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mateStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function mateStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, string $contentType = self::contentTypes['mateStats'][0])
+    public function mateStatsRequest($account_id, $game_mode = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_match_id = null, $max_match_id = null, $min_matches_played = null, $max_matches_played = null, $same_party = false, string $contentType = self::contentTypes['mateStats'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -1691,6 +1696,7 @@ class PlayersApi
             throw new \InvalidArgumentException('invalid value for "$max_matches_played" when calling PlayersApi.mateStats, must be bigger than or equal to 0.');
         }
         
+
 
         $resourcePath = '/v1/players/{account_id}/mate-stats';
         $formParams = [];
@@ -1776,6 +1782,15 @@ class PlayersApi
             $max_matches_played,
             'max_matches_played', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $same_party,
+            'same_party', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required

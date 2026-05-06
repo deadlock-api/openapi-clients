@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **avatarfull** | **String** |  | 
 **avatarmedium** | **String** |  | 
 **countrycode** | Option<**String**> |  | [optional]
+**friends** | [**Vec<models::SteamFriend>**](SteamFriend.md) |  | 
 **last_updated** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **personaname** | **String** |  | 
 **profileurl** | **String** |  | 

@@ -27,6 +27,7 @@ type SteamProfile struct {
 	Avatarfull string `json:"avatarfull"`
 	Avatarmedium string `json:"avatarmedium"`
 	Countrycode NullableString `json:"countrycode,omitempty"`
+	Friends []SteamFriend `json:"friends"`
 	LastUpdated time.Time `json:"last_updated"`
 	Personaname string `json:"personaname"`
 	Profileurl string `json:"profileurl"`
@@ -39,12 +40,13 @@ type _SteamProfile SteamProfile
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, lastUpdated time.Time, personaname string, profileurl string) *SteamProfile {
+func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, personaname string, profileurl string) *SteamProfile {
 	this := SteamProfile{}
 	this.AccountId = accountId
 	this.Avatar = avatar
 	this.Avatarfull = avatarfull
 	this.Avatarmedium = avatarmedium
+	this.Friends = friends
 	this.LastUpdated = lastUpdated
 	this.Personaname = personaname
 	this.Profileurl = profileurl
@@ -197,6 +199,30 @@ func (o *SteamProfile) UnsetCountrycode() {
 	o.Countrycode.Unset()
 }
 
+// GetFriends returns the Friends field value
+func (o *SteamProfile) GetFriends() []SteamFriend {
+	if o == nil {
+		var ret []SteamFriend
+		return ret
+	}
+
+	return o.Friends
+}
+
+// GetFriendsOk returns a tuple with the Friends field value
+// and a boolean to check if the value has been set.
+func (o *SteamProfile) GetFriendsOk() ([]SteamFriend, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Friends, true
+}
+
+// SetFriends sets field value
+func (o *SteamProfile) SetFriends(v []SteamFriend) {
+	o.Friends = v
+}
+
 // GetLastUpdated returns the LastUpdated field value
 func (o *SteamProfile) GetLastUpdated() time.Time {
 	if o == nil {
@@ -328,6 +354,7 @@ func (o SteamProfile) ToMap() (map[string]interface{}, error) {
 	if o.Countrycode.IsSet() {
 		toSerialize["countrycode"] = o.Countrycode.Get()
 	}
+	toSerialize["friends"] = o.Friends
 	toSerialize["last_updated"] = o.LastUpdated
 	toSerialize["personaname"] = o.Personaname
 	toSerialize["profileurl"] = o.Profileurl
@@ -346,6 +373,7 @@ func (o *SteamProfile) UnmarshalJSON(data []byte) (err error) {
 		"avatar",
 		"avatarfull",
 		"avatarmedium",
+		"friends",
 		"last_updated",
 		"personaname",
 		"profileurl",

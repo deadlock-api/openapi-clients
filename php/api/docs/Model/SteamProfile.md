@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **avatarfull** | **string** |  |
 **avatarmedium** | **string** |  |
 **countrycode** | **string** |  | [optional]
+**friends** | [**\OpenAPI\Client\Model\SteamFriend[]**](SteamFriend.md) |  |
 **last_updated** | **\DateTime** |  |
 **personaname** | **string** |  |
 **profileurl** | **string** |  |

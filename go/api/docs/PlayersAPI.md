@@ -316,7 +316,7 @@ No authorization required
 
 ## MateStats
 
-> []MateStats MateStats(ctx, accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).Execute()
+> []MateStats MateStats(ctx, accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).SameParty(sameParty).Execute()
 
 Mate Stats
 
@@ -345,10 +345,11 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
 	maxMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
+	sameParty := true // bool | Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the `steam_profiles` friends list). (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.MateStats(context.Background(), accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).Execute()
+	resp, r, err := apiClient.PlayersAPI.MateStats(context.Background(), accountId).GameMode(gameMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatchesPlayed(minMatchesPlayed).MaxMatchesPlayed(maxMatchesPlayed).SameParty(sameParty).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.MateStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -383,6 +384,7 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
  **maxMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
+ **sameParty** | **bool** | Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). | [default to false]
 
 ### Return type
 

@@ -100,6 +100,7 @@ docs/ServersAPI.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamAPI.md
+docs/SteamFriend.md
 docs/SteamProfile.md
 docs/SteamServer.md
 docs/TableSize.md
@@ -175,6 +176,7 @@ model_server_status_request.go
 model_server_status_response.go
 model_status.go
 model_status_services.go
+model_steam_friend.go
 model_steam_profile.go
 model_steam_server.go
 model_table_size.go

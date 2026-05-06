@@ -82,6 +82,7 @@ docs/ServersApi.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
+docs/SteamFriend.md
 docs/SteamProfile.md
 docs/SteamServer.md
 docs/TableSize.md
@@ -186,6 +187,7 @@ src/main/kotlin/deadlock_api_client/models/ServerStatusRequest.kt
 src/main/kotlin/deadlock_api_client/models/ServerStatusResponse.kt
 src/main/kotlin/deadlock_api_client/models/Status.kt
 src/main/kotlin/deadlock_api_client/models/StatusServices.kt
+src/main/kotlin/deadlock_api_client/models/SteamFriend.kt
 src/main/kotlin/deadlock_api_client/models/SteamProfile.kt
 src/main/kotlin/deadlock_api_client/models/SteamServer.kt
 src/main/kotlin/deadlock_api_client/models/TableSize.kt
@@ -272,6 +274,7 @@ src/test/kotlin/deadlock_api_client/models/ServerStatusRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/ServerStatusResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusServicesTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusTest.kt
+src/test/kotlin/deadlock_api_client/models/SteamFriendTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamProfileTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamServerTest.kt
 src/test/kotlin/deadlock_api_client/models/TableSizeTest.kt

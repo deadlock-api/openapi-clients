@@ -8,6 +8,7 @@
 | **avatar** | **kotlin.String** |  |  |
 | **avatarfull** | **kotlin.String** |  |  |
 | **avatarmedium** | **kotlin.String** |  |  |
+| **friends** | [**kotlin.collections.List&lt;SteamFriend&gt;**](SteamFriend.md) |  |  |
 | **lastUpdated** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  |
 | **personaname** | **kotlin.String** |  |  |
 | **profileurl** | **kotlin.String** |  |  |

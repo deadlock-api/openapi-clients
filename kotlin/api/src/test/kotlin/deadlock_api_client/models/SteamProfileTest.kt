@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.SteamProfile
+import deadlock_api_client.models.SteamFriend
 
 class SteamProfileTest : ShouldSpec() {
     init {
@@ -55,6 +56,12 @@ class SteamProfileTest : ShouldSpec() {
         should("test avatarmedium") {
             // uncomment below to test the property
             //modelInstance.avatarmedium shouldBe ("TODO")
+        }
+
+        // to test the property `friends`
+        should("test friends") {
+            // uncomment below to test the property
+            //modelInstance.friends shouldBe ("TODO")
         }
 
         // to test the property `lastUpdated`

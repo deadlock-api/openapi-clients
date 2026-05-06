@@ -125,6 +125,15 @@ class SteamProfileTest extends TestCase
     }
 
     /**
+     * Test attribute "friends"
+     */
+    public function testPropertyFriends()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "last_updated"
      */
     public function testPropertyLastUpdated()

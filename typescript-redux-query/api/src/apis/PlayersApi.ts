@@ -75,6 +75,7 @@ export interface MateStatsRequest {
     maxMatchId?: number;
     minMatchesPlayed?: number;
     maxMatchesPlayed?: number;
+    sameParty?: boolean;
 }
 
 export interface PlayerHeroStatsRequest {
@@ -398,6 +399,11 @@ function mateStatsRaw<T>(requestParameters: MateStatsRequest, requestConfig: run
 
     if (requestParameters.maxMatchesPlayed !== undefined) {
         queryParameters['max_matches_played'] = requestParameters.maxMatchesPlayed;
+    }
+
+
+    if (requestParameters.sameParty !== undefined) {
+        queryParameters['same_party'] = requestParameters.sameParty;
     }
 
     const headerParameters : runtime.HttpHeaders = {};

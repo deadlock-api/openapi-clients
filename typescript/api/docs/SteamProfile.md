@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **avatarfull** | **string** |  | [default to undefined]
 **avatarmedium** | **string** |  | [default to undefined]
 **countrycode** | **string** |  | [optional] [default to undefined]
+**friends** | [**Array&lt;SteamFriend&gt;**](SteamFriend.md) |  | [default to undefined]
 **last_updated** | **string** |  | [default to undefined]
 **personaname** | **string** |  | [default to undefined]
 **profileurl** | **string** |  | [default to undefined]
@@ -26,6 +27,7 @@ const instance: SteamProfile = {
     avatarfull,
     avatarmedium,
     countrycode,
+    friends,
     last_updated,
     personaname,
     profileurl,

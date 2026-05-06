@@ -166,9 +166,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
+        /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Mate Stats
@@ -186,9 +187,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
+        /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>?&gt;</returns>
-        Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Stats
@@ -1800,7 +1802,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMateStats(ref int accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed);
+        partial void FormatMateStats(ref int accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed, ref Option<bool> sameParty);
 
         /// <summary>
         /// Processes the server response
@@ -1816,10 +1818,11 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        private void AfterMateStatsDefaultImplementation(IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
+        /// <param name="sameParty"></param>
+        private void AfterMateStatsDefaultImplementation(IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
         {
             bool suppressDefaultLog = false;
-            AfterMateStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
+            AfterMateStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1839,7 +1842,8 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        partial void AfterMateStats(ref bool suppressDefaultLog, IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
+        /// <param name="sameParty"></param>
+        partial void AfterMateStats(ref bool suppressDefaultLog, IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1857,10 +1861,11 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        private void OnErrorMateStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
+        /// <param name="sameParty"></param>
+        private void OnErrorMateStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorMateStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
+            OnErrorMateStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1882,7 +1887,8 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        partial void OnErrorMateStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
+        /// <param name="sameParty"></param>
+        partial void OnErrorMateStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
 
         /// <summary>
         /// Mate Stats  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -1897,13 +1903,14 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
+        /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        public async Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, cancellationToken).ConfigureAwait(false);
+                return await MateStatsAsync(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1925,15 +1932,16 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="minMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
+        /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        public async Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatMateStats(ref accountId, ref gameMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minMatchId, ref maxMatchId, ref minMatchesPlayed, ref maxMatchesPlayed);
+                FormatMateStats(ref accountId, ref gameMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minMatchId, ref maxMatchId, ref minMatchesPlayed, ref maxMatchesPlayed, ref sameParty);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1974,6 +1982,9 @@ namespace DeadlockApiClient.Api
                     if (maxMatchesPlayed.IsSet)
                         parseQueryStringLocalVar["max_matches_played"] = ClientUtils.ParameterToString(maxMatchesPlayed.Value);
 
+                    if (sameParty.IsSet)
+                        parseQueryStringLocalVar["same_party"] = ClientUtils.ParameterToString(sameParty.Value);
+
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -2005,7 +2016,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterMateStatsDefaultImplementation(apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
+                        AfterMateStatsDefaultImplementation(apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
 
                         Events.ExecuteOnMateStats(apiResponseLocalVar);
 
@@ -2015,7 +2026,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorMateStatsDefaultImplementation(e, "/v1/players/{account_id}/mate-stats", uriBuilderLocalVar.Path, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
+                OnErrorMateStatsDefaultImplementation(e, "/v1/players/{account_id}/mate-stats", uriBuilderLocalVar.Path, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
                 Events.ExecuteOnErrorMateStats(e);
                 throw;
             }

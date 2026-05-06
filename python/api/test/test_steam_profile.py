@@ -40,6 +40,11 @@ class TestSteamProfile(unittest.TestCase):
                 avatarfull = '',
                 avatarmedium = '',
                 countrycode = '',
+                friends = [
+                    deadlock_api_client.models.steam_friend.SteamFriend(
+                        account_id = 0, 
+                        friend_since = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ],
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 personaname = '',
                 profileurl = '',
@@ -51,6 +56,11 @@ class TestSteamProfile(unittest.TestCase):
                 avatar = '',
                 avatarfull = '',
                 avatarmedium = '',
+                friends = [
+                    deadlock_api_client.models.steam_friend.SteamFriend(
+                        account_id = 0, 
+                        friend_since = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ],
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 personaname = '',
                 profileurl = '',

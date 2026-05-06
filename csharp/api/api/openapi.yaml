@@ -6556,6 +6556,18 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: |-
+          Filter based on whether the mates were on the same party.
+          Two players are considered to be in the same party if they were on the same team and are
+          Steam friends as of the match start time (per the `steam_profiles` friends list).
+        explode: true
+        in: query
+        name: same_party
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -9905,6 +9917,21 @@ components:
       - clickhouse
       - postgres
       - redis
+    SteamFriend:
+      example:
+        account_id: 0
+        friend_since: 2000-01-23T04:56:07.000+00:00
+      properties:
+        account_id:
+          format: int32
+          minimum: 0
+          type: integer
+        friend_since:
+          format: date-time
+          type: string
+      required:
+      - account_id
+      - friend_since
     SteamProfile:
       example:
         profileurl: profileurl
@@ -9915,6 +9942,11 @@ components:
         avatarmedium: avatarmedium
         avatar: avatar
         personaname: personaname
+        friends:
+        - account_id: 0
+          friend_since: 2000-01-23T04:56:07.000+00:00
+        - account_id: 0
+          friend_since: 2000-01-23T04:56:07.000+00:00
         realname: realname
       properties:
         account_id:
@@ -9930,6 +9962,10 @@ components:
         countrycode:
           nullable: true
           type: string
+        friends:
+          items:
+            $ref: "#/components/schemas/SteamFriend"
+          type: array
         last_updated:
           format: date-time
           type: string
@@ -9945,6 +9981,7 @@ components:
       - avatar
       - avatarfull
       - avatarmedium
+      - friends
       - last_updated
       - personaname
       - profileurl

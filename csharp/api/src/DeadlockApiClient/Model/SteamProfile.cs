@@ -37,18 +37,20 @@ namespace DeadlockApiClient.Model
         /// <param name="avatar">avatar</param>
         /// <param name="avatarfull">avatarfull</param>
         /// <param name="avatarmedium">avatarmedium</param>
+        /// <param name="friends">friends</param>
         /// <param name="lastUpdated">lastUpdated</param>
         /// <param name="personaname">personaname</param>
         /// <param name="profileurl">profileurl</param>
         /// <param name="countrycode">countrycode</param>
         /// <param name="realname">realname</param>
         [JsonConstructor]
-        public SteamProfile(int accountId, string avatar, string avatarfull, string avatarmedium, DateTime lastUpdated, string personaname, string profileurl, Option<string?> countrycode = default, Option<string?> realname = default)
+        public SteamProfile(int accountId, string avatar, string avatarfull, string avatarmedium, List<SteamFriend> friends, DateTime lastUpdated, string personaname, string profileurl, Option<string?> countrycode = default, Option<string?> realname = default)
         {
             AccountId = accountId;
             Avatar = avatar;
             Avatarfull = avatarfull;
             Avatarmedium = avatarmedium;
+            Friends = friends;
             LastUpdated = lastUpdated;
             Personaname = personaname;
             Profileurl = profileurl;
@@ -82,6 +84,12 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("avatarmedium")]
         public string Avatarmedium { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Friends
+        /// </summary>
+        [JsonPropertyName("friends")]
+        public List<SteamFriend> Friends { get; set; }
 
         /// <summary>
         /// Gets or Sets LastUpdated
@@ -139,6 +147,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Avatar: ").Append(Avatar).Append("\n");
             sb.Append("  Avatarfull: ").Append(Avatarfull).Append("\n");
             sb.Append("  Avatarmedium: ").Append(Avatarmedium).Append("\n");
+            sb.Append("  Friends: ").Append(Friends).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  Personaname: ").Append(Personaname).Append("\n");
             sb.Append("  Profileurl: ").Append(Profileurl).Append("\n");
@@ -196,6 +205,7 @@ namespace DeadlockApiClient.Model
             Option<string?> avatar = default;
             Option<string?> avatarfull = default;
             Option<string?> avatarmedium = default;
+            Option<List<SteamFriend>?> friends = default;
             Option<DateTime?> lastUpdated = default;
             Option<string?> personaname = default;
             Option<string?> profileurl = default;
@@ -228,6 +238,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "avatarmedium":
                             avatarmedium = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "friends":
+                            friends = new Option<List<SteamFriend>?>(JsonSerializer.Deserialize<List<SteamFriend>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "last_updated":
                             lastUpdated = new Option<DateTime?>(JsonSerializer.Deserialize<DateTime>(ref utf8JsonReader, jsonSerializerOptions));
@@ -262,6 +275,9 @@ namespace DeadlockApiClient.Model
             if (!avatarmedium.IsSet)
                 throw new ArgumentException("Property is required for class SteamProfile.", nameof(avatarmedium));
 
+            if (!friends.IsSet)
+                throw new ArgumentException("Property is required for class SteamProfile.", nameof(friends));
+
             if (!lastUpdated.IsSet)
                 throw new ArgumentException("Property is required for class SteamProfile.", nameof(lastUpdated));
 
@@ -283,6 +299,9 @@ namespace DeadlockApiClient.Model
             if (avatarmedium.IsSet && avatarmedium.Value == null)
                 throw new ArgumentNullException(nameof(avatarmedium), "Property is not nullable for class SteamProfile.");
 
+            if (friends.IsSet && friends.Value == null)
+                throw new ArgumentNullException(nameof(friends), "Property is not nullable for class SteamProfile.");
+
             if (lastUpdated.IsSet && lastUpdated.Value == null)
                 throw new ArgumentNullException(nameof(lastUpdated), "Property is not nullable for class SteamProfile.");
 
@@ -292,7 +311,7 @@ namespace DeadlockApiClient.Model
             if (profileurl.IsSet && profileurl.Value == null)
                 throw new ArgumentNullException(nameof(profileurl), "Property is not nullable for class SteamProfile.");
 
-            return new SteamProfile(accountId.Value!.Value!, avatar.Value!, avatarfull.Value!, avatarmedium.Value!, lastUpdated.Value!.Value!, personaname.Value!, profileurl.Value!, countrycode, realname);
+            return new SteamProfile(accountId.Value!.Value!, avatar.Value!, avatarfull.Value!, avatarmedium.Value!, friends.Value!, lastUpdated.Value!.Value!, personaname.Value!, profileurl.Value!, countrycode, realname);
         }
 
         /// <summary>
@@ -328,6 +347,9 @@ namespace DeadlockApiClient.Model
             if (steamProfile.Avatarmedium == null)
                 throw new ArgumentNullException(nameof(steamProfile.Avatarmedium), "Property is required for class SteamProfile.");
 
+            if (steamProfile.Friends == null)
+                throw new ArgumentNullException(nameof(steamProfile.Friends), "Property is required for class SteamProfile.");
+
             if (steamProfile.Personaname == null)
                 throw new ArgumentNullException(nameof(steamProfile.Personaname), "Property is required for class SteamProfile.");
 
@@ -342,6 +364,8 @@ namespace DeadlockApiClient.Model
 
             writer.WriteString("avatarmedium", steamProfile.Avatarmedium);
 
+            writer.WritePropertyName("friends");
+            JsonSerializer.Serialize(writer, steamProfile.Friends, jsonSerializerOptions);
             writer.WriteString("last_updated", steamProfile.LastUpdated.ToString(LastUpdatedFormat));
 
             writer.WriteString("personaname", steamProfile.Personaname);

@@ -12,6 +12,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    SteamFriend,
+    SteamFriendFromJSON,
+    SteamFriendToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -50,6 +56,12 @@ export interface SteamProfile  {
     countrycode?: string;
     /**
      * 
+     * @type {Array<SteamFriend>}
+     * @memberof SteamProfile
+     */
+    friends: Array<SteamFriend>;
+    /**
+     * 
      * @type {Date}
      * @memberof SteamProfile
      */
@@ -81,6 +93,7 @@ export function SteamProfileFromJSON(json: any): SteamProfile {
         'avatarfull': json['avatarfull'],
         'avatarmedium': json['avatarmedium'],
         'countrycode': !exists(json, 'countrycode') ? undefined : json['countrycode'],
+        'friends': (json['friends'] as Array<any>).map(SteamFriendFromJSON),
         'lastUpdated': new Date(json['last_updated']),
         'personaname': json['personaname'],
         'profileurl': json['profileurl'],
@@ -98,6 +111,7 @@ export function SteamProfileToJSON(value?: SteamProfile): any {
         'avatarfull': value.avatarfull,
         'avatarmedium': value.avatarmedium,
         'countrycode': value.countrycode,
+        'friends': (value.friends as Array<any>).map(SteamFriendToJSON),
         'last_updated': value.lastUpdated.toISOString(),
         'personaname': value.personaname,
         'profileurl': value.profileurl,

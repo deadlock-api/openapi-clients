@@ -203,6 +203,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ServerStatusResponse](docs/ServerStatusResponse.md)
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)
+ - [deadlock_api_client.models.SteamFriend](docs/SteamFriend.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)
  - [deadlock_api_client.models.SteamServer](docs/SteamServer.md)
  - [deadlock_api_client.models.TableSize](docs/TableSize.md)

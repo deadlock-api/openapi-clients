@@ -95,7 +95,8 @@ class PlayersApiTest : ShouldSpec() {
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
             //val maxMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
-            //val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed)
+            //val sameParty : kotlin.Boolean = true // kotlin.Boolean | Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the `steam_profiles` friends list).
+            //val result : kotlin.collections.List<MateStats> = apiInstance.mateStats(accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty)
             //result shouldBe ("TODO")
         }
 

@@ -285,6 +285,7 @@ let minMatchId: number; //Filter matches based on their ID. (optional) (default 
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let minMatchesPlayed: number; //Filter based on the number of matches played. (optional) (default to undefined)
 let maxMatchesPlayed: number; //Filter based on the number of matches played. (optional) (default to undefined)
+let sameParty: boolean; //Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the `steam_profiles` friends list). (optional) (default to false)
 
 const { status, data } = await apiInstance.mateStats(
     accountId,
@@ -296,7 +297,8 @@ const { status, data } = await apiInstance.mateStats(
     minMatchId,
     maxMatchId,
     minMatchesPlayed,
-    maxMatchesPlayed
+    maxMatchesPlayed,
+    sameParty
 );
 ```
 
@@ -314,6 +316,7 @@ const { status, data } = await apiInstance.mateStats(
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **minMatchesPlayed** | [**number**] | Filter based on the number of matches played. | (optional) defaults to undefined|
 | **maxMatchesPlayed** | [**number**] | Filter based on the number of matches played. | (optional) defaults to undefined|
+| **sameParty** | [**boolean**] | Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). | (optional) defaults to false|
 
 
 ### Return type

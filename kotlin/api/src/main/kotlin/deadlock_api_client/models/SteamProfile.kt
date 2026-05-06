@@ -23,6 +23,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.SteamFriend
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -35,6 +36,7 @@ import java.io.Serializable
  * @param avatar 
  * @param avatarfull 
  * @param avatarmedium 
+ * @param friends 
  * @param lastUpdated 
  * @param personaname 
  * @param profileurl 
@@ -56,6 +58,9 @@ data class SteamProfile (
 
     @Json(name = "avatarmedium")
     val avatarmedium: kotlin.String,
+
+    @Json(name = "friends")
+    val friends: kotlin.collections.List<SteamFriend>,
 
     @Json(name = "last_updated")
     val lastUpdated: java.time.OffsetDateTime,

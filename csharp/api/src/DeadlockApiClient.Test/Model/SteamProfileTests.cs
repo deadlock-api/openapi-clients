@@ -90,6 +90,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Friends'
+        /// </summary>
+        [Fact]
+        public void FriendsTest()
+        {
+            // TODO unit test for the property 'Friends'
+        }
+
+        /// <summary>
         /// Test the property 'LastUpdated'
         /// </summary>
         [Fact]

@@ -80,6 +80,7 @@ from deadlock_api_client.models.server_status_request import ServerStatusRequest
 from deadlock_api_client.models.server_status_response import ServerStatusResponse
 from deadlock_api_client.models.status import Status
 from deadlock_api_client.models.status_services import StatusServices
+from deadlock_api_client.models.steam_friend import SteamFriend
 from deadlock_api_client.models.steam_profile import SteamProfile
 from deadlock_api_client.models.steam_server import SteamServer
 from deadlock_api_client.models.table_size import TableSize
