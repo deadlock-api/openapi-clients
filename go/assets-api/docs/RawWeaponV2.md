@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **WeaponInfo** | Pointer to [**NullableRawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
 **CssClass** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] [default to "weapon"]
+**CrosshairCssClass** | Pointer to **NullableString** |  | [optional] 
+**UseCustomCrosshairSettings** | Pointer to **NullableBool** |  | [optional] 
+**CustomCrosshairSettings** | Pointer to [**NullableRawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] 
 
 ## Methods
 
@@ -287,6 +290,111 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetCrosshairCssClass
+
+`func (o *RawWeaponV2) GetCrosshairCssClass() string`
+
+GetCrosshairCssClass returns the CrosshairCssClass field if non-nil, zero value otherwise.
+
+### GetCrosshairCssClassOk
+
+`func (o *RawWeaponV2) GetCrosshairCssClassOk() (*string, bool)`
+
+GetCrosshairCssClassOk returns a tuple with the CrosshairCssClass field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCrosshairCssClass
+
+`func (o *RawWeaponV2) SetCrosshairCssClass(v string)`
+
+SetCrosshairCssClass sets CrosshairCssClass field to given value.
+
+### HasCrosshairCssClass
+
+`func (o *RawWeaponV2) HasCrosshairCssClass() bool`
+
+HasCrosshairCssClass returns a boolean if a field has been set.
+
+### SetCrosshairCssClassNil
+
+`func (o *RawWeaponV2) SetCrosshairCssClassNil(b bool)`
+
+ SetCrosshairCssClassNil sets the value for CrosshairCssClass to be an explicit nil
+
+### UnsetCrosshairCssClass
+`func (o *RawWeaponV2) UnsetCrosshairCssClass()`
+
+UnsetCrosshairCssClass ensures that no value is present for CrosshairCssClass, not even an explicit nil
+### GetUseCustomCrosshairSettings
+
+`func (o *RawWeaponV2) GetUseCustomCrosshairSettings() bool`
+
+GetUseCustomCrosshairSettings returns the UseCustomCrosshairSettings field if non-nil, zero value otherwise.
+
+### GetUseCustomCrosshairSettingsOk
+
+`func (o *RawWeaponV2) GetUseCustomCrosshairSettingsOk() (*bool, bool)`
+
+GetUseCustomCrosshairSettingsOk returns a tuple with the UseCustomCrosshairSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUseCustomCrosshairSettings
+
+`func (o *RawWeaponV2) SetUseCustomCrosshairSettings(v bool)`
+
+SetUseCustomCrosshairSettings sets UseCustomCrosshairSettings field to given value.
+
+### HasUseCustomCrosshairSettings
+
+`func (o *RawWeaponV2) HasUseCustomCrosshairSettings() bool`
+
+HasUseCustomCrosshairSettings returns a boolean if a field has been set.
+
+### SetUseCustomCrosshairSettingsNil
+
+`func (o *RawWeaponV2) SetUseCustomCrosshairSettingsNil(b bool)`
+
+ SetUseCustomCrosshairSettingsNil sets the value for UseCustomCrosshairSettings to be an explicit nil
+
+### UnsetUseCustomCrosshairSettings
+`func (o *RawWeaponV2) UnsetUseCustomCrosshairSettings()`
+
+UnsetUseCustomCrosshairSettings ensures that no value is present for UseCustomCrosshairSettings, not even an explicit nil
+### GetCustomCrosshairSettings
+
+`func (o *RawWeaponV2) GetCustomCrosshairSettings() RawCustomCrosshairSettingsV2`
+
+GetCustomCrosshairSettings returns the CustomCrosshairSettings field if non-nil, zero value otherwise.
+
+### GetCustomCrosshairSettingsOk
+
+`func (o *RawWeaponV2) GetCustomCrosshairSettingsOk() (*RawCustomCrosshairSettingsV2, bool)`
+
+GetCustomCrosshairSettingsOk returns a tuple with the CustomCrosshairSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomCrosshairSettings
+
+`func (o *RawWeaponV2) SetCustomCrosshairSettings(v RawCustomCrosshairSettingsV2)`
+
+SetCustomCrosshairSettings sets CustomCrosshairSettings field to given value.
+
+### HasCustomCrosshairSettings
+
+`func (o *RawWeaponV2) HasCustomCrosshairSettings() bool`
+
+HasCustomCrosshairSettings returns a boolean if a field has been set.
+
+### SetCustomCrosshairSettingsNil
+
+`func (o *RawWeaponV2) SetCustomCrosshairSettingsNil(b bool)`
+
+ SetCustomCrosshairSettingsNil sets the value for CustomCrosshairSettings to be an explicit nil
+
+### UnsetCustomCrosshairSettings
+`func (o *RawWeaponV2) UnsetCustomCrosshairSettings()`
+
+UnsetCustomCrosshairSettings ensures that no value is present for CustomCrosshairSettings, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

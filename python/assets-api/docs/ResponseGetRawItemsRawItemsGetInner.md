@@ -22,6 +22,9 @@ Name | Type | Description | Notes
 **video** | **str** |  | [optional] 
 **tooltip_details** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
 **dependent_abilities** | [**Dict[str, AbilityV2DependentAbilitiesValue]**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
+**crosshair_css_class** | **str** |  | [optional] 
+**use_custom_crosshair_settings** | **bool** |  | [optional] 
+**custom_crosshair_settings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] 
 **shop_image** | **str** |  | [optional] 
 **shop_image_small** | **str** |  | [optional] 
 **item_slot_type** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 

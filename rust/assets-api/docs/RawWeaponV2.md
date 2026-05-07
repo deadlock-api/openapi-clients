@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **weapon_info** | Option<[**models::RawWeaponInfoV2**](RawWeaponInfoV2.md)> |  | [optional]
 **css_class** | Option<**String**> |  | [optional]
 **r#type** | Option<**Type**> |  (enum: weapon) | [optional][default to Weapon]
+**crosshair_css_class** | Option<**String**> |  | [optional]
+**use_custom_crosshair_settings** | Option<**bool**> |  | [optional]
+**custom_crosshair_settings** | Option<[**models::RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -162,6 +162,7 @@ export interface DamageFlashV2 {
 }
 
 export const DeadlockAssetsApiRoutesValidClientVersions = {
+    NUMBER_6487: 6487,
     NUMBER_6484: 6484,
     NUMBER_6468: 6468,
     NUMBER_6455: 6455,
@@ -995,6 +996,25 @@ export interface RawAccoladeV2 {
 }
 
 
+export interface RawCustomCrosshairSettingsV2 {
+    'pip_width'?: number | null;
+    'pip_height'?: number | null;
+    'pip_outline_width'?: number | null;
+    'pip_outline_gap'?: number | null;
+    'pip_opacity'?: number | null;
+    'pip_outline_opacity'?: number | null;
+    'pip_color'?: Array<number> | null;
+    'pip_outline_color'?: Array<number> | null;
+    'dot_radius'?: number | null;
+    'dot_outline_width'?: number | null;
+    'dot_outline_gap'?: number | null;
+    'dot_opacity'?: number | null;
+    'dot_outline_opacity'?: number | null;
+    'dot_color'?: Array<number> | null;
+    'dot_outline_color'?: Array<number> | null;
+    'spread_indicating_element'?: string | null;
+    'base_spread'?: number | null;
+}
 export interface RawHeroDraftBucketing {
     'bucket'?: string | null;
     'weight'?: number | null;
@@ -1297,6 +1317,9 @@ export interface RawWeaponV2 {
     'weapon_info'?: RawWeaponInfoV2 | null;
     'css_class'?: string | null;
     'type'?: RawWeaponV2TypeEnum;
+    'crosshair_css_class'?: string | null;
+    'use_custom_crosshair_settings'?: boolean | null;
+    'custom_crosshair_settings'?: RawCustomCrosshairSettingsV2 | null;
 }
 
 export const RawWeaponV2TypeEnum = {
@@ -1342,6 +1365,9 @@ export interface ResponseGetRawItemsRawItemsGetInner {
     'video'?: string;
     'tooltip_details'?: RawAbilityV2TooltipDetails;
     'dependent_abilities'?: { [key: string]: AbilityV2DependentAbilitiesValue; };
+    'crosshair_css_class'?: string;
+    'use_custom_crosshair_settings'?: boolean;
+    'custom_crosshair_settings'?: RawCustomCrosshairSettingsV2;
     'shop_image'?: string;
     'shop_image_small'?: string;
     'item_slot_type': ItemSlotTypeV2;
@@ -1710,6 +1736,9 @@ export interface WeaponV2 {
     'properties'?: { [key: string]: ItemPropertyV2; } | null;
     'weapon_info'?: WeaponInfoV2 | null;
     'type'?: WeaponV2TypeEnum;
+    'crosshair_css_class'?: string | null;
+    'use_custom_crosshair_settings'?: boolean | null;
+    'custom_crosshair_settings'?: RawCustomCrosshairSettingsV2 | null;
 }
 
 export const WeaponV2TypeEnum = {

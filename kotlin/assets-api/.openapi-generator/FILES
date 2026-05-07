@@ -94,6 +94,7 @@ docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/RawAccoladeV2.md
 docs/RawApi.md
+docs/RawCustomCrosshairSettingsV2.md
 docs/RawHeroDraftBucketing.md
 docs/RawHeroItemSlotInfoValueV2.md
 docs/RawHeroLevelInfoV2.md
@@ -269,6 +270,7 @@ src/main/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfo
 src/main/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawAccoladeV2.kt
+src/main/kotlin/assets_deadlock_api_client/models/RawCustomCrosshairSettingsV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawHeroDraftBucketing.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawHeroItemSlotInfoValueV2.kt
 src/main/kotlin/assets_deadlock_api_client/models/RawHeroLevelInfoV2.kt
@@ -426,6 +428,7 @@ src/test/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfo
 src/test/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsInfoSectionTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawAbilityV2TooltipDetailsTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawAccoladeV2Test.kt
+src/test/kotlin/assets_deadlock_api_client/models/RawCustomCrosshairSettingsV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawHeroDraftBucketingTest.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawHeroItemSlotInfoValueV2Test.kt
 src/test/kotlin/assets_deadlock_api_client/models/RawHeroLevelInfoV2Test.kt

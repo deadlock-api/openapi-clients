@@ -21,6 +21,9 @@ Name | Type | Description | Notes
 **video** | **string** |  | [optional]
 **tooltip_details** | [**\OpenAPI\Client\Model\RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional]
 **dependent_abilities** | [**array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>**](AbilityV2DependentAbilitiesValue.md) |  | [optional]
+**crosshair_css_class** | **string** |  | [optional]
+**use_custom_crosshair_settings** | **bool** |  | [optional]
+**custom_crosshair_settings** | [**\OpenAPI\Client\Model\RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional]
 **shop_image** | **string** |  | [optional]
 **shop_image_small** | **string** |  | [optional]
 **item_slot_type** | [**\OpenAPI\Client\Model\ItemSlotTypeV2**](ItemSlotTypeV2.md) |  |

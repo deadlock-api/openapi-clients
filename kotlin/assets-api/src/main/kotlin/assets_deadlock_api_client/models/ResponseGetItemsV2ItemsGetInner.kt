@@ -33,6 +33,7 @@ import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2
 import assets_deadlock_api_client.models.RawAbilityImbueV2
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
+import assets_deadlock_api_client.models.RawCustomCrosshairSettingsV2
 import assets_deadlock_api_client.models.RawItemWeaponInfoV2
 import assets_deadlock_api_client.models.UpgradeDescriptionV2
 import assets_deadlock_api_client.models.UpgradePropertyV2
@@ -75,6 +76,9 @@ import java.io.Serializable
  * @param dependantAbilities 
  * @param videos 
  * @param dependentAbilities 
+ * @param crosshairCssClass 
+ * @param useCustomCrosshairSettings 
+ * @param customCrosshairSettings 
  * @param shopImage 
  * @param shopImageWebp 
  * @param shopImageSmall 
@@ -147,6 +151,12 @@ interface ResponseGetItemsV2ItemsGetInner : Serializable {
     val videos: AbilityVideosV2?
     @Json(name = "dependent_abilities")
     val dependentAbilities: kotlin.collections.Map<kotlin.String, AbilityV2DependentAbilitiesValue>?
+    @Json(name = "crosshair_css_class")
+    val crosshairCssClass: kotlin.String?
+    @Json(name = "use_custom_crosshair_settings")
+    val useCustomCrosshairSettings: kotlin.Boolean?
+    @Json(name = "custom_crosshair_settings")
+    val customCrosshairSettings: RawCustomCrosshairSettingsV2?
     @Json(name = "shop_image")
     val shopImage: kotlin.String?
     @Json(name = "shop_image_webp")

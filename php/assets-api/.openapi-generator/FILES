@@ -101,6 +101,7 @@ api/Model/RawAbilityV2TooltipDetailsInfoSection.php
 api/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.php
 api/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.php
 api/Model/RawAccoladeV2.php
+api/Model/RawCustomCrosshairSettingsV2.php
 api/Model/RawHeroDraftBucketing.php
 api/Model/RawHeroItemSlotInfoValueV2.php
 api/Model/RawHeroLevelInfoV2.php
@@ -260,6 +261,7 @@ docs/Model/RawAbilityV2TooltipDetailsInfoSection.md
 docs/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/Model/RawAccoladeV2.md
+docs/Model/RawCustomCrosshairSettingsV2.md
 docs/Model/RawHeroDraftBucketing.md
 docs/Model/RawHeroItemSlotInfoValueV2.md
 docs/Model/RawHeroLevelInfoV2.md
@@ -419,6 +421,7 @@ test/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockTest.php
 test/Model/RawAbilityV2TooltipDetailsInfoSectionTest.php
 test/Model/RawAbilityV2TooltipDetailsTest.php
 test/Model/RawAccoladeV2Test.php
+test/Model/RawCustomCrosshairSettingsV2Test.php
 test/Model/RawHeroDraftBucketingTest.php
 test/Model/RawHeroItemSlotInfoValueV2Test.php
 test/Model/RawHeroLevelInfoV2Test.php

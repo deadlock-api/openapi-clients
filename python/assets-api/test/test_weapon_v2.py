@@ -139,7 +139,35 @@ class TestWeaponV2(unittest.TestCase):
                     damage_per_second_with_reload = 1.337, 
                     damage_per_shot = 1.337, 
                     damage_per_magazine = 1.337, ),
-                type = 'weapon'
+                type = 'weapon',
+                crosshair_css_class = '',
+                use_custom_crosshair_settings = True,
+                custom_crosshair_settings = assets_deadlock_api_client.models.raw_custom_crosshair_settings_v2.RawCustomCrosshairSettingsV2(
+                    pip_width = 56, 
+                    pip_height = 56, 
+                    pip_outline_width = 56, 
+                    pip_outline_gap = 56, 
+                    pip_opacity = 1.337, 
+                    pip_outline_opacity = 1.337, 
+                    pip_color = [
+                        56
+                        ], 
+                    pip_outline_color = [
+                        56
+                        ], 
+                    dot_radius = 56, 
+                    dot_outline_width = 56, 
+                    dot_outline_gap = 56, 
+                    dot_opacity = 1.337, 
+                    dot_outline_opacity = 1.337, 
+                    dot_color = [
+                        56
+                        ], 
+                    dot_outline_color = [
+                        56
+                        ], 
+                    spread_indicating_element = '', 
+                    base_spread = 1.337, )
             )
         else:
             return WeaponV2(

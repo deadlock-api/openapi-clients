@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **properties** | [**Dict[str, ItemPropertyV2]**](ItemPropertyV2.md) |  | [optional] 
 **weapon_info** | [**WeaponInfoV2**](WeaponInfoV2.md) |  | [optional] 
 **type** | **str** |  | [optional] [default to 'weapon']
+**crosshair_css_class** | **str** |  | [optional] 
+**use_custom_crosshair_settings** | **bool** |  | [optional] 
+**custom_crosshair_settings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] 
 
 ## Example
 

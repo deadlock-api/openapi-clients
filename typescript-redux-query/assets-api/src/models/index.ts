@@ -84,6 +84,7 @@ export * from './RawAbilityV2TooltipDetailsInfoSection';
 export * from './RawAbilityV2TooltipDetailsInfoSectionPropertyBlock';
 export * from './RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty';
 export * from './RawAccoladeV2';
+export * from './RawCustomCrosshairSettingsV2';
 export * from './RawHeroDraftBucketing';
 export * from './RawHeroItemSlotInfoValueV2';
 export * from './RawHeroLevelInfoV2';

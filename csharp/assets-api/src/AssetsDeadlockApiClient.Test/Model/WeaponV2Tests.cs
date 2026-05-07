@@ -160,5 +160,32 @@ namespace AssetsDeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Type'
         }
+
+        /// <summary>
+        /// Test the property 'CrosshairCssClass'
+        /// </summary>
+        [Fact]
+        public void CrosshairCssClassTest()
+        {
+            // TODO unit test for the property 'CrosshairCssClass'
+        }
+
+        /// <summary>
+        /// Test the property 'UseCustomCrosshairSettings'
+        /// </summary>
+        [Fact]
+        public void UseCustomCrosshairSettingsTest()
+        {
+            // TODO unit test for the property 'UseCustomCrosshairSettings'
+        }
+
+        /// <summary>
+        /// Test the property 'CustomCrosshairSettings'
+        /// </summary>
+        [Fact]
+        public void CustomCrosshairSettingsTest()
+        {
+            // TODO unit test for the property 'CustomCrosshairSettings'
+        }
     }
 }

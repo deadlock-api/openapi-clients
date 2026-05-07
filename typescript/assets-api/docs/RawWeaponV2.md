@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] [default to undefined]
 **css_class** | **string** |  | [optional] [default to undefined]
 **type** | **string** |  | [optional] [default to TypeEnum_Weapon]
+**crosshair_css_class** | **string** |  | [optional] [default to undefined]
+**use_custom_crosshair_settings** | **boolean** |  | [optional] [default to undefined]
+**custom_crosshair_settings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -28,6 +31,9 @@ const instance: RawWeaponV2 = {
     weapon_info,
     css_class,
     type,
+    crosshair_css_class,
+    use_custom_crosshair_settings,
+    custom_crosshair_settings,
 };
 ```
 

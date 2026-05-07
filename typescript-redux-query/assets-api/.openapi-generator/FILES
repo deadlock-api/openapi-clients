@@ -98,6 +98,7 @@ src/models/RawAbilityV2TooltipDetailsInfoSection.ts
 src/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.ts
 src/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.ts
 src/models/RawAccoladeV2.ts
+src/models/RawCustomCrosshairSettingsV2.ts
 src/models/RawHeroDraftBucketing.ts
 src/models/RawHeroItemSlotInfoValueV2.ts
 src/models/RawHeroLevelInfoV2.ts

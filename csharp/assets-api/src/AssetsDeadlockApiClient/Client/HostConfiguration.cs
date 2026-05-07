@@ -141,6 +141,7 @@ namespace AssetsDeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RawAbilityV2TooltipDetailsInfoSectionPropertyBlockJsonConverter());
             _jsonOptions.Converters.Add(new RawAbilityV2TooltipDetailsInfoSectionPropertyBlockPropertyJsonConverter());
             _jsonOptions.Converters.Add(new RawAccoladeV2JsonConverter());
+            _jsonOptions.Converters.Add(new RawCustomCrosshairSettingsV2JsonConverter());
             _jsonOptions.Converters.Add(new RawHeroDraftBucketingJsonConverter());
             _jsonOptions.Converters.Add(new RawHeroItemSlotInfoValueV2JsonConverter());
             _jsonOptions.Converters.Add(new RawHeroLevelInfoV2JsonConverter());

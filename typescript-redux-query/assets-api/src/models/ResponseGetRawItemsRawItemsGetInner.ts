@@ -40,6 +40,9 @@ import {
     RawAbilityV2TooltipDetails,
     RawAbilityV2TooltipDetailsFromJSON,
     RawAbilityV2TooltipDetailsToJSON,
+    RawCustomCrosshairSettingsV2,
+    RawCustomCrosshairSettingsV2FromJSON,
+    RawCustomCrosshairSettingsV2ToJSON,
     RawItemPropertyV2,
     RawItemPropertyV2FromJSON,
     RawItemPropertyV2ToJSON,
@@ -170,6 +173,24 @@ export interface ResponseGetRawItemsRawItemsGetInner  {
      * @type {string}
      * @memberof ResponseGetRawItemsRawItemsGetInner
      */
+    crosshairCssClass?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResponseGetRawItemsRawItemsGetInner
+     */
+    useCustomCrosshairSettings?: boolean;
+    /**
+     * 
+     * @type {RawCustomCrosshairSettingsV2}
+     * @memberof ResponseGetRawItemsRawItemsGetInner
+     */
+    customCrosshairSettings?: RawCustomCrosshairSettingsV2;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseGetRawItemsRawItemsGetInner
+     */
     shopImage?: string;
     /**
      * 
@@ -240,6 +261,9 @@ export function ResponseGetRawItemsRawItemsGetInnerFromJSON(json: any): Response
         'video': !exists(json, 'video') ? undefined : json['video'],
         'tooltipDetails': !exists(json, 'tooltip_details') ? undefined : RawAbilityV2TooltipDetailsFromJSON(json['tooltip_details']),
         'dependentAbilities': !exists(json, 'dependent_abilities') ? undefined : mapValues(json['dependent_abilities'], AbilityV2DependentAbilitiesValueFromJSON),
+        'crosshairCssClass': !exists(json, 'crosshair_css_class') ? undefined : json['crosshair_css_class'],
+        'useCustomCrosshairSettings': !exists(json, 'use_custom_crosshair_settings') ? undefined : json['use_custom_crosshair_settings'],
+        'customCrosshairSettings': !exists(json, 'custom_crosshair_settings') ? undefined : RawCustomCrosshairSettingsV2FromJSON(json['custom_crosshair_settings']),
         'shopImage': !exists(json, 'shop_image') ? undefined : json['shop_image'],
         'shopImageSmall': !exists(json, 'shop_image_small') ? undefined : json['shop_image_small'],
         'itemSlotType': ItemSlotTypeV2FromJSON(json['item_slot_type']),
@@ -274,6 +298,9 @@ export function ResponseGetRawItemsRawItemsGetInnerToJSON(value?: ResponseGetRaw
         'video': value.video,
         'tooltip_details': RawAbilityV2TooltipDetailsToJSON(value.tooltipDetails),
         'dependent_abilities': value.dependentAbilities === undefined ? undefined : mapValues(value.dependentAbilities, AbilityV2DependentAbilitiesValueToJSON),
+        'crosshair_css_class': value.crosshairCssClass,
+        'use_custom_crosshair_settings': value.useCustomCrosshairSettings,
+        'custom_crosshair_settings': RawCustomCrosshairSettingsV2ToJSON(value.customCrosshairSettings),
         'shop_image': value.shopImage,
         'shop_image_small': value.shopImageSmall,
         'item_slot_type': ItemSlotTypeV2ToJSON(value.itemSlotType),

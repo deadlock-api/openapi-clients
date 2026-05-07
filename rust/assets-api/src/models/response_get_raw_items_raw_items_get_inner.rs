@@ -47,6 +47,12 @@ pub struct ResponseGetRawItemsRawItemsGetInner {
     pub tooltip_details: Option<Box<models::RawAbilityV2TooltipDetails>>,
     #[serde(rename = "dependent_abilities", skip_serializing_if = "Option::is_none")]
     pub dependent_abilities: Option<std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>>,
+    #[serde(rename = "crosshair_css_class", skip_serializing_if = "Option::is_none")]
+    pub crosshair_css_class: Option<String>,
+    #[serde(rename = "use_custom_crosshair_settings", skip_serializing_if = "Option::is_none")]
+    pub use_custom_crosshair_settings: Option<bool>,
+    #[serde(rename = "custom_crosshair_settings", skip_serializing_if = "Option::is_none")]
+    pub custom_crosshair_settings: Option<Box<models::RawCustomCrosshairSettingsV2>>,
     #[serde(rename = "shop_image", skip_serializing_if = "Option::is_none")]
     pub shop_image: Option<String>,
     #[serde(rename = "shop_image_small", skip_serializing_if = "Option::is_none")]
@@ -87,6 +93,9 @@ impl ResponseGetRawItemsRawItemsGetInner {
             video: None,
             tooltip_details: None,
             dependent_abilities: None,
+            crosshair_css_class: None,
+            use_custom_crosshair_settings: None,
+            custom_crosshair_settings: None,
             shop_image: None,
             shop_image_small: None,
             item_slot_type,

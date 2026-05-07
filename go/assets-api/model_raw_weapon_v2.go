@@ -29,6 +29,9 @@ type RawWeaponV2 struct {
 	WeaponInfo NullableRawWeaponInfoV2 `json:"weapon_info,omitempty"`
 	CssClass NullableString `json:"css_class,omitempty"`
 	Type *string `json:"type,omitempty"`
+	CrosshairCssClass NullableString `json:"crosshair_css_class,omitempty"`
+	UseCustomCrosshairSettings NullableBool `json:"use_custom_crosshair_settings,omitempty"`
+	CustomCrosshairSettings NullableRawCustomCrosshairSettingsV2 `json:"custom_crosshair_settings,omitempty"`
 }
 
 type _RawWeaponV2 RawWeaponV2
@@ -354,6 +357,132 @@ func (o *RawWeaponV2) SetType(v string) {
 	o.Type = &v
 }
 
+// GetCrosshairCssClass returns the CrosshairCssClass field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawWeaponV2) GetCrosshairCssClass() string {
+	if o == nil || IsNil(o.CrosshairCssClass.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CrosshairCssClass.Get()
+}
+
+// GetCrosshairCssClassOk returns a tuple with the CrosshairCssClass field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawWeaponV2) GetCrosshairCssClassOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CrosshairCssClass.Get(), o.CrosshairCssClass.IsSet()
+}
+
+// HasCrosshairCssClass returns a boolean if a field has been set.
+func (o *RawWeaponV2) HasCrosshairCssClass() bool {
+	if o != nil && o.CrosshairCssClass.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCrosshairCssClass gets a reference to the given NullableString and assigns it to the CrosshairCssClass field.
+func (o *RawWeaponV2) SetCrosshairCssClass(v string) {
+	o.CrosshairCssClass.Set(&v)
+}
+// SetCrosshairCssClassNil sets the value for CrosshairCssClass to be an explicit nil
+func (o *RawWeaponV2) SetCrosshairCssClassNil() {
+	o.CrosshairCssClass.Set(nil)
+}
+
+// UnsetCrosshairCssClass ensures that no value is present for CrosshairCssClass, not even an explicit nil
+func (o *RawWeaponV2) UnsetCrosshairCssClass() {
+	o.CrosshairCssClass.Unset()
+}
+
+// GetUseCustomCrosshairSettings returns the UseCustomCrosshairSettings field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawWeaponV2) GetUseCustomCrosshairSettings() bool {
+	if o == nil || IsNil(o.UseCustomCrosshairSettings.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.UseCustomCrosshairSettings.Get()
+}
+
+// GetUseCustomCrosshairSettingsOk returns a tuple with the UseCustomCrosshairSettings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawWeaponV2) GetUseCustomCrosshairSettingsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UseCustomCrosshairSettings.Get(), o.UseCustomCrosshairSettings.IsSet()
+}
+
+// HasUseCustomCrosshairSettings returns a boolean if a field has been set.
+func (o *RawWeaponV2) HasUseCustomCrosshairSettings() bool {
+	if o != nil && o.UseCustomCrosshairSettings.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUseCustomCrosshairSettings gets a reference to the given NullableBool and assigns it to the UseCustomCrosshairSettings field.
+func (o *RawWeaponV2) SetUseCustomCrosshairSettings(v bool) {
+	o.UseCustomCrosshairSettings.Set(&v)
+}
+// SetUseCustomCrosshairSettingsNil sets the value for UseCustomCrosshairSettings to be an explicit nil
+func (o *RawWeaponV2) SetUseCustomCrosshairSettingsNil() {
+	o.UseCustomCrosshairSettings.Set(nil)
+}
+
+// UnsetUseCustomCrosshairSettings ensures that no value is present for UseCustomCrosshairSettings, not even an explicit nil
+func (o *RawWeaponV2) UnsetUseCustomCrosshairSettings() {
+	o.UseCustomCrosshairSettings.Unset()
+}
+
+// GetCustomCrosshairSettings returns the CustomCrosshairSettings field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawWeaponV2) GetCustomCrosshairSettings() RawCustomCrosshairSettingsV2 {
+	if o == nil || IsNil(o.CustomCrosshairSettings.Get()) {
+		var ret RawCustomCrosshairSettingsV2
+		return ret
+	}
+	return *o.CustomCrosshairSettings.Get()
+}
+
+// GetCustomCrosshairSettingsOk returns a tuple with the CustomCrosshairSettings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawWeaponV2) GetCustomCrosshairSettingsOk() (*RawCustomCrosshairSettingsV2, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomCrosshairSettings.Get(), o.CustomCrosshairSettings.IsSet()
+}
+
+// HasCustomCrosshairSettings returns a boolean if a field has been set.
+func (o *RawWeaponV2) HasCustomCrosshairSettings() bool {
+	if o != nil && o.CustomCrosshairSettings.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomCrosshairSettings gets a reference to the given NullableRawCustomCrosshairSettingsV2 and assigns it to the CustomCrosshairSettings field.
+func (o *RawWeaponV2) SetCustomCrosshairSettings(v RawCustomCrosshairSettingsV2) {
+	o.CustomCrosshairSettings.Set(&v)
+}
+// SetCustomCrosshairSettingsNil sets the value for CustomCrosshairSettings to be an explicit nil
+func (o *RawWeaponV2) SetCustomCrosshairSettingsNil() {
+	o.CustomCrosshairSettings.Set(nil)
+}
+
+// UnsetCustomCrosshairSettings ensures that no value is present for CustomCrosshairSettings, not even an explicit nil
+func (o *RawWeaponV2) UnsetCustomCrosshairSettings() {
+	o.CustomCrosshairSettings.Unset()
+}
+
 func (o RawWeaponV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -385,6 +514,15 @@ func (o RawWeaponV2) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
+	}
+	if o.CrosshairCssClass.IsSet() {
+		toSerialize["crosshair_css_class"] = o.CrosshairCssClass.Get()
+	}
+	if o.UseCustomCrosshairSettings.IsSet() {
+		toSerialize["use_custom_crosshair_settings"] = o.UseCustomCrosshairSettings.Get()
+	}
+	if o.CustomCrosshairSettings.IsSet() {
+		toSerialize["custom_crosshair_settings"] = o.CustomCrosshairSettings.Get()
 	}
 	return toSerialize, nil
 }

@@ -23,6 +23,9 @@
 | **video** | **kotlin.String** |  |  [optional] |
 | **tooltipDetails** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  |  [optional] |
 | **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, AbilityV2DependentAbilitiesValue&gt;**](AbilityV2DependentAbilitiesValue.md) |  |  [optional] |
+| **crosshairCssClass** | **kotlin.String** |  |  [optional] |
+| **useCustomCrosshairSettings** | **kotlin.Boolean** |  |  [optional] |
+| **customCrosshairSettings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  |  [optional] |
 | **shopImage** | **kotlin.String** |  |  [optional] |
 | **shopImageSmall** | **kotlin.String** |  |  [optional] |
 | **disabled** | **kotlin.Boolean** |  |  [optional] |

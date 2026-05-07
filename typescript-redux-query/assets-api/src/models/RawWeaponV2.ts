@@ -13,6 +13,9 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    RawCustomCrosshairSettingsV2,
+    RawCustomCrosshairSettingsV2FromJSON,
+    RawCustomCrosshairSettingsV2ToJSON,
     RawItemPropertyV2,
     RawItemPropertyV2FromJSON,
     RawItemPropertyV2ToJSON,
@@ -75,6 +78,24 @@ export interface RawWeaponV2  {
      * @memberof RawWeaponV2
      */
     type?: RawWeaponV2TypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof RawWeaponV2
+     */
+    crosshairCssClass?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof RawWeaponV2
+     */
+    useCustomCrosshairSettings?: boolean;
+    /**
+     * 
+     * @type {RawCustomCrosshairSettingsV2}
+     * @memberof RawWeaponV2
+     */
+    customCrosshairSettings?: RawCustomCrosshairSettingsV2;
 }
 
 export function RawWeaponV2FromJSON(json: any): RawWeaponV2 {
@@ -87,6 +108,9 @@ export function RawWeaponV2FromJSON(json: any): RawWeaponV2 {
         'weaponInfo': !exists(json, 'weapon_info') ? undefined : RawWeaponInfoV2FromJSON(json['weapon_info']),
         'cssClass': !exists(json, 'css_class') ? undefined : json['css_class'],
         'type': !exists(json, 'type') ? undefined : json['type'],
+        'crosshairCssClass': !exists(json, 'crosshair_css_class') ? undefined : json['crosshair_css_class'],
+        'useCustomCrosshairSettings': !exists(json, 'use_custom_crosshair_settings') ? undefined : json['use_custom_crosshair_settings'],
+        'customCrosshairSettings': !exists(json, 'custom_crosshair_settings') ? undefined : RawCustomCrosshairSettingsV2FromJSON(json['custom_crosshair_settings']),
     };
 }
 
@@ -103,6 +127,9 @@ export function RawWeaponV2ToJSON(value?: RawWeaponV2): any {
         'weapon_info': RawWeaponInfoV2ToJSON(value.weaponInfo),
         'css_class': value.cssClass,
         'type': value.type,
+        'crosshair_css_class': value.crosshairCssClass,
+        'use_custom_crosshair_settings': value.useCustomCrosshairSettings,
+        'custom_crosshair_settings': RawCustomCrosshairSettingsV2ToJSON(value.customCrosshairSettings),
     };
 }
 

@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **weapon_info** | [**RawWeaponInfoV2**](RawWeaponInfoV2.md) |  | [optional] 
 **css_class** | **str** |  | [optional] 
 **type** | **str** |  | [optional] [default to 'weapon']
+**crosshair_css_class** | **str** |  | [optional] 
+**use_custom_crosshair_settings** | **bool** |  | [optional] 
+**custom_crosshair_settings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] 
 
 ## Example
 

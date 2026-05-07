@@ -27,6 +27,9 @@ Name | Type | Description | Notes
 **dependant_abilities** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  | [optional] [default to undefined]
 **dependent_abilities** | [**{ [key: string]: AbilityV2DependentAbilitiesValue; }**](AbilityV2DependentAbilitiesValue.md) |  | [optional] [default to undefined]
+**crosshair_css_class** | **string** |  | [optional] [default to undefined]
+**use_custom_crosshair_settings** | **boolean** |  | [optional] [default to undefined]
+**custom_crosshair_settings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] [default to undefined]
 **shop_image** | **string** |  | [optional] [default to undefined]
 **shop_image_webp** | **string** |  | [optional] [default to undefined]
 **shop_image_small** | **string** |  | [optional] [default to undefined]
@@ -70,6 +73,9 @@ const instance: ResponseGetItemV2ItemsIdOrClassNameGet = {
     dependant_abilities,
     videos,
     dependent_abilities,
+    crosshair_css_class,
+    use_custom_crosshair_settings,
+    custom_crosshair_settings,
     shop_image,
     shop_image_webp,
     shop_image_small,

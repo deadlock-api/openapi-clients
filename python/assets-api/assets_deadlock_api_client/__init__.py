@@ -120,6 +120,7 @@ __all__ = [
     "RawAbilityV2TooltipDetailsInfoSectionPropertyBlock",
     "RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty",
     "RawAccoladeV2",
+    "RawCustomCrosshairSettingsV2",
     "RawHeroDraftBucketing",
     "RawHeroItemSlotInfoValueV2",
     "RawHeroLevelInfoV2",
@@ -293,6 +294,7 @@ from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_secti
 from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_section_property_block import RawAbilityV2TooltipDetailsInfoSectionPropertyBlock as RawAbilityV2TooltipDetailsInfoSectionPropertyBlock
 from assets_deadlock_api_client.models.raw_ability_v2_tooltip_details_info_section_property_block_property import RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty as RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty
 from assets_deadlock_api_client.models.raw_accolade_v2 import RawAccoladeV2 as RawAccoladeV2
+from assets_deadlock_api_client.models.raw_custom_crosshair_settings_v2 import RawCustomCrosshairSettingsV2 as RawCustomCrosshairSettingsV2
 from assets_deadlock_api_client.models.raw_hero_draft_bucketing import RawHeroDraftBucketing as RawHeroDraftBucketing
 from assets_deadlock_api_client.models.raw_hero_item_slot_info_value_v2 import RawHeroItemSlotInfoValueV2 as RawHeroItemSlotInfoValueV2
 from assets_deadlock_api_client.models.raw_hero_level_info_v2 import RawHeroLevelInfoV2 as RawHeroLevelInfoV2

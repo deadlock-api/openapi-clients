@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **properties** | [**{ [key: string]: ItemPropertyV2; }**](ItemPropertyV2.md) |  | [optional] [default to undefined]
 **weapon_info** | [**WeaponInfoV2**](WeaponInfoV2.md) |  | [optional] [default to undefined]
 **type** | **string** |  | [optional] [default to TypeEnum_Weapon]
+**crosshair_css_class** | **string** |  | [optional] [default to undefined]
+**use_custom_crosshair_settings** | **boolean** |  | [optional] [default to undefined]
+**custom_crosshair_settings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -36,6 +39,9 @@ const instance: WeaponV2 = {
     properties,
     weapon_info,
     type,
+    crosshair_css_class,
+    use_custom_crosshair_settings,
+    custom_crosshair_settings,
 };
 ```
 

@@ -22,6 +22,9 @@ Name | Type | Description | Notes
 **video** | **string** |  | [optional] [default to undefined]
 **tooltip_details** | [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] [default to undefined]
 **dependent_abilities** | [**{ [key: string]: AbilityV2DependentAbilitiesValue; }**](AbilityV2DependentAbilitiesValue.md) |  | [optional] [default to undefined]
+**crosshair_css_class** | **string** |  | [optional] [default to undefined]
+**use_custom_crosshair_settings** | **boolean** |  | [optional] [default to undefined]
+**custom_crosshair_settings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] [default to undefined]
 **shop_image** | **string** |  | [optional] [default to undefined]
 **shop_image_small** | **string** |  | [optional] [default to undefined]
 **item_slot_type** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | [default to undefined]
@@ -55,6 +58,9 @@ const instance: ResponseGetRawItemsRawItemsGetInner = {
     video,
     tooltip_details,
     dependent_abilities,
+    crosshair_css_class,
+    use_custom_crosshair_settings,
+    custom_crosshair_settings,
     shop_image,
     shop_image_small,
     item_slot_type,

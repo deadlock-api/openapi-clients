@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from assets_deadlock_api_client.models.item_property_v2 import ItemPropertyV2
+from assets_deadlock_api_client.models.raw_custom_crosshair_settings_v2 import RawCustomCrosshairSettingsV2
 from assets_deadlock_api_client.models.weapon_info_v2 import WeaponInfoV2
 from typing import Optional, Set
 from typing_extensions import Self
@@ -41,7 +42,10 @@ class WeaponV2(BaseModel):
     properties: Optional[Dict[str, ItemPropertyV2]] = None
     weapon_info: Optional[WeaponInfoV2] = None
     type: Optional[StrictStr] = 'weapon'
-    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type"]
+    crosshair_css_class: Optional[StrictStr] = None
+    use_custom_crosshair_settings: Optional[StrictBool] = None
+    custom_crosshair_settings: Optional[RawCustomCrosshairSettingsV2] = None
+    __properties: ClassVar[List[str]] = ["id", "class_name", "name", "start_trained", "image", "image_webp", "hero", "heroes", "update_time", "properties", "weapon_info", "type", "crosshair_css_class", "use_custom_crosshair_settings", "custom_crosshair_settings"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -102,6 +106,9 @@ class WeaponV2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of weapon_info
         if self.weapon_info:
             _dict['weapon_info'] = self.weapon_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of custom_crosshair_settings
+        if self.custom_crosshair_settings:
+            _dict['custom_crosshair_settings'] = self.custom_crosshair_settings.to_dict()
         # set to None if start_trained (nullable) is None
         # and model_fields_set contains the field
         if self.start_trained is None and "start_trained" in self.model_fields_set:
@@ -142,6 +149,21 @@ class WeaponV2(BaseModel):
         if self.weapon_info is None and "weapon_info" in self.model_fields_set:
             _dict['weapon_info'] = None
 
+        # set to None if crosshair_css_class (nullable) is None
+        # and model_fields_set contains the field
+        if self.crosshair_css_class is None and "crosshair_css_class" in self.model_fields_set:
+            _dict['crosshair_css_class'] = None
+
+        # set to None if use_custom_crosshair_settings (nullable) is None
+        # and model_fields_set contains the field
+        if self.use_custom_crosshair_settings is None and "use_custom_crosshair_settings" in self.model_fields_set:
+            _dict['use_custom_crosshair_settings'] = None
+
+        # set to None if custom_crosshair_settings (nullable) is None
+        # and model_fields_set contains the field
+        if self.custom_crosshair_settings is None and "custom_crosshair_settings" in self.model_fields_set:
+            _dict['custom_crosshair_settings'] = None
+
         return _dict
 
     @classmethod
@@ -170,7 +192,10 @@ class WeaponV2(BaseModel):
             if obj.get("properties") is not None
             else None,
             "weapon_info": WeaponInfoV2.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None,
-            "type": obj.get("type") if obj.get("type") is not None else 'weapon'
+            "type": obj.get("type") if obj.get("type") is not None else 'weapon',
+            "crosshair_css_class": obj.get("crosshair_css_class"),
+            "use_custom_crosshair_settings": obj.get("use_custom_crosshair_settings"),
+            "custom_crosshair_settings": RawCustomCrosshairSettingsV2.from_dict(obj["custom_crosshair_settings"]) if obj.get("custom_crosshair_settings") is not None else None
         })
         return _obj
 

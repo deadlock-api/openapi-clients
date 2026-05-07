@@ -79,6 +79,9 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'dependant_abilities' => 'string[]',
         'videos' => '\OpenAPI\Client\Model\AbilityVideosV2',
         'dependent_abilities' => 'array<string,\OpenAPI\Client\Model\AbilityV2DependentAbilitiesValue>',
+        'crosshair_css_class' => 'string',
+        'use_custom_crosshair_settings' => 'bool',
+        'custom_crosshair_settings' => '\OpenAPI\Client\Model\RawCustomCrosshairSettingsV2',
         'shop_image' => 'string',
         'shop_image_webp' => 'string',
         'shop_image_small' => 'string',
@@ -125,6 +128,9 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'dependant_abilities' => null,
         'videos' => null,
         'dependent_abilities' => null,
+        'crosshair_css_class' => null,
+        'use_custom_crosshair_settings' => null,
+        'custom_crosshair_settings' => null,
         'shop_image' => null,
         'shop_image_webp' => null,
         'shop_image_small' => null,
@@ -169,6 +175,9 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'dependant_abilities' => false,
         'videos' => false,
         'dependent_abilities' => false,
+        'crosshair_css_class' => false,
+        'use_custom_crosshair_settings' => false,
+        'custom_crosshair_settings' => false,
         'shop_image' => false,
         'shop_image_webp' => false,
         'shop_image_small' => false,
@@ -293,6 +302,9 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'dependant_abilities' => 'dependant_abilities',
         'videos' => 'videos',
         'dependent_abilities' => 'dependent_abilities',
+        'crosshair_css_class' => 'crosshair_css_class',
+        'use_custom_crosshair_settings' => 'use_custom_crosshair_settings',
+        'custom_crosshair_settings' => 'custom_crosshair_settings',
         'shop_image' => 'shop_image',
         'shop_image_webp' => 'shop_image_webp',
         'shop_image_small' => 'shop_image_small',
@@ -337,6 +349,9 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'dependant_abilities' => 'setDependantAbilities',
         'videos' => 'setVideos',
         'dependent_abilities' => 'setDependentAbilities',
+        'crosshair_css_class' => 'setCrosshairCssClass',
+        'use_custom_crosshair_settings' => 'setUseCustomCrosshairSettings',
+        'custom_crosshair_settings' => 'setCustomCrosshairSettings',
         'shop_image' => 'setShopImage',
         'shop_image_webp' => 'setShopImageWebp',
         'shop_image_small' => 'setShopImageSmall',
@@ -381,6 +396,9 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         'dependant_abilities' => 'getDependantAbilities',
         'videos' => 'getVideos',
         'dependent_abilities' => 'getDependentAbilities',
+        'crosshair_css_class' => 'getCrosshairCssClass',
+        'use_custom_crosshair_settings' => 'getUseCustomCrosshairSettings',
+        'custom_crosshair_settings' => 'getCustomCrosshairSettings',
         'shop_image' => 'getShopImage',
         'shop_image_webp' => 'getShopImageWebp',
         'shop_image_small' => 'getShopImageSmall',
@@ -493,6 +511,9 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('dependant_abilities', $data ?? [], null);
         $this->setIfExists('videos', $data ?? [], null);
         $this->setIfExists('dependent_abilities', $data ?? [], null);
+        $this->setIfExists('crosshair_css_class', $data ?? [], null);
+        $this->setIfExists('use_custom_crosshair_settings', $data ?? [], null);
+        $this->setIfExists('custom_crosshair_settings', $data ?? [], null);
         $this->setIfExists('shop_image', $data ?? [], null);
         $this->setIfExists('shop_image_webp', $data ?? [], null);
         $this->setIfExists('shop_image_small', $data ?? [], null);
@@ -1193,6 +1214,87 @@ class ResponseGetItemsV2ItemsGetInner implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable dependent_abilities cannot be null');
         }
         $this->container['dependent_abilities'] = $dependent_abilities;
+
+        return $this;
+    }
+
+    /**
+     * Gets crosshair_css_class
+     *
+     * @return string|null
+     */
+    public function getCrosshairCssClass()
+    {
+        return $this->container['crosshair_css_class'];
+    }
+
+    /**
+     * Sets crosshair_css_class
+     *
+     * @param string|null $crosshair_css_class crosshair_css_class
+     *
+     * @return self
+     */
+    public function setCrosshairCssClass($crosshair_css_class)
+    {
+        if (is_null($crosshair_css_class)) {
+            throw new \InvalidArgumentException('non-nullable crosshair_css_class cannot be null');
+        }
+        $this->container['crosshair_css_class'] = $crosshair_css_class;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_custom_crosshair_settings
+     *
+     * @return bool|null
+     */
+    public function getUseCustomCrosshairSettings()
+    {
+        return $this->container['use_custom_crosshair_settings'];
+    }
+
+    /**
+     * Sets use_custom_crosshair_settings
+     *
+     * @param bool|null $use_custom_crosshair_settings use_custom_crosshair_settings
+     *
+     * @return self
+     */
+    public function setUseCustomCrosshairSettings($use_custom_crosshair_settings)
+    {
+        if (is_null($use_custom_crosshair_settings)) {
+            throw new \InvalidArgumentException('non-nullable use_custom_crosshair_settings cannot be null');
+        }
+        $this->container['use_custom_crosshair_settings'] = $use_custom_crosshair_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_crosshair_settings
+     *
+     * @return \OpenAPI\Client\Model\RawCustomCrosshairSettingsV2|null
+     */
+    public function getCustomCrosshairSettings()
+    {
+        return $this->container['custom_crosshair_settings'];
+    }
+
+    /**
+     * Sets custom_crosshair_settings
+     *
+     * @param \OpenAPI\Client\Model\RawCustomCrosshairSettingsV2|null $custom_crosshair_settings custom_crosshair_settings
+     *
+     * @return self
+     */
+    public function setCustomCrosshairSettings($custom_crosshair_settings)
+    {
+        if (is_null($custom_crosshair_settings)) {
+            throw new \InvalidArgumentException('non-nullable custom_crosshair_settings cannot be null');
+        }
+        $this->container['custom_crosshair_settings'] = $custom_crosshair_settings;
 
         return $this;
     }

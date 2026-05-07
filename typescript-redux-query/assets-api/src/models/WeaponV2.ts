@@ -16,6 +16,9 @@ import {
     ItemPropertyV2,
     ItemPropertyV2FromJSON,
     ItemPropertyV2ToJSON,
+    RawCustomCrosshairSettingsV2,
+    RawCustomCrosshairSettingsV2FromJSON,
+    RawCustomCrosshairSettingsV2ToJSON,
     WeaponInfoV2,
     WeaponInfoV2FromJSON,
     WeaponInfoV2ToJSON,
@@ -99,6 +102,24 @@ export interface WeaponV2  {
      * @memberof WeaponV2
      */
     type?: WeaponV2TypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof WeaponV2
+     */
+    crosshairCssClass?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WeaponV2
+     */
+    useCustomCrosshairSettings?: boolean;
+    /**
+     * 
+     * @type {RawCustomCrosshairSettingsV2}
+     * @memberof WeaponV2
+     */
+    customCrosshairSettings?: RawCustomCrosshairSettingsV2;
 }
 
 export function WeaponV2FromJSON(json: any): WeaponV2 {
@@ -115,6 +136,9 @@ export function WeaponV2FromJSON(json: any): WeaponV2 {
         'properties': !exists(json, 'properties') ? undefined : mapValues(json['properties'], ItemPropertyV2FromJSON),
         'weaponInfo': !exists(json, 'weapon_info') ? undefined : WeaponInfoV2FromJSON(json['weapon_info']),
         'type': !exists(json, 'type') ? undefined : json['type'],
+        'crosshairCssClass': !exists(json, 'crosshair_css_class') ? undefined : json['crosshair_css_class'],
+        'useCustomCrosshairSettings': !exists(json, 'use_custom_crosshair_settings') ? undefined : json['use_custom_crosshair_settings'],
+        'customCrosshairSettings': !exists(json, 'custom_crosshair_settings') ? undefined : RawCustomCrosshairSettingsV2FromJSON(json['custom_crosshair_settings']),
     };
 }
 
@@ -135,6 +159,9 @@ export function WeaponV2ToJSON(value?: WeaponV2): any {
         'properties': value.properties === undefined ? undefined : mapValues(value.properties, ItemPropertyV2ToJSON),
         'weapon_info': WeaponInfoV2ToJSON(value.weaponInfo),
         'type': value.type,
+        'crosshair_css_class': value.crosshairCssClass,
+        'use_custom_crosshair_settings': value.useCustomCrosshairSettings,
+        'custom_crosshair_settings': RawCustomCrosshairSettingsV2ToJSON(value.customCrosshairSettings),
     };
 }
 

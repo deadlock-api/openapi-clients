@@ -29,6 +29,12 @@ pub struct RawWeaponV2 {
     pub css_class: Option<Option<String>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Type>,
+    #[serde(rename = "crosshair_css_class", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub crosshair_css_class: Option<Option<String>>,
+    #[serde(rename = "use_custom_crosshair_settings", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub use_custom_crosshair_settings: Option<Option<bool>>,
+    #[serde(rename = "custom_crosshair_settings", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub custom_crosshair_settings: Option<Option<Box<models::RawCustomCrosshairSettingsV2>>>,
 }
 
 impl RawWeaponV2 {
@@ -42,6 +48,9 @@ impl RawWeaponV2 {
             weapon_info: None,
             css_class: None,
             r#type: None,
+            crosshair_css_class: None,
+            use_custom_crosshair_settings: None,
+            custom_crosshair_settings: None,
         }
     }
 }

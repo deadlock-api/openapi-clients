@@ -41,8 +41,11 @@ namespace AssetsDeadlockApiClient.Model
         /// <param name="weaponInfo">weaponInfo</param>
         /// <param name="cssClass">cssClass</param>
         /// <param name="type">type (default to TypeEnum.Weapon)</param>
+        /// <param name="crosshairCssClass">crosshairCssClass</param>
+        /// <param name="useCustomCrosshairSettings">useCustomCrosshairSettings</param>
+        /// <param name="customCrosshairSettings">customCrosshairSettings</param>
         [JsonConstructor]
-        public RawWeaponV2(string className, Option<bool?> startTrained = default, Option<string?> image = default, Option<int?> updateTime = default, Option<Dictionary<string, RawItemPropertyV2>?> properties = default, Option<RawWeaponInfoV2?> weaponInfo = default, Option<string?> cssClass = default, Option<TypeEnum?> type = default)
+        public RawWeaponV2(string className, Option<bool?> startTrained = default, Option<string?> image = default, Option<int?> updateTime = default, Option<Dictionary<string, RawItemPropertyV2>?> properties = default, Option<RawWeaponInfoV2?> weaponInfo = default, Option<string?> cssClass = default, Option<TypeEnum?> type = default, Option<string?> crosshairCssClass = default, Option<bool?> useCustomCrosshairSettings = default, Option<RawCustomCrosshairSettingsV2?> customCrosshairSettings = default)
         {
             ClassName = className;
             StartTrainedOption = startTrained;
@@ -52,6 +55,9 @@ namespace AssetsDeadlockApiClient.Model
             WeaponInfoOption = weaponInfo;
             CssClassOption = cssClass;
             TypeOption = type;
+            CrosshairCssClassOption = crosshairCssClass;
+            UseCustomCrosshairSettingsOption = useCustomCrosshairSettings;
+            CustomCrosshairSettingsOption = customCrosshairSettings;
             OnCreated();
         }
 
@@ -207,6 +213,45 @@ namespace AssetsDeadlockApiClient.Model
         public string? CssClass { get { return this.CssClassOption.Value; } set { this.CssClassOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of CrosshairCssClass
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> CrosshairCssClassOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets CrosshairCssClass
+        /// </summary>
+        [JsonPropertyName("crosshair_css_class")]
+        public string? CrosshairCssClass { get { return this.CrosshairCssClassOption.Value; } set { this.CrosshairCssClassOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of UseCustomCrosshairSettings
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> UseCustomCrosshairSettingsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets UseCustomCrosshairSettings
+        /// </summary>
+        [JsonPropertyName("use_custom_crosshair_settings")]
+        public bool? UseCustomCrosshairSettings { get { return this.UseCustomCrosshairSettingsOption.Value; } set { this.UseCustomCrosshairSettingsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of CustomCrosshairSettings
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<RawCustomCrosshairSettingsV2?> CustomCrosshairSettingsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets CustomCrosshairSettings
+        /// </summary>
+        [JsonPropertyName("custom_crosshair_settings")]
+        public RawCustomCrosshairSettingsV2? CustomCrosshairSettings { get { return this.CustomCrosshairSettingsOption.Value; } set { this.CustomCrosshairSettingsOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -222,6 +267,9 @@ namespace AssetsDeadlockApiClient.Model
             sb.Append("  WeaponInfo: ").Append(WeaponInfo).Append("\n");
             sb.Append("  CssClass: ").Append(CssClass).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  CrosshairCssClass: ").Append(CrosshairCssClass).Append("\n");
+            sb.Append("  UseCustomCrosshairSettings: ").Append(UseCustomCrosshairSettings).Append("\n");
+            sb.Append("  CustomCrosshairSettings: ").Append(CustomCrosshairSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -267,6 +315,9 @@ namespace AssetsDeadlockApiClient.Model
             Option<RawWeaponInfoV2?> weaponInfo = default;
             Option<string?> cssClass = default;
             Option<RawWeaponV2.TypeEnum?> type = default;
+            Option<string?> crosshairCssClass = default;
+            Option<bool?> useCustomCrosshairSettings = default;
+            Option<RawCustomCrosshairSettingsV2?> customCrosshairSettings = default;
 
             while (utf8JsonReader.Read())
             {
@@ -309,6 +360,15 @@ namespace AssetsDeadlockApiClient.Model
                             if (typeRawValue != null)
                                 type = new Option<RawWeaponV2.TypeEnum?>(RawWeaponV2.TypeEnumFromStringOrDefault(typeRawValue));
                             break;
+                        case "crosshair_css_class":
+                            crosshairCssClass = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "use_custom_crosshair_settings":
+                            useCustomCrosshairSettings = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "custom_crosshair_settings":
+                            customCrosshairSettings = new Option<RawCustomCrosshairSettingsV2?>(JsonSerializer.Deserialize<RawCustomCrosshairSettingsV2>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         default:
                             break;
                     }
@@ -324,7 +384,7 @@ namespace AssetsDeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new ArgumentNullException(nameof(type), "Property is not nullable for class RawWeaponV2.");
 
-            return new RawWeaponV2(className.Value!, startTrained, image, updateTime, properties, weaponInfo, cssClass, type);
+            return new RawWeaponV2(className.Value!, startTrained, image, updateTime, properties, weaponInfo, cssClass, type, crosshairCssClass, useCustomCrosshairSettings, customCrosshairSettings);
         }
 
         /// <summary>
@@ -398,6 +458,26 @@ namespace AssetsDeadlockApiClient.Model
 
             var typeRawValue = RawWeaponV2.TypeEnumToJsonValue(rawWeaponV2.TypeOption.Value!.Value);
             writer.WriteString("type", typeRawValue);
+            if (rawWeaponV2.CrosshairCssClassOption.IsSet)
+                if (rawWeaponV2.CrosshairCssClassOption.Value != null)
+                    writer.WriteString("crosshair_css_class", rawWeaponV2.CrosshairCssClass);
+                else
+                    writer.WriteNull("crosshair_css_class");
+
+            if (rawWeaponV2.UseCustomCrosshairSettingsOption.IsSet)
+                if (rawWeaponV2.UseCustomCrosshairSettingsOption.Value != null)
+                    writer.WriteBoolean("use_custom_crosshair_settings", rawWeaponV2.UseCustomCrosshairSettingsOption.Value!.Value);
+                else
+                    writer.WriteNull("use_custom_crosshair_settings");
+
+            if (rawWeaponV2.CustomCrosshairSettingsOption.IsSet)
+                if (rawWeaponV2.CustomCrosshairSettingsOption.Value != null)
+                {
+                    writer.WritePropertyName("custom_crosshair_settings");
+                    JsonSerializer.Serialize(writer, rawWeaponV2.CustomCrosshairSettings, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("custom_crosshair_settings");
         }
     }
 }

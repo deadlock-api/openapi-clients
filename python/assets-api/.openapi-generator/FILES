@@ -104,6 +104,7 @@ assets_deadlock_api_client/models/raw_ability_v2_tooltip_details_info_section.py
 assets_deadlock_api_client/models/raw_ability_v2_tooltip_details_info_section_property_block.py
 assets_deadlock_api_client/models/raw_ability_v2_tooltip_details_info_section_property_block_property.py
 assets_deadlock_api_client/models/raw_accolade_v2.py
+assets_deadlock_api_client/models/raw_custom_crosshair_settings_v2.py
 assets_deadlock_api_client/models/raw_hero_draft_bucketing.py
 assets_deadlock_api_client/models/raw_hero_item_slot_info_value_v2.py
 assets_deadlock_api_client/models/raw_hero_level_info_v2.py
@@ -263,6 +264,7 @@ docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/RawAccoladeV2.md
 docs/RawApi.md
+docs/RawCustomCrosshairSettingsV2.md
 docs/RawHeroDraftBucketing.md
 docs/RawHeroItemSlotInfoValueV2.md
 docs/RawHeroLevelInfoV2.md
@@ -427,6 +429,7 @@ test/test_raw_ability_v2_tooltip_details_info_section_property_block.py
 test/test_raw_ability_v2_tooltip_details_info_section_property_block_property.py
 test/test_raw_accolade_v2.py
 test/test_raw_api.py
+test/test_raw_custom_crosshair_settings_v2.py
 test/test_raw_hero_draft_bucketing.py
 test/test_raw_hero_item_slot_info_value_v2.py
 test/test_raw_hero_level_info_v2.py

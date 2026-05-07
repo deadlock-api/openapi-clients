@@ -226,6 +226,7 @@ Class | Method | HTTP request | Description
  - [RawAbilityV2TooltipDetailsInfoSectionPropertyBlock](docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md)
  - [RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
  - [RawAccoladeV2](docs/RawAccoladeV2.md)
+ - [RawCustomCrosshairSettingsV2](docs/RawCustomCrosshairSettingsV2.md)
  - [RawHeroDraftBucketing](docs/RawHeroDraftBucketing.md)
  - [RawHeroItemSlotInfoValueV2](docs/RawHeroItemSlotInfoValueV2.md)
  - [RawHeroLevelInfoV2](docs/RawHeroLevelInfoV2.md)

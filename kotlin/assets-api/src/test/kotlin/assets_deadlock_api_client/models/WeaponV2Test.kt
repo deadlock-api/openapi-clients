@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import assets_deadlock_api_client.models.WeaponV2
 import assets_deadlock_api_client.models.ItemPropertyV2
+import assets_deadlock_api_client.models.RawCustomCrosshairSettingsV2
 import assets_deadlock_api_client.models.WeaponInfoV2
 
 class WeaponV2Test : ShouldSpec() {
@@ -105,6 +106,24 @@ class WeaponV2Test : ShouldSpec() {
         should("test type") {
             // uncomment below to test the property
             //modelInstance.type shouldBe ("TODO")
+        }
+
+        // to test the property `crosshairCssClass`
+        should("test crosshairCssClass") {
+            // uncomment below to test the property
+            //modelInstance.crosshairCssClass shouldBe ("TODO")
+        }
+
+        // to test the property `useCustomCrosshairSettings`
+        should("test useCustomCrosshairSettings") {
+            // uncomment below to test the property
+            //modelInstance.useCustomCrosshairSettings shouldBe ("TODO")
+        }
+
+        // to test the property `customCrosshairSettings`
+        should("test customCrosshairSettings") {
+            // uncomment below to test the property
+            //modelInstance.customCrosshairSettings shouldBe ("TODO")
         }
 
     }

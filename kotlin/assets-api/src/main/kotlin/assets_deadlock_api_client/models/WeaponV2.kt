@@ -24,6 +24,7 @@
 package assets_deadlock_api_client.models
 
 import assets_deadlock_api_client.models.ItemPropertyV2
+import assets_deadlock_api_client.models.RawCustomCrosshairSettingsV2
 import assets_deadlock_api_client.models.WeaponInfoV2
 
 import com.squareup.moshi.Json
@@ -45,6 +46,9 @@ import java.io.Serializable
  * @param properties 
  * @param weaponInfo 
  * @param type 
+ * @param crosshairCssClass 
+ * @param useCustomCrosshairSettings 
+ * @param customCrosshairSettings 
  */
 
 
@@ -84,7 +88,16 @@ data class WeaponV2 (
     val weaponInfo: WeaponInfoV2? = null,
 
     @Json(name = "type")
-    val type: WeaponV2.Type? = Type.weapon
+    val type: WeaponV2.Type? = Type.weapon,
+
+    @Json(name = "crosshair_css_class")
+    val crosshairCssClass: kotlin.String? = null,
+
+    @Json(name = "use_custom_crosshair_settings")
+    val useCustomCrosshairSettings: kotlin.Boolean? = null,
+
+    @Json(name = "custom_crosshair_settings")
+    val customCrosshairSettings: RawCustomCrosshairSettingsV2? = null
 
 ) : Serializable {
     companion object {

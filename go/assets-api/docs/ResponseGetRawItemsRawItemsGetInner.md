@@ -21,6 +21,9 @@ Name | Type | Description | Notes
 **Video** | Pointer to **string** |  | [optional] 
 **TooltipDetails** | Pointer to [**RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md) |  | [optional] 
 **DependentAbilities** | Pointer to [**map[string]AbilityV2DependentAbilitiesValue**](AbilityV2DependentAbilitiesValue.md) |  | [optional] 
+**CrosshairCssClass** | Pointer to **string** |  | [optional] 
+**UseCustomCrosshairSettings** | Pointer to **bool** |  | [optional] 
+**CustomCrosshairSettings** | Pointer to [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] 
 **ShopImage** | Pointer to **string** |  | [optional] 
 **ShopImageSmall** | Pointer to **string** |  | [optional] 
 **ItemSlotType** | [**ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 
@@ -464,6 +467,81 @@ SetDependentAbilities sets DependentAbilities field to given value.
 `func (o *ResponseGetRawItemsRawItemsGetInner) HasDependentAbilities() bool`
 
 HasDependentAbilities returns a boolean if a field has been set.
+
+### GetCrosshairCssClass
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetCrosshairCssClass() string`
+
+GetCrosshairCssClass returns the CrosshairCssClass field if non-nil, zero value otherwise.
+
+### GetCrosshairCssClassOk
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetCrosshairCssClassOk() (*string, bool)`
+
+GetCrosshairCssClassOk returns a tuple with the CrosshairCssClass field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCrosshairCssClass
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) SetCrosshairCssClass(v string)`
+
+SetCrosshairCssClass sets CrosshairCssClass field to given value.
+
+### HasCrosshairCssClass
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) HasCrosshairCssClass() bool`
+
+HasCrosshairCssClass returns a boolean if a field has been set.
+
+### GetUseCustomCrosshairSettings
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetUseCustomCrosshairSettings() bool`
+
+GetUseCustomCrosshairSettings returns the UseCustomCrosshairSettings field if non-nil, zero value otherwise.
+
+### GetUseCustomCrosshairSettingsOk
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetUseCustomCrosshairSettingsOk() (*bool, bool)`
+
+GetUseCustomCrosshairSettingsOk returns a tuple with the UseCustomCrosshairSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUseCustomCrosshairSettings
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) SetUseCustomCrosshairSettings(v bool)`
+
+SetUseCustomCrosshairSettings sets UseCustomCrosshairSettings field to given value.
+
+### HasUseCustomCrosshairSettings
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) HasUseCustomCrosshairSettings() bool`
+
+HasUseCustomCrosshairSettings returns a boolean if a field has been set.
+
+### GetCustomCrosshairSettings
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetCustomCrosshairSettings() RawCustomCrosshairSettingsV2`
+
+GetCustomCrosshairSettings returns the CustomCrosshairSettings field if non-nil, zero value otherwise.
+
+### GetCustomCrosshairSettingsOk
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) GetCustomCrosshairSettingsOk() (*RawCustomCrosshairSettingsV2, bool)`
+
+GetCustomCrosshairSettingsOk returns a tuple with the CustomCrosshairSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomCrosshairSettings
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) SetCustomCrosshairSettings(v RawCustomCrosshairSettingsV2)`
+
+SetCustomCrosshairSettings sets CustomCrosshairSettings field to given value.
+
+### HasCustomCrosshairSettings
+
+`func (o *ResponseGetRawItemsRawItemsGetInner) HasCustomCrosshairSettings() bool`
+
+HasCustomCrosshairSettings returns a boolean if a field has been set.
 
 ### GetShopImage
 

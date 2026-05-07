@@ -64,7 +64,10 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'array<string,\OpenAPI\Client\Model\RawItemPropertyV2>',
         'weapon_info' => '\OpenAPI\Client\Model\RawWeaponInfoV2',
         'css_class' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'crosshair_css_class' => 'string',
+        'use_custom_crosshair_settings' => 'bool',
+        'custom_crosshair_settings' => '\OpenAPI\Client\Model\RawCustomCrosshairSettingsV2'
     ];
 
     /**
@@ -82,7 +85,10 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => null,
         'weapon_info' => null,
         'css_class' => null,
-        'type' => null
+        'type' => null,
+        'crosshair_css_class' => null,
+        'use_custom_crosshair_settings' => null,
+        'custom_crosshair_settings' => null
     ];
 
     /**
@@ -98,7 +104,10 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => true,
         'weapon_info' => true,
         'css_class' => true,
-        'type' => false
+        'type' => false,
+        'crosshair_css_class' => true,
+        'use_custom_crosshair_settings' => true,
+        'custom_crosshair_settings' => true
     ];
 
     /**
@@ -194,7 +203,10 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'properties',
         'weapon_info' => 'weapon_info',
         'css_class' => 'css_class',
-        'type' => 'type'
+        'type' => 'type',
+        'crosshair_css_class' => 'crosshair_css_class',
+        'use_custom_crosshair_settings' => 'use_custom_crosshair_settings',
+        'custom_crosshair_settings' => 'custom_crosshair_settings'
     ];
 
     /**
@@ -210,7 +222,10 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'setProperties',
         'weapon_info' => 'setWeaponInfo',
         'css_class' => 'setCssClass',
-        'type' => 'setType'
+        'type' => 'setType',
+        'crosshair_css_class' => 'setCrosshairCssClass',
+        'use_custom_crosshair_settings' => 'setUseCustomCrosshairSettings',
+        'custom_crosshair_settings' => 'setCustomCrosshairSettings'
     ];
 
     /**
@@ -226,7 +241,10 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'getProperties',
         'weapon_info' => 'getWeaponInfo',
         'css_class' => 'getCssClass',
-        'type' => 'getType'
+        'type' => 'getType',
+        'crosshair_css_class' => 'getCrosshairCssClass',
+        'use_custom_crosshair_settings' => 'getUseCustomCrosshairSettings',
+        'custom_crosshair_settings' => 'getCustomCrosshairSettings'
     ];
 
     /**
@@ -307,6 +325,9 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('weapon_info', $data ?? [], null);
         $this->setIfExists('css_class', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], 'weapon');
+        $this->setIfExists('crosshair_css_class', $data ?? [], null);
+        $this->setIfExists('use_custom_crosshair_settings', $data ?? [], null);
+        $this->setIfExists('custom_crosshair_settings', $data ?? [], null);
     }
 
     /**
@@ -627,6 +648,108 @@ class RawWeaponV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets crosshair_css_class
+     *
+     * @return string|null
+     */
+    public function getCrosshairCssClass()
+    {
+        return $this->container['crosshair_css_class'];
+    }
+
+    /**
+     * Sets crosshair_css_class
+     *
+     * @param string|null $crosshair_css_class crosshair_css_class
+     *
+     * @return self
+     */
+    public function setCrosshairCssClass($crosshair_css_class)
+    {
+        if (is_null($crosshair_css_class)) {
+            array_push($this->openAPINullablesSetToNull, 'crosshair_css_class');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('crosshair_css_class', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['crosshair_css_class'] = $crosshair_css_class;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_custom_crosshair_settings
+     *
+     * @return bool|null
+     */
+    public function getUseCustomCrosshairSettings()
+    {
+        return $this->container['use_custom_crosshair_settings'];
+    }
+
+    /**
+     * Sets use_custom_crosshair_settings
+     *
+     * @param bool|null $use_custom_crosshair_settings use_custom_crosshair_settings
+     *
+     * @return self
+     */
+    public function setUseCustomCrosshairSettings($use_custom_crosshair_settings)
+    {
+        if (is_null($use_custom_crosshair_settings)) {
+            array_push($this->openAPINullablesSetToNull, 'use_custom_crosshair_settings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('use_custom_crosshair_settings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['use_custom_crosshair_settings'] = $use_custom_crosshair_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_crosshair_settings
+     *
+     * @return \OpenAPI\Client\Model\RawCustomCrosshairSettingsV2|null
+     */
+    public function getCustomCrosshairSettings()
+    {
+        return $this->container['custom_crosshair_settings'];
+    }
+
+    /**
+     * Sets custom_crosshair_settings
+     *
+     * @param \OpenAPI\Client\Model\RawCustomCrosshairSettingsV2|null $custom_crosshair_settings custom_crosshair_settings
+     *
+     * @return self
+     */
+    public function setCustomCrosshairSettings($custom_crosshair_settings)
+    {
+        if (is_null($custom_crosshair_settings)) {
+            array_push($this->openAPINullablesSetToNull, 'custom_crosshair_settings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('custom_crosshair_settings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['custom_crosshair_settings'] = $custom_crosshair_settings;
 
         return $this;
     }

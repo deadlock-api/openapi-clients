@@ -170,6 +170,8 @@ pub mod raw_ability_v2_tooltip_details_info_section_property_block_property;
 pub use self::raw_ability_v2_tooltip_details_info_section_property_block_property::RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty;
 pub mod raw_accolade_v2;
 pub use self::raw_accolade_v2::RawAccoladeV2;
+pub mod raw_custom_crosshair_settings_v2;
+pub use self::raw_custom_crosshair_settings_v2::RawCustomCrosshairSettingsV2;
 pub mod raw_hero_draft_bucketing;
 pub use self::raw_hero_draft_bucketing::RawHeroDraftBucketing;
 pub mod raw_hero_item_slot_info_value_v2;

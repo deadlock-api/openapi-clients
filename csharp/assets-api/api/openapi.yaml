@@ -1620,6 +1620,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6487
       - 6484
       - 6468
       - 6455
@@ -4545,6 +4546,68 @@ components:
       - threshold_type
       - tracked_stat_name
       title: RawAccoladeV2
+    RawCustomCrosshairSettingsV2:
+      properties:
+        pip_width:
+          nullable: true
+          type: integer
+        pip_height:
+          nullable: true
+          type: integer
+        pip_outline_width:
+          nullable: true
+          type: integer
+        pip_outline_gap:
+          nullable: true
+          type: integer
+        pip_opacity:
+          nullable: true
+          type: number
+        pip_outline_opacity:
+          nullable: true
+          type: number
+        pip_color:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        pip_outline_color:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        dot_radius:
+          nullable: true
+          type: integer
+        dot_outline_width:
+          nullable: true
+          type: integer
+        dot_outline_gap:
+          nullable: true
+          type: integer
+        dot_opacity:
+          nullable: true
+          type: number
+        dot_outline_opacity:
+          nullable: true
+          type: number
+        dot_color:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        dot_outline_color:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        spread_indicating_element:
+          nullable: true
+          type: string
+        base_spread:
+          nullable: true
+          type: number
+      title: RawCustomCrosshairSettingsV2
     RawHeroDraftBucketing:
       properties:
         bucket:
@@ -5774,6 +5837,16 @@ components:
           - weapon
           title: Type
           type: string
+        crosshair_css_class:
+          nullable: true
+          type: string
+        use_custom_crosshair_settings:
+          nullable: true
+          type: boolean
+        custom_crosshair_settings:
+          allOf:
+          - $ref: "#/components/schemas/RawCustomCrosshairSettingsV2"
+          nullable: true
       required:
       - class_name
       title: RawWeaponV2
@@ -6739,6 +6812,16 @@ components:
           - weapon
           title: Type
           type: string
+        crosshair_css_class:
+          nullable: true
+          type: string
+        use_custom_crosshair_settings:
+          nullable: true
+          type: boolean
+        custom_crosshair_settings:
+          allOf:
+          - $ref: "#/components/schemas/RawCustomCrosshairSettingsV2"
+          nullable: true
       required:
       - class_name
       - id

@@ -185,6 +185,7 @@ All URIs are relative to *https://assets.deadlock-api.com*
  - [assets_deadlock_api_client.models.RawAbilityV2TooltipDetailsInfoSectionPropertyBlock](docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md)
  - [assets_deadlock_api_client.models.RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty](docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md)
  - [assets_deadlock_api_client.models.RawAccoladeV2](docs/RawAccoladeV2.md)
+ - [assets_deadlock_api_client.models.RawCustomCrosshairSettingsV2](docs/RawCustomCrosshairSettingsV2.md)
  - [assets_deadlock_api_client.models.RawHeroDraftBucketing](docs/RawHeroDraftBucketing.md)
  - [assets_deadlock_api_client.models.RawHeroItemSlotInfoValueV2](docs/RawHeroItemSlotInfoValueV2.md)
  - [assets_deadlock_api_client.models.RawHeroLevelInfoV2](docs/RawHeroLevelInfoV2.md)

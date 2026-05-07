@@ -16,6 +16,9 @@
 | **properties** | [**kotlin.collections.Map&lt;kotlin.String, ItemPropertyV2&gt;**](ItemPropertyV2.md) |  |  [optional] |
 | **weaponInfo** | [**WeaponInfoV2**](WeaponInfoV2.md) |  |  [optional] |
 | **type** | [**inline**](#Type) |  |  [optional] |
+| **crosshairCssClass** | **kotlin.String** |  |  [optional] |
+| **useCustomCrosshairSettings** | **kotlin.Boolean** |  |  [optional] |
+| **customCrosshairSettings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  |  [optional] |
 
 
 <a id="Type"></a>

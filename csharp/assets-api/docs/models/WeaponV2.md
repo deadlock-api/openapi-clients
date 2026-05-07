@@ -16,6 +16,9 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, ItemPropertyV2&gt;**](ItemPropertyV2.md) |  | [optional] 
 **WeaponInfo** | [**WeaponInfoV2**](WeaponInfoV2.md) |  | [optional] 
 **Type** | **string** |  | [optional] [default to TypeEnum.Weapon]
+**CrosshairCssClass** | **string** |  | [optional] 
+**UseCustomCrosshairSettings** | **bool** |  | [optional] 
+**CustomCrosshairSettings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -32,6 +32,9 @@
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **videos** | [**AbilityVideosV2**](AbilityVideosV2.md) |  |  [optional] |
 | **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, AbilityV2DependentAbilitiesValue&gt;**](AbilityV2DependentAbilitiesValue.md) |  |  [optional] |
+| **crosshairCssClass** | **kotlin.String** |  |  [optional] |
+| **useCustomCrosshairSettings** | **kotlin.Boolean** |  |  [optional] |
+| **customCrosshairSettings** | [**RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md) |  |  [optional] |
 | **shopImage** | **kotlin.String** |  |  [optional] |
 | **shopImageWebp** | **kotlin.String** |  |  [optional] |
 | **shopImageSmall** | **kotlin.String** |  |  [optional] |

@@ -21,6 +21,9 @@ Name | Type | Description | Notes
 **video** | Option<**String**> |  | [optional]
 **tooltip_details** | Option<[**models::RawAbilityV2TooltipDetails**](RawAbilityV2TooltipDetails.md)> |  | [optional]
 **dependent_abilities** | Option<[**std::collections::HashMap<String, models::AbilityV2DependentAbilitiesValue>**](AbilityV2DependentAbilitiesValue.md)> |  | [optional]
+**crosshair_css_class** | Option<**String**> |  | [optional]
+**use_custom_crosshair_settings** | Option<**bool**> |  | [optional]
+**custom_crosshair_settings** | Option<[**models::RawCustomCrosshairSettingsV2**](RawCustomCrosshairSettingsV2.md)> |  | [optional]
 **shop_image** | Option<**String**> |  | [optional]
 **shop_image_small** | Option<**String**> |  | [optional]
 **item_slot_type** | [**models::ItemSlotTypeV2**](ItemSlotTypeV2.md) |  | 

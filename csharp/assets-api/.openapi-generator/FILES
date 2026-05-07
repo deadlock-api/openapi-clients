@@ -97,6 +97,7 @@ docs/models/RawAbilityV2TooltipDetailsInfoSection.md
 docs/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/models/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/models/RawAccoladeV2.md
+docs/models/RawCustomCrosshairSettingsV2.md
 docs/models/RawHeroDraftBucketing.md
 docs/models/RawHeroItemSlotInfoValueV2.md
 docs/models/RawHeroLevelInfoV2.md
@@ -259,6 +260,7 @@ src/AssetsDeadlockApiClient.Test/Model/RawAbilityV2TooltipDetailsInfoSectionProp
 src/AssetsDeadlockApiClient.Test/Model/RawAbilityV2TooltipDetailsInfoSectionTests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawAbilityV2TooltipDetailsTests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawAccoladeV2Tests.cs
+src/AssetsDeadlockApiClient.Test/Model/RawCustomCrosshairSettingsV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawHeroDraftBucketingTests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawHeroItemSlotInfoValueV2Tests.cs
 src/AssetsDeadlockApiClient.Test/Model/RawHeroLevelInfoV2Tests.cs
@@ -441,6 +443,7 @@ src/AssetsDeadlockApiClient/Model/RawAbilityV2TooltipDetailsInfoSection.cs
 src/AssetsDeadlockApiClient/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.cs
 src/AssetsDeadlockApiClient/Model/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.cs
 src/AssetsDeadlockApiClient/Model/RawAccoladeV2.cs
+src/AssetsDeadlockApiClient/Model/RawCustomCrosshairSettingsV2.cs
 src/AssetsDeadlockApiClient/Model/RawHeroDraftBucketing.cs
 src/AssetsDeadlockApiClient/Model/RawHeroItemSlotInfoValueV2.cs
 src/AssetsDeadlockApiClient/Model/RawHeroLevelInfoV2.cs

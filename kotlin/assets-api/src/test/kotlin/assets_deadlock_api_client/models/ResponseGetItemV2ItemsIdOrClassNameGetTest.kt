@@ -37,6 +37,7 @@ import assets_deadlock_api_client.models.ItemTierV2
 import assets_deadlock_api_client.models.RawAbilityActivationV2
 import assets_deadlock_api_client.models.RawAbilityImbueV2
 import assets_deadlock_api_client.models.RawAbilityUpgradeV2
+import assets_deadlock_api_client.models.RawCustomCrosshairSettingsV2
 import assets_deadlock_api_client.models.RawItemWeaponInfoV2
 import assets_deadlock_api_client.models.UpgradeDescriptionV2
 import assets_deadlock_api_client.models.UpgradePropertyV2
@@ -215,6 +216,24 @@ class ResponseGetItemV2ItemsIdOrClassNameGetTest : ShouldSpec() {
         should("test dependentAbilities") {
             // uncomment below to test the property
             //modelInstance.dependentAbilities shouldBe ("TODO")
+        }
+
+        // to test the property `crosshairCssClass`
+        should("test crosshairCssClass") {
+            // uncomment below to test the property
+            //modelInstance.crosshairCssClass shouldBe ("TODO")
+        }
+
+        // to test the property `useCustomCrosshairSettings`
+        should("test useCustomCrosshairSettings") {
+            // uncomment below to test the property
+            //modelInstance.useCustomCrosshairSettings shouldBe ("TODO")
+        }
+
+        // to test the property `customCrosshairSettings`
+        should("test customCrosshairSettings") {
+            // uncomment below to test the property
+            //modelInstance.customCrosshairSettings shouldBe ("TODO")
         }
 
         // to test the property `shopImage`

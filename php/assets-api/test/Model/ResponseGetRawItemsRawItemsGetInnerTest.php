@@ -233,6 +233,33 @@ class ResponseGetRawItemsRawItemsGetInnerTest extends TestCase
     }
 
     /**
+     * Test attribute "crosshair_css_class"
+     */
+    public function testPropertyCrosshairCssClass()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "use_custom_crosshair_settings"
+     */
+    public function testPropertyUseCustomCrosshairSettings()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "custom_crosshair_settings"
+     */
+    public function testPropertyCustomCrosshairSettings()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "shop_image"
      */
     public function testPropertyShopImage()

@@ -96,6 +96,7 @@ docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlock.md
 docs/RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty.md
 docs/RawAccoladeV2.md
 docs/RawApi.md
+docs/RawCustomCrosshairSettingsV2.md
 docs/RawHeroDraftBucketing.md
 docs/RawHeroItemSlotInfoValueV2.md
 docs/RawHeroLevelInfoV2.md
@@ -258,6 +259,7 @@ src/models/raw_ability_v2_tooltip_details_info_section.rs
 src/models/raw_ability_v2_tooltip_details_info_section_property_block.rs
 src/models/raw_ability_v2_tooltip_details_info_section_property_block_property.rs
 src/models/raw_accolade_v2.rs
+src/models/raw_custom_crosshair_settings_v2.rs
 src/models/raw_hero_draft_bucketing.rs
 src/models/raw_hero_item_slot_info_value_v2.rs
 src/models/raw_hero_level_info_v2.rs
