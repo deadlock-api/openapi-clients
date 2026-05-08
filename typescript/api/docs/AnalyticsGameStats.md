@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **team0_wins** | **number** |  | [default to undefined]
 **team1_wins** | **number** |  | [default to undefined]
 **total_matches** | **number** |  | [default to undefined]
+**total_players** | **number** |  | [default to undefined]
 
 ## Example
 
@@ -104,6 +105,7 @@ const instance: AnalyticsGameStats = {
     team0_wins,
     team1_wins,
     total_matches,
+    total_players,
 };
 ```
 

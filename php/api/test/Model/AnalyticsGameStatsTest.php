@@ -492,4 +492,13 @@ class AnalyticsGameStatsTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "total_players"
+     */
+    public function testPropertyTotalPlayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

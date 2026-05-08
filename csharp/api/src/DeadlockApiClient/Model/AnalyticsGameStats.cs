@@ -79,8 +79,9 @@ namespace DeadlockApiClient.Model
         /// <param name="team0Wins">team0Wins</param>
         /// <param name="team1Wins">team1Wins</param>
         /// <param name="totalMatches">totalMatches</param>
+        /// <param name="totalPlayers">totalPlayers</param>
         [JsonConstructor]
-        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgGoldBoss, double avgGoldBossOrb, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldLaneCreep, double avgGoldLaneCreepOrbs, double avgGoldNeutralCreep, double avgGoldNeutralCreepOrbs, double avgGoldPlayer, double avgGoldPlayerOrbs, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgObjectivesDestroyedTimeS, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, int bucket, double midBossKillRate, long team0Wins, long team1Wins, long totalMatches)
+        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgGoldBoss, double avgGoldBossOrb, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldLaneCreep, double avgGoldLaneCreepOrbs, double avgGoldNeutralCreep, double avgGoldNeutralCreepOrbs, double avgGoldPlayer, double avgGoldPlayerOrbs, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgObjectivesDestroyedTimeS, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, int bucket, double midBossKillRate, long team0Wins, long team1Wins, long totalMatches, long totalPlayers)
         {
             AbandonRate = abandonRate;
             AvgAccuracy = avgAccuracy;
@@ -128,6 +129,7 @@ namespace DeadlockApiClient.Model
             Team0Wins = team0Wins;
             Team1Wins = team1Wins;
             TotalMatches = totalMatches;
+            TotalPlayers = totalPlayers;
             OnCreated();
         }
 
@@ -410,6 +412,12 @@ namespace DeadlockApiClient.Model
         public long TotalMatches { get; set; }
 
         /// <summary>
+        /// Gets or Sets TotalPlayers
+        /// </summary>
+        [JsonPropertyName("total_players")]
+        public long TotalPlayers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -463,6 +471,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Team0Wins: ").Append(Team0Wins).Append("\n");
             sb.Append("  Team1Wins: ").Append(Team1Wins).Append("\n");
             sb.Append("  TotalMatches: ").Append(TotalMatches).Append("\n");
+            sb.Append("  TotalPlayers: ").Append(TotalPlayers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -496,6 +505,12 @@ namespace DeadlockApiClient.Model
             if (this.TotalMatches < (long)0)
             {
                 yield return new ValidationResult("Invalid value for TotalMatches, must be a value greater than or equal to 0.", new [] { "TotalMatches" });
+            }
+
+            // TotalPlayers (long) minimum
+            if (this.TotalPlayers < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalPlayers, must be a value greater than or equal to 0.", new [] { "TotalPlayers" });
             }
 
             yield break;
@@ -570,6 +585,7 @@ namespace DeadlockApiClient.Model
             Option<long?> team0Wins = default;
             Option<long?> team1Wins = default;
             Option<long?> totalMatches = default;
+            Option<long?> totalPlayers = default;
 
             while (utf8JsonReader.Read())
             {
@@ -724,6 +740,9 @@ namespace DeadlockApiClient.Model
                         case "total_matches":
                             totalMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
+                        case "total_players":
+                            totalPlayers = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
                         default:
                             break;
                     }
@@ -868,6 +887,9 @@ namespace DeadlockApiClient.Model
             if (!totalMatches.IsSet)
                 throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(totalMatches));
 
+            if (!totalPlayers.IsSet)
+                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(totalPlayers));
+
             if (abandonRate.IsSet && abandonRate.Value == null)
                 throw new ArgumentNullException(nameof(abandonRate), "Property is not nullable for class AnalyticsGameStats.");
 
@@ -1006,7 +1028,10 @@ namespace DeadlockApiClient.Model
             if (totalMatches.IsSet && totalMatches.Value == null)
                 throw new ArgumentNullException(nameof(totalMatches), "Property is not nullable for class AnalyticsGameStats.");
 
-            return new AnalyticsGameStats(abandonRate.Value!.Value!, avgAccuracy.Value!.Value!, avgAssists.Value!.Value!, avgBossDamage.Value!.Value!, avgCreepDamage.Value!.Value!, avgCreepKills.Value!.Value!, avgCritRate.Value!.Value!, avgDamageAbsorbed.Value!.Value!, avgDamageMitigated.Value!.Value!, avgDeaths.Value!.Value!, avgDenies.Value!.Value!, avgDurationS.Value!.Value!, avgEndingLevel.Value!.Value!, avgFirstMidBossTimeS.Value!.Value!, avgGoldBoss.Value!.Value!, avgGoldBossOrb.Value!.Value!, avgGoldDeathLoss.Value!.Value!, avgGoldDenied.Value!.Value!, avgGoldLaneCreep.Value!.Value!, avgGoldLaneCreepOrbs.Value!.Value!, avgGoldNeutralCreep.Value!.Value!, avgGoldNeutralCreepOrbs.Value!.Value!, avgGoldPlayer.Value!.Value!, avgGoldPlayerOrbs.Value!.Value!, avgGoldTreasure.Value!.Value!, avgHealPrevented.Value!.Value!, avgKdRatio.Value!.Value!, avgKills.Value!.Value!, avgLastHits.Value!.Value!, avgMaxHealth.Value!.Value!, avgNetWorth.Value!.Value!, avgNeutralDamage.Value!.Value!, avgNeutralKills.Value!.Value!, avgObjectivesDestroyedTimeS.Value!.Value!, avgPlayerDamage.Value!.Value!, avgPlayerDamageTaken.Value!.Value!, avgPlayerHealing.Value!.Value!, avgPossibleCreeps.Value!.Value!, avgSelfHealing.Value!.Value!, avgTechPower.Value!.Value!, avgWeaponPower.Value!.Value!, bucket.Value!.Value!, midBossKillRate.Value!.Value!, team0Wins.Value!.Value!, team1Wins.Value!.Value!, totalMatches.Value!.Value!);
+            if (totalPlayers.IsSet && totalPlayers.Value == null)
+                throw new ArgumentNullException(nameof(totalPlayers), "Property is not nullable for class AnalyticsGameStats.");
+
+            return new AnalyticsGameStats(abandonRate.Value!.Value!, avgAccuracy.Value!.Value!, avgAssists.Value!.Value!, avgBossDamage.Value!.Value!, avgCreepDamage.Value!.Value!, avgCreepKills.Value!.Value!, avgCritRate.Value!.Value!, avgDamageAbsorbed.Value!.Value!, avgDamageMitigated.Value!.Value!, avgDeaths.Value!.Value!, avgDenies.Value!.Value!, avgDurationS.Value!.Value!, avgEndingLevel.Value!.Value!, avgFirstMidBossTimeS.Value!.Value!, avgGoldBoss.Value!.Value!, avgGoldBossOrb.Value!.Value!, avgGoldDeathLoss.Value!.Value!, avgGoldDenied.Value!.Value!, avgGoldLaneCreep.Value!.Value!, avgGoldLaneCreepOrbs.Value!.Value!, avgGoldNeutralCreep.Value!.Value!, avgGoldNeutralCreepOrbs.Value!.Value!, avgGoldPlayer.Value!.Value!, avgGoldPlayerOrbs.Value!.Value!, avgGoldTreasure.Value!.Value!, avgHealPrevented.Value!.Value!, avgKdRatio.Value!.Value!, avgKills.Value!.Value!, avgLastHits.Value!.Value!, avgMaxHealth.Value!.Value!, avgNetWorth.Value!.Value!, avgNeutralDamage.Value!.Value!, avgNeutralKills.Value!.Value!, avgObjectivesDestroyedTimeS.Value!.Value!, avgPlayerDamage.Value!.Value!, avgPlayerDamageTaken.Value!.Value!, avgPlayerHealing.Value!.Value!, avgPossibleCreeps.Value!.Value!, avgSelfHealing.Value!.Value!, avgTechPower.Value!.Value!, avgWeaponPower.Value!.Value!, bucket.Value!.Value!, midBossKillRate.Value!.Value!, team0Wins.Value!.Value!, team1Wins.Value!.Value!, totalMatches.Value!.Value!, totalPlayers.Value!.Value!);
         }
 
         /// <summary>
@@ -1124,6 +1149,8 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("team1_wins", analyticsGameStats.Team1Wins);
 
             writer.WriteNumber("total_matches", analyticsGameStats.TotalMatches);
+
+            writer.WriteNumber("total_players", analyticsGameStats.TotalPlayers);
         }
     }
 }

@@ -102,7 +102,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'mid_boss_kill_rate' => 'float',
         'team0_wins' => 'int',
         'team1_wins' => 'int',
-        'total_matches' => 'int'
+        'total_matches' => 'int',
+        'total_players' => 'int'
     ];
 
     /**
@@ -158,7 +159,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'mid_boss_kill_rate' => 'double',
         'team0_wins' => 'int64',
         'team1_wins' => 'int64',
-        'total_matches' => 'int64'
+        'total_matches' => 'int64',
+        'total_players' => 'int64'
     ];
 
     /**
@@ -212,7 +214,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'mid_boss_kill_rate' => false,
         'team0_wins' => false,
         'team1_wins' => false,
-        'total_matches' => false
+        'total_matches' => false,
+        'total_players' => false
     ];
 
     /**
@@ -346,7 +349,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'mid_boss_kill_rate' => 'mid_boss_kill_rate',
         'team0_wins' => 'team0_wins',
         'team1_wins' => 'team1_wins',
-        'total_matches' => 'total_matches'
+        'total_matches' => 'total_matches',
+        'total_players' => 'total_players'
     ];
 
     /**
@@ -400,7 +404,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'mid_boss_kill_rate' => 'setMidBossKillRate',
         'team0_wins' => 'setTeam0Wins',
         'team1_wins' => 'setTeam1Wins',
-        'total_matches' => 'setTotalMatches'
+        'total_matches' => 'setTotalMatches',
+        'total_players' => 'setTotalPlayers'
     ];
 
     /**
@@ -454,7 +459,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'mid_boss_kill_rate' => 'getMidBossKillRate',
         'team0_wins' => 'getTeam0Wins',
         'team1_wins' => 'getTeam1Wins',
-        'total_matches' => 'getTotalMatches'
+        'total_matches' => 'getTotalMatches',
+        'total_players' => 'getTotalPlayers'
     ];
 
     /**
@@ -560,6 +566,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('team0_wins', $data ?? [], null);
         $this->setIfExists('team1_wins', $data ?? [], null);
         $this->setIfExists('total_matches', $data ?? [], null);
+        $this->setIfExists('total_players', $data ?? [], null);
     }
 
     /**
@@ -741,6 +748,13 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if (($this->container['total_matches'] < 0)) {
             $invalidProperties[] = "invalid value for 'total_matches', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['total_players'] === null) {
+            $invalidProperties[] = "'total_players' can't be null";
+        }
+        if (($this->container['total_players'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_players', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -2016,6 +2030,38 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['total_matches'] = $total_matches;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_players
+     *
+     * @return int
+     */
+    public function getTotalPlayers()
+    {
+        return $this->container['total_players'];
+    }
+
+    /**
+     * Sets total_players
+     *
+     * @param int $total_players total_players
+     *
+     * @return self
+     */
+    public function setTotalPlayers($total_players)
+    {
+        if (is_null($total_players)) {
+            throw new \InvalidArgumentException('non-nullable total_players cannot be null');
+        }
+
+        if (($total_players < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_players when calling AnalyticsGameStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_players'] = $total_players;
 
         return $this;
     }

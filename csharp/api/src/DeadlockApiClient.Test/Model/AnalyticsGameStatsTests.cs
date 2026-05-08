@@ -466,5 +466,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'TotalMatches'
         }
+
+        /// <summary>
+        /// Test the property 'TotalPlayers'
+        /// </summary>
+        [Fact]
+        public void TotalPlayersTest()
+        {
+            // TODO unit test for the property 'TotalPlayers'
+        }
     }
 }

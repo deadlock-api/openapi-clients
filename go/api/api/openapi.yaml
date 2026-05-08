@@ -129,7 +129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -378,7 +378,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -511,7 +511,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -587,7 +587,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -726,7 +726,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -859,7 +859,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -1046,7 +1046,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -1326,7 +1326,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -1582,7 +1582,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -1846,7 +1846,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -2115,7 +2115,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -2402,7 +2402,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -2669,7 +2669,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -2961,7 +2961,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -3182,7 +3182,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -3481,7 +3481,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -5790,7 +5790,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -5909,7 +5909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775433600
+          default: 1775520000
           format: int64
           nullable: true
           type: integer
@@ -7214,6 +7214,7 @@ components:
         avg_gold_denied: 1.1730742509559433
         avg_kills: 6.965117697638846
         avg_damage_absorbed: 9.301444243932576
+        total_players: 0
         avg_gold_lane_creep_orbs: 5.025004791520295
         abandon_rate: 0.8008281904610115
         bucket: 0
@@ -7371,6 +7372,10 @@ components:
           format: int64
           minimum: 0
           type: integer
+        total_players:
+          format: int64
+          minimum: 0
+          type: integer
       required:
       - abandon_rate
       - avg_accuracy
@@ -7418,6 +7423,7 @@ components:
       - team0_wins
       - team1_wins
       - total_matches
+      - total_players
     AnalyticsHeroStats:
       example:
         wins: 0

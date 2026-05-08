@@ -174,6 +174,7 @@ export interface AnalyticsGameStats {
     'team0_wins': number;
     'team1_wins': number;
     'total_matches': number;
+    'total_players': number;
 }
 export interface AnalyticsHeroStats {
     'bucket': number;

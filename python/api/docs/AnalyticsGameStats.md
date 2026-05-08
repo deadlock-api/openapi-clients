@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **team0_wins** | **int** |  | 
 **team1_wins** | **int** |  | 
 **total_matches** | **int** |  | 
+**total_players** | **int** |  | 
 
 ## Example
 

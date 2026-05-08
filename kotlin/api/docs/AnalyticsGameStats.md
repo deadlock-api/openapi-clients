@@ -50,6 +50,7 @@
 | **team0Wins** | **kotlin.Long** |  |  |
 | **team1Wins** | **kotlin.Long** |  |  |
 | **totalMatches** | **kotlin.Long** |  |  |
+| **totalPlayers** | **kotlin.Long** |  |  |
 
 
 

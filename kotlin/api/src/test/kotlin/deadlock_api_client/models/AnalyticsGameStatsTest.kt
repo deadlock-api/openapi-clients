@@ -309,5 +309,11 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.totalMatches shouldBe ("TODO")
         }
 
+        // to test the property `totalPlayers`
+        should("test totalPlayers") {
+            // uncomment below to test the property
+            //modelInstance.totalPlayers shouldBe ("TODO")
+        }
+
     }
 }

@@ -80,7 +80,8 @@ class TestAnalyticsGameStats(unittest.TestCase):
                 mid_boss_kill_rate = 1.337,
                 team0_wins = 0,
                 team1_wins = 0,
-                total_matches = 0
+                total_matches = 0,
+                total_players = 0
             )
         else:
             return AnalyticsGameStats(
@@ -130,6 +131,7 @@ class TestAnalyticsGameStats(unittest.TestCase):
                 team0_wins = 0,
                 team1_wins = 0,
                 total_matches = 0,
+                total_players = 0,
         )
         """
 

@@ -50,6 +50,7 @@ Name | Type | Description | Notes
 **Team0Wins** | **long** |  | 
 **Team1Wins** | **long** |  | 
 **TotalMatches** | **long** |  | 
+**TotalPlayers** | **long** |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

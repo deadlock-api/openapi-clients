@@ -294,6 +294,12 @@ export interface AnalyticsGameStats  {
      * @memberof AnalyticsGameStats
      */
     totalMatches: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    totalPlayers: number;
 }
 
 export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
@@ -344,6 +350,7 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'team0Wins': json['team0_wins'],
         'team1Wins': json['team1_wins'],
         'totalMatches': json['total_matches'],
+        'totalPlayers': json['total_players'],
     };
 }
 
@@ -398,6 +405,7 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'team0_wins': value.team0Wins,
         'team1_wins': value.team1Wins,
         'total_matches': value.totalMatches,
+        'total_players': value.totalPlayers,
     };
 }
 

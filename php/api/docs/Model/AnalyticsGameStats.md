@@ -50,5 +50,6 @@ Name | Type | Description | Notes
 **team0_wins** | **int** |  |
 **team1_wins** | **int** |  |
 **total_matches** | **int** |  |
+**total_players** | **int** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

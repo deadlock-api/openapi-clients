@@ -50,6 +50,7 @@ Name | Type | Description | Notes
 **team0_wins** | **u64** |  | 
 **team1_wins** | **u64** |  | 
 **total_matches** | **u64** |  | 
+**total_players** | **u64** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

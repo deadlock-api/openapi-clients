@@ -77,6 +77,7 @@ import java.io.Serializable
  * @param team0Wins 
  * @param team1Wins 
  * @param totalMatches 
+ * @param totalPlayers 
  */
 
 
@@ -218,7 +219,10 @@ data class AnalyticsGameStats (
     val team1Wins: kotlin.Long,
 
     @Json(name = "total_matches")
-    val totalMatches: kotlin.Long
+    val totalMatches: kotlin.Long,
+
+    @Json(name = "total_players")
+    val totalPlayers: kotlin.Long
 
 ) : Serializable {
     companion object {
