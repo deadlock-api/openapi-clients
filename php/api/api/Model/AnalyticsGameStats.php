@@ -71,6 +71,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_duration_s' => 'float',
         'avg_ending_level' => 'float',
         'avg_first_mid_boss_time_s' => 'float',
+        'avg_first_objective_destroyed_time_s' => 'float',
         'avg_gold_boss' => 'float',
         'avg_gold_boss_orb' => 'float',
         'avg_gold_death_loss' => 'float',
@@ -90,7 +91,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'float',
         'avg_neutral_damage' => 'float',
         'avg_neutral_kills' => 'float',
-        'avg_objectives_destroyed_time_s' => 'float',
         'avg_player_damage' => 'float',
         'avg_player_damage_taken' => 'float',
         'avg_player_healing' => 'float',
@@ -128,6 +128,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_duration_s' => 'double',
         'avg_ending_level' => 'double',
         'avg_first_mid_boss_time_s' => 'double',
+        'avg_first_objective_destroyed_time_s' => 'double',
         'avg_gold_boss' => 'double',
         'avg_gold_boss_orb' => 'double',
         'avg_gold_death_loss' => 'double',
@@ -147,7 +148,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'double',
         'avg_neutral_damage' => 'double',
         'avg_neutral_kills' => 'double',
-        'avg_objectives_destroyed_time_s' => 'double',
         'avg_player_damage' => 'double',
         'avg_player_damage_taken' => 'double',
         'avg_player_healing' => 'double',
@@ -183,6 +183,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_duration_s' => false,
         'avg_ending_level' => false,
         'avg_first_mid_boss_time_s' => false,
+        'avg_first_objective_destroyed_time_s' => false,
         'avg_gold_boss' => false,
         'avg_gold_boss_orb' => false,
         'avg_gold_death_loss' => false,
@@ -202,7 +203,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => false,
         'avg_neutral_damage' => false,
         'avg_neutral_kills' => false,
-        'avg_objectives_destroyed_time_s' => false,
         'avg_player_damage' => false,
         'avg_player_damage_taken' => false,
         'avg_player_healing' => false,
@@ -318,6 +318,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_duration_s' => 'avg_duration_s',
         'avg_ending_level' => 'avg_ending_level',
         'avg_first_mid_boss_time_s' => 'avg_first_mid_boss_time_s',
+        'avg_first_objective_destroyed_time_s' => 'avg_first_objective_destroyed_time_s',
         'avg_gold_boss' => 'avg_gold_boss',
         'avg_gold_boss_orb' => 'avg_gold_boss_orb',
         'avg_gold_death_loss' => 'avg_gold_death_loss',
@@ -337,7 +338,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'avg_net_worth',
         'avg_neutral_damage' => 'avg_neutral_damage',
         'avg_neutral_kills' => 'avg_neutral_kills',
-        'avg_objectives_destroyed_time_s' => 'avg_objectives_destroyed_time_s',
         'avg_player_damage' => 'avg_player_damage',
         'avg_player_damage_taken' => 'avg_player_damage_taken',
         'avg_player_healing' => 'avg_player_healing',
@@ -373,6 +373,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_duration_s' => 'setAvgDurationS',
         'avg_ending_level' => 'setAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'setAvgFirstMidBossTimeS',
+        'avg_first_objective_destroyed_time_s' => 'setAvgFirstObjectiveDestroyedTimeS',
         'avg_gold_boss' => 'setAvgGoldBoss',
         'avg_gold_boss_orb' => 'setAvgGoldBossOrb',
         'avg_gold_death_loss' => 'setAvgGoldDeathLoss',
@@ -392,7 +393,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'setAvgNetWorth',
         'avg_neutral_damage' => 'setAvgNeutralDamage',
         'avg_neutral_kills' => 'setAvgNeutralKills',
-        'avg_objectives_destroyed_time_s' => 'setAvgObjectivesDestroyedTimeS',
         'avg_player_damage' => 'setAvgPlayerDamage',
         'avg_player_damage_taken' => 'setAvgPlayerDamageTaken',
         'avg_player_healing' => 'setAvgPlayerHealing',
@@ -428,6 +428,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_duration_s' => 'getAvgDurationS',
         'avg_ending_level' => 'getAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'getAvgFirstMidBossTimeS',
+        'avg_first_objective_destroyed_time_s' => 'getAvgFirstObjectiveDestroyedTimeS',
         'avg_gold_boss' => 'getAvgGoldBoss',
         'avg_gold_boss_orb' => 'getAvgGoldBossOrb',
         'avg_gold_death_loss' => 'getAvgGoldDeathLoss',
@@ -447,7 +448,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'getAvgNetWorth',
         'avg_neutral_damage' => 'getAvgNeutralDamage',
         'avg_neutral_kills' => 'getAvgNeutralKills',
-        'avg_objectives_destroyed_time_s' => 'getAvgObjectivesDestroyedTimeS',
         'avg_player_damage' => 'getAvgPlayerDamage',
         'avg_player_damage_taken' => 'getAvgPlayerDamageTaken',
         'avg_player_healing' => 'getAvgPlayerHealing',
@@ -534,6 +534,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('avg_duration_s', $data ?? [], null);
         $this->setIfExists('avg_ending_level', $data ?? [], null);
         $this->setIfExists('avg_first_mid_boss_time_s', $data ?? [], null);
+        $this->setIfExists('avg_first_objective_destroyed_time_s', $data ?? [], null);
         $this->setIfExists('avg_gold_boss', $data ?? [], null);
         $this->setIfExists('avg_gold_boss_orb', $data ?? [], null);
         $this->setIfExists('avg_gold_death_loss', $data ?? [], null);
@@ -553,7 +554,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('avg_net_worth', $data ?? [], null);
         $this->setIfExists('avg_neutral_damage', $data ?? [], null);
         $this->setIfExists('avg_neutral_kills', $data ?? [], null);
-        $this->setIfExists('avg_objectives_destroyed_time_s', $data ?? [], null);
         $this->setIfExists('avg_player_damage', $data ?? [], null);
         $this->setIfExists('avg_player_damage_taken', $data ?? [], null);
         $this->setIfExists('avg_player_healing', $data ?? [], null);
@@ -638,6 +638,9 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['avg_first_mid_boss_time_s'] === null) {
             $invalidProperties[] = "'avg_first_mid_boss_time_s' can't be null";
         }
+        if ($this->container['avg_first_objective_destroyed_time_s'] === null) {
+            $invalidProperties[] = "'avg_first_objective_destroyed_time_s' can't be null";
+        }
         if ($this->container['avg_gold_boss'] === null) {
             $invalidProperties[] = "'avg_gold_boss' can't be null";
         }
@@ -694,9 +697,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if ($this->container['avg_neutral_kills'] === null) {
             $invalidProperties[] = "'avg_neutral_kills' can't be null";
-        }
-        if ($this->container['avg_objectives_destroyed_time_s'] === null) {
-            $invalidProperties[] = "'avg_objectives_destroyed_time_s' can't be null";
         }
         if ($this->container['avg_player_damage'] === null) {
             $invalidProperties[] = "'avg_player_damage' can't be null";
@@ -1146,6 +1146,33 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_first_mid_boss_time_s cannot be null');
         }
         $this->container['avg_first_mid_boss_time_s'] = $avg_first_mid_boss_time_s;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_first_objective_destroyed_time_s
+     *
+     * @return float
+     */
+    public function getAvgFirstObjectiveDestroyedTimeS()
+    {
+        return $this->container['avg_first_objective_destroyed_time_s'];
+    }
+
+    /**
+     * Sets avg_first_objective_destroyed_time_s
+     *
+     * @param float $avg_first_objective_destroyed_time_s avg_first_objective_destroyed_time_s
+     *
+     * @return self
+     */
+    public function setAvgFirstObjectiveDestroyedTimeS($avg_first_objective_destroyed_time_s)
+    {
+        if (is_null($avg_first_objective_destroyed_time_s)) {
+            throw new \InvalidArgumentException('non-nullable avg_first_objective_destroyed_time_s cannot be null');
+        }
+        $this->container['avg_first_objective_destroyed_time_s'] = $avg_first_objective_destroyed_time_s;
 
         return $this;
     }
@@ -1659,33 +1686,6 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_neutral_kills cannot be null');
         }
         $this->container['avg_neutral_kills'] = $avg_neutral_kills;
-
-        return $this;
-    }
-
-    /**
-     * Gets avg_objectives_destroyed_time_s
-     *
-     * @return float
-     */
-    public function getAvgObjectivesDestroyedTimeS()
-    {
-        return $this->container['avg_objectives_destroyed_time_s'];
-    }
-
-    /**
-     * Sets avg_objectives_destroyed_time_s
-     *
-     * @param float $avg_objectives_destroyed_time_s avg_objectives_destroyed_time_s
-     *
-     * @return self
-     */
-    public function setAvgObjectivesDestroyedTimeS($avg_objectives_destroyed_time_s)
-    {
-        if (is_null($avg_objectives_destroyed_time_s)) {
-            throw new \InvalidArgumentException('non-nullable avg_objectives_destroyed_time_s cannot be null');
-        }
-        $this->container['avg_objectives_destroyed_time_s'] = $avg_objectives_destroyed_time_s;
 
         return $this;
     }

@@ -45,6 +45,7 @@ import java.io.Serializable
  * @param avgDurationS 
  * @param avgEndingLevel 
  * @param avgFirstMidBossTimeS 
+ * @param avgFirstObjectiveDestroyedTimeS 
  * @param avgGoldBoss 
  * @param avgGoldBossOrb 
  * @param avgGoldDeathLoss 
@@ -64,7 +65,6 @@ import java.io.Serializable
  * @param avgNetWorth 
  * @param avgNeutralDamage 
  * @param avgNeutralKills 
- * @param avgObjectivesDestroyedTimeS 
  * @param avgPlayerDamage 
  * @param avgPlayerDamageTaken 
  * @param avgPlayerHealing 
@@ -125,6 +125,9 @@ data class AnalyticsGameStats (
     @Json(name = "avg_first_mid_boss_time_s")
     val avgFirstMidBossTimeS: kotlin.Double,
 
+    @Json(name = "avg_first_objective_destroyed_time_s")
+    val avgFirstObjectiveDestroyedTimeS: kotlin.Double,
+
     @Json(name = "avg_gold_boss")
     val avgGoldBoss: kotlin.Double,
 
@@ -181,9 +184,6 @@ data class AnalyticsGameStats (
 
     @Json(name = "avg_neutral_kills")
     val avgNeutralKills: kotlin.Double,
-
-    @Json(name = "avg_objectives_destroyed_time_s")
-    val avgObjectivesDestroyedTimeS: kotlin.Double,
 
     @Json(name = "avg_player_damage")
     val avgPlayerDamage: kotlin.Double,

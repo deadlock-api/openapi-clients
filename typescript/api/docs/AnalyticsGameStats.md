@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **avg_duration_s** | **number** |  | [default to undefined]
 **avg_ending_level** | **number** |  | [default to undefined]
 **avg_first_mid_boss_time_s** | **number** |  | [default to undefined]
+**avg_first_objective_destroyed_time_s** | **number** |  | [default to undefined]
 **avg_gold_boss** | **number** |  | [default to undefined]
 **avg_gold_boss_orb** | **number** |  | [default to undefined]
 **avg_gold_death_loss** | **number** |  | [default to undefined]
@@ -38,7 +39,6 @@ Name | Type | Description | Notes
 **avg_net_worth** | **number** |  | [default to undefined]
 **avg_neutral_damage** | **number** |  | [default to undefined]
 **avg_neutral_kills** | **number** |  | [default to undefined]
-**avg_objectives_destroyed_time_s** | **number** |  | [default to undefined]
 **avg_player_damage** | **number** |  | [default to undefined]
 **avg_player_damage_taken** | **number** |  | [default to undefined]
 **avg_player_healing** | **number** |  | [default to undefined]
@@ -73,6 +73,7 @@ const instance: AnalyticsGameStats = {
     avg_duration_s,
     avg_ending_level,
     avg_first_mid_boss_time_s,
+    avg_first_objective_destroyed_time_s,
     avg_gold_boss,
     avg_gold_boss_orb,
     avg_gold_death_loss,
@@ -92,7 +93,6 @@ const instance: AnalyticsGameStats = {
     avg_net_worth,
     avg_neutral_damage,
     avg_neutral_kills,
-    avg_objectives_destroyed_time_s,
     avg_player_damage,
     avg_player_damage_taken,
     avg_player_healing,

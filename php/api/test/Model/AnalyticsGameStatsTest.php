@@ -206,6 +206,15 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_first_objective_destroyed_time_s"
+     */
+    public function testPropertyAvgFirstObjectiveDestroyedTimeS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_boss"
      */
     public function testPropertyAvgGoldBoss()
@@ -371,15 +380,6 @@ class AnalyticsGameStatsTest extends TestCase
      * Test attribute "avg_neutral_kills"
      */
     public function testPropertyAvgNeutralKills()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "avg_objectives_destroyed_time_s"
-     */
-    public function testPropertyAvgObjectivesDestroyedTimeS()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -18,6 +18,7 @@
 | **avgDurationS** | **kotlin.Double** |  |  |
 | **avgEndingLevel** | **kotlin.Double** |  |  |
 | **avgFirstMidBossTimeS** | **kotlin.Double** |  |  |
+| **avgFirstObjectiveDestroyedTimeS** | **kotlin.Double** |  |  |
 | **avgGoldBoss** | **kotlin.Double** |  |  |
 | **avgGoldBossOrb** | **kotlin.Double** |  |  |
 | **avgGoldDeathLoss** | **kotlin.Double** |  |  |
@@ -37,7 +38,6 @@
 | **avgNetWorth** | **kotlin.Double** |  |  |
 | **avgNeutralDamage** | **kotlin.Double** |  |  |
 | **avgNeutralKills** | **kotlin.Double** |  |  |
-| **avgObjectivesDestroyedTimeS** | **kotlin.Double** |  |  |
 | **avgPlayerDamage** | **kotlin.Double** |  |  |
 | **avgPlayerDamageTaken** | **kotlin.Double** |  |  |
 | **avgPlayerHealing** | **kotlin.Double** |  |  |

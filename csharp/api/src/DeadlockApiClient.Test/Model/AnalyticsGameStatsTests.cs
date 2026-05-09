@@ -180,6 +180,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgFirstObjectiveDestroyedTimeS'
+        /// </summary>
+        [Fact]
+        public void AvgFirstObjectiveDestroyedTimeSTest()
+        {
+            // TODO unit test for the property 'AvgFirstObjectiveDestroyedTimeS'
+        }
+
+        /// <summary>
         /// Test the property 'AvgGoldBoss'
         /// </summary>
         [Fact]
@@ -348,15 +357,6 @@ namespace DeadlockApiClient.Test.Model
         public void AvgNeutralKillsTest()
         {
             // TODO unit test for the property 'AvgNeutralKills'
-        }
-
-        /// <summary>
-        /// Test the property 'AvgObjectivesDestroyedTimeS'
-        /// </summary>
-        [Fact]
-        public void AvgObjectivesDestroyedTimeSTest()
-        {
-            // TODO unit test for the property 'AvgObjectivesDestroyedTimeS'
         }
 
         /// <summary>

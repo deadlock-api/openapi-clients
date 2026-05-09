@@ -107,6 +107,12 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
+    avgFirstObjectiveDestroyedTimeS: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
     avgGoldBoss: number;
     /**
      * 
@@ -221,12 +227,6 @@ export interface AnalyticsGameStats  {
      * @type {number}
      * @memberof AnalyticsGameStats
      */
-    avgObjectivesDestroyedTimeS: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsGameStats
-     */
     avgPlayerDamage: number;
     /**
      * 
@@ -318,6 +318,7 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgDurationS': json['avg_duration_s'],
         'avgEndingLevel': json['avg_ending_level'],
         'avgFirstMidBossTimeS': json['avg_first_mid_boss_time_s'],
+        'avgFirstObjectiveDestroyedTimeS': json['avg_first_objective_destroyed_time_s'],
         'avgGoldBoss': json['avg_gold_boss'],
         'avgGoldBossOrb': json['avg_gold_boss_orb'],
         'avgGoldDeathLoss': json['avg_gold_death_loss'],
@@ -337,7 +338,6 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgNetWorth': json['avg_net_worth'],
         'avgNeutralDamage': json['avg_neutral_damage'],
         'avgNeutralKills': json['avg_neutral_kills'],
-        'avgObjectivesDestroyedTimeS': json['avg_objectives_destroyed_time_s'],
         'avgPlayerDamage': json['avg_player_damage'],
         'avgPlayerDamageTaken': json['avg_player_damage_taken'],
         'avgPlayerHealing': json['avg_player_healing'],
@@ -373,6 +373,7 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_duration_s': value.avgDurationS,
         'avg_ending_level': value.avgEndingLevel,
         'avg_first_mid_boss_time_s': value.avgFirstMidBossTimeS,
+        'avg_first_objective_destroyed_time_s': value.avgFirstObjectiveDestroyedTimeS,
         'avg_gold_boss': value.avgGoldBoss,
         'avg_gold_boss_orb': value.avgGoldBossOrb,
         'avg_gold_death_loss': value.avgGoldDeathLoss,
@@ -392,7 +393,6 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_net_worth': value.avgNetWorth,
         'avg_neutral_damage': value.avgNeutralDamage,
         'avg_neutral_kills': value.avgNeutralKills,
-        'avg_objectives_destroyed_time_s': value.avgObjectivesDestroyedTimeS,
         'avg_player_damage': value.avgPlayerDamage,
         'avg_player_damage_taken': value.avgPlayerDamageTaken,
         'avg_player_healing': value.avgPlayerHealing,

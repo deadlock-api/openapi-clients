@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **avg_duration_s** | **f64** |  | 
 **avg_ending_level** | **f64** |  | 
 **avg_first_mid_boss_time_s** | **f64** |  | 
+**avg_first_objective_destroyed_time_s** | **f64** |  | 
 **avg_gold_boss** | **f64** |  | 
 **avg_gold_boss_orb** | **f64** |  | 
 **avg_gold_death_loss** | **f64** |  | 
@@ -37,7 +38,6 @@ Name | Type | Description | Notes
 **avg_net_worth** | **f64** |  | 
 **avg_neutral_damage** | **f64** |  | 
 **avg_neutral_kills** | **f64** |  | 
-**avg_objectives_destroyed_time_s** | **f64** |  | 
 **avg_player_damage** | **f64** |  | 
 **avg_player_damage_taken** | **f64** |  | 
 **avg_player_healing** | **f64** |  | 

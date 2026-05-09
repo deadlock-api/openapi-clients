@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **AvgDurationS** | **double** |  | 
 **AvgEndingLevel** | **double** |  | 
 **AvgFirstMidBossTimeS** | **double** |  | 
+**AvgFirstObjectiveDestroyedTimeS** | **double** |  | 
 **AvgGoldBoss** | **double** |  | 
 **AvgGoldBossOrb** | **double** |  | 
 **AvgGoldDeathLoss** | **double** |  | 
@@ -37,7 +38,6 @@ Name | Type | Description | Notes
 **AvgNetWorth** | **double** |  | 
 **AvgNeutralDamage** | **double** |  | 
 **AvgNeutralKills** | **double** |  | 
-**AvgObjectivesDestroyedTimeS** | **double** |  | 
 **AvgPlayerDamage** | **double** |  | 
 **AvgPlayerDamageTaken** | **double** |  | 
 **AvgPlayerHealing** | **double** |  | 

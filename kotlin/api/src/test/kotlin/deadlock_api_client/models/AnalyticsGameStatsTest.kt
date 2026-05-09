@@ -117,6 +117,12 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgFirstMidBossTimeS shouldBe ("TODO")
         }
 
+        // to test the property `avgFirstObjectiveDestroyedTimeS`
+        should("test avgFirstObjectiveDestroyedTimeS") {
+            // uncomment below to test the property
+            //modelInstance.avgFirstObjectiveDestroyedTimeS shouldBe ("TODO")
+        }
+
         // to test the property `avgGoldBoss`
         should("test avgGoldBoss") {
             // uncomment below to test the property
@@ -229,12 +235,6 @@ class AnalyticsGameStatsTest : ShouldSpec() {
         should("test avgNeutralKills") {
             // uncomment below to test the property
             //modelInstance.avgNeutralKills shouldBe ("TODO")
-        }
-
-        // to test the property `avgObjectivesDestroyedTimeS`
-        should("test avgObjectivesDestroyedTimeS") {
-            // uncomment below to test the property
-            //modelInstance.avgObjectivesDestroyedTimeS shouldBe ("TODO")
         }
 
         // to test the property `avgPlayerDamage`
