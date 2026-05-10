@@ -57,7 +57,9 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'ui' => 'mixed[]'
+        'ui' => 'mixed[]',
+        'style' => 'mixed[]',
+        'style_hex' => 'string'
     ];
 
     /**
@@ -68,7 +70,9 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'ui' => null
+        'ui' => null,
+        'style' => null,
+        'style_hex' => null
     ];
 
     /**
@@ -77,7 +81,9 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'ui' => false
+        'ui' => false,
+        'style' => true,
+        'style_hex' => true
     ];
 
     /**
@@ -166,7 +172,9 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'ui' => 'ui'
+        'ui' => 'ui',
+        'style' => 'style',
+        'style_hex' => 'style_hex'
     ];
 
     /**
@@ -175,7 +183,9 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'ui' => 'setUi'
+        'ui' => 'setUi',
+        'style' => 'setStyle',
+        'style_hex' => 'setStyleHex'
     ];
 
     /**
@@ -184,7 +194,9 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'ui' => 'getUi'
+        'ui' => 'getUi',
+        'style' => 'getStyle',
+        'style_hex' => 'getStyleHex'
     ];
 
     /**
@@ -245,6 +257,8 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('ui', $data ?? [], null);
+        $this->setIfExists('style', $data ?? [], null);
+        $this->setIfExists('style_hex', $data ?? [], null);
     }
 
     /**
@@ -283,6 +297,14 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ((count($this->container['ui']) < 3)) {
             $invalidProperties[] = "invalid value for 'ui', number of items must be greater than or equal to 3.";
+        }
+
+        if (!is_null($this->container['style']) && (count($this->container['style']) > 3)) {
+            $invalidProperties[] = "invalid value for 'style', number of items must be less than or equal to 3.";
+        }
+
+        if (!is_null($this->container['style']) && (count($this->container['style']) < 3)) {
+            $invalidProperties[] = "invalid value for 'style', number of items must be greater than or equal to 3.";
         }
 
         return $invalidProperties;
@@ -330,6 +352,81 @@ class HeroColorsV2 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('invalid length for $ui when calling HeroColorsV2., number of items must be greater than or equal to 3.');
         }
         $this->container['ui'] = $ui;
+
+        return $this;
+    }
+
+    /**
+     * Gets style
+     *
+     * @return mixed[]|null
+     */
+    public function getStyle()
+    {
+        return $this->container['style'];
+    }
+
+    /**
+     * Sets style
+     *
+     * @param mixed[]|null $style style
+     *
+     * @return self
+     */
+    public function setStyle($style)
+    {
+        if (is_null($style)) {
+            array_push($this->openAPINullablesSetToNull, 'style');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('style', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($style) && (count($style) > 3)) {
+            throw new \InvalidArgumentException('invalid value for $style when calling HeroColorsV2., number of items must be less than or equal to 3.');
+        }
+        if (!is_null($style) && (count($style) < 3)) {
+            throw new \InvalidArgumentException('invalid length for $style when calling HeroColorsV2., number of items must be greater than or equal to 3.');
+        }
+        $this->container['style'] = $style;
+
+        return $this;
+    }
+
+    /**
+     * Gets style_hex
+     *
+     * @return string|null
+     */
+    public function getStyleHex()
+    {
+        return $this->container['style_hex'];
+    }
+
+    /**
+     * Sets style_hex
+     *
+     * @param string|null $style_hex style_hex
+     *
+     * @return self
+     */
+    public function setStyleHex($style_hex)
+    {
+        if (is_null($style_hex)) {
+            array_push($this->openAPINullablesSetToNull, 'style_hex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('style_hex', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['style_hex'] = $style_hex;
 
         return $this;
     }

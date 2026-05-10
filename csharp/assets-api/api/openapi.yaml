@@ -2170,7 +2170,12 @@ components:
       title: HTTPValidationError
     HeroColorsV2:
       example:
+        style_hex: style_hex
         ui:
+        - ""
+        - ""
+        - ""
+        style:
         - ""
         - ""
         - ""
@@ -2181,6 +2186,15 @@ components:
           minItems: 3
           title: Ui
           type: array
+        style:
+          items: {}
+          maxItems: 3
+          minItems: 3
+          nullable: true
+          type: array
+        style_hex:
+          nullable: true
+          type: string
       required:
       - ui
       title: HeroColorsV2
@@ -2588,7 +2602,12 @@ components:
           playstyle: playstyle
         prerelease_only: true
         colors:
+          style_hex: style_hex
           ui:
+          - ""
+          - ""
+          - ""
+          style:
           - ""
           - ""
           - ""

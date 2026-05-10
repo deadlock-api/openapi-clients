@@ -15,12 +15,18 @@ use serde::{Deserialize, Serialize};
 pub struct HeroColorsV2 {
     #[serde(rename = "ui")]
     pub ui: Vec<serde_json::Value>,
+    #[serde(rename = "style", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub style: Option<Option<Vec<serde_json::Value>>>,
+    #[serde(rename = "style_hex", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub style_hex: Option<Option<String>>,
 }
 
 impl HeroColorsV2 {
     pub fn new(ui: Vec<serde_json::Value>) -> HeroColorsV2 {
         HeroColorsV2 {
             ui,
+            style: None,
+            style_hex: None,
         }
     }
 }

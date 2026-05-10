@@ -324,6 +324,8 @@ export interface HTTPValidationError {
 }
 export interface HeroColorsV2 {
     'ui': Array<any>;
+    'style'?: Array<any> | null;
+    'style_hex'?: string | null;
 }
 export interface HeroDescriptionV2 {
     'lore'?: string | null;

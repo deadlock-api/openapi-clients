@@ -22,6 +22,8 @@ var _ MappedNullable = &HeroColorsV2{}
 // HeroColorsV2 struct for HeroColorsV2
 type HeroColorsV2 struct {
 	Ui []interface{} `json:"ui"`
+	Style []interface{} `json:"style,omitempty"`
+	StyleHex NullableString `json:"style_hex,omitempty"`
 }
 
 type _HeroColorsV2 HeroColorsV2
@@ -68,6 +70,81 @@ func (o *HeroColorsV2) SetUi(v []interface{}) {
 	o.Ui = v
 }
 
+// GetStyle returns the Style field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroColorsV2) GetStyle() []interface{} {
+	if o == nil {
+		var ret []interface{}
+		return ret
+	}
+	return o.Style
+}
+
+// GetStyleOk returns a tuple with the Style field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroColorsV2) GetStyleOk() ([]interface{}, bool) {
+	if o == nil || IsNil(o.Style) {
+		return nil, false
+	}
+	return o.Style, true
+}
+
+// HasStyle returns a boolean if a field has been set.
+func (o *HeroColorsV2) HasStyle() bool {
+	if o != nil && !IsNil(o.Style) {
+		return true
+	}
+
+	return false
+}
+
+// SetStyle gets a reference to the given []interface{} and assigns it to the Style field.
+func (o *HeroColorsV2) SetStyle(v []interface{}) {
+	o.Style = v
+}
+
+// GetStyleHex returns the StyleHex field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroColorsV2) GetStyleHex() string {
+	if o == nil || IsNil(o.StyleHex.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.StyleHex.Get()
+}
+
+// GetStyleHexOk returns a tuple with the StyleHex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroColorsV2) GetStyleHexOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StyleHex.Get(), o.StyleHex.IsSet()
+}
+
+// HasStyleHex returns a boolean if a field has been set.
+func (o *HeroColorsV2) HasStyleHex() bool {
+	if o != nil && o.StyleHex.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStyleHex gets a reference to the given NullableString and assigns it to the StyleHex field.
+func (o *HeroColorsV2) SetStyleHex(v string) {
+	o.StyleHex.Set(&v)
+}
+// SetStyleHexNil sets the value for StyleHex to be an explicit nil
+func (o *HeroColorsV2) SetStyleHexNil() {
+	o.StyleHex.Set(nil)
+}
+
+// UnsetStyleHex ensures that no value is present for StyleHex, not even an explicit nil
+func (o *HeroColorsV2) UnsetStyleHex() {
+	o.StyleHex.Unset()
+}
+
 func (o HeroColorsV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -79,6 +156,12 @@ func (o HeroColorsV2) MarshalJSON() ([]byte, error) {
 func (o HeroColorsV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["ui"] = o.Ui
+	if o.Style != nil {
+		toSerialize["style"] = o.Style
+	}
+	if o.StyleHex.IsSet() {
+		toSerialize["style_hex"] = o.StyleHex.Get()
+	}
 	return toSerialize, nil
 }
 

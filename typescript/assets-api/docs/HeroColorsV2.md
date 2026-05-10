@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ui** | **Array&lt;any&gt;** |  | [default to undefined]
+**style** | **Array&lt;any&gt;** |  | [optional] [default to undefined]
+**style_hex** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -14,6 +16,8 @@ import { HeroColorsV2 } from 'assets_deadlock_api_client';
 
 const instance: HeroColorsV2 = {
     ui,
+    style,
+    style_hex,
 };
 ```
 

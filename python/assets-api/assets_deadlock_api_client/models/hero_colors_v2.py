@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,9 @@ class HeroColorsV2(BaseModel):
     HeroColorsV2
     """ # noqa: E501
     ui: Annotated[List[Any], Field(min_length=3, max_length=3)]
-    __properties: ClassVar[List[str]] = ["ui"]
+    style: Optional[Annotated[List[Any], Field(min_length=3, max_length=3)]] = None
+    style_hex: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["ui", "style", "style_hex"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -70,6 +72,16 @@ class HeroColorsV2(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if style (nullable) is None
+        # and model_fields_set contains the field
+        if self.style is None and "style" in self.model_fields_set:
+            _dict['style'] = None
+
+        # set to None if style_hex (nullable) is None
+        # and model_fields_set contains the field
+        if self.style_hex is None and "style_hex" in self.model_fields_set:
+            _dict['style_hex'] = None
+
         return _dict
 
     @classmethod
@@ -82,7 +94,9 @@ class HeroColorsV2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ui": obj.get("ui")
+            "ui": obj.get("ui"),
+            "style": obj.get("style"),
+            "style_hex": obj.get("style_hex")
         })
         return _obj
 

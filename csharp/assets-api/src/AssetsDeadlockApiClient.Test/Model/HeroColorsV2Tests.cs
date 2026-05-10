@@ -61,5 +61,23 @@ namespace AssetsDeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Ui'
         }
+
+        /// <summary>
+        /// Test the property 'Style'
+        /// </summary>
+        [Fact]
+        public void StyleTest()
+        {
+            // TODO unit test for the property 'Style'
+        }
+
+        /// <summary>
+        /// Test the property 'StyleHex'
+        /// </summary>
+        [Fact]
+        public void StyleHexTest()
+        {
+            // TODO unit test for the property 'StyleHex'
+        }
     }
 }

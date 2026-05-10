@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ui** | **List[object]** |  | 
+**style** | **List[object]** |  | [optional] 
+**style_hex** | **str** |  | [optional] 
 
 ## Example
 

@@ -32,13 +32,21 @@ import java.io.Serializable
  * 
  *
  * @param ui 
+ * @param style 
+ * @param styleHex 
  */
 
 
 data class HeroColorsV2 (
 
     @Json(name = "ui")
-    val ui: kotlin.collections.List<kotlin.Any>
+    val ui: kotlin.collections.List<kotlin.Any>,
+
+    @Json(name = "style")
+    val style: kotlin.collections.List<kotlin.Any>? = null,
+
+    @Json(name = "style_hex")
+    val styleHex: kotlin.String? = null
 
 ) : Serializable {
     companion object {

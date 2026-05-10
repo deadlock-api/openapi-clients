@@ -87,4 +87,22 @@ class HeroColorsV2Test extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "style"
+     */
+    public function testPropertyStyle()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "style_hex"
+     */
+    public function testPropertyStyleHex()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

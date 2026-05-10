@@ -5,6 +5,8 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **ui** | [**kotlin.collections.List&lt;kotlin.Any&gt;**](kotlin.Any.md) |  |  |
+| **style** | [**kotlin.collections.List&lt;kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional] |
+| **styleHex** | **kotlin.String** |  |  [optional] |
 
 
 

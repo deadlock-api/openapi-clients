@@ -39,5 +39,17 @@ class HeroColorsV2Test : ShouldSpec() {
             //modelInstance.ui shouldBe ("TODO")
         }
 
+        // to test the property `style`
+        should("test style") {
+            // uncomment below to test the property
+            //modelInstance.style shouldBe ("TODO")
+        }
+
+        // to test the property `styleHex`
+        should("test styleHex") {
+            // uncomment below to test the property
+            //modelInstance.styleHex shouldBe ("TODO")
+        }
+
     }
 }

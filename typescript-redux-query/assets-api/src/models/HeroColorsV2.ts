@@ -24,11 +24,25 @@ export interface HeroColorsV2  {
      * @memberof HeroColorsV2
      */
     ui: Array<any>;
+    /**
+     * 
+     * @type {Array<any>}
+     * @memberof HeroColorsV2
+     */
+    style?: Array<any>;
+    /**
+     * 
+     * @type {string}
+     * @memberof HeroColorsV2
+     */
+    styleHex?: string;
 }
 
 export function HeroColorsV2FromJSON(json: any): HeroColorsV2 {
     return {
         'ui': json['ui'],
+        'style': !exists(json, 'style') ? undefined : json['style'],
+        'styleHex': !exists(json, 'style_hex') ? undefined : json['style_hex'],
     };
 }
 
@@ -38,6 +52,8 @@ export function HeroColorsV2ToJSON(value?: HeroColorsV2): any {
     }
     return {
         'ui': value.ui,
+        'style': value.style,
+        'style_hex': value.styleHex,
     };
 }
 

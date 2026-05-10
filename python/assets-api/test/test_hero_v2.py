@@ -124,7 +124,11 @@ class TestHeroV2(unittest.TestCase):
                 colors = assets_deadlock_api_client.models.hero_colors_v2.HeroColorsV2(
                     ui = [
                         null
-                        ], ),
+                        ], 
+                    style = [
+                        null
+                        ], 
+                    style_hex = '', ),
                 shop_stat_display = assets_deadlock_api_client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
                     spirit_stats_display = assets_deadlock_api_client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
                         display_stats = [
@@ -290,7 +294,11 @@ class TestHeroV2(unittest.TestCase):
                 colors = assets_deadlock_api_client.models.hero_colors_v2.HeroColorsV2(
                     ui = [
                         null
-                        ], ),
+                        ], 
+                    style = [
+                        null
+                        ], 
+                    style_hex = '', ),
                 shop_stat_display = assets_deadlock_api_client.models.hero_shop_stat_display_v2.HeroShopStatDisplayV2(
                     spirit_stats_display = assets_deadlock_api_client.models.raw_hero_shop_spirit_stats_display_v2.RawHeroShopSpiritStatsDisplayV2(
                         display_stats = [

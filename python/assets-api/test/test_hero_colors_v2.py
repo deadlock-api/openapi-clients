@@ -37,7 +37,11 @@ class TestHeroColorsV2(unittest.TestCase):
             return HeroColorsV2(
                 ui = [
                     null
-                    ]
+                    ],
+                style = [
+                    null
+                    ],
+                style_hex = ''
             )
         else:
             return HeroColorsV2(

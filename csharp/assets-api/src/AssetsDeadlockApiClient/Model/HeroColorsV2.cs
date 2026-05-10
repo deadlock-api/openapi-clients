@@ -34,10 +34,14 @@ namespace AssetsDeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="HeroColorsV2" /> class.
         /// </summary>
         /// <param name="ui">ui</param>
+        /// <param name="style">style</param>
+        /// <param name="styleHex">styleHex</param>
         [JsonConstructor]
-        public HeroColorsV2(List<Object> ui)
+        public HeroColorsV2(List<Object> ui, Option<List<Object>?> style = default, Option<string?> styleHex = default)
         {
             Ui = ui;
+            StyleOption = style;
+            StyleHexOption = styleHex;
             OnCreated();
         }
 
@@ -50,6 +54,32 @@ namespace AssetsDeadlockApiClient.Model
         public List<Object> Ui { get; set; }
 
         /// <summary>
+        /// Used to track the state of Style
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<Object>?> StyleOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Style
+        /// </summary>
+        [JsonPropertyName("style")]
+        public List<Object>? Style { get { return this.StyleOption.Value; } set { this.StyleOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of StyleHex
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> StyleHexOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets StyleHex
+        /// </summary>
+        [JsonPropertyName("style_hex")]
+        public string? StyleHex { get { return this.StyleHexOption.Value; } set { this.StyleHexOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -58,6 +88,8 @@ namespace AssetsDeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class HeroColorsV2 {\n");
             sb.Append("  Ui: ").Append(Ui).Append("\n");
+            sb.Append("  Style: ").Append(Style).Append("\n");
+            sb.Append("  StyleHex: ").Append(StyleHex).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,6 +128,8 @@ namespace AssetsDeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<List<Object>?> ui = default;
+            Option<List<Object>?> style = default;
+            Option<string?> styleHex = default;
 
             while (utf8JsonReader.Read())
             {
@@ -115,6 +149,12 @@ namespace AssetsDeadlockApiClient.Model
                         case "ui":
                             ui = new Option<List<Object>?>(JsonSerializer.Deserialize<List<Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
+                        case "style":
+                            style = new Option<List<Object>?>(JsonSerializer.Deserialize<List<Object>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "style_hex":
+                            styleHex = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         default:
                             break;
                     }
@@ -127,7 +167,7 @@ namespace AssetsDeadlockApiClient.Model
             if (ui.IsSet && ui.Value == null)
                 throw new ArgumentNullException(nameof(ui), "Property is not nullable for class HeroColorsV2.");
 
-            return new HeroColorsV2(ui.Value!);
+            return new HeroColorsV2(ui.Value!, style, styleHex);
         }
 
         /// <summary>
@@ -159,6 +199,19 @@ namespace AssetsDeadlockApiClient.Model
 
             writer.WritePropertyName("ui");
             JsonSerializer.Serialize(writer, heroColorsV2.Ui, jsonSerializerOptions);
+            if (heroColorsV2.StyleOption.IsSet)
+                if (heroColorsV2.StyleOption.Value != null)
+                {
+                    writer.WritePropertyName("style");
+                    JsonSerializer.Serialize(writer, heroColorsV2.Style, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("style");
+            if (heroColorsV2.StyleHexOption.IsSet)
+                if (heroColorsV2.StyleHexOption.Value != null)
+                    writer.WriteString("style_hex", heroColorsV2.StyleHex);
+                else
+                    writer.WriteNull("style_hex");
         }
     }
 }
