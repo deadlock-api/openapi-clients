@@ -130,6 +130,7 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<BuildsApiEvents>();
             _services.AddSingleton<CommandsApiEvents>();
             _services.AddSingleton<CustomMatchesApiEvents>();
+            _services.AddSingleton<GraphQLApiEvents>();
             _services.AddSingleton<InfoApiEvents>();
             _services.AddSingleton<InternalApiEvents>();
             _services.AddSingleton<LeaderboardApiEvents>();
@@ -161,6 +162,7 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IBuildsApi, BuildsApi>("DeadlockApiClient.Api.IBuildsApi", client));
             builders.Add(_services.AddHttpClient<ICommandsApi, CommandsApi>("DeadlockApiClient.Api.ICommandsApi", client));
             builders.Add(_services.AddHttpClient<ICustomMatchesApi, CustomMatchesApi>("DeadlockApiClient.Api.ICustomMatchesApi", client));
+            builders.Add(_services.AddHttpClient<IGraphQLApi, GraphQLApi>("DeadlockApiClient.Api.IGraphQLApi", client));
             builders.Add(_services.AddHttpClient<IInfoApi, InfoApi>("DeadlockApiClient.Api.IInfoApi", client));
             builders.Add(_services.AddHttpClient<IInternalApi, InternalApi>("DeadlockApiClient.Api.IInternalApi", client));
             builders.Add(_services.AddHttpClient<ILeaderboardApi, LeaderboardApi>("DeadlockApiClient.Api.ILeaderboardApi", client));

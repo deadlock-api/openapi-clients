@@ -88,6 +88,12 @@ tags:
     Game server status and listing endpoints.
     Used by game servers to report their status and by clients to discover available servers.
   name: Servers
+- description: |2
+
+    GraphQL API for flexible match and player queries.
+
+    Visit [/v1/graphql](/v1/graphql) in a browser for the interactive GraphiQL playground.
+  name: GraphQL
 paths:
   /v1/analytics/ability-order-stats:
     get:
@@ -4339,6 +4345,23 @@ paths:
       summary: Widget Versions
       tags:
       - Commands
+  /v1/graphql:
+    get:
+      description: "\nInteractive GraphiQL playground for exploring the GraphQL API.\n\
+        \nOpen this endpoint in a browser to access the playground. Send GraphQL queries\
+        \ via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\"\
+        , \"variables\": {...} }`.\n\n### Rate Limits (POST):\n| Type | Limit |\n\
+        | ---- | ----- |\n| IP | 10req/min |\n| Key | 10req/10s |\n| Global | 100req/min\
+        \ |\n    "
+      operationId: playground
+      responses:
+        "200":
+          content:
+            text/html: {}
+          description: GraphiQL playground UI
+      summary: GraphQL Playground
+      tags:
+      - GraphQL
   /v1/info:
     get:
       description: "\nReturns information about the API.\n\n### Rate Limits:\n| Type\

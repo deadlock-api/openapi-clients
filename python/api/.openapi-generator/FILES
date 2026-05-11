@@ -10,6 +10,7 @@ deadlock_api_client/api/analytics_api.py
 deadlock_api_client/api/builds_api.py
 deadlock_api_client/api/commands_api.py
 deadlock_api_client/api/custom_matches_api.py
+deadlock_api_client/api/graph_ql_api.py
 deadlock_api_client/api/info_api.py
 deadlock_api_client/api/internal_api.py
 deadlock_api_client/api/leaderboard_api.py
@@ -131,6 +132,7 @@ docs/EnemyStats.md
 docs/GameMode.md
 docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
+docs/GraphQLApi.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
 docs/HeroBuildStats.md
@@ -225,6 +227,7 @@ test/test_enemy_stats.py
 test/test_game_mode.py
 test/test_game_server_info.py
 test/test_get_custom_match_id_response.py
+test/test_graph_ql_api.py
 test/test_hash_map_value.py
 test/test_hero_ban_stats.py
 test/test_hero_build_stats.py

@@ -32,6 +32,7 @@ docs/EnemyStats.md
 docs/GameMode.md
 docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
+docs/GraphQLApi.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
 docs/HeroBuildStats.md
@@ -93,6 +94,7 @@ src/main/kotlin/deadlock_api_client/apis/AnalyticsApi.kt
 src/main/kotlin/deadlock_api_client/apis/BuildsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CommandsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CustomMatchesApi.kt
+src/main/kotlin/deadlock_api_client/apis/GraphQLApi.kt
 src/main/kotlin/deadlock_api_client/apis/InfoApi.kt
 src/main/kotlin/deadlock_api_client/apis/InternalApi.kt
 src/main/kotlin/deadlock_api_client/apis/LeaderboardApi.kt
@@ -197,6 +199,7 @@ src/test/kotlin/deadlock_api_client/apis/AnalyticsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/BuildsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CommandsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CustomMatchesApiTest.kt
+src/test/kotlin/deadlock_api_client/apis/GraphQLApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/InfoApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/InternalApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/LeaderboardApiTest.kt

@@ -42,6 +42,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**readyUp**](Apis/CustomMatchesApi.http#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](Apis/CustomMatchesApi.http#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](Apis/CustomMatchesApi.http#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*GraphQLApi* | [**playground**](Apis/GraphQLApi.http#playground) | **GET** /v1/graphql | GraphQL Playground
 *InfoApi* | [**healthCheck**](Apis/InfoApi.http#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](Apis/InfoApi.http#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingestSalts**](Apis/InternalApi.http#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest

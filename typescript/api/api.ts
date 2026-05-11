@@ -6895,6 +6895,100 @@ export class CustomMatchesApi extends BaseAPI {
 
 
 /**
+ * GraphQLApi - axios parameter creator
+ */
+export const GraphQLApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         * @summary GraphQL Playground
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        playground: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/graphql`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'text/html';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GraphQLApi - functional programming interface
+ */
+export const GraphQLApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = GraphQLApiAxiosParamCreator(configuration)
+    return {
+        /**
+         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         * @summary GraphQL Playground
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async playground(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.playground(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['GraphQLApi.playground']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * GraphQLApi - factory interface
+ */
+export const GraphQLApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = GraphQLApiFp(configuration)
+    return {
+        /**
+         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         * @summary GraphQL Playground
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        playground(options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.playground(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * GraphQLApi - object-oriented interface
+ */
+export class GraphQLApi extends BaseAPI {
+    /**
+     *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+     * @summary GraphQL Playground
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public playground(options?: RawAxiosRequestConfig) {
+        return GraphQLApiFp(this.configuration).playground(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
  * InfoApi - axios parameter creator
  */
 export const InfoApiAxiosParamCreator = function (configuration?: Configuration) {

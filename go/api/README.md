@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesAPI* | [**ReadyUp**](docs/CustomMatchesAPI.md#readyup) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesAPI* | [**Start**](docs/CustomMatchesAPI.md#start) | **Post** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesAPI* | [**Unready**](docs/CustomMatchesAPI.md#unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
+*GraphQLAPI* | [**Playground**](docs/GraphQLAPI.md#playground) | **Get** /v1/graphql | GraphQL Playground
 *InfoAPI* | [**HealthCheck**](docs/InfoAPI.md#healthcheck) | **Get** /v1/info/health | Health Check
 *InfoAPI* | [**Info**](docs/InfoAPI.md#info) | **Get** /v1/info | API Info
 *InternalAPI* | [**IngestSalts**](docs/InternalAPI.md#ingestsalts) | **Post** /v1/matches/salts | Match Salts Ingest

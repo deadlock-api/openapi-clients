@@ -34,6 +34,7 @@ docs/EnemyStats.md
 docs/GameMode.md
 docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
+docs/GraphQlApi.md
 docs/HashMapValue.md
 docs/HeroBanStats.md
 docs/HeroBuildStats.md
@@ -96,6 +97,7 @@ src/apis/builds_api.rs
 src/apis/commands_api.rs
 src/apis/configuration.rs
 src/apis/custom_matches_api.rs
+src/apis/graph_ql_api.rs
 src/apis/info_api.rs
 src/apis/internal_api.rs
 src/apis/leaderboard_api.rs

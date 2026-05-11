@@ -22,6 +22,7 @@ __all__ = [
     "BuildsApi",
     "CommandsApi",
     "CustomMatchesApi",
+    "GraphQLApi",
     "InfoApi",
     "InternalApi",
     "LeaderboardApi",
@@ -121,6 +122,7 @@ from deadlock_api_client.api.analytics_api import AnalyticsApi as AnalyticsApi
 from deadlock_api_client.api.builds_api import BuildsApi as BuildsApi
 from deadlock_api_client.api.commands_api import CommandsApi as CommandsApi
 from deadlock_api_client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
+from deadlock_api_client.api.graph_ql_api import GraphQLApi as GraphQLApi
 from deadlock_api_client.api.info_api import InfoApi as InfoApi
 from deadlock_api_client.api.internal_api import InternalApi as InternalApi
 from deadlock_api_client.api.leaderboard_api import LeaderboardApi as LeaderboardApi

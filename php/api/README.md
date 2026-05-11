@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**readyUp**](docs/Api/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](docs/Api/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](docs/Api/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*GraphQLApi* | [**playground**](docs/Api/GraphQLApi.md#playground) | **GET** /v1/graphql | GraphQL Playground
 *InfoApi* | [**healthCheck**](docs/Api/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/Api/InfoApi.md#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingestSalts**](docs/Api/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest

@@ -7,6 +7,7 @@ src/apis/AnalyticsApi.ts
 src/apis/BuildsApi.ts
 src/apis/CommandsApi.ts
 src/apis/CustomMatchesApi.ts
+src/apis/GraphQLApi.ts
 src/apis/InfoApi.ts
 src/apis/InternalApi.ts
 src/apis/LeaderboardApi.ts

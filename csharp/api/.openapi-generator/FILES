@@ -8,6 +8,7 @@ docs/apis/AnalyticsApi.md
 docs/apis/BuildsApi.md
 docs/apis/CommandsApi.md
 docs/apis/CustomMatchesApi.md
+docs/apis/GraphQLApi.md
 docs/apis/InfoApi.md
 docs/apis/InternalApi.md
 docs/apis/LeaderboardApi.md
@@ -99,6 +100,7 @@ src/DeadlockApiClient.Test/Api/BuildsApiTests.cs
 src/DeadlockApiClient.Test/Api/CommandsApiTests.cs
 src/DeadlockApiClient.Test/Api/CustomMatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/DependencyInjectionTests.cs
+src/DeadlockApiClient.Test/Api/GraphQLApiTests.cs
 src/DeadlockApiClient.Test/Api/InfoApiTests.cs
 src/DeadlockApiClient.Test/Api/InternalApiTests.cs
 src/DeadlockApiClient.Test/Api/LeaderboardApiTests.cs
@@ -188,6 +190,7 @@ src/DeadlockApiClient/Api/AnalyticsApi.cs
 src/DeadlockApiClient/Api/BuildsApi.cs
 src/DeadlockApiClient/Api/CommandsApi.cs
 src/DeadlockApiClient/Api/CustomMatchesApi.cs
+src/DeadlockApiClient/Api/GraphQLApi.cs
 src/DeadlockApiClient/Api/IApi.cs
 src/DeadlockApiClient/Api/InfoApi.cs
 src/DeadlockApiClient/Api/InternalApi.cs

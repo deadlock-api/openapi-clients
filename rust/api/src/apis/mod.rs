@@ -115,6 +115,7 @@ pub mod analytics_api;
 pub mod builds_api;
 pub mod commands_api;
 pub mod custom_matches_api;
+pub mod graph_ql_api;
 pub mod info_api;
 pub mod internal_api;
 pub mod leaderboard_api;

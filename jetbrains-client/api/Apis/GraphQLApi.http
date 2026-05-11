@@ -1,0 +1,6 @@
+## GraphQLApi
+
+### GraphQL Playground
+## GraphQL Playground
+GET https://api.deadlock-api.com/v1/graphql
+Accept: text/html

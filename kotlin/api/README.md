@@ -91,6 +91,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
 | *CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match |
 | *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready |
+| *GraphQLApi* | [**playground**](docs/GraphQLApi.md#playground) | **GET** /v1/graphql | GraphQL Playground |
 | *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check |
 | *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info |
 | *InternalApi* | [**ingestSalts**](docs/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
