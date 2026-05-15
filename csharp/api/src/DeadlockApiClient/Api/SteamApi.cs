@@ -41,24 +41,26 @@ namespace DeadlockApiClient.Api
         /// Batch Steam Profile
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="refresh">Refresh the listed profiles from the Steam Web API before returning. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamApiResponse"/>&gt;</returns>
-        Task<ISteamApiResponse> SteamAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISteamApiResponse> SteamAsync(List<long> accountIds, Option<bool> refresh = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Steam Profile
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="refresh">Refresh the listed profiles from the Steam Web API before returning. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamApiResponse"/>?&gt;</returns>
-        Task<ISteamApiResponse?> SteamOrDefaultAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISteamApiResponse?> SteamOrDefaultAsync(List<long> accountIds, Option<bool> refresh = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Steam Profile Search
@@ -108,10 +110,22 @@ namespace DeadlockApiClient.Api
         bool IsNotFound { get; }
 
         /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
         /// Returns true if the response is 500 InternalServerError
         /// </summary>
         /// <returns></returns>
         bool IsInternalServerError { get; }
+
+        /// <summary>
+        /// Returns true if the response is 502 BadGateway
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadGateway { get; }
     }
 
     /// <summary>
@@ -237,7 +251,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatSteam(List<long> accountIds);
+        partial void FormatSteam(List<long> accountIds, ref Option<bool> refresh);
 
         /// <summary>
         /// Validates the request parameters
@@ -255,10 +269,11 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
-        private void AfterSteamDefaultImplementation(ISteamApiResponse apiResponseLocalVar, List<long> accountIds)
+        /// <param name="refresh"></param>
+        private void AfterSteamDefaultImplementation(ISteamApiResponse apiResponseLocalVar, List<long> accountIds, Option<bool> refresh)
         {
             bool suppressDefaultLog = false;
-            AfterSteam(ref suppressDefaultLog, apiResponseLocalVar, accountIds);
+            AfterSteam(ref suppressDefaultLog, apiResponseLocalVar, accountIds, refresh);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -269,7 +284,8 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
-        partial void AfterSteam(ref bool suppressDefaultLog, ISteamApiResponse apiResponseLocalVar, List<long> accountIds);
+        /// <param name="refresh"></param>
+        partial void AfterSteam(ref bool suppressDefaultLog, ISteamApiResponse apiResponseLocalVar, List<long> accountIds, Option<bool> refresh);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -278,10 +294,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
-        private void OnErrorSteamDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds)
+        /// <param name="refresh"></param>
+        private void OnErrorSteamDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds, Option<bool> refresh)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSteam(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds);
+            OnErrorSteam(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds, refresh);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -294,19 +311,21 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
-        partial void OnErrorSteam(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds);
+        /// <param name="refresh"></param>
+        partial void OnErrorSteam(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds, Option<bool> refresh);
 
         /// <summary>
-        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="refresh">Refresh the listed profiles from the Steam Web API before returning. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamApiResponse"/>&gt;</returns>
-        public async Task<ISteamApiResponse?> SteamOrDefaultAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISteamApiResponse?> SteamOrDefaultAsync(List<long> accountIds, Option<bool> refresh = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SteamAsync(accountIds, cancellationToken).ConfigureAwait(false);
+                return await SteamAsync(accountIds, refresh, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -315,13 +334,14 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="refresh">Refresh the listed profiles from the Steam Web API before returning. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamApiResponse"/>&gt;</returns>
-        public async Task<ISteamApiResponse> SteamAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISteamApiResponse> SteamAsync(List<long> accountIds, Option<bool> refresh = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -329,7 +349,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateSteam(accountIds);
 
-                FormatSteam(accountIds);
+                FormatSteam(accountIds, ref refresh);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -343,6 +363,9 @@ namespace DeadlockApiClient.Api
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
                     parseQueryStringLocalVar["account_ids"] = ClientUtils.ParameterToString(accountIds);
+
+                    if (refresh.IsSet)
+                        parseQueryStringLocalVar["refresh"] = ClientUtils.ParameterToString(refresh.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -375,7 +398,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterSteamDefaultImplementation(apiResponseLocalVar, accountIds);
+                        AfterSteamDefaultImplementation(apiResponseLocalVar, accountIds, refresh);
 
                         Events.ExecuteOnSteam(apiResponseLocalVar);
 
@@ -385,7 +408,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorSteamDefaultImplementation(e, "/v1/players/steam", uriBuilderLocalVar.Path, accountIds);
+                OnErrorSteamDefaultImplementation(e, "/v1/players/steam", uriBuilderLocalVar.Path, accountIds, refresh);
                 Events.ExecuteOnErrorSteam(e);
                 throw;
             }
@@ -486,10 +509,22 @@ namespace DeadlockApiClient.Api
             public bool IsNotFound => 404 == (int)StatusCode;
 
             /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
             /// Returns true if the response is 500 InternalServerError
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 502 BadGateway
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadGateway => 502 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {

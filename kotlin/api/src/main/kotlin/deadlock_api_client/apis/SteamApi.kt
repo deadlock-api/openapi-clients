@@ -56,8 +56,9 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * GET /v1/players/steam
      * Batch Steam Profile
-     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @return kotlin.collections.List<SteamProfile>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -67,8 +68,8 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun steam(accountIds: kotlin.collections.List<kotlin.Long>) : kotlin.collections.List<SteamProfile> {
-        val localVarResponse = steamWithHttpInfo(accountIds = accountIds)
+    fun steam(accountIds: kotlin.collections.List<kotlin.Long>, refresh: kotlin.Boolean? = null) : kotlin.collections.List<SteamProfile> {
+        val localVarResponse = steamWithHttpInfo(accountIds = accountIds, refresh = refresh)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SteamProfile>
@@ -88,16 +89,17 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * GET /v1/players/steam
      * Batch Steam Profile
-     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @return ApiResponse<kotlin.collections.List<SteamProfile>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun steamWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Long>) : ApiResponse<kotlin.collections.List<SteamProfile>?> {
-        val localVariableConfig = steamRequestConfig(accountIds = accountIds)
+    fun steamWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Long>, refresh: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<SteamProfile>?> {
+        val localVariableConfig = steamRequestConfig(accountIds = accountIds, refresh = refresh)
 
         return request<Unit, kotlin.collections.List<SteamProfile>>(
             localVariableConfig
@@ -108,13 +110,17 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * To obtain the request config of the operation steam
      *
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @return RequestConfig
      */
-    fun steamRequestConfig(accountIds: kotlin.collections.List<kotlin.Long>) : RequestConfig<Unit> {
+    fun steamRequestConfig(accountIds: kotlin.collections.List<kotlin.Long>, refresh: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (refresh != null) {
+                    put("refresh", listOf(refresh.toString()))
+                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"

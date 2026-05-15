@@ -38,7 +38,8 @@ class SteamApiTest : ShouldSpec() {
         should("test steam") {
             // uncomment below to test steam
             //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
-            //val result : kotlin.collections.List<SteamProfile> = apiInstance.steam(accountIds)
+            //val refresh : kotlin.Boolean = true // kotlin.Boolean | Refresh the listed profiles from the Steam Web API before returning.
+            //val result : kotlin.collections.List<SteamProfile> = apiInstance.steam(accountIds, refresh)
             //result shouldBe ("TODO")
         }
 

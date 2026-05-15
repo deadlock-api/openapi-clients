@@ -11164,13 +11164,14 @@ export class ServersApi extends BaseAPI {
 export const SteamApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
          * @summary Batch Steam Profile
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {boolean} [refresh] Refresh the listed profiles from the Steam Web API before returning.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        steam: async (accountIds: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        steam: async (accountIds: Array<number>, refresh?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountIds' is not null or undefined
             assertParamExists('steam', 'accountIds', accountIds)
             const localVarPath = `/v1/players/steam`;
@@ -11187,6 +11188,10 @@ export const SteamApiAxiosParamCreator = function (configuration?: Configuration
 
             if (accountIds) {
                 localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            if (refresh !== undefined) {
+                localVarQueryParameter['refresh'] = refresh;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -11247,14 +11252,15 @@ export const SteamApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SteamApiAxiosParamCreator(configuration)
     return {
         /**
-         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
          * @summary Batch Steam Profile
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {boolean} [refresh] Refresh the listed profiles from the Steam Web API before returning.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async steam(accountIds: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.steam(accountIds, options);
+        async steam(accountIds: Array<number>, refresh?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.steam(accountIds, refresh, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SteamApi.steam']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -11282,14 +11288,14 @@ export const SteamApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = SteamApiFp(configuration)
     return {
         /**
-         *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
          * @summary Batch Steam Profile
          * @param {SteamApiSteamRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         steam(requestParameters: SteamApiSteamRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
-            return localVarFp.steam(requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.steam(requestParameters.accountIds, requestParameters.refresh, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -11312,6 +11318,11 @@ export interface SteamApiSteamRequest {
      * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      */
     readonly accountIds: Array<number>
+
+    /**
+     * Refresh the listed profiles from the Steam Web API before returning.
+     */
+    readonly refresh?: boolean
 }
 
 /**
@@ -11329,14 +11340,14 @@ export interface SteamApiSteamSearchRequest {
  */
 export class SteamApi extends BaseAPI {
     /**
-     *  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
      * @summary Batch Steam Profile
      * @param {SteamApiSteamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public steam(requestParameters: SteamApiSteamRequest, options?: RawAxiosRequestConfig) {
-        return SteamApiFp(this.configuration).steam(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return SteamApiFp(this.configuration).steam(requestParameters.accountIds, requestParameters.refresh, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

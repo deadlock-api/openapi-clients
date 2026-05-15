@@ -18,7 +18,9 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct SteamParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
-    pub account_ids: Vec<u64>
+    pub account_ids: Vec<u64>,
+    /// Refresh the listed profiles from the Steam Web API before returning.
+    pub refresh: Option<bool>
 }
 
 /// struct for passing parameters to the method [`steam_search`]
@@ -35,7 +37,9 @@ pub struct SteamSearchParams {
 pub enum SteamError {
     Status400(),
     Status404(),
+    Status429(),
     Status500(),
+    Status502(),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,7 +54,7 @@ pub enum SteamSearchError {
 }
 
 
-///  This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
 pub async fn steam(configuration: &configuration::Configuration, params: SteamParams) -> Result<Vec<models::SteamProfile>, Error<SteamError>> {
 
     let uri_str = format!("{}/v1/players/steam", configuration.base_path);
@@ -60,6 +64,9 @@ pub async fn steam(configuration: &configuration::Configuration, params: SteamPa
         "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
+    if let Some(ref param_value) = params.refresh {
+        req_builder = req_builder.query(&[("refresh", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

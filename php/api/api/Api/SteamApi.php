@@ -134,15 +134,16 @@ class SteamApi
      * Batch Steam Profile
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SteamProfile[]
      */
-    public function steam($account_ids, string $contentType = self::contentTypes['steam'][0])
+    public function steam($account_ids, $refresh = null, string $contentType = self::contentTypes['steam'][0])
     {
-        list($response) = $this->steamWithHttpInfo($account_ids, $contentType);
+        list($response) = $this->steamWithHttpInfo($account_ids, $refresh, $contentType);
         return $response;
     }
 
@@ -152,15 +153,16 @@ class SteamApi
      * Batch Steam Profile
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SteamProfile[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function steamWithHttpInfo($account_ids, string $contentType = self::contentTypes['steam'][0])
+    public function steamWithHttpInfo($account_ids, $refresh = null, string $contentType = self::contentTypes['steam'][0])
     {
-        $request = $this->steamRequest($account_ids, $contentType);
+        $request = $this->steamRequest($account_ids, $refresh, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -237,14 +239,15 @@ class SteamApi
      * Batch Steam Profile
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function steamAsync($account_ids, string $contentType = self::contentTypes['steam'][0])
+    public function steamAsync($account_ids, $refresh = null, string $contentType = self::contentTypes['steam'][0])
     {
-        return $this->steamAsyncWithHttpInfo($account_ids, $contentType)
+        return $this->steamAsyncWithHttpInfo($account_ids, $refresh, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -258,15 +261,16 @@ class SteamApi
      * Batch Steam Profile
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function steamAsyncWithHttpInfo($account_ids, string $contentType = self::contentTypes['steam'][0])
+    public function steamAsyncWithHttpInfo($account_ids, $refresh = null, string $contentType = self::contentTypes['steam'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SteamProfile[]';
-        $request = $this->steamRequest($account_ids, $contentType);
+        $request = $this->steamRequest($account_ids, $refresh, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -308,12 +312,13 @@ class SteamApi
      * Create request for operation 'steam'
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function steamRequest($account_ids, string $contentType = self::contentTypes['steam'][0])
+    public function steamRequest($account_ids, $refresh = null, string $contentType = self::contentTypes['steam'][0])
     {
 
         // verify the required parameter 'account_ids' is set
@@ -330,6 +335,7 @@ class SteamApi
         }
         
 
+
         $resourcePath = '/v1/players/steam';
         $formParams = [];
         $queryParams = [];
@@ -345,6 +351,15 @@ class SteamApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $refresh,
+            'refresh', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
 
 

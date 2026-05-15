@@ -57,7 +57,8 @@ namespace DeadlockApiClient.Test.Api
         public async Task SteamAsyncTest()
         {
             List<long> accountIds = default!;
-            var response = await _instance.SteamAsync(accountIds);
+            Client.Option<bool> refresh = default!;
+            var response = await _instance.SteamAsync(accountIds, refresh);
             var model = response.Ok();
             Assert.IsType<List<SteamProfile>>(model);
         }

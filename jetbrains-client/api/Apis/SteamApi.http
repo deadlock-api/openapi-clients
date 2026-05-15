@@ -2,7 +2,7 @@
 
 ### Batch Steam Profile
 ## Batch Steam Profile
-GET https://api.deadlock-api.com/v1/players/steam?accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/players/steam?accountIds={{accountIds}}&refresh={{refresh}}
 Accept: application/json
 
 ### Steam Profile Search

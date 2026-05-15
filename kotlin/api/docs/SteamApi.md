@@ -10,11 +10,11 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="steam"></a>
 # **steam**
-> kotlin.collections.List&lt;SteamProfile&gt; steam(accountIds)
+> kotlin.collections.List&lt;SteamProfile&gt; steam(accountIds, refresh)
 
 Batch Steam Profile
 
- This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
 
 ### Example
 ```kotlin
@@ -24,8 +24,9 @@ Batch Steam Profile
 
 val apiInstance = SteamApi()
 val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+val refresh : kotlin.Boolean = true // kotlin.Boolean | Refresh the listed profiles from the Steam Web API before returning.
 try {
-    val result : kotlin.collections.List<SteamProfile> = apiInstance.steam(accountIds)
+    val result : kotlin.collections.List<SteamProfile> = apiInstance.steam(accountIds, refresh)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SteamApi#steam")
@@ -37,9 +38,10 @@ try {
 ```
 
 ### Parameters
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+| **refresh** | **kotlin.Boolean**| Refresh the listed profiles from the Steam Web API before returning. | [optional] |
 
 ### Return type
 

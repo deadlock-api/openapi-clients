@@ -27,11 +27,18 @@ type ApiSteamRequest struct {
 	ctx context.Context
 	ApiService *SteamAPIService
 	accountIds *[]int64
+	refresh *bool
 }
 
 // Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
 func (r ApiSteamRequest) AccountIds(accountIds []int64) ApiSteamRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Refresh the listed profiles from the Steam Web API before returning.
+func (r ApiSteamRequest) Refresh(refresh bool) ApiSteamRequest {
+	r.refresh = &refresh
 	return r
 }
 
@@ -45,14 +52,21 @@ Steam Batch Steam Profile
 
 This endpoint returns Steam profiles of players.
 
+Pass `refresh=true` to force a live refresh of the listed accounts from the
+Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The
+refreshed rows are persisted to the `steam_profiles` table and returned in the
+response with `last_updated` set to the current time. Refresh requests are
+rate limited and capped at 100 account ids per call to stay inside the
+shared Steam Web API key budget.
+
 See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)
 
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
+| IP | 100req/s (read path), 3req/min + 15req/h (refresh) |
+| Key | - (read path), 10req/min + 60req/h (refresh) |
+| Global | - (read path), 30req/min + 200req/h (refresh) |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -105,6 +119,9 @@ func (a *SteamAPIService) SteamExecute(r ApiSteamRequest) ([]SteamProfile, *http
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.refresh != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "refresh", r.refresh, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

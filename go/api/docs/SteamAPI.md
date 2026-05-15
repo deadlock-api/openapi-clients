@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## Steam
 
-> []SteamProfile Steam(ctx).AccountIds(accountIds).Execute()
+> []SteamProfile Steam(ctx).AccountIds(accountIds).Refresh(refresh).Execute()
 
 Batch Steam Profile
 
@@ -31,10 +31,11 @@ import (
 
 func main() {
 	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+	refresh := true // bool | Refresh the listed profiles from the Steam Web API before returning. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SteamAPI.Steam(context.Background()).AccountIds(accountIds).Execute()
+	resp, r, err := apiClient.SteamAPI.Steam(context.Background()).AccountIds(accountIds).Refresh(refresh).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SteamAPI.Steam``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,6 +57,7 @@ Other parameters are passed through a pointer to a apiSteamRequest struct via th
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountIds** | **[]int64** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+ **refresh** | **bool** | Refresh the listed profiles from the Steam Web API before returning. | 
 
 ### Return type
 

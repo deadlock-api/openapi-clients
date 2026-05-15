@@ -135,7 +135,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -384,7 +384,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -517,7 +517,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -593,7 +593,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -732,7 +732,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -865,7 +865,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -1052,7 +1052,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -1332,7 +1332,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -1588,7 +1588,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -1852,7 +1852,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -2121,7 +2121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -2408,7 +2408,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -2675,7 +2675,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -2967,7 +2967,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -3188,7 +3188,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -3487,7 +3487,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -5813,7 +5813,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -5932,7 +5932,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1775952000
+          default: 1776124800
           format: int64
           nullable: true
           type: integer
@@ -6108,9 +6108,17 @@ paths:
       - MMR
   /v1/players/steam:
     get:
-      description: "\nThis endpoint returns Steam profiles of players.\n\nSee: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
-        | Key | - |\n| Global | - |\n    "
+      description: "\nThis endpoint returns Steam profiles of players.\n\nPass `refresh=true`\
+        \ to force a live refresh of the listed accounts from the\nSteam Web API (`GetPlayerSummaries`\
+        \ + `GetFriendList`) before returning. The\nrefreshed rows are persisted to\
+        \ the `steam_profiles` table and returned in the\nresponse with `last_updated`\
+        \ set to the current time. Refresh requests are\nrate limited and capped at\
+        \ 100 account ids per call to stay inside the\nshared Steam Web API key budget.\n\
+        \nSee: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s (read\
+        \ path), 3req/min + 15req/h (refresh) |\n| Key | - (read path), 10req/min\
+        \ + 60req/h (refresh) |\n| Global | - (read path), 30req/min + 200req/h (refresh)\
+        \ |\n    "
       operationId: steam
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -6128,6 +6136,14 @@ paths:
           minItems: 1
           type: array
         style: form
+      - description: Refresh the listed profiles from the Steam Web API before returning.
+        explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -6141,8 +6157,12 @@ paths:
           description: Provided parameters are invalid.
         "404":
           description: No Steam profile found.
+        "429":
+          description: Rate limit exceeded (only enforced when refresh=true).
         "500":
           description: Failed to fetch steam profiles.
+        "502":
+          description: Steam Web API call failed (only when refresh=true).
       summary: Batch Steam Profile
       tags:
       - Steam

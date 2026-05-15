@@ -13,12 +13,12 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `steam()`
 
 ```php
-steam($account_ids): \OpenAPI\Client\Model\SteamProfile[]
+steam($account_ids, $refresh): \OpenAPI\Client\Model\SteamProfile[]
 ```
 
 Batch Steam Profile
 
-This endpoint returns Steam profiles of players.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |
 
 ### Example
 
@@ -34,9 +34,10 @@ $apiInstance = new OpenAPI\Client\Api\SteamApi(
     new GuzzleHttp\Client()
 );
 $account_ids = array(56); // int[] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+$refresh = True; // bool | Refresh the listed profiles from the Steam Web API before returning.
 
 try {
-    $result = $apiInstance->steam($account_ids);
+    $result = $apiInstance->steam($account_ids, $refresh);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SteamApi->steam: ', $e->getMessage(), PHP_EOL;
@@ -48,6 +49,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+| **refresh** | **bool**| Refresh the listed profiles from the Steam Web API before returning. | [optional] |
 
 ### Return type
 
