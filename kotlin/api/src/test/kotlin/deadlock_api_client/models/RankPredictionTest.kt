@@ -39,7 +39,7 @@ class RankPredictionTest : ShouldSpec() {
             //modelInstance.badge shouldBe ("TODO")
         }
 
-        // to test the property `rawScore` - Raw model output (float index into badge space)
+        // to test the property `rawScore` - Calibrated model output (float index into badge space)
         should("test rawScore") {
             // uncomment below to test the property
             //modelInstance.rawScore shouldBe ("TODO")

@@ -25,7 +25,7 @@ export interface RankPrediction  {
      */
     badge: number;
     /**
-     * Raw model output (float index into badge space)
+     * Calibrated model output (float index into badge space)
      * @type {number}
      * @memberof RankPrediction
      */

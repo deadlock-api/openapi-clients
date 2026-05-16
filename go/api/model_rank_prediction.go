@@ -23,7 +23,7 @@ var _ MappedNullable = &RankPrediction{}
 type RankPrediction struct {
 	// See more: <https://assets.deadlock-api.com/v2/ranks>
 	Badge int32 `json:"badge"`
-	// Raw model output (float index into badge space)
+	// Calibrated model output (float index into badge space)
 	RawScore float32 `json:"raw_score"`
 }
 

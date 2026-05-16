@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Badge** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
-**RawScore** | **float32** | Raw model output (float index into badge space) | 
+**RawScore** | **float32** | Calibrated model output (float index into badge space) | 
 **MatchesUsed** | **int32** | Number of recent matches used for the prediction | 
 
 ## Methods

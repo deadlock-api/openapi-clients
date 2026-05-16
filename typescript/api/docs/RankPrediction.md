@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **badge** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [default to undefined]
-**raw_score** | **number** | Raw model output (float index into badge space) | [default to undefined]
+**raw_score** | **number** | Calibrated model output (float index into badge space) | [default to undefined]
 
 ## Example
 

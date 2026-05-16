@@ -342,7 +342,7 @@ class RankPrediction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets raw_score
      *
-     * @param float $raw_score Raw model output (float index into badge space)
+     * @param float $raw_score Calibrated model output (float index into badge space)
      *
      * @return self
      */

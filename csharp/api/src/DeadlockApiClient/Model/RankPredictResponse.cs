@@ -34,7 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="RankPredictResponse" /> class.
         /// </summary>
         /// <param name="badge">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
-        /// <param name="rawScore">Raw model output (float index into badge space)</param>
+        /// <param name="rawScore">Calibrated model output (float index into badge space)</param>
         /// <param name="matchesUsed">Number of recent matches used for the prediction</param>
         [JsonConstructor]
         public RankPredictResponse(int badge, float rawScore, int matchesUsed)
@@ -55,9 +55,9 @@ namespace DeadlockApiClient.Model
         public int Badge { get; set; }
 
         /// <summary>
-        /// Raw model output (float index into badge space)
+        /// Calibrated model output (float index into badge space)
         /// </summary>
-        /// <value>Raw model output (float index into badge space)</value>
+        /// <value>Calibrated model output (float index into badge space)</value>
         [JsonPropertyName("raw_score")]
         public float RawScore { get; set; }
 

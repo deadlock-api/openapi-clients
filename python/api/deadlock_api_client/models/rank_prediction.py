@@ -28,7 +28,7 @@ class RankPrediction(BaseModel):
     RankPrediction
     """ # noqa: E501
     badge: StrictInt = Field(description="See more: <https://assets.deadlock-api.com/v2/ranks>")
-    raw_score: Union[StrictFloat, StrictInt] = Field(description="Raw model output (float index into badge space)")
+    raw_score: Union[StrictFloat, StrictInt] = Field(description="Calibrated model output (float index into badge space)")
     __properties: ClassVar[List[str]] = ["badge", "raw_score"]
 
     model_config = ConfigDict(

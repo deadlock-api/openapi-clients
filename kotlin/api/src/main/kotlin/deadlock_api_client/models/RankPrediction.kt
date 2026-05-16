@@ -32,7 +32,7 @@ import java.io.Serializable
  * 
  *
  * @param badge See more: <https://assets.deadlock-api.com/v2/ranks>
- * @param rawScore Raw model output (float index into badge space)
+ * @param rawScore Calibrated model output (float index into badge space)
  */
 
 
@@ -42,7 +42,7 @@ data class RankPrediction (
     @Json(name = "badge")
     val badge: kotlin.Int,
 
-    /* Raw model output (float index into badge space) */
+    /* Calibrated model output (float index into badge space) */
     @Json(name = "raw_score")
     val rawScore: kotlin.Float
 

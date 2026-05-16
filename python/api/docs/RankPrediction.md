@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **badge** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | 
-**raw_score** | **float** | Raw model output (float index into badge space) | 
+**raw_score** | **float** | Calibrated model output (float index into badge space) | 
 
 ## Example
 

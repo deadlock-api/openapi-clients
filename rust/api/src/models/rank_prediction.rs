@@ -16,7 +16,7 @@ pub struct RankPrediction {
     /// See more: <https://assets.deadlock-api.com/v2/ranks>
     #[serde(rename = "badge")]
     pub badge: i32,
-    /// Raw model output (float index into badge space)
+    /// Calibrated model output (float index into badge space)
     #[serde(rename = "raw_score")]
     pub raw_score: f32,
 }
