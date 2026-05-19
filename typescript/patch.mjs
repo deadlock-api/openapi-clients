@@ -1,6 +1,32 @@
 #!/usr/bin/env node
-import { readFileSync, rmSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+
+function resolveSpec(fromFile, spec) {
+  if (/\.(js|json)$/.test(spec)) return spec;
+  const base = resolve(dirname(fromFile), spec);
+  if (existsSync(`${base}.ts`)) return `${spec}.js`;
+  if (existsSync(base) && statSync(base).isDirectory()) return `${spec}/index.js`;
+  return spec;
+}
+
+function addJsExtensions(dir) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    const s = statSync(full);
+    if (s.isDirectory()) {
+      addJsExtensions(full);
+      continue;
+    }
+    if (!full.endsWith(".ts")) continue;
+    const src = readFileSync(full, "utf8");
+    const patched = src.replace(
+      /((?:import|export)[^'"\n]*?from\s*['"])(\.[^'"\n]*?)(['"])/g,
+      (_m, pre, spec, post) => `${pre}${resolveSpec(full, spec)}${post}`,
+    );
+    if (patched !== src) writeFileSync(full, patched);
+  }
+}
 
 const dir = process.argv[2];
 if (!dir) {
@@ -61,5 +87,7 @@ const tsconfig = {
 
 writeFileSync(tsconfigPath, `${JSON.stringify(tsconfig, null, 2)}\n`);
 rmSync(tsconfigEsmPath, { force: true });
+
+addJsExtensions(dir);
 
 console.log(`patched ${dir}`);
