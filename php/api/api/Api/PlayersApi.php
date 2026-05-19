@@ -2631,7 +2631,7 @@ class PlayersApi
      * Rank Predict Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  \OpenAPI\Client\Model\RankPredictImageFormat|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2650,7 +2650,7 @@ class PlayersApi
      * Rank Predict Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  \OpenAPI\Client\Model\RankPredictImageFormat|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2736,7 +2736,7 @@ class PlayersApi
      * Rank Predict Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  \OpenAPI\Client\Model\RankPredictImageFormat|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2758,7 +2758,7 @@ class PlayersApi
      * Rank Predict Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  \OpenAPI\Client\Model\RankPredictImageFormat|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2809,7 +2809,7 @@ class PlayersApi
      * Create request for operation 'rankPredictImage'
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  \OpenAPI\Client\Model\RankPredictImageFormat|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2841,7 +2841,7 @@ class PlayersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
-            'RankPredictImageFormat', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2859,7 +2859,7 @@ class PlayersApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['image/png', ],
+            ['image/png', 'image/webp', ],
             $contentType,
             $multipart
         );

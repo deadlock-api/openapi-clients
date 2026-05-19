@@ -33,7 +33,6 @@ import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
-import deadlock_api_client.models.RankPredictImageFormat
 import deadlock_api_client.models.RankPredictResponse
 
 import com.squareup.moshi.Json
@@ -830,6 +829,23 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * enum for parameter format
+     */
+     enum class FormatRankPredictImage(val value: kotlin.String) {
+         @Json(name = "png") png("png"),
+         @Json(name = "webp") webp("webp");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/players/{account_id}/rank-predict/image
      * Rank Predict Image
      * Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
@@ -844,7 +860,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankPredictImage(accountId: kotlin.Int, format: RankPredictImageFormat? = null) : kotlin.collections.List<kotlin.Int> {
+    fun rankPredictImage(accountId: kotlin.Int, format: FormatRankPredictImage? = null) : kotlin.collections.List<kotlin.Int> {
         val localVarResponse = rankPredictImageWithHttpInfo(accountId = accountId, format = format)
 
         return when (localVarResponse.responseType) {
@@ -874,7 +890,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rankPredictImageWithHttpInfo(accountId: kotlin.Int, format: RankPredictImageFormat?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+    fun rankPredictImageWithHttpInfo(accountId: kotlin.Int, format: FormatRankPredictImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
         val localVariableConfig = rankPredictImageRequestConfig(accountId = accountId, format = format)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -889,12 +905,12 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return RequestConfig
      */
-    fun rankPredictImageRequestConfig(accountId: kotlin.Int, format: RankPredictImageFormat?) : RequestConfig<Unit> {
+    fun rankPredictImageRequestConfig(accountId: kotlin.Int, format: FormatRankPredictImage?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (format != null) {
-                    put("format", listOf(format.toString()))
+                    put("format", listOf(format.value))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

@@ -506,7 +506,7 @@ const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
 let accountId: number; //The players `SteamID3` (default to undefined)
-let format: RankPredictImageFormat; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
+let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.rankPredictImage(
     accountId,
@@ -519,7 +519,7 @@ const { status, data } = await apiInstance.rankPredictImage(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
-| **format** | **RankPredictImageFormat** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
+| **format** | [**&#39;png&#39; | &#39;webp&#39;**]**Array<&#39;png&#39; &#124; &#39;webp&#39;>** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -533,7 +533,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/png
+ - **Accept**: image/png, image/webp
 
 
 ### HTTP response details

@@ -33,9 +33,6 @@ import {
     PlayerMatchHistoryEntry,
     PlayerMatchHistoryEntryFromJSON,
     PlayerMatchHistoryEntryToJSON,
-    RankPredictImageFormat,
-    RankPredictImageFormatFromJSON,
-    RankPredictImageFormatToJSON,
     RankPredictResponse,
     RankPredictResponseFromJSON,
     RankPredictResponseToJSON,
@@ -103,7 +100,7 @@ export interface RankPredictRequest {
 
 export interface RankPredictImageRequest {
     accountId: number;
-    format?: RankPredictImageFormat;
+    format?: RankPredictImageFormatEnum;
 }
 
 
@@ -695,4 +692,12 @@ export enum PlayerHeroStatsGameModeEnum {
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
     Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RankPredictImageFormatEnum {
+    Png = 'png',
+    Webp = 'webp'
 }

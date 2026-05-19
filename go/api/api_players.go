@@ -1246,11 +1246,11 @@ type ApiRankPredictImageRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
 	accountId int32
-	format *RankPredictImageFormat
+	format *string
 }
 
 // Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-func (r ApiRankPredictImageRequest) Format(format RankPredictImageFormat) ApiRankPredictImageRequest {
+func (r ApiRankPredictImageRequest) Format(format string) ApiRankPredictImageRequest {
 	r.format = &format
 	return r
 }
@@ -1314,7 +1314,7 @@ func (a *PlayersAPIService) RankPredictImageExecute(r ApiRankPredictImageRequest
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"image/png"}
+	localVarHTTPHeaderAccepts := []string{"image/png", "image/webp"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

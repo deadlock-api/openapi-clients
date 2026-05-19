@@ -710,7 +710,6 @@ Returns the predicted rank badge image directly (binary), not a URL. Use `?forma
 
 ```python
 import deadlock_api_client
-from deadlock_api_client.models.rank_predict_image_format import RankPredictImageFormat
 from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -726,7 +725,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.PlayersApi(api_client)
     account_id = 56 # int | The players `SteamID3`
-    format = deadlock_api_client.RankPredictImageFormat() # RankPredictImageFormat | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+    format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
     try:
         # Rank Predict Image
@@ -745,7 +744,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
- **format** | [**RankPredictImageFormat**](.md)| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
+ **format** | **str**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
 
 ### Return type
 
@@ -758,7 +757,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/png
+ - **Accept**: image/png, image/webp
 
 ### HTTP response details
 

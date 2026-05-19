@@ -273,7 +273,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>&gt;</returns>
-        Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<RankPredictImageFormat> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Predict Image
@@ -285,7 +285,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>?&gt;</returns>
-        Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<RankPredictImageFormat> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -2868,14 +2868,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRankPredictImage(ref int accountId, Option<RankPredictImageFormat> format);
+        partial void FormatRankPredictImage(ref int accountId, ref Option<string> format);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
         /// <param name="format"></param>
         /// <returns></returns>
-        private void ValidateRankPredictImage(Option<RankPredictImageFormat> format)
+        private void ValidateRankPredictImage(Option<string> format)
         {
             if (format.IsSet && format.Value == null)
                 throw new ArgumentNullException(nameof(format));
@@ -2887,7 +2887,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        private void AfterRankPredictImageDefaultImplementation(IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<RankPredictImageFormat> format)
+        private void AfterRankPredictImageDefaultImplementation(IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<string> format)
         {
             bool suppressDefaultLog = false;
             AfterRankPredictImage(ref suppressDefaultLog, apiResponseLocalVar, accountId, format);
@@ -2902,7 +2902,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        partial void AfterRankPredictImage(ref bool suppressDefaultLog, IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<RankPredictImageFormat> format);
+        partial void AfterRankPredictImage(ref bool suppressDefaultLog, IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<string> format);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2912,7 +2912,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        private void OnErrorRankPredictImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<RankPredictImageFormat> format)
+        private void OnErrorRankPredictImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRankPredictImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, format);
@@ -2929,7 +2929,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        partial void OnErrorRankPredictImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<RankPredictImageFormat> format);
+        partial void OnErrorRankPredictImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format);
 
         /// <summary>
         /// Rank Predict Image Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
@@ -2938,7 +2938,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>&gt;</returns>
-        public async Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<RankPredictImageFormat> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -2958,7 +2958,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>&gt;</returns>
-        public async Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<RankPredictImageFormat> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2966,7 +2966,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateRankPredictImage(format);
 
-                FormatRankPredictImage(ref accountId, format);
+                FormatRankPredictImage(ref accountId, ref format);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2988,7 +2988,8 @@ namespace DeadlockApiClient.Api
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
                     string[] acceptLocalVars = new string[] {
-                        "image/png"
+                        "image/png",
+                        "image/webp"
                     };
 
                     IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);

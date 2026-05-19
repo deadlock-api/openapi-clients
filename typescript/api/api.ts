@@ -10058,11 +10058,11 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
          * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
          * @summary Rank Predict Image
          * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {RankPredictImageFormat} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        rankPredictImage: async (accountId: number, format?: RankPredictImageFormat, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rankPredictImage: async (accountId: number, format?: RankPredictImageFormatEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('rankPredictImage', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/rank-predict/image`
@@ -10079,12 +10079,10 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             if (format !== undefined) {
-                for (const [key, value] of Object.entries(format)) {
-                    localVarQueryParameter[key] = value;
-                }
+                localVarQueryParameter['format'] = format;
             }
 
-            localVarHeaderParameter['Accept'] = 'image/png';
+            localVarHeaderParameter['Accept'] = 'image/png,image/webp';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10231,11 +10229,11 @@ export const PlayersApiFp = function(configuration?: Configuration) {
          * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
          * @summary Rank Predict Image
          * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {RankPredictImageFormat} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async rankPredictImage(accountId: number, format?: RankPredictImageFormat, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+        async rankPredictImage(accountId: number, format?: RankPredictImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictImage(accountId, format, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictImage']?.[localVarOperationServerIndex]?.url;
@@ -10575,7 +10573,7 @@ export interface PlayersApiRankPredictImageRequest {
     /**
      * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
      */
-    readonly format?: RankPredictImageFormat
+    readonly format?: RankPredictImageFormatEnum
 }
 
 /**
@@ -10692,6 +10690,11 @@ export const PlayerHeroStatsGameModeEnum = {
     Internal: 'internal',
 } as const;
 export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
+export const RankPredictImageFormatEnum = {
+    Png: 'png',
+    Webp: 'webp',
+} as const;
+export type RankPredictImageFormatEnum = typeof RankPredictImageFormatEnum[keyof typeof RankPredictImageFormatEnum];
 
 
 /**

@@ -587,7 +587,7 @@ import (
 
 func main() {
 	accountId := int32(56) // int32 | The players `SteamID3`
-	format := TODO // RankPredictImageFormat | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -617,7 +617,7 @@ Other parameters are passed through a pointer to a apiRankPredictImageRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **format** | [**RankPredictImageFormat**](RankPredictImageFormat.md) | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
+ **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
 
 ### Return type
 
@@ -630,7 +630,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: image/png
+- **Accept**: image/png, image/webp
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

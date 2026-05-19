@@ -322,7 +322,7 @@ No authorization required
 
 <a id="rankpredictimage"></a>
 # **RankPredictImage**
-> List&lt;int&gt; RankPredictImage (int accountId, RankPredictImageFormat format = null)
+> List&lt;int&gt; RankPredictImage (int accountId, string format = null)
 
 Rank Predict Image
 
@@ -334,7 +334,7 @@ Returns the predicted rank badge image directly (binary), not a URL. Use `?forma
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
-| **format** | [**RankPredictImageFormat**](RankPredictImageFormat.md) | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
+| **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
 
 ### Return type
 
@@ -347,7 +347,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/png
+ - **Accept**: image/png, image/webp
 
 
 ### HTTP response details

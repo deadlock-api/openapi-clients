@@ -496,7 +496,7 @@ $apiInstance = new OpenAPI\Client\Api\PlayersApi(
     new GuzzleHttp\Client()
 );
 $account_id = 56; // int | The players `SteamID3`
-$format = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\RankPredictImageFormat(); // \OpenAPI\Client\Model\RankPredictImageFormat | Image format. Defaults to `png`. Supported: `png`, `webp`.
+$format = 'format_example'; // string | Image format. Defaults to `png`. Supported: `png`, `webp`.
 
 try {
     $result = $apiInstance->rankPredictImage($account_id, $format);
@@ -511,7 +511,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
-| **format** | [**\OpenAPI\Client\Model\RankPredictImageFormat**](../Model/.md)| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
+| **format** | **string**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
 
 ### Return type
 
@@ -524,7 +524,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `image/png`
+- **Accept**: `image/png`, `image/webp`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

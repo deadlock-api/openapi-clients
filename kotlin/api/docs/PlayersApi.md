@@ -416,7 +416,7 @@ Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?
 
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-val format : RankPredictImageFormat =  // RankPredictImageFormat | Image format. Defaults to `png`. Supported: `png`, `webp`.
+val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
 try {
     val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format)
     println(result)
@@ -433,7 +433,7 @@ try {
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **format** | [**RankPredictImageFormat**](.md)| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
+| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type
 

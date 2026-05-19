@@ -133,7 +133,7 @@ pub struct RankPredictImageParams {
     /// The players `SteamID3`
     pub account_id: u32,
     /// Image format. Defaults to `png`. Supported: `png`, `webp`.
-    pub format: Option<models::RankPredictImageFormat>
+    pub format: Option<String>
 }
 
 
@@ -576,7 +576,7 @@ pub async fn rank_predict_image(configuration: &configuration::Configuration, pa
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.format {
-        req_builder = req_builder.query(&[("format", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("format", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

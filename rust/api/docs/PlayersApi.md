@@ -270,7 +270,7 @@ Returns the predicted rank badge image directly (binary), not a URL. Use `?forma
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_id** | **u32** | The players `SteamID3` | [required] |
-**format** | Option<[**RankPredictImageFormat**](RankPredictImageFormat.md)> | Image format. Defaults to `png`. Supported: `png`, `webp`. |  |
+**format** | Option<**String**> | Image format. Defaults to `png`. Supported: `png`, `webp`. |  |
 
 ### Return type
 
@@ -283,7 +283,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: image/png
+- **Accept**: image/png, image/webp
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

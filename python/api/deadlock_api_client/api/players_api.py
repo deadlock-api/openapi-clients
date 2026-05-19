@@ -24,7 +24,6 @@ from deadlock_api_client.models.mate_stats import MateStats
 from deadlock_api_client.models.player_account_stats import PlayerAccountStats
 from deadlock_api_client.models.player_card import PlayerCard
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
-from deadlock_api_client.models.rank_predict_image_format import RankPredictImageFormat
 from deadlock_api_client.models.rank_predict_response import RankPredictResponse
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
@@ -2485,7 +2484,7 @@ class PlayersApi:
     def rank_predict_image(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
-        format: Annotated[Optional[RankPredictImageFormat], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
+        format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2506,7 +2505,7 @@ class PlayersApi:
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
-        :type format: RankPredictImageFormat
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2563,7 +2562,7 @@ class PlayersApi:
     def rank_predict_image_with_http_info(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
-        format: Annotated[Optional[RankPredictImageFormat], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
+        format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2584,7 +2583,7 @@ class PlayersApi:
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
-        :type format: RankPredictImageFormat
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2641,7 +2640,7 @@ class PlayersApi:
     def rank_predict_image_without_preload_content(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
-        format: Annotated[Optional[RankPredictImageFormat], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
+        format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2662,7 +2661,7 @@ class PlayersApi:
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
-        :type format: RankPredictImageFormat
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2752,7 +2751,8 @@ class PlayersApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'image/png'
+                    'image/png', 
+                    'image/webp'
                 ]
             )
 
