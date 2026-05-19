@@ -15,19 +15,19 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ActiveMatchGameMode } from './active-match-game-mode';
+import type { ActiveMatchGameMode } from './active-match-game-mode.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ActiveMatchMode } from './active-match-mode';
+import type { ActiveMatchMode } from './active-match-mode.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ActiveMatchPlayer } from './active-match-player';
+import type { ActiveMatchPlayer } from './active-match-player.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ActiveMatchTeam } from './active-match-team';
+import type { ActiveMatchTeam } from './active-match-team.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RegionMode } from './region-mode';
+import type { RegionMode } from './region-mode.js';
 
 export interface ActiveMatch {
     'compat_version'?: number | null;

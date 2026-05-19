@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RankImagesV2 } from './rank-images-v2';
+import type { RankImagesV2 } from './rank-images-v2.js';
 
 export interface RankV2 {
     'tier': number;

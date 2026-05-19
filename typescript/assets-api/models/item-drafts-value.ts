@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { DraftBucket } from './draft-bucket';
+import type { DraftBucket } from './draft-bucket.js';
 
 export interface ItemDraftsValue {
     'bucket'?: DraftBucket | null;

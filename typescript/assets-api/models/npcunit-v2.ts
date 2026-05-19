@@ -15,31 +15,31 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ColorV1 } from './color-v1';
+import type { ColorV1 } from './color-v1.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassBulletResistModifier } from './subclass-bullet-resist-modifier';
+import type { SubclassBulletResistModifier } from './subclass-bullet-resist-modifier.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassEmpoweredModifierLevel } from './subclass-empowered-modifier-level';
+import type { SubclassEmpoweredModifierLevel } from './subclass-empowered-modifier-level.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassIntrinsicModifiers } from './subclass-intrinsic-modifiers';
+import type { SubclassIntrinsicModifiers } from './subclass-intrinsic-modifiers.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassObjectiveHealthGrowthPhase } from './subclass-objective-health-growth-phase';
+import type { SubclassObjectiveHealthGrowthPhase } from './subclass-objective-health-growth-phase.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassObjectiveRegen } from './subclass-objective-regen';
+import type { SubclassObjectiveRegen } from './subclass-objective-regen.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassRangedArmorModifier } from './subclass-ranged-armor-modifier';
+import type { SubclassRangedArmorModifier } from './subclass-ranged-armor-modifier.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassTrooperDamageReduction } from './subclass-trooper-damage-reduction';
+import type { SubclassTrooperDamageReduction } from './subclass-trooper-damage-reduction.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { WeaponInfoV2 } from './weapon-info-v2';
+import type { WeaponInfoV2 } from './weapon-info-v2.js';
 
 export interface NPCUnitV2 {
     'class_name': string;

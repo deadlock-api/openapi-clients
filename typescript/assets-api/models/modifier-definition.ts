@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ModifierValue } from './modifier-value';
+import type { ModifierValue } from './modifier-value.js';
 
 /**
  * Schema for the m_sModifer block (note the typo in the source key \'Modifer\').

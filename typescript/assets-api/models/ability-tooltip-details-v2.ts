@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityTooltipDetailsInfoSectionV2 } from './ability-tooltip-details-info-section-v2';
+import type { AbilityTooltipDetailsInfoSectionV2 } from './ability-tooltip-details-info-section-v2.js';
 
 export interface AbilityTooltipDetailsV2 {
     'info_sections'?: Array<AbilityTooltipDetailsInfoSectionV2> | null;

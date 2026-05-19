@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty } from './raw-ability-v2-tooltip-details-info-section-property-block-property';
+import type { RawAbilityV2TooltipDetailsInfoSectionPropertyBlockProperty } from './raw-ability-v2-tooltip-details-info-section-property-block-property.js';
 
 export interface RawAbilityV2TooltipDetailsInfoSectionPropertyBlock {
     'loc_string'?: string | null;

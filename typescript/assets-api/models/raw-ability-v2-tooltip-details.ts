@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityV2TooltipDetailsInfoSection } from './raw-ability-v2-tooltip-details-info-section';
+import type { RawAbilityV2TooltipDetailsInfoSection } from './raw-ability-v2-tooltip-details-info-section.js';
 
 export interface RawAbilityV2TooltipDetails {
     'info_sections'?: Array<RawAbilityV2TooltipDetailsInfoSection> | null;

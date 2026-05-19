@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EmpoweredModifierLevel } from './empowered-modifier-level';
+import type { EmpoweredModifierLevel } from './empowered-modifier-level.js';
 
 export interface SubclassEmpoweredModifierLevel {
     'subclass'?: EmpoweredModifierLevel;

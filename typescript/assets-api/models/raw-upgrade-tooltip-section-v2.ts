@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilitySectionTypeV2 } from './raw-ability-section-type-v2';
+import type { RawAbilitySectionTypeV2 } from './raw-ability-section-type-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawUpgradeTooltipSectionAttributeV2 } from './raw-upgrade-tooltip-section-attribute-v2';
+import type { RawUpgradeTooltipSectionAttributeV2 } from './raw-upgrade-tooltip-section-attribute-v2.js';
 
 export interface RawUpgradeTooltipSectionV2 {
     'section_type'?: RawAbilitySectionTypeV2 | null;

@@ -13,24 +13,24 @@
  */
 
 
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
 // @ts-ignore
-import type { DeadlockAssetsApiRoutesValidClientVersions } from '../models';
+import type { DeadlockAssetsApiRoutesValidClientVersions } from '../models/index.js';
 // @ts-ignore
-import type { HTTPValidationError } from '../models';
+import type { HTTPValidationError } from '../models/index.js';
 // @ts-ignore
-import type { RawAccoladeV2 } from '../models';
+import type { RawAccoladeV2 } from '../models/index.js';
 // @ts-ignore
-import type { RawHeroV2 } from '../models';
+import type { RawHeroV2 } from '../models/index.js';
 // @ts-ignore
-import type { ResponseGetRawItemsRawItemsGetInner } from '../models';
+import type { ResponseGetRawItemsRawItemsGetInner } from '../models/index.js';
 /**
  * RawApi - axios parameter creator
  */

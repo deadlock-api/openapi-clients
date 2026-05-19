@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ObjectiveRegen } from './objective-regen';
+import type { ObjectiveRegen } from './objective-regen.js';
 
 export interface SubclassObjectiveRegen {
     'subclass'?: ObjectiveRegen;

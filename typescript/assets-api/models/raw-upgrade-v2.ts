@@ -15,28 +15,28 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemSlotTypeV2 } from './item-slot-type-v2';
+import type { ItemSlotTypeV2 } from './item-slot-type-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemTierV2 } from './item-tier-v2';
+import type { ItemTierV2 } from './item-tier-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityActivationV2 } from './raw-ability-activation-v2';
+import type { RawAbilityActivationV2 } from './raw-ability-activation-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityImbueV2 } from './raw-ability-imbue-v2';
+import type { RawAbilityImbueV2 } from './raw-ability-imbue-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityUpgradeV2 } from './raw-ability-upgrade-v2';
+import type { RawAbilityUpgradeV2 } from './raw-ability-upgrade-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemPropertyV2 } from './raw-item-property-v2';
+import type { RawItemPropertyV2 } from './raw-item-property-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemWeaponInfoV2 } from './raw-item-weapon-info-v2';
+import type { RawItemWeaponInfoV2 } from './raw-item-weapon-info-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawUpgradeTooltipSectionV2 } from './raw-upgrade-tooltip-section-v2';
+import type { RawUpgradeTooltipSectionV2 } from './raw-upgrade-tooltip-section-v2.js';
 
 export interface RawUpgradeV2 {
     'class_name': string;

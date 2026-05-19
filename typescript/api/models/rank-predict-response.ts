@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RankPrediction } from './rank-prediction';
+import type { RankPrediction } from './rank-prediction.js';
 
 /**
  * @type RankPredictResponse

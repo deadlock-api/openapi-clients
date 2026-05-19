@@ -15,49 +15,49 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroColorsV2 } from './hero-colors-v2';
+import type { HeroColorsV2 } from './hero-colors-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroDescriptionV2 } from './hero-description-v2';
+import type { HeroDescriptionV2 } from './hero-description-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroImagesV2 } from './hero-images-v2';
+import type { HeroImagesV2 } from './hero-images-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroLevelInfoV2 } from './hero-level-info-v2';
+import type { HeroLevelInfoV2 } from './hero-level-info-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroPhysicsV2 } from './hero-physics-v2';
+import type { HeroPhysicsV2 } from './hero-physics-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroShopStatDisplayV2 } from './hero-shop-stat-display-v2';
+import type { HeroShopStatDisplayV2 } from './hero-shop-stat-display-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroStartingStatsV2 } from './hero-starting-stats-v2';
+import type { HeroStartingStatsV2 } from './hero-starting-stats-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroTypeV2 } from './hero-type-v2';
+import type { HeroTypeV2 } from './hero-type-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroV2ItemDraftBucketingValue } from './hero-v2-item-draft-bucketing-value';
+import type { HeroV2ItemDraftBucketingValue } from './hero-v2-item-draft-bucketing-value.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroItemSlotInfoValueV2 } from './raw-hero-item-slot-info-value-v2';
+import type { RawHeroItemSlotInfoValueV2 } from './raw-hero-item-slot-info-value-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroMapModCostBonusesV2 } from './raw-hero-map-mod-cost-bonuses-v2';
+import type { RawHeroMapModCostBonusesV2 } from './raw-hero-map-mod-cost-bonuses-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroPurchaseBonusV2 } from './raw-hero-purchase-bonus-v2';
+import type { RawHeroPurchaseBonusV2 } from './raw-hero-purchase-bonus-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroScalingStatV2 } from './raw-hero-scaling-stat-v2';
+import type { RawHeroScalingStatV2 } from './raw-hero-scaling-stat-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroStatsDisplayV2 } from './raw-hero-stats-display-v2';
+import type { RawHeroStatsDisplayV2 } from './raw-hero-stats-display-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroStatsUIV2 } from './raw-hero-stats-uiv2';
+import type { RawHeroStatsUIV2 } from './raw-hero-stats-uiv2.js';
 
 export interface HeroV2 {
     'id': number;

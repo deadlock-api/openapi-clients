@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { StatsUsageFlagV2 } from './stats-usage-flag-v2';
+import type { StatsUsageFlagV2 } from './stats-usage-flag-v2.js';
 
 export interface UsageFlags {
 }

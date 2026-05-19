@@ -13,48 +13,48 @@
  */
 
 
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
 // @ts-ignore
-import type { AnalyticsAbilityOrderStats } from '../models';
+import type { AnalyticsAbilityOrderStats } from '../models/index.js';
 // @ts-ignore
-import type { AnalyticsGameStats } from '../models';
+import type { AnalyticsGameStats } from '../models/index.js';
 // @ts-ignore
-import type { AnalyticsHeroStats } from '../models';
+import type { AnalyticsHeroStats } from '../models/index.js';
 // @ts-ignore
-import type { BadgeDistribution } from '../models';
+import type { BadgeDistribution } from '../models/index.js';
 // @ts-ignore
-import type { BuildItemStats } from '../models';
+import type { BuildItemStats } from '../models/index.js';
 // @ts-ignore
-import type { HashMapValue } from '../models';
+import type { HashMapValue } from '../models/index.js';
 // @ts-ignore
-import type { HeroBanStats } from '../models';
+import type { HeroBanStats } from '../models/index.js';
 // @ts-ignore
-import type { HeroBuildStats } from '../models';
+import type { HeroBuildStats } from '../models/index.js';
 // @ts-ignore
-import type { HeroCombStats } from '../models';
+import type { HeroCombStats } from '../models/index.js';
 // @ts-ignore
-import type { HeroCounterStats } from '../models';
+import type { HeroCounterStats } from '../models/index.js';
 // @ts-ignore
-import type { HeroEntry } from '../models';
+import type { HeroEntry } from '../models/index.js';
 // @ts-ignore
-import type { HeroSynergyStats } from '../models';
+import type { HeroSynergyStats } from '../models/index.js';
 // @ts-ignore
-import type { ItemPermutationStats } from '../models';
+import type { ItemPermutationStats } from '../models/index.js';
 // @ts-ignore
-import type { ItemStats } from '../models';
+import type { ItemStats } from '../models/index.js';
 // @ts-ignore
-import type { KillDeathStats } from '../models';
+import type { KillDeathStats } from '../models/index.js';
 // @ts-ignore
-import type { PlayerEntry } from '../models';
+import type { PlayerEntry } from '../models/index.js';
 // @ts-ignore
-import type { PlayerPerformanceCurvePoint } from '../models';
+import type { PlayerPerformanceCurvePoint } from '../models/index.js';
 /**
  * AnalyticsApi - axios parameter creator
  */

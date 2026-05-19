@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemPropertyV2 } from './item-property-v2';
+import type { ItemPropertyV2 } from './item-property-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawCustomCrosshairSettingsV2 } from './raw-custom-crosshair-settings-v2';
+import type { RawCustomCrosshairSettingsV2 } from './raw-custom-crosshair-settings-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { WeaponInfoV2 } from './weapon-info-v2';
+import type { WeaponInfoV2 } from './weapon-info-v2.js';
 
 export interface WeaponV2 {
     'id': number;

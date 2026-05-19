@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MatchPlayer } from './match-player';
+import type { MatchPlayer } from './match-player.js';
 
 export interface ClickhouseMatchInfo {
     /**

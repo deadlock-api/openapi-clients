@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Value } from './value';
+import type { Value } from './value.js';
 
 export interface HeroStartingStatV2 {
     'value': Value;

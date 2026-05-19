@@ -13,24 +13,24 @@
  */
 
 
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
 // @ts-ignore
-import type { ActiveMatch } from '../models';
+import type { ActiveMatch } from '../models/index.js';
 // @ts-ignore
-import type { ClickhouseMatchInfo } from '../models';
+import type { ClickhouseMatchInfo } from '../models/index.js';
 // @ts-ignore
-import type { LiveUrl } from '../models';
+import type { LiveUrl } from '../models/index.js';
 // @ts-ignore
-import type { MatchSaltsResponse } from '../models';
+import type { MatchSaltsResponse } from '../models/index.js';
 // @ts-ignore
-import type { MatchSpectateResponse } from '../models';
+import type { MatchSpectateResponse } from '../models/index.js';
 /**
  * MatchesApi - axios parameter creator
  */

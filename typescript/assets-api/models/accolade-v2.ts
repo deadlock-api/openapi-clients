@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GameMode } from './game-mode';
+import type { GameMode } from './game-mode.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ThresholdType } from './threshold-type';
+import type { ThresholdType } from './threshold-type.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { TrackedStatName } from './tracked-stat-name';
+import type { TrackedStatName } from './tracked-stat-name.js';
 
 export interface AccoladeV2 {
     'class_name': string;

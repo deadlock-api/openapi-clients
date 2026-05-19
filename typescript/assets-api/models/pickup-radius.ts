@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Curve } from './curve';
+import type { Curve } from './curve.js';
 
 export interface PickupRadius {
     'base'?: number;

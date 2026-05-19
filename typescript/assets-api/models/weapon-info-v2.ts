@@ -15,19 +15,19 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AimingShotSpreadPenalty } from './aiming-shot-spread-penalty';
+import type { AimingShotSpreadPenalty } from './aiming-shot-spread-penalty.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemWeaponInfoBulletSpeedCurveV2 } from './raw-item-weapon-info-bullet-speed-curve-v2';
+import type { RawItemWeaponInfoBulletSpeedCurveV2 } from './raw-item-weapon-info-bullet-speed-curve-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawWeaponInfoHorizontalRecoilV2 } from './raw-weapon-info-horizontal-recoil-v2';
+import type { RawWeaponInfoHorizontalRecoilV2 } from './raw-weapon-info-horizontal-recoil-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawWeaponInfoVerticalRecoilV2 } from './raw-weapon-info-vertical-recoil-v2';
+import type { RawWeaponInfoVerticalRecoilV2 } from './raw-weapon-info-vertical-recoil-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { StandingShotSpreadPenalty } from './standing-shot-spread-penalty';
+import type { StandingShotSpreadPenalty } from './standing-shot-spread-penalty.js';
 
 export interface WeaponInfoV2 {
     'can_zoom'?: boolean | null;

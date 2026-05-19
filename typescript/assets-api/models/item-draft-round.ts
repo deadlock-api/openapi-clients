@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemTierV2 } from './item-tier-v2';
+import type { ItemTierV2 } from './item-tier-v2.js';
 
 export interface ItemDraftRound {
     'normal_mod_tier': ItemTierV2;

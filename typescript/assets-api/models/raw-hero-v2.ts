@@ -15,37 +15,37 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroTypeV2 } from './hero-type-v2';
+import type { HeroTypeV2 } from './hero-type-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroV2ItemDraftBucketingValue } from './hero-v2-item-draft-bucketing-value';
+import type { HeroV2ItemDraftBucketingValue } from './hero-v2-item-draft-bucketing-value.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroItemSlotInfoValueV2 } from './raw-hero-item-slot-info-value-v2';
+import type { RawHeroItemSlotInfoValueV2 } from './raw-hero-item-slot-info-value-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroLevelInfoV2 } from './raw-hero-level-info-v2';
+import type { RawHeroLevelInfoV2 } from './raw-hero-level-info-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroMapModCostBonusesV2 } from './raw-hero-map-mod-cost-bonuses-v2';
+import type { RawHeroMapModCostBonusesV2 } from './raw-hero-map-mod-cost-bonuses-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroPurchaseBonusV2 } from './raw-hero-purchase-bonus-v2';
+import type { RawHeroPurchaseBonusV2 } from './raw-hero-purchase-bonus-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroScalingStatV2 } from './raw-hero-scaling-stat-v2';
+import type { RawHeroScalingStatV2 } from './raw-hero-scaling-stat-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroShopStatDisplayV2 } from './raw-hero-shop-stat-display-v2';
+import type { RawHeroShopStatDisplayV2 } from './raw-hero-shop-stat-display-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroStartingStatsV2 } from './raw-hero-starting-stats-v2';
+import type { RawHeroStartingStatsV2 } from './raw-hero-starting-stats-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroStatsDisplayV2 } from './raw-hero-stats-display-v2';
+import type { RawHeroStatsDisplayV2 } from './raw-hero-stats-display-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroStatsUIV2 } from './raw-hero-stats-uiv2';
+import type { RawHeroStatsUIV2 } from './raw-hero-stats-uiv2.js';
 
 export interface RawHeroV2 {
     'id': number;

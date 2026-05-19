@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroShopSpiritStatsDisplayV2 } from './raw-hero-shop-spirit-stats-display-v2';
+import type { RawHeroShopSpiritStatsDisplayV2 } from './raw-hero-shop-spirit-stats-display-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroShopVitalityStatsDisplayV2 } from './raw-hero-shop-vitality-stats-display-v2';
+import type { RawHeroShopVitalityStatsDisplayV2 } from './raw-hero-shop-vitality-stats-display-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroShopWeaponStatsDisplayV2 } from './raw-hero-shop-weapon-stats-display-v2';
+import type { RawHeroShopWeaponStatsDisplayV2 } from './raw-hero-shop-weapon-stats-display-v2.js';
 
 export interface RawHeroShopStatDisplayV2 {
     'spirit_stats_display': RawHeroShopSpiritStatsDisplayV2;

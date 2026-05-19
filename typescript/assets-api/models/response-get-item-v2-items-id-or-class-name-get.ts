@@ -15,55 +15,55 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityTooltipDetailsV2 } from './ability-tooltip-details-v2';
+import type { AbilityTooltipDetailsV2 } from './ability-tooltip-details-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityTypeV2 } from './ability-type-v2';
+import type { AbilityTypeV2 } from './ability-type-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityV2 } from './ability-v2';
+import type { AbilityV2 } from './ability-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityV2DependentAbilitiesValue } from './ability-v2-dependent-abilities-value';
+import type { AbilityV2DependentAbilitiesValue } from './ability-v2-dependent-abilities-value.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityVideosV2 } from './ability-videos-v2';
+import type { AbilityVideosV2 } from './ability-videos-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemSlotTypeV2 } from './item-slot-type-v2';
+import type { ItemSlotTypeV2 } from './item-slot-type-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemTierV2 } from './item-tier-v2';
+import type { ItemTierV2 } from './item-tier-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityActivationV2 } from './raw-ability-activation-v2';
+import type { RawAbilityActivationV2 } from './raw-ability-activation-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityImbueV2 } from './raw-ability-imbue-v2';
+import type { RawAbilityImbueV2 } from './raw-ability-imbue-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityUpgradeV2 } from './raw-ability-upgrade-v2';
+import type { RawAbilityUpgradeV2 } from './raw-ability-upgrade-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawCustomCrosshairSettingsV2 } from './raw-custom-crosshair-settings-v2';
+import type { RawCustomCrosshairSettingsV2 } from './raw-custom-crosshair-settings-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemWeaponInfoV2 } from './raw-item-weapon-info-v2';
+import type { RawItemWeaponInfoV2 } from './raw-item-weapon-info-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UpgradeDescriptionV2 } from './upgrade-description-v2';
+import type { UpgradeDescriptionV2 } from './upgrade-description-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UpgradePropertyV2 } from './upgrade-property-v2';
+import type { UpgradePropertyV2 } from './upgrade-property-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UpgradeTooltipSectionV2 } from './upgrade-tooltip-section-v2';
+import type { UpgradeTooltipSectionV2 } from './upgrade-tooltip-section-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UpgradeV2 } from './upgrade-v2';
+import type { UpgradeV2 } from './upgrade-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { WeaponV2 } from './weapon-v2';
+import type { WeaponV2 } from './weapon-v2.js';
 
 /**
  * @type ResponseGetItemV2ItemsIdOrClassNameGet

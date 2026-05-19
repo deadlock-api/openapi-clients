@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { LocationInner } from './location-inner';
+import type { LocationInner } from './location-inner.js';
 
 export interface ValidationError {
     'loc': Array<LocationInner>;

@@ -15,16 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemPropertyScaleFunctionSubclassV2 } from './raw-item-property-scale-function-subclass-v2';
+import type { RawItemPropertyScaleFunctionSubclassV2 } from './raw-item-property-scale-function-subclass-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { StreetBrawlValue } from './street-brawl-value';
+import type { StreetBrawlValue } from './street-brawl-value.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UsageFlags } from './usage-flags';
+import type { UsageFlags } from './usage-flags.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Value1 } from './value1';
+import type { Value1 } from './value1.js';
 
 export interface ItemPropertyV2 {
     'value'?: Value1 | null;

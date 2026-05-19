@@ -15,28 +15,28 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityDescriptionV2 } from './ability-description-v2';
+import type { AbilityDescriptionV2 } from './ability-description-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityTooltipDetailsV2 } from './ability-tooltip-details-v2';
+import type { AbilityTooltipDetailsV2 } from './ability-tooltip-details-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityTypeV2 } from './ability-type-v2';
+import type { AbilityTypeV2 } from './ability-type-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityV2DependentAbilitiesValue } from './ability-v2-dependent-abilities-value';
+import type { AbilityV2DependentAbilitiesValue } from './ability-v2-dependent-abilities-value.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityVideosV2 } from './ability-videos-v2';
+import type { AbilityVideosV2 } from './ability-videos-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemPropertyV2 } from './item-property-v2';
+import type { ItemPropertyV2 } from './item-property-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityUpgradeV2 } from './raw-ability-upgrade-v2';
+import type { RawAbilityUpgradeV2 } from './raw-ability-upgrade-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemWeaponInfoV2 } from './raw-item-weapon-info-v2';
+import type { RawItemWeaponInfoV2 } from './raw-item-weapon-info-v2.js';
 
 export interface AbilityV2 {
     'id': number;

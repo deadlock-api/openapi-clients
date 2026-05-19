@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { HeroStartingStatV2 } from './hero-starting-stat-v2';
+import type { HeroStartingStatV2 } from './hero-starting-stat-v2.js';
 
 export interface HeroStartingStatsV2 {
     'max_move_speed': HeroStartingStatV2;

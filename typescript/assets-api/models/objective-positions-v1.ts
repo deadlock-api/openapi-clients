@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ObjectivePositionV1 } from './objective-position-v1';
+import type { ObjectivePositionV1 } from './objective-position-v1.js';
 
 export interface ObjectivePositionsV1 {
     'team0_core': ObjectivePositionV1;

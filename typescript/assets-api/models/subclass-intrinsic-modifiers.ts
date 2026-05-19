@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { IntrinsicModifiers } from './intrinsic-modifiers';
+import type { IntrinsicModifiers } from './intrinsic-modifiers.js';
 
 export interface SubclassIntrinsicModifiers {
     'subclass'?: IntrinsicModifiers;

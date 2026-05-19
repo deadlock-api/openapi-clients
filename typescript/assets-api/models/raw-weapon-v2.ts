@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawCustomCrosshairSettingsV2 } from './raw-custom-crosshair-settings-v2';
+import type { RawCustomCrosshairSettingsV2 } from './raw-custom-crosshair-settings-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemPropertyV2 } from './raw-item-property-v2';
+import type { RawItemPropertyV2 } from './raw-item-property-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawWeaponInfoV2 } from './raw-weapon-info-v2';
+import type { RawWeaponInfoV2 } from './raw-weapon-info-v2.js';
 
 export interface RawWeaponV2 {
     'class_name': string;

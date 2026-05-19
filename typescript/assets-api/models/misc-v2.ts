@@ -15,19 +15,19 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ColorV1 } from './color-v1';
+import type { ColorV1 } from './color-v1.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ExpirationDuration } from './expiration-duration';
+import type { ExpirationDuration } from './expiration-duration.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { PickupDefinition } from './pickup-definition';
+import type { PickupDefinition } from './pickup-definition.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { PickupRadius } from './pickup-radius';
+import type { PickupRadius } from './pickup-radius.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SubclassModifierDefinition } from './subclass-modifier-definition';
+import type { SubclassModifierDefinition } from './subclass-modifier-definition.js';
 
 export interface MiscV2 {
     'class_name': string;

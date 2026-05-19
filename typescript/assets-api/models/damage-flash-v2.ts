@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FlashDataV2 } from './flash-data-v2';
+import type { FlashDataV2 } from './flash-data-v2.js';
 
 export interface DamageFlashV2 {
     'bullet_damage': FlashDataV2;

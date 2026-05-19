@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RangedArmorModifier } from './ranged-armor-modifier';
+import type { RangedArmorModifier } from './ranged-armor-modifier.js';
 
 export interface SubclassRangedArmorModifier {
     'subclass'?: RangedArmorModifier;

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Range } from './range';
+import type { Range } from './range.js';
 
 export interface RawWeaponInfoHorizontalRecoilV2 {
     'range'?: Range | null;

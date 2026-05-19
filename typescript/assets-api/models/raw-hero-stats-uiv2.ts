@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawHeroStatsUIDisplayV2 } from './raw-hero-stats-uidisplay-v2';
+import type { RawHeroStatsUIDisplayV2 } from './raw-hero-stats-uidisplay-v2.js';
 
 export interface RawHeroStatsUIV2 {
     'weapon_stat_display': string;

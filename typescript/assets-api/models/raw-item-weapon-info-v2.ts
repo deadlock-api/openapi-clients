@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemWeaponInfoBulletSpeedCurveV2 } from './raw-item-weapon-info-bullet-speed-curve-v2';
+import type { RawItemWeaponInfoBulletSpeedCurveV2 } from './raw-item-weapon-info-bullet-speed-curve-v2.js';
 
 export interface RawItemWeaponInfoV2 {
     'bullet_speed_curve'?: RawItemWeaponInfoBulletSpeedCurveV2 | null;

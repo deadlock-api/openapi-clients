@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ValidationError } from './validation-error';
+import type { ValidationError } from './validation-error.js';
 
 export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;

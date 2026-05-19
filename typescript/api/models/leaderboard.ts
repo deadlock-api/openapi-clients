@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { LeaderboardEntry } from './leaderboard-entry';
+import type { LeaderboardEntry } from './leaderboard-entry.js';
 
 export interface Leaderboard {
     /**

@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildHeroDetailsAbilityOrder } from './build-hero-details-ability-order';
+import type { BuildHeroDetailsAbilityOrder } from './build-hero-details-ability-order.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildHeroDetailsCategory } from './build-hero-details-category';
+import type { BuildHeroDetailsCategory } from './build-hero-details-category.js';
 
 export interface BuildHeroDetails {
     'ability_order'?: BuildHeroDetailsAbilityOrder | null;

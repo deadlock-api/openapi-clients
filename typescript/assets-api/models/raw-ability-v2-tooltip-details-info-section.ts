@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityV2TooltipDetailsInfoSectionPropertyBlock } from './raw-ability-v2-tooltip-details-info-section-property-block';
+import type { RawAbilityV2TooltipDetailsInfoSectionPropertyBlock } from './raw-ability-v2-tooltip-details-info-section-property-block.js';
 
 export interface RawAbilityV2TooltipDetailsInfoSection {
     'property_upgrade_required'?: string | null;

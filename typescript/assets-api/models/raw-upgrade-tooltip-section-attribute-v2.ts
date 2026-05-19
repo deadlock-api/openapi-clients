@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawUpgradeTooltipSectionAttributeImportantPropertyV2 } from './raw-upgrade-tooltip-section-attribute-important-property-v2';
+import type { RawUpgradeTooltipSectionAttributeImportantPropertyV2 } from './raw-upgrade-tooltip-section-attribute-important-property-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon } from './raw-upgrade-tooltip-section-attribute-v2-important-property-with-icon';
+import type { RawUpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon } from './raw-upgrade-tooltip-section-attribute-v2-important-property-with-icon.js';
 
 export interface RawUpgradeTooltipSectionAttributeV2 {
     'loc_string'?: string | null;

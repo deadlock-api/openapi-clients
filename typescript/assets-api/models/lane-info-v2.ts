@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ColorV1 } from './color-v1';
+import type { ColorV1 } from './color-v1.js';
 
 export interface LaneInfoV2 {
     'lane_name': string;

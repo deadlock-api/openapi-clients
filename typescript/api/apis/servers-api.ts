@@ -13,24 +13,24 @@
  */
 
 
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
 // @ts-ignore
-import type { ListServersResponse } from '../models';
+import type { ListServersResponse } from '../models/index.js';
 // @ts-ignore
-import type { MetricIngestRequest } from '../models';
+import type { MetricIngestRequest } from '../models/index.js';
 // @ts-ignore
-import type { ServerStatusRequest } from '../models';
+import type { ServerStatusRequest } from '../models/index.js';
 // @ts-ignore
-import type { ServerStatusResponse } from '../models';
+import type { ServerStatusResponse } from '../models/index.js';
 // @ts-ignore
-import type { SteamServer } from '../models';
+import type { SteamServer } from '../models/index.js';
 /**
  * ServersApi - axios parameter creator
  */

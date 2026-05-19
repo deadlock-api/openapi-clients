@@ -14,19 +14,19 @@
 
 
 
-export * from './apis/analytics-api';
-export * from './apis/builds-api';
-export * from './apis/commands-api';
-export * from './apis/custom-matches-api';
-export * from './apis/graph-qlapi';
-export * from './apis/info-api';
-export * from './apis/internal-api';
-export * from './apis/leaderboard-api';
-export * from './apis/mmrapi';
-export * from './apis/matches-api';
-export * from './apis/patches-api';
-export * from './apis/players-api';
-export * from './apis/sqlapi';
-export * from './apis/servers-api';
-export * from './apis/steam-api';
+export * from './apis/analytics-api.js';
+export * from './apis/builds-api.js';
+export * from './apis/commands-api.js';
+export * from './apis/custom-matches-api.js';
+export * from './apis/graph-qlapi.js';
+export * from './apis/info-api.js';
+export * from './apis/internal-api.js';
+export * from './apis/leaderboard-api.js';
+export * from './apis/mmrapi.js';
+export * from './apis/matches-api.js';
+export * from './apis/patches-api.js';
+export * from './apis/players-api.js';
+export * from './apis/sqlapi.js';
+export * from './apis/servers-api.js';
+export * from './apis/steam-api.js';
 

@@ -15,34 +15,34 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ColorV1 } from './color-v1';
+import type { ColorV1 } from './color-v1.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { DamageFlashV2 } from './damage-flash-v2';
+import type { DamageFlashV2 } from './damage-flash-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GlitchSettingsV2 } from './glitch-settings-v2';
+import type { GlitchSettingsV2 } from './glitch-settings-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemGroup } from './item-group';
+import type { ItemGroup } from './item-group.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { LaneInfoV2 } from './lane-info-v2';
+import type { LaneInfoV2 } from './lane-info-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MiniMapOffsets } from './mini-map-offsets';
+import type { MiniMapOffsets } from './mini-map-offsets.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { NewPlayerMetricsV2 } from './new-player-metrics-v2';
+import type { NewPlayerMetricsV2 } from './new-player-metrics-v2.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ObjectiveParams } from './objective-params';
+import type { ObjectiveParams } from './objective-params.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RejuvParams } from './rejuv-params';
+import type { RejuvParams } from './rejuv-params.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { StreetBrawl } from './street-brawl';
+import type { StreetBrawl } from './street-brawl.js';
 
 export interface GenericDataV2 {
     'damage_flash': DamageFlashV2;

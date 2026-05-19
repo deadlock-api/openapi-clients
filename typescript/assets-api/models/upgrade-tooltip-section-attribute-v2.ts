@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon } from './upgrade-tooltip-section-attribute-v2-important-property-with-icon';
+import type { UpgradeTooltipSectionAttributeV2ImportantPropertyWithIcon } from './upgrade-tooltip-section-attribute-v2-important-property-with-icon.js';
 
 export interface UpgradeTooltipSectionAttributeV2 {
     'loc_string'?: string | null;

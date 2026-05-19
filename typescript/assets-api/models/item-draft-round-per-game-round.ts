@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemDraftRound } from './item-draft-round';
+import type { ItemDraftRound } from './item-draft-round.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { OutcomeToWeights } from './outcome-to-weights';
+import type { OutcomeToWeights } from './outcome-to-weights.js';
 
 export interface ItemDraftRoundPerGameRound {
     'chance_rare': OutcomeToWeights;

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemWeaponInfoBulletSpeedCurveSplineV2 } from './raw-item-weapon-info-bullet-speed-curve-spline-v2';
+import type { RawItemWeaponInfoBulletSpeedCurveSplineV2 } from './raw-item-weapon-info-bullet-speed-curve-spline-v2.js';
 
 export interface RawItemWeaponInfoBulletSpeedCurveV2 {
     'spline'?: Array<RawItemWeaponInfoBulletSpeedCurveSplineV2>;

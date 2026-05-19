@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MapImagesV1 } from './map-images-v1';
+import type { MapImagesV1 } from './map-images-v1.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ObjectivePositionsV1 } from './objective-positions-v1';
+import type { ObjectivePositionsV1 } from './objective-positions-v1.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ZiplanePathV1 } from './ziplane-path-v1';
+import type { ZiplanePathV1 } from './ziplane-path-v1.js';
 
 export interface MapV1 {
     /**

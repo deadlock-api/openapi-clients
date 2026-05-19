@@ -13,28 +13,28 @@
  */
 
 
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
 // @ts-ignore
-import type { EnemyStats } from '../models';
+import type { EnemyStats } from '../models/index.js';
 // @ts-ignore
-import type { HeroStats } from '../models';
+import type { HeroStats } from '../models/index.js';
 // @ts-ignore
-import type { MateStats } from '../models';
+import type { MateStats } from '../models/index.js';
 // @ts-ignore
-import type { PlayerAccountStats } from '../models';
+import type { PlayerAccountStats } from '../models/index.js';
 // @ts-ignore
-import type { PlayerCard } from '../models';
+import type { PlayerCard } from '../models/index.js';
 // @ts-ignore
-import type { PlayerMatchHistoryEntry } from '../models';
+import type { PlayerMatchHistoryEntry } from '../models/index.js';
 // @ts-ignore
-import type { RankPredictResponse } from '../models';
+import type { RankPredictResponse } from '../models/index.js';
 /**
  * PlayersApi - axios parameter creator
  */

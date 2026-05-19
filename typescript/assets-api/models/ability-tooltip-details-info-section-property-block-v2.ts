@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty } from './ability-v2-tooltip-details-info-section-property-block-property';
+import type { AbilityV2TooltipDetailsInfoSectionPropertyBlockProperty } from './ability-v2-tooltip-details-info-section-property-block-property.js';
 
 export interface AbilityTooltipDetailsInfoSectionPropertyBlockV2 {
     'loc_string'?: string | null;

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ObjectiveHealthGrowthPhase } from './objective-health-growth-phase';
+import type { ObjectiveHealthGrowthPhase } from './objective-health-growth-phase.js';
 
 export interface SubclassObjectiveHealthGrowthPhase {
     'subclass'?: ObjectiveHealthGrowthPhase;

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { TableSize } from './table-size';
+import type { TableSize } from './table-size.js';
 
 export interface APIInfo {
     /**

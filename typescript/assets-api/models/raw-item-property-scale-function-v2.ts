@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawItemPropertyScaleFunctionSubclassV2 } from './raw-item-property-scale-function-subclass-v2';
+import type { RawItemPropertyScaleFunctionSubclassV2 } from './raw-item-property-scale-function-subclass-v2.js';
 
 export interface RawItemPropertyScaleFunctionV2 {
     'subclass'?: RawItemPropertyScaleFunctionSubclassV2 | null;

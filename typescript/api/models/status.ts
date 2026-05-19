@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { StatusServices } from './status-services';
+import type { StatusServices } from './status-services.js';
 
 export interface Status {
     /**

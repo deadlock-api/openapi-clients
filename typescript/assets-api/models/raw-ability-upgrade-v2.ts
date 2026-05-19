@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RawAbilityUpgradePropertyUpgradeV2 } from './raw-ability-upgrade-property-upgrade-v2';
+import type { RawAbilityUpgradePropertyUpgradeV2 } from './raw-ability-upgrade-property-upgrade-v2.js';
 
 export interface RawAbilityUpgradeV2 {
     'property_upgrades'?: Array<RawAbilityUpgradePropertyUpgradeV2>;

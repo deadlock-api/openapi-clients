@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemDraftRoundPerGameRound } from './item-draft-round-per-game-round';
+import type { ItemDraftRoundPerGameRound } from './item-draft-round-per-game-round.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemDraftsValue } from './item-drafts-value';
+import type { ItemDraftsValue } from './item-drafts-value.js';
 
 export interface StreetBrawl {
     'respawn_times': Array<number>;

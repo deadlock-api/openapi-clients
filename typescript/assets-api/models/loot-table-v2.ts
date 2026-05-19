@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { LootTableV2Entry } from './loot-table-v2-entry';
+import type { LootTableV2Entry } from './loot-table-v2-entry.js';
 
 export interface LootTableV2 {
     'entries': Array<LootTableV2Entry>;

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildHero } from './build-hero';
+import type { BuildHero } from './build-hero.js';
 
 export interface Build {
     'hero_build': BuildHero;

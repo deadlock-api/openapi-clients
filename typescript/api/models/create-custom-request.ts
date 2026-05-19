@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GameMode } from './game-mode';
+import type { GameMode } from './game-mode.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ServerRegion } from './server-region';
+import type { ServerRegion } from './server-region.js';
 
 export interface CreateCustomRequest {
     /**

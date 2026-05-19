@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ModifierDefinition } from './modifier-definition';
+import type { ModifierDefinition } from './modifier-definition.js';
 
 export interface SubclassModifierDefinition {
     'subclass'?: ModifierDefinition;

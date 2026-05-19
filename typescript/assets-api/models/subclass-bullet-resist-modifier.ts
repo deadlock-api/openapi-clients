@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BulletResistModifier } from './bullet-resist-modifier';
+import type { BulletResistModifier } from './bullet-resist-modifier.js';
 
 export interface SubclassBulletResistModifier {
     'subclass'?: BulletResistModifier;

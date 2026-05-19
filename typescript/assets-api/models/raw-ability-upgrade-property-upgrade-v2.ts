@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Bonus } from './bonus';
+import type { Bonus } from './bonus.js';
 
 export interface RawAbilityUpgradePropertyUpgradeV2 {
     'name': string;

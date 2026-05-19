@@ -14,11 +14,11 @@
 
 
 
-export * from './apis/accolades-api';
-export * from './apis/default-api';
-export * from './apis/heroes-api';
-export * from './apis/items-api';
-export * from './apis/misc-entities-api';
-export * from './apis/npcunits-api';
-export * from './apis/raw-api';
+export * from './apis/accolades-api.js';
+export * from './apis/default-api.js';
+export * from './apis/heroes-api.js';
+export * from './apis/items-api.js';
+export * from './apis/misc-entities-api.js';
+export * from './apis/npcunits-api.js';
+export * from './apis/raw-api.js';
 

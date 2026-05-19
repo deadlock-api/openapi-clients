@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { VariableCategory } from './variable-category';
+import type { VariableCategory } from './variable-category.js';
 
 export interface VariableDescription {
     /**
