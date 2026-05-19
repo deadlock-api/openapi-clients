@@ -19,18 +19,22 @@ generate-assets-api-python:
 
 typescript: generate-api-typescript generate-assets-api-typescript
 
+TS_AXIOS_PROPS = withSeparateModelsAndApi=true,apiPackage=apis,modelPackage=models,stringEnums=true,supportsES6=true,useSingleRequestParameter=true
+
 generate-api-typescript:
 	@echo "--> Creating directory for the main API client..."
 	@mkdir -p typescript/api
 	@echo "--> Generating Typescript client for the main API..."
-	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://api.deadlock-api.com/openapi.json -g typescript-axios -o typescript/api/ --skip-validate-spec --additional-properties=npmName=deadlock_api_client,useSingleRequestParameter=true
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://api.deadlock-api.com/openapi.json -g typescript-axios -o typescript/api/ --skip-validate-spec --additional-properties=npmName=deadlock_api_client,$(TS_AXIOS_PROPS)
+	@node typescript/patch.mjs typescript/api
 	@echo "--> Main API client generated successfully in typescript/api/"
 
 generate-assets-api-typescript:
 	@echo "--> Creating directory for the assets API client..."
 	@mkdir -p typescript/assets-api
 	@echo "--> Generating Typescript client for the assets API..."
-	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets_deadlock_api_client,useSingleRequestParameter=true
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i https://assets.deadlock-api.com/openapi.json -g typescript-axios -o typescript/assets-api/ --skip-validate-spec --additional-properties=npmName=assets_deadlock_api_client,$(TS_AXIOS_PROPS)
+	@node typescript/patch.mjs typescript/assets-api
 	@echo "--> Assets API client generated successfully in typescript/assets-api/"
 
 typescript-redux-query: generate-api-typescript-redux-query generate-assets-api-typescript-redux-query
