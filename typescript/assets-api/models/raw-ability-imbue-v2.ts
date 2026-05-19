@@ -15,11 +15,13 @@
 
 
 
-export enum RawAbilityImbueV2 {
-    ImbueActive = 'imbue_active',
-    ImbueActiveNonUlt = 'imbue_active_non_ult',
-    ImbueModifierValue = 'imbue_modifier_value'
-}
+export const RawAbilityImbueV2 = {
+    ImbueActive: 'imbue_active',
+    ImbueActiveNonUlt: 'imbue_active_non_ult',
+    ImbueModifierValue: 'imbue_modifier_value',
+} as const;
+
+export type RawAbilityImbueV2 = typeof RawAbilityImbueV2[keyof typeof RawAbilityImbueV2];
 
 
 

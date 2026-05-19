@@ -15,14 +15,16 @@
 
 
 
-export enum VariableCategory {
-    General = 'General',
-    Daily = 'Daily',
-    Hero = 'Hero',
-    Item = 'Item',
-    Leaderboard = 'Leaderboard',
-    Overall = 'Overall'
-}
+export const VariableCategory = {
+    General: 'General',
+    Daily: 'Daily',
+    Hero: 'Hero',
+    Item: 'Item',
+    Leaderboard: 'Leaderboard',
+    Overall: 'Overall',
+} as const;
+
+export type VariableCategory = typeof VariableCategory[keyof typeof VariableCategory];
 
 
 

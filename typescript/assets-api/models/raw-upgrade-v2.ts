@@ -59,8 +59,10 @@ export interface RawUpgradeV2 {
     'upgrades'?: Array<RawAbilityUpgradeV2> | null;
 }
 
-export enum RawUpgradeV2TypeEnum {
-    Upgrade = 'upgrade'
-}
+export const RawUpgradeV2TypeEnum = {
+    Upgrade: 'upgrade',
+} as const;
+
+export type RawUpgradeV2TypeEnum = typeof RawUpgradeV2TypeEnum[keyof typeof RawUpgradeV2TypeEnum];
 
 

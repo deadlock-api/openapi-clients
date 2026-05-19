@@ -15,12 +15,14 @@
 
 
 
-export enum GameMode {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
+export const GameMode = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+
+export type GameMode = typeof GameMode[keyof typeof GameMode];
 
 
 

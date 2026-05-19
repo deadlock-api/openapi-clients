@@ -1115,18 +1115,21 @@ export class MatchesApi extends BaseAPI {
     }
 }
 
-export enum BulkMetadataGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum BulkMetadataOrderByEnum {
-    MatchId = 'match_id',
-    StartTime = 'start_time',
-    AverageBadge = 'average_badge'
-}
-export enum BulkMetadataOrderDirectionEnum {
-    Desc = 'desc',
-    Asc = 'asc'
-}
+export const BulkMetadataGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type BulkMetadataGameModeEnum = typeof BulkMetadataGameModeEnum[keyof typeof BulkMetadataGameModeEnum];
+export const BulkMetadataOrderByEnum = {
+    MatchId: 'match_id',
+    StartTime: 'start_time',
+    AverageBadge: 'average_badge',
+} as const;
+export type BulkMetadataOrderByEnum = typeof BulkMetadataOrderByEnum[keyof typeof BulkMetadataOrderByEnum];
+export const BulkMetadataOrderDirectionEnum = {
+    Desc: 'desc',
+    Asc: 'asc',
+} as const;
+export type BulkMetadataOrderDirectionEnum = typeof BulkMetadataOrderDirectionEnum[keyof typeof BulkMetadataOrderDirectionEnum];

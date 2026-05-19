@@ -398,17 +398,19 @@ export class CommandsApi extends BaseAPI {
     }
 }
 
-export enum CommandResolveRegionEnum {
-    Europe = 'Europe',
-    Asia = 'Asia',
-    NAmerica = 'NAmerica',
-    SAmerica = 'SAmerica',
-    Oceania = 'Oceania'
-}
-export enum VariablesResolveRegionEnum {
-    Europe = 'Europe',
-    Asia = 'Asia',
-    NAmerica = 'NAmerica',
-    SAmerica = 'SAmerica',
-    Oceania = 'Oceania'
-}
+export const CommandResolveRegionEnum = {
+    Europe: 'Europe',
+    Asia: 'Asia',
+    NAmerica: 'NAmerica',
+    SAmerica: 'SAmerica',
+    Oceania: 'Oceania',
+} as const;
+export type CommandResolveRegionEnum = typeof CommandResolveRegionEnum[keyof typeof CommandResolveRegionEnum];
+export const VariablesResolveRegionEnum = {
+    Europe: 'Europe',
+    Asia: 'Asia',
+    NAmerica: 'NAmerica',
+    SAmerica: 'SAmerica',
+    Oceania: 'Oceania',
+} as const;
+export type VariablesResolveRegionEnum = typeof VariablesResolveRegionEnum[keyof typeof VariablesResolveRegionEnum];

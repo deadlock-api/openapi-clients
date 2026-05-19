@@ -15,12 +15,14 @@
 
 
 
-export enum HeroTypeV2 {
-    Assassin = 'assassin',
-    Brawler = 'brawler',
-    Marksman = 'marksman',
-    Mystic = 'mystic'
-}
+export const HeroTypeV2 = {
+    Assassin: 'assassin',
+    Brawler: 'brawler',
+    Marksman: 'marksman',
+    Mystic: 'mystic',
+} as const;
+
+export type HeroTypeV2 = typeof HeroTypeV2[keyof typeof HeroTypeV2];
 
 
 

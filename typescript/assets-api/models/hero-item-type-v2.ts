@@ -15,25 +15,27 @@
 
 
 
-export enum HeroItemTypeV2 {
-    WeaponPrimary = 'weapon_primary',
-    WeaponSecondary = 'weapon_secondary',
-    WeaponMelee = 'weapon_melee',
-    AbilityMantle = 'ability_mantle',
-    AbilityJump = 'ability_jump',
-    AbilitySlide = 'ability_slide',
-    AbilityZipLine = 'ability_zip_line',
-    AbilityZipLineBoost = 'ability_zip_line_boost',
-    AbilityClimbRope = 'ability_climb_rope',
-    AbilityInnate1 = 'ability_innate1',
-    AbilityInnate2 = 'ability_innate2',
-    AbilityInnate3 = 'ability_innate3',
-    Signature1 = 'signature1',
-    Signature2 = 'signature2',
-    Signature3 = 'signature3',
-    Signature4 = 'signature4',
-    EslotCosmetic1 = 'eslot_cosmetic_1'
-}
+export const HeroItemTypeV2 = {
+    WeaponPrimary: 'weapon_primary',
+    WeaponSecondary: 'weapon_secondary',
+    WeaponMelee: 'weapon_melee',
+    AbilityMantle: 'ability_mantle',
+    AbilityJump: 'ability_jump',
+    AbilitySlide: 'ability_slide',
+    AbilityZipLine: 'ability_zip_line',
+    AbilityZipLineBoost: 'ability_zip_line_boost',
+    AbilityClimbRope: 'ability_climb_rope',
+    AbilityInnate1: 'ability_innate1',
+    AbilityInnate2: 'ability_innate2',
+    AbilityInnate3: 'ability_innate3',
+    Signature1: 'signature1',
+    Signature2: 'signature2',
+    Signature3: 'signature3',
+    Signature4: 'signature4',
+    EslotCosmetic1: 'eslot_cosmetic_1',
+} as const;
+
+export type HeroItemTypeV2 = typeof HeroItemTypeV2[keyof typeof HeroItemTypeV2];
 
 
 

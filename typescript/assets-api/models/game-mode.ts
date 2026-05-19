@@ -15,9 +15,11 @@
 
 
 
-export enum GameMode {
-    Normal = 'normal'
-}
+export const GameMode = {
+    Normal: 'normal',
+} as const;
+
+export type GameMode = typeof GameMode[keyof typeof GameMode];
 
 
 

@@ -91,10 +91,12 @@ export interface ResponseGetRawItemsRawItemsGetInner {
     'tooltip_sections'?: Array<RawUpgradeTooltipSectionV2>;
 }
 
-export enum ResponseGetRawItemsRawItemsGetInnerTypeEnum {
-    Ability = 'ability',
-    Weapon = 'weapon',
-    Upgrade = 'upgrade'
-}
+export const ResponseGetRawItemsRawItemsGetInnerTypeEnum = {
+    Ability: 'ability',
+    Weapon: 'weapon',
+    Upgrade: 'upgrade',
+} as const;
+
+export type ResponseGetRawItemsRawItemsGetInnerTypeEnum = typeof ResponseGetRawItemsRawItemsGetInnerTypeEnum[keyof typeof ResponseGetRawItemsRawItemsGetInnerTypeEnum];
 
 

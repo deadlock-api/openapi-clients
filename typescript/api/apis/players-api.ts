@@ -1056,25 +1056,29 @@ export class PlayersApi extends BaseAPI {
     }
 }
 
-export enum EnemyStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum MateStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum PlayerHeroStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum RankPredictImageFormatEnum {
-    Png = 'png',
-    Webp = 'webp'
-}
+export const EnemyStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type EnemyStatsGameModeEnum = typeof EnemyStatsGameModeEnum[keyof typeof EnemyStatsGameModeEnum];
+export const MateStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type MateStatsGameModeEnum = typeof MateStatsGameModeEnum[keyof typeof MateStatsGameModeEnum];
+export const PlayerHeroStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
+export const RankPredictImageFormatEnum = {
+    Png: 'png',
+    Webp: 'webp',
+} as const;
+export type RankPredictImageFormatEnum = typeof RankPredictImageFormatEnum[keyof typeof RankPredictImageFormatEnum];

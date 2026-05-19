@@ -15,17 +15,19 @@
 
 
 
-export enum ActiveMatchMode {
-    Invalid = 'Invalid',
-    Unranked = 'Unranked',
-    PrivateLobby = 'PrivateLobby',
-    CoopBot = 'CoopBot',
-    Ranked = 'Ranked',
-    ServerTest = 'ServerTest',
-    Tutorial = 'Tutorial',
-    HeroLabs = 'HeroLabs',
-    Calibration = 'Calibration'
-}
+export const ActiveMatchMode = {
+    Invalid: 'Invalid',
+    Unranked: 'Unranked',
+    PrivateLobby: 'PrivateLobby',
+    CoopBot: 'CoopBot',
+    Ranked: 'Ranked',
+    ServerTest: 'ServerTest',
+    Tutorial: 'Tutorial',
+    HeroLabs: 'HeroLabs',
+    Calibration: 'Calibration',
+} as const;
+
+export type ActiveMatchMode = typeof ActiveMatchMode[keyof typeof ActiveMatchMode];
 
 
 

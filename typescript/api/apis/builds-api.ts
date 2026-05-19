@@ -331,36 +331,39 @@ export class BuildsApi extends BaseAPI {
     }
 }
 
-export enum SearchBuildsSortByEnum {
-    WeeklyFavorites = 'weekly_favorites',
-    Favorites = 'favorites',
-    Ignores = 'ignores',
-    Reports = 'reports',
-    UpdatedAt = 'updated_at',
-    PublishedAt = 'published_at',
-    Version = 'version'
-}
-export enum SearchBuildsSortDirectionEnum {
-    Desc = 'desc',
-    Asc = 'asc'
-}
-export enum SearchBuildsBuildLanguageEnum {
-    English = 'English',
-    German = 'German',
-    French = 'French',
-    Italian = 'Italian',
-    Korean = 'Korean',
-    SpanishSpain = 'SpanishSpain',
-    ChineseSimplified = 'ChineseSimplified',
-    Russian = 'Russian',
-    Thai = 'Thai',
-    Japanese = 'Japanese',
-    PortuguesePortugal = 'PortuguesePortugal',
-    Polish = 'Polish',
-    Czech = 'Czech',
-    Turkish = 'Turkish',
-    PortugueseBrazil = 'PortugueseBrazil',
-    Ukrainian = 'Ukrainian',
-    SpanishLatinAmerica = 'SpanishLatinAmerica',
-    Vietnamese = 'Vietnamese'
-}
+export const SearchBuildsSortByEnum = {
+    WeeklyFavorites: 'weekly_favorites',
+    Favorites: 'favorites',
+    Ignores: 'ignores',
+    Reports: 'reports',
+    UpdatedAt: 'updated_at',
+    PublishedAt: 'published_at',
+    Version: 'version',
+} as const;
+export type SearchBuildsSortByEnum = typeof SearchBuildsSortByEnum[keyof typeof SearchBuildsSortByEnum];
+export const SearchBuildsSortDirectionEnum = {
+    Desc: 'desc',
+    Asc: 'asc',
+} as const;
+export type SearchBuildsSortDirectionEnum = typeof SearchBuildsSortDirectionEnum[keyof typeof SearchBuildsSortDirectionEnum];
+export const SearchBuildsBuildLanguageEnum = {
+    English: 'English',
+    German: 'German',
+    French: 'French',
+    Italian: 'Italian',
+    Korean: 'Korean',
+    SpanishSpain: 'SpanishSpain',
+    ChineseSimplified: 'ChineseSimplified',
+    Russian: 'Russian',
+    Thai: 'Thai',
+    Japanese: 'Japanese',
+    PortuguesePortugal: 'PortuguesePortugal',
+    Polish: 'Polish',
+    Czech: 'Czech',
+    Turkish: 'Turkish',
+    PortugueseBrazil: 'PortugueseBrazil',
+    Ukrainian: 'Ukrainian',
+    SpanishLatinAmerica: 'SpanishLatinAmerica',
+    Vietnamese: 'Vietnamese',
+} as const;
+export type SearchBuildsBuildLanguageEnum = typeof SearchBuildsBuildLanguageEnum[keyof typeof SearchBuildsBuildLanguageEnum];

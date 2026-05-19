@@ -15,10 +15,12 @@
 
 
 
-export enum ThresholdType {
-    Automatic = 'automatic',
-    Manual = 'manual'
-}
+export const ThresholdType = {
+    Automatic: 'automatic',
+    Manual: 'manual',
+} as const;
+
+export type ThresholdType = typeof ThresholdType[keyof typeof ThresholdType];
 
 
 

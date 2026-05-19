@@ -15,11 +15,13 @@
 
 
 
-export enum ActiveMatchTeam {
-    Team0 = 'Team0',
-    Team1 = 'Team1',
-    Spectator = 'Spectator'
-}
+export const ActiveMatchTeam = {
+    Team0: 'Team0',
+    Team1: 'Team1',
+    Spectator: 'Spectator',
+} as const;
+
+export type ActiveMatchTeam = typeof ActiveMatchTeam[keyof typeof ActiveMatchTeam];
 
 
 

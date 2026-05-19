@@ -386,31 +386,35 @@ export class LeaderboardApi extends BaseAPI {
     }
 }
 
-export enum LeaderboardRegionEnum {
-    Europe = 'Europe',
-    Asia = 'Asia',
-    NAmerica = 'NAmerica',
-    SAmerica = 'SAmerica',
-    Oceania = 'Oceania'
-}
-export enum LeaderboardHeroRegionEnum {
-    Europe = 'Europe',
-    Asia = 'Asia',
-    NAmerica = 'NAmerica',
-    SAmerica = 'SAmerica',
-    Oceania = 'Oceania'
-}
-export enum LeaderboardHeroRawRegionEnum {
-    Europe = 'Europe',
-    Asia = 'Asia',
-    NAmerica = 'NAmerica',
-    SAmerica = 'SAmerica',
-    Oceania = 'Oceania'
-}
-export enum LeaderboardRawRegionEnum {
-    Europe = 'Europe',
-    Asia = 'Asia',
-    NAmerica = 'NAmerica',
-    SAmerica = 'SAmerica',
-    Oceania = 'Oceania'
-}
+export const LeaderboardRegionEnum = {
+    Europe: 'Europe',
+    Asia: 'Asia',
+    NAmerica: 'NAmerica',
+    SAmerica: 'SAmerica',
+    Oceania: 'Oceania',
+} as const;
+export type LeaderboardRegionEnum = typeof LeaderboardRegionEnum[keyof typeof LeaderboardRegionEnum];
+export const LeaderboardHeroRegionEnum = {
+    Europe: 'Europe',
+    Asia: 'Asia',
+    NAmerica: 'NAmerica',
+    SAmerica: 'SAmerica',
+    Oceania: 'Oceania',
+} as const;
+export type LeaderboardHeroRegionEnum = typeof LeaderboardHeroRegionEnum[keyof typeof LeaderboardHeroRegionEnum];
+export const LeaderboardHeroRawRegionEnum = {
+    Europe: 'Europe',
+    Asia: 'Asia',
+    NAmerica: 'NAmerica',
+    SAmerica: 'SAmerica',
+    Oceania: 'Oceania',
+} as const;
+export type LeaderboardHeroRawRegionEnum = typeof LeaderboardHeroRawRegionEnum[keyof typeof LeaderboardHeroRawRegionEnum];
+export const LeaderboardRawRegionEnum = {
+    Europe: 'Europe',
+    Asia: 'Asia',
+    NAmerica: 'NAmerica',
+    SAmerica: 'SAmerica',
+    Oceania: 'Oceania',
+} as const;
+export type LeaderboardRawRegionEnum = typeof LeaderboardRawRegionEnum[keyof typeof LeaderboardRawRegionEnum];

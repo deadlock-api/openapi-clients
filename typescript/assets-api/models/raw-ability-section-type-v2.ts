@@ -15,11 +15,13 @@
 
 
 
-export enum RawAbilitySectionTypeV2 {
-    Innate = 'innate',
-    Active = 'active',
-    Passive = 'passive'
-}
+export const RawAbilitySectionTypeV2 = {
+    Innate: 'innate',
+    Active: 'active',
+    Passive: 'passive',
+} as const;
+
+export type RawAbilitySectionTypeV2 = typeof RawAbilitySectionTypeV2[keyof typeof RawAbilitySectionTypeV2];
 
 
 

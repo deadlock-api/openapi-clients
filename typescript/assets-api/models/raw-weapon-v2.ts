@@ -37,8 +37,10 @@ export interface RawWeaponV2 {
     'custom_crosshair_settings'?: RawCustomCrosshairSettingsV2 | null;
 }
 
-export enum RawWeaponV2TypeEnum {
-    Weapon = 'weapon'
-}
+export const RawWeaponV2TypeEnum = {
+    Weapon: 'weapon',
+} as const;
+
+export type RawWeaponV2TypeEnum = typeof RawWeaponV2TypeEnum[keyof typeof RawWeaponV2TypeEnum];
 
 

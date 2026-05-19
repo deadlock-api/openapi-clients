@@ -15,13 +15,15 @@
 
 
 
-export enum ItemTypeV2 {
-    Weapon = 'weapon',
-    Ability = 'ability',
-    Upgrade = 'upgrade',
-    Tech = 'tech',
-    Armor = 'armor'
-}
+export const ItemTypeV2 = {
+    Weapon: 'weapon',
+    Ability: 'ability',
+    Upgrade: 'upgrade',
+    Tech: 'tech',
+    Armor: 'armor',
+} as const;
+
+export type ItemTypeV2 = typeof ItemTypeV2[keyof typeof ItemTypeV2];
 
 
 

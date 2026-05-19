@@ -15,15 +15,17 @@
 
 
 
-export enum RawAbilityActivationV2 {
-    HoldToggle = 'hold_toggle',
-    InstantCast = 'instant_cast',
-    OnButtonIsDown = 'on_button_is_down',
-    Passive = 'passive',
-    Press = 'press',
-    PressToggle = 'press_toggle',
-    InstantCastToggle = 'instant_cast_toggle'
-}
+export const RawAbilityActivationV2 = {
+    HoldToggle: 'hold_toggle',
+    InstantCast: 'instant_cast',
+    OnButtonIsDown: 'on_button_is_down',
+    Passive: 'passive',
+    Press: 'press',
+    PressToggle: 'press_toggle',
+    InstantCastToggle: 'instant_cast_toggle',
+} as const;
+
+export type RawAbilityActivationV2 = typeof RawAbilityActivationV2[keyof typeof RawAbilityActivationV2];
 
 
 

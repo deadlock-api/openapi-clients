@@ -72,8 +72,10 @@ export interface UpgradeV2 {
     'cost': number | null;
 }
 
-export enum UpgradeV2TypeEnum {
-    Upgrade = 'upgrade'
-}
+export const UpgradeV2TypeEnum = {
+    Upgrade: 'upgrade',
+} as const;
+
+export type UpgradeV2TypeEnum = typeof UpgradeV2TypeEnum[keyof typeof UpgradeV2TypeEnum];
 
 

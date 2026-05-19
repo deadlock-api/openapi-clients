@@ -63,8 +63,10 @@ export interface AbilityV2 {
     'dependent_abilities'?: { [key: string]: AbilityV2DependentAbilitiesValue; } | null;
 }
 
-export enum AbilityV2TypeEnum {
-    Ability = 'ability'
-}
+export const AbilityV2TypeEnum = {
+    Ability: 'ability',
+} as const;
+
+export type AbilityV2TypeEnum = typeof AbilityV2TypeEnum[keyof typeof AbilityV2TypeEnum];
 
 

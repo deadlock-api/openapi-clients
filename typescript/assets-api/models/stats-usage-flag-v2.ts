@@ -15,12 +15,14 @@
 
 
 
-export enum StatsUsageFlagV2 {
-    ConditionallyApplied = 'ConditionallyApplied',
-    ConditionallyEnemyApplied = 'ConditionallyEnemyApplied',
-    IntrinsicallyProvidedInAbility = 'IntrinsicallyProvidedInAbility',
-    IntrinsicallyProvidedInModifier = 'IntrinsicallyProvidedInModifier'
-}
+export const StatsUsageFlagV2 = {
+    ConditionallyApplied: 'ConditionallyApplied',
+    ConditionallyEnemyApplied: 'ConditionallyEnemyApplied',
+    IntrinsicallyProvidedInAbility: 'IntrinsicallyProvidedInAbility',
+    IntrinsicallyProvidedInModifier: 'IntrinsicallyProvidedInModifier',
+} as const;
+
+export type StatsUsageFlagV2 = typeof StatsUsageFlagV2[keyof typeof StatsUsageFlagV2];
 
 
 

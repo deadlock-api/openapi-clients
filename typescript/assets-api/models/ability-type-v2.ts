@@ -15,15 +15,17 @@
 
 
 
-export enum AbilityTypeV2 {
-    Innate = 'innate',
-    Item = 'item',
-    Signature = 'signature',
-    Ultimate = 'ultimate',
-    Weapon = 'weapon',
-    Melee = 'melee',
-    Cosmetic = 'cosmetic'
-}
+export const AbilityTypeV2 = {
+    Innate: 'innate',
+    Item: 'item',
+    Signature: 'signature',
+    Ultimate: 'ultimate',
+    Weapon: 'weapon',
+    Melee: 'melee',
+    Cosmetic: 'cosmetic',
+} as const;
+
+export type AbilityTypeV2 = typeof AbilityTypeV2[keyof typeof AbilityTypeV2];
 
 
 

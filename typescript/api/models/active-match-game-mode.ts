@@ -15,13 +15,15 @@
 
 
 
-export enum ActiveMatchGameMode {
-    KeCitadelGameModeInvalid = 'KECitadelGameModeInvalid',
-    KeCitadelGameModeNormal = 'KECitadelGameModeNormal',
-    KeCitadelGameMode1v1Test = 'KECitadelGameMode1v1Test',
-    KeCitadelGameModeSandbox = 'KECitadelGameModeSandbox',
-    KeCitadelGameModeStreetBrawl = 'KECitadelGameModeStreetBrawl'
-}
+export const ActiveMatchGameMode = {
+    KeCitadelGameModeInvalid: 'KECitadelGameModeInvalid',
+    KeCitadelGameModeNormal: 'KECitadelGameModeNormal',
+    KeCitadelGameMode1v1Test: 'KECitadelGameMode1v1Test',
+    KeCitadelGameModeSandbox: 'KECitadelGameModeSandbox',
+    KeCitadelGameModeStreetBrawl: 'KECitadelGameModeStreetBrawl',
+} as const;
+
+export type ActiveMatchGameMode = typeof ActiveMatchGameMode[keyof typeof ActiveMatchGameMode];
 
 
 

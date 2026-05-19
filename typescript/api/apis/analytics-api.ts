@@ -4239,261 +4239,283 @@ export class AnalyticsApi extends BaseAPI {
     }
 }
 
-export enum AbilityOrderStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum BadgeDistributionGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum GameStatsBucketEnum {
-    NoBucket = 'no_bucket',
-    AvgBadge = 'avg_badge',
-    StartTimeHour = 'start_time_hour',
-    StartTimeDay = 'start_time_day',
-    StartTimeWeek = 'start_time_week',
-    StartTimeMonth = 'start_time_month'
-}
-export enum GameStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum HeroBanStatsBucketEnum {
-    NoBucket = 'no_bucket',
-    AvgBadge = 'avg_badge',
-    StartTimeHour = 'start_time_hour',
-    StartTimeDay = 'start_time_day',
-    StartTimeWeek = 'start_time_week',
-    StartTimeMonth = 'start_time_month'
-}
-export enum HeroCombStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum HeroCountersStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum HeroScoreboardSortByEnum {
-    Matches = 'matches',
-    Wins = 'wins',
-    Losses = 'losses',
-    Winrate = 'winrate',
-    MaxKillsPerMatch = 'max_kills_per_match',
-    AvgKillsPerMatch = 'avg_kills_per_match',
-    Kills = 'kills',
-    MaxDeathsPerMatch = 'max_deaths_per_match',
-    AvgDeathsPerMatch = 'avg_deaths_per_match',
-    Deaths = 'deaths',
-    MaxDamageTakenPerMatch = 'max_damage_taken_per_match',
-    AvgDamageTakenPerMatch = 'avg_damage_taken_per_match',
-    DamageTaken = 'damage_taken',
-    MaxAssistsPerMatch = 'max_assists_per_match',
-    AvgAssistsPerMatch = 'avg_assists_per_match',
-    Assists = 'assists',
-    MaxNetWorthPerMatch = 'max_net_worth_per_match',
-    AvgNetWorthPerMatch = 'avg_net_worth_per_match',
-    NetWorth = 'net_worth',
-    MaxLastHitsPerMatch = 'max_last_hits_per_match',
-    AvgLastHitsPerMatch = 'avg_last_hits_per_match',
-    LastHits = 'last_hits',
-    MaxDeniesPerMatch = 'max_denies_per_match',
-    AvgDeniesPerMatch = 'avg_denies_per_match',
-    Denies = 'denies',
-    MaxPlayerLevelPerMatch = 'max_player_level_per_match',
-    AvgPlayerLevelPerMatch = 'avg_player_level_per_match',
-    PlayerLevel = 'player_level',
-    MaxCreepKillsPerMatch = 'max_creep_kills_per_match',
-    AvgCreepKillsPerMatch = 'avg_creep_kills_per_match',
-    CreepKills = 'creep_kills',
-    MaxNeutralKillsPerMatch = 'max_neutral_kills_per_match',
-    AvgNeutralKillsPerMatch = 'avg_neutral_kills_per_match',
-    NeutralKills = 'neutral_kills',
-    MaxCreepDamagePerMatch = 'max_creep_damage_per_match',
-    AvgCreepDamagePerMatch = 'avg_creep_damage_per_match',
-    CreepDamage = 'creep_damage',
-    MaxPlayerDamagePerMatch = 'max_player_damage_per_match',
-    AvgPlayerDamagePerMatch = 'avg_player_damage_per_match',
-    PlayerDamage = 'player_damage',
-    MaxNeutralDamagePerMatch = 'max_neutral_damage_per_match',
-    AvgNeutralDamagePerMatch = 'avg_neutral_damage_per_match',
-    NeutralDamage = 'neutral_damage',
-    MaxBossDamagePerMatch = 'max_boss_damage_per_match',
-    AvgBossDamagePerMatch = 'avg_boss_damage_per_match',
-    BossDamage = 'boss_damage',
-    MaxMaxHealthPerMatch = 'max_max_health_per_match',
-    AvgMaxHealthPerMatch = 'avg_max_health_per_match',
-    MaxHealth = 'max_health',
-    MaxShotsHitPerMatch = 'max_shots_hit_per_match',
-    AvgShotsHitPerMatch = 'avg_shots_hit_per_match',
-    ShotsHit = 'shots_hit',
-    MaxShotsMissedPerMatch = 'max_shots_missed_per_match',
-    AvgShotsMissedPerMatch = 'avg_shots_missed_per_match',
-    ShotsMissed = 'shots_missed',
-    MaxHeroBulletsHitPerMatch = 'max_hero_bullets_hit_per_match',
-    AvgHeroBulletsHitPerMatch = 'avg_hero_bullets_hit_per_match',
-    HeroBulletsHit = 'hero_bullets_hit',
-    MaxHeroBulletsHitCritPerMatch = 'max_hero_bullets_hit_crit_per_match',
-    AvgHeroBulletsHitCritPerMatch = 'avg_hero_bullets_hit_crit_per_match',
-    HeroBulletsHitCrit = 'hero_bullets_hit_crit'
-}
-export enum HeroScoreboardSortDirectionEnum {
-    Desc = 'desc',
-    Asc = 'asc'
-}
-export enum HeroScoreboardGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum HeroStatsBucketEnum {
-    NoBucket = 'no_bucket',
-    AvgBadge = 'avg_badge',
-    StartTimeHour = 'start_time_hour',
-    StartTimeDay = 'start_time_day',
-    StartTimeWeek = 'start_time_week',
-    StartTimeMonth = 'start_time_month'
-}
-export enum HeroStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum HeroSynergiesStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum ItemPermutationStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum ItemStatsBucketEnum {
-    NoBucket = 'no_bucket',
-    Hero = 'hero',
-    Team = 'team',
-    StartTimeHour = 'start_time_hour',
-    StartTimeDay = 'start_time_day',
-    StartTimeWeek = 'start_time_week',
-    StartTimeMonth = 'start_time_month',
-    GameTimeMin = 'game_time_min',
-    GameTimeNormalizedPercentage = 'game_time_normalized_percentage',
-    NetWorthBy1000 = 'net_worth_by_1000',
-    NetWorthBy2000 = 'net_worth_by_2000',
-    NetWorthBy3000 = 'net_worth_by_3000',
-    NetWorthBy5000 = 'net_worth_by_5000',
-    NetWorthBy10000 = 'net_worth_by_10000'
-}
-export enum ItemStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum KillDeathStatsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum PlayerPerformanceCurveGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum PlayerScoreboardSortByEnum {
-    Matches = 'matches',
-    Wins = 'wins',
-    Losses = 'losses',
-    Winrate = 'winrate',
-    MaxKillsPerMatch = 'max_kills_per_match',
-    AvgKillsPerMatch = 'avg_kills_per_match',
-    Kills = 'kills',
-    MaxDeathsPerMatch = 'max_deaths_per_match',
-    AvgDeathsPerMatch = 'avg_deaths_per_match',
-    Deaths = 'deaths',
-    MaxDamageTakenPerMatch = 'max_damage_taken_per_match',
-    AvgDamageTakenPerMatch = 'avg_damage_taken_per_match',
-    DamageTaken = 'damage_taken',
-    MaxAssistsPerMatch = 'max_assists_per_match',
-    AvgAssistsPerMatch = 'avg_assists_per_match',
-    Assists = 'assists',
-    MaxNetWorthPerMatch = 'max_net_worth_per_match',
-    AvgNetWorthPerMatch = 'avg_net_worth_per_match',
-    NetWorth = 'net_worth',
-    MaxLastHitsPerMatch = 'max_last_hits_per_match',
-    AvgLastHitsPerMatch = 'avg_last_hits_per_match',
-    LastHits = 'last_hits',
-    MaxDeniesPerMatch = 'max_denies_per_match',
-    AvgDeniesPerMatch = 'avg_denies_per_match',
-    Denies = 'denies',
-    MaxPlayerLevelPerMatch = 'max_player_level_per_match',
-    AvgPlayerLevelPerMatch = 'avg_player_level_per_match',
-    PlayerLevel = 'player_level',
-    MaxCreepKillsPerMatch = 'max_creep_kills_per_match',
-    AvgCreepKillsPerMatch = 'avg_creep_kills_per_match',
-    CreepKills = 'creep_kills',
-    MaxNeutralKillsPerMatch = 'max_neutral_kills_per_match',
-    AvgNeutralKillsPerMatch = 'avg_neutral_kills_per_match',
-    NeutralKills = 'neutral_kills',
-    MaxCreepDamagePerMatch = 'max_creep_damage_per_match',
-    AvgCreepDamagePerMatch = 'avg_creep_damage_per_match',
-    CreepDamage = 'creep_damage',
-    MaxPlayerDamagePerMatch = 'max_player_damage_per_match',
-    AvgPlayerDamagePerMatch = 'avg_player_damage_per_match',
-    PlayerDamage = 'player_damage',
-    MaxNeutralDamagePerMatch = 'max_neutral_damage_per_match',
-    AvgNeutralDamagePerMatch = 'avg_neutral_damage_per_match',
-    NeutralDamage = 'neutral_damage',
-    MaxBossDamagePerMatch = 'max_boss_damage_per_match',
-    AvgBossDamagePerMatch = 'avg_boss_damage_per_match',
-    BossDamage = 'boss_damage',
-    MaxMaxHealthPerMatch = 'max_max_health_per_match',
-    AvgMaxHealthPerMatch = 'avg_max_health_per_match',
-    MaxHealth = 'max_health',
-    MaxShotsHitPerMatch = 'max_shots_hit_per_match',
-    AvgShotsHitPerMatch = 'avg_shots_hit_per_match',
-    ShotsHit = 'shots_hit',
-    MaxShotsMissedPerMatch = 'max_shots_missed_per_match',
-    AvgShotsMissedPerMatch = 'avg_shots_missed_per_match',
-    ShotsMissed = 'shots_missed',
-    MaxHeroBulletsHitPerMatch = 'max_hero_bullets_hit_per_match',
-    AvgHeroBulletsHitPerMatch = 'avg_hero_bullets_hit_per_match',
-    HeroBulletsHit = 'hero_bullets_hit',
-    MaxHeroBulletsHitCritPerMatch = 'max_hero_bullets_hit_crit_per_match',
-    AvgHeroBulletsHitCritPerMatch = 'avg_hero_bullets_hit_crit_per_match',
-    HeroBulletsHitCrit = 'hero_bullets_hit_crit'
-}
-export enum PlayerScoreboardSortDirectionEnum {
-    Desc = 'desc',
-    Asc = 'asc'
-}
-export enum PlayerScoreboardGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
-export enum PlayerStatsMetricsGameModeEnum {
-    Normal = 'normal',
-    StreetBrawl = 'street_brawl',
-    ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
-}
+export const AbilityOrderStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type AbilityOrderStatsGameModeEnum = typeof AbilityOrderStatsGameModeEnum[keyof typeof AbilityOrderStatsGameModeEnum];
+export const BadgeDistributionGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type BadgeDistributionGameModeEnum = typeof BadgeDistributionGameModeEnum[keyof typeof BadgeDistributionGameModeEnum];
+export const GameStatsBucketEnum = {
+    NoBucket: 'no_bucket',
+    AvgBadge: 'avg_badge',
+    StartTimeHour: 'start_time_hour',
+    StartTimeDay: 'start_time_day',
+    StartTimeWeek: 'start_time_week',
+    StartTimeMonth: 'start_time_month',
+} as const;
+export type GameStatsBucketEnum = typeof GameStatsBucketEnum[keyof typeof GameStatsBucketEnum];
+export const GameStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type GameStatsGameModeEnum = typeof GameStatsGameModeEnum[keyof typeof GameStatsGameModeEnum];
+export const HeroBanStatsBucketEnum = {
+    NoBucket: 'no_bucket',
+    AvgBadge: 'avg_badge',
+    StartTimeHour: 'start_time_hour',
+    StartTimeDay: 'start_time_day',
+    StartTimeWeek: 'start_time_week',
+    StartTimeMonth: 'start_time_month',
+} as const;
+export type HeroBanStatsBucketEnum = typeof HeroBanStatsBucketEnum[keyof typeof HeroBanStatsBucketEnum];
+export const HeroCombStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type HeroCombStatsGameModeEnum = typeof HeroCombStatsGameModeEnum[keyof typeof HeroCombStatsGameModeEnum];
+export const HeroCountersStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum[keyof typeof HeroCountersStatsGameModeEnum];
+export const HeroScoreboardSortByEnum = {
+    Matches: 'matches',
+    Wins: 'wins',
+    Losses: 'losses',
+    Winrate: 'winrate',
+    MaxKillsPerMatch: 'max_kills_per_match',
+    AvgKillsPerMatch: 'avg_kills_per_match',
+    Kills: 'kills',
+    MaxDeathsPerMatch: 'max_deaths_per_match',
+    AvgDeathsPerMatch: 'avg_deaths_per_match',
+    Deaths: 'deaths',
+    MaxDamageTakenPerMatch: 'max_damage_taken_per_match',
+    AvgDamageTakenPerMatch: 'avg_damage_taken_per_match',
+    DamageTaken: 'damage_taken',
+    MaxAssistsPerMatch: 'max_assists_per_match',
+    AvgAssistsPerMatch: 'avg_assists_per_match',
+    Assists: 'assists',
+    MaxNetWorthPerMatch: 'max_net_worth_per_match',
+    AvgNetWorthPerMatch: 'avg_net_worth_per_match',
+    NetWorth: 'net_worth',
+    MaxLastHitsPerMatch: 'max_last_hits_per_match',
+    AvgLastHitsPerMatch: 'avg_last_hits_per_match',
+    LastHits: 'last_hits',
+    MaxDeniesPerMatch: 'max_denies_per_match',
+    AvgDeniesPerMatch: 'avg_denies_per_match',
+    Denies: 'denies',
+    MaxPlayerLevelPerMatch: 'max_player_level_per_match',
+    AvgPlayerLevelPerMatch: 'avg_player_level_per_match',
+    PlayerLevel: 'player_level',
+    MaxCreepKillsPerMatch: 'max_creep_kills_per_match',
+    AvgCreepKillsPerMatch: 'avg_creep_kills_per_match',
+    CreepKills: 'creep_kills',
+    MaxNeutralKillsPerMatch: 'max_neutral_kills_per_match',
+    AvgNeutralKillsPerMatch: 'avg_neutral_kills_per_match',
+    NeutralKills: 'neutral_kills',
+    MaxCreepDamagePerMatch: 'max_creep_damage_per_match',
+    AvgCreepDamagePerMatch: 'avg_creep_damage_per_match',
+    CreepDamage: 'creep_damage',
+    MaxPlayerDamagePerMatch: 'max_player_damage_per_match',
+    AvgPlayerDamagePerMatch: 'avg_player_damage_per_match',
+    PlayerDamage: 'player_damage',
+    MaxNeutralDamagePerMatch: 'max_neutral_damage_per_match',
+    AvgNeutralDamagePerMatch: 'avg_neutral_damage_per_match',
+    NeutralDamage: 'neutral_damage',
+    MaxBossDamagePerMatch: 'max_boss_damage_per_match',
+    AvgBossDamagePerMatch: 'avg_boss_damage_per_match',
+    BossDamage: 'boss_damage',
+    MaxMaxHealthPerMatch: 'max_max_health_per_match',
+    AvgMaxHealthPerMatch: 'avg_max_health_per_match',
+    MaxHealth: 'max_health',
+    MaxShotsHitPerMatch: 'max_shots_hit_per_match',
+    AvgShotsHitPerMatch: 'avg_shots_hit_per_match',
+    ShotsHit: 'shots_hit',
+    MaxShotsMissedPerMatch: 'max_shots_missed_per_match',
+    AvgShotsMissedPerMatch: 'avg_shots_missed_per_match',
+    ShotsMissed: 'shots_missed',
+    MaxHeroBulletsHitPerMatch: 'max_hero_bullets_hit_per_match',
+    AvgHeroBulletsHitPerMatch: 'avg_hero_bullets_hit_per_match',
+    HeroBulletsHit: 'hero_bullets_hit',
+    MaxHeroBulletsHitCritPerMatch: 'max_hero_bullets_hit_crit_per_match',
+    AvgHeroBulletsHitCritPerMatch: 'avg_hero_bullets_hit_crit_per_match',
+    HeroBulletsHitCrit: 'hero_bullets_hit_crit',
+} as const;
+export type HeroScoreboardSortByEnum = typeof HeroScoreboardSortByEnum[keyof typeof HeroScoreboardSortByEnum];
+export const HeroScoreboardSortDirectionEnum = {
+    Desc: 'desc',
+    Asc: 'asc',
+} as const;
+export type HeroScoreboardSortDirectionEnum = typeof HeroScoreboardSortDirectionEnum[keyof typeof HeroScoreboardSortDirectionEnum];
+export const HeroScoreboardGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type HeroScoreboardGameModeEnum = typeof HeroScoreboardGameModeEnum[keyof typeof HeroScoreboardGameModeEnum];
+export const HeroStatsBucketEnum = {
+    NoBucket: 'no_bucket',
+    AvgBadge: 'avg_badge',
+    StartTimeHour: 'start_time_hour',
+    StartTimeDay: 'start_time_day',
+    StartTimeWeek: 'start_time_week',
+    StartTimeMonth: 'start_time_month',
+} as const;
+export type HeroStatsBucketEnum = typeof HeroStatsBucketEnum[keyof typeof HeroStatsBucketEnum];
+export const HeroStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type HeroStatsGameModeEnum = typeof HeroStatsGameModeEnum[keyof typeof HeroStatsGameModeEnum];
+export const HeroSynergiesStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type HeroSynergiesStatsGameModeEnum = typeof HeroSynergiesStatsGameModeEnum[keyof typeof HeroSynergiesStatsGameModeEnum];
+export const ItemPermutationStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type ItemPermutationStatsGameModeEnum = typeof ItemPermutationStatsGameModeEnum[keyof typeof ItemPermutationStatsGameModeEnum];
+export const ItemStatsBucketEnum = {
+    NoBucket: 'no_bucket',
+    Hero: 'hero',
+    Team: 'team',
+    StartTimeHour: 'start_time_hour',
+    StartTimeDay: 'start_time_day',
+    StartTimeWeek: 'start_time_week',
+    StartTimeMonth: 'start_time_month',
+    GameTimeMin: 'game_time_min',
+    GameTimeNormalizedPercentage: 'game_time_normalized_percentage',
+    NetWorthBy1000: 'net_worth_by_1000',
+    NetWorthBy2000: 'net_worth_by_2000',
+    NetWorthBy3000: 'net_worth_by_3000',
+    NetWorthBy5000: 'net_worth_by_5000',
+    NetWorthBy10000: 'net_worth_by_10000',
+} as const;
+export type ItemStatsBucketEnum = typeof ItemStatsBucketEnum[keyof typeof ItemStatsBucketEnum];
+export const ItemStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type ItemStatsGameModeEnum = typeof ItemStatsGameModeEnum[keyof typeof ItemStatsGameModeEnum];
+export const KillDeathStatsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type KillDeathStatsGameModeEnum = typeof KillDeathStatsGameModeEnum[keyof typeof KillDeathStatsGameModeEnum];
+export const PlayerPerformanceCurveGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGameModeEnum[keyof typeof PlayerPerformanceCurveGameModeEnum];
+export const PlayerScoreboardSortByEnum = {
+    Matches: 'matches',
+    Wins: 'wins',
+    Losses: 'losses',
+    Winrate: 'winrate',
+    MaxKillsPerMatch: 'max_kills_per_match',
+    AvgKillsPerMatch: 'avg_kills_per_match',
+    Kills: 'kills',
+    MaxDeathsPerMatch: 'max_deaths_per_match',
+    AvgDeathsPerMatch: 'avg_deaths_per_match',
+    Deaths: 'deaths',
+    MaxDamageTakenPerMatch: 'max_damage_taken_per_match',
+    AvgDamageTakenPerMatch: 'avg_damage_taken_per_match',
+    DamageTaken: 'damage_taken',
+    MaxAssistsPerMatch: 'max_assists_per_match',
+    AvgAssistsPerMatch: 'avg_assists_per_match',
+    Assists: 'assists',
+    MaxNetWorthPerMatch: 'max_net_worth_per_match',
+    AvgNetWorthPerMatch: 'avg_net_worth_per_match',
+    NetWorth: 'net_worth',
+    MaxLastHitsPerMatch: 'max_last_hits_per_match',
+    AvgLastHitsPerMatch: 'avg_last_hits_per_match',
+    LastHits: 'last_hits',
+    MaxDeniesPerMatch: 'max_denies_per_match',
+    AvgDeniesPerMatch: 'avg_denies_per_match',
+    Denies: 'denies',
+    MaxPlayerLevelPerMatch: 'max_player_level_per_match',
+    AvgPlayerLevelPerMatch: 'avg_player_level_per_match',
+    PlayerLevel: 'player_level',
+    MaxCreepKillsPerMatch: 'max_creep_kills_per_match',
+    AvgCreepKillsPerMatch: 'avg_creep_kills_per_match',
+    CreepKills: 'creep_kills',
+    MaxNeutralKillsPerMatch: 'max_neutral_kills_per_match',
+    AvgNeutralKillsPerMatch: 'avg_neutral_kills_per_match',
+    NeutralKills: 'neutral_kills',
+    MaxCreepDamagePerMatch: 'max_creep_damage_per_match',
+    AvgCreepDamagePerMatch: 'avg_creep_damage_per_match',
+    CreepDamage: 'creep_damage',
+    MaxPlayerDamagePerMatch: 'max_player_damage_per_match',
+    AvgPlayerDamagePerMatch: 'avg_player_damage_per_match',
+    PlayerDamage: 'player_damage',
+    MaxNeutralDamagePerMatch: 'max_neutral_damage_per_match',
+    AvgNeutralDamagePerMatch: 'avg_neutral_damage_per_match',
+    NeutralDamage: 'neutral_damage',
+    MaxBossDamagePerMatch: 'max_boss_damage_per_match',
+    AvgBossDamagePerMatch: 'avg_boss_damage_per_match',
+    BossDamage: 'boss_damage',
+    MaxMaxHealthPerMatch: 'max_max_health_per_match',
+    AvgMaxHealthPerMatch: 'avg_max_health_per_match',
+    MaxHealth: 'max_health',
+    MaxShotsHitPerMatch: 'max_shots_hit_per_match',
+    AvgShotsHitPerMatch: 'avg_shots_hit_per_match',
+    ShotsHit: 'shots_hit',
+    MaxShotsMissedPerMatch: 'max_shots_missed_per_match',
+    AvgShotsMissedPerMatch: 'avg_shots_missed_per_match',
+    ShotsMissed: 'shots_missed',
+    MaxHeroBulletsHitPerMatch: 'max_hero_bullets_hit_per_match',
+    AvgHeroBulletsHitPerMatch: 'avg_hero_bullets_hit_per_match',
+    HeroBulletsHit: 'hero_bullets_hit',
+    MaxHeroBulletsHitCritPerMatch: 'max_hero_bullets_hit_crit_per_match',
+    AvgHeroBulletsHitCritPerMatch: 'avg_hero_bullets_hit_crit_per_match',
+    HeroBulletsHitCrit: 'hero_bullets_hit_crit',
+} as const;
+export type PlayerScoreboardSortByEnum = typeof PlayerScoreboardSortByEnum[keyof typeof PlayerScoreboardSortByEnum];
+export const PlayerScoreboardSortDirectionEnum = {
+    Desc: 'desc',
+    Asc: 'asc',
+} as const;
+export type PlayerScoreboardSortDirectionEnum = typeof PlayerScoreboardSortDirectionEnum[keyof typeof PlayerScoreboardSortDirectionEnum];
+export const PlayerScoreboardGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type PlayerScoreboardGameModeEnum = typeof PlayerScoreboardGameModeEnum[keyof typeof PlayerScoreboardGameModeEnum];
+export const PlayerStatsMetricsGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+} as const;
+export type PlayerStatsMetricsGameModeEnum = typeof PlayerStatsMetricsGameModeEnum[keyof typeof PlayerStatsMetricsGameModeEnum];

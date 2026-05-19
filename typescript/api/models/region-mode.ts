@@ -15,14 +15,16 @@
 
 
 
-export enum RegionMode {
-    Row = 'row',
-    Europe = 'europe',
-    SeAsia = 'se_asia',
-    SAmerica = 's_america',
-    Russia = 'russia',
-    Oceania = 'oceania'
-}
+export const RegionMode = {
+    Row: 'row',
+    Europe: 'europe',
+    SeAsia: 'se_asia',
+    SAmerica: 's_america',
+    Russia: 'russia',
+    Oceania: 'oceania',
+} as const;
+
+export type RegionMode = typeof RegionMode[keyof typeof RegionMode];
 
 
 
