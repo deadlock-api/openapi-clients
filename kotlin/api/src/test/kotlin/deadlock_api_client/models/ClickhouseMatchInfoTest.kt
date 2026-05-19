@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.ClickhouseMatchInfo
+import deadlock_api_client.models.MatchPlayer
 
 class ClickhouseMatchInfoTest : ShouldSpec() {
     init {
@@ -55,6 +56,12 @@ class ClickhouseMatchInfoTest : ShouldSpec() {
         should("test matchMode") {
             // uncomment below to test the property
             //modelInstance.matchMode shouldBe ("TODO")
+        }
+
+        // to test the property `players`
+        should("test players") {
+            // uncomment below to test the property
+            //modelInstance.players shouldBe ("TODO")
         }
 
         // to test the property `startTime`

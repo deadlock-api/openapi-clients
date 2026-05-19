@@ -58,6 +58,7 @@ docs/ListServersResponse.md
 docs/LiveUrl.md
 docs/MMRApi.md
 docs/MMRHistory.md
+docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md

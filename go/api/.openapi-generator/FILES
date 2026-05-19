@@ -72,6 +72,7 @@ docs/ListServersResponse.md
 docs/LiveUrl.md
 docs/MMRAPI.md
 docs/MMRHistory.md
+docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesAPI.md
@@ -153,6 +154,7 @@ model_leaderboard.go
 model_leaderboard_entry.go
 model_list_servers_response.go
 model_live_url.go
+model_match_player.go
 model_match_salts_response.go
 model_match_spectate_response.go
 model_mate_stats.go

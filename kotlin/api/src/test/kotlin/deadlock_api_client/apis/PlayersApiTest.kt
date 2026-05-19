@@ -33,6 +33,7 @@ import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
+import deadlock_api_client.models.RankPredictImageFormat
 import deadlock_api_client.models.RankPredictResponse
 
 class PlayersApiTest : ShouldSpec() {
@@ -125,6 +126,15 @@ class PlayersApiTest : ShouldSpec() {
             // uncomment below to test rankPredict
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
             //val result : RankPredictResponse = apiInstance.rankPredict(accountId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test rankPredictImage
+        should("test rankPredictImage") {
+            // uncomment below to test rankPredictImage
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val format : RankPredictImageFormat =  // RankPredictImageFormat | Image format. Defaults to `png`. Supported: `png`, `webp`.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format)
             //result shouldBe ("TODO")
         }
 

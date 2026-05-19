@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **GameMode** | **int** |  | 
 **MatchId** | **long** |  | 
 **MatchMode** | **int** |  | 
+**Players** | [**List&lt;MatchPlayer&gt;**](MatchPlayer.md) |  | 
 **StartTime** | **int** |  | 
 **AverageBadgeTeam0** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
 **AverageBadgeTeam1** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 

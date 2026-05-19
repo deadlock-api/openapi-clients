@@ -34,3 +34,8 @@ Accept: application/json
 ## Rank Predict
 GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict
 Accept: application/json
+
+### Rank Predict Image
+## Rank Predict Image
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict/image?format={{format}}
+Accept: image/png

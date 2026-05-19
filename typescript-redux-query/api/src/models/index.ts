@@ -41,6 +41,7 @@ export * from './LeaderboardEntry';
 export * from './ListServersResponse';
 export * from './LiveUrl';
 export * from './MMRHistory';
+export * from './MatchPlayer';
 export * from './MatchSaltsResponse';
 export * from './MatchSpectateResponse';
 export * from './MateStats';

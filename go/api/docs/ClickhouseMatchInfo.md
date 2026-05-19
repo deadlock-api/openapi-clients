@@ -10,13 +10,14 @@ Name | Type | Description | Notes
 **GameMode** | **int32** |  | 
 **MatchId** | **int64** |  | 
 **MatchMode** | **int32** |  | 
+**Players** | [**[]MatchPlayer**](MatchPlayer.md) |  | 
 **StartTime** | **int32** |  | 
 
 ## Methods
 
 ### NewClickhouseMatchInfo
 
-`func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, startTime int32, ) *ClickhouseMatchInfo`
+`func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, players []MatchPlayer, startTime int32, ) *ClickhouseMatchInfo`
 
 NewClickhouseMatchInfo instantiates a new ClickhouseMatchInfo object
 This constructor will assign default values to properties that have it defined,
@@ -179,6 +180,26 @@ and a boolean to check if the value has been set.
 `func (o *ClickhouseMatchInfo) SetMatchMode(v int32)`
 
 SetMatchMode sets MatchMode field to given value.
+
+
+### GetPlayers
+
+`func (o *ClickhouseMatchInfo) GetPlayers() []MatchPlayer`
+
+GetPlayers returns the Players field if non-nil, zero value otherwise.
+
+### GetPlayersOk
+
+`func (o *ClickhouseMatchInfo) GetPlayersOk() (*[]MatchPlayer, bool)`
+
+GetPlayersOk returns a tuple with the Players field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlayers
+
+`func (o *ClickhouseMatchInfo) SetPlayers(v []MatchPlayer)`
+
+SetPlayers sets Players field to given value.
 
 
 ### GetStartTime

@@ -12,6 +12,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    MatchPlayer,
+    MatchPlayerFromJSON,
+    MatchPlayerToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -56,6 +62,12 @@ export interface ClickhouseMatchInfo  {
     matchMode: number;
     /**
      * 
+     * @type {Array<MatchPlayer>}
+     * @memberof ClickhouseMatchInfo
+     */
+    players: Array<MatchPlayer>;
+    /**
+     * 
      * @type {number}
      * @memberof ClickhouseMatchInfo
      */
@@ -70,6 +82,7 @@ export function ClickhouseMatchInfoFromJSON(json: any): ClickhouseMatchInfo {
         'gameMode': json['game_mode'],
         'matchId': json['match_id'],
         'matchMode': json['match_mode'],
+        'players': (json['players'] as Array<any>).map(MatchPlayerFromJSON),
         'startTime': json['start_time'],
     };
 }
@@ -85,6 +98,7 @@ export function ClickhouseMatchInfoToJSON(value?: ClickhouseMatchInfo): any {
         'game_mode': value.gameMode,
         'match_id': value.matchId,
         'match_mode': value.matchMode,
+        'players': (value.players as Array<any>).map(MatchPlayerToJSON),
         'start_time': value.startTime,
     };
 }

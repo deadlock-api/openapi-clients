@@ -134,6 +134,15 @@ class ClickhouseMatchInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "players"
+     */
+    public function testPropertyPlayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "start_time"
      */
     public function testPropertyStartTime()

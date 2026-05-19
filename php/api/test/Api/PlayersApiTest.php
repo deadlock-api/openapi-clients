@@ -154,4 +154,16 @@ class PlayersApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for rankPredictImage
+     *
+     * Rank Predict Image.
+     *
+     */
+    public function testRankPredictImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

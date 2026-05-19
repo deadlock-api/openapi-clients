@@ -65,6 +65,7 @@ api/Model/LeaderboardEntry.php
 api/Model/ListServersResponse.php
 api/Model/LiveUrl.php
 api/Model/MMRHistory.php
+api/Model/MatchPlayer.php
 api/Model/MatchSaltsResponse.php
 api/Model/MatchSpectateResponse.php
 api/Model/MateStats.php
@@ -156,6 +157,7 @@ docs/Model/LeaderboardEntry.md
 docs/Model/ListServersResponse.md
 docs/Model/LiveUrl.md
 docs/Model/MMRHistory.md
+docs/Model/MatchPlayer.md
 docs/Model/MatchSaltsResponse.md
 docs/Model/MatchSpectateResponse.md
 docs/Model/MateStats.md
@@ -246,6 +248,7 @@ test/Model/LeaderboardTest.php
 test/Model/ListServersResponseTest.php
 test/Model/LiveUrlTest.php
 test/Model/MMRHistoryTest.php
+test/Model/MatchPlayerTest.php
 test/Model/MatchSaltsResponseTest.php
 test/Model/MatchSpectateResponseTest.php
 test/Model/MateStatsTest.php

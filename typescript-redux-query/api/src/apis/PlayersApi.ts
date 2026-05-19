@@ -33,6 +33,9 @@ import {
     PlayerMatchHistoryEntry,
     PlayerMatchHistoryEntryFromJSON,
     PlayerMatchHistoryEntryToJSON,
+    RankPredictImageFormat,
+    RankPredictImageFormatFromJSON,
+    RankPredictImageFormatToJSON,
     RankPredictResponse,
     RankPredictResponseFromJSON,
     RankPredictResponseToJSON,
@@ -96,6 +99,11 @@ export interface PlayerHeroStatsRequest {
 
 export interface RankPredictRequest {
     accountId: number;
+}
+
+export interface RankPredictImageRequest {
+    accountId: number;
+    format?: RankPredictImageFormat;
 }
 
 
@@ -602,6 +610,59 @@ function rankPredictRaw<T>(requestParameters: RankPredictRequest, requestConfig:
 */
 export function rankPredict<T>(requestParameters: RankPredictRequest, requestConfig?: runtime.TypedQueryConfig<T, RankPredictResponse>): QueryConfig<T> {
     return rankPredictRaw(requestParameters, requestConfig);
+}
+
+/**
+ * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+ * Rank Predict Image
+ */
+function rankPredictImageRaw<T>(requestParameters: RankPredictImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling rankPredictImage.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.format !== undefined) {
+        queryParameters['format'] = requestParameters.format;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank-predict/image`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+* Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+* Rank Predict Image
+*/
+export function rankPredictImage<T>(requestParameters: RankPredictImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
+    return rankPredictImageRaw(requestParameters, requestConfig);
 }
 
 

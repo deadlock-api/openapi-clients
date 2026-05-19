@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **game_mode** | **int** |  | 
 **match_id** | **int** |  | 
 **match_mode** | **int** |  | 
+**players** | [**List[MatchPlayer]**](MatchPlayer.md) |  | 
 **start_time** | **int** |  | 
 
 ## Example

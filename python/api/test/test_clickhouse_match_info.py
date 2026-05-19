@@ -41,6 +41,10 @@ class TestClickhouseMatchInfo(unittest.TestCase):
                 game_mode = 56,
                 match_id = 0,
                 match_mode = 56,
+                players = [
+                    deadlock_api_client.models.match_player.MatchPlayer(
+                        account_id = 0, )
+                    ],
                 start_time = 0
             )
         else:
@@ -49,6 +53,10 @@ class TestClickhouseMatchInfo(unittest.TestCase):
                 game_mode = 56,
                 match_id = 0,
                 match_mode = 56,
+                players = [
+                    deadlock_api_client.models.match_player.MatchPlayer(
+                        account_id = 0, )
+                    ],
                 start_time = 0,
         )
         """

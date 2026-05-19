@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.match_player import MatchPlayer
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -34,8 +35,9 @@ class ClickhouseMatchInfo(BaseModel):
     game_mode: StrictInt
     match_id: Annotated[int, Field(strict=True, ge=0)]
     match_mode: StrictInt
+    players: List[MatchPlayer]
     start_time: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["average_badge_team0", "average_badge_team1", "duration_s", "game_mode", "match_id", "match_mode", "start_time"]
+    __properties: ClassVar[List[str]] = ["average_badge_team0", "average_badge_team1", "duration_s", "game_mode", "match_id", "match_mode", "players", "start_time"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -76,6 +78,13 @@ class ClickhouseMatchInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in players (list)
+        _items = []
+        if self.players:
+            for _item_players in self.players:
+                if _item_players:
+                    _items.append(_item_players.to_dict())
+            _dict['players'] = _items
         # set to None if average_badge_team0 (nullable) is None
         # and model_fields_set contains the field
         if self.average_badge_team0 is None and "average_badge_team0" in self.model_fields_set:
@@ -104,6 +113,7 @@ class ClickhouseMatchInfo(BaseModel):
             "game_mode": obj.get("game_mode"),
             "match_id": obj.get("match_id"),
             "match_mode": obj.get("match_mode"),
+            "players": [MatchPlayer.from_dict(_item) for _item in obj["players"]] if obj.get("players") is not None else None,
             "start_time": obj.get("start_time")
         })
         return _obj

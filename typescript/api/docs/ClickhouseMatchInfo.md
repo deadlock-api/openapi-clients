@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **game_mode** | **number** |  | [default to undefined]
 **match_id** | **number** |  | [default to undefined]
 **match_mode** | **number** |  | [default to undefined]
+**players** | [**Array&lt;MatchPlayer&gt;**](MatchPlayer.md) |  | [default to undefined]
 **start_time** | **number** |  | [default to undefined]
 
 ## Example
@@ -25,6 +26,7 @@ const instance: ClickhouseMatchInfo = {
     game_mode,
     match_id,
     match_mode,
+    players,
     start_time,
 };
 ```

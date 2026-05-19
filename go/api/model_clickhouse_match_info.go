@@ -29,6 +29,7 @@ type ClickhouseMatchInfo struct {
 	GameMode int32 `json:"game_mode"`
 	MatchId int64 `json:"match_id"`
 	MatchMode int32 `json:"match_mode"`
+	Players []MatchPlayer `json:"players"`
 	StartTime int32 `json:"start_time"`
 }
 
@@ -38,12 +39,13 @@ type _ClickhouseMatchInfo ClickhouseMatchInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, startTime int32) *ClickhouseMatchInfo {
+func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, players []MatchPlayer, startTime int32) *ClickhouseMatchInfo {
 	this := ClickhouseMatchInfo{}
 	this.DurationS = durationS
 	this.GameMode = gameMode
 	this.MatchId = matchId
 	this.MatchMode = matchMode
+	this.Players = players
 	this.StartTime = startTime
 	return &this
 }
@@ -236,6 +238,30 @@ func (o *ClickhouseMatchInfo) SetMatchMode(v int32) {
 	o.MatchMode = v
 }
 
+// GetPlayers returns the Players field value
+func (o *ClickhouseMatchInfo) GetPlayers() []MatchPlayer {
+	if o == nil {
+		var ret []MatchPlayer
+		return ret
+	}
+
+	return o.Players
+}
+
+// GetPlayersOk returns a tuple with the Players field value
+// and a boolean to check if the value has been set.
+func (o *ClickhouseMatchInfo) GetPlayersOk() ([]MatchPlayer, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Players, true
+}
+
+// SetPlayers sets field value
+func (o *ClickhouseMatchInfo) SetPlayers(v []MatchPlayer) {
+	o.Players = v
+}
+
 // GetStartTime returns the StartTime field value
 func (o *ClickhouseMatchInfo) GetStartTime() int32 {
 	if o == nil {
@@ -280,6 +306,7 @@ func (o ClickhouseMatchInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["game_mode"] = o.GameMode
 	toSerialize["match_id"] = o.MatchId
 	toSerialize["match_mode"] = o.MatchMode
+	toSerialize["players"] = o.Players
 	toSerialize["start_time"] = o.StartTime
 	return toSerialize, nil
 }
@@ -293,6 +320,7 @@ func (o *ClickhouseMatchInfo) UnmarshalJSON(data []byte) (err error) {
 		"game_mode",
 		"match_id",
 		"match_mode",
+		"players",
 		"start_time",
 	}
 

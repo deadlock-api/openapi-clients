@@ -63,6 +63,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'game_mode' => 'int',
         'match_id' => 'int',
         'match_mode' => 'int',
+        'players' => '\OpenAPI\Client\Model\MatchPlayer[]',
         'start_time' => 'int'
     ];
 
@@ -80,6 +81,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'game_mode' => 'int32',
         'match_id' => 'int64',
         'match_mode' => 'int32',
+        'players' => null,
         'start_time' => 'int32'
     ];
 
@@ -95,6 +97,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'game_mode' => false,
         'match_id' => false,
         'match_mode' => false,
+        'players' => false,
         'start_time' => false
     ];
 
@@ -190,6 +193,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'game_mode' => 'game_mode',
         'match_id' => 'match_id',
         'match_mode' => 'match_mode',
+        'players' => 'players',
         'start_time' => 'start_time'
     ];
 
@@ -205,6 +209,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'game_mode' => 'setGameMode',
         'match_id' => 'setMatchId',
         'match_mode' => 'setMatchMode',
+        'players' => 'setPlayers',
         'start_time' => 'setStartTime'
     ];
 
@@ -220,6 +225,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         'game_mode' => 'getGameMode',
         'match_id' => 'getMatchId',
         'match_mode' => 'getMatchMode',
+        'players' => 'getPlayers',
         'start_time' => 'getStartTime'
     ];
 
@@ -286,6 +292,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('game_mode', $data ?? [], null);
         $this->setIfExists('match_id', $data ?? [], null);
         $this->setIfExists('match_mode', $data ?? [], null);
+        $this->setIfExists('players', $data ?? [], null);
         $this->setIfExists('start_time', $data ?? [], null);
     }
 
@@ -343,6 +350,9 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if ($this->container['match_mode'] === null) {
             $invalidProperties[] = "'match_mode' can't be null";
+        }
+        if ($this->container['players'] === null) {
+            $invalidProperties[] = "'players' can't be null";
         }
         if ($this->container['start_time'] === null) {
             $invalidProperties[] = "'start_time' can't be null";
@@ -558,6 +568,33 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable match_mode cannot be null');
         }
         $this->container['match_mode'] = $match_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets players
+     *
+     * @return \OpenAPI\Client\Model\MatchPlayer[]
+     */
+    public function getPlayers()
+    {
+        return $this->container['players'];
+    }
+
+    /**
+     * Sets players
+     *
+     * @param \OpenAPI\Client\Model\MatchPlayer[] $players players
+     *
+     * @return self
+     */
+    public function setPlayers($players)
+    {
+        if (is_null($players)) {
+            throw new \InvalidArgumentException('non-nullable players cannot be null');
+        }
+        $this->container['players'] = $players;
 
         return $this;
     }

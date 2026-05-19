@@ -90,6 +90,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ListServersResponseJsonConverter());
             _jsonOptions.Converters.Add(new LiveUrlJsonConverter());
             _jsonOptions.Converters.Add(new MMRHistoryJsonConverter());
+            _jsonOptions.Converters.Add(new MatchPlayerJsonConverter());
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());
             _jsonOptions.Converters.Add(new MatchSpectateResponseJsonConverter());
             _jsonOptions.Converters.Add(new MateStatsJsonConverter());

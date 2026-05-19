@@ -27,12 +27,14 @@ pub struct ClickhouseMatchInfo {
     pub match_id: u64,
     #[serde(rename = "match_mode")]
     pub match_mode: i32,
+    #[serde(rename = "players")]
+    pub players: Vec<models::MatchPlayer>,
     #[serde(rename = "start_time")]
     pub start_time: u32,
 }
 
 impl ClickhouseMatchInfo {
-    pub fn new(duration_s: u32, game_mode: i32, match_id: u64, match_mode: i32, start_time: u32) -> ClickhouseMatchInfo {
+    pub fn new(duration_s: u32, game_mode: i32, match_id: u64, match_mode: i32, players: Vec<models::MatchPlayer>, start_time: u32) -> ClickhouseMatchInfo {
         ClickhouseMatchInfo {
             average_badge_team0: None,
             average_badge_team1: None,
@@ -40,6 +42,7 @@ impl ClickhouseMatchInfo {
             game_mode,
             match_id,
             match_mode,
+            players,
             start_time,
         }
     }

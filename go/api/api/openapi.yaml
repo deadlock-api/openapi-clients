@@ -135,7 +135,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -384,7 +384,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -517,7 +517,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -593,7 +593,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -732,7 +732,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -865,7 +865,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -1052,7 +1052,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -1332,7 +1332,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -1588,7 +1588,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -1852,7 +1852,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -2121,7 +2121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -2408,7 +2408,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -2675,7 +2675,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -2967,7 +2967,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -3188,7 +3188,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -3487,7 +3487,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -5813,7 +5813,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -5932,7 +5932,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776211200
+          default: 1776470400
           format: int64
           nullable: true
           type: integer
@@ -6768,6 +6768,58 @@ paths:
         "503":
           description: Rank prediction model not loaded
       summary: Rank Predict
+      tags:
+      - Players
+  /v1/players/{account_id}/rank-predict/image:
+    get:
+      description: "Returns the predicted rank badge image directly (binary), not\
+        \ a URL. Use `?format=webp` for WebP."
+      operationId: rank_predict_image
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          $ref: "#/components/schemas/RankPredictImageFormat"
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+          description: Predicted rank badge image
+        "400":
+          description: Invalid account ID
+        "403":
+          description: User is protected or endpoint unavailable
+        "404":
+          description: No image available for the predicted rank
+        "422":
+          description: Not enough recent ranked matches (need 30)
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Prediction failed
+        "503":
+          description: Rank prediction model not loaded
+      summary: Rank Predict Image
       tags:
       - Players
   /v1/servers:
@@ -7979,6 +8031,9 @@ components:
     ClickhouseMatchInfo:
       example:
         start_time: 0
+        players:
+        - account_id: 0
+        - account_id: 0
         match_id: 0
         match_mode: 2
         average_badge_team0: 0
@@ -8012,6 +8067,10 @@ components:
         match_mode:
           format: int32
           type: integer
+        players:
+          items:
+            $ref: "#/components/schemas/MatchPlayer"
+          type: array
         start_time:
           format: int32
           minimum: 0
@@ -8021,6 +8080,7 @@ components:
       - game_mode
       - match_id
       - match_mode
+      - players
       - start_time
     ClickhouseSalts:
       example:
@@ -9185,6 +9245,16 @@ components:
       - player_score
       - rank
       - start_time
+    MatchPlayer:
+      example:
+        account_id: 0
+      properties:
+        account_id:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - account_id
     MatchSaltsResponse:
       example:
         cluster_id: 0

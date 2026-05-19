@@ -23,6 +23,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.MatchPlayer
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -35,6 +36,7 @@ import java.io.Serializable
  * @param gameMode 
  * @param matchId 
  * @param matchMode 
+ * @param players 
  * @param startTime 
  * @param averageBadgeTeam0 See more: <https://assets.deadlock-api.com/v2/ranks>
  * @param averageBadgeTeam1 See more: <https://assets.deadlock-api.com/v2/ranks>
@@ -54,6 +56,9 @@ data class ClickhouseMatchInfo (
 
     @Json(name = "match_mode")
     val matchMode: kotlin.Int,
+
+    @Json(name = "players")
+    val players: kotlin.collections.List<MatchPlayer>,
 
     @Json(name = "start_time")
     val startTime: kotlin.Int,

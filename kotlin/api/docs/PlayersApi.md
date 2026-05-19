@@ -11,6 +11,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
 | [**rankPredict**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
+| [**rankPredictImage**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image |
 
 
 <a id="accountStats"></a>
@@ -398,4 +399,52 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a id="rankPredictImage"></a>
+# **rankPredictImage**
+> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictImage(accountId, format)
+
+Rank Predict Image
+
+Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val format : RankPredictImageFormat =  // RankPredictImageFormat | Image format. Defaults to `png`. Supported: `png`, `webp`.
+try {
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rankPredictImage")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rankPredictImage")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **format** | [**RankPredictImageFormat**](.md)| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
+
+### Return type
+
+**kotlin.collections.List&lt;kotlin.Int&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 

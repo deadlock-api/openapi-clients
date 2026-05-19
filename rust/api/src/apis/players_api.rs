@@ -127,6 +127,15 @@ pub struct RankPredictParams {
     pub account_id: u32
 }
 
+/// struct for passing parameters to the method [`rank_predict_image`]
+#[derive(Clone, Debug)]
+pub struct RankPredictImageParams {
+    /// The players `SteamID3`
+    pub account_id: u32,
+    /// Image format. Defaults to `png`. Supported: `png`, `webp`.
+    pub format: Option<models::RankPredictImageFormat>
+}
+
 
 /// struct for typed errors of method [`account_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -193,6 +202,20 @@ pub enum PlayerHeroStatsError {
 pub enum RankPredictError {
     Status400(),
     Status403(),
+    Status422(),
+    Status429(),
+    Status500(),
+    Status503(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`rank_predict_image`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RankPredictImageError {
+    Status400(),
+    Status403(),
+    Status404(),
     Status422(),
     Status429(),
     Status500(),
@@ -542,6 +565,44 @@ pub async fn rank_predict(configuration: &configuration::Configuration, params: 
     } else {
         let content = resp.text().await?;
         let entity: Option<RankPredictError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+pub async fn rank_predict_image(configuration: &configuration::Configuration, params: RankPredictImageParams) -> Result<Vec<u32>, Error<RankPredictImageError>> {
+
+    let uri_str = format!("{}/v1/players/{account_id}/rank-predict/image", configuration.base_path, account_id=params.account_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.format {
+        req_builder = req_builder.query(&[("format", &serde_json::to_string(param_value)?)]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<RankPredictImageError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

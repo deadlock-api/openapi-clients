@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
 *PlayersAPI* | [**MateStats**](docs/PlayersAPI.md#matestats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersAPI* | [**PlayerHeroStats**](docs/PlayersAPI.md#playerherostats) | **Get** /v1/players/hero-stats | Hero Stats
 *PlayersAPI* | [**RankPredict**](docs/PlayersAPI.md#rankpredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict
+*PlayersAPI* | [**RankPredictImage**](docs/PlayersAPI.md#rankpredictimage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
 *SQLAPI* | [**Sql**](docs/SQLAPI.md#sql) | **Get** /v1/sql | Query
 *SQLAPI* | [**TableSchema**](docs/SQLAPI.md#tableschema) | **Get** /v1/sql/tables/{table}/schema | Table Schema
@@ -205,6 +206,7 @@ Class | Method | HTTP request | Description
  - [ListServersResponse](docs/ListServersResponse.md)
  - [LiveUrl](docs/LiveUrl.md)
  - [MMRHistory](docs/MMRHistory.md)
+ - [MatchPlayer](docs/MatchPlayer.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)

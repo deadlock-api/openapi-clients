@@ -286,6 +286,7 @@ export interface ClickhouseMatchInfo {
     'game_mode': number;
     'match_id': number;
     'match_mode': number;
+    'players': Array<MatchPlayer>;
     'start_time': number;
 }
 export interface ClickhouseSalts {
@@ -744,6 +745,9 @@ export interface MMRHistory {
      * Start time of the match
      */
     'start_time': number;
+}
+export interface MatchPlayer {
+    'account_id': number;
 }
 export interface MatchSaltsResponse {
     'cluster_id'?: number | null;
@@ -10050,6 +10054,47 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+         * @summary Rank Predict Image
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {RankPredictImageFormat} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankPredictImage: async (accountId: number, format?: RankPredictImageFormat, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('rankPredictImage', 'accountId', accountId)
+            const localVarPath = `/v1/players/{account_id}/rank-predict/image`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (format !== undefined) {
+                for (const [key, value] of Object.entries(format)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
+
+            localVarHeaderParameter['Accept'] = 'image/png';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -10182,6 +10227,20 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredict']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+         * @summary Rank Predict Image
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {RankPredictImageFormat} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rankPredictImage(accountId: number, format?: RankPredictImageFormat, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictImage(accountId, format, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictImage']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -10260,6 +10319,16 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          */
         rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): AxiosPromise<RankPredictResponse> {
             return localVarFp.rankPredict(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+         * @summary Rank Predict Image
+         * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
+            return localVarFp.rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10495,6 +10564,21 @@ export interface PlayersApiRankPredictRequest {
 }
 
 /**
+ * Request parameters for rankPredictImage operation in PlayersApi.
+ */
+export interface PlayersApiRankPredictImageRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number
+
+    /**
+     * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     */
+    readonly format?: RankPredictImageFormat
+}
+
+/**
  * PlayersApi - object-oriented interface
  */
 export class PlayersApi extends BaseAPI {
@@ -10573,6 +10657,17 @@ export class PlayersApi extends BaseAPI {
      */
     public rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).rankPredict(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+     * @summary Rank Predict Image
+     * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig) {
+        return PlayersApiFp(this.configuration).rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

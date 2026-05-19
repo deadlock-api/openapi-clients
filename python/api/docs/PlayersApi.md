@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
 [**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
+[**rank_predict_image**](PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
 
 
 # **account_stats**
@@ -690,6 +691,83 @@ No authorization required
 **200** |  |  -  |
 **400** | Invalid account ID |  -  |
 **403** | User is protected or endpoint unavailable |  -  |
+**422** | Not enough recent ranked matches (need 30) |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Prediction failed |  -  |
+**503** | Rank prediction model not loaded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rank_predict_image**
+> List[int] rank_predict_image(account_id, format=format)
+
+Rank Predict Image
+
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.rank_predict_image_format import RankPredictImageFormat
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_id = 56 # int | The players `SteamID3`
+    format = deadlock_api_client.RankPredictImageFormat() # RankPredictImageFormat | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+    try:
+        # Rank Predict Image
+        api_response = api_instance.rank_predict_image(account_id, format=format)
+        print("The response of PlayersApi->rank_predict_image:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->rank_predict_image: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
+ **format** | [**RankPredictImageFormat**](.md)| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
+
+### Return type
+
+**List[int]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: image/png
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Predicted rank badge image |  -  |
+**400** | Invalid account ID |  -  |
+**403** | User is protected or endpoint unavailable |  -  |
+**404** | No image available for the predicted rank |  -  |
 **422** | Not enough recent ranked matches (need 30) |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Prediction failed |  -  |

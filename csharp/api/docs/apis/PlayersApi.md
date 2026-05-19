@@ -11,6 +11,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**MateStats**](PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**PlayerHeroStats**](PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
 | [**RankPredict**](PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
+| [**RankPredictImage**](PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image |
 
 <a id="accountstats"></a>
 # **AccountStats**
@@ -312,6 +313,50 @@ No authorization required
 | **200** |  |  -  |
 | **400** | Invalid account ID |  -  |
 | **403** | User is protected or endpoint unavailable |  -  |
+| **422** | Not enough recent ranked matches (need 30) |  -  |
+| **429** | Rate limit exceeded |  -  |
+| **500** | Prediction failed |  -  |
+| **503** | Rank prediction model not loaded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="rankpredictimage"></a>
+# **RankPredictImage**
+> List&lt;int&gt; RankPredictImage (int accountId, RankPredictImageFormat format = null)
+
+Rank Predict Image
+
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **format** | [**RankPredictImageFormat**](RankPredictImageFormat.md) | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
+
+### Return type
+
+**List<int>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: image/png
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Predicted rank badge image |  -  |
+| **400** | Invalid account ID |  -  |
+| **403** | User is protected or endpoint unavailable |  -  |
+| **404** | No image available for the predicted rank |  -  |
 | **422** | Not enough recent ranked matches (need 30) |  -  |
 | **429** | Rate limit exceeded |  -  |
 | **500** | Prediction failed |  -  |

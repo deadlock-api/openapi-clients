@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **game_mode** | **int** |  |
 **match_id** | **int** |  |
 **match_mode** | **int** |  |
+**players** | [**\OpenAPI\Client\Model\MatchPlayer[]**](MatchPlayer.md) |  |
 **start_time** | **int** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
