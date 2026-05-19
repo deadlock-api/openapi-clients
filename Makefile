@@ -19,7 +19,7 @@ generate-assets-api-python:
 
 typescript: generate-api-typescript generate-assets-api-typescript
 
-TS_AXIOS_PROPS = withSeparateModelsAndApi=true,apiPackage=apis,modelPackage=models,stringEnums=true,supportsES6=true,useSingleRequestParameter=true
+TS_AXIOS_PROPS = withSeparateModelsAndApi=true,apiPackage=apis,modelPackage=models,supportsES6=true,useSingleRequestParameter=true
 
 generate-api-typescript:
 	@echo "--> Creating directory for the main API client..."

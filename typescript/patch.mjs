@@ -24,6 +24,7 @@ const patchedPkg = {
   scripts: { ...pkg.scripts, build: "tsc", prepare: "npm run build" },
   exports: {
     ".": { types: "./dist/index.d.ts", import: "./dist/index.js" },
+    "./api": { types: "./dist/api.d.ts", import: "./dist/api.js" },
     "./apis": { types: "./dist/apis/index.d.ts", import: "./dist/apis/index.js" },
     "./apis/*": { types: "./dist/apis/*.d.ts", import: "./dist/apis/*.js" },
     "./models": { types: "./dist/models/index.d.ts", import: "./dist/models/index.js" },
