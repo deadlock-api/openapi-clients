@@ -829,7 +829,6 @@ class DefaultApi:
     @validate_call
     def get_fonts_v1_fonts_get(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -846,8 +845,6 @@ class DefaultApi:
         """Get Fonts
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -871,7 +868,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_fonts_v1_fonts_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -880,7 +876,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -896,7 +891,6 @@ class DefaultApi:
     @validate_call
     def get_fonts_v1_fonts_get_with_http_info(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -913,8 +907,6 @@ class DefaultApi:
         """Get Fonts
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -938,7 +930,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_fonts_v1_fonts_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -947,7 +938,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -963,7 +953,6 @@ class DefaultApi:
     @validate_call
     def get_fonts_v1_fonts_get_without_preload_content(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -980,8 +969,6 @@ class DefaultApi:
         """Get Fonts
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1005,7 +992,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_fonts_v1_fonts_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1014,7 +1000,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1025,7 +1010,6 @@ class DefaultApi:
 
     def _get_fonts_v1_fonts_get_serialize(
         self,
-        client_version,
         _request_auth,
         _content_type,
         _headers,
@@ -1048,10 +1032,6 @@ class DefaultApi:
 
         # process the path parameters
         # process the query parameters
-        if client_version is not None:
-            
-            _query_params.append(('client_version', client_version.value))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1353,7 +1333,6 @@ class DefaultApi:
     @validate_call
     def get_icons_v1_icons_get(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1370,8 +1349,6 @@ class DefaultApi:
         """Get Icons
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1395,7 +1372,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_icons_v1_icons_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1404,7 +1380,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1420,7 +1395,6 @@ class DefaultApi:
     @validate_call
     def get_icons_v1_icons_get_with_http_info(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1437,8 +1411,6 @@ class DefaultApi:
         """Get Icons
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1462,7 +1434,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_icons_v1_icons_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1471,7 +1442,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1487,7 +1457,6 @@ class DefaultApi:
     @validate_call
     def get_icons_v1_icons_get_without_preload_content(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1504,8 +1473,6 @@ class DefaultApi:
         """Get Icons
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1529,7 +1496,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_icons_v1_icons_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1538,7 +1504,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1549,7 +1514,6 @@ class DefaultApi:
 
     def _get_icons_v1_icons_get_serialize(
         self,
-        client_version,
         _request_auth,
         _content_type,
         _headers,
@@ -1572,10 +1536,6 @@ class DefaultApi:
 
         # process the path parameters
         # process the query parameters
-        if client_version is not None:
-            
-            _query_params.append(('client_version', client_version.value))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1615,7 +1575,6 @@ class DefaultApi:
     @validate_call
     def get_images_v1_images_get(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1632,8 +1591,6 @@ class DefaultApi:
         """Get Images
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1657,7 +1614,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_images_v1_images_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1666,7 +1622,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1682,7 +1637,6 @@ class DefaultApi:
     @validate_call
     def get_images_v1_images_get_with_http_info(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1699,8 +1653,6 @@ class DefaultApi:
         """Get Images
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1724,7 +1676,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_images_v1_images_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1733,7 +1684,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1749,7 +1699,6 @@ class DefaultApi:
     @validate_call
     def get_images_v1_images_get_without_preload_content(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1766,8 +1715,6 @@ class DefaultApi:
         """Get Images
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1791,7 +1738,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_images_v1_images_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1800,7 +1746,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, str]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1811,7 +1756,6 @@ class DefaultApi:
 
     def _get_images_v1_images_get_serialize(
         self,
-        client_version,
         _request_auth,
         _content_type,
         _headers,
@@ -1834,10 +1778,6 @@ class DefaultApi:
 
         # process the path parameters
         # process the query parameters
-        if client_version is not None:
-            
-            _query_params.append(('client_version', client_version.value))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2680,7 +2620,6 @@ class DefaultApi:
     @validate_call
     def get_sounds_v1_sounds_get(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2697,8 +2636,6 @@ class DefaultApi:
         """Get Sounds
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2722,7 +2659,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_sounds_v1_sounds_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2731,7 +2667,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, object]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2747,7 +2682,6 @@ class DefaultApi:
     @validate_call
     def get_sounds_v1_sounds_get_with_http_info(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2764,8 +2698,6 @@ class DefaultApi:
         """Get Sounds
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2789,7 +2721,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_sounds_v1_sounds_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2798,7 +2729,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, object]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2814,7 +2744,6 @@ class DefaultApi:
     @validate_call
     def get_sounds_v1_sounds_get_without_preload_content(
         self,
-        client_version: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2831,8 +2760,6 @@ class DefaultApi:
         """Get Sounds
 
 
-        :param client_version:
-        :type client_version: DeadlockAssetsApiRoutesValidClientVersions
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2856,7 +2783,6 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._get_sounds_v1_sounds_get_serialize(
-            client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2865,7 +2791,6 @@ class DefaultApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Dict[str, object]",
-            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2876,7 +2801,6 @@ class DefaultApi:
 
     def _get_sounds_v1_sounds_get_serialize(
         self,
-        client_version,
         _request_auth,
         _content_type,
         _headers,
@@ -2899,10 +2823,6 @@ class DefaultApi:
 
         # process the path parameters
         # process the query parameters
-        if client_version is not None:
-            
-            _query_params.append(('client_version', client_version.value))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter

@@ -185,7 +185,7 @@ No authorization required
 ## `getFontsV1FontsGet()`
 
 ```php
-getFontsV1FontsGet($client_version): array<string,string>
+getFontsV1FontsGet(): array<string,string>
 ```
 
 Get Fonts
@@ -203,10 +203,9 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions
 
 try {
-    $result = $apiInstance->getFontsV1FontsGet($client_version);
+    $result = $apiInstance->getFontsV1FontsGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->getFontsV1FontsGet: ', $e->getMessage(), PHP_EOL;
@@ -215,9 +214,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -293,7 +290,7 @@ No authorization required
 ## `getIconsV1IconsGet()`
 
 ```php
-getIconsV1IconsGet($client_version): array<string,string>
+getIconsV1IconsGet(): array<string,string>
 ```
 
 Get Icons
@@ -311,10 +308,9 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions
 
 try {
-    $result = $apiInstance->getIconsV1IconsGet($client_version);
+    $result = $apiInstance->getIconsV1IconsGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->getIconsV1IconsGet: ', $e->getMessage(), PHP_EOL;
@@ -323,9 +319,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -347,7 +341,7 @@ No authorization required
 ## `getImagesV1ImagesGet()`
 
 ```php
-getImagesV1ImagesGet($client_version): array<string,string>
+getImagesV1ImagesGet(): array<string,string>
 ```
 
 Get Images
@@ -365,10 +359,9 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions
 
 try {
-    $result = $apiInstance->getImagesV1ImagesGet($client_version);
+    $result = $apiInstance->getImagesV1ImagesGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->getImagesV1ImagesGet: ', $e->getMessage(), PHP_EOL;
@@ -377,9 +370,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -565,7 +556,7 @@ No authorization required
 ## `getSoundsV1SoundsGet()`
 
 ```php
-getSoundsV1SoundsGet($client_version): array<string,mixed>
+getSoundsV1SoundsGet(): array<string,mixed>
 ```
 
 Get Sounds
@@ -583,10 +574,9 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_version = new \OpenAPI\Client\Model\\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions(); // \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions
 
 try {
-    $result = $apiInstance->getSoundsV1SoundsGet($client_version);
+    $result = $apiInstance->getSoundsV1SoundsGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->getSoundsV1SoundsGet: ', $e->getMessage(), PHP_EOL;
@@ -595,9 +585,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **client_version** | [**\OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions**](../Model/.md)|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 

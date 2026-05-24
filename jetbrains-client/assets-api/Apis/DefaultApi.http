@@ -17,7 +17,7 @@ Accept: application/json
 
 ### Get Fonts
 ## Get Fonts
-GET https://assets.deadlock-api.com/v1/fonts?clientVersion={{clientVersion}}
+GET https://assets.deadlock-api.com/v1/fonts
 Accept: application/json
 
 ### Get Generic Data
@@ -27,12 +27,12 @@ Accept: application/json
 
 ### Get Icons
 ## Get Icons
-GET https://assets.deadlock-api.com/v1/icons?clientVersion={{clientVersion}}
+GET https://assets.deadlock-api.com/v1/icons
 Accept: application/json
 
 ### Get Images
 ## Get Images
-GET https://assets.deadlock-api.com/v1/images?clientVersion={{clientVersion}}
+GET https://assets.deadlock-api.com/v1/images
 Accept: application/json
 
 ### Get Loot Tables
@@ -52,7 +52,7 @@ Accept: application/json
 
 ### Get Sounds
 ## Get Sounds
-GET https://assets.deadlock-api.com/v1/sounds?clientVersion={{clientVersion}}
+GET https://assets.deadlock-api.com/v1/sounds
 Accept: application/json
 
 ### Get Steam Info

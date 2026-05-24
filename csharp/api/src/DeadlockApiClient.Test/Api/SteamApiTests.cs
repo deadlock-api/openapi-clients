@@ -70,7 +70,11 @@ namespace DeadlockApiClient.Test.Api
         public async Task SteamSearchAsyncTest()
         {
             string searchQuery = default!;
-            var response = await _instance.SteamSearchAsync(searchQuery);
+            Client.Option<int?> limit = default!;
+            Client.Option<int?> minMatchesPlayedLast30d = default!;
+            Client.Option<int?> minLastTeamAvgBadge = default!;
+            Client.Option<double?> matchesPlayedWeight = default!;
+            var response = await _instance.SteamSearchAsync(searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight);
             var model = response.Ok();
             Assert.IsType<List<SteamProfile>>(model);
         }

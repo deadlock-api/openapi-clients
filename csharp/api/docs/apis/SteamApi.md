@@ -51,7 +51,7 @@ No authorization required
 
 <a id="steamsearch"></a>
 # **SteamSearch**
-> List&lt;SteamProfile&gt; SteamSearch (string searchQuery)
+> List&lt;SteamProfile&gt; SteamSearch (string searchQuery, int limit = null, int minMatchesPlayedLast30d = null, int minLastTeamAvgBadge = null, double matchesPlayedWeight = null)
 
 Steam Profile Search
 
@@ -63,6 +63,10 @@ Steam Profile Search
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **searchQuery** | **string** | Search query for Steam profiles. |  |
+| **limit** | **int** | Maximum number of profiles to return. | [optional] [default to 100] |
+| **minMatchesPlayedLast30d** | **int** | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. | [optional] [default to 5] |
+| **minLastTeamAvgBadge** | **int** | Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. | [optional] [default to 0] |
+| **matchesPlayedWeight** | **double** | Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. | [optional] [default to 0.02D] |
 
 ### Return type
 

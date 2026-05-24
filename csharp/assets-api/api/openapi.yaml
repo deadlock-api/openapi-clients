@@ -924,16 +924,6 @@ paths:
   /v1/icons:
     get:
       operationId: get_icons_v1_icons_get
-      parameters:
-      - explode: true
-        in: query
-        name: client_version
-        required: false
-        schema:
-          allOf:
-          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
-          nullable: true
-        style: form
       responses:
         "200":
           content:
@@ -943,26 +933,10 @@ paths:
                   type: string
                 title: Response Get Icons V1 Icons Get
           description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HTTPValidationError"
-          description: Validation Error
       summary: Get Icons
   /v1/images:
     get:
       operationId: get_images_v1_images_get
-      parameters:
-      - explode: true
-        in: query
-        name: client_version
-        required: false
-        schema:
-          allOf:
-          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
-          nullable: true
-        style: form
       responses:
         "200":
           content:
@@ -972,26 +946,10 @@ paths:
                   type: string
                 title: Response Get Images V1 Images Get
           description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HTTPValidationError"
-          description: Validation Error
       summary: Get Images
   /v1/fonts:
     get:
       operationId: get_fonts_v1_fonts_get
-      parameters:
-      - explode: true
-        in: query
-        name: client_version
-        required: false
-        schema:
-          allOf:
-          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
-          nullable: true
-        style: form
       responses:
         "200":
           content:
@@ -1001,26 +959,10 @@ paths:
                   type: string
                 title: Response Get Fonts V1 Fonts Get
           description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HTTPValidationError"
-          description: Validation Error
       summary: Get Fonts
   /v1/sounds:
     get:
       operationId: get_sounds_v1_sounds_get
-      parameters:
-      - explode: true
-        in: query
-        name: client_version
-        required: false
-        schema:
-          allOf:
-          - $ref: "#/components/schemas/DeadlockAssetsApiRoutesValidClientVersions"
-          nullable: true
-        style: form
       responses:
         "200":
           content:
@@ -1029,12 +971,6 @@ paths:
                 additionalProperties: {}
                 title: Response Get Sounds V1 Sounds Get
           description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/HTTPValidationError"
-          description: Validation Error
       summary: Get Sounds
   /raw/heroes:
     get:
@@ -1620,6 +1556,7 @@ components:
       title: DamageFlashV2
     DeadlockAssetsApiRoutesValidClientVersions:
       enum:
+      - 6514
       - 6487
       - 6484
       - 6468

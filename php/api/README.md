@@ -74,7 +74,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | See more: <https://assets.deadlock-api.com/v2/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
-$min_unix_timestamp = 1776556800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1776902400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**urls**](docs/Api/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *PatchesApi* | [**bigPatchDays**](docs/Api/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/Api/PatchesApi.md#feed) | **GET** /v1/patches | Notes
+*PatchesApi* | [**feed_0**](docs/Api/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes
 *PlayersApi* | [**accountStats**](docs/Api/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
 *PlayersApi* | [**card**](docs/Api/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemyStats**](docs/Api/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
@@ -167,6 +168,7 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mateStats**](docs/Api/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**playerHeroStats**](docs/Api/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
 *PlayersApi* | [**rankPredict**](docs/Api/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
+*PlayersApi* | [**rankPredictAvgImage**](docs/Api/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image
 *PlayersApi* | [**rankPredictImage**](docs/Api/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
 *SQLApi* | [**listTables**](docs/Api/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/Api/SQLApi.md#sql) | **GET** /v1/sql | Query
@@ -204,6 +206,10 @@ Class | Method | HTTP request | Description
 - [CreateCustomResponse](docs/Model/CreateCustomResponse.md)
 - [DistributionEntry](docs/Model/DistributionEntry.md)
 - [EnemyStats](docs/Model/EnemyStats.md)
+- [FeedItem](docs/Model/FeedItem.md)
+- [FeedItemOneOf](docs/Model/FeedItemOneOf.md)
+- [FeedItemOneOf1](docs/Model/FeedItemOneOf1.md)
+- [ForumPatch](docs/Model/ForumPatch.md)
 - [GameMode](docs/Model/GameMode.md)
 - [GameServerInfo](docs/Model/GameServerInfo.md)
 - [GetCustomMatchIdResponse](docs/Model/GetCustomMatchIdResponse.md)
@@ -249,6 +255,7 @@ Class | Method | HTTP request | Description
 - [Status](docs/Model/Status.md)
 - [StatusServices](docs/Model/StatusServices.md)
 - [SteamFriend](docs/Model/SteamFriend.md)
+- [SteamNews](docs/Model/SteamNews.md)
 - [SteamProfile](docs/Model/SteamProfile.md)
 - [SteamServer](docs/Model/SteamServer.md)
 - [TableSize](docs/Model/TableSize.md)

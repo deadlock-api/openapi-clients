@@ -44,6 +44,10 @@ src/models/CreateCustomRequest.ts
 src/models/CreateCustomResponse.ts
 src/models/DistributionEntry.ts
 src/models/EnemyStats.ts
+src/models/FeedItem.ts
+src/models/FeedItemOneOf.ts
+src/models/FeedItemOneOf1.ts
+src/models/ForumPatch.ts
 src/models/GameMode.ts
 src/models/GameServerInfo.ts
 src/models/GetCustomMatchIdResponse.ts
@@ -89,6 +93,7 @@ src/models/ServerStatusResponse.ts
 src/models/Status.ts
 src/models/StatusServices.ts
 src/models/SteamFriend.ts
+src/models/SteamNews.ts
 src/models/SteamProfile.ts
 src/models/SteamServer.ts
 src/models/TableSize.ts

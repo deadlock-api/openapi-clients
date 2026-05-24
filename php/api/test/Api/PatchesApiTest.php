@@ -94,4 +94,16 @@ class PatchesApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for feed_0
+     *
+     * Notes.
+     *
+     */
+    public function testFeed0()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

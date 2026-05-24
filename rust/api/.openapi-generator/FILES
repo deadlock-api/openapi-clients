@@ -31,6 +31,10 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
+docs/FeedItem.md
+docs/FeedItemOneOf.md
+docs/FeedItemOneOf1.md
+docs/ForumPatch.md
 docs/GameMode.md
 docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
@@ -87,6 +91,7 @@ docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
 docs/SteamFriend.md
+docs/SteamNews.md
 docs/SteamProfile.md
 docs/SteamServer.md
 docs/TableSize.md
@@ -135,6 +140,10 @@ src/models/create_custom_request.rs
 src/models/create_custom_response.rs
 src/models/distribution_entry.rs
 src/models/enemy_stats.rs
+src/models/feed_item.rs
+src/models/feed_item_one_of.rs
+src/models/feed_item_one_of_1.rs
+src/models/forum_patch.rs
 src/models/game_mode.rs
 src/models/game_server_info.rs
 src/models/get_custom_match_id_response.rs
@@ -181,6 +190,7 @@ src/models/server_status_response.rs
 src/models/status.rs
 src/models/status_services.rs
 src/models/steam_friend.rs
+src/models/steam_news.rs
 src/models/steam_profile.rs
 src/models/steam_server.rs
 src/models/table_size.rs

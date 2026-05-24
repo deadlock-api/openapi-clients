@@ -181,11 +181,39 @@ type ApiSteamSearchRequest struct {
 	ctx context.Context
 	ApiService *SteamAPIService
 	searchQuery *string
+	limit *int32
+	minMatchesPlayedLast30d *int32
+	minLastTeamAvgBadge *int32
+	matchesPlayedWeight *float64
 }
 
 // Search query for Steam profiles.
 func (r ApiSteamSearchRequest) SearchQuery(searchQuery string) ApiSteamSearchRequest {
 	r.searchQuery = &searchQuery
+	return r
+}
+
+// Maximum number of profiles to return.
+func (r ApiSteamSearchRequest) Limit(limit int32) ApiSteamSearchRequest {
+	r.limit = &limit
+	return r
+}
+
+// Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+func (r ApiSteamSearchRequest) MinMatchesPlayedLast30d(minMatchesPlayedLast30d int32) ApiSteamSearchRequest {
+	r.minMatchesPlayedLast30d = &minMatchesPlayedLast30d
+	return r
+}
+
+// Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+func (r ApiSteamSearchRequest) MinLastTeamAvgBadge(minLastTeamAvgBadge int32) ApiSteamSearchRequest {
+	r.minLastTeamAvgBadge = &minLastTeamAvgBadge
+	return r
+}
+
+// Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
+func (r ApiSteamSearchRequest) MatchesPlayedWeight(matchesPlayedWeight float64) ApiSteamSearchRequest {
+	r.matchesPlayedWeight = &matchesPlayedWeight
 	return r
 }
 
@@ -244,6 +272,34 @@ func (a *SteamAPIService) SteamSearchExecute(r ApiSteamSearchRequest) ([]SteamPr
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "search_query", r.searchQuery, "form", "")
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 100
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
+		r.limit = &defaultValue
+	}
+	if r.minMatchesPlayedLast30d != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played_last_30d", r.minMatchesPlayedLast30d, "form", "")
+	} else {
+		var defaultValue int32 = 5
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played_last_30d", defaultValue, "form", "")
+		r.minMatchesPlayedLast30d = &defaultValue
+	}
+	if r.minLastTeamAvgBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_team_avg_badge", r.minLastTeamAvgBadge, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_team_avg_badge", defaultValue, "form", "")
+		r.minLastTeamAvgBadge = &defaultValue
+	}
+	if r.matchesPlayedWeight != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "matches_played_weight", r.matchesPlayedWeight, "form", "")
+	} else {
+		var defaultValue float64 = 0.02
+		parameterAddToHeaderOrQuery(localVarQueryParams, "matches_played_weight", defaultValue, "form", "")
+		r.matchesPlayedWeight = &defaultValue
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

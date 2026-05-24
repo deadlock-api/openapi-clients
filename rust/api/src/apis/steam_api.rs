@@ -27,7 +27,15 @@ pub struct SteamParams {
 #[derive(Clone, Debug)]
 pub struct SteamSearchParams {
     /// Search query for Steam profiles.
-    pub search_query: String
+    pub search_query: String,
+    /// Maximum number of profiles to return.
+    pub limit: Option<u32>,
+    /// Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+    pub min_matches_played_last_30d: Option<u32>,
+    /// Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+    pub min_last_team_avg_badge: Option<u32>,
+    /// Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
+    pub matches_played_weight: Option<f64>
 }
 
 
@@ -103,6 +111,18 @@ pub async fn steam_search(configuration: &configuration::Configuration, params: 
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("search_query", &params.search_query.to_string())]);
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_matches_played_last_30d {
+        req_builder = req_builder.query(&[("min_matches_played_last_30d", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_last_team_avg_badge {
+        req_builder = req_builder.query(&[("min_last_team_avg_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.matches_played_weight {
+        req_builder = req_builder.query(&[("matches_played_weight", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

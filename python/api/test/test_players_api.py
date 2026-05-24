@@ -75,6 +75,13 @@ class TestPlayersApi(unittest.TestCase):
         """
         pass
 
+    def test_rank_predict_avg_image(self) -> None:
+        """Test case for rank_predict_avg_image
+
+        Rank Predict Avg Image
+        """
+        pass
+
     def test_rank_predict_image(self) -> None:
         """Test case for rank_predict_image
 

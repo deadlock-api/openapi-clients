@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *PatchesApi* | [**big_patch_days**](docs/PatchesApi.md#big_patch_days) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes
+*PatchesApi* | [**feed_0**](docs/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes
 *PlayersApi* | [**account_stats**](docs/PlayersApi.md#account_stats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
 *PlayersApi* | [**card**](docs/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemy_stats**](docs/PlayersApi.md#enemy_stats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
@@ -104,6 +105,7 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mate_stats**](docs/PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**player_hero_stats**](docs/PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
 *PlayersApi* | [**rank_predict**](docs/PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
+*PlayersApi* | [**rank_predict_avg_image**](docs/PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image
 *PlayersApi* | [**rank_predict_image**](docs/PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
 *SqlApi* | [**list_tables**](docs/SqlApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
 *SqlApi* | [**sql**](docs/SqlApi.md#sql) | **GET** /v1/sql | Query
@@ -142,6 +144,10 @@ Class | Method | HTTP request | Description
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
  - [DistributionEntry](docs/DistributionEntry.md)
  - [EnemyStats](docs/EnemyStats.md)
+ - [FeedItem](docs/FeedItem.md)
+ - [FeedItemOneOf](docs/FeedItemOneOf.md)
+ - [FeedItemOneOf1](docs/FeedItemOneOf1.md)
+ - [ForumPatch](docs/ForumPatch.md)
  - [GameMode](docs/GameMode.md)
  - [GameServerInfo](docs/GameServerInfo.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
@@ -187,6 +193,7 @@ Class | Method | HTTP request | Description
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamFriend](docs/SteamFriend.md)
+ - [SteamNews](docs/SteamNews.md)
  - [SteamProfile](docs/SteamProfile.md)
  - [SteamServer](docs/SteamServer.md)
  - [TableSize](docs/TableSize.md)

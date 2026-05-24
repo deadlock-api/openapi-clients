@@ -28,7 +28,9 @@ type SteamProfile struct {
 	Avatarmedium string `json:"avatarmedium"`
 	Countrycode NullableString `json:"countrycode,omitempty"`
 	Friends []SteamFriend `json:"friends"`
+	LastTeamAvgBadge NullableInt32 `json:"last_team_avg_badge,omitempty"`
 	LastUpdated time.Time `json:"last_updated"`
+	MatchesPlayedLast30d int64 `json:"matches_played_last_30d"`
 	Personaname string `json:"personaname"`
 	Profileurl string `json:"profileurl"`
 	Realname NullableString `json:"realname,omitempty"`
@@ -40,7 +42,7 @@ type _SteamProfile SteamProfile
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, personaname string, profileurl string) *SteamProfile {
+func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, matchesPlayedLast30d int64, personaname string, profileurl string) *SteamProfile {
 	this := SteamProfile{}
 	this.AccountId = accountId
 	this.Avatar = avatar
@@ -48,6 +50,7 @@ func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarme
 	this.Avatarmedium = avatarmedium
 	this.Friends = friends
 	this.LastUpdated = lastUpdated
+	this.MatchesPlayedLast30d = matchesPlayedLast30d
 	this.Personaname = personaname
 	this.Profileurl = profileurl
 	return &this
@@ -223,6 +226,48 @@ func (o *SteamProfile) SetFriends(v []SteamFriend) {
 	o.Friends = v
 }
 
+// GetLastTeamAvgBadge returns the LastTeamAvgBadge field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SteamProfile) GetLastTeamAvgBadge() int32 {
+	if o == nil || IsNil(o.LastTeamAvgBadge.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.LastTeamAvgBadge.Get()
+}
+
+// GetLastTeamAvgBadgeOk returns a tuple with the LastTeamAvgBadge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SteamProfile) GetLastTeamAvgBadgeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LastTeamAvgBadge.Get(), o.LastTeamAvgBadge.IsSet()
+}
+
+// HasLastTeamAvgBadge returns a boolean if a field has been set.
+func (o *SteamProfile) HasLastTeamAvgBadge() bool {
+	if o != nil && o.LastTeamAvgBadge.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastTeamAvgBadge gets a reference to the given NullableInt32 and assigns it to the LastTeamAvgBadge field.
+func (o *SteamProfile) SetLastTeamAvgBadge(v int32) {
+	o.LastTeamAvgBadge.Set(&v)
+}
+// SetLastTeamAvgBadgeNil sets the value for LastTeamAvgBadge to be an explicit nil
+func (o *SteamProfile) SetLastTeamAvgBadgeNil() {
+	o.LastTeamAvgBadge.Set(nil)
+}
+
+// UnsetLastTeamAvgBadge ensures that no value is present for LastTeamAvgBadge, not even an explicit nil
+func (o *SteamProfile) UnsetLastTeamAvgBadge() {
+	o.LastTeamAvgBadge.Unset()
+}
+
 // GetLastUpdated returns the LastUpdated field value
 func (o *SteamProfile) GetLastUpdated() time.Time {
 	if o == nil {
@@ -245,6 +290,30 @@ func (o *SteamProfile) GetLastUpdatedOk() (*time.Time, bool) {
 // SetLastUpdated sets field value
 func (o *SteamProfile) SetLastUpdated(v time.Time) {
 	o.LastUpdated = v
+}
+
+// GetMatchesPlayedLast30d returns the MatchesPlayedLast30d field value
+func (o *SteamProfile) GetMatchesPlayedLast30d() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.MatchesPlayedLast30d
+}
+
+// GetMatchesPlayedLast30dOk returns a tuple with the MatchesPlayedLast30d field value
+// and a boolean to check if the value has been set.
+func (o *SteamProfile) GetMatchesPlayedLast30dOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MatchesPlayedLast30d, true
+}
+
+// SetMatchesPlayedLast30d sets field value
+func (o *SteamProfile) SetMatchesPlayedLast30d(v int64) {
+	o.MatchesPlayedLast30d = v
 }
 
 // GetPersonaname returns the Personaname field value
@@ -355,7 +424,11 @@ func (o SteamProfile) ToMap() (map[string]interface{}, error) {
 		toSerialize["countrycode"] = o.Countrycode.Get()
 	}
 	toSerialize["friends"] = o.Friends
+	if o.LastTeamAvgBadge.IsSet() {
+		toSerialize["last_team_avg_badge"] = o.LastTeamAvgBadge.Get()
+	}
 	toSerialize["last_updated"] = o.LastUpdated
+	toSerialize["matches_played_last_30d"] = o.MatchesPlayedLast30d
 	toSerialize["personaname"] = o.Personaname
 	toSerialize["profileurl"] = o.Profileurl
 	if o.Realname.IsSet() {
@@ -375,6 +448,7 @@ func (o *SteamProfile) UnmarshalJSON(data []byte) (err error) {
 		"avatarmedium",
 		"friends",
 		"last_updated",
+		"matches_played_last_30d",
 		"personaname",
 		"profileurl",
 	}

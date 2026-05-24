@@ -149,6 +149,10 @@ namespace DeadlockApiClient.Client
                 return ActiveMatchModeValueConverter.ToJsonValue(activeMatchMode);
             if (obj is ActiveMatchTeam activeMatchTeam)
                 return ActiveMatchTeamValueConverter.ToJsonValue(activeMatchTeam);
+            if (obj is FeedItemOneOf.SourceEnum feedItemOneOfSourceEnum)
+                return FeedItemOneOf.SourceEnumToJsonValue(feedItemOneOfSourceEnum);
+            if (obj is FeedItemOneOf1.SourceEnum feedItemOneOf1SourceEnum)
+                return FeedItemOneOf1.SourceEnumToJsonValue(feedItemOneOf1SourceEnum);
             if (obj is GameMode gameMode)
                 return GameModeValueConverter.ToJsonValue(gameMode);
             if (obj is RegionMode regionMode)

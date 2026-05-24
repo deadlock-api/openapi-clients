@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BigPatchDays**](PatchesAPI.md#BigPatchDays) | **Get** /v1/patches/big-days | Big Days
 [**Feed**](PatchesAPI.md#Feed) | **Get** /v1/patches | Notes
+[**Feed_0**](PatchesAPI.md#Feed_0) | **Get** /v2/patches | Notes
 
 
 
@@ -116,6 +117,67 @@ Other parameters are passed through a pointer to a apiFeedRequest struct via the
 ### Return type
 
 [**[]Patch**](Patch.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Feed_0
+
+> []FeedItem Feed_0(ctx).Execute()
+
+Notes
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PatchesAPI.Feed_0(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PatchesAPI.Feed_0``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Feed_0`: []FeedItem
+	fmt.Fprintf(os.Stdout, "Response from `PatchesAPI.Feed_0`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFeed_1Request struct via the builder pattern
+
+
+### Return type
+
+[**[]FeedItem**](FeedItem.md)
 
 ### Authorization
 

@@ -121,17 +121,13 @@ No authorization required
 
 <a id="getfontsv1fontsget"></a>
 # **GetFontsV1FontsGet**
-> Dictionary&lt;string, string&gt; GetFontsV1FontsGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> Dictionary&lt;string, string&gt; GetFontsV1FontsGet ()
 
 Get Fonts
 
 
 ### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | [optional]  |
-
+This endpoint does not need any parameter.
 ### Return type
 
 **Dictionary<string, string>**
@@ -150,7 +146,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -191,17 +186,13 @@ No authorization required
 
 <a id="geticonsv1iconsget"></a>
 # **GetIconsV1IconsGet**
-> Dictionary&lt;string, string&gt; GetIconsV1IconsGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> Dictionary&lt;string, string&gt; GetIconsV1IconsGet ()
 
 Get Icons
 
 
 ### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | [optional]  |
-
+This endpoint does not need any parameter.
 ### Return type
 
 **Dictionary<string, string>**
@@ -220,23 +211,18 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="getimagesv1imagesget"></a>
 # **GetImagesV1ImagesGet**
-> Dictionary&lt;string, string&gt; GetImagesV1ImagesGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> Dictionary&lt;string, string&gt; GetImagesV1ImagesGet ()
 
 Get Images
 
 
 ### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | [optional]  |
-
+This endpoint does not need any parameter.
 ### Return type
 
 **Dictionary<string, string>**
@@ -255,7 +241,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -367,17 +352,13 @@ No authorization required
 
 <a id="getsoundsv1soundsget"></a>
 # **GetSoundsV1SoundsGet**
-> Dictionary&lt;string, Object&gt; GetSoundsV1SoundsGet (DeadlockAssetsApiRoutesValidClientVersions clientVersion = null)
+> Dictionary&lt;string, Object&gt; GetSoundsV1SoundsGet ()
 
 Get Sounds
 
 
 ### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | [optional]  |
-
+This endpoint does not need any parameter.
 ### Return type
 
 **Dictionary<string, Object>**
@@ -396,7 +377,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

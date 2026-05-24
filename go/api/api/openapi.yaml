@@ -135,7 +135,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -384,7 +384,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -517,7 +517,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -593,7 +593,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -732,7 +732,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -865,7 +865,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -1052,7 +1052,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -1332,7 +1332,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -1588,7 +1588,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -1852,7 +1852,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -2121,7 +2121,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -2408,7 +2408,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -2675,7 +2675,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -2967,7 +2967,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -3188,7 +3188,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -3487,7 +3487,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -5534,8 +5534,10 @@ paths:
       - Matches
   /v1/patches:
     get:
-      description: "\nReturns the parsed result of the RSS Feed from the official\
-        \ Forum.\n\nRSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
+      deprecated: true
+      description: "\n**Deprecated:** Use `/v2/patches` instead, which returns a unified\
+        \ feed combining the Forum changelog and the Steam news feed.\n\nReturns the\
+        \ parsed result of the RSS Feed from the official Forum.\n\nRSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
         | Key | - |\n| Global | - |\n    "
       operationId: feed
@@ -5813,7 +5815,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -5932,7 +5934,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1776902400
           format: int64
           nullable: true
           type: integer
@@ -6106,6 +6108,70 @@ paths:
       summary: Batch Hero MMR
       tags:
       - MMR
+  /v1/players/rank-predict/image:
+    get:
+      description: Returns the average predicted rank badge image (binary) for a comma-separated
+        list of account IDs. Use `?format=webp` for WebP.
+      operationId: rank_predict_avg_image
+      parameters:
+      - description: Comma-separated list of account IDs (max 12).
+        explode: true
+        in: query
+        name: account_ids
+        required: true
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+        style: form
+      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - png
+          - webp
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+            image/webp:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+          description: Average predicted rank badge image
+        "400":
+          description: Invalid or missing account IDs
+        "403":
+          description: One of the users is protected
+        "404":
+          description: No image available for the predicted rank
+        "422":
+          description: Not enough recent ranked matches for one or more accounts
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Prediction failed
+        "503":
+          description: Rank prediction model not loaded
+      summary: Rank Predict Avg Image
+      tags:
+      - Players
   /v1/players/steam:
     get:
       description: "\nThis endpoint returns Steam profiles of players.\n\nPass `refresh=true`\
@@ -6181,6 +6247,66 @@ paths:
         required: true
         schema:
           type: string
+        style: form
+      - description: Maximum number of profiles to return.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Only return profiles that have played at least this many matches in the
+          last 30 days. Defaults to 5 to filter out inactive/empty profiles and
+          keep search responsive.
+        explode: true
+        in: query
+        name: min_matches_played_last_30d
+        required: false
+        schema:
+          default: 5
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Only return profiles whose `last_team_avg_badge` is at least this
+          value. Defaults to 0 (no filter). Profiles with no recorded badge are
+          stored as 0 and are excluded when this is set above 0.
+        explode: true
+        in: query
+        name: min_last_team_avg_badge
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Weight applied to `log1p(matches_played_last_30d)` when reranking
+          candidates. The final score per profile is
+          `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`.
+          Set to 0 to rank purely by string similarity; raise it to bias toward
+          active/popular players.
+        explode: true
+        in: query
+        name: matches_played_weight
+        required: false
+        schema:
+          default: "0.02"
+          format: double
+          minimum: 0
+          nullable: true
+          type: number
         style: form
       responses:
         "200":
@@ -7004,6 +7130,29 @@ paths:
       summary: Table Schema
       tags:
       - SQL
+  /v2/patches:
+    get:
+      description: "\nReturns a unified feed combining patch notes from the official\
+        \ Forum changelog and the Steam news feed.\n\nEach entry is tagged with a\
+        \ `source` field (`forum` or `steam`).\n\n- Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
+        - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
+        | Key | - |\n| Global | - |\n    "
+      operationId: feed
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/FeedItem"
+                type: array
+          description: ""
+        "500":
+          description: Fetching or parsing one of the RSS feeds failed
+      summary: Notes
+      tags:
+      - Patches
 components:
   schemas:
     APIInfo:
@@ -8241,6 +8390,32 @@ components:
       - matches
       - matches_played
       - wins
+    FeedItem:
+      oneOf:
+      - $ref: "#/components/schemas/FeedItem_oneOf"
+      - $ref: "#/components/schemas/FeedItem_oneOf_1"
+    ForumPatch:
+      properties:
+        category:
+          $ref: "#/components/schemas/PatchCategory"
+        content:
+          type: string
+        guid:
+          $ref: "#/components/schemas/PatchGuid"
+        link:
+          type: string
+        pub_date:
+          format: date-time
+          type: string
+        title:
+          type: string
+      required:
+      - category
+      - content
+      - guid
+      - link
+      - pub_date
+      - title
     GameMode:
       enum:
       - normal
@@ -10061,15 +10236,36 @@ components:
       required:
       - account_id
       - friend_since
+    SteamNews:
+      properties:
+        content:
+          type: string
+        guid:
+          $ref: "#/components/schemas/PatchGuid"
+        link:
+          type: string
+        pub_date:
+          format: date-time
+          type: string
+        title:
+          type: string
+      required:
+      - content
+      - guid
+      - link
+      - pub_date
+      - title
     SteamProfile:
       example:
         profileurl: profileurl
         last_updated: 2000-01-23T04:56:07.000+00:00
         account_id: 0
+        matches_played_last_30d: 0
         countrycode: countrycode
         avatarfull: avatarfull
         avatarmedium: avatarmedium
         avatar: avatar
+        last_team_avg_badge: 0
         personaname: personaname
         friends:
         - account_id: 0
@@ -10095,9 +10291,18 @@ components:
           items:
             $ref: "#/components/schemas/SteamFriend"
           type: array
+        last_team_avg_badge:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
         last_updated:
           format: date-time
           type: string
+        matches_played_last_30d:
+          format: int64
+          minimum: 0
+          type: integer
         personaname:
           type: string
         profileurl:
@@ -10112,6 +10317,7 @@ components:
       - avatarmedium
       - friends
       - last_updated
+      - matches_played_last_30d
       - personaname
       - profileurl
     SteamServer:
@@ -10288,6 +10494,38 @@ components:
       - description
       - extra_args
       - name
+    FeedItem_oneOf:
+      allOf:
+      - $ref: "#/components/schemas/ForumPatch"
+      - properties:
+          source:
+            enum:
+            - forum
+            type: string
+        required:
+        - source
+      example:
+        pub_date: 2000-01-23T04:56:07.000+00:00
+        link: link
+        guid:
+          is_perma_link: true
+          text: text
+        source: forum
+        category:
+          domain: domain
+          text: text
+        title: title
+        content: content
+    FeedItem_oneOf_1:
+      allOf:
+      - $ref: "#/components/schemas/SteamNews"
+      - properties:
+          source:
+            enum:
+            - steam
+            type: string
+        required:
+        - source
     HashMap_value:
       properties:
         avg:

@@ -140,6 +140,10 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Steam Profile Search
      *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param searchQuery Search query for Steam profiles.
+     * @param limit Maximum number of profiles to return. (optional, default to 100)
+     * @param minMatchesPlayedLast30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param minLastTeamAvgBadge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param matchesPlayedWeight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @return kotlin.collections.List<SteamProfile>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -149,8 +153,8 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun steamSearch(searchQuery: kotlin.String) : kotlin.collections.List<SteamProfile> {
-        val localVarResponse = steamSearchWithHttpInfo(searchQuery = searchQuery)
+    fun steamSearch(searchQuery: kotlin.String, limit: kotlin.Int? = 100, minMatchesPlayedLast30d: kotlin.Int? = 5, minLastTeamAvgBadge: kotlin.Int? = 0, matchesPlayedWeight: kotlin.Double? = 0.02) : kotlin.collections.List<SteamProfile> {
+        val localVarResponse = steamSearchWithHttpInfo(searchQuery = searchQuery, limit = limit, minMatchesPlayedLast30d = minMatchesPlayedLast30d, minLastTeamAvgBadge = minLastTeamAvgBadge, matchesPlayedWeight = matchesPlayedWeight)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<SteamProfile>
@@ -172,14 +176,18 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * Steam Profile Search
      *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param searchQuery Search query for Steam profiles.
+     * @param limit Maximum number of profiles to return. (optional, default to 100)
+     * @param minMatchesPlayedLast30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param minLastTeamAvgBadge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param matchesPlayedWeight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @return ApiResponse<kotlin.collections.List<SteamProfile>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun steamSearchWithHttpInfo(searchQuery: kotlin.String) : ApiResponse<kotlin.collections.List<SteamProfile>?> {
-        val localVariableConfig = steamSearchRequestConfig(searchQuery = searchQuery)
+    fun steamSearchWithHttpInfo(searchQuery: kotlin.String, limit: kotlin.Int?, minMatchesPlayedLast30d: kotlin.Int?, minLastTeamAvgBadge: kotlin.Int?, matchesPlayedWeight: kotlin.Double?) : ApiResponse<kotlin.collections.List<SteamProfile>?> {
+        val localVariableConfig = steamSearchRequestConfig(searchQuery = searchQuery, limit = limit, minMatchesPlayedLast30d = minMatchesPlayedLast30d, minLastTeamAvgBadge = minLastTeamAvgBadge, matchesPlayedWeight = matchesPlayedWeight)
 
         return request<Unit, kotlin.collections.List<SteamProfile>>(
             localVariableConfig
@@ -190,13 +198,29 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * To obtain the request config of the operation steamSearch
      *
      * @param searchQuery Search query for Steam profiles.
+     * @param limit Maximum number of profiles to return. (optional, default to 100)
+     * @param minMatchesPlayedLast30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param minLastTeamAvgBadge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param matchesPlayedWeight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @return RequestConfig
      */
-    fun steamSearchRequestConfig(searchQuery: kotlin.String) : RequestConfig<Unit> {
+    fun steamSearchRequestConfig(searchQuery: kotlin.String, limit: kotlin.Int?, minMatchesPlayedLast30d: kotlin.Int?, minLastTeamAvgBadge: kotlin.Int?, matchesPlayedWeight: kotlin.Double?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("search_query", listOf(searchQuery.toString()))
+                if (limit != null) {
+                    put("limit", listOf(limit.toString()))
+                }
+                if (minMatchesPlayedLast30d != null) {
+                    put("min_matches_played_last_30d", listOf(minMatchesPlayedLast30d.toString()))
+                }
+                if (minLastTeamAvgBadge != null) {
+                    put("min_last_team_avg_badge", listOf(minLastTeamAvgBadge.toString()))
+                }
+                if (matchesPlayedWeight != null) {
+                    put("matches_played_weight", listOf(matchesPlayedWeight.toString()))
+                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"

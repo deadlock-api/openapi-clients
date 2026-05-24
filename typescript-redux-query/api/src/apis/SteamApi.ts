@@ -27,6 +27,10 @@ export interface SteamRequest {
 
 export interface SteamSearchRequest {
     searchQuery: string;
+    limit?: number;
+    minMatchesPlayedLast30d?: number;
+    minLastTeamAvgBadge?: number;
+    matchesPlayedWeight?: number;
 }
 
 
@@ -105,6 +109,26 @@ function steamSearchRaw<T>(requestParameters: SteamSearchRequest, requestConfig:
 
     if (requestParameters.searchQuery !== undefined) {
         queryParameters['search_query'] = requestParameters.searchQuery;
+    }
+
+
+    if (requestParameters.limit !== undefined) {
+        queryParameters['limit'] = requestParameters.limit;
+    }
+
+
+    if (requestParameters.minMatchesPlayedLast30d !== undefined) {
+        queryParameters['min_matches_played_last_30d'] = requestParameters.minMatchesPlayedLast30d;
+    }
+
+
+    if (requestParameters.minLastTeamAvgBadge !== undefined) {
+        queryParameters['min_last_team_avg_badge'] = requestParameters.minLastTeamAvgBadge;
+    }
+
+
+    if (requestParameters.matchesPlayedWeight !== undefined) {
+        queryParameters['matches_played_weight'] = requestParameters.matchesPlayedWeight;
     }
 
     const headerParameters : runtime.HttpHeaders = {};

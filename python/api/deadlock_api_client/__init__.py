@@ -66,6 +66,10 @@ __all__ = [
     "CreateCustomResponse",
     "DistributionEntry",
     "EnemyStats",
+    "FeedItem",
+    "FeedItemOneOf",
+    "FeedItemOneOf1",
+    "ForumPatch",
     "GameMode",
     "GameServerInfo",
     "GetCustomMatchIdResponse",
@@ -111,6 +115,7 @@ __all__ = [
     "Status",
     "StatusServices",
     "SteamFriend",
+    "SteamNews",
     "SteamProfile",
     "SteamServer",
     "TableSize",
@@ -171,6 +176,10 @@ from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
 from deadlock_api_client.models.distribution_entry import DistributionEntry as DistributionEntry
 from deadlock_api_client.models.enemy_stats import EnemyStats as EnemyStats
+from deadlock_api_client.models.feed_item import FeedItem as FeedItem
+from deadlock_api_client.models.feed_item_one_of import FeedItemOneOf as FeedItemOneOf
+from deadlock_api_client.models.feed_item_one_of1 import FeedItemOneOf1 as FeedItemOneOf1
+from deadlock_api_client.models.forum_patch import ForumPatch as ForumPatch
 from deadlock_api_client.models.game_mode import GameMode as GameMode
 from deadlock_api_client.models.game_server_info import GameServerInfo as GameServerInfo
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse as GetCustomMatchIdResponse
@@ -216,6 +225,7 @@ from deadlock_api_client.models.server_status_response import ServerStatusRespon
 from deadlock_api_client.models.status import Status as Status
 from deadlock_api_client.models.status_services import StatusServices as StatusServices
 from deadlock_api_client.models.steam_friend import SteamFriend as SteamFriend
+from deadlock_api_client.models.steam_news import SteamNews as SteamNews
 from deadlock_api_client.models.steam_profile import SteamProfile as SteamProfile
 from deadlock_api_client.models.steam_server import SteamServer as SteamServer
 from deadlock_api_client.models.table_size import TableSize as TableSize

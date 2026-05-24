@@ -181,18 +181,11 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
-
-const { status, data } = await apiInstance.getFontsV1FontsGet(
-    clientVersion
-);
+const { status, data } = await apiInstance.getFontsV1FontsGet();
 ```
 
 ### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
+This endpoint does not have any parameters.
 
 
 ### Return type
@@ -213,7 +206,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Successful Response |  -  |
-|**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -283,18 +275,11 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
-
-const { status, data } = await apiInstance.getIconsV1IconsGet(
-    clientVersion
-);
+const { status, data } = await apiInstance.getIconsV1IconsGet();
 ```
 
 ### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
+This endpoint does not have any parameters.
 
 
 ### Return type
@@ -315,7 +300,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Successful Response |  -  |
-|**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -334,18 +318,11 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
-
-const { status, data } = await apiInstance.getImagesV1ImagesGet(
-    clientVersion
-);
+const { status, data } = await apiInstance.getImagesV1ImagesGet();
 ```
 
 ### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
+This endpoint does not have any parameters.
 
 
 ### Return type
@@ -366,7 +343,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Successful Response |  -  |
-|**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -541,18 +517,11 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DefaultApi(configuration);
 
-let clientVersion: DeadlockAssetsApiRoutesValidClientVersions; // (optional) (default to undefined)
-
-const { status, data } = await apiInstance.getSoundsV1SoundsGet(
-    clientVersion
-);
+const { status, data } = await apiInstance.getSoundsV1SoundsGet();
 ```
 
 ### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **clientVersion** | **DeadlockAssetsApiRoutesValidClientVersions** |  | (optional) defaults to undefined|
+This endpoint does not have any parameters.
 
 
 ### Return type
@@ -573,7 +542,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Successful Response |  -  |
-|**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

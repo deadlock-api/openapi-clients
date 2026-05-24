@@ -424,15 +424,19 @@ class SteamApi
      * Steam Profile Search
      *
      * @param  string $search_query Search query for Steam profiles. (required)
+     * @param  int|null $limit Maximum number of profiles to return. (optional, default to 100)
+     * @param  int|null $min_matches_played_last_30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param  int|null $min_last_team_avg_badge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param  float|null $matches_played_weight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steamSearch'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SteamProfile[]
      */
-    public function steamSearch($search_query, string $contentType = self::contentTypes['steamSearch'][0])
+    public function steamSearch($search_query, $limit = 100, $min_matches_played_last_30d = 5, $min_last_team_avg_badge = 0, $matches_played_weight = 0.02, string $contentType = self::contentTypes['steamSearch'][0])
     {
-        list($response) = $this->steamSearchWithHttpInfo($search_query, $contentType);
+        list($response) = $this->steamSearchWithHttpInfo($search_query, $limit, $min_matches_played_last_30d, $min_last_team_avg_badge, $matches_played_weight, $contentType);
         return $response;
     }
 
@@ -442,15 +446,19 @@ class SteamApi
      * Steam Profile Search
      *
      * @param  string $search_query Search query for Steam profiles. (required)
+     * @param  int|null $limit Maximum number of profiles to return. (optional, default to 100)
+     * @param  int|null $min_matches_played_last_30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param  int|null $min_last_team_avg_badge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param  float|null $matches_played_weight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steamSearch'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SteamProfile[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function steamSearchWithHttpInfo($search_query, string $contentType = self::contentTypes['steamSearch'][0])
+    public function steamSearchWithHttpInfo($search_query, $limit = 100, $min_matches_played_last_30d = 5, $min_last_team_avg_badge = 0, $matches_played_weight = 0.02, string $contentType = self::contentTypes['steamSearch'][0])
     {
-        $request = $this->steamSearchRequest($search_query, $contentType);
+        $request = $this->steamSearchRequest($search_query, $limit, $min_matches_played_last_30d, $min_last_team_avg_badge, $matches_played_weight, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -527,14 +535,18 @@ class SteamApi
      * Steam Profile Search
      *
      * @param  string $search_query Search query for Steam profiles. (required)
+     * @param  int|null $limit Maximum number of profiles to return. (optional, default to 100)
+     * @param  int|null $min_matches_played_last_30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param  int|null $min_last_team_avg_badge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param  float|null $matches_played_weight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steamSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function steamSearchAsync($search_query, string $contentType = self::contentTypes['steamSearch'][0])
+    public function steamSearchAsync($search_query, $limit = 100, $min_matches_played_last_30d = 5, $min_last_team_avg_badge = 0, $matches_played_weight = 0.02, string $contentType = self::contentTypes['steamSearch'][0])
     {
-        return $this->steamSearchAsyncWithHttpInfo($search_query, $contentType)
+        return $this->steamSearchAsyncWithHttpInfo($search_query, $limit, $min_matches_played_last_30d, $min_last_team_avg_badge, $matches_played_weight, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -548,15 +560,19 @@ class SteamApi
      * Steam Profile Search
      *
      * @param  string $search_query Search query for Steam profiles. (required)
+     * @param  int|null $limit Maximum number of profiles to return. (optional, default to 100)
+     * @param  int|null $min_matches_played_last_30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param  int|null $min_last_team_avg_badge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param  float|null $matches_played_weight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steamSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function steamSearchAsyncWithHttpInfo($search_query, string $contentType = self::contentTypes['steamSearch'][0])
+    public function steamSearchAsyncWithHttpInfo($search_query, $limit = 100, $min_matches_played_last_30d = 5, $min_last_team_avg_badge = 0, $matches_played_weight = 0.02, string $contentType = self::contentTypes['steamSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SteamProfile[]';
-        $request = $this->steamSearchRequest($search_query, $contentType);
+        $request = $this->steamSearchRequest($search_query, $limit, $min_matches_played_last_30d, $min_last_team_avg_badge, $matches_played_weight, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -598,12 +614,16 @@ class SteamApi
      * Create request for operation 'steamSearch'
      *
      * @param  string $search_query Search query for Steam profiles. (required)
+     * @param  int|null $limit Maximum number of profiles to return. (optional, default to 100)
+     * @param  int|null $min_matches_played_last_30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
+     * @param  int|null $min_last_team_avg_badge Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)
+     * @param  float|null $matches_played_weight Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steamSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function steamSearchRequest($search_query, string $contentType = self::contentTypes['steamSearch'][0])
+    public function steamSearchRequest($search_query, $limit = 100, $min_matches_played_last_30d = 5, $min_last_team_avg_badge = 0, $matches_played_weight = 0.02, string $contentType = self::contentTypes['steamSearch'][0])
     {
 
         // verify the required parameter 'search_query' is set
@@ -613,6 +633,25 @@ class SteamApi
             );
         }
 
+        if ($limit !== null && $limit > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SteamApi.steamSearch, must be smaller than or equal to 1000.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling SteamApi.steamSearch, must be bigger than or equal to 1.');
+        }
+        
+        if ($min_matches_played_last_30d !== null && $min_matches_played_last_30d < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_matches_played_last_30d" when calling SteamApi.steamSearch, must be bigger than or equal to 0.');
+        }
+        
+        if ($min_last_team_avg_badge !== null && $min_last_team_avg_badge < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_last_team_avg_badge" when calling SteamApi.steamSearch, must be bigger than or equal to 0.');
+        }
+        
+        if ($matches_played_weight !== null && $matches_played_weight < 0) {
+            throw new \InvalidArgumentException('invalid value for "$matches_played_weight" when calling SteamApi.steamSearch, must be bigger than or equal to 0.');
+        }
+        
 
         $resourcePath = '/v1/players/steam-search';
         $formParams = [];
@@ -629,6 +668,42 @@ class SteamApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_matches_played_last_30d,
+            'min_matches_played_last_30d', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_last_team_avg_badge,
+            'min_last_team_avg_badge', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $matches_played_weight,
+            'matches_played_weight', // param base name
+            'number', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
 
 

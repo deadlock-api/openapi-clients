@@ -217,7 +217,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fonts_v1_fonts_get**
-> Dict[str, str] get_fonts_v1_fonts_get(client_version=client_version)
+> Dict[str, str] get_fonts_v1_fonts_get()
 
 Get Fonts
 
@@ -240,11 +240,10 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesValidClientVersions() # DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
     try:
         # Get Fonts
-        api_response = api_instance.get_fonts_v1_fonts_get(client_version=client_version)
+        api_response = api_instance.get_fonts_v1_fonts_get()
         print("The response of DefaultApi->get_fonts_v1_fonts_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -255,10 +254,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -278,7 +274,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -350,7 +345,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_icons_v1_icons_get**
-> Dict[str, str] get_icons_v1_icons_get(client_version=client_version)
+> Dict[str, str] get_icons_v1_icons_get()
 
 Get Icons
 
@@ -373,11 +368,10 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesValidClientVersions() # DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
     try:
         # Get Icons
-        api_response = api_instance.get_icons_v1_icons_get(client_version=client_version)
+        api_response = api_instance.get_icons_v1_icons_get()
         print("The response of DefaultApi->get_icons_v1_icons_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -388,10 +382,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -411,12 +402,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_images_v1_images_get**
-> Dict[str, str] get_images_v1_images_get(client_version=client_version)
+> Dict[str, str] get_images_v1_images_get()
 
 Get Images
 
@@ -439,11 +429,10 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesValidClientVersions() # DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
     try:
         # Get Images
-        api_response = api_instance.get_images_v1_images_get(client_version=client_version)
+        api_response = api_instance.get_images_v1_images_get()
         print("The response of DefaultApi->get_images_v1_images_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -454,10 +443,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -477,7 +463,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -685,7 +670,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sounds_v1_sounds_get**
-> Dict[str, object] get_sounds_v1_sounds_get(client_version=client_version)
+> Dict[str, object] get_sounds_v1_sounds_get()
 
 Get Sounds
 
@@ -708,11 +693,10 @@ configuration = assets_deadlock_api_client.Configuration(
 with assets_deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = assets_deadlock_api_client.DefaultApi(api_client)
-    client_version = assets_deadlock_api_client.DeadlockAssetsApiRoutesValidClientVersions() # DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
     try:
         # Get Sounds
-        api_response = api_instance.get_sounds_v1_sounds_get(client_version=client_version)
+        api_response = api_instance.get_sounds_v1_sounds_get()
         print("The response of DefaultApi->get_sounds_v1_sounds_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -723,10 +707,7 @@ with assets_deadlock_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **client_version** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -746,7 +727,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.PatchesApi
+import deadlock_api_client.models.FeedItem
 import deadlock_api_client.models.Patch
 
 class PatchesApiTest : ShouldSpec() {
@@ -45,6 +46,13 @@ class PatchesApiTest : ShouldSpec() {
         should("test feed") {
             // uncomment below to test feed
             //val result : kotlin.collections.List<Patch> = apiInstance.feed()
+            //result shouldBe ("TODO")
+        }
+
+        // to test feed_0
+        should("test feed_0") {
+            // uncomment below to test feed_0
+            //val result : kotlin.collections.List<FeedItem> = apiInstance.feed_0()
             //result shouldBe ("TODO")
         }
 

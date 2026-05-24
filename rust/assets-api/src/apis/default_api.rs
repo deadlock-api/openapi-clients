@@ -27,27 +27,9 @@ pub struct GetColorsV1ColorsGetParams {
     pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
-/// struct for passing parameters to the method [`get_fonts_v1_fonts_get`]
-#[derive(Clone, Debug)]
-pub struct GetFontsV1FontsGetParams {
-    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
-}
-
 /// struct for passing parameters to the method [`get_generic_data_v2_generic_data_get`]
 #[derive(Clone, Debug)]
 pub struct GetGenericDataV2GenericDataGetParams {
-    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
-}
-
-/// struct for passing parameters to the method [`get_icons_v1_icons_get`]
-#[derive(Clone, Debug)]
-pub struct GetIconsV1IconsGetParams {
-    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
-}
-
-/// struct for passing parameters to the method [`get_images_v1_images_get`]
-#[derive(Clone, Debug)]
-pub struct GetImagesV1ImagesGetParams {
     pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
@@ -67,12 +49,6 @@ pub struct GetMapV1MapGetParams {
 #[derive(Clone, Debug)]
 pub struct GetRanksV2RanksGetParams {
     pub language: Option<models::models::Language>,
-    pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
-}
-
-/// struct for passing parameters to the method [`get_sounds_v1_sounds_get`]
-#[derive(Clone, Debug)]
-pub struct GetSoundsV1SoundsGetParams {
     pub client_version: Option<models::models::DeadlockAssetsApiRoutesValidClientVersions>
 }
 
@@ -110,7 +86,6 @@ pub enum GetColorsV1ColorsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFontsV1FontsGetError {
-    Status422(models::HttpValidationError),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,7 +101,6 @@ pub enum GetGenericDataV2GenericDataGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIconsV1IconsGetError {
-    Status422(models::HttpValidationError),
     UnknownValue(serde_json::Value),
 }
 
@@ -134,7 +108,6 @@ pub enum GetIconsV1IconsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetImagesV1ImagesGetError {
-    Status422(models::HttpValidationError),
     UnknownValue(serde_json::Value),
 }
 
@@ -166,7 +139,6 @@ pub enum GetRanksV2RanksGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSoundsV1SoundsGetError {
-    Status422(models::HttpValidationError),
     UnknownValue(serde_json::Value),
 }
 
@@ -297,14 +269,11 @@ pub async fn get_colors_v1_colors_get(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_fonts_v1_fonts_get(configuration: &configuration::Configuration, params: GetFontsV1FontsGetParams) -> Result<std::collections::HashMap<String, String>, Error<GetFontsV1FontsGetError>> {
+pub async fn get_fonts_v1_fonts_get(configuration: &configuration::Configuration) -> Result<std::collections::HashMap<String, String>, Error<GetFontsV1FontsGetError>> {
 
     let uri_str = format!("{}/v1/fonts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
-    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -371,14 +340,11 @@ pub async fn get_generic_data_v2_generic_data_get(configuration: &configuration:
     }
 }
 
-pub async fn get_icons_v1_icons_get(configuration: &configuration::Configuration, params: GetIconsV1IconsGetParams) -> Result<std::collections::HashMap<String, String>, Error<GetIconsV1IconsGetError>> {
+pub async fn get_icons_v1_icons_get(configuration: &configuration::Configuration) -> Result<std::collections::HashMap<String, String>, Error<GetIconsV1IconsGetError>> {
 
     let uri_str = format!("{}/v1/icons", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
-    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -408,14 +374,11 @@ pub async fn get_icons_v1_icons_get(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_images_v1_images_get(configuration: &configuration::Configuration, params: GetImagesV1ImagesGetParams) -> Result<std::collections::HashMap<String, String>, Error<GetImagesV1ImagesGetError>> {
+pub async fn get_images_v1_images_get(configuration: &configuration::Configuration) -> Result<std::collections::HashMap<String, String>, Error<GetImagesV1ImagesGetError>> {
 
     let uri_str = format!("{}/v1/images", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
-    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -559,14 +522,11 @@ pub async fn get_ranks_v2_ranks_get(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_sounds_v1_sounds_get(configuration: &configuration::Configuration, params: GetSoundsV1SoundsGetParams) -> Result<std::collections::HashMap<String, serde_json::Value>, Error<GetSoundsV1SoundsGetError>> {
+pub async fn get_sounds_v1_sounds_get(configuration: &configuration::Configuration) -> Result<std::collections::HashMap<String, serde_json::Value>, Error<GetSoundsV1SoundsGetError>> {
 
     let uri_str = format!("{}/v1/sounds", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.client_version {
-        req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
-    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

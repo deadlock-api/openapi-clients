@@ -42,6 +42,8 @@ class DeadlockAssetsApiRoutesValidClientVersions
     /**
      * Possible values of this enum
      */
+    public const NUMBER_6514 = 6514;
+
     public const NUMBER_6487 = 6487;
 
     public const NUMBER_6484 = 6484;
@@ -209,6 +211,7 @@ class DeadlockAssetsApiRoutesValidClientVersions
     public static function getAllowableEnumValues()
     {
         return [
+            self::NUMBER_6514,
             self::NUMBER_6487,
             self::NUMBER_6484,
             self::NUMBER_6468,

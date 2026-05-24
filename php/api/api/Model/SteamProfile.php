@@ -63,7 +63,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarmedium' => 'string',
         'countrycode' => 'string',
         'friends' => '\OpenAPI\Client\Model\SteamFriend[]',
+        'last_team_avg_badge' => 'int',
         'last_updated' => '\DateTime',
+        'matches_played_last_30d' => 'int',
         'personaname' => 'string',
         'profileurl' => 'string',
         'realname' => 'string'
@@ -83,7 +85,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarmedium' => null,
         'countrycode' => null,
         'friends' => null,
+        'last_team_avg_badge' => 'int32',
         'last_updated' => 'date-time',
+        'matches_played_last_30d' => 'int64',
         'personaname' => null,
         'profileurl' => null,
         'realname' => null
@@ -101,7 +105,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarmedium' => false,
         'countrycode' => true,
         'friends' => false,
+        'last_team_avg_badge' => true,
         'last_updated' => false,
+        'matches_played_last_30d' => false,
         'personaname' => false,
         'profileurl' => false,
         'realname' => true
@@ -199,7 +205,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarmedium' => 'avatarmedium',
         'countrycode' => 'countrycode',
         'friends' => 'friends',
+        'last_team_avg_badge' => 'last_team_avg_badge',
         'last_updated' => 'last_updated',
+        'matches_played_last_30d' => 'matches_played_last_30d',
         'personaname' => 'personaname',
         'profileurl' => 'profileurl',
         'realname' => 'realname'
@@ -217,7 +225,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarmedium' => 'setAvatarmedium',
         'countrycode' => 'setCountrycode',
         'friends' => 'setFriends',
+        'last_team_avg_badge' => 'setLastTeamAvgBadge',
         'last_updated' => 'setLastUpdated',
+        'matches_played_last_30d' => 'setMatchesPlayedLast30d',
         'personaname' => 'setPersonaname',
         'profileurl' => 'setProfileurl',
         'realname' => 'setRealname'
@@ -235,7 +245,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         'avatarmedium' => 'getAvatarmedium',
         'countrycode' => 'getCountrycode',
         'friends' => 'getFriends',
+        'last_team_avg_badge' => 'getLastTeamAvgBadge',
         'last_updated' => 'getLastUpdated',
+        'matches_played_last_30d' => 'getMatchesPlayedLast30d',
         'personaname' => 'getPersonaname',
         'profileurl' => 'getProfileurl',
         'realname' => 'getRealname'
@@ -304,7 +316,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('avatarmedium', $data ?? [], null);
         $this->setIfExists('countrycode', $data ?? [], null);
         $this->setIfExists('friends', $data ?? [], null);
+        $this->setIfExists('last_team_avg_badge', $data ?? [], null);
         $this->setIfExists('last_updated', $data ?? [], null);
+        $this->setIfExists('matches_played_last_30d', $data ?? [], null);
         $this->setIfExists('personaname', $data ?? [], null);
         $this->setIfExists('profileurl', $data ?? [], null);
         $this->setIfExists('realname', $data ?? [], null);
@@ -356,9 +370,20 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['friends'] === null) {
             $invalidProperties[] = "'friends' can't be null";
         }
+        if (!is_null($this->container['last_team_avg_badge']) && ($this->container['last_team_avg_badge'] < 0)) {
+            $invalidProperties[] = "invalid value for 'last_team_avg_badge', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['last_updated'] === null) {
             $invalidProperties[] = "'last_updated' can't be null";
         }
+        if ($this->container['matches_played_last_30d'] === null) {
+            $invalidProperties[] = "'matches_played_last_30d' can't be null";
+        }
+        if (($this->container['matches_played_last_30d'] < 0)) {
+            $invalidProperties[] = "invalid value for 'matches_played_last_30d', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['personaname'] === null) {
             $invalidProperties[] = "'personaname' can't be null";
         }
@@ -555,6 +580,45 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets last_team_avg_badge
+     *
+     * @return int|null
+     */
+    public function getLastTeamAvgBadge()
+    {
+        return $this->container['last_team_avg_badge'];
+    }
+
+    /**
+     * Sets last_team_avg_badge
+     *
+     * @param int|null $last_team_avg_badge last_team_avg_badge
+     *
+     * @return self
+     */
+    public function setLastTeamAvgBadge($last_team_avg_badge)
+    {
+        if (is_null($last_team_avg_badge)) {
+            array_push($this->openAPINullablesSetToNull, 'last_team_avg_badge');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_team_avg_badge', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($last_team_avg_badge) && ($last_team_avg_badge < 0)) {
+            throw new \InvalidArgumentException('invalid value for $last_team_avg_badge when calling SteamProfile., must be bigger than or equal to 0.');
+        }
+
+        $this->container['last_team_avg_badge'] = $last_team_avg_badge;
+
+        return $this;
+    }
+
+    /**
      * Gets last_updated
      *
      * @return \DateTime
@@ -577,6 +641,38 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable last_updated cannot be null');
         }
         $this->container['last_updated'] = $last_updated;
+
+        return $this;
+    }
+
+    /**
+     * Gets matches_played_last_30d
+     *
+     * @return int
+     */
+    public function getMatchesPlayedLast30d()
+    {
+        return $this->container['matches_played_last_30d'];
+    }
+
+    /**
+     * Sets matches_played_last_30d
+     *
+     * @param int $matches_played_last_30d matches_played_last_30d
+     *
+     * @return self
+     */
+    public function setMatchesPlayedLast30d($matches_played_last_30d)
+    {
+        if (is_null($matches_played_last_30d)) {
+            throw new \InvalidArgumentException('non-nullable matches_played_last_30d cannot be null');
+        }
+
+        if (($matches_played_last_30d < 0)) {
+            throw new \InvalidArgumentException('invalid value for $matches_played_last_30d when calling SteamProfile., must be bigger than or equal to 0.');
+        }
+
+        $this->container['matches_played_last_30d'] = $matches_played_last_30d;
 
         return $this;
     }

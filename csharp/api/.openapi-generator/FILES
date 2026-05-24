@@ -43,6 +43,10 @@ docs/models/CreateCustomRequest.md
 docs/models/CreateCustomResponse.md
 docs/models/DistributionEntry.md
 docs/models/EnemyStats.md
+docs/models/FeedItem.md
+docs/models/FeedItemOneOf.md
+docs/models/FeedItemOneOf1.md
+docs/models/ForumPatch.md
 docs/models/GameMode.md
 docs/models/GameServerInfo.md
 docs/models/GetCustomMatchIdResponse.md
@@ -88,6 +92,7 @@ docs/models/ServerStatusResponse.md
 docs/models/Status.md
 docs/models/StatusServices.md
 docs/models/SteamFriend.md
+docs/models/SteamNews.md
 docs/models/SteamProfile.md
 docs/models/SteamServer.md
 docs/models/TableSize.md
@@ -137,6 +142,10 @@ src/DeadlockApiClient.Test/Model/CreateCustomRequestTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomResponseTests.cs
 src/DeadlockApiClient.Test/Model/DistributionEntryTests.cs
 src/DeadlockApiClient.Test/Model/EnemyStatsTests.cs
+src/DeadlockApiClient.Test/Model/FeedItemOneOf1Tests.cs
+src/DeadlockApiClient.Test/Model/FeedItemOneOfTests.cs
+src/DeadlockApiClient.Test/Model/FeedItemTests.cs
+src/DeadlockApiClient.Test/Model/ForumPatchTests.cs
 src/DeadlockApiClient.Test/Model/GameModeTests.cs
 src/DeadlockApiClient.Test/Model/GameServerInfoTests.cs
 src/DeadlockApiClient.Test/Model/GetCustomMatchIdResponseTests.cs
@@ -182,6 +191,7 @@ src/DeadlockApiClient.Test/Model/ServerStatusResponseTests.cs
 src/DeadlockApiClient.Test/Model/StatusServicesTests.cs
 src/DeadlockApiClient.Test/Model/StatusTests.cs
 src/DeadlockApiClient.Test/Model/SteamFriendTests.cs
+src/DeadlockApiClient.Test/Model/SteamNewsTests.cs
 src/DeadlockApiClient.Test/Model/SteamProfileTests.cs
 src/DeadlockApiClient.Test/Model/SteamServerTests.cs
 src/DeadlockApiClient.Test/Model/TableSizeTests.cs
@@ -252,6 +262,10 @@ src/DeadlockApiClient/Model/CreateCustomRequest.cs
 src/DeadlockApiClient/Model/CreateCustomResponse.cs
 src/DeadlockApiClient/Model/DistributionEntry.cs
 src/DeadlockApiClient/Model/EnemyStats.cs
+src/DeadlockApiClient/Model/FeedItem.cs
+src/DeadlockApiClient/Model/FeedItemOneOf.cs
+src/DeadlockApiClient/Model/FeedItemOneOf1.cs
+src/DeadlockApiClient/Model/ForumPatch.cs
 src/DeadlockApiClient/Model/GameMode.cs
 src/DeadlockApiClient/Model/GameServerInfo.cs
 src/DeadlockApiClient/Model/GetCustomMatchIdResponse.cs
@@ -297,6 +311,7 @@ src/DeadlockApiClient/Model/ServerStatusResponse.cs
 src/DeadlockApiClient/Model/Status.cs
 src/DeadlockApiClient/Model/StatusServices.cs
 src/DeadlockApiClient/Model/SteamFriend.cs
+src/DeadlockApiClient/Model/SteamNews.cs
 src/DeadlockApiClient/Model/SteamProfile.cs
 src/DeadlockApiClient/Model/SteamServer.cs
 src/DeadlockApiClient/Model/TableSize.cs

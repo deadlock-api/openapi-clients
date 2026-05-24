@@ -154,11 +154,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Fonts
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFontsV1FontsGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFontsV1FontsGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/fonts`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -170,10 +169,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (clientVersion !== undefined) {
-                localVarQueryParameter['client_version'] = clientVersion;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -224,11 +219,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Icons
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIconsV1IconsGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIconsV1IconsGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/icons`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -240,10 +234,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (clientVersion !== undefined) {
-                localVarQueryParameter['client_version'] = clientVersion;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -259,11 +249,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Images
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getImagesV1ImagesGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getImagesV1ImagesGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/images`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -275,10 +264,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (clientVersion !== undefined) {
-                localVarQueryParameter['client_version'] = clientVersion;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -404,11 +389,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Get Sounds
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSoundsV1SoundsGet: async (clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSoundsV1SoundsGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/sounds`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -420,10 +404,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (clientVersion !== undefined) {
-                localVarQueryParameter['client_version'] = clientVersion;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -552,12 +532,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Fonts
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFontsV1FontsGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFontsV1FontsGet(clientVersion, options);
+        async getFontsV1FontsGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFontsV1FontsGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getFontsV1FontsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -578,12 +557,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Icons
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIconsV1IconsGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIconsV1IconsGet(clientVersion, options);
+        async getIconsV1IconsGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIconsV1IconsGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getIconsV1IconsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -591,12 +569,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Images
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getImagesV1ImagesGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getImagesV1ImagesGet(clientVersion, options);
+        async getImagesV1ImagesGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getImagesV1ImagesGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getImagesV1ImagesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -644,12 +621,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get Sounds
-         * @param {DeadlockAssetsApiRoutesValidClientVersions | null} [clientVersion] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSoundsV1SoundsGet(clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSoundsV1SoundsGet(clientVersion, options);
+        async getSoundsV1SoundsGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSoundsV1SoundsGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.getSoundsV1SoundsGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -720,12 +696,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Get Fonts
-         * @param {DefaultApiGetFontsV1FontsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFontsV1FontsGet(requestParameters: DefaultApiGetFontsV1FontsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
-            return localVarFp.getFontsV1FontsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        getFontsV1FontsGet(options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
+            return localVarFp.getFontsV1FontsGet(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -740,22 +715,20 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Get Icons
-         * @param {DefaultApiGetIconsV1IconsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIconsV1IconsGet(requestParameters: DefaultApiGetIconsV1IconsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
-            return localVarFp.getIconsV1IconsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        getIconsV1IconsGet(options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
+            return localVarFp.getIconsV1IconsGet(options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Images
-         * @param {DefaultApiGetImagesV1ImagesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getImagesV1ImagesGet(requestParameters: DefaultApiGetImagesV1ImagesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
-            return localVarFp.getImagesV1ImagesGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        getImagesV1ImagesGet(options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
+            return localVarFp.getImagesV1ImagesGet(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -790,12 +763,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Get Sounds
-         * @param {DefaultApiGetSoundsV1SoundsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSoundsV1SoundsGet(requestParameters: DefaultApiGetSoundsV1SoundsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.getSoundsV1SoundsGet(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        getSoundsV1SoundsGet(options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.getSoundsV1SoundsGet(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -836,30 +808,9 @@ export interface DefaultApiGetColorsV1ColorsGetRequest {
 }
 
 /**
- * Request parameters for getFontsV1FontsGet operation in DefaultApi.
- */
-export interface DefaultApiGetFontsV1FontsGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
-}
-
-/**
  * Request parameters for getGenericDataV2GenericDataGet operation in DefaultApi.
  */
 export interface DefaultApiGetGenericDataV2GenericDataGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
-}
-
-/**
- * Request parameters for getIconsV1IconsGet operation in DefaultApi.
- */
-export interface DefaultApiGetIconsV1IconsGetRequest {
-    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
-}
-
-/**
- * Request parameters for getImagesV1ImagesGet operation in DefaultApi.
- */
-export interface DefaultApiGetImagesV1ImagesGetRequest {
     readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
 }
 
@@ -883,13 +834,6 @@ export interface DefaultApiGetMapV1MapGetRequest {
 export interface DefaultApiGetRanksV2RanksGetRequest {
     readonly language?: Language | null
 
-    readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
-}
-
-/**
- * Request parameters for getSoundsV1SoundsGet operation in DefaultApi.
- */
-export interface DefaultApiGetSoundsV1SoundsGetRequest {
     readonly clientVersion?: DeadlockAssetsApiRoutesValidClientVersions | null
 }
 
@@ -939,12 +883,11 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary Get Fonts
-     * @param {DefaultApiGetFontsV1FontsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getFontsV1FontsGet(requestParameters: DefaultApiGetFontsV1FontsGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getFontsV1FontsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getFontsV1FontsGet(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getFontsV1FontsGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -961,23 +904,21 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary Get Icons
-     * @param {DefaultApiGetIconsV1IconsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getIconsV1IconsGet(requestParameters: DefaultApiGetIconsV1IconsGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getIconsV1IconsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getIconsV1IconsGet(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getIconsV1IconsGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Images
-     * @param {DefaultApiGetImagesV1ImagesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getImagesV1ImagesGet(requestParameters: DefaultApiGetImagesV1ImagesGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getImagesV1ImagesGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getImagesV1ImagesGet(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getImagesV1ImagesGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1016,12 +957,11 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary Get Sounds
-     * @param {DefaultApiGetSoundsV1SoundsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public getSoundsV1SoundsGet(requestParameters: DefaultApiGetSoundsV1SoundsGetRequest = {}, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).getSoundsV1SoundsGet(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    public getSoundsV1SoundsGet(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getSoundsV1SoundsGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

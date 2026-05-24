@@ -36,11 +36,13 @@ class SteamProfile(BaseModel):
     avatarmedium: StrictStr
     countrycode: Optional[StrictStr] = None
     friends: List[SteamFriend]
+    last_team_avg_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     last_updated: datetime
+    matches_played_last_30d: Annotated[int, Field(strict=True, ge=0)]
     personaname: StrictStr
     profileurl: StrictStr
     realname: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["account_id", "avatar", "avatarfull", "avatarmedium", "countrycode", "friends", "last_updated", "personaname", "profileurl", "realname"]
+    __properties: ClassVar[List[str]] = ["account_id", "avatar", "avatarfull", "avatarmedium", "countrycode", "friends", "last_team_avg_badge", "last_updated", "matches_played_last_30d", "personaname", "profileurl", "realname"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -93,6 +95,11 @@ class SteamProfile(BaseModel):
         if self.countrycode is None and "countrycode" in self.model_fields_set:
             _dict['countrycode'] = None
 
+        # set to None if last_team_avg_badge (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_team_avg_badge is None and "last_team_avg_badge" in self.model_fields_set:
+            _dict['last_team_avg_badge'] = None
+
         # set to None if realname (nullable) is None
         # and model_fields_set contains the field
         if self.realname is None and "realname" in self.model_fields_set:
@@ -116,7 +123,9 @@ class SteamProfile(BaseModel):
             "avatarmedium": obj.get("avatarmedium"),
             "countrycode": obj.get("countrycode"),
             "friends": [SteamFriend.from_dict(_item) for _item in obj["friends"]] if obj.get("friends") is not None else None,
+            "last_team_avg_badge": obj.get("last_team_avg_badge"),
             "last_updated": obj.get("last_updated"),
+            "matches_played_last_30d": obj.get("matches_played_last_30d"),
             "personaname": obj.get("personaname"),
             "profileurl": obj.get("profileurl"),
             "realname": obj.get("realname")

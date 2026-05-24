@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **avatarmedium** | **string** |  | [default to undefined]
 **countrycode** | **string** |  | [optional] [default to undefined]
 **friends** | [**Array&lt;SteamFriend&gt;**](SteamFriend.md) |  | [default to undefined]
+**last_team_avg_badge** | **number** |  | [optional] [default to undefined]
 **last_updated** | **string** |  | [default to undefined]
+**matches_played_last_30d** | **number** |  | [default to undefined]
 **personaname** | **string** |  | [default to undefined]
 **profileurl** | **string** |  | [default to undefined]
 **realname** | **string** |  | [optional] [default to undefined]
@@ -28,7 +30,9 @@ const instance: SteamProfile = {
     avatarmedium,
     countrycode,
     friends,
+    last_team_avg_badge,
     last_updated,
+    matches_played_last_30d,
     personaname,
     profileurl,
     realname,

@@ -56,19 +56,7 @@ export interface GetColorsV1ColorsGetRequest {
     clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
 }
 
-export interface GetFontsV1FontsGetRequest {
-    clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
-}
-
 export interface GetGenericDataV2GenericDataGetRequest {
-    clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
-}
-
-export interface GetIconsV1IconsGetRequest {
-    clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
-}
-
-export interface GetImagesV1ImagesGetRequest {
     clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
 }
 
@@ -82,10 +70,6 @@ export interface GetMapV1MapGetRequest {
 
 export interface GetRanksV2RanksGetRequest {
     language?: Language;
-    clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
-}
-
-export interface GetSoundsV1SoundsGetRequest {
     clientVersion?: DeadlockAssetsApiRoutesValidClientVersions;
 }
 
@@ -239,15 +223,9 @@ export function getColorsV1ColorsGet<T>(requestParameters: GetColorsV1ColorsGetR
 /**
  * Get Fonts
  */
-function getFontsV1FontsGetRaw<T>(requestParameters: GetFontsV1FontsGetRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
+function getFontsV1FontsGetRaw<T>( requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
     let queryParameters = null;
 
-    queryParameters = {};
-
-
-    if (requestParameters.clientVersion !== undefined) {
-        queryParameters['client_version'] = requestParameters.clientVersion;
-    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -279,8 +257,8 @@ function getFontsV1FontsGetRaw<T>(requestParameters: GetFontsV1FontsGetRequest, 
 /**
 * Get Fonts
 */
-export function getFontsV1FontsGet<T>(requestParameters: GetFontsV1FontsGetRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
-    return getFontsV1FontsGetRaw(requestParameters, requestConfig);
+export function getFontsV1FontsGet<T>( requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
+    return getFontsV1FontsGetRaw( requestConfig);
 }
 
 /**
@@ -334,15 +312,9 @@ export function getGenericDataV2GenericDataGet<T>(requestParameters: GetGenericD
 /**
  * Get Icons
  */
-function getIconsV1IconsGetRaw<T>(requestParameters: GetIconsV1IconsGetRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
+function getIconsV1IconsGetRaw<T>( requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
     let queryParameters = null;
 
-    queryParameters = {};
-
-
-    if (requestParameters.clientVersion !== undefined) {
-        queryParameters['client_version'] = requestParameters.clientVersion;
-    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -374,22 +346,16 @@ function getIconsV1IconsGetRaw<T>(requestParameters: GetIconsV1IconsGetRequest, 
 /**
 * Get Icons
 */
-export function getIconsV1IconsGet<T>(requestParameters: GetIconsV1IconsGetRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
-    return getIconsV1IconsGetRaw(requestParameters, requestConfig);
+export function getIconsV1IconsGet<T>( requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
+    return getIconsV1IconsGetRaw( requestConfig);
 }
 
 /**
  * Get Images
  */
-function getImagesV1ImagesGetRaw<T>(requestParameters: GetImagesV1ImagesGetRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
+function getImagesV1ImagesGetRaw<T>( requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
     let queryParameters = null;
 
-    queryParameters = {};
-
-
-    if (requestParameters.clientVersion !== undefined) {
-        queryParameters['client_version'] = requestParameters.clientVersion;
-    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -421,8 +387,8 @@ function getImagesV1ImagesGetRaw<T>(requestParameters: GetImagesV1ImagesGetReque
 /**
 * Get Images
 */
-export function getImagesV1ImagesGet<T>(requestParameters: GetImagesV1ImagesGetRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
-    return getImagesV1ImagesGetRaw(requestParameters, requestConfig);
+export function getImagesV1ImagesGet<T>( requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
+    return getImagesV1ImagesGetRaw( requestConfig);
 }
 
 /**
@@ -577,15 +543,9 @@ export function getRanksV2RanksGet<T>(requestParameters: GetRanksV2RanksGetReque
 /**
  * Get Sounds
  */
-function getSoundsV1SoundsGetRaw<T>(requestParameters: GetSoundsV1SoundsGetRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: any; }> = {}): QueryConfig<T> {
+function getSoundsV1SoundsGetRaw<T>( requestConfig: runtime.TypedQueryConfig<T, { [key: string]: any; }> = {}): QueryConfig<T> {
     let queryParameters = null;
 
-    queryParameters = {};
-
-
-    if (requestParameters.clientVersion !== undefined) {
-        queryParameters['client_version'] = requestParameters.clientVersion;
-    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -617,8 +577,8 @@ function getSoundsV1SoundsGetRaw<T>(requestParameters: GetSoundsV1SoundsGetReque
 /**
 * Get Sounds
 */
-export function getSoundsV1SoundsGet<T>(requestParameters: GetSoundsV1SoundsGetRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: any; }>): QueryConfig<T> {
-    return getSoundsV1SoundsGetRaw(requestParameters, requestConfig);
+export function getSoundsV1SoundsGet<T>( requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: any; }>): QueryConfig<T> {
+    return getSoundsV1SoundsGetRaw( requestConfig);
 }
 
 /**

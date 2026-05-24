@@ -104,15 +104,12 @@ No authorization required
 
 ## get_fonts_v1_fonts_get
 
-> std::collections::HashMap<String, String> get_fonts_v1_fonts_get(client_version)
+> std::collections::HashMap<String, String> get_fonts_v1_fonts_get()
 Get Fonts
 
 ### Parameters
 
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -160,15 +157,12 @@ No authorization required
 
 ## get_icons_v1_icons_get
 
-> std::collections::HashMap<String, String> get_icons_v1_icons_get(client_version)
+> std::collections::HashMap<String, String> get_icons_v1_icons_get()
 Get Icons
 
 ### Parameters
 
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -188,15 +182,12 @@ No authorization required
 
 ## get_images_v1_images_get
 
-> std::collections::HashMap<String, String> get_images_v1_images_get(client_version)
+> std::collections::HashMap<String, String> get_images_v1_images_get()
 Get Images
 
 ### Parameters
 
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -301,15 +292,12 @@ No authorization required
 
 ## get_sounds_v1_sounds_get
 
-> std::collections::HashMap<String, serde_json::Value> get_sounds_v1_sounds_get(client_version)
+> std::collections::HashMap<String, serde_json::Value> get_sounds_v1_sounds_get()
 Get Sounds
 
 ### Parameters
 
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**client_version** | Option<[**models::DeadlockAssetsApiRoutesValidClientVersions**](Models__DeadlockAssetsApiRoutesValidClientVersions.md)> |  |  |
+This endpoint does not need any parameter.
 
 ### Return type
 

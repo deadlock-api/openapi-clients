@@ -116,6 +116,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs |
 | *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days |
 | *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes |
+| *PatchesApi* | [**feed_0**](docs/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes |
 | *PlayersApi* | [**accountStats**](docs/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats |
 | *PlayersApi* | [**card**](docs/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card |
 | *PlayersApi* | [**enemyStats**](docs/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
@@ -123,6 +124,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
 | *PlayersApi* | [**rankPredict**](docs/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
+| *PlayersApi* | [**rankPredictAvgImage**](docs/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image |
 | *PlayersApi* | [**rankPredictImage**](docs/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image |
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
@@ -162,6 +164,10 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
  - [deadlock_api_client.models.DistributionEntry](docs/DistributionEntry.md)
  - [deadlock_api_client.models.EnemyStats](docs/EnemyStats.md)
+ - [deadlock_api_client.models.FeedItem](docs/FeedItem.md)
+ - [deadlock_api_client.models.FeedItemOneOf](docs/FeedItemOneOf.md)
+ - [deadlock_api_client.models.FeedItemOneOf1](docs/FeedItemOneOf1.md)
+ - [deadlock_api_client.models.ForumPatch](docs/ForumPatch.md)
  - [deadlock_api_client.models.GameMode](docs/GameMode.md)
  - [deadlock_api_client.models.GameServerInfo](docs/GameServerInfo.md)
  - [deadlock_api_client.models.GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
@@ -207,6 +213,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)
  - [deadlock_api_client.models.SteamFriend](docs/SteamFriend.md)
+ - [deadlock_api_client.models.SteamNews](docs/SteamNews.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)
  - [deadlock_api_client.models.SteamServer](docs/SteamServer.md)
  - [deadlock_api_client.models.TableSize](docs/TableSize.md)

@@ -92,8 +92,7 @@ namespace AssetsDeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetFontsV1FontsGetAsyncTest()
         {
-            Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
-            var response = await _instance.GetFontsV1FontsGetAsync(clientVersion);
+            var response = await _instance.GetFontsV1FontsGetAsync();
             var model = response.Ok();
             Assert.IsType<Dictionary<string, string>>(model);
         }
@@ -116,8 +115,7 @@ namespace AssetsDeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetIconsV1IconsGetAsyncTest()
         {
-            Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
-            var response = await _instance.GetIconsV1IconsGetAsync(clientVersion);
+            var response = await _instance.GetIconsV1IconsGetAsync();
             var model = response.Ok();
             Assert.IsType<Dictionary<string, string>>(model);
         }
@@ -128,8 +126,7 @@ namespace AssetsDeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetImagesV1ImagesGetAsyncTest()
         {
-            Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
-            var response = await _instance.GetImagesV1ImagesGetAsync(clientVersion);
+            var response = await _instance.GetImagesV1ImagesGetAsync();
             var model = response.Ok();
             Assert.IsType<Dictionary<string, string>>(model);
         }
@@ -177,8 +174,7 @@ namespace AssetsDeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetSoundsV1SoundsGetAsyncTest()
         {
-            Client.Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default!;
-            var response = await _instance.GetSoundsV1SoundsGetAsync(clientVersion);
+            var response = await _instance.GetSoundsV1SoundsGetAsync();
             var model = response.Ok();
             Assert.IsType<Dictionary<string, Object>>(model);
         }

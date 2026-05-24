@@ -70,6 +70,10 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new CreateCustomResponseJsonConverter());
             _jsonOptions.Converters.Add(new DistributionEntryJsonConverter());
             _jsonOptions.Converters.Add(new EnemyStatsJsonConverter());
+            _jsonOptions.Converters.Add(new FeedItemJsonConverter());
+            _jsonOptions.Converters.Add(new FeedItemOneOfJsonConverter());
+            _jsonOptions.Converters.Add(new FeedItemOneOf1JsonConverter());
+            _jsonOptions.Converters.Add(new ForumPatchJsonConverter());
             _jsonOptions.Converters.Add(new GameModeJsonConverter());
             _jsonOptions.Converters.Add(new GameModeNullableJsonConverter());
             _jsonOptions.Converters.Add(new GameServerInfoJsonConverter());
@@ -118,6 +122,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new StatusJsonConverter());
             _jsonOptions.Converters.Add(new StatusServicesJsonConverter());
             _jsonOptions.Converters.Add(new SteamFriendJsonConverter());
+            _jsonOptions.Converters.Add(new SteamNewsJsonConverter());
             _jsonOptions.Converters.Add(new SteamProfileJsonConverter());
             _jsonOptions.Converters.Add(new SteamServerJsonConverter());
             _jsonOptions.Converters.Add(new TableSizeJsonConverter());

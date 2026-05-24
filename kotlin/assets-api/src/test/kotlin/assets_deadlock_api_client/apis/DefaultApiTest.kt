@@ -70,8 +70,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getFontsV1FontsGet
         should("test getFontsV1FontsGet") {
             // uncomment below to test getFontsV1FontsGet
-            //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getFontsV1FontsGet(clientVersion)
+            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getFontsV1FontsGet()
             //result shouldBe ("TODO")
         }
 
@@ -86,16 +85,14 @@ class DefaultApiTest : ShouldSpec() {
         // to test getIconsV1IconsGet
         should("test getIconsV1IconsGet") {
             // uncomment below to test getIconsV1IconsGet
-            //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getIconsV1IconsGet(clientVersion)
+            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getIconsV1IconsGet()
             //result shouldBe ("TODO")
         }
 
         // to test getImagesV1ImagesGet
         should("test getImagesV1ImagesGet") {
             // uncomment below to test getImagesV1ImagesGet
-            //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getImagesV1ImagesGet(clientVersion)
+            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getImagesV1ImagesGet()
             //result shouldBe ("TODO")
         }
 
@@ -127,8 +124,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getSoundsV1SoundsGet
         should("test getSoundsV1SoundsGet") {
             // uncomment below to test getSoundsV1SoundsGet
-            //val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
-            //val result : kotlin.collections.Map<kotlin.String, kotlin.Any> = apiInstance.getSoundsV1SoundsGet(clientVersion)
+            //val result : kotlin.collections.Map<kotlin.String, kotlin.Any> = apiInstance.getSoundsV1SoundsGet()
             //result shouldBe ("TODO")
         }
 

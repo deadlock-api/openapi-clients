@@ -983,16 +983,15 @@ class DefaultApi
      *
      * Get Fonts
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFontsV1FontsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,string>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,string>
      */
-    public function getFontsV1FontsGet($client_version = null, string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
+    public function getFontsV1FontsGet(string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
     {
-        list($response) = $this->getFontsV1FontsGetWithHttpInfo($client_version, $contentType);
+        list($response) = $this->getFontsV1FontsGetWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1001,16 +1000,15 @@ class DefaultApi
      *
      * Get Fonts
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFontsV1FontsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,string>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFontsV1FontsGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
+    public function getFontsV1FontsGetWithHttpInfo(string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
     {
-        $request = $this->getFontsV1FontsGetRequest($client_version, $contentType);
+        $request = $this->getFontsV1FontsGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1039,12 +1037,6 @@ class DefaultApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         'array<string,string>',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
@@ -1080,14 +1072,6 @@ class DefaultApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
             }
         
 
@@ -1100,15 +1084,14 @@ class DefaultApi
      *
      * Get Fonts
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFontsV1FontsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFontsV1FontsGetAsync($client_version = null, string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
+    public function getFontsV1FontsGetAsync(string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
     {
-        return $this->getFontsV1FontsGetAsyncWithHttpInfo($client_version, $contentType)
+        return $this->getFontsV1FontsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1121,16 +1104,15 @@ class DefaultApi
      *
      * Get Fonts
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFontsV1FontsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFontsV1FontsGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
+    public function getFontsV1FontsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
     {
         $returnType = 'array<string,string>';
-        $request = $this->getFontsV1FontsGetRequest($client_version, $contentType);
+        $request = $this->getFontsV1FontsGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1171,15 +1153,13 @@ class DefaultApi
     /**
      * Create request for operation 'getFontsV1FontsGet'
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFontsV1FontsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFontsV1FontsGetRequest($client_version = null, string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
+    public function getFontsV1FontsGetRequest(string $contentType = self::contentTypes['getFontsV1FontsGet'][0])
     {
-
 
 
         $resourcePath = '/v1/fonts';
@@ -1189,15 +1169,6 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $client_version,
-            'client_version', // param base name
-            'DeadlockAssetsApiRoutesValidClientVersions', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
 
@@ -1537,16 +1508,15 @@ class DefaultApi
      *
      * Get Icons
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIconsV1IconsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,string>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,string>
      */
-    public function getIconsV1IconsGet($client_version = null, string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
+    public function getIconsV1IconsGet(string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
     {
-        list($response) = $this->getIconsV1IconsGetWithHttpInfo($client_version, $contentType);
+        list($response) = $this->getIconsV1IconsGetWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1555,16 +1525,15 @@ class DefaultApi
      *
      * Get Icons
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIconsV1IconsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,string>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getIconsV1IconsGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
+    public function getIconsV1IconsGetWithHttpInfo(string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
     {
-        $request = $this->getIconsV1IconsGetRequest($client_version, $contentType);
+        $request = $this->getIconsV1IconsGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1593,12 +1562,6 @@ class DefaultApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         'array<string,string>',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
@@ -1634,14 +1597,6 @@ class DefaultApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
             }
         
 
@@ -1654,15 +1609,14 @@ class DefaultApi
      *
      * Get Icons
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIconsV1IconsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIconsV1IconsGetAsync($client_version = null, string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
+    public function getIconsV1IconsGetAsync(string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
     {
-        return $this->getIconsV1IconsGetAsyncWithHttpInfo($client_version, $contentType)
+        return $this->getIconsV1IconsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1675,16 +1629,15 @@ class DefaultApi
      *
      * Get Icons
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIconsV1IconsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getIconsV1IconsGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
+    public function getIconsV1IconsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
     {
         $returnType = 'array<string,string>';
-        $request = $this->getIconsV1IconsGetRequest($client_version, $contentType);
+        $request = $this->getIconsV1IconsGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1725,15 +1678,13 @@ class DefaultApi
     /**
      * Create request for operation 'getIconsV1IconsGet'
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIconsV1IconsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getIconsV1IconsGetRequest($client_version = null, string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
+    public function getIconsV1IconsGetRequest(string $contentType = self::contentTypes['getIconsV1IconsGet'][0])
     {
-
 
 
         $resourcePath = '/v1/icons';
@@ -1743,15 +1694,6 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $client_version,
-            'client_version', // param base name
-            'DeadlockAssetsApiRoutesValidClientVersions', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
 
@@ -1814,16 +1756,15 @@ class DefaultApi
      *
      * Get Images
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImagesV1ImagesGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,string>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,string>
      */
-    public function getImagesV1ImagesGet($client_version = null, string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
+    public function getImagesV1ImagesGet(string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
     {
-        list($response) = $this->getImagesV1ImagesGetWithHttpInfo($client_version, $contentType);
+        list($response) = $this->getImagesV1ImagesGetWithHttpInfo($contentType);
         return $response;
     }
 
@@ -1832,16 +1773,15 @@ class DefaultApi
      *
      * Get Images
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImagesV1ImagesGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,string>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getImagesV1ImagesGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
+    public function getImagesV1ImagesGetWithHttpInfo(string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
     {
-        $request = $this->getImagesV1ImagesGetRequest($client_version, $contentType);
+        $request = $this->getImagesV1ImagesGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1870,12 +1810,6 @@ class DefaultApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         'array<string,string>',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
@@ -1911,14 +1845,6 @@ class DefaultApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
             }
         
 
@@ -1931,15 +1857,14 @@ class DefaultApi
      *
      * Get Images
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImagesV1ImagesGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getImagesV1ImagesGetAsync($client_version = null, string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
+    public function getImagesV1ImagesGetAsync(string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
     {
-        return $this->getImagesV1ImagesGetAsyncWithHttpInfo($client_version, $contentType)
+        return $this->getImagesV1ImagesGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1952,16 +1877,15 @@ class DefaultApi
      *
      * Get Images
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImagesV1ImagesGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getImagesV1ImagesGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
+    public function getImagesV1ImagesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
     {
         $returnType = 'array<string,string>';
-        $request = $this->getImagesV1ImagesGetRequest($client_version, $contentType);
+        $request = $this->getImagesV1ImagesGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2002,15 +1926,13 @@ class DefaultApi
     /**
      * Create request for operation 'getImagesV1ImagesGet'
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImagesV1ImagesGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getImagesV1ImagesGetRequest($client_version = null, string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
+    public function getImagesV1ImagesGetRequest(string $contentType = self::contentTypes['getImagesV1ImagesGet'][0])
     {
-
 
 
         $resourcePath = '/v1/images';
@@ -2020,15 +1942,6 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $client_version,
-            'client_version', // param base name
-            'DeadlockAssetsApiRoutesValidClientVersions', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
 
@@ -2937,16 +2850,15 @@ class DefaultApi
      *
      * Get Sounds
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSoundsV1SoundsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,mixed>
      */
-    public function getSoundsV1SoundsGet($client_version = null, string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
+    public function getSoundsV1SoundsGet(string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
     {
-        list($response) = $this->getSoundsV1SoundsGetWithHttpInfo($client_version, $contentType);
+        list($response) = $this->getSoundsV1SoundsGetWithHttpInfo($contentType);
         return $response;
     }
 
@@ -2955,16 +2867,15 @@ class DefaultApi
      *
      * Get Sounds
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSoundsV1SoundsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSoundsV1SoundsGetWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
+    public function getSoundsV1SoundsGetWithHttpInfo(string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
     {
-        $request = $this->getSoundsV1SoundsGetRequest($client_version, $contentType);
+        $request = $this->getSoundsV1SoundsGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2993,12 +2904,6 @@ class DefaultApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         'array<string,mixed>',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\HTTPValidationError',
                         $request,
                         $response,
                     );
@@ -3034,14 +2939,6 @@ class DefaultApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
             }
         
 
@@ -3054,15 +2951,14 @@ class DefaultApi
      *
      * Get Sounds
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSoundsV1SoundsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSoundsV1SoundsGetAsync($client_version = null, string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
+    public function getSoundsV1SoundsGetAsync(string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
     {
-        return $this->getSoundsV1SoundsGetAsyncWithHttpInfo($client_version, $contentType)
+        return $this->getSoundsV1SoundsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3075,16 +2971,15 @@ class DefaultApi
      *
      * Get Sounds
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSoundsV1SoundsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSoundsV1SoundsGetAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
+    public function getSoundsV1SoundsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getSoundsV1SoundsGetRequest($client_version, $contentType);
+        $request = $this->getSoundsV1SoundsGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3125,15 +3020,13 @@ class DefaultApi
     /**
      * Create request for operation 'getSoundsV1SoundsGet'
      *
-     * @param  \OpenAPIClientModelDeadlockAssetsApiRoutesValidClientVersions|null $client_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSoundsV1SoundsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSoundsV1SoundsGetRequest($client_version = null, string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
+    public function getSoundsV1SoundsGetRequest(string $contentType = self::contentTypes['getSoundsV1SoundsGet'][0])
     {
-
 
 
         $resourcePath = '/v1/sounds';
@@ -3143,15 +3036,6 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $client_version,
-            'client_version', // param base name
-            'DeadlockAssetsApiRoutesValidClientVersions', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
 

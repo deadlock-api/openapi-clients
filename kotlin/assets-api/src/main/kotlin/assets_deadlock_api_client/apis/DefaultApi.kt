@@ -298,7 +298,6 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/fonts
      * Get Fonts
      * 
-     * @param clientVersion  (optional)
      * @return kotlin.collections.Map<kotlin.String, kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -308,8 +307,8 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getFontsV1FontsGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
-        val localVarResponse = getFontsV1FontsGetWithHttpInfo(clientVersion = clientVersion)
+    fun getFontsV1FontsGet() : kotlin.collections.Map<kotlin.String, kotlin.String> {
+        val localVarResponse = getFontsV1FontsGetWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.String>
@@ -330,15 +329,14 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/fonts
      * Get Fonts
      * 
-     * @param clientVersion  (optional)
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getFontsV1FontsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
-        val localVariableConfig = getFontsV1FontsGetRequestConfig(clientVersion = clientVersion)
+    fun getFontsV1FontsGetWithHttpInfo() : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+        val localVariableConfig = getFontsV1FontsGetRequestConfig()
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
             localVariableConfig
@@ -348,17 +346,11 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getFontsV1FontsGet
      *
-     * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getFontsV1FontsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
+    fun getFontsV1FontsGetRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (clientVersion != null) {
-                    put("client_version", listOf(clientVersion.toString()))
-                }
-            }
+        val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -454,7 +446,6 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/icons
      * Get Icons
      * 
-     * @param clientVersion  (optional)
      * @return kotlin.collections.Map<kotlin.String, kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -464,8 +455,8 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIconsV1IconsGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
-        val localVarResponse = getIconsV1IconsGetWithHttpInfo(clientVersion = clientVersion)
+    fun getIconsV1IconsGet() : kotlin.collections.Map<kotlin.String, kotlin.String> {
+        val localVarResponse = getIconsV1IconsGetWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.String>
@@ -486,15 +477,14 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/icons
      * Get Icons
      * 
-     * @param clientVersion  (optional)
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIconsV1IconsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
-        val localVariableConfig = getIconsV1IconsGetRequestConfig(clientVersion = clientVersion)
+    fun getIconsV1IconsGetWithHttpInfo() : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+        val localVariableConfig = getIconsV1IconsGetRequestConfig()
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
             localVariableConfig
@@ -504,17 +494,11 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getIconsV1IconsGet
      *
-     * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getIconsV1IconsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
+    fun getIconsV1IconsGetRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (clientVersion != null) {
-                    put("client_version", listOf(clientVersion.toString()))
-                }
-            }
+        val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -532,7 +516,6 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/images
      * Get Images
      * 
-     * @param clientVersion  (optional)
      * @return kotlin.collections.Map<kotlin.String, kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -542,8 +525,8 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getImagesV1ImagesGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
-        val localVarResponse = getImagesV1ImagesGetWithHttpInfo(clientVersion = clientVersion)
+    fun getImagesV1ImagesGet() : kotlin.collections.Map<kotlin.String, kotlin.String> {
+        val localVarResponse = getImagesV1ImagesGetWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.String>
@@ -564,15 +547,14 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/images
      * Get Images
      * 
-     * @param clientVersion  (optional)
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getImagesV1ImagesGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
-        val localVariableConfig = getImagesV1ImagesGetRequestConfig(clientVersion = clientVersion)
+    fun getImagesV1ImagesGetWithHttpInfo() : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+        val localVariableConfig = getImagesV1ImagesGetRequestConfig()
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
             localVariableConfig
@@ -582,17 +564,11 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getImagesV1ImagesGet
      *
-     * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getImagesV1ImagesGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
+    fun getImagesV1ImagesGetRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (clientVersion != null) {
-                    put("client_version", listOf(clientVersion.toString()))
-                }
-            }
+        val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -850,7 +826,6 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/sounds
      * Get Sounds
      * 
-     * @param clientVersion  (optional)
      * @return kotlin.collections.Map<kotlin.String, kotlin.Any>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -860,8 +835,8 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSoundsV1SoundsGet(clientVersion: DeadlockAssetsApiRoutesValidClientVersions? = null) : kotlin.collections.Map<kotlin.String, kotlin.Any> {
-        val localVarResponse = getSoundsV1SoundsGetWithHttpInfo(clientVersion = clientVersion)
+    fun getSoundsV1SoundsGet() : kotlin.collections.Map<kotlin.String, kotlin.Any> {
+        val localVarResponse = getSoundsV1SoundsGetWithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.Any>
@@ -882,15 +857,14 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/sounds
      * Get Sounds
      * 
-     * @param clientVersion  (optional)
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Any>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSoundsV1SoundsGetWithHttpInfo(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Any>?> {
-        val localVariableConfig = getSoundsV1SoundsGetRequestConfig(clientVersion = clientVersion)
+    fun getSoundsV1SoundsGetWithHttpInfo() : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.Any>?> {
+        val localVariableConfig = getSoundsV1SoundsGetRequestConfig()
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.Any>>(
             localVariableConfig
@@ -900,17 +874,11 @@ open class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation getSoundsV1SoundsGet
      *
-     * @param clientVersion  (optional)
      * @return RequestConfig
      */
-    fun getSoundsV1SoundsGetRequestConfig(clientVersion: DeadlockAssetsApiRoutesValidClientVersions?) : RequestConfig<Unit> {
+    fun getSoundsV1SoundsGetRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (clientVersion != null) {
-                    put("client_version", listOf(clientVersion.toString()))
-                }
-            }
+        val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 

@@ -50,7 +50,7 @@ try {
 | **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6514, 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -135,7 +135,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6514, 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -152,7 +152,7 @@ No authorization required
 
 <a id="getFontsV1FontsGet"></a>
 # **getFontsV1FontsGet**
-> kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt; getFontsV1FontsGet(clientVersion)
+> kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt; getFontsV1FontsGet()
 
 Get Fonts
 
@@ -163,9 +163,8 @@ Get Fonts
 //import assets_deadlock_api_client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getFontsV1FontsGet(clientVersion)
+    val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getFontsV1FontsGet()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getFontsV1FontsGet")
@@ -177,9 +176,7 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -223,7 +220,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6514, 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -240,7 +237,7 @@ No authorization required
 
 <a id="getIconsV1IconsGet"></a>
 # **getIconsV1IconsGet**
-> kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt; getIconsV1IconsGet(clientVersion)
+> kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt; getIconsV1IconsGet()
 
 Get Icons
 
@@ -251,9 +248,8 @@ Get Icons
 //import assets_deadlock_api_client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getIconsV1IconsGet(clientVersion)
+    val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getIconsV1IconsGet()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getIconsV1IconsGet")
@@ -265,9 +261,7 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -284,7 +278,7 @@ No authorization required
 
 <a id="getImagesV1ImagesGet"></a>
 # **getImagesV1ImagesGet**
-> kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt; getImagesV1ImagesGet(clientVersion)
+> kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt; getImagesV1ImagesGet()
 
 Get Images
 
@@ -295,9 +289,8 @@ Get Images
 //import assets_deadlock_api_client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getImagesV1ImagesGet(clientVersion)
+    val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.getImagesV1ImagesGet()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getImagesV1ImagesGet")
@@ -309,9 +302,7 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -355,7 +346,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6514, 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -399,7 +390,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6514, 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -445,7 +436,7 @@ try {
 | **language** | [**Language**](.md)|  | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6514, 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 
@@ -462,7 +453,7 @@ No authorization required
 
 <a id="getSoundsV1SoundsGet"></a>
 # **getSoundsV1SoundsGet**
-> kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt; getSoundsV1SoundsGet(clientVersion)
+> kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt; getSoundsV1SoundsGet()
 
 Get Sounds
 
@@ -473,9 +464,8 @@ Get Sounds
 //import assets_deadlock_api_client.models.*
 
 val apiInstance = DefaultApi()
-val clientVersion : DeadlockAssetsApiRoutesValidClientVersions =  // DeadlockAssetsApiRoutesValidClientVersions | 
 try {
-    val result : kotlin.collections.Map<kotlin.String, kotlin.Any> = apiInstance.getSoundsV1SoundsGet(clientVersion)
+    val result : kotlin.collections.Map<kotlin.String, kotlin.Any> = apiInstance.getSoundsV1SoundsGet()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getSoundsV1SoundsGet")
@@ -487,9 +477,7 @@ try {
 ```
 
 ### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -533,7 +521,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
+| **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](.md)|  | [optional] [enum: 6514, 6487, 6484, 6468, 6455, 6446, 6430, 6418, 6417, 6415, 6404, 6395, 6384, 6374, 6359, 6355, 6351, 6325, 6290, 6284, 6279, 6268, 6245, 6237, 6228, 6224, 6217, 6203, 6181, 6169, 6164, 6162, 6140, 6128, 6111, 6080, 6075, 6071, 6064, 6060, 6044, 6021, 6020, 6016, 6008, 6002, 5983, 5972, 5959, 5945, 5920, 5902, 5885, 5878, 5869, 5852, 5831, 5826, 5818, 5789, 5748, 5747, 5723, 5712, 5710, 5690, 5675, 5668, 5664, 5658, 5650, 5636, 5624, 5615, 5602, 5583, 5554, 5538, 5533, 5529, 5527] |
 
 ### Return type
 

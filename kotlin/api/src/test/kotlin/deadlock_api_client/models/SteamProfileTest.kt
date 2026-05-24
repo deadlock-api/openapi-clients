@@ -70,6 +70,12 @@ class SteamProfileTest : ShouldSpec() {
             //modelInstance.lastUpdated shouldBe ("TODO")
         }
 
+        // to test the property `matchesPlayedLast30d`
+        should("test matchesPlayedLast30d") {
+            // uncomment below to test the property
+            //modelInstance.matchesPlayedLast30d shouldBe ("TODO")
+        }
+
         // to test the property `personaname`
         should("test personaname") {
             // uncomment below to test the property
@@ -86,6 +92,12 @@ class SteamProfileTest : ShouldSpec() {
         should("test countrycode") {
             // uncomment below to test the property
             //modelInstance.countrycode shouldBe ("TODO")
+        }
+
+        // to test the property `lastTeamAvgBadge`
+        should("test lastTeamAvgBadge") {
+            // uncomment below to test the property
+            //modelInstance.lastTeamAvgBadge shouldBe ("TODO")
         }
 
         // to test the property `realname`

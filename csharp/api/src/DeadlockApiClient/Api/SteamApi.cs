@@ -70,9 +70,13 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchQuery">Search query for Steam profiles.</param>
+        /// <param name="limit">Maximum number of profiles to return. (optional, default to 100)</param>
+        /// <param name="minMatchesPlayedLast30d">Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)</param>
+        /// <param name="minLastTeamAvgBadge">Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)</param>
+        /// <param name="matchesPlayedWeight">Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamSearchApiResponse"/>&gt;</returns>
-        Task<ISteamSearchApiResponse> SteamSearchAsync(string searchQuery, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISteamSearchApiResponse> SteamSearchAsync(string searchQuery, Option<int?> limit = default, Option<int?> minMatchesPlayedLast30d = default, Option<int?> minLastTeamAvgBadge = default, Option<double?> matchesPlayedWeight = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Steam Profile Search
@@ -81,9 +85,13 @@ namespace DeadlockApiClient.Api
         ///  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <param name="searchQuery">Search query for Steam profiles.</param>
+        /// <param name="limit">Maximum number of profiles to return. (optional, default to 100)</param>
+        /// <param name="minMatchesPlayedLast30d">Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)</param>
+        /// <param name="minLastTeamAvgBadge">Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)</param>
+        /// <param name="matchesPlayedWeight">Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamSearchApiResponse"/>?&gt;</returns>
-        Task<ISteamSearchApiResponse?> SteamSearchOrDefaultAsync(string searchQuery, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISteamSearchApiResponse?> SteamSearchOrDefaultAsync(string searchQuery, Option<int?> limit = default, Option<int?> minMatchesPlayedLast30d = default, Option<int?> minLastTeamAvgBadge = default, Option<double?> matchesPlayedWeight = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -537,7 +545,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSteamSearch(ref string searchQuery);
+        partial void FormatSteamSearch(ref string searchQuery, ref Option<int?> limit, ref Option<int?> minMatchesPlayedLast30d, ref Option<int?> minLastTeamAvgBadge, ref Option<double?> matchesPlayedWeight);
 
         /// <summary>
         /// Validates the request parameters
@@ -555,10 +563,14 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="searchQuery"></param>
-        private void AfterSteamSearchDefaultImplementation(ISteamSearchApiResponse apiResponseLocalVar, string searchQuery)
+        /// <param name="limit"></param>
+        /// <param name="minMatchesPlayedLast30d"></param>
+        /// <param name="minLastTeamAvgBadge"></param>
+        /// <param name="matchesPlayedWeight"></param>
+        private void AfterSteamSearchDefaultImplementation(ISteamSearchApiResponse apiResponseLocalVar, string searchQuery, Option<int?> limit, Option<int?> minMatchesPlayedLast30d, Option<int?> minLastTeamAvgBadge, Option<double?> matchesPlayedWeight)
         {
             bool suppressDefaultLog = false;
-            AfterSteamSearch(ref suppressDefaultLog, apiResponseLocalVar, searchQuery);
+            AfterSteamSearch(ref suppressDefaultLog, apiResponseLocalVar, searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -569,7 +581,11 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="searchQuery"></param>
-        partial void AfterSteamSearch(ref bool suppressDefaultLog, ISteamSearchApiResponse apiResponseLocalVar, string searchQuery);
+        /// <param name="limit"></param>
+        /// <param name="minMatchesPlayedLast30d"></param>
+        /// <param name="minLastTeamAvgBadge"></param>
+        /// <param name="matchesPlayedWeight"></param>
+        partial void AfterSteamSearch(ref bool suppressDefaultLog, ISteamSearchApiResponse apiResponseLocalVar, string searchQuery, Option<int?> limit, Option<int?> minMatchesPlayedLast30d, Option<int?> minLastTeamAvgBadge, Option<double?> matchesPlayedWeight);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -578,10 +594,14 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="searchQuery"></param>
-        private void OnErrorSteamSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string searchQuery)
+        /// <param name="limit"></param>
+        /// <param name="minMatchesPlayedLast30d"></param>
+        /// <param name="minLastTeamAvgBadge"></param>
+        /// <param name="matchesPlayedWeight"></param>
+        private void OnErrorSteamSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string searchQuery, Option<int?> limit, Option<int?> minMatchesPlayedLast30d, Option<int?> minLastTeamAvgBadge, Option<double?> matchesPlayedWeight)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSteamSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, searchQuery);
+            OnErrorSteamSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -594,19 +614,27 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="searchQuery"></param>
-        partial void OnErrorSteamSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string searchQuery);
+        /// <param name="limit"></param>
+        /// <param name="minMatchesPlayedLast30d"></param>
+        /// <param name="minLastTeamAvgBadge"></param>
+        /// <param name="matchesPlayedWeight"></param>
+        partial void OnErrorSteamSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string searchQuery, Option<int?> limit, Option<int?> minMatchesPlayedLast30d, Option<int?> minLastTeamAvgBadge, Option<double?> matchesPlayedWeight);
 
         /// <summary>
         /// Steam Profile Search  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="searchQuery">Search query for Steam profiles.</param>
+        /// <param name="limit">Maximum number of profiles to return. (optional, default to 100)</param>
+        /// <param name="minMatchesPlayedLast30d">Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)</param>
+        /// <param name="minLastTeamAvgBadge">Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)</param>
+        /// <param name="matchesPlayedWeight">Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamSearchApiResponse"/>&gt;</returns>
-        public async Task<ISteamSearchApiResponse?> SteamSearchOrDefaultAsync(string searchQuery, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISteamSearchApiResponse?> SteamSearchOrDefaultAsync(string searchQuery, Option<int?> limit = default, Option<int?> minMatchesPlayedLast30d = default, Option<int?> minLastTeamAvgBadge = default, Option<double?> matchesPlayedWeight = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SteamSearchAsync(searchQuery, cancellationToken).ConfigureAwait(false);
+                return await SteamSearchAsync(searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -619,9 +647,13 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchQuery">Search query for Steam profiles.</param>
+        /// <param name="limit">Maximum number of profiles to return. (optional, default to 100)</param>
+        /// <param name="minMatchesPlayedLast30d">Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)</param>
+        /// <param name="minLastTeamAvgBadge">Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional, default to 0)</param>
+        /// <param name="matchesPlayedWeight">Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional, default to 0.02D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISteamSearchApiResponse"/>&gt;</returns>
-        public async Task<ISteamSearchApiResponse> SteamSearchAsync(string searchQuery, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISteamSearchApiResponse> SteamSearchAsync(string searchQuery, Option<int?> limit = default, Option<int?> minMatchesPlayedLast30d = default, Option<int?> minLastTeamAvgBadge = default, Option<double?> matchesPlayedWeight = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -629,7 +661,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateSteamSearch(searchQuery);
 
-                FormatSteamSearch(ref searchQuery);
+                FormatSteamSearch(ref searchQuery, ref limit, ref minMatchesPlayedLast30d, ref minLastTeamAvgBadge, ref matchesPlayedWeight);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -643,6 +675,18 @@ namespace DeadlockApiClient.Api
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
                     parseQueryStringLocalVar["search_query"] = ClientUtils.ParameterToString(searchQuery);
+
+                    if (limit.IsSet)
+                        parseQueryStringLocalVar["limit"] = ClientUtils.ParameterToString(limit.Value);
+
+                    if (minMatchesPlayedLast30d.IsSet)
+                        parseQueryStringLocalVar["min_matches_played_last_30d"] = ClientUtils.ParameterToString(minMatchesPlayedLast30d.Value);
+
+                    if (minLastTeamAvgBadge.IsSet)
+                        parseQueryStringLocalVar["min_last_team_avg_badge"] = ClientUtils.ParameterToString(minLastTeamAvgBadge.Value);
+
+                    if (matchesPlayedWeight.IsSet)
+                        parseQueryStringLocalVar["matches_played_weight"] = ClientUtils.ParameterToString(matchesPlayedWeight.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -675,7 +719,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterSteamSearchDefaultImplementation(apiResponseLocalVar, searchQuery);
+                        AfterSteamSearchDefaultImplementation(apiResponseLocalVar, searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight);
 
                         Events.ExecuteOnSteamSearch(apiResponseLocalVar);
 
@@ -685,7 +729,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorSteamSearchDefaultImplementation(e, "/v1/players/steam-search", uriBuilderLocalVar.Path, searchQuery);
+                OnErrorSteamSearchDefaultImplementation(e, "/v1/players/steam-search", uriBuilderLocalVar.Path, searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight);
                 Events.ExecuteOnErrorSteamSearch(e);
                 throw;
             }

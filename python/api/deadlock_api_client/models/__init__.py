@@ -37,6 +37,10 @@ from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse
 from deadlock_api_client.models.distribution_entry import DistributionEntry
 from deadlock_api_client.models.enemy_stats import EnemyStats
+from deadlock_api_client.models.feed_item import FeedItem
+from deadlock_api_client.models.feed_item_one_of import FeedItemOneOf
+from deadlock_api_client.models.feed_item_one_of1 import FeedItemOneOf1
+from deadlock_api_client.models.forum_patch import ForumPatch
 from deadlock_api_client.models.game_mode import GameMode
 from deadlock_api_client.models.game_server_info import GameServerInfo
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
@@ -82,6 +86,7 @@ from deadlock_api_client.models.server_status_response import ServerStatusRespon
 from deadlock_api_client.models.status import Status
 from deadlock_api_client.models.status_services import StatusServices
 from deadlock_api_client.models.steam_friend import SteamFriend
+from deadlock_api_client.models.steam_news import SteamNews
 from deadlock_api_client.models.steam_profile import SteamProfile
 from deadlock_api_client.models.steam_server import SteamServer
 from deadlock_api_client.models.table_size import TableSize

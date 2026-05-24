@@ -13,6 +13,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**mateStats()**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**playerHeroStats()**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
 | [**rankPredict()**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
+| [**rankPredictAvgImage()**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image |
 | [**rankPredictImage()**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image |
 
 
@@ -467,6 +468,64 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `rankPredictAvgImage()`
+
+```php
+rankPredictAvgImage($account_ids, $format): int[]
+```
+
+Rank Predict Avg Image
+
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_ids = array(56); // int[] | Comma-separated list of account IDs (max 12).
+$format = 'format_example'; // string | Image format. Defaults to `png`. Supported: `png`, `webp`.
+
+try {
+    $result = $apiInstance->rankPredictAvgImage($account_ids, $format);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->rankPredictAvgImage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_ids** | [**int[]**](../Model/int.md)| Comma-separated list of account IDs (max 12). | |
+| **format** | **string**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
+
+### Return type
+
+**int[]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `image/png`, `image/webp`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

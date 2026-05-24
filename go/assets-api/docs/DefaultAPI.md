@@ -40,7 +40,7 @@ import (
 
 func main() {
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6514) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -164,7 +164,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6514) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -211,7 +211,7 @@ No authorization required
 
 ## GetFontsV1FontsGet
 
-> map[string]string GetFontsV1FontsGet(ctx).ClientVersion(clientVersion).Execute()
+> map[string]string GetFontsV1FontsGet(ctx).Execute()
 
 Get Fonts
 
@@ -228,11 +228,10 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.GetFontsV1FontsGet(context.Background()).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.DefaultAPI.GetFontsV1FontsGet(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetFontsV1FontsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -244,16 +243,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetFontsV1FontsGetRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](DeadlockAssetsApiRoutesValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -292,7 +287,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6514) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -339,7 +334,7 @@ No authorization required
 
 ## GetIconsV1IconsGet
 
-> map[string]string GetIconsV1IconsGet(ctx).ClientVersion(clientVersion).Execute()
+> map[string]string GetIconsV1IconsGet(ctx).Execute()
 
 Get Icons
 
@@ -356,11 +351,10 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.GetIconsV1IconsGet(context.Background()).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.DefaultAPI.GetIconsV1IconsGet(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetIconsV1IconsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -372,16 +366,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetIconsV1IconsGetRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](DeadlockAssetsApiRoutesValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -403,7 +393,7 @@ No authorization required
 
 ## GetImagesV1ImagesGet
 
-> map[string]string GetImagesV1ImagesGet(ctx).ClientVersion(clientVersion).Execute()
+> map[string]string GetImagesV1ImagesGet(ctx).Execute()
 
 Get Images
 
@@ -420,11 +410,10 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.GetImagesV1ImagesGet(context.Background()).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.DefaultAPI.GetImagesV1ImagesGet(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetImagesV1ImagesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,16 +425,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetImagesV1ImagesGetRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](DeadlockAssetsApiRoutesValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -484,7 +469,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6514) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -548,7 +533,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6514) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -613,7 +598,7 @@ import (
 
 func main() {
 	language := openapiclient.Language("brazilian") // Language |  (optional)
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6514) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -661,7 +646,7 @@ No authorization required
 
 ## GetSoundsV1SoundsGet
 
-> map[string]interface{} GetSoundsV1SoundsGet(ctx).ClientVersion(clientVersion).Execute()
+> map[string]interface{} GetSoundsV1SoundsGet(ctx).Execute()
 
 Get Sounds
 
@@ -678,11 +663,10 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.GetSoundsV1SoundsGet(context.Background()).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.DefaultAPI.GetSoundsV1SoundsGet(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetSoundsV1SoundsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -694,16 +678,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetSoundsV1SoundsGetRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientVersion** | [**DeadlockAssetsApiRoutesValidClientVersions**](DeadlockAssetsApiRoutesValidClientVersions.md) |  | 
 
 ### Return type
 
@@ -742,7 +722,7 @@ import (
 )
 
 func main() {
-	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6487) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
+	clientVersion := openapiclient.DeadlockAssetsApiRoutesValidClientVersions(6514) // DeadlockAssetsApiRoutesValidClientVersions |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -128,6 +128,15 @@ class PlayersApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test rankPredictAvgImage
+        should("test rankPredictAvgImage") {
+            // uncomment below to test rankPredictAvgImage
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
+            //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format)
+            //result shouldBe ("TODO")
+        }
+
         // to test rankPredictImage
         should("test rankPredictImage") {
             // uncomment below to test rankPredictImage

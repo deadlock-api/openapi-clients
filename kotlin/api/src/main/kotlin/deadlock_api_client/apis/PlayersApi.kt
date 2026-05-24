@@ -831,6 +831,104 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * enum for parameter format
      */
+     enum class FormatRankPredictAvgImage(val value: kotlin.String) {
+         @Json(name = "png") png("png"),
+         @Json(name = "webp") webp("webp");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * GET /v1/players/rank-predict/image
+     * Rank Predict Avg Image
+     * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * @param accountIds Comma-separated list of account IDs (max 12).
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return kotlin.collections.List<kotlin.Int>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun rankPredictAvgImage(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankPredictAvgImage? = null) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = rankPredictAvgImageWithHttpInfo(accountIds = accountIds, format = format)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/rank-predict/image
+     * Rank Predict Avg Image
+     * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * @param accountIds Comma-separated list of account IDs (max 12).
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun rankPredictAvgImageWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankPredictAvgImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = rankPredictAvgImageRequestConfig(accountIds = accountIds, format = format)
+
+        return request<Unit, kotlin.collections.List<kotlin.Int>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation rankPredictAvgImage
+     *
+     * @param accountIds Comma-separated list of account IDs (max 12).
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return RequestConfig
+     */
+    fun rankPredictAvgImageRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankPredictAvgImage?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (format != null) {
+                    put("format", listOf(format.value))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/rank-predict/image",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * enum for parameter format
+     */
      enum class FormatRankPredictImage(val value: kotlin.String) {
          @Json(name = "png") png("png"),
          @Json(name = "webp") webp("webp");

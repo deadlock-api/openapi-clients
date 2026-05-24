@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**urls**](Apis/MatchesApi.http#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *PatchesApi* | [**bigPatchDays**](Apis/PatchesApi.http#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](Apis/PatchesApi.http#feed) | **GET** /v1/patches | Notes
+*PatchesApi* | [**feed_0**](Apis/PatchesApi.http#feed_0) | **GET** /v2/patches | Notes
 *PlayersApi* | [**accountStats**](Apis/PlayersApi.http#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
 *PlayersApi* | [**card**](Apis/PlayersApi.http#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemyStats**](Apis/PlayersApi.http#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
@@ -74,6 +75,7 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mateStats**](Apis/PlayersApi.http#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**playerHeroStats**](Apis/PlayersApi.http#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
 *PlayersApi* | [**rankPredict**](Apis/PlayersApi.http#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
+*PlayersApi* | [**rankPredictAvgImage**](Apis/PlayersApi.http#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image
 *PlayersApi* | [**rankPredictImage**](Apis/PlayersApi.http#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
 *SQLApi* | [**listTables**](Apis/SQLApi.http#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](Apis/SQLApi.http#sql) | **GET** /v1/sql | Query

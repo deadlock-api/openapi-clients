@@ -38,9 +38,11 @@ import java.io.Serializable
  * @param avatarmedium 
  * @param friends 
  * @param lastUpdated 
+ * @param matchesPlayedLast30d 
  * @param personaname 
  * @param profileurl 
  * @param countrycode 
+ * @param lastTeamAvgBadge 
  * @param realname 
  */
 
@@ -65,6 +67,9 @@ data class SteamProfile (
     @Json(name = "last_updated")
     val lastUpdated: java.time.OffsetDateTime,
 
+    @Json(name = "matches_played_last_30d")
+    val matchesPlayedLast30d: kotlin.Long,
+
     @Json(name = "personaname")
     val personaname: kotlin.String,
 
@@ -73,6 +78,9 @@ data class SteamProfile (
 
     @Json(name = "countrycode")
     val countrycode: kotlin.String? = null,
+
+    @Json(name = "last_team_avg_badge")
+    val lastTeamAvgBadge: kotlin.Int? = null,
 
     @Json(name = "realname")
     val realname: kotlin.String? = null

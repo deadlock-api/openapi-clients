@@ -363,12 +363,6 @@ func (a *DefaultAPIService) GetColorsV1ColorsGetExecute(r ApiGetColorsV1ColorsGe
 type ApiGetFontsV1FontsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesValidClientVersions
-}
-
-func (r ApiGetFontsV1FontsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesValidClientVersions) ApiGetFontsV1FontsGetRequest {
-	r.clientVersion = &clientVersion
-	return r
 }
 
 func (r ApiGetFontsV1FontsGetRequest) Execute() (map[string]string, *http.Response, error) {
@@ -409,9 +403,6 @@ func (a *DefaultAPIService) GetFontsV1FontsGetExecute(r ApiGetFontsV1FontsGetReq
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -450,16 +441,6 @@ func (a *DefaultAPIService) GetFontsV1FontsGetExecute(r ApiGetFontsV1FontsGetReq
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -595,12 +576,6 @@ func (a *DefaultAPIService) GetGenericDataV2GenericDataGetExecute(r ApiGetGeneri
 type ApiGetIconsV1IconsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesValidClientVersions
-}
-
-func (r ApiGetIconsV1IconsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesValidClientVersions) ApiGetIconsV1IconsGetRequest {
-	r.clientVersion = &clientVersion
-	return r
 }
 
 func (r ApiGetIconsV1IconsGetRequest) Execute() (map[string]string, *http.Response, error) {
@@ -641,9 +616,6 @@ func (a *DefaultAPIService) GetIconsV1IconsGetExecute(r ApiGetIconsV1IconsGetReq
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -683,16 +655,6 @@ func (a *DefaultAPIService) GetIconsV1IconsGetExecute(r ApiGetIconsV1IconsGetReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -711,12 +673,6 @@ func (a *DefaultAPIService) GetIconsV1IconsGetExecute(r ApiGetIconsV1IconsGetReq
 type ApiGetImagesV1ImagesGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesValidClientVersions
-}
-
-func (r ApiGetImagesV1ImagesGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesValidClientVersions) ApiGetImagesV1ImagesGetRequest {
-	r.clientVersion = &clientVersion
-	return r
 }
 
 func (r ApiGetImagesV1ImagesGetRequest) Execute() (map[string]string, *http.Response, error) {
@@ -757,9 +713,6 @@ func (a *DefaultAPIService) GetImagesV1ImagesGetExecute(r ApiGetImagesV1ImagesGe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -798,16 +751,6 @@ func (a *DefaultAPIService) GetImagesV1ImagesGetExecute(r ApiGetImagesV1ImagesGe
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1184,12 +1127,6 @@ func (a *DefaultAPIService) GetRanksV2RanksGetExecute(r ApiGetRanksV2RanksGetReq
 type ApiGetSoundsV1SoundsGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	clientVersion *DeadlockAssetsApiRoutesValidClientVersions
-}
-
-func (r ApiGetSoundsV1SoundsGetRequest) ClientVersion(clientVersion DeadlockAssetsApiRoutesValidClientVersions) ApiGetSoundsV1SoundsGetRequest {
-	r.clientVersion = &clientVersion
-	return r
 }
 
 func (r ApiGetSoundsV1SoundsGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
@@ -1230,9 +1167,6 @@ func (a *DefaultAPIService) GetSoundsV1SoundsGetExecute(r ApiGetSoundsV1SoundsGe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.clientVersion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1271,16 +1205,6 @@ func (a *DefaultAPIService) GetSoundsV1SoundsGetExecute(r ApiGetSoundsV1SoundsGe
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

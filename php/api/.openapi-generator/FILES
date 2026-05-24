@@ -46,6 +46,10 @@ api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
 api/Model/DistributionEntry.php
 api/Model/EnemyStats.php
+api/Model/FeedItem.php
+api/Model/FeedItemOneOf.php
+api/Model/FeedItemOneOf1.php
+api/Model/ForumPatch.php
 api/Model/GameMode.php
 api/Model/GameServerInfo.php
 api/Model/GetCustomMatchIdResponse.php
@@ -92,6 +96,7 @@ api/Model/ServerStatusResponse.php
 api/Model/Status.php
 api/Model/StatusServices.php
 api/Model/SteamFriend.php
+api/Model/SteamNews.php
 api/Model/SteamProfile.php
 api/Model/SteamServer.php
 api/Model/TableSize.php
@@ -138,6 +143,10 @@ docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
 docs/Model/DistributionEntry.md
 docs/Model/EnemyStats.md
+docs/Model/FeedItem.md
+docs/Model/FeedItemOneOf.md
+docs/Model/FeedItemOneOf1.md
+docs/Model/ForumPatch.md
 docs/Model/GameMode.md
 docs/Model/GameServerInfo.md
 docs/Model/GetCustomMatchIdResponse.md
@@ -183,6 +192,7 @@ docs/Model/ServerStatusResponse.md
 docs/Model/Status.md
 docs/Model/StatusServices.md
 docs/Model/SteamFriend.md
+docs/Model/SteamNews.md
 docs/Model/SteamProfile.md
 docs/Model/SteamServer.md
 docs/Model/TableSize.md
@@ -229,6 +239,10 @@ test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
 test/Model/DistributionEntryTest.php
 test/Model/EnemyStatsTest.php
+test/Model/FeedItemOneOf1Test.php
+test/Model/FeedItemOneOfTest.php
+test/Model/FeedItemTest.php
+test/Model/ForumPatchTest.php
 test/Model/GameModeTest.php
 test/Model/GameServerInfoTest.php
 test/Model/GetCustomMatchIdResponseTest.php
@@ -274,6 +288,7 @@ test/Model/ServerStatusResponseTest.php
 test/Model/StatusServicesTest.php
 test/Model/StatusTest.php
 test/Model/SteamFriendTest.php
+test/Model/SteamNewsTest.php
 test/Model/SteamProfileTest.php
 test/Model/SteamServerTest.php
 test/Model/TableSizeTest.php

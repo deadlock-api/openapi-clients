@@ -113,10 +113,9 @@ namespace AssetsDeadlockApiClient.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>&gt;</returns>
-        Task<IGetFontsV1FontsGetApiResponse> GetFontsV1FontsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFontsV1FontsGetApiResponse> GetFontsV1FontsGetAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Fonts
@@ -124,10 +123,9 @@ namespace AssetsDeadlockApiClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>?&gt;</returns>
-        Task<IGetFontsV1FontsGetApiResponse?> GetFontsV1FontsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFontsV1FontsGetApiResponse?> GetFontsV1FontsGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Generic Data
@@ -159,10 +157,9 @@ namespace AssetsDeadlockApiClient.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetIconsV1IconsGetApiResponse"/>&gt;</returns>
-        Task<IGetIconsV1IconsGetApiResponse> GetIconsV1IconsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetIconsV1IconsGetApiResponse> GetIconsV1IconsGetAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Icons
@@ -170,10 +167,9 @@ namespace AssetsDeadlockApiClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetIconsV1IconsGetApiResponse"/>?&gt;</returns>
-        Task<IGetIconsV1IconsGetApiResponse?> GetIconsV1IconsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetIconsV1IconsGetApiResponse?> GetIconsV1IconsGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Images
@@ -182,10 +178,9 @@ namespace AssetsDeadlockApiClient.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetImagesV1ImagesGetApiResponse"/>&gt;</returns>
-        Task<IGetImagesV1ImagesGetApiResponse> GetImagesV1ImagesGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetImagesV1ImagesGetApiResponse> GetImagesV1ImagesGetAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Images
@@ -193,10 +188,9 @@ namespace AssetsDeadlockApiClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetImagesV1ImagesGetApiResponse"/>?&gt;</returns>
-        Task<IGetImagesV1ImagesGetApiResponse?> GetImagesV1ImagesGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetImagesV1ImagesGetApiResponse?> GetImagesV1ImagesGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Loot Tables
@@ -276,10 +270,9 @@ namespace AssetsDeadlockApiClient.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSoundsV1SoundsGetApiResponse"/>&gt;</returns>
-        Task<IGetSoundsV1SoundsGetApiResponse> GetSoundsV1SoundsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSoundsV1SoundsGetApiResponse> GetSoundsV1SoundsGetAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Sounds
@@ -287,10 +280,9 @@ namespace AssetsDeadlockApiClient.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSoundsV1SoundsGetApiResponse"/>?&gt;</returns>
-        Task<IGetSoundsV1SoundsGetApiResponse?> GetSoundsV1SoundsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSoundsV1SoundsGetApiResponse?> GetSoundsV1SoundsGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Steam Info
@@ -388,19 +380,13 @@ namespace AssetsDeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetFontsV1FontsGetApiResponse"/>
     /// </summary>
-    public interface IGetFontsV1FontsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetFontsV1FontsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
         /// </summary>
         /// <returns></returns>
         bool IsOk { get; }
-
-        /// <summary>
-        /// Returns true if the response is 422 UnprocessableContent
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnprocessableContent { get; }
     }
 
     /// <summary>
@@ -424,37 +410,25 @@ namespace AssetsDeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetIconsV1IconsGetApiResponse"/>
     /// </summary>
-    public interface IGetIconsV1IconsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetIconsV1IconsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
         /// </summary>
         /// <returns></returns>
         bool IsOk { get; }
-
-        /// <summary>
-        /// Returns true if the response is 422 UnprocessableContent
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnprocessableContent { get; }
     }
 
     /// <summary>
     /// The <see cref="IGetImagesV1ImagesGetApiResponse"/>
     /// </summary>
-    public interface IGetImagesV1ImagesGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetImagesV1ImagesGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
         /// </summary>
         /// <returns></returns>
         bool IsOk { get; }
-
-        /// <summary>
-        /// Returns true if the response is 422 UnprocessableContent
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnprocessableContent { get; }
     }
 
     /// <summary>
@@ -514,19 +488,13 @@ namespace AssetsDeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetSoundsV1SoundsGetApiResponse"/>
     /// </summary>
-    public interface IGetSoundsV1SoundsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, Object>?>, IUnprocessableContent<AssetsDeadlockApiClient.Model.HTTPValidationError?>
+    public interface IGetSoundsV1SoundsGetApiResponse : AssetsDeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, Object>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
         /// </summary>
         /// <returns></returns>
         bool IsOk { get; }
-
-        /// <summary>
-        /// Returns true if the response is 422 UnprocessableContent
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnprocessableContent { get; }
     }
 
     /// <summary>
@@ -1638,17 +1606,14 @@ namespace AssetsDeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetFontsV1FontsGet(ref Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void AfterGetFontsV1FontsGetDefaultImplementation(IGetFontsV1FontsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void AfterGetFontsV1FontsGetDefaultImplementation(IGetFontsV1FontsGetApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterGetFontsV1FontsGet(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
+            AfterGetFontsV1FontsGet(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1658,8 +1623,7 @@ namespace AssetsDeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void AfterGetFontsV1FontsGet(ref bool suppressDefaultLog, IGetFontsV1FontsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void AfterGetFontsV1FontsGet(ref bool suppressDefaultLog, IGetFontsV1FontsGetApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1667,11 +1631,10 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void OnErrorGetFontsV1FontsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void OnErrorGetFontsV1FontsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetFontsV1FontsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
+            OnErrorGetFontsV1FontsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1683,20 +1646,18 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void OnErrorGetFontsV1FontsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void OnErrorGetFontsV1FontsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get Fonts 
         /// </summary>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>&gt;</returns>
-        public async Task<IGetFontsV1FontsGetApiResponse?> GetFontsV1FontsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFontsV1FontsGetApiResponse?> GetFontsV1FontsGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetFontsV1FontsGetAsync(clientVersion, cancellationToken).ConfigureAwait(false);
+                return await GetFontsV1FontsGetAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1708,17 +1669,14 @@ namespace AssetsDeadlockApiClient.Api
         /// Get Fonts 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFontsV1FontsGetApiResponse"/>&gt;</returns>
-        public async Task<IGetFontsV1FontsGetApiResponse> GetFontsV1FontsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFontsV1FontsGetApiResponse> GetFontsV1FontsGetAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetFontsV1FontsGet(ref clientVersion);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
@@ -1727,13 +1685,6 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/fonts"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/fonts");
-
-                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
-
-                    if (clientVersion.IsSet)
-                        parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
-
-                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -1764,7 +1715,7 @@ namespace AssetsDeadlockApiClient.Api
                             }
                         }
 
-                        AfterGetFontsV1FontsGetDefaultImplementation(apiResponseLocalVar, clientVersion);
+                        AfterGetFontsV1FontsGetDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnGetFontsV1FontsGet(apiResponseLocalVar);
 
@@ -1774,7 +1725,7 @@ namespace AssetsDeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorGetFontsV1FontsGetDefaultImplementation(e, "/v1/fonts", uriBuilderLocalVar.Path, clientVersion);
+                OnErrorGetFontsV1FontsGetDefaultImplementation(e, "/v1/fonts", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorGetFontsV1FontsGet(e);
                 throw;
             }
@@ -1857,44 +1808,6 @@ namespace AssetsDeadlockApiClient.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
-                }
-
-                return result != null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnprocessableContent => 422 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public AssetsDeadlockApiClient.Model.HTTPValidationError? UnprocessableContent()
-            {
-                // This logic may be modified with the AsModel.mustache template
-                return IsUnprocessableContent
-                    ? System.Text.Json.JsonSerializer.Deserialize<AssetsDeadlockApiClient.Model.HTTPValidationError>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryUnprocessableContent([NotNullWhen(true)]out AssetsDeadlockApiClient.Model.HTTPValidationError? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = UnprocessableContent();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
                 }
 
                 return result != null;
@@ -2184,17 +2097,14 @@ namespace AssetsDeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetIconsV1IconsGet(ref Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void AfterGetIconsV1IconsGetDefaultImplementation(IGetIconsV1IconsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void AfterGetIconsV1IconsGetDefaultImplementation(IGetIconsV1IconsGetApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterGetIconsV1IconsGet(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
+            AfterGetIconsV1IconsGet(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2204,8 +2114,7 @@ namespace AssetsDeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void AfterGetIconsV1IconsGet(ref bool suppressDefaultLog, IGetIconsV1IconsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void AfterGetIconsV1IconsGet(ref bool suppressDefaultLog, IGetIconsV1IconsGetApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2213,11 +2122,10 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void OnErrorGetIconsV1IconsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void OnErrorGetIconsV1IconsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetIconsV1IconsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
+            OnErrorGetIconsV1IconsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2229,20 +2137,18 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void OnErrorGetIconsV1IconsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void OnErrorGetIconsV1IconsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get Icons 
         /// </summary>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetIconsV1IconsGetApiResponse"/>&gt;</returns>
-        public async Task<IGetIconsV1IconsGetApiResponse?> GetIconsV1IconsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetIconsV1IconsGetApiResponse?> GetIconsV1IconsGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetIconsV1IconsGetAsync(clientVersion, cancellationToken).ConfigureAwait(false);
+                return await GetIconsV1IconsGetAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2254,17 +2160,14 @@ namespace AssetsDeadlockApiClient.Api
         /// Get Icons 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetIconsV1IconsGetApiResponse"/>&gt;</returns>
-        public async Task<IGetIconsV1IconsGetApiResponse> GetIconsV1IconsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetIconsV1IconsGetApiResponse> GetIconsV1IconsGetAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetIconsV1IconsGet(ref clientVersion);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
@@ -2273,13 +2176,6 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/icons"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/icons");
-
-                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
-
-                    if (clientVersion.IsSet)
-                        parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
-
-                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -2310,7 +2206,7 @@ namespace AssetsDeadlockApiClient.Api
                             }
                         }
 
-                        AfterGetIconsV1IconsGetDefaultImplementation(apiResponseLocalVar, clientVersion);
+                        AfterGetIconsV1IconsGetDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnGetIconsV1IconsGet(apiResponseLocalVar);
 
@@ -2320,7 +2216,7 @@ namespace AssetsDeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorGetIconsV1IconsGetDefaultImplementation(e, "/v1/icons", uriBuilderLocalVar.Path, clientVersion);
+                OnErrorGetIconsV1IconsGetDefaultImplementation(e, "/v1/icons", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorGetIconsV1IconsGet(e);
                 throw;
             }
@@ -2408,44 +2304,6 @@ namespace AssetsDeadlockApiClient.Api
                 return result != null;
             }
 
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnprocessableContent => 422 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public AssetsDeadlockApiClient.Model.HTTPValidationError? UnprocessableContent()
-            {
-                // This logic may be modified with the AsModel.mustache template
-                return IsUnprocessableContent
-                    ? System.Text.Json.JsonSerializer.Deserialize<AssetsDeadlockApiClient.Model.HTTPValidationError>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryUnprocessableContent([NotNullWhen(true)]out AssetsDeadlockApiClient.Model.HTTPValidationError? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = UnprocessableContent();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
-                }
-
-                return result != null;
-            }
-
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {
                 bool suppressDefaultLog = false;
@@ -2457,17 +2315,14 @@ namespace AssetsDeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetImagesV1ImagesGet(ref Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void AfterGetImagesV1ImagesGetDefaultImplementation(IGetImagesV1ImagesGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void AfterGetImagesV1ImagesGetDefaultImplementation(IGetImagesV1ImagesGetApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterGetImagesV1ImagesGet(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
+            AfterGetImagesV1ImagesGet(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2477,8 +2332,7 @@ namespace AssetsDeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void AfterGetImagesV1ImagesGet(ref bool suppressDefaultLog, IGetImagesV1ImagesGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void AfterGetImagesV1ImagesGet(ref bool suppressDefaultLog, IGetImagesV1ImagesGetApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2486,11 +2340,10 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void OnErrorGetImagesV1ImagesGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void OnErrorGetImagesV1ImagesGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetImagesV1ImagesGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
+            OnErrorGetImagesV1ImagesGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2502,20 +2355,18 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void OnErrorGetImagesV1ImagesGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void OnErrorGetImagesV1ImagesGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get Images 
         /// </summary>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetImagesV1ImagesGetApiResponse"/>&gt;</returns>
-        public async Task<IGetImagesV1ImagesGetApiResponse?> GetImagesV1ImagesGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetImagesV1ImagesGetApiResponse?> GetImagesV1ImagesGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetImagesV1ImagesGetAsync(clientVersion, cancellationToken).ConfigureAwait(false);
+                return await GetImagesV1ImagesGetAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2527,17 +2378,14 @@ namespace AssetsDeadlockApiClient.Api
         /// Get Images 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetImagesV1ImagesGetApiResponse"/>&gt;</returns>
-        public async Task<IGetImagesV1ImagesGetApiResponse> GetImagesV1ImagesGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetImagesV1ImagesGetApiResponse> GetImagesV1ImagesGetAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetImagesV1ImagesGet(ref clientVersion);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
@@ -2546,13 +2394,6 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/images"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/images");
-
-                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
-
-                    if (clientVersion.IsSet)
-                        parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
-
-                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -2583,7 +2424,7 @@ namespace AssetsDeadlockApiClient.Api
                             }
                         }
 
-                        AfterGetImagesV1ImagesGetDefaultImplementation(apiResponseLocalVar, clientVersion);
+                        AfterGetImagesV1ImagesGetDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnGetImagesV1ImagesGet(apiResponseLocalVar);
 
@@ -2593,7 +2434,7 @@ namespace AssetsDeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorGetImagesV1ImagesGetDefaultImplementation(e, "/v1/images", uriBuilderLocalVar.Path, clientVersion);
+                OnErrorGetImagesV1ImagesGetDefaultImplementation(e, "/v1/images", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorGetImagesV1ImagesGet(e);
                 throw;
             }
@@ -2676,44 +2517,6 @@ namespace AssetsDeadlockApiClient.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
-                }
-
-                return result != null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnprocessableContent => 422 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public AssetsDeadlockApiClient.Model.HTTPValidationError? UnprocessableContent()
-            {
-                // This logic may be modified with the AsModel.mustache template
-                return IsUnprocessableContent
-                    ? System.Text.Json.JsonSerializer.Deserialize<AssetsDeadlockApiClient.Model.HTTPValidationError>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryUnprocessableContent([NotNullWhen(true)]out AssetsDeadlockApiClient.Model.HTTPValidationError? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = UnprocessableContent();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
                 }
 
                 return result != null;
@@ -3558,17 +3361,14 @@ namespace AssetsDeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSoundsV1SoundsGet(ref Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void AfterGetSoundsV1SoundsGetDefaultImplementation(IGetSoundsV1SoundsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void AfterGetSoundsV1SoundsGetDefaultImplementation(IGetSoundsV1SoundsGetApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterGetSoundsV1SoundsGet(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
+            AfterGetSoundsV1SoundsGet(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3578,8 +3378,7 @@ namespace AssetsDeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void AfterGetSoundsV1SoundsGet(ref bool suppressDefaultLog, IGetSoundsV1SoundsGetApiResponse apiResponseLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void AfterGetSoundsV1SoundsGet(ref bool suppressDefaultLog, IGetSoundsV1SoundsGetApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3587,11 +3386,10 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        private void OnErrorGetSoundsV1SoundsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion)
+        private void OnErrorGetSoundsV1SoundsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSoundsV1SoundsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
+            OnErrorGetSoundsV1SoundsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3603,20 +3401,18 @@ namespace AssetsDeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="clientVersion"></param>
-        partial void OnErrorGetSoundsV1SoundsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion);
+        partial void OnErrorGetSoundsV1SoundsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get Sounds 
         /// </summary>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSoundsV1SoundsGetApiResponse"/>&gt;</returns>
-        public async Task<IGetSoundsV1SoundsGetApiResponse?> GetSoundsV1SoundsGetOrDefaultAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSoundsV1SoundsGetApiResponse?> GetSoundsV1SoundsGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSoundsV1SoundsGetAsync(clientVersion, cancellationToken).ConfigureAwait(false);
+                return await GetSoundsV1SoundsGetAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3628,17 +3424,14 @@ namespace AssetsDeadlockApiClient.Api
         /// Get Sounds 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSoundsV1SoundsGetApiResponse"/>&gt;</returns>
-        public async Task<IGetSoundsV1SoundsGetApiResponse> GetSoundsV1SoundsGetAsync(Option<DeadlockAssetsApiRoutesValidClientVersions?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSoundsV1SoundsGetApiResponse> GetSoundsV1SoundsGetAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetSoundsV1SoundsGet(ref clientVersion);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
@@ -3647,13 +3440,6 @@ namespace AssetsDeadlockApiClient.Api
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
                         ? "/v1/sounds"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/sounds");
-
-                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
-
-                    if (clientVersion.IsSet)
-                        parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
-
-                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -3684,7 +3470,7 @@ namespace AssetsDeadlockApiClient.Api
                             }
                         }
 
-                        AfterGetSoundsV1SoundsGetDefaultImplementation(apiResponseLocalVar, clientVersion);
+                        AfterGetSoundsV1SoundsGetDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnGetSoundsV1SoundsGet(apiResponseLocalVar);
 
@@ -3694,7 +3480,7 @@ namespace AssetsDeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSoundsV1SoundsGetDefaultImplementation(e, "/v1/sounds", uriBuilderLocalVar.Path, clientVersion);
+                OnErrorGetSoundsV1SoundsGetDefaultImplementation(e, "/v1/sounds", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorGetSoundsV1SoundsGet(e);
                 throw;
             }
@@ -3777,44 +3563,6 @@ namespace AssetsDeadlockApiClient.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
-                }
-
-                return result != null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnprocessableContent => 422 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public AssetsDeadlockApiClient.Model.HTTPValidationError? UnprocessableContent()
-            {
-                // This logic may be modified with the AsModel.mustache template
-                return IsUnprocessableContent
-                    ? System.Text.Json.JsonSerializer.Deserialize<AssetsDeadlockApiClient.Model.HTTPValidationError>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryUnprocessableContent([NotNullWhen(true)]out AssetsDeadlockApiClient.Model.HTTPValidationError? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = UnprocessableContent();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
                 }
 
                 return result != null;

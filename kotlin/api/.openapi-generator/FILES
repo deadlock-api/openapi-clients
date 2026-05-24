@@ -29,6 +29,10 @@ docs/CreateCustomResponse.md
 docs/CustomMatchesApi.md
 docs/DistributionEntry.md
 docs/EnemyStats.md
+docs/FeedItem.md
+docs/FeedItemOneOf.md
+docs/FeedItemOneOf1.md
+docs/ForumPatch.md
 docs/GameMode.md
 docs/GameServerInfo.md
 docs/GetCustomMatchIdResponse.md
@@ -85,6 +89,7 @@ docs/Status.md
 docs/StatusServices.md
 docs/SteamApi.md
 docs/SteamFriend.md
+docs/SteamNews.md
 docs/SteamProfile.md
 docs/SteamServer.md
 docs/TableSize.md
@@ -147,6 +152,10 @@ src/main/kotlin/deadlock_api_client/models/CreateCustomRequest.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomResponse.kt
 src/main/kotlin/deadlock_api_client/models/DistributionEntry.kt
 src/main/kotlin/deadlock_api_client/models/EnemyStats.kt
+src/main/kotlin/deadlock_api_client/models/FeedItem.kt
+src/main/kotlin/deadlock_api_client/models/FeedItemOneOf.kt
+src/main/kotlin/deadlock_api_client/models/FeedItemOneOf1.kt
+src/main/kotlin/deadlock_api_client/models/ForumPatch.kt
 src/main/kotlin/deadlock_api_client/models/GameMode.kt
 src/main/kotlin/deadlock_api_client/models/GameServerInfo.kt
 src/main/kotlin/deadlock_api_client/models/GetCustomMatchIdResponse.kt
@@ -192,6 +201,7 @@ src/main/kotlin/deadlock_api_client/models/ServerStatusResponse.kt
 src/main/kotlin/deadlock_api_client/models/Status.kt
 src/main/kotlin/deadlock_api_client/models/StatusServices.kt
 src/main/kotlin/deadlock_api_client/models/SteamFriend.kt
+src/main/kotlin/deadlock_api_client/models/SteamNews.kt
 src/main/kotlin/deadlock_api_client/models/SteamProfile.kt
 src/main/kotlin/deadlock_api_client/models/SteamServer.kt
 src/main/kotlin/deadlock_api_client/models/TableSize.kt
@@ -236,6 +246,10 @@ src/test/kotlin/deadlock_api_client/models/CreateCustomRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/DistributionEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/EnemyStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/FeedItemOneOf1Test.kt
+src/test/kotlin/deadlock_api_client/models/FeedItemOneOfTest.kt
+src/test/kotlin/deadlock_api_client/models/FeedItemTest.kt
+src/test/kotlin/deadlock_api_client/models/ForumPatchTest.kt
 src/test/kotlin/deadlock_api_client/models/GameModeTest.kt
 src/test/kotlin/deadlock_api_client/models/GameServerInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/GetCustomMatchIdResponseTest.kt
@@ -281,6 +295,7 @@ src/test/kotlin/deadlock_api_client/models/ServerStatusResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusServicesTest.kt
 src/test/kotlin/deadlock_api_client/models/StatusTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamFriendTest.kt
+src/test/kotlin/deadlock_api_client/models/SteamNewsTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamProfileTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamServerTest.kt
 src/test/kotlin/deadlock_api_client/models/TableSizeTest.kt

@@ -108,6 +108,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'MatchesPlayedLast30d'
+        /// </summary>
+        [Fact]
+        public void MatchesPlayedLast30dTest()
+        {
+            // TODO unit test for the property 'MatchesPlayedLast30d'
+        }
+
+        /// <summary>
         /// Test the property 'Personaname'
         /// </summary>
         [Fact]
@@ -132,6 +141,15 @@ namespace DeadlockApiClient.Test.Model
         public void CountrycodeTest()
         {
             // TODO unit test for the property 'Countrycode'
+        }
+
+        /// <summary>
+        /// Test the property 'LastTeamAvgBadge'
+        /// </summary>
+        [Fact]
+        public void LastTeamAvgBadgeTest()
+        {
+            // TODO unit test for the property 'LastTeamAvgBadge'
         }
 
         /// <summary>
