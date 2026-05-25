@@ -18,21 +18,35 @@ __version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
+    "AccoladesApi",
     "AnalyticsApi",
+    "AssetsBucketApi",
+    "BuildTagsApi",
     "BuildsApi",
+    "ClientVersionsApi",
+    "ColorsApi",
     "CommandsApi",
     "CustomMatchesApi",
+    "GenericDataApi",
     "GraphQLApi",
+    "HeroesApi",
     "InfoApi",
     "InternalApi",
+    "ItemsApi",
     "LeaderboardApi",
+    "LootTablesApi",
     "MMRApi",
+    "MapApi",
     "MatchesApi",
+    "MiscEntitiesApi",
+    "NPCUnitsApi",
     "PatchesApi",
     "PlayersApi",
+    "RanksApi",
     "SQLApi",
     "ServersApi",
     "SteamApi",
+    "SteamInfoApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -43,6 +57,15 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "APIInfo",
+    "Ability",
+    "AbilityActivation",
+    "AbilityDescription",
+    "AbilityImbue",
+    "AbilitySectionType",
+    "AbilityTooltipDetails",
+    "AbilityType",
+    "AbilityVideos",
+    "Accolade",
     "ActiveMatch",
     "ActiveMatchGameMode",
     "ActiveMatchMode",
@@ -60,39 +83,91 @@ __all__ = [
     "BuildHeroDetailsCategory",
     "BuildHeroDetailsCategoryAbility",
     "BuildItemStats",
+    "BuildTag",
     "ClickhouseMatchInfo",
     "ClickhouseSalts",
+    "Color",
     "CreateCustomRequest",
     "CreateCustomResponse",
+    "Curve",
+    "CurveOrFloat",
+    "DamageFlash",
+    "DependantAbilities",
     "DistributionEntry",
+    "DraftBucket",
+    "DraftBuckets",
     "EnemyStats",
+    "FeedItem",
+    "FeedItemOneOf",
+    "FeedItemOneOf1",
+    "FlashData",
+    "ForumPatch",
     "GameMode",
     "GameServerInfo",
+    "GenericData",
     "GetCustomMatchIdResponse",
+    "GlitchSettings",
+    "HashMapItemSlotTypeItemSlotInfoValue",
+    "HashMapItemSlotTypeVecMapModCostBonusValueInner",
+    "HashMapItemSlotTypeVecPurchaseBonusValueInner",
+    "HashMapStringLevelInfoValue",
+    "HashMapStringOptionDraftBucketingValue",
+    "HashMapStringOptionDraftBucketingValueOneOf",
+    "HashMapStringScalingStatValue",
     "HashMapValue",
+    "Hero",
     "HeroBanStats",
     "HeroBuildStats",
+    "HeroColors",
     "HeroCombStats",
     "HeroCounterStats",
+    "HeroDescription",
     "HeroEntry",
+    "HeroImages",
+    "HeroPhysics",
     "HeroStats",
+    "HeroStatsUI",
+    "HeroStatsUIDisplay",
     "HeroSynergyStats",
+    "HeroType",
+    "HorizontalRecoil",
+    "Item",
+    "ItemDraftRound",
+    "ItemDraftRoundPerGameRound",
+    "ItemGroup",
     "ItemPermutationStats",
+    "ItemProperty",
+    "ItemSlotType",
     "ItemStats",
+    "ItemType",
     "KillDeathStats",
+    "LaneInfo",
     "Leaderboard",
     "LeaderboardEntry",
     "ListServersResponse",
     "LiveUrl",
+    "LootEntry",
+    "LootTable",
     "MMRHistory",
+    "Map",
+    "MapImages",
     "MatchPlayer",
     "MatchSaltsResponse",
     "MatchSpectateResponse",
     "MateStats",
     "MetricIngestRequest",
+    "MiniMapOffsets",
+    "MiscEntity",
+    "ModifierValue",
+    "NewPlayerMetrics",
+    "NpcUnit",
+    "ObjectiveParams",
+    "ObjectivePosition",
+    "OutcomeToWeights",
     "Patch",
     "PatchCategory",
     "PatchGuid",
+    "Pickup",
     "PlayerAccountHeroStats",
     "PlayerAccountStats",
     "PlayerCard",
@@ -102,38 +177,109 @@ __all__ = [
     "PlayerEntry",
     "PlayerMatchHistoryEntry",
     "PlayerPerformanceCurvePoint",
+    "Rank",
+    "RankImages",
     "RankPredictResponse",
     "RankPrediction",
+    "RawAbilityUpgrade",
+    "RawAbilityUpgradePropertyUpgrade",
+    "RawCustomCrosshairSettings",
+    "RawItemPropertyScaleFunctionSubclass",
+    "RawItemWeaponInfoBulletSpeedCurve",
+    "RawItemWeaponInfoBulletSpeedCurveSpline",
+    "RawItemWeaponInfoInner",
+    "RawWeaponInfoHorizontalRecoil",
+    "RawWeaponInfoVerticalRecoil",
+    "RecoilRange",
     "RegionMode",
+    "RejuvParams",
+    "RollType",
+    "RollTypeOneOf",
+    "ScriptValues",
     "ServerRegion",
     "ServerStatusRequest",
     "ServerStatusResponse",
+    "ShopSpiritStatsDisplay",
+    "ShopStatDisplay",
+    "ShopVitalityStatsDisplay",
+    "ShopWeaponStatsDisplay",
+    "SpreadPenalty",
+    "StartingStat",
+    "StartingStats",
+    "StatsDisplay",
+    "StatsUsageFlag",
     "Status",
     "StatusServices",
     "SteamFriend",
+    "SteamInfo",
+    "SteamNews",
     "SteamProfile",
     "SteamServer",
+    "StreetBrawl",
+    "SubclassBulletResistModifier",
+    "SubclassBulletResistModifierSubclass",
+    "SubclassEmpoweredModifierLevel",
+    "SubclassEmpoweredModifierLevelSubclass",
+    "SubclassIntrinsicModifiers",
+    "SubclassIntrinsicModifiersSubclass",
+    "SubclassModifierDefinition",
+    "SubclassModifierDefinitionSubclass",
+    "SubclassObjectiveHealthGrowthPhase",
+    "SubclassObjectiveHealthGrowthPhaseSubclass",
+    "SubclassObjectiveRegen",
+    "SubclassObjectiveRegenSubclass",
+    "SubclassRangedArmorModifier",
+    "SubclassRangedArmorModifierSubclass",
+    "SubclassTrooperDamageReduction",
+    "SubclassTrooperDamageReductionSubclass",
     "TableSize",
+    "TooltipDetailsBlock",
+    "TooltipDetailsBlockProperty",
+    "TooltipDetailsInfoSection",
+    "Upgrade",
+    "UpgradeDescription",
+    "UpgradeProperty",
+    "UpgradeTooltipImportantPropertyWithIcon",
+    "UpgradeTooltipSection",
+    "UpgradeTooltipSectionAttribute",
     "VariableCategory",
     "VariableDescription",
+    "VerticalRecoil",
+    "Weapon",
+    "WeaponInfo",
+    "ZiplanePath",
 ]
 
 # import apis into sdk package
+from deadlock_api_client.api.accolades_api import AccoladesApi as AccoladesApi
 from deadlock_api_client.api.analytics_api import AnalyticsApi as AnalyticsApi
+from deadlock_api_client.api.assets_bucket_api import AssetsBucketApi as AssetsBucketApi
+from deadlock_api_client.api.build_tags_api import BuildTagsApi as BuildTagsApi
 from deadlock_api_client.api.builds_api import BuildsApi as BuildsApi
+from deadlock_api_client.api.client_versions_api import ClientVersionsApi as ClientVersionsApi
+from deadlock_api_client.api.colors_api import ColorsApi as ColorsApi
 from deadlock_api_client.api.commands_api import CommandsApi as CommandsApi
 from deadlock_api_client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
+from deadlock_api_client.api.generic_data_api import GenericDataApi as GenericDataApi
 from deadlock_api_client.api.graph_ql_api import GraphQLApi as GraphQLApi
+from deadlock_api_client.api.heroes_api import HeroesApi as HeroesApi
 from deadlock_api_client.api.info_api import InfoApi as InfoApi
 from deadlock_api_client.api.internal_api import InternalApi as InternalApi
+from deadlock_api_client.api.items_api import ItemsApi as ItemsApi
 from deadlock_api_client.api.leaderboard_api import LeaderboardApi as LeaderboardApi
+from deadlock_api_client.api.loot_tables_api import LootTablesApi as LootTablesApi
 from deadlock_api_client.api.mmr_api import MMRApi as MMRApi
+from deadlock_api_client.api.map_api import MapApi as MapApi
 from deadlock_api_client.api.matches_api import MatchesApi as MatchesApi
+from deadlock_api_client.api.misc_entities_api import MiscEntitiesApi as MiscEntitiesApi
+from deadlock_api_client.api.npc_units_api import NPCUnitsApi as NPCUnitsApi
 from deadlock_api_client.api.patches_api import PatchesApi as PatchesApi
 from deadlock_api_client.api.players_api import PlayersApi as PlayersApi
+from deadlock_api_client.api.ranks_api import RanksApi as RanksApi
 from deadlock_api_client.api.sql_api import SQLApi as SQLApi
 from deadlock_api_client.api.servers_api import ServersApi as ServersApi
 from deadlock_api_client.api.steam_api import SteamApi as SteamApi
+from deadlock_api_client.api.steam_info_api import SteamInfoApi as SteamInfoApi
 
 # import ApiClient
 from deadlock_api_client.api_response import ApiResponse as ApiResponse
@@ -148,6 +294,15 @@ from deadlock_api_client.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from deadlock_api_client.models.api_info import APIInfo as APIInfo
+from deadlock_api_client.models.ability import Ability as Ability
+from deadlock_api_client.models.ability_activation import AbilityActivation as AbilityActivation
+from deadlock_api_client.models.ability_description import AbilityDescription as AbilityDescription
+from deadlock_api_client.models.ability_imbue import AbilityImbue as AbilityImbue
+from deadlock_api_client.models.ability_section_type import AbilitySectionType as AbilitySectionType
+from deadlock_api_client.models.ability_tooltip_details import AbilityTooltipDetails as AbilityTooltipDetails
+from deadlock_api_client.models.ability_type import AbilityType as AbilityType
+from deadlock_api_client.models.ability_videos import AbilityVideos as AbilityVideos
+from deadlock_api_client.models.accolade import Accolade as Accolade
 from deadlock_api_client.models.active_match import ActiveMatch as ActiveMatch
 from deadlock_api_client.models.active_match_game_mode import ActiveMatchGameMode as ActiveMatchGameMode
 from deadlock_api_client.models.active_match_mode import ActiveMatchMode as ActiveMatchMode
@@ -165,39 +320,91 @@ from deadlock_api_client.models.build_hero_details_ability_order_currency_change
 from deadlock_api_client.models.build_hero_details_category import BuildHeroDetailsCategory as BuildHeroDetailsCategory
 from deadlock_api_client.models.build_hero_details_category_ability import BuildHeroDetailsCategoryAbility as BuildHeroDetailsCategoryAbility
 from deadlock_api_client.models.build_item_stats import BuildItemStats as BuildItemStats
+from deadlock_api_client.models.build_tag import BuildTag as BuildTag
 from deadlock_api_client.models.clickhouse_match_info import ClickhouseMatchInfo as ClickhouseMatchInfo
 from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts as ClickhouseSalts
+from deadlock_api_client.models.color import Color as Color
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
+from deadlock_api_client.models.curve import Curve as Curve
+from deadlock_api_client.models.curve_or_float import CurveOrFloat as CurveOrFloat
+from deadlock_api_client.models.damage_flash import DamageFlash as DamageFlash
+from deadlock_api_client.models.dependant_abilities import DependantAbilities as DependantAbilities
 from deadlock_api_client.models.distribution_entry import DistributionEntry as DistributionEntry
+from deadlock_api_client.models.draft_bucket import DraftBucket as DraftBucket
+from deadlock_api_client.models.draft_buckets import DraftBuckets as DraftBuckets
 from deadlock_api_client.models.enemy_stats import EnemyStats as EnemyStats
+from deadlock_api_client.models.feed_item import FeedItem as FeedItem
+from deadlock_api_client.models.feed_item_one_of import FeedItemOneOf as FeedItemOneOf
+from deadlock_api_client.models.feed_item_one_of1 import FeedItemOneOf1 as FeedItemOneOf1
+from deadlock_api_client.models.flash_data import FlashData as FlashData
+from deadlock_api_client.models.forum_patch import ForumPatch as ForumPatch
 from deadlock_api_client.models.game_mode import GameMode as GameMode
 from deadlock_api_client.models.game_server_info import GameServerInfo as GameServerInfo
+from deadlock_api_client.models.generic_data import GenericData as GenericData
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse as GetCustomMatchIdResponse
+from deadlock_api_client.models.glitch_settings import GlitchSettings as GlitchSettings
+from deadlock_api_client.models.hash_map_item_slot_type_item_slot_info_value import HashMapItemSlotTypeItemSlotInfoValue as HashMapItemSlotTypeItemSlotInfoValue
+from deadlock_api_client.models.hash_map_item_slot_type_vec_map_mod_cost_bonus_value_inner import HashMapItemSlotTypeVecMapModCostBonusValueInner as HashMapItemSlotTypeVecMapModCostBonusValueInner
+from deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value_inner import HashMapItemSlotTypeVecPurchaseBonusValueInner as HashMapItemSlotTypeVecPurchaseBonusValueInner
+from deadlock_api_client.models.hash_map_string_level_info_value import HashMapStringLevelInfoValue as HashMapStringLevelInfoValue
+from deadlock_api_client.models.hash_map_string_option_draft_bucketing_value import HashMapStringOptionDraftBucketingValue as HashMapStringOptionDraftBucketingValue
+from deadlock_api_client.models.hash_map_string_option_draft_bucketing_value_one_of import HashMapStringOptionDraftBucketingValueOneOf as HashMapStringOptionDraftBucketingValueOneOf
+from deadlock_api_client.models.hash_map_string_scaling_stat_value import HashMapStringScalingStatValue as HashMapStringScalingStatValue
 from deadlock_api_client.models.hash_map_value import HashMapValue as HashMapValue
+from deadlock_api_client.models.hero import Hero as Hero
 from deadlock_api_client.models.hero_ban_stats import HeroBanStats as HeroBanStats
 from deadlock_api_client.models.hero_build_stats import HeroBuildStats as HeroBuildStats
+from deadlock_api_client.models.hero_colors import HeroColors as HeroColors
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats as HeroCombStats
 from deadlock_api_client.models.hero_counter_stats import HeroCounterStats as HeroCounterStats
+from deadlock_api_client.models.hero_description import HeroDescription as HeroDescription
 from deadlock_api_client.models.hero_entry import HeroEntry as HeroEntry
+from deadlock_api_client.models.hero_images import HeroImages as HeroImages
+from deadlock_api_client.models.hero_physics import HeroPhysics as HeroPhysics
 from deadlock_api_client.models.hero_stats import HeroStats as HeroStats
+from deadlock_api_client.models.hero_stats_ui import HeroStatsUI as HeroStatsUI
+from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay as HeroStatsUIDisplay
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats as HeroSynergyStats
+from deadlock_api_client.models.hero_type import HeroType as HeroType
+from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil as HorizontalRecoil
+from deadlock_api_client.models.item import Item as Item
+from deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound
+from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound as ItemDraftRoundPerGameRound
+from deadlock_api_client.models.item_group import ItemGroup as ItemGroup
 from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats as ItemPermutationStats
+from deadlock_api_client.models.item_property import ItemProperty as ItemProperty
+from deadlock_api_client.models.item_slot_type import ItemSlotType as ItemSlotType
 from deadlock_api_client.models.item_stats import ItemStats as ItemStats
+from deadlock_api_client.models.item_type import ItemType as ItemType
 from deadlock_api_client.models.kill_death_stats import KillDeathStats as KillDeathStats
+from deadlock_api_client.models.lane_info import LaneInfo as LaneInfo
 from deadlock_api_client.models.leaderboard import Leaderboard as Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry as LeaderboardEntry
 from deadlock_api_client.models.list_servers_response import ListServersResponse as ListServersResponse
 from deadlock_api_client.models.live_url import LiveUrl as LiveUrl
+from deadlock_api_client.models.loot_entry import LootEntry as LootEntry
+from deadlock_api_client.models.loot_table import LootTable as LootTable
 from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
+from deadlock_api_client.models.map import Map as Map
+from deadlock_api_client.models.map_images import MapImages as MapImages
 from deadlock_api_client.models.match_player import MatchPlayer as MatchPlayer
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse as MatchSpectateResponse
 from deadlock_api_client.models.mate_stats import MateStats as MateStats
 from deadlock_api_client.models.metric_ingest_request import MetricIngestRequest as MetricIngestRequest
+from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets as MiniMapOffsets
+from deadlock_api_client.models.misc_entity import MiscEntity as MiscEntity
+from deadlock_api_client.models.modifier_value import ModifierValue as ModifierValue
+from deadlock_api_client.models.new_player_metrics import NewPlayerMetrics as NewPlayerMetrics
+from deadlock_api_client.models.npc_unit import NpcUnit as NpcUnit
+from deadlock_api_client.models.objective_params import ObjectiveParams as ObjectiveParams
+from deadlock_api_client.models.objective_position import ObjectivePosition as ObjectivePosition
+from deadlock_api_client.models.outcome_to_weights import OutcomeToWeights as OutcomeToWeights
 from deadlock_api_client.models.patch import Patch as Patch
 from deadlock_api_client.models.patch_category import PatchCategory as PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid as PatchGuid
+from deadlock_api_client.models.pickup import Pickup as Pickup
 from deadlock_api_client.models.player_account_hero_stats import PlayerAccountHeroStats as PlayerAccountHeroStats
 from deadlock_api_client.models.player_account_stats import PlayerAccountStats as PlayerAccountStats
 from deadlock_api_client.models.player_card import PlayerCard as PlayerCard
@@ -207,18 +414,75 @@ from deadlock_api_client.models.player_card_slot_stat import PlayerCardSlotStat 
 from deadlock_api_client.models.player_entry import PlayerEntry as PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
+from deadlock_api_client.models.rank import Rank as Rank
+from deadlock_api_client.models.rank_images import RankImages as RankImages
 from deadlock_api_client.models.rank_predict_response import RankPredictResponse as RankPredictResponse
 from deadlock_api_client.models.rank_prediction import RankPrediction as RankPrediction
+from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade as RawAbilityUpgrade
+from deadlock_api_client.models.raw_ability_upgrade_property_upgrade import RawAbilityUpgradePropertyUpgrade as RawAbilityUpgradePropertyUpgrade
+from deadlock_api_client.models.raw_custom_crosshair_settings import RawCustomCrosshairSettings as RawCustomCrosshairSettings
+from deadlock_api_client.models.raw_item_property_scale_function_subclass import RawItemPropertyScaleFunctionSubclass as RawItemPropertyScaleFunctionSubclass
+from deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve import RawItemWeaponInfoBulletSpeedCurve as RawItemWeaponInfoBulletSpeedCurve
+from deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve_spline import RawItemWeaponInfoBulletSpeedCurveSpline as RawItemWeaponInfoBulletSpeedCurveSpline
+from deadlock_api_client.models.raw_item_weapon_info_inner import RawItemWeaponInfoInner as RawItemWeaponInfoInner
+from deadlock_api_client.models.raw_weapon_info_horizontal_recoil import RawWeaponInfoHorizontalRecoil as RawWeaponInfoHorizontalRecoil
+from deadlock_api_client.models.raw_weapon_info_vertical_recoil import RawWeaponInfoVerticalRecoil as RawWeaponInfoVerticalRecoil
+from deadlock_api_client.models.recoil_range import RecoilRange as RecoilRange
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode
+from deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
+from deadlock_api_client.models.roll_type import RollType as RollType
+from deadlock_api_client.models.roll_type_one_of import RollTypeOneOf as RollTypeOneOf
+from deadlock_api_client.models.script_values import ScriptValues as ScriptValues
 from deadlock_api_client.models.server_region import ServerRegion as ServerRegion
 from deadlock_api_client.models.server_status_request import ServerStatusRequest as ServerStatusRequest
 from deadlock_api_client.models.server_status_response import ServerStatusResponse as ServerStatusResponse
+from deadlock_api_client.models.shop_spirit_stats_display import ShopSpiritStatsDisplay as ShopSpiritStatsDisplay
+from deadlock_api_client.models.shop_stat_display import ShopStatDisplay as ShopStatDisplay
+from deadlock_api_client.models.shop_vitality_stats_display import ShopVitalityStatsDisplay as ShopVitalityStatsDisplay
+from deadlock_api_client.models.shop_weapon_stats_display import ShopWeaponStatsDisplay as ShopWeaponStatsDisplay
+from deadlock_api_client.models.spread_penalty import SpreadPenalty as SpreadPenalty
+from deadlock_api_client.models.starting_stat import StartingStat as StartingStat
+from deadlock_api_client.models.starting_stats import StartingStats as StartingStats
+from deadlock_api_client.models.stats_display import StatsDisplay as StatsDisplay
+from deadlock_api_client.models.stats_usage_flag import StatsUsageFlag as StatsUsageFlag
 from deadlock_api_client.models.status import Status as Status
 from deadlock_api_client.models.status_services import StatusServices as StatusServices
 from deadlock_api_client.models.steam_friend import SteamFriend as SteamFriend
+from deadlock_api_client.models.steam_info import SteamInfo as SteamInfo
+from deadlock_api_client.models.steam_news import SteamNews as SteamNews
 from deadlock_api_client.models.steam_profile import SteamProfile as SteamProfile
 from deadlock_api_client.models.steam_server import SteamServer as SteamServer
+from deadlock_api_client.models.street_brawl import StreetBrawl as StreetBrawl
+from deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier
+from deadlock_api_client.models.subclass_bullet_resist_modifier_subclass import SubclassBulletResistModifierSubclass as SubclassBulletResistModifierSubclass
+from deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel as SubclassEmpoweredModifierLevel
+from deadlock_api_client.models.subclass_empowered_modifier_level_subclass import SubclassEmpoweredModifierLevelSubclass as SubclassEmpoweredModifierLevelSubclass
+from deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers as SubclassIntrinsicModifiers
+from deadlock_api_client.models.subclass_intrinsic_modifiers_subclass import SubclassIntrinsicModifiersSubclass as SubclassIntrinsicModifiersSubclass
+from deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition as SubclassModifierDefinition
+from deadlock_api_client.models.subclass_modifier_definition_subclass import SubclassModifierDefinitionSubclass as SubclassModifierDefinitionSubclass
+from deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase as SubclassObjectiveHealthGrowthPhase
+from deadlock_api_client.models.subclass_objective_health_growth_phase_subclass import SubclassObjectiveHealthGrowthPhaseSubclass as SubclassObjectiveHealthGrowthPhaseSubclass
+from deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen as SubclassObjectiveRegen
+from deadlock_api_client.models.subclass_objective_regen_subclass import SubclassObjectiveRegenSubclass as SubclassObjectiveRegenSubclass
+from deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier as SubclassRangedArmorModifier
+from deadlock_api_client.models.subclass_ranged_armor_modifier_subclass import SubclassRangedArmorModifierSubclass as SubclassRangedArmorModifierSubclass
+from deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction as SubclassTrooperDamageReduction
+from deadlock_api_client.models.subclass_trooper_damage_reduction_subclass import SubclassTrooperDamageReductionSubclass as SubclassTrooperDamageReductionSubclass
 from deadlock_api_client.models.table_size import TableSize as TableSize
+from deadlock_api_client.models.tooltip_details_block import TooltipDetailsBlock as TooltipDetailsBlock
+from deadlock_api_client.models.tooltip_details_block_property import TooltipDetailsBlockProperty as TooltipDetailsBlockProperty
+from deadlock_api_client.models.tooltip_details_info_section import TooltipDetailsInfoSection as TooltipDetailsInfoSection
+from deadlock_api_client.models.upgrade import Upgrade as Upgrade
+from deadlock_api_client.models.upgrade_description import UpgradeDescription as UpgradeDescription
+from deadlock_api_client.models.upgrade_property import UpgradeProperty as UpgradeProperty
+from deadlock_api_client.models.upgrade_tooltip_important_property_with_icon import UpgradeTooltipImportantPropertyWithIcon as UpgradeTooltipImportantPropertyWithIcon
+from deadlock_api_client.models.upgrade_tooltip_section import UpgradeTooltipSection as UpgradeTooltipSection
+from deadlock_api_client.models.upgrade_tooltip_section_attribute import UpgradeTooltipSectionAttribute as UpgradeTooltipSectionAttribute
 from deadlock_api_client.models.variable_category import VariableCategory as VariableCategory
 from deadlock_api_client.models.variable_description import VariableDescription as VariableDescription
+from deadlock_api_client.models.vertical_recoil import VerticalRecoil as VerticalRecoil
+from deadlock_api_client.models.weapon import Weapon as Weapon
+from deadlock_api_client.models.weapon_info import WeaponInfo as WeaponInfo
+from deadlock_api_client.models.ziplane_path import ZiplanePath as ZiplanePath
 

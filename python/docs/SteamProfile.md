@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **avatarmedium** | **str** |  | 
 **countrycode** | **str** |  | [optional] 
 **friends** | [**List[SteamFriend]**](SteamFriend.md) |  | 
+**last_team_avg_badge** | **int** |  | [optional] 
 **last_updated** | **datetime** |  | 
+**matches_played_last_30d** | **int** |  | 
 **personaname** | **str** |  | 
 **profileurl** | **str** |  | 
 **realname** | **str** |  | [optional] 

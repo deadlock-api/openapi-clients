@@ -45,7 +45,9 @@ class TestSteamProfile(unittest.TestCase):
                         account_id = 0, 
                         friend_since = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
+                last_team_avg_badge = 0,
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                matches_played_last_30d = 0,
                 personaname = '',
                 profileurl = '',
                 realname = ''
@@ -62,6 +64,7 @@ class TestSteamProfile(unittest.TestCase):
                         friend_since = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                matches_played_last_30d = 0,
                 personaname = '',
                 profileurl = '',
         )

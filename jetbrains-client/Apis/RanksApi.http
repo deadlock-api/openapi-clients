@@ -1,0 +1,11 @@
+## RanksApi
+
+### Get Rank
+## Get Rank
+GET https://api.deadlock-api.com/v1/assets/ranks/{{tier}}?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json
+
+### List Ranks
+## List Ranks
+GET https://api.deadlock-api.com/v1/assets/ranks?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json

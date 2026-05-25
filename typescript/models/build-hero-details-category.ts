@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildHeroDetailsCategoryAbility } from './build-hero-details-category-ability';
+import type { BuildHeroDetailsCategoryAbility } from './build-hero-details-category-ability.js';
 
 export interface BuildHeroDetailsCategory {
     'description'?: string | null;

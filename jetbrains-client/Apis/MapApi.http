@@ -1,0 +1,6 @@
+## MapApi
+
+### Map
+## Map
+GET https://api.deadlock-api.com/v1/assets/map?clientVersion={{clientVersion}}
+Accept: application/json

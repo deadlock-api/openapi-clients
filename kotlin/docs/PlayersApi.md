@@ -11,6 +11,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
 | [**rankPredict**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
+| [**rankPredictAvgImage**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image |
 | [**rankPredictImage**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image |
 
 
@@ -399,6 +400,54 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a id="rankPredictAvgImage"></a>
+# **rankPredictAvgImage**
+> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictAvgImage(accountIds, format)
+
+Rank Predict Avg Image
+
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
+val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+try {
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rankPredictAvgImage")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rankPredictAvgImage")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
+
+### Return type
+
+**kotlin.collections.List&lt;kotlin.Int&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a id="rankPredictImage"></a>
 # **rankPredictImage**

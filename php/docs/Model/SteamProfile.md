@@ -10,7 +10,9 @@ Name | Type | Description | Notes
 **avatarmedium** | **string** |  |
 **countrycode** | **string** |  | [optional]
 **friends** | [**\OpenAPI\Client\Model\SteamFriend[]**](SteamFriend.md) |  |
+**last_team_avg_badge** | **int** |  | [optional]
 **last_updated** | **\DateTime** |  |
+**matches_played_last_30d** | **int** |  |
 **personaname** | **string** |  |
 **profileurl** | **string** |  |
 **realname** | **string** |  | [optional]

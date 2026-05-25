@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildHeroDetails } from './build-hero-details';
+import type { BuildHeroDetails } from './build-hero-details.js';
 
 export interface BuildHero {
     'author_account_id': number;

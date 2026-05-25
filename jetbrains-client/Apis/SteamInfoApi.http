@@ -1,0 +1,11 @@
+## SteamInfoApi
+
+### Get All Steam Infos
+## Get All Steam Infos
+GET https://api.deadlock-api.com/v1/assets/steam-info/all
+Accept: application/json
+
+### Get Steam Info
+## Get Steam Info
+GET https://api.deadlock-api.com/v1/assets/steam-info?clientVersion={{clientVersion}}
+Accept: application/json

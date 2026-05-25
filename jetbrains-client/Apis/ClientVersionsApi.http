@@ -1,0 +1,6 @@
+## ClientVersionsApi
+
+### List Client Versions
+## List Client Versions
+GET https://api.deadlock-api.com/v1/assets/client-versions
+Accept: application/json

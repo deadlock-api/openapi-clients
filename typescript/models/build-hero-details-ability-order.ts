@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildHeroDetailsAbilityOrderCurrencyChange } from './build-hero-details-ability-order-currency-change';
+import type { BuildHeroDetailsAbilityOrderCurrencyChange } from './build-hero-details-ability-order-currency-change.js';
 
 export interface BuildHeroDetailsAbilityOrder {
     'currency_changes'?: Array<BuildHeroDetailsAbilityOrderCurrencyChange> | null;

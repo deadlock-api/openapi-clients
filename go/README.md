@@ -89,6 +89,9 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccoladesAPI* | [**GetAccolade**](docs/AccoladesAPI.md#getaccolade) | **Get** /v1/assets/accolades/{accolade_id} | Get Accolade
+*AccoladesAPI* | [**GetAccoladeByName**](docs/AccoladesAPI.md#getaccoladebyname) | **Get** /v1/assets/accolades/by-name/{name} | Get Accolade By Name
+*AccoladesAPI* | [**ListAccolades**](docs/AccoladesAPI.md#listaccolades) | **Get** /v1/assets/accolades | List Accolades
 *AnalyticsAPI* | [**AbilityOrderStats**](docs/AnalyticsAPI.md#abilityorderstats) | **Get** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsAPI* | [**BadgeDistribution**](docs/AnalyticsAPI.md#badgedistribution) | **Get** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsAPI* | [**BuildItemStats**](docs/AnalyticsAPI.md#builditemstats) | **Get** /v1/analytics/build-item-stats | Build Item Stats
@@ -106,7 +109,16 @@ Class | Method | HTTP request | Description
 *AnalyticsAPI* | [**PlayerPerformanceCurve**](docs/AnalyticsAPI.md#playerperformancecurve) | **Get** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsAPI* | [**PlayerScoreboard**](docs/AnalyticsAPI.md#playerscoreboard) | **Get** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsAPI* | [**PlayerStatsMetrics**](docs/AnalyticsAPI.md#playerstatsmetrics) | **Get** /v1/analytics/player-stats/metrics | Player Stats Metrics
+*AssetsBucketAPI* | [**Fonts**](docs/AssetsBucketAPI.md#fonts) | **Get** /v1/assets/fonts | Fonts Index
+*AssetsBucketAPI* | [**Icons**](docs/AssetsBucketAPI.md#icons) | **Get** /v1/assets/icons | Icons Index
+*AssetsBucketAPI* | [**Images**](docs/AssetsBucketAPI.md#images) | **Get** /v1/assets/images | Images Index
+*AssetsBucketAPI* | [**Sounds**](docs/AssetsBucketAPI.md#sounds) | **Get** /v1/assets/sounds | Sounds Index
+*BuildTagsAPI* | [**GetBuildTag**](docs/BuildTagsAPI.md#getbuildtag) | **Get** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
+*BuildTagsAPI* | [**GetBuildTagByName**](docs/BuildTagsAPI.md#getbuildtagbyname) | **Get** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name
+*BuildTagsAPI* | [**ListBuildTags**](docs/BuildTagsAPI.md#listbuildtags) | **Get** /v1/assets/build-tags | List Build Tags
 *BuildsAPI* | [**SearchBuilds**](docs/BuildsAPI.md#searchbuilds) | **Get** /v1/builds | Search
+*ClientVersionsAPI* | [**ListClientVersions**](docs/ClientVersionsAPI.md#listclientversions) | **Get** /v1/assets/client-versions | List Client Versions
+*ColorsAPI* | [**ListColors**](docs/ColorsAPI.md#listcolors) | **Get** /v1/assets/colors | List Colors
 *CommandsAPI* | [**AvailableVariables**](docs/CommandsAPI.md#availablevariables) | **Get** /v1/commands/variables/available | Available Variables
 *CommandsAPI* | [**CommandResolve**](docs/CommandsAPI.md#commandresolve) | **Get** /v1/commands/resolve | Resolve Command
 *CommandsAPI* | [**VariablesResolve**](docs/CommandsAPI.md#variablesresolve) | **Get** /v1/commands/variables/resolve | Resolve Variables
@@ -117,20 +129,31 @@ Class | Method | HTTP request | Description
 *CustomMatchesAPI* | [**ReadyUp**](docs/CustomMatchesAPI.md#readyup) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesAPI* | [**Start**](docs/CustomMatchesAPI.md#start) | **Post** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesAPI* | [**Unready**](docs/CustomMatchesAPI.md#unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
+*GenericDataAPI* | [**GetGenericData**](docs/GenericDataAPI.md#getgenericdata) | **Get** /v1/assets/generic-data | Get Generic Data
 *GraphQLAPI* | [**Playground**](docs/GraphQLAPI.md#playground) | **Get** /v1/graphql | GraphQL Playground
+*HeroesAPI* | [**GetHero**](docs/HeroesAPI.md#gethero) | **Get** /v1/assets/heroes/{hero_id} | Get Hero
+*HeroesAPI* | [**GetHeroByName**](docs/HeroesAPI.md#getherobyname) | **Get** /v1/assets/heroes/by-name/{name} | Get Hero By Name
+*HeroesAPI* | [**ListHeroes**](docs/HeroesAPI.md#listheroes) | **Get** /v1/assets/heroes | List Heroes
 *InfoAPI* | [**HealthCheck**](docs/InfoAPI.md#healthcheck) | **Get** /v1/info/health | Health Check
 *InfoAPI* | [**Info**](docs/InfoAPI.md#info) | **Get** /v1/info | API Info
 *InternalAPI* | [**IngestSalts**](docs/InternalAPI.md#ingestsalts) | **Post** /v1/matches/salts | Match Salts Ingest
+*ItemsAPI* | [**GetItem**](docs/ItemsAPI.md#getitem) | **Get** /v1/assets/items/{id_or_class_name} | Get Item
+*ItemsAPI* | [**GetItemsByHeroId**](docs/ItemsAPI.md#getitemsbyheroid) | **Get** /v1/assets/items/by-hero-id/{id} | List Items By Hero
+*ItemsAPI* | [**GetItemsBySlotType**](docs/ItemsAPI.md#getitemsbyslottype) | **Get** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type
+*ItemsAPI* | [**GetItemsByType**](docs/ItemsAPI.md#getitemsbytype) | **Get** /v1/assets/items/by-type/{type} | List Items By Type
+*ItemsAPI* | [**ListItems**](docs/ItemsAPI.md#listitems) | **Get** /v1/assets/items | List Items
 *LeaderboardAPI* | [**Leaderboard**](docs/LeaderboardAPI.md#leaderboard) | **Get** /v1/leaderboard/{region} | Leaderboard
 *LeaderboardAPI* | [**LeaderboardHero**](docs/LeaderboardAPI.md#leaderboardhero) | **Get** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard
 *LeaderboardAPI* | [**LeaderboardHeroRaw**](docs/LeaderboardAPI.md#leaderboardheroraw) | **Get** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
 *LeaderboardAPI* | [**LeaderboardRaw**](docs/LeaderboardAPI.md#leaderboardraw) | **Get** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
+*LootTablesAPI* | [**ListLootTables**](docs/LootTablesAPI.md#listloottables) | **Get** /v1/assets/loot-tables | List Loot Tables
 *MMRAPI* | [**HeroMmr**](docs/MMRAPI.md#herommr) | **Get** /v1/players/mmr/{hero_id} | Batch Hero MMR
 *MMRAPI* | [**HeroMmrDistribution**](docs/MMRAPI.md#herommrdistribution) | **Get** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
 *MMRAPI* | [**HeroMmrHistory**](docs/MMRAPI.md#herommrhistory) | **Get** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
 *MMRAPI* | [**Mmr**](docs/MMRAPI.md#mmr) | **Get** /v1/players/mmr | Batch MMR
 *MMRAPI* | [**MmrDistribution**](docs/MMRAPI.md#mmrdistribution) | **Get** /v1/players/mmr/distribution | MMR Distribution
 *MMRAPI* | [**MmrHistory**](docs/MMRAPI.md#mmrhistory) | **Get** /v1/players/{account_id}/mmr-history | MMR History
+*MapAPI* | [**GetMap**](docs/MapAPI.md#getmap) | **Get** /v1/assets/map | Map
 *MatchesAPI* | [**ActiveMatches**](docs/MatchesAPI.md#activematches) | **Get** /v1/matches/active | Active
 *MatchesAPI* | [**ActiveMatchesRaw**](docs/MatchesAPI.md#activematchesraw) | **Get** /v1/matches/active/raw | Active as Protobuf
 *MatchesAPI* | [**BulkMetadata**](docs/MatchesAPI.md#bulkmetadata) | **Get** /v1/matches/metadata | Bulk Metadata
@@ -140,8 +163,13 @@ Class | Method | HTTP request | Description
 *MatchesAPI* | [**Salts**](docs/MatchesAPI.md#salts) | **Get** /v1/matches/{match_id}/salts | Salts
 *MatchesAPI* | [**Url**](docs/MatchesAPI.md#url) | **Get** /v1/matches/{match_id}/live/url | Live Broadcast URL
 *MatchesAPI* | [**Urls**](docs/MatchesAPI.md#urls) | **Get** /v1/matches/live/urls | Live Broadcast URLs
+*MiscEntitiesAPI* | [**GetMiscEntity**](docs/MiscEntitiesAPI.md#getmiscentity) | **Get** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity
+*MiscEntitiesAPI* | [**ListMiscEntities**](docs/MiscEntitiesAPI.md#listmiscentities) | **Get** /v1/assets/misc-entities | List Misc Entities
+*NPCUnitsAPI* | [**GetNpcUnit**](docs/NPCUnitsAPI.md#getnpcunit) | **Get** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit
+*NPCUnitsAPI* | [**ListNpcUnits**](docs/NPCUnitsAPI.md#listnpcunits) | **Get** /v1/assets/npc-units | List NPC Units
 *PatchesAPI* | [**BigPatchDays**](docs/PatchesAPI.md#bigpatchdays) | **Get** /v1/patches/big-days | Big Days
 *PatchesAPI* | [**Feed**](docs/PatchesAPI.md#feed) | **Get** /v1/patches | Notes
+*PatchesAPI* | [**Feed_0**](docs/PatchesAPI.md#feed_0) | **Get** /v2/patches | Notes
 *PlayersAPI* | [**AccountStats**](docs/PlayersAPI.md#accountstats) | **Get** /v1/players/{account_id}/account-stats | Account Stats
 *PlayersAPI* | [**Card**](docs/PlayersAPI.md#card) | **Get** /v1/players/{account_id}/card | Card
 *PlayersAPI* | [**EnemyStats**](docs/PlayersAPI.md#enemystats) | **Get** /v1/players/{account_id}/enemy-stats | Enemy Stats
@@ -149,7 +177,10 @@ Class | Method | HTTP request | Description
 *PlayersAPI* | [**MateStats**](docs/PlayersAPI.md#matestats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersAPI* | [**PlayerHeroStats**](docs/PlayersAPI.md#playerherostats) | **Get** /v1/players/hero-stats | Hero Stats
 *PlayersAPI* | [**RankPredict**](docs/PlayersAPI.md#rankpredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict
+*PlayersAPI* | [**RankPredictAvgImage**](docs/PlayersAPI.md#rankpredictavgimage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image
 *PlayersAPI* | [**RankPredictImage**](docs/PlayersAPI.md#rankpredictimage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
+*RanksAPI* | [**GetRank**](docs/RanksAPI.md#getrank) | **Get** /v1/assets/ranks/{tier} | Get Rank
+*RanksAPI* | [**ListRanks**](docs/RanksAPI.md#listranks) | **Get** /v1/assets/ranks | List Ranks
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
 *SQLAPI* | [**Sql**](docs/SQLAPI.md#sql) | **Get** /v1/sql | Query
 *SQLAPI* | [**TableSchema**](docs/SQLAPI.md#tableschema) | **Get** /v1/sql/tables/{table}/schema | Table Schema
@@ -159,11 +190,22 @@ Class | Method | HTTP request | Description
 *ServersAPI* | [**SteamList**](docs/ServersAPI.md#steamlist) | **Get** /v1/servers/steam | List Steam Game Servers
 *SteamAPI* | [**Steam**](docs/SteamAPI.md#steam) | **Get** /v1/players/steam | Batch Steam Profile
 *SteamAPI* | [**SteamSearch**](docs/SteamAPI.md#steamsearch) | **Get** /v1/players/steam-search | Steam Profile Search
+*SteamInfoAPI* | [**GetAllSteamInfo**](docs/SteamInfoAPI.md#getallsteaminfo) | **Get** /v1/assets/steam-info/all | Get All Steam Infos
+*SteamInfoAPI* | [**GetSteamInfo**](docs/SteamInfoAPI.md#getsteaminfo) | **Get** /v1/assets/steam-info | Get Steam Info
 
 
 ## Documentation For Models
 
  - [APIInfo](docs/APIInfo.md)
+ - [Ability](docs/Ability.md)
+ - [AbilityActivation](docs/AbilityActivation.md)
+ - [AbilityDescription](docs/AbilityDescription.md)
+ - [AbilityImbue](docs/AbilityImbue.md)
+ - [AbilitySectionType](docs/AbilitySectionType.md)
+ - [AbilityTooltipDetails](docs/AbilityTooltipDetails.md)
+ - [AbilityType](docs/AbilityType.md)
+ - [AbilityVideos](docs/AbilityVideos.md)
+ - [Accolade](docs/Accolade.md)
  - [ActiveMatch](docs/ActiveMatch.md)
  - [ActiveMatchGameMode](docs/ActiveMatchGameMode.md)
  - [ActiveMatchMode](docs/ActiveMatchMode.md)
@@ -181,39 +223,91 @@ Class | Method | HTTP request | Description
  - [BuildHeroDetailsCategory](docs/BuildHeroDetailsCategory.md)
  - [BuildHeroDetailsCategoryAbility](docs/BuildHeroDetailsCategoryAbility.md)
  - [BuildItemStats](docs/BuildItemStats.md)
+ - [BuildTag](docs/BuildTag.md)
  - [ClickhouseMatchInfo](docs/ClickhouseMatchInfo.md)
  - [ClickhouseSalts](docs/ClickhouseSalts.md)
+ - [Color](docs/Color.md)
  - [CreateCustomRequest](docs/CreateCustomRequest.md)
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
+ - [Curve](docs/Curve.md)
+ - [CurveOrFloat](docs/CurveOrFloat.md)
+ - [DamageFlash](docs/DamageFlash.md)
+ - [DependantAbilities](docs/DependantAbilities.md)
  - [DistributionEntry](docs/DistributionEntry.md)
+ - [DraftBucket](docs/DraftBucket.md)
+ - [DraftBuckets](docs/DraftBuckets.md)
  - [EnemyStats](docs/EnemyStats.md)
+ - [FeedItem](docs/FeedItem.md)
+ - [FeedItemOneOf](docs/FeedItemOneOf.md)
+ - [FeedItemOneOf1](docs/FeedItemOneOf1.md)
+ - [FlashData](docs/FlashData.md)
+ - [ForumPatch](docs/ForumPatch.md)
  - [GameMode](docs/GameMode.md)
  - [GameServerInfo](docs/GameServerInfo.md)
+ - [GenericData](docs/GenericData.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
+ - [GlitchSettings](docs/GlitchSettings.md)
+ - [HashMapItemSlotTypeItemSlotInfoValue](docs/HashMapItemSlotTypeItemSlotInfoValue.md)
+ - [HashMapItemSlotTypeVecMapModCostBonusValueInner](docs/HashMapItemSlotTypeVecMapModCostBonusValueInner.md)
+ - [HashMapItemSlotTypeVecPurchaseBonusValueInner](docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md)
+ - [HashMapStringLevelInfoValue](docs/HashMapStringLevelInfoValue.md)
+ - [HashMapStringOptionDraftBucketingValue](docs/HashMapStringOptionDraftBucketingValue.md)
+ - [HashMapStringOptionDraftBucketingValueOneOf](docs/HashMapStringOptionDraftBucketingValueOneOf.md)
+ - [HashMapStringScalingStatValue](docs/HashMapStringScalingStatValue.md)
  - [HashMapValue](docs/HashMapValue.md)
+ - [Hero](docs/Hero.md)
  - [HeroBanStats](docs/HeroBanStats.md)
  - [HeroBuildStats](docs/HeroBuildStats.md)
+ - [HeroColors](docs/HeroColors.md)
  - [HeroCombStats](docs/HeroCombStats.md)
  - [HeroCounterStats](docs/HeroCounterStats.md)
+ - [HeroDescription](docs/HeroDescription.md)
  - [HeroEntry](docs/HeroEntry.md)
+ - [HeroImages](docs/HeroImages.md)
+ - [HeroPhysics](docs/HeroPhysics.md)
  - [HeroStats](docs/HeroStats.md)
+ - [HeroStatsUI](docs/HeroStatsUI.md)
+ - [HeroStatsUIDisplay](docs/HeroStatsUIDisplay.md)
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
+ - [HeroType](docs/HeroType.md)
+ - [HorizontalRecoil](docs/HorizontalRecoil.md)
+ - [Item](docs/Item.md)
+ - [ItemDraftRound](docs/ItemDraftRound.md)
+ - [ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
+ - [ItemGroup](docs/ItemGroup.md)
  - [ItemPermutationStats](docs/ItemPermutationStats.md)
+ - [ItemProperty](docs/ItemProperty.md)
+ - [ItemSlotType](docs/ItemSlotType.md)
  - [ItemStats](docs/ItemStats.md)
+ - [ItemType](docs/ItemType.md)
  - [KillDeathStats](docs/KillDeathStats.md)
+ - [LaneInfo](docs/LaneInfo.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
  - [ListServersResponse](docs/ListServersResponse.md)
  - [LiveUrl](docs/LiveUrl.md)
+ - [LootEntry](docs/LootEntry.md)
+ - [LootTable](docs/LootTable.md)
  - [MMRHistory](docs/MMRHistory.md)
+ - [Map](docs/Map.md)
+ - [MapImages](docs/MapImages.md)
  - [MatchPlayer](docs/MatchPlayer.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
  - [MetricIngestRequest](docs/MetricIngestRequest.md)
+ - [MiniMapOffsets](docs/MiniMapOffsets.md)
+ - [MiscEntity](docs/MiscEntity.md)
+ - [ModifierValue](docs/ModifierValue.md)
+ - [NewPlayerMetrics](docs/NewPlayerMetrics.md)
+ - [NpcUnit](docs/NpcUnit.md)
+ - [ObjectiveParams](docs/ObjectiveParams.md)
+ - [ObjectivePosition](docs/ObjectivePosition.md)
+ - [OutcomeToWeights](docs/OutcomeToWeights.md)
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)
+ - [Pickup](docs/Pickup.md)
  - [PlayerAccountHeroStats](docs/PlayerAccountHeroStats.md)
  - [PlayerAccountStats](docs/PlayerAccountStats.md)
  - [PlayerCard](docs/PlayerCard.md)
@@ -223,20 +317,77 @@ Class | Method | HTTP request | Description
  - [PlayerEntry](docs/PlayerEntry.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
+ - [Rank](docs/Rank.md)
+ - [RankImages](docs/RankImages.md)
  - [RankPredictResponse](docs/RankPredictResponse.md)
  - [RankPrediction](docs/RankPrediction.md)
+ - [RawAbilityUpgrade](docs/RawAbilityUpgrade.md)
+ - [RawAbilityUpgradePropertyUpgrade](docs/RawAbilityUpgradePropertyUpgrade.md)
+ - [RawCustomCrosshairSettings](docs/RawCustomCrosshairSettings.md)
+ - [RawItemPropertyScaleFunctionSubclass](docs/RawItemPropertyScaleFunctionSubclass.md)
+ - [RawItemWeaponInfoBulletSpeedCurve](docs/RawItemWeaponInfoBulletSpeedCurve.md)
+ - [RawItemWeaponInfoBulletSpeedCurveSpline](docs/RawItemWeaponInfoBulletSpeedCurveSpline.md)
+ - [RawItemWeaponInfoInner](docs/RawItemWeaponInfoInner.md)
+ - [RawWeaponInfoHorizontalRecoil](docs/RawWeaponInfoHorizontalRecoil.md)
+ - [RawWeaponInfoVerticalRecoil](docs/RawWeaponInfoVerticalRecoil.md)
+ - [RecoilRange](docs/RecoilRange.md)
  - [RegionMode](docs/RegionMode.md)
+ - [RejuvParams](docs/RejuvParams.md)
+ - [RollType](docs/RollType.md)
+ - [RollTypeOneOf](docs/RollTypeOneOf.md)
+ - [ScriptValues](docs/ScriptValues.md)
  - [ServerRegion](docs/ServerRegion.md)
  - [ServerStatusRequest](docs/ServerStatusRequest.md)
  - [ServerStatusResponse](docs/ServerStatusResponse.md)
+ - [ShopSpiritStatsDisplay](docs/ShopSpiritStatsDisplay.md)
+ - [ShopStatDisplay](docs/ShopStatDisplay.md)
+ - [ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)
+ - [ShopWeaponStatsDisplay](docs/ShopWeaponStatsDisplay.md)
+ - [SpreadPenalty](docs/SpreadPenalty.md)
+ - [StartingStat](docs/StartingStat.md)
+ - [StartingStats](docs/StartingStats.md)
+ - [StatsDisplay](docs/StatsDisplay.md)
+ - [StatsUsageFlag](docs/StatsUsageFlag.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamFriend](docs/SteamFriend.md)
+ - [SteamInfo](docs/SteamInfo.md)
+ - [SteamNews](docs/SteamNews.md)
  - [SteamProfile](docs/SteamProfile.md)
  - [SteamServer](docs/SteamServer.md)
+ - [StreetBrawl](docs/StreetBrawl.md)
+ - [SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
+ - [SubclassBulletResistModifierSubclass](docs/SubclassBulletResistModifierSubclass.md)
+ - [SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)
+ - [SubclassEmpoweredModifierLevelSubclass](docs/SubclassEmpoweredModifierLevelSubclass.md)
+ - [SubclassIntrinsicModifiers](docs/SubclassIntrinsicModifiers.md)
+ - [SubclassIntrinsicModifiersSubclass](docs/SubclassIntrinsicModifiersSubclass.md)
+ - [SubclassModifierDefinition](docs/SubclassModifierDefinition.md)
+ - [SubclassModifierDefinitionSubclass](docs/SubclassModifierDefinitionSubclass.md)
+ - [SubclassObjectiveHealthGrowthPhase](docs/SubclassObjectiveHealthGrowthPhase.md)
+ - [SubclassObjectiveHealthGrowthPhaseSubclass](docs/SubclassObjectiveHealthGrowthPhaseSubclass.md)
+ - [SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)
+ - [SubclassObjectiveRegenSubclass](docs/SubclassObjectiveRegenSubclass.md)
+ - [SubclassRangedArmorModifier](docs/SubclassRangedArmorModifier.md)
+ - [SubclassRangedArmorModifierSubclass](docs/SubclassRangedArmorModifierSubclass.md)
+ - [SubclassTrooperDamageReduction](docs/SubclassTrooperDamageReduction.md)
+ - [SubclassTrooperDamageReductionSubclass](docs/SubclassTrooperDamageReductionSubclass.md)
  - [TableSize](docs/TableSize.md)
+ - [TooltipDetailsBlock](docs/TooltipDetailsBlock.md)
+ - [TooltipDetailsBlockProperty](docs/TooltipDetailsBlockProperty.md)
+ - [TooltipDetailsInfoSection](docs/TooltipDetailsInfoSection.md)
+ - [Upgrade](docs/Upgrade.md)
+ - [UpgradeDescription](docs/UpgradeDescription.md)
+ - [UpgradeProperty](docs/UpgradeProperty.md)
+ - [UpgradeTooltipImportantPropertyWithIcon](docs/UpgradeTooltipImportantPropertyWithIcon.md)
+ - [UpgradeTooltipSection](docs/UpgradeTooltipSection.md)
+ - [UpgradeTooltipSectionAttribute](docs/UpgradeTooltipSectionAttribute.md)
  - [VariableCategory](docs/VariableCategory.md)
  - [VariableDescription](docs/VariableDescription.md)
+ - [VerticalRecoil](docs/VerticalRecoil.md)
+ - [Weapon](docs/Weapon.md)
+ - [WeaponInfo](docs/WeaponInfo.md)
+ - [ZiplanePath](docs/ZiplanePath.md)
 
 
 ## Documentation For Authorization

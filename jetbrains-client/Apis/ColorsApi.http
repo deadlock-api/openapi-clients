@@ -1,0 +1,6 @@
+## ColorsApi
+
+### List Colors
+## List Colors
+GET https://api.deadlock-api.com/v1/assets/colors?clientVersion={{clientVersion}}
+Accept: application/json

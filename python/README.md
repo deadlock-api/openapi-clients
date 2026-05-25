@@ -84,34 +84,18 @@ configuration = deadlock_api_client.Configuration(
 # Enter a context with an instance of the API client
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deadlock_api_client.AnalyticsApi(api_client)
-    hero_id = 56 # int | See more: <https://assets.deadlock-api.com/v2/heroes>
-    game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
-    min_unix_timestamp = 1776556800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1776556800)
-    max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
-    min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
-    max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
-    min_ability_upgrades = 56 # int | Filter players based on their minimum number of ability upgrades over the whole match. (optional)
-    max_ability_upgrades = 56 # int | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
-    min_networth = 56 # int | Filter players based on their final net worth. (optional)
-    max_networth = 56 # int | Filter players based on their final net worth. (optional)
-    min_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-    max_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-    min_match_id = 56 # int | Filter matches based on their ID. (optional)
-    max_match_id = 56 # int | Filter matches based on their ID. (optional)
-    min_matches = 20 # int | The minimum number of matches played for an ability order to be included in the response. (optional) (default to 20)
-    account_id = 56 # int | Filter for matches with a specific player account ID. (optional)
-    account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
-    include_item_ids = [56] # List[int] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
-    exclude_item_ids = [56] # List[int] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items> (optional)
+    api_instance = deadlock_api_client.AccoladesApi(api_client)
+    accolade_id = 56 # int | Accolade id (`m_unAccoladeID`)
+    language = 'language_example' # str | Language code. Defaults to `english`. (optional)
+    client_version = 56 # int | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
     try:
-        # Ability Order Stats
-        api_response = api_instance.ability_order_stats(hero_id, game_mode=game_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_ability_upgrades=min_ability_upgrades, max_ability_upgrades=max_ability_upgrades, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, min_matches=min_matches, account_id=account_id, account_ids=account_ids, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids)
-        print("The response of AnalyticsApi->ability_order_stats:\n")
+        # Get Accolade
+        api_response = api_instance.get_accolade(accolade_id, language=language, client_version=client_version)
+        print("The response of AccoladesApi->get_accolade:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AnalyticsApi->ability_order_stats: %s\n" % e)
+        print("Exception when calling AccoladesApi->get_accolade: %s\n" % e)
 
 ```
 
@@ -121,6 +105,9 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccoladesApi* | [**get_accolade**](docs/AccoladesApi.md#get_accolade) | **GET** /v1/assets/accolades/{accolade_id} | Get Accolade
+*AccoladesApi* | [**get_accolade_by_name**](docs/AccoladesApi.md#get_accolade_by_name) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name
+*AccoladesApi* | [**list_accolades**](docs/AccoladesApi.md#list_accolades) | **GET** /v1/assets/accolades | List Accolades
 *AnalyticsApi* | [**ability_order_stats**](docs/AnalyticsApi.md#ability_order_stats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsApi* | [**badge_distribution**](docs/AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**build_item_stats**](docs/AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
@@ -138,7 +125,16 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**player_performance_curve**](docs/AnalyticsApi.md#player_performance_curve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsApi* | [**player_scoreboard**](docs/AnalyticsApi.md#player_scoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**player_stats_metrics**](docs/AnalyticsApi.md#player_stats_metrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
+*AssetsBucketApi* | [**fonts**](docs/AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index
+*AssetsBucketApi* | [**icons**](docs/AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index
+*AssetsBucketApi* | [**images**](docs/AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index
+*AssetsBucketApi* | [**sounds**](docs/AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index
+*BuildTagsApi* | [**get_build_tag**](docs/BuildTagsApi.md#get_build_tag) | **GET** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
+*BuildTagsApi* | [**get_build_tag_by_name**](docs/BuildTagsApi.md#get_build_tag_by_name) | **GET** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name
+*BuildTagsApi* | [**list_build_tags**](docs/BuildTagsApi.md#list_build_tags) | **GET** /v1/assets/build-tags | List Build Tags
 *BuildsApi* | [**search_builds**](docs/BuildsApi.md#search_builds) | **GET** /v1/builds | Search
+*ClientVersionsApi* | [**list_client_versions**](docs/ClientVersionsApi.md#list_client_versions) | **GET** /v1/assets/client-versions | List Client Versions
+*ColorsApi* | [**list_colors**](docs/ColorsApi.md#list_colors) | **GET** /v1/assets/colors | List Colors
 *CommandsApi* | [**available_variables**](docs/CommandsApi.md#available_variables) | **GET** /v1/commands/variables/available | Available Variables
 *CommandsApi* | [**command_resolve**](docs/CommandsApi.md#command_resolve) | **GET** /v1/commands/resolve | Resolve Command
 *CommandsApi* | [**variables_resolve**](docs/CommandsApi.md#variables_resolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
@@ -149,20 +145,31 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**ready_up**](docs/CustomMatchesApi.md#ready_up) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*GenericDataApi* | [**get_generic_data**](docs/GenericDataApi.md#get_generic_data) | **GET** /v1/assets/generic-data | Get Generic Data
 *GraphQLApi* | [**playground**](docs/GraphQLApi.md#playground) | **GET** /v1/graphql | GraphQL Playground
+*HeroesApi* | [**get_hero**](docs/HeroesApi.md#get_hero) | **GET** /v1/assets/heroes/{hero_id} | Get Hero
+*HeroesApi* | [**get_hero_by_name**](docs/HeroesApi.md#get_hero_by_name) | **GET** /v1/assets/heroes/by-name/{name} | Get Hero By Name
+*HeroesApi* | [**list_heroes**](docs/HeroesApi.md#list_heroes) | **GET** /v1/assets/heroes | List Heroes
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingest_salts**](docs/InternalApi.md#ingest_salts) | **POST** /v1/matches/salts | Match Salts Ingest
+*ItemsApi* | [**get_item**](docs/ItemsApi.md#get_item) | **GET** /v1/assets/items/{id_or_class_name} | Get Item
+*ItemsApi* | [**get_items_by_hero_id**](docs/ItemsApi.md#get_items_by_hero_id) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero
+*ItemsApi* | [**get_items_by_slot_type**](docs/ItemsApi.md#get_items_by_slot_type) | **GET** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type
+*ItemsApi* | [**get_items_by_type**](docs/ItemsApi.md#get_items_by_type) | **GET** /v1/assets/items/by-type/{type} | List Items By Type
+*ItemsApi* | [**list_items**](docs/ItemsApi.md#list_items) | **GET** /v1/assets/items | List Items
 *LeaderboardApi* | [**leaderboard**](docs/LeaderboardApi.md#leaderboard) | **GET** /v1/leaderboard/{region} | Leaderboard
 *LeaderboardApi* | [**leaderboard_hero**](docs/LeaderboardApi.md#leaderboard_hero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard
 *LeaderboardApi* | [**leaderboard_hero_raw**](docs/LeaderboardApi.md#leaderboard_hero_raw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
 *LeaderboardApi* | [**leaderboard_raw**](docs/LeaderboardApi.md#leaderboard_raw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
+*LootTablesApi* | [**list_loot_tables**](docs/LootTablesApi.md#list_loot_tables) | **GET** /v1/assets/loot-tables | List Loot Tables
 *MMRApi* | [**hero_mmr**](docs/MMRApi.md#hero_mmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
 *MMRApi* | [**hero_mmr_distribution**](docs/MMRApi.md#hero_mmr_distribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
 *MMRApi* | [**hero_mmr_history**](docs/MMRApi.md#hero_mmr_history) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
 *MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR
 *MMRApi* | [**mmr_distribution**](docs/MMRApi.md#mmr_distribution) | **GET** /v1/players/mmr/distribution | MMR Distribution
 *MMRApi* | [**mmr_history**](docs/MMRApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History
+*MapApi* | [**get_map**](docs/MapApi.md#get_map) | **GET** /v1/assets/map | Map
 *MatchesApi* | [**active_matches**](docs/MatchesApi.md#active_matches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**active_matches_raw**](docs/MatchesApi.md#active_matches_raw) | **GET** /v1/matches/active/raw | Active as Protobuf
 *MatchesApi* | [**bulk_metadata**](docs/MatchesApi.md#bulk_metadata) | **GET** /v1/matches/metadata | Bulk Metadata
@@ -172,8 +179,13 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**salts**](docs/MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 *MatchesApi* | [**url**](docs/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
 *MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
+*MiscEntitiesApi* | [**get_misc_entity**](docs/MiscEntitiesApi.md#get_misc_entity) | **GET** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity
+*MiscEntitiesApi* | [**list_misc_entities**](docs/MiscEntitiesApi.md#list_misc_entities) | **GET** /v1/assets/misc-entities | List Misc Entities
+*NPCUnitsApi* | [**get_npc_unit**](docs/NPCUnitsApi.md#get_npc_unit) | **GET** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit
+*NPCUnitsApi* | [**list_npc_units**](docs/NPCUnitsApi.md#list_npc_units) | **GET** /v1/assets/npc-units | List NPC Units
 *PatchesApi* | [**big_patch_days**](docs/PatchesApi.md#big_patch_days) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes
+*PatchesApi* | [**feed_0**](docs/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes
 *PlayersApi* | [**account_stats**](docs/PlayersApi.md#account_stats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
 *PlayersApi* | [**card**](docs/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemy_stats**](docs/PlayersApi.md#enemy_stats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
@@ -181,7 +193,10 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mate_stats**](docs/PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**player_hero_stats**](docs/PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
 *PlayersApi* | [**rank_predict**](docs/PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
+*PlayersApi* | [**rank_predict_avg_image**](docs/PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image
 *PlayersApi* | [**rank_predict_image**](docs/PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
+*RanksApi* | [**get_rank**](docs/RanksApi.md#get_rank) | **GET** /v1/assets/ranks/{tier} | Get Rank
+*RanksApi* | [**list_ranks**](docs/RanksApi.md#list_ranks) | **GET** /v1/assets/ranks | List Ranks
 *SQLApi* | [**list_tables**](docs/SQLApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**table_schema**](docs/SQLApi.md#table_schema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
@@ -191,11 +206,22 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**steam_list**](docs/ServersApi.md#steam_list) | **GET** /v1/servers/steam | List Steam Game Servers
 *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steam_search**](docs/SteamApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
+*SteamInfoApi* | [**get_all_steam_info**](docs/SteamInfoApi.md#get_all_steam_info) | **GET** /v1/assets/steam-info/all | Get All Steam Infos
+*SteamInfoApi* | [**get_steam_info**](docs/SteamInfoApi.md#get_steam_info) | **GET** /v1/assets/steam-info | Get Steam Info
 
 
 ## Documentation For Models
 
  - [APIInfo](docs/APIInfo.md)
+ - [Ability](docs/Ability.md)
+ - [AbilityActivation](docs/AbilityActivation.md)
+ - [AbilityDescription](docs/AbilityDescription.md)
+ - [AbilityImbue](docs/AbilityImbue.md)
+ - [AbilitySectionType](docs/AbilitySectionType.md)
+ - [AbilityTooltipDetails](docs/AbilityTooltipDetails.md)
+ - [AbilityType](docs/AbilityType.md)
+ - [AbilityVideos](docs/AbilityVideos.md)
+ - [Accolade](docs/Accolade.md)
  - [ActiveMatch](docs/ActiveMatch.md)
  - [ActiveMatchGameMode](docs/ActiveMatchGameMode.md)
  - [ActiveMatchMode](docs/ActiveMatchMode.md)
@@ -213,39 +239,91 @@ Class | Method | HTTP request | Description
  - [BuildHeroDetailsCategory](docs/BuildHeroDetailsCategory.md)
  - [BuildHeroDetailsCategoryAbility](docs/BuildHeroDetailsCategoryAbility.md)
  - [BuildItemStats](docs/BuildItemStats.md)
+ - [BuildTag](docs/BuildTag.md)
  - [ClickhouseMatchInfo](docs/ClickhouseMatchInfo.md)
  - [ClickhouseSalts](docs/ClickhouseSalts.md)
+ - [Color](docs/Color.md)
  - [CreateCustomRequest](docs/CreateCustomRequest.md)
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
+ - [Curve](docs/Curve.md)
+ - [CurveOrFloat](docs/CurveOrFloat.md)
+ - [DamageFlash](docs/DamageFlash.md)
+ - [DependantAbilities](docs/DependantAbilities.md)
  - [DistributionEntry](docs/DistributionEntry.md)
+ - [DraftBucket](docs/DraftBucket.md)
+ - [DraftBuckets](docs/DraftBuckets.md)
  - [EnemyStats](docs/EnemyStats.md)
+ - [FeedItem](docs/FeedItem.md)
+ - [FeedItemOneOf](docs/FeedItemOneOf.md)
+ - [FeedItemOneOf1](docs/FeedItemOneOf1.md)
+ - [FlashData](docs/FlashData.md)
+ - [ForumPatch](docs/ForumPatch.md)
  - [GameMode](docs/GameMode.md)
  - [GameServerInfo](docs/GameServerInfo.md)
+ - [GenericData](docs/GenericData.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
+ - [GlitchSettings](docs/GlitchSettings.md)
+ - [HashMapItemSlotTypeItemSlotInfoValue](docs/HashMapItemSlotTypeItemSlotInfoValue.md)
+ - [HashMapItemSlotTypeVecMapModCostBonusValueInner](docs/HashMapItemSlotTypeVecMapModCostBonusValueInner.md)
+ - [HashMapItemSlotTypeVecPurchaseBonusValueInner](docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md)
+ - [HashMapStringLevelInfoValue](docs/HashMapStringLevelInfoValue.md)
+ - [HashMapStringOptionDraftBucketingValue](docs/HashMapStringOptionDraftBucketingValue.md)
+ - [HashMapStringOptionDraftBucketingValueOneOf](docs/HashMapStringOptionDraftBucketingValueOneOf.md)
+ - [HashMapStringScalingStatValue](docs/HashMapStringScalingStatValue.md)
  - [HashMapValue](docs/HashMapValue.md)
+ - [Hero](docs/Hero.md)
  - [HeroBanStats](docs/HeroBanStats.md)
  - [HeroBuildStats](docs/HeroBuildStats.md)
+ - [HeroColors](docs/HeroColors.md)
  - [HeroCombStats](docs/HeroCombStats.md)
  - [HeroCounterStats](docs/HeroCounterStats.md)
+ - [HeroDescription](docs/HeroDescription.md)
  - [HeroEntry](docs/HeroEntry.md)
+ - [HeroImages](docs/HeroImages.md)
+ - [HeroPhysics](docs/HeroPhysics.md)
  - [HeroStats](docs/HeroStats.md)
+ - [HeroStatsUI](docs/HeroStatsUI.md)
+ - [HeroStatsUIDisplay](docs/HeroStatsUIDisplay.md)
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
+ - [HeroType](docs/HeroType.md)
+ - [HorizontalRecoil](docs/HorizontalRecoil.md)
+ - [Item](docs/Item.md)
+ - [ItemDraftRound](docs/ItemDraftRound.md)
+ - [ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
+ - [ItemGroup](docs/ItemGroup.md)
  - [ItemPermutationStats](docs/ItemPermutationStats.md)
+ - [ItemProperty](docs/ItemProperty.md)
+ - [ItemSlotType](docs/ItemSlotType.md)
  - [ItemStats](docs/ItemStats.md)
+ - [ItemType](docs/ItemType.md)
  - [KillDeathStats](docs/KillDeathStats.md)
+ - [LaneInfo](docs/LaneInfo.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
  - [ListServersResponse](docs/ListServersResponse.md)
  - [LiveUrl](docs/LiveUrl.md)
+ - [LootEntry](docs/LootEntry.md)
+ - [LootTable](docs/LootTable.md)
  - [MMRHistory](docs/MMRHistory.md)
+ - [Map](docs/Map.md)
+ - [MapImages](docs/MapImages.md)
  - [MatchPlayer](docs/MatchPlayer.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
  - [MetricIngestRequest](docs/MetricIngestRequest.md)
+ - [MiniMapOffsets](docs/MiniMapOffsets.md)
+ - [MiscEntity](docs/MiscEntity.md)
+ - [ModifierValue](docs/ModifierValue.md)
+ - [NewPlayerMetrics](docs/NewPlayerMetrics.md)
+ - [NpcUnit](docs/NpcUnit.md)
+ - [ObjectiveParams](docs/ObjectiveParams.md)
+ - [ObjectivePosition](docs/ObjectivePosition.md)
+ - [OutcomeToWeights](docs/OutcomeToWeights.md)
  - [Patch](docs/Patch.md)
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)
+ - [Pickup](docs/Pickup.md)
  - [PlayerAccountHeroStats](docs/PlayerAccountHeroStats.md)
  - [PlayerAccountStats](docs/PlayerAccountStats.md)
  - [PlayerCard](docs/PlayerCard.md)
@@ -255,20 +333,77 @@ Class | Method | HTTP request | Description
  - [PlayerEntry](docs/PlayerEntry.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
+ - [Rank](docs/Rank.md)
+ - [RankImages](docs/RankImages.md)
  - [RankPredictResponse](docs/RankPredictResponse.md)
  - [RankPrediction](docs/RankPrediction.md)
+ - [RawAbilityUpgrade](docs/RawAbilityUpgrade.md)
+ - [RawAbilityUpgradePropertyUpgrade](docs/RawAbilityUpgradePropertyUpgrade.md)
+ - [RawCustomCrosshairSettings](docs/RawCustomCrosshairSettings.md)
+ - [RawItemPropertyScaleFunctionSubclass](docs/RawItemPropertyScaleFunctionSubclass.md)
+ - [RawItemWeaponInfoBulletSpeedCurve](docs/RawItemWeaponInfoBulletSpeedCurve.md)
+ - [RawItemWeaponInfoBulletSpeedCurveSpline](docs/RawItemWeaponInfoBulletSpeedCurveSpline.md)
+ - [RawItemWeaponInfoInner](docs/RawItemWeaponInfoInner.md)
+ - [RawWeaponInfoHorizontalRecoil](docs/RawWeaponInfoHorizontalRecoil.md)
+ - [RawWeaponInfoVerticalRecoil](docs/RawWeaponInfoVerticalRecoil.md)
+ - [RecoilRange](docs/RecoilRange.md)
  - [RegionMode](docs/RegionMode.md)
+ - [RejuvParams](docs/RejuvParams.md)
+ - [RollType](docs/RollType.md)
+ - [RollTypeOneOf](docs/RollTypeOneOf.md)
+ - [ScriptValues](docs/ScriptValues.md)
  - [ServerRegion](docs/ServerRegion.md)
  - [ServerStatusRequest](docs/ServerStatusRequest.md)
  - [ServerStatusResponse](docs/ServerStatusResponse.md)
+ - [ShopSpiritStatsDisplay](docs/ShopSpiritStatsDisplay.md)
+ - [ShopStatDisplay](docs/ShopStatDisplay.md)
+ - [ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)
+ - [ShopWeaponStatsDisplay](docs/ShopWeaponStatsDisplay.md)
+ - [SpreadPenalty](docs/SpreadPenalty.md)
+ - [StartingStat](docs/StartingStat.md)
+ - [StartingStats](docs/StartingStats.md)
+ - [StatsDisplay](docs/StatsDisplay.md)
+ - [StatsUsageFlag](docs/StatsUsageFlag.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
  - [SteamFriend](docs/SteamFriend.md)
+ - [SteamInfo](docs/SteamInfo.md)
+ - [SteamNews](docs/SteamNews.md)
  - [SteamProfile](docs/SteamProfile.md)
  - [SteamServer](docs/SteamServer.md)
+ - [StreetBrawl](docs/StreetBrawl.md)
+ - [SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
+ - [SubclassBulletResistModifierSubclass](docs/SubclassBulletResistModifierSubclass.md)
+ - [SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)
+ - [SubclassEmpoweredModifierLevelSubclass](docs/SubclassEmpoweredModifierLevelSubclass.md)
+ - [SubclassIntrinsicModifiers](docs/SubclassIntrinsicModifiers.md)
+ - [SubclassIntrinsicModifiersSubclass](docs/SubclassIntrinsicModifiersSubclass.md)
+ - [SubclassModifierDefinition](docs/SubclassModifierDefinition.md)
+ - [SubclassModifierDefinitionSubclass](docs/SubclassModifierDefinitionSubclass.md)
+ - [SubclassObjectiveHealthGrowthPhase](docs/SubclassObjectiveHealthGrowthPhase.md)
+ - [SubclassObjectiveHealthGrowthPhaseSubclass](docs/SubclassObjectiveHealthGrowthPhaseSubclass.md)
+ - [SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)
+ - [SubclassObjectiveRegenSubclass](docs/SubclassObjectiveRegenSubclass.md)
+ - [SubclassRangedArmorModifier](docs/SubclassRangedArmorModifier.md)
+ - [SubclassRangedArmorModifierSubclass](docs/SubclassRangedArmorModifierSubclass.md)
+ - [SubclassTrooperDamageReduction](docs/SubclassTrooperDamageReduction.md)
+ - [SubclassTrooperDamageReductionSubclass](docs/SubclassTrooperDamageReductionSubclass.md)
  - [TableSize](docs/TableSize.md)
+ - [TooltipDetailsBlock](docs/TooltipDetailsBlock.md)
+ - [TooltipDetailsBlockProperty](docs/TooltipDetailsBlockProperty.md)
+ - [TooltipDetailsInfoSection](docs/TooltipDetailsInfoSection.md)
+ - [Upgrade](docs/Upgrade.md)
+ - [UpgradeDescription](docs/UpgradeDescription.md)
+ - [UpgradeProperty](docs/UpgradeProperty.md)
+ - [UpgradeTooltipImportantPropertyWithIcon](docs/UpgradeTooltipImportantPropertyWithIcon.md)
+ - [UpgradeTooltipSection](docs/UpgradeTooltipSection.md)
+ - [UpgradeTooltipSectionAttribute](docs/UpgradeTooltipSectionAttribute.md)
  - [VariableCategory](docs/VariableCategory.md)
  - [VariableDescription](docs/VariableDescription.md)
+ - [VerticalRecoil](docs/VerticalRecoil.md)
+ - [Weapon](docs/Weapon.md)
+ - [WeaponInfo](docs/WeaponInfo.md)
+ - [ZiplanePath](docs/ZiplanePath.md)
 
 
 <a id="documentation-for-authorization"></a>

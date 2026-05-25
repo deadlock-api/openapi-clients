@@ -146,6 +146,8 @@ func (r ApiFeedRequest) Execute() ([]Patch, *http.Response, error) {
 Feed Notes
 
 
+**Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.
+
 Returns the parsed result of the RSS Feed from the official Forum.
 
 RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss
@@ -160,6 +162,8 @@ RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiFeedRequest
+
+Deprecated
 */
 func (a *PatchesAPIService) Feed(ctx context.Context) ApiFeedRequest {
 	return ApiFeedRequest{
@@ -170,6 +174,7 @@ func (a *PatchesAPIService) Feed(ctx context.Context) ApiFeedRequest {
 
 // Execute executes the request
 //  @return []Patch
+// Deprecated
 func (a *PatchesAPIService) FeedExecute(r ApiFeedRequest) ([]Patch, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -184,6 +189,119 @@ func (a *PatchesAPIService) FeedExecute(r ApiFeedRequest) ([]Patch, *http.Respon
 	}
 
 	localVarPath := localBasePath + "/v1/patches"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiFeed_0Request struct {
+	ctx context.Context
+	ApiService *PatchesAPIService
+}
+
+func (r ApiFeed_0Request) Execute() ([]FeedItem, *http.Response, error) {
+	return r.ApiService.Feed_1Execute(r)
+}
+
+/*
+Feed_0 Notes
+
+
+Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.
+
+Each entry is tagged with a `source` field (`forum` or `steam`).
+
+- Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss
+- Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiFeed_0Request
+*/
+func (a *PatchesAPIService) Feed_1(ctx context.Context) ApiFeed_0Request {
+	return ApiFeed_0Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []FeedItem
+func (a *PatchesAPIService) Feed_1Execute(r ApiFeed_0Request) ([]FeedItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []FeedItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PatchesAPIService.Feed_1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v2/patches"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

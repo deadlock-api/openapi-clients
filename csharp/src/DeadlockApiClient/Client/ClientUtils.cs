@@ -143,18 +143,38 @@ namespace DeadlockApiClient.Client
                 return boolean
                     ? "true"
                     : "false";
+            if (obj is AbilityActivation abilityActivation)
+                return AbilityActivationValueConverter.ToJsonValue(abilityActivation);
+            if (obj is AbilityImbue abilityImbue)
+                return AbilityImbueValueConverter.ToJsonValue(abilityImbue);
+            if (obj is AbilitySectionType abilitySectionType)
+                return AbilitySectionTypeValueConverter.ToJsonValue(abilitySectionType);
+            if (obj is AbilityType abilityType)
+                return AbilityTypeValueConverter.ToJsonValue(abilityType);
             if (obj is ActiveMatchGameMode activeMatchGameMode)
                 return ActiveMatchGameModeValueConverter.ToJsonValue(activeMatchGameMode);
             if (obj is ActiveMatchMode activeMatchMode)
                 return ActiveMatchModeValueConverter.ToJsonValue(activeMatchMode);
             if (obj is ActiveMatchTeam activeMatchTeam)
                 return ActiveMatchTeamValueConverter.ToJsonValue(activeMatchTeam);
+            if (obj is FeedItemOneOf.SourceEnum feedItemOneOfSourceEnum)
+                return FeedItemOneOf.SourceEnumToJsonValue(feedItemOneOfSourceEnum);
+            if (obj is FeedItemOneOf1.SourceEnum feedItemOneOf1SourceEnum)
+                return FeedItemOneOf1.SourceEnumToJsonValue(feedItemOneOf1SourceEnum);
             if (obj is GameMode gameMode)
                 return GameModeValueConverter.ToJsonValue(gameMode);
+            if (obj is HeroType heroType)
+                return HeroTypeValueConverter.ToJsonValue(heroType);
+            if (obj is ItemSlotType itemSlotType)
+                return ItemSlotTypeValueConverter.ToJsonValue(itemSlotType);
+            if (obj is ItemType itemType)
+                return ItemTypeValueConverter.ToJsonValue(itemType);
             if (obj is RegionMode regionMode)
                 return RegionModeValueConverter.ToJsonValue(regionMode);
             if (obj is ServerRegion serverRegion)
                 return ServerRegionValueConverter.ToJsonValue(serverRegion);
+            if (obj is StatsUsageFlag statsUsageFlag)
+                return StatsUsageFlagValueConverter.ToJsonValue(statsUsageFlag);
             if (obj is VariableCategory variableCategory)
                 return VariableCategoryValueConverter.ToJsonValue(variableCategory);
             if (obj is ICollection collection)

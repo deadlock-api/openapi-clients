@@ -1,0 +1,6 @@
+## LootTablesApi
+
+### List Loot Tables
+## List Loot Tables
+GET https://api.deadlock-api.com/v1/assets/loot-tables?clientVersion={{clientVersion}}
+Accept: application/json

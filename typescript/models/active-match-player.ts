@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ActiveMatchTeam } from './active-match-team';
+import type { ActiveMatchTeam } from './active-match-team.js';
 
 export interface ActiveMatchPlayer {
     'abandoned'?: boolean | null;

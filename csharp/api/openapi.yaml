@@ -46,7 +46,8 @@ tags:
     \ moving average (EMA) of the last 50 matches to get the player's MMR score.\n\
     4. We convert the MMR score back to a badge using the formula: `10 * intDiv(mmr_score,\
     \ 6) + 1 + mmr_score % 6`\n\n### Rate Limits:\n| Type | Limit |\n| ---- | -----\
-    \ |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+    \ |\n| IP | 5req/min |\n| Key | 25req/min |\n| Global | 50req/min |\n\nRate limits\
+    \ are shared across all MMR endpoints (single bucket).\n    "
   name: MMR
 - description: Steam related endpoints
   name: Steam
@@ -88,6 +89,40 @@ tags:
     Game server status and listing endpoints.
     Used by game servers to report their status and by clients to discover available servers.
   name: Servers
+- description: Accolade definitions derived from per-version game data files.
+  name: Accolades
+- description: Build tag definitions derived from per-version localization keys.
+  name: Build Tags
+- description: Known Deadlock client/game versions with versioned assets available.
+  name: Client Versions
+- description: Panorama color palette from per-version `citadel_base_styles.css`.
+  name: Colors
+- description: Game-wide generic configuration derived from per-version `generic_data.vdata`.
+  name: Generic Data
+- description: Hero metadata derived from per-version game data files.
+  name: Heroes
+- description: "Item, ability, and weapon definitions parsed from the patch's KV3\
+    \ source files. Mirrors the previous Python `/v2/items` endpoint."
+  name: Items
+- description: Loot table definitions derived from per-version game data files.
+  name: Loot Tables
+- description: "Map metadata: minimap radius, image-layer URLs, objective marker positions\
+    \ (from per-version `objectives_map.css`), and the zip-line lane splines."
+  name: Map
+- description: "Misc entity definitions (powerup spawners, breakable props, neutral\
+    \ camps, capture points, …) derived from per-version game data files."
+  name: Misc Entities
+- description: NPC unit definitions derived from per-version game data files.
+  name: NPC Units
+- description: "File-tree indexes of static assets (images, icons, sounds, fonts)\
+    \ hosted on the CDN, mapping each asset's name to its public URL."
+  name: Assets
+- description: "Per-rank metadata (name, tier color, badge image URLs) derived from\
+    \ per-version game data files."
+  name: Ranks
+- description: "Per-version `steam.inf` manifest (client/server version, app IDs,\
+    \ build timestamp)."
+  name: Steam Info
 - description: |2
 
     GraphQL API for flexible match and player queries.
@@ -135,7 +170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -384,7 +419,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -517,7 +552,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -593,7 +628,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -732,7 +767,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -865,7 +900,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -1052,7 +1087,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -1332,7 +1367,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -1588,7 +1623,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -1852,7 +1887,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -2121,7 +2156,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -2408,7 +2443,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -2675,7 +2710,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -2967,7 +3002,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -3188,7 +3223,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -3487,7 +3522,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -3948,6 +3983,1686 @@ paths:
       summary: Player Scoreboard
       tags:
       - Analytics
+  /v1/assets/accolades:
+    get:
+      description: "Returns the per-accolade metadata used by the game client, parsed\
+        \ from the patch's KV3 source files."
+      operationId: list_accolades
+      parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Accolade"
+                type: array
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Accolades
+      tags:
+      - Accolades
+  /v1/assets/accolades/by-name/{name}:
+    get:
+      description: Returns a single accolade by `class_name` or `tracked_stat_name`
+        (case-insensitive).
+      operationId: get_accolade_by_name
+      parameters:
+      - description: Accolade `class_name` (e.g. `kills`) or `tracked_stat_name`
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Accolade"
+          description: ""
+        "404":
+          description: Unknown accolade name or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Accolade By Name
+      tags:
+      - Accolades
+  /v1/assets/accolades/{accolade_id}:
+    get:
+      description: Returns a single accolade by id.
+      operationId: get_accolade
+      parameters:
+      - description: Accolade id (`m_unAccoladeID`)
+        explode: false
+        in: path
+        name: accolade_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Accolade"
+          description: ""
+        "404":
+          description: Unknown accolade id or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Accolade
+      tags:
+      - Accolades
+  /v1/assets/build-tags:
+    get:
+      description: "Returns the build tag taxonomy used by the game client, derived\
+        \ from per-version localization keys."
+      operationId: list_build_tags
+      parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/BuildTag"
+                type: array
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Build Tags
+      tags:
+      - Build Tags
+  /v1/assets/build-tags/by-name/{name}:
+    get:
+      description: Returns a single build tag by `class_name` (case-insensitive).
+      operationId: get_build_tag_by_name
+      parameters:
+      - description: Build tag `class_name` (e.g. `citadel_build_tag_weapon`)
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BuildTag"
+          description: ""
+        "404":
+          description: Unknown build tag name or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Build Tag By Name
+      tags:
+      - Build Tags
+  /v1/assets/build-tags/{build_tag_id}:
+    get:
+      description: Returns a single build tag by id.
+      operationId: get_build_tag
+      parameters:
+      - description: Build tag id (murmurhash2 of `class_name`)
+        explode: false
+        in: path
+        name: build_tag_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BuildTag"
+          description: ""
+        "404":
+          description: Unknown build tag id or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Build Tag
+      tags:
+      - Build Tags
+  /v1/assets/client-versions:
+    get:
+      description: "Returns all known Deadlock client/game versions for which versioned\
+        \ assets are available, sorted ascending (oldest first)."
+      operationId: list_client_versions
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+          description: ""
+        "500":
+          description: Failed to load source assets
+      summary: List Client Versions
+      tags:
+      - Client Versions
+  /v1/assets/colors:
+    get:
+      description: "Panorama color palette (`@define <name>: #RRGGBB[AA];` declarations\
+        \ from `citadel_base_styles.css`), keyed by `snake_case` name."
+      operationId: list_colors
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: "#/components/schemas/Color"
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Colors
+      tags:
+      - Colors
+  /v1/assets/fonts:
+    get:
+      description: "Nested file-tree of all hosted fonts, mapping each name to its\
+        \ public CDN URL."
+      operationId: fonts
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: ""
+        "500":
+          description: Failed to load source assets
+      summary: Fonts Index
+      tags:
+      - Assets Bucket
+  /v1/assets/generic-data:
+    get:
+      description: "Returns the game-wide generic configuration (street brawl, lane\
+        \ info, glitch settings, damage flash, item draft, etc.) parsed from the patch's\
+        \ `generic_data.vdata` KV3 source file."
+      operationId: get_generic_data
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenericData"
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: Get Generic Data
+      tags:
+      - Generic Data
+  /v1/assets/heroes:
+    get:
+      description: "Returns the per-hero metadata used by the game client, parsed\
+        \ from the patch's KV3 source files."
+      operationId: list_heroes
+      parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "When true, hides heroes that aren't player-selectable or are\
+          \ disabled / in-development."
+        explode: true
+        in: query
+        name: only_active
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Hero"
+                type: array
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Heroes
+      tags:
+      - Heroes
+  /v1/assets/heroes/by-name/{name}:
+    get:
+      description: Returns a single hero by `class_name` or display `name`. Matches
+        the bare value as well as the `hero_`-prefixed form.
+      operationId: get_hero_by_name
+      parameters:
+      - description: Hero class name (e.g. `hero_atlas`) or short name (e.g. `atlas`)
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hero"
+          description: ""
+        "404":
+          description: Unknown hero name or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Hero By Name
+      tags:
+      - Heroes
+  /v1/assets/heroes/{hero_id}:
+    get:
+      description: Returns a single hero by id.
+      operationId: get_hero
+      parameters:
+      - description: Hero id (`m_HeroID`)
+        explode: false
+        in: path
+        name: hero_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hero"
+          description: ""
+        "404":
+          description: Unknown hero id or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Hero
+      tags:
+      - Heroes
+  /v1/assets/icons:
+    get:
+      description: "Nested file-tree of all hosted icons, mapping each name to its\
+        \ public CDN URL."
+      operationId: icons
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: ""
+        "500":
+          description: Failed to load source assets
+      summary: Icons Index
+      tags:
+      - Assets Bucket
+  /v1/assets/images:
+    get:
+      description: "Nested file-tree of all hosted images, mapping each name to its\
+        \ public CDN URL."
+      operationId: images
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: ""
+        "500":
+          description: Failed to load source assets
+      summary: Images Index
+      tags:
+      - Assets Bucket
+  /v1/assets/items:
+    get:
+      description: "Returns the full per-patch item list — abilities, weapons, and\
+        \ upgrades."
+      operationId: list_items
+      parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Item"
+                type: array
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Items
+      tags:
+      - Items
+  /v1/assets/items/by-hero-id/{id}:
+    get:
+      description: "Hero-bound abilities, excluding the generic movement abilities."
+      operationId: get_items_by_hero_id
+      parameters:
+      - description: Hero id (`m_HeroID`).
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Item"
+                type: array
+          description: ""
+      summary: List Items By Hero
+      tags:
+      - Items
+  /v1/assets/items/by-slot-type/{slot_type}:
+    get:
+      operationId: get_items_by_slot_type
+      parameters:
+      - description: "Slot type: `weapon`, `spirit`, or `vitality`."
+        explode: false
+        in: path
+        name: slot_type
+        required: true
+        schema:
+          $ref: "#/components/schemas/ItemSlotType"
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Item"
+                type: array
+          description: ""
+      summary: List Items By Slot Type
+      tags:
+      - Items
+  /v1/assets/items/by-type/{type}:
+    get:
+      operationId: get_items_by_type
+      parameters:
+      - description: "Item type: `ability`, `weapon`, or `upgrade`."
+        explode: false
+        in: path
+        name: type
+        required: true
+        schema:
+          $ref: "#/components/schemas/ItemType"
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Item"
+                type: array
+          description: ""
+      summary: List Items By Type
+      tags:
+      - Items
+  /v1/assets/items/{id_or_class_name}:
+    get:
+      operationId: get_item
+      parameters:
+      - description: Numeric `id` or string `class_name`.
+        explode: false
+        in: path
+        name: id_or_class_name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+          description: ""
+        "404":
+          description: Unknown item id/class_name or client_version
+      summary: Get Item
+      tags:
+      - Items
+  /v1/assets/loot-tables:
+    get:
+      description: "Returns the per-table loot definitions used by the game client,\
+        \ parsed from the patch's KV3 source files. Keyed by table `class_name`."
+      operationId: list_loot_tables
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: "#/components/schemas/LootTable"
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Loot Tables
+      tags:
+      - Loot Tables
+  /v1/assets/map:
+    get:
+      description: "Map metadata for a client version: the minimap radius, image-layer\
+        \ CDN URLs, the relative positions of every objective/tower marker, and the\
+        \ three zip-line lane cubic splines. Defaults to the latest known client version."
+      operationId: get_map
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Map"
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: Map
+      tags:
+      - Map
+  /v1/assets/misc-entities:
+    get:
+      description: "Returns the per-misc-entity metadata used by the game client,\
+        \ parsed from the patch's KV3 source files."
+      operationId: list_misc_entities
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/MiscEntity"
+                type: array
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Misc Entities
+      tags:
+      - Misc Entities
+  /v1/assets/misc-entities/{id_or_classname}:
+    get:
+      description: Returns a single misc entity by numeric id or by `class_name` (case-insensitive).
+      operationId: get_misc_entity
+      parameters:
+      - description: Misc entity id (`murmurhash2(class_name)`) or `class_name`
+        explode: false
+        in: path
+        name: id_or_classname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MiscEntity"
+          description: ""
+        "404":
+          description: Unknown misc entity id/class_name or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Misc Entity
+      tags:
+      - Misc Entities
+  /v1/assets/npc-units:
+    get:
+      description: "Returns the per-NPC-unit metadata used by the game client, parsed\
+        \ from the patch's KV3 source files."
+      operationId: list_npc_units
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/NpcUnit"
+                type: array
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List NPC Units
+      tags:
+      - NPC Units
+  /v1/assets/npc-units/{id_or_classname}:
+    get:
+      description: Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
+      operationId: get_npc_unit
+      parameters:
+      - description: NPC unit id (`murmurhash2(class_name)`) or `class_name`
+        explode: false
+        in: path
+        name: id_or_classname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NpcUnit"
+          description: ""
+        "404":
+          description: Unknown NPC unit id/class_name or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get NPC Unit
+      tags:
+      - NPC Units
+  /v1/assets/ranks:
+    get:
+      description: "Returns the 12 player ranks (tier, localized name, badge image\
+        \ URLs, hex color)."
+      operationId: list_ranks
+      parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Rank"
+                type: array
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Ranks
+      tags:
+      - Ranks
+  /v1/assets/ranks/{tier}:
+    get:
+      description: Returns a single rank by tier index.
+      operationId: get_rank
+      parameters:
+      - description: Rank tier (0-11)
+        explode: false
+        in: path
+        name: tier
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rank"
+          description: ""
+        "404":
+          description: Unknown tier or client_version
+        "500":
+          description: Failed to load source assets
+      summary: Get Rank
+      tags:
+      - Ranks
+  /v1/assets/sounds:
+    get:
+      description: "Nested file-tree of all hosted sounds, mapping each name to its\
+        \ public CDN URL."
+      operationId: sounds
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: ""
+        "500":
+          description: Failed to load source assets
+      summary: Sounds Index
+      tags:
+      - Assets Bucket
+  /v1/assets/steam-info:
+    get:
+      description: "Returns the `steam.inf` manifest published with the patch (client/server\
+        \ version, app IDs, source revision, build timestamp)."
+      operationId: get_steam_info
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SteamInfo"
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: Get Steam Info
+      tags:
+      - Steam Info
+  /v1/assets/steam-info/all:
+    get:
+      description: "Returns the `steam.inf` manifest for every known patch as a single\
+        \ array, newest version first. Replaces the legacy `/v1/steam-info/all` endpoint."
+      operationId: get_all_steam_info
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/SteamInfo"
+                type: array
+          description: ""
+        "500":
+          description: Failed to load source assets
+      summary: Get All Steam Infos
+      tags:
+      - Steam Info
   /v1/builds:
     get:
       description: "\nSearch for builds based on various criteria.\n\n### Rate Limits:\n\
@@ -4985,6 +6700,17 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: |-
+          Include only the final per-player stats (last sample of every `stats.*`
+          time-series) as a single `final_stats` object. Far cheaper than
+          `include_player_stats`, which returns the whole array per field.
+        explode: true
+        in: query
+        name: include_player_final_stats
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Include player death details in the response.
         explode: true
         in: query
@@ -5534,8 +7260,10 @@ paths:
       - Matches
   /v1/patches:
     get:
-      description: "\nReturns the parsed result of the RSS Feed from the official\
-        \ Forum.\n\nRSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
+      deprecated: true
+      description: "\n**Deprecated:** Use `/v2/patches` instead, which returns a unified\
+        \ feed combining the Forum changelog and the Steam news feed.\n\nReturns the\
+        \ parsed result of the RSS Feed from the official Forum.\n\nRSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
         \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
         | Key | - |\n| Global | - |\n    "
       operationId: feed
@@ -5813,7 +7541,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -5932,7 +7660,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1776556800
+          default: 1777075200
           format: int64
           nullable: true
           type: integer
@@ -6106,6 +7834,70 @@ paths:
       summary: Batch Hero MMR
       tags:
       - MMR
+  /v1/players/rank-predict/image:
+    get:
+      description: Returns the average predicted rank badge image (binary) for a comma-separated
+        list of account IDs. Use `?format=webp` for WebP.
+      operationId: rank_predict_avg_image
+      parameters:
+      - description: Comma-separated list of account IDs (max 12).
+        explode: true
+        in: query
+        name: account_ids
+        required: true
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+        style: form
+      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - png
+          - webp
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+            image/webp:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+          description: Average predicted rank badge image
+        "400":
+          description: Invalid or missing account IDs
+        "403":
+          description: One of the users is protected
+        "404":
+          description: No image available for the predicted rank
+        "422":
+          description: Not enough recent ranked matches for one or more accounts
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Prediction failed
+        "503":
+          description: Rank prediction model not loaded
+      summary: Rank Predict Avg Image
+      tags:
+      - Players
   /v1/players/steam:
     get:
       description: "\nThis endpoint returns Steam profiles of players.\n\nPass `refresh=true`\
@@ -6181,6 +7973,66 @@ paths:
         required: true
         schema:
           type: string
+        style: form
+      - description: Maximum number of profiles to return.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Only return profiles that have played at least this many matches in the
+          last 30 days. Defaults to 5 to filter out inactive/empty profiles and
+          keep search responsive.
+        explode: true
+        in: query
+        name: min_matches_played_last_30d
+        required: false
+        schema:
+          default: 5
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Only return profiles whose `last_team_avg_badge` is at least this
+          value. Defaults to 0 (no filter). Profiles with no recorded badge are
+          stored as 0 and are excluded when this is set above 0.
+        explode: true
+        in: query
+        name: min_last_team_avg_badge
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Weight applied to `log1p(matches_played_last_30d)` when reranking
+          candidates. The final score per profile is
+          `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`.
+          Set to 0 to rank purely by string similarity; raise it to bias toward
+          active/popular players.
+        explode: true
+        in: query
+        name: matches_played_weight
+        required: false
+        schema:
+          default: "0.02"
+          format: double
+          minimum: 0
+          nullable: true
+          type: number
         style: form
       responses:
         "200":
@@ -7004,6 +8856,29 @@ paths:
       summary: Table Schema
       tags:
       - SQL
+  /v2/patches:
+    get:
+      description: "\nReturns a unified feed combining patch notes from the official\
+        \ Forum changelog and the Steam news feed.\n\nEach entry is tagged with a\
+        \ `source` field (`forum` or `steam`).\n\n- Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
+        - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
+        | Key | - |\n| Global | - |\n    "
+      operationId: feed
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/FeedItem"
+                type: array
+          description: ""
+        "500":
+          description: Fetching or parsing one of the RSS feeds failed
+      summary: Notes
+      tags:
+      - Patches
 components:
   schemas:
     APIInfo:
@@ -7034,6 +8909,294 @@ components:
           minimum: 0
           nullable: true
           type: integer
+    Ability:
+      example:
+        image: image
+        image_webp: image_webp
+        start_trained: true
+        boss_damage_scale: 0.8008281904610115
+        description:
+          t3_desc: t3_desc
+          active: active
+          t1_desc: t1_desc
+          t2_desc: t2_desc
+          passive: passive
+          quip: quip
+          desc: desc
+        hero: 0
+        videos: ""
+        type: ability
+        dependent_abilities:
+          key:
+            flags:
+            - flags
+            - flags
+        upgrades:
+        - property_upgrades:
+          - scale_stat_filter: scale_stat_filter
+            bonus: bonus
+            name: name
+            upgrade_type: upgrade_type
+          - scale_stat_filter: scale_stat_filter
+            bonus: bonus
+            name: name
+            upgrade_type: upgrade_type
+        - property_upgrades:
+          - scale_stat_filter: scale_stat_filter
+            bonus: bonus
+            name: name
+            upgrade_type: upgrade_type
+          - scale_stat_filter: scale_stat_filter
+            bonus: bonus
+            name: name
+            upgrade_type: upgrade_type
+        update_time: 5
+        grant_ammo_on_cast: true
+        heroes:
+        - 0
+        - 0
+        tooltip_details: ""
+        name: name
+        ability_type: ""
+        id: 0
+        behaviours:
+        - behaviours
+        - behaviours
+        class_name: class_name
+        dependant_abilities:
+        - dependant_abilities
+        - dependant_abilities
+        properties:
+          key:
+            conditional: conditional
+            usage_flags:
+            - ConditionallyApplied
+            - ConditionallyApplied
+            prefix: prefix
+            icon: icon
+            can_set_token_override: true
+            label: label
+            scale_function: ""
+            street_brawl_value: street_brawl_value
+            loc_token_override: loc_token_override
+            css_class: css_class
+            disable_value: disable_value
+            provided_property_type: provided_property_type
+            negative_attribute: true
+            postfix: postfix
+            postvalue_label: postvalue_label
+            value: value
+            display_units: display_units
+        weapon_info: ""
+      properties:
+        ability_type:
+          allOf:
+          - $ref: "#/components/schemas/AbilityType"
+          nullable: true
+        behaviours:
+          items:
+            type: string
+          nullable: true
+          type: array
+        boss_damage_scale:
+          format: double
+          nullable: true
+          type: number
+        class_name:
+          type: string
+        dependant_abilities:
+          items:
+            type: string
+          nullable: true
+          type: array
+        dependent_abilities:
+          additionalProperties:
+            $ref: "#/components/schemas/DependantAbilities"
+        description:
+          $ref: "#/components/schemas/AbilityDescription"
+        grant_ammo_on_cast:
+          nullable: true
+          type: boolean
+        hero:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        name:
+          type: string
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/ItemProperty"
+        start_trained:
+          nullable: true
+          type: boolean
+        tooltip_details:
+          allOf:
+          - $ref: "#/components/schemas/AbilityTooltipDetails"
+          nullable: true
+        type:
+          $ref: "#/components/schemas/ItemType"
+        update_time:
+          format: int64
+          nullable: true
+          type: integer
+        upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgrade"
+          nullable: true
+          type: array
+        videos:
+          allOf:
+          - $ref: "#/components/schemas/AbilityVideos"
+          nullable: true
+        weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/RawItemWeaponInfoInner"
+          nullable: true
+      required:
+      - class_name
+      - description
+      - id
+      - name
+      - type
+    AbilityActivation:
+      enum:
+      - hold_toggle
+      - instant_cast
+      - on_button_is_down
+      - passive
+      - press
+      - press_toggle
+      - instant_cast_toggle
+      type: string
+    AbilityDescription:
+      example:
+        t3_desc: t3_desc
+        active: active
+        t1_desc: t1_desc
+        t2_desc: t2_desc
+        passive: passive
+        quip: quip
+        desc: desc
+      properties:
+        active:
+          nullable: true
+          type: string
+        desc:
+          nullable: true
+          type: string
+        passive:
+          nullable: true
+          type: string
+        quip:
+          nullable: true
+          type: string
+        t1_desc:
+          nullable: true
+          type: string
+        t2_desc:
+          nullable: true
+          type: string
+        t3_desc:
+          nullable: true
+          type: string
+    AbilityImbue:
+      enum:
+      - imbue_active
+      - imbue_active_non_ult
+      - imbue_modifier_value
+      type: string
+    AbilitySectionType:
+      enum:
+      - innate
+      - active
+      - passive
+      type: string
+    AbilityTooltipDetails:
+      properties:
+        additional_header_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        info_sections:
+          items:
+            $ref: "#/components/schemas/TooltipDetailsInfoSection"
+          nullable: true
+          type: array
+    AbilityType:
+      enum:
+      - innate
+      - item
+      - signature
+      - ultimate
+      - weapon
+      - melee
+      - cosmetic
+      type: string
+    AbilityVideos:
+      properties:
+        mp4:
+          nullable: true
+          type: string
+        webm:
+          nullable: true
+          type: string
+    Accolade:
+      example:
+        flavor_name: flavor_name
+        enabled_game_modes:
+        - enabled_game_modes
+        - enabled_game_modes
+        tracked_stat_name: tracked_stat_name
+        description: description
+        threshold_type: threshold_type
+        id: 0
+        class_name: class_name
+      properties:
+        class_name:
+          type: string
+        description:
+          type: string
+        enabled_game_modes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        flavor_name:
+          type: string
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        threshold_type:
+          type: string
+        tracked_stat_name:
+          type: string
+      required:
+      - class_name
+      - description
+      - flavor_name
+      - id
+      - threshold_type
+      - tracked_stat_name
     ActiveMatch:
       example:
         objectives_mask_team0: 0
@@ -8038,6 +10201,28 @@ components:
       required:
       - builds
       - item_id
+    BuildTag:
+      example:
+        icon: icon
+        id: 0
+        label: label
+        class_name: class_name
+      properties:
+        class_name:
+          type: string
+        icon:
+          type: string
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        label:
+          type: string
+      required:
+      - class_name
+      - icon
+      - id
+      - label
     ClickhouseMatchInfo:
       example:
         start_time: 0
@@ -8124,6 +10309,37 @@ components:
           type: string
       required:
       - match_id
+    Color:
+      description: |-
+        RGBA color emitted by KV3 as a 3- or 4-element integer array. Alpha
+        defaults to 255 when omitted.
+      example:
+        red: 0
+        green: 0
+        blue: 0
+        alpha: 0
+      properties:
+        alpha:
+          format: int32
+          minimum: 0
+          type: integer
+        blue:
+          format: int32
+          minimum: 0
+          type: integer
+        green:
+          format: int32
+          minimum: 0
+          type: integer
+        red:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - alpha
+      - blue
+      - green
+      - red
     CreateCustomRequest:
       example:
         callback_url: callback_url
@@ -8192,6 +10408,106 @@ components:
       required:
       - party_code
       - party_id
+    Curve:
+      properties:
+        base:
+          format: double
+          nullable: true
+          type: number
+        per_minute_after_start:
+          format: double
+          nullable: true
+          type: number
+    CurveOrFloat:
+      oneOf:
+      - $ref: "#/components/schemas/Curve"
+      - format: double
+        type: number
+    DamageFlash:
+      example:
+        healing_damage:
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+          brightness: 6.027456183070403
+          color:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+        tech_damage:
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+          brightness: 6.027456183070403
+          color:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+        melee_damage:
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+          brightness: 6.027456183070403
+          color:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+        crit_damage:
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+          brightness: 6.027456183070403
+          color:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+        bullet_damage:
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+          brightness: 6.027456183070403
+          color:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+      properties:
+        bullet_damage:
+          $ref: "#/components/schemas/FlashData"
+        crit_damage:
+          $ref: "#/components/schemas/FlashData"
+        healing_damage:
+          $ref: "#/components/schemas/FlashData"
+        melee_damage:
+          $ref: "#/components/schemas/FlashData"
+        tech_damage:
+          $ref: "#/components/schemas/FlashData"
+      required:
+      - bullet_damage
+      - crit_damage
+      - healing_damage
+      - melee_damage
+      - tech_damage
+    DependantAbilities:
+      example:
+        flags:
+        - flags
+        - flags
+      properties:
+        flags:
+          items:
+            type: string
+          nullable: true
+          type: array
     DistributionEntry:
       example:
         players: 0
@@ -8208,6 +10524,25 @@ components:
       required:
       - players
       - rank
+    DraftBucket:
+      properties:
+        good:
+          format: double
+          nullable: true
+          type: number
+        normal:
+          format: double
+          nullable: true
+          type: number
+    DraftBuckets:
+      properties:
+        bucket:
+          allOf:
+          - $ref: "#/components/schemas/DraftBucket"
+          nullable: true
+        name:
+          nullable: true
+          type: string
     EnemyStats:
       example:
         matches_played: 0
@@ -8241,6 +10576,69 @@ components:
       - matches
       - matches_played
       - wins
+    FeedItem:
+      oneOf:
+      - $ref: "#/components/schemas/FeedItem_oneOf"
+      - $ref: "#/components/schemas/FeedItem_oneOf_1"
+    FlashData:
+      example:
+        coverage: 9.301444243932576
+        duration: 3.616076749251911
+        hardness: 2.027123023002322
+        brightness: 6.027456183070403
+        color:
+          red: 0
+          green: 0
+          blue: 0
+          alpha: 0
+        brightness_in_light_sensitivity_mode: 1.4658129805029452
+      properties:
+        brightness:
+          format: double
+          type: number
+        brightness_in_light_sensitivity_mode:
+          format: double
+          nullable: true
+          type: number
+        color:
+          $ref: "#/components/schemas/Color"
+        coverage:
+          format: double
+          type: number
+        duration:
+          format: double
+          type: number
+        hardness:
+          format: double
+          type: number
+      required:
+      - brightness
+      - color
+      - coverage
+      - duration
+      - hardness
+    ForumPatch:
+      properties:
+        category:
+          $ref: "#/components/schemas/PatchCategory"
+        content:
+          type: string
+        guid:
+          $ref: "#/components/schemas/PatchGuid"
+        link:
+          type: string
+        pub_date:
+          format: date-time
+          type: string
+        title:
+          type: string
+      required:
+      - category
+      - content
+      - guid
+      - link
+      - pub_date
+      - title
     GameMode:
       enum:
       - normal
@@ -8289,6 +10687,300 @@ components:
       - port
       - region
       - server_id
+    GenericData:
+      example:
+        trooper_kill_gold_share_frac:
+        - 4.678947989005849
+        - 4.678947989005849
+        lane_info:
+        - css_class: css_class
+          objective_color: ""
+          color:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          minimap_zipline_color_override: ""
+          lane_name: lane_name
+        - css_class: css_class
+          objective_color: ""
+          color:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          minimap_zipline_color_override: ""
+          lane_name: lane_name
+        enemy_objectives_and_zipline_color: ""
+        hero_kill_gold_share_frac:
+        - 9.369310271410669
+        - 9.369310271410669
+        new_player_metrics:
+        - abilities_upgraded: 6
+          last_hits: 1
+          net_worth: 6
+          skill_tier_name: skill_tier_name
+          boss_damage: 3
+          orbs_denied: 6
+          player_damage: 6
+          orbs_secured: 5
+          damage_taken: 6
+          mods_purchased: 2
+        - abilities_upgraded: 6
+          last_hits: 1
+          net_worth: 6
+          skill_tier_name: skill_tier_name
+          boss_damage: 3
+          orbs_denied: 6
+          player_damage: 6
+          orbs_secured: 5
+          damage_taken: 6
+          mods_purchased: 2
+        targeting_spring_strength:
+        - 1.041444916118296
+        - 1.041444916118296
+        rejuv_params:
+          rejuvinator_buff_duration: 5.533258397034986
+          rejuvinator_expiration_warning_timing: 0.2025324113236393
+          rejuvinator_rebirth_duration:
+          - 6.628464275087742
+          - 6.628464275087742
+          rejuvinator_drop_duration: 3.2588565619047607
+          player_respawn_mult:
+          - 7.04836565559697
+          - 7.04836565559697
+          rejuvinator_drop_height: 4.078845849666752
+          trooper_health_mult:
+          - 4.258773108174356
+          - 4.258773108174356
+        street_brawl: ""
+        glitch_settings:
+          uantize_type: 5.025004791520295
+          breakup_strength: 4.145608029883936
+          strength: 4.965218492984954
+          quantize_scale: 1.4894159098541704
+          distort_strength: 7.386281948385884
+          scanline_strength: 7.457744773683766
+          frame_rate: 1.2315135367772556
+          quantize_strength: 6.84685269835264
+          speed: 1.1730742509559433
+          jump_strength: 1.0246457001441578
+          white_noise_strength: 9.965781217890562
+        enemy_zipline_color: ""
+        item_price_per_tier:
+        - 6
+        - 6
+        mini_map_offsets:
+        - lane_index: 8
+          entity_class: entity_class
+          offset_2d:
+          - 9.018348186070783
+          - 9.018348186070783
+        - lane_index: 8
+          entity_class: entity_class
+          offset_2d:
+          - 9.018348186070783
+          - 9.018348186070783
+        weapon_groups:
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        armor_groups:
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        minimap_team_combine_color: ""
+        objective_params:
+          patron_phase1_gold_orbs: 6
+          tier1_gold_orbs: 7
+          tier2_gold_kill: 3
+          shrines_gold_kill: 0
+          base_guardians_gold_orbs: 3
+          patron_phase1_gold_kill: 7
+          tier1_gold_kill: 8
+          tier2_gold_orbs: 3
+          shrines_gold_orbs: 4
+          near_player_split_pct: 0.8851374739011653
+          base_guardians_gold_kill: 3
+          gold_per_orb: 7
+        damage_flash:
+          healing_damage:
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+            brightness: 6.027456183070403
+            color:
+              red: 0
+              green: 0
+              blue: 0
+              alpha: 0
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+          tech_damage:
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+            brightness: 6.027456183070403
+            color:
+              red: 0
+              green: 0
+              blue: 0
+              alpha: 0
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+          melee_damage:
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+            brightness: 6.027456183070403
+            color:
+              red: 0
+              green: 0
+              blue: 0
+              alpha: 0
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+          crit_damage:
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+            brightness: 6.027456183070403
+            color:
+              red: 0
+              green: 0
+              blue: 0
+              alpha: 0
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+          bullet_damage:
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+            brightness: 6.027456183070403
+            color:
+              red: 0
+              green: 0
+              blue: 0
+              alpha: 0
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+        aim_spring_strength:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        enemy_objectives_color: ""
+        minimap_team_rebels_color: ""
+        spirit_groups:
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+      properties:
+        aim_spring_strength:
+          items:
+            format: double
+            type: number
+          type: array
+        armor_groups:
+          items:
+            $ref: "#/components/schemas/ItemGroup"
+          type: array
+        damage_flash:
+          $ref: "#/components/schemas/DamageFlash"
+        enemy_objectives_and_zipline_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        enemy_objectives_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        enemy_zipline_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        glitch_settings:
+          $ref: "#/components/schemas/GlitchSettings"
+        hero_kill_gold_share_frac:
+          items:
+            format: double
+            type: number
+          type: array
+        item_price_per_tier:
+          items:
+            format: int64
+            type: integer
+          type: array
+        lane_info:
+          items:
+            $ref: "#/components/schemas/LaneInfo"
+          type: array
+        mini_map_offsets:
+          items:
+            $ref: "#/components/schemas/MiniMapOffsets"
+          type: array
+        minimap_team_combine_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        minimap_team_rebels_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        new_player_metrics:
+          items:
+            $ref: "#/components/schemas/NewPlayerMetrics"
+          type: array
+        objective_params:
+          $ref: "#/components/schemas/ObjectiveParams"
+        rejuv_params:
+          $ref: "#/components/schemas/RejuvParams"
+        spirit_groups:
+          items:
+            $ref: "#/components/schemas/ItemGroup"
+          type: array
+        street_brawl:
+          allOf:
+          - $ref: "#/components/schemas/StreetBrawl"
+          nullable: true
+        targeting_spring_strength:
+          items:
+            format: double
+            type: number
+          type: array
+        trooper_kill_gold_share_frac:
+          items:
+            format: double
+            type: number
+          type: array
+        weapon_groups:
+          items:
+            $ref: "#/components/schemas/ItemGroup"
+          type: array
+      required:
+      - aim_spring_strength
+      - armor_groups
+      - damage_flash
+      - glitch_settings
+      - hero_kill_gold_share_frac
+      - item_price_per_tier
+      - lane_info
+      - mini_map_offsets
+      - new_player_metrics
+      - objective_params
+      - rejuv_params
+      - spirit_groups
+      - targeting_spring_strength
+      - trooper_kill_gold_share_frac
+      - weapon_groups
     GetCustomMatchIdResponse:
       example:
         match_id: 0
@@ -8299,9 +10991,415 @@ components:
           type: integer
       required:
       - match_id
+    GlitchSettings:
+      example:
+        uantize_type: 5.025004791520295
+        breakup_strength: 4.145608029883936
+        strength: 4.965218492984954
+        quantize_scale: 1.4894159098541704
+        distort_strength: 7.386281948385884
+        scanline_strength: 7.457744773683766
+        frame_rate: 1.2315135367772556
+        quantize_strength: 6.84685269835264
+        speed: 1.1730742509559433
+        jump_strength: 1.0246457001441578
+        white_noise_strength: 9.965781217890562
+      properties:
+        breakup_strength:
+          format: double
+          type: number
+        distort_strength:
+          format: double
+          type: number
+        frame_rate:
+          format: double
+          type: number
+        jump_strength:
+          format: double
+          type: number
+        quantize_scale:
+          format: double
+          type: number
+        quantize_strength:
+          format: double
+          type: number
+        scanline_strength:
+          format: double
+          type: number
+        speed:
+          format: double
+          type: number
+        strength:
+          format: double
+          type: number
+        uantize_type:
+          description: Field name preserved as-is for `/v2/generic-data` compatibility.
+          format: double
+          type: number
+        white_noise_strength:
+          format: double
+          type: number
+      required:
+      - breakup_strength
+      - distort_strength
+      - frame_rate
+      - jump_strength
+      - quantize_scale
+      - quantize_strength
+      - scanline_strength
+      - speed
+      - strength
+      - uantize_type
+      - white_noise_strength
     HashMap:
       additionalProperties:
         $ref: "#/components/schemas/HashMap_value"
+    HashMap_HeroItemType_String:
+      additionalProperties:
+        type: string
+    HashMap_ItemSlotType_ItemSlotInfo:
+      additionalProperties:
+        $ref: "#/components/schemas/HashMap_ItemSlotType_ItemSlotInfo_value"
+    HashMap_ItemSlotType_Vec_MapModCostBonus:
+      additionalProperties:
+        items:
+          $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_MapModCostBonus_value_inner"
+    HashMap_ItemSlotType_Vec_PurchaseBonus:
+      additionalProperties:
+        items:
+          $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner"
+    HashMap_String_LevelInfo:
+      additionalProperties:
+        $ref: "#/components/schemas/HashMap_String_LevelInfo_value"
+    HashMap_String_Option_DraftBucketing:
+      additionalProperties:
+        $ref: "#/components/schemas/HashMap_String_Option_DraftBucketing_value"
+    HashMap_String_ScalingStat:
+      additionalProperties:
+        $ref: "#/components/schemas/HashMap_String_ScalingStat_value"
+    HashMap_String_f64:
+      additionalProperties:
+        format: double
+        type: number
+    Hero:
+      example:
+        complexity: 1
+        item_draft_weights: ""
+        skin: 6
+        description:
+          role: role
+          lore: lore
+          playstyle: playstyle
+        prerelease_only: true
+        colors:
+          style_hex: style_hex
+          ui:
+          - 0
+          - 0
+          style:
+          - 0
+          - 0
+        item_draft_bucketing: ""
+        shop_stat_display:
+          vitality_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
+            other_display_stats:
+            - other_display_stats
+            - other_display_stats
+          weapon_stats_display:
+            weapon_image_webp: weapon_image_webp
+            display_stats:
+            - display_stats
+            - display_stats
+            weapon_image: weapon_image
+            weapon_attributes:
+            - weapon_attributes
+            - weapon_attributes
+            other_display_stats:
+            - other_display_stats
+            - other_display_stats
+          spirit_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
+        physics:
+          footstep_sound_travel_distance_meters: 3.616076749251911
+          step_height: 4.145608029883936
+          collision_height: 7.061401241503109
+          collision_radius: 9.301444243932576
+          stealth_speed_meters_per_second: 2.027123023002322
+          step_sound_time: 7.386281948385884
+          step_sound_time_sprinting: 1.2315135367772556
+        gun_tag: gun_tag
+        disabled: true
+        hero_type: ""
+        level_info:
+          key:
+            use_standard_upgrade: true
+            bonus_currencies:
+            - bonus_currencies
+            - bonus_currencies
+            required_gold: 2
+        id: 0
+        class_name: class_name
+        stats_display:
+          health_stats:
+          - health_stats
+          - health_stats
+          magic_stats:
+          - magic_stats
+          - magic_stats
+          weapon_stats:
+          - weapon_stats
+          - weapon_stats
+          weapon_header_stats:
+          - weapon_header_stats
+          - weapon_header_stats
+          magic_header_stats:
+          - magic_header_stats
+          - magic_header_stats
+          health_header_stats:
+          - health_header_stats
+          - health_header_stats
+        item_slot_info:
+          key:
+            max_purchases_for_tier:
+            - 5
+            - 5
+        assigned_players_only: true
+        limited_testing: true
+        images:
+          weapon_image: weapon_image
+          icon_hero_card: icon_hero_card
+          top_bar_vertical_image_webp: top_bar_vertical_image_webp
+          icon_hero_card_webp: icon_hero_card_webp
+          background_image_webp: background_image_webp
+          hero_card_gloat_webp: hero_card_gloat_webp
+          icon_image_small_webp: icon_image_small_webp
+          name_image: name_image
+          background_image: background_image
+          minimap_image: minimap_image
+          weapon_image_webp: weapon_image_webp
+          hero_card_critical_webp: hero_card_critical_webp
+          hero_card_gloat: hero_card_gloat
+          hero_card_critical: hero_card_critical
+          minimap_image_webp: minimap_image_webp
+          icon_image_small: icon_image_small
+          top_bar_vertical_image: top_bar_vertical_image
+        cost_bonuses: ""
+        hero_stats_ui:
+          display_stats:
+          - stat_type: stat_type
+            category: category
+          - stat_type: stat_type
+            category: category
+          weapon_stat_display: weapon_stat_display
+        scaling_stats:
+          key:
+            scaling_stat: scaling_stat
+            scale: 1.4894159098541704
+        starting_stats:
+          heavy_melee_damage:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          tech_range:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          weapon_power_scale:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          crit_damage_received_scale:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          reload_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          stamina:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          move_acceleration:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          crouch_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          stamina_regen_per_second:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          ability_resource_max:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          max_health:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          bullet_armor_damage_reduction: ""
+          tech_armor_damage_reduction: ""
+          proc_build_up_rate_scale:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          sprint_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          tech_duration:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          ability_resource_regen_per_second:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          max_move_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          light_melee_damage:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          base_health_regen:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          weapon_power:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+        in_development: true
+        standard_level_up_upgrades:
+          key: 7.457744773683766
+        tags:
+        - tags
+        - tags
+        purchase_bonuses:
+          key:
+          - value_type: value_type
+            tier: 1
+            value: value
+          - value_type: value_type
+            tier: 1
+            value: value
+        name: name
+        player_selectable: true
+        needs_testing: true
+        hideout_rich_presence: hideout_rich_presence
+        items:
+          key: items
+      properties:
+        assigned_players_only:
+          type: boolean
+        class_name:
+          type: string
+        colors:
+          $ref: "#/components/schemas/HeroColors"
+        complexity:
+          format: int64
+          type: integer
+        cost_bonuses:
+          allOf:
+          - $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_MapModCostBonus"
+          nullable: true
+        description:
+          $ref: "#/components/schemas/HeroDescription"
+        disabled:
+          type: boolean
+        gun_tag:
+          nullable: true
+          type: string
+        hero_stats_ui:
+          $ref: "#/components/schemas/HeroStatsUI"
+        hero_type:
+          allOf:
+          - $ref: "#/components/schemas/HeroType"
+          nullable: true
+        hideout_rich_presence:
+          nullable: true
+          type: string
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        images:
+          $ref: "#/components/schemas/HeroImages"
+        in_development:
+          type: boolean
+        item_draft_bucketing:
+          allOf:
+          - $ref: "#/components/schemas/HashMap_String_Option_DraftBucketing"
+          nullable: true
+        item_draft_weights:
+          allOf:
+          - $ref: "#/components/schemas/HashMap_String_f64"
+          nullable: true
+        item_slot_info:
+          additionalProperties:
+            $ref: "#/components/schemas/HashMap_ItemSlotType_ItemSlotInfo_value"
+        items:
+          additionalProperties:
+            type: string
+        level_info:
+          additionalProperties:
+            $ref: "#/components/schemas/HashMap_String_LevelInfo_value"
+        limited_testing:
+          type: boolean
+        name:
+          type: string
+        needs_testing:
+          type: boolean
+        physics:
+          $ref: "#/components/schemas/HeroPhysics"
+        player_selectable:
+          type: boolean
+        prerelease_only:
+          nullable: true
+          type: boolean
+        purchase_bonuses:
+          additionalProperties:
+            items:
+              $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner"
+        scaling_stats:
+          additionalProperties:
+            $ref: "#/components/schemas/HashMap_String_ScalingStat_value"
+        shop_stat_display:
+          $ref: "#/components/schemas/ShopStatDisplay"
+        skin:
+          format: int64
+          type: integer
+        standard_level_up_upgrades:
+          additionalProperties:
+            format: double
+            type: number
+        starting_stats:
+          $ref: "#/components/schemas/StartingStats"
+        stats_display:
+          $ref: "#/components/schemas/StatsDisplay"
+        tags:
+          description: Always emitted (empty if the hero declares no `m_vecHeroTags`).
+          items:
+            type: string
+          type: array
+      required:
+      - assigned_players_only
+      - class_name
+      - colors
+      - complexity
+      - description
+      - disabled
+      - hero_stats_ui
+      - id
+      - images
+      - in_development
+      - item_slot_info
+      - items
+      - level_info
+      - limited_testing
+      - name
+      - needs_testing
+      - physics
+      - player_selectable
+      - purchase_bonuses
+      - scaling_stats
+      - shop_stat_display
+      - skin
+      - standard_level_up_upgrades
+      - starting_stats
+      - stats_display
+      - tags
     HeroBanStats:
       example:
         bucket: 0
@@ -8375,6 +11473,34 @@ components:
       - matches
       - players
       - wins
+    HeroColors:
+      example:
+        style_hex: style_hex
+        ui:
+        - 0
+        - 0
+        style:
+        - 0
+        - 0
+      properties:
+        style:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        style_hex:
+          nullable: true
+          type: string
+        ui:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+      required:
+      - ui
     HeroCombStats:
       example:
         wins: 0
@@ -8556,6 +11682,21 @@ components:
       - networth
       - obj_damage
       - wins
+    HeroDescription:
+      example:
+        role: role
+        lore: lore
+        playstyle: playstyle
+      properties:
+        lore:
+          nullable: true
+          type: string
+        playstyle:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
     HeroEntry:
       example:
         rank: 0
@@ -8584,6 +11725,116 @@ components:
       - matches
       - rank
       - value
+    HeroImages:
+      example:
+        weapon_image: weapon_image
+        icon_hero_card: icon_hero_card
+        top_bar_vertical_image_webp: top_bar_vertical_image_webp
+        icon_hero_card_webp: icon_hero_card_webp
+        background_image_webp: background_image_webp
+        hero_card_gloat_webp: hero_card_gloat_webp
+        icon_image_small_webp: icon_image_small_webp
+        name_image: name_image
+        background_image: background_image
+        minimap_image: minimap_image
+        weapon_image_webp: weapon_image_webp
+        hero_card_critical_webp: hero_card_critical_webp
+        hero_card_gloat: hero_card_gloat
+        hero_card_critical: hero_card_critical
+        minimap_image_webp: minimap_image_webp
+        icon_image_small: icon_image_small
+        top_bar_vertical_image: top_bar_vertical_image
+      properties:
+        background_image:
+          nullable: true
+          type: string
+        background_image_webp:
+          nullable: true
+          type: string
+        hero_card_critical:
+          nullable: true
+          type: string
+        hero_card_critical_webp:
+          nullable: true
+          type: string
+        hero_card_gloat:
+          nullable: true
+          type: string
+        hero_card_gloat_webp:
+          nullable: true
+          type: string
+        icon_hero_card:
+          nullable: true
+          type: string
+        icon_hero_card_webp:
+          nullable: true
+          type: string
+        icon_image_small:
+          nullable: true
+          type: string
+        icon_image_small_webp:
+          nullable: true
+          type: string
+        minimap_image:
+          nullable: true
+          type: string
+        minimap_image_webp:
+          nullable: true
+          type: string
+        name_image:
+          nullable: true
+          type: string
+        top_bar_vertical_image:
+          nullable: true
+          type: string
+        top_bar_vertical_image_webp:
+          nullable: true
+          type: string
+        weapon_image:
+          nullable: true
+          type: string
+        weapon_image_webp:
+          nullable: true
+          type: string
+    HeroPhysics:
+      example:
+        footstep_sound_travel_distance_meters: 3.616076749251911
+        step_height: 4.145608029883936
+        collision_height: 7.061401241503109
+        collision_radius: 9.301444243932576
+        stealth_speed_meters_per_second: 2.027123023002322
+        step_sound_time: 7.386281948385884
+        step_sound_time_sprinting: 1.2315135367772556
+      properties:
+        collision_height:
+          format: double
+          nullable: true
+          type: number
+        collision_radius:
+          format: double
+          nullable: true
+          type: number
+        footstep_sound_travel_distance_meters:
+          format: double
+          nullable: true
+          type: number
+        stealth_speed_meters_per_second:
+          format: double
+          type: number
+        step_height:
+          format: double
+          nullable: true
+          type: number
+        step_sound_time:
+          format: double
+          nullable: true
+          type: number
+        step_sound_time_sprinting:
+          format: double
+          nullable: true
+          type: number
+      required:
+      - stealth_speed_meters_per_second
     HeroStats:
       example:
         kills: 0
@@ -8773,6 +12024,36 @@ components:
       - total_player_damage
       - total_player_damage_taken
       - wins
+    HeroStatsUI:
+      example:
+        display_stats:
+        - stat_type: stat_type
+          category: category
+        - stat_type: stat_type
+          category: category
+        weapon_stat_display: weapon_stat_display
+      properties:
+        display_stats:
+          items:
+            $ref: "#/components/schemas/HeroStatsUIDisplay"
+          type: array
+        weapon_stat_display:
+          type: string
+      required:
+      - display_stats
+      - weapon_stat_display
+    HeroStatsUIDisplay:
+      example:
+        stat_type: stat_type
+        category: category
+      properties:
+        category:
+          type: string
+        stat_type:
+          type: string
+      required:
+      - category
+      - stat_type
     HeroSynergyStats:
       example:
         denies1: 0
@@ -8923,6 +12204,71 @@ components:
       - obj_damage1
       - obj_damage2
       - wins
+    HeroType:
+      enum:
+      - assassin
+      - brawler
+      - marksman
+      - mystic
+      type: string
+    HorizontalRecoil:
+      properties:
+        burst_exponent:
+          format: double
+          nullable: true
+          type: number
+        range:
+          allOf:
+          - $ref: "#/components/schemas/RecoilRange"
+          nullable: true
+    Item:
+      oneOf:
+      - $ref: "#/components/schemas/Ability"
+      - $ref: "#/components/schemas/Weapon"
+      - $ref: "#/components/schemas/Upgrade"
+    ItemDraftRound:
+      properties:
+        normal_mod_tier:
+          format: int32
+          minimum: 0
+          type: integer
+        rare_mod_tier:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - normal_mod_tier
+      - rare_mod_tier
+    ItemDraftRoundPerGameRound:
+      properties:
+        chance_enhanced:
+          $ref: "#/components/schemas/OutcomeToWeights"
+        chance_rare:
+          $ref: "#/components/schemas/OutcomeToWeights"
+        item_draft_rounds:
+          items:
+            $ref: "#/components/schemas/ItemDraftRound"
+          type: array
+      required:
+      - chance_enhanced
+      - chance_rare
+      - item_draft_rounds
+    ItemGroup:
+      example:
+        shop_group: shop_group
+        upgrades:
+        - upgrades
+        - upgrades
+      properties:
+        shop_group:
+          type: string
+        upgrades:
+          items:
+            type: string
+          type: array
+      required:
+      - shop_group
+      - upgrades
     ItemPermutationStats:
       example:
         wins: 0
@@ -8956,6 +12302,91 @@ components:
       - losses
       - matches
       - wins
+    ItemProperty:
+      example:
+        conditional: conditional
+        usage_flags:
+        - ConditionallyApplied
+        - ConditionallyApplied
+        prefix: prefix
+        icon: icon
+        can_set_token_override: true
+        label: label
+        scale_function: ""
+        street_brawl_value: street_brawl_value
+        loc_token_override: loc_token_override
+        css_class: css_class
+        disable_value: disable_value
+        provided_property_type: provided_property_type
+        negative_attribute: true
+        postfix: postfix
+        postvalue_label: postvalue_label
+        value: value
+        display_units: display_units
+      properties:
+        can_set_token_override:
+          nullable: true
+          type: boolean
+        conditional:
+          nullable: true
+          type: string
+        css_class:
+          nullable: true
+          type: string
+        disable_value:
+          nullable: true
+          type: string
+        display_units:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        loc_token_override:
+          nullable: true
+          type: string
+        negative_attribute:
+          nullable: true
+          type: boolean
+        postfix:
+          nullable: true
+          type: string
+        postvalue_label:
+          nullable: true
+          type: string
+        prefix:
+          nullable: true
+          type: string
+        provided_property_type:
+          nullable: true
+          type: string
+        scale_function:
+          allOf:
+          - $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclass"
+          nullable: true
+        street_brawl_value:
+          nullable: true
+          type: string
+        usage_flags:
+          items:
+            $ref: "#/components/schemas/StatsUsageFlag"
+          nullable: true
+          type: array
+        value:
+          description: |-
+            Raw JSON value preserves the source distinction between numeric and
+            stringly-typed bonuses (`"14.5"` vs `14.5`).
+          nullable: true
+          type: string
+    ItemSlotType:
+      enum:
+      - weapon
+      - spirit
+      - vitality
+      type: string
     ItemStats:
       example:
         bucket: 0
@@ -9023,6 +12454,13 @@ components:
       - matches
       - players
       - wins
+    ItemType:
+      description: Discriminator for the `type` field on every item variant.
+      enum:
+      - ability
+      - weapon
+      - upgrade
+      type: string
     KillDeathStats:
       example:
         kills: 0
@@ -9055,6 +12493,36 @@ components:
       - kills
       - position_x
       - position_y
+    LaneInfo:
+      example:
+        css_class: css_class
+        objective_color: ""
+        color:
+          red: 0
+          green: 0
+          blue: 0
+          alpha: 0
+        minimap_zipline_color_override: ""
+        lane_name: lane_name
+      properties:
+        color:
+          $ref: "#/components/schemas/Color"
+        css_class:
+          nullable: true
+          type: string
+        lane_name:
+          type: string
+        minimap_zipline_color_override:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        objective_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+      required:
+      - color
+      - lane_name
     Leaderboard:
       example:
         entries:
@@ -9203,6 +12671,20 @@ components:
       required:
       - broadcast_url
       - match_id
+    LootEntry:
+      properties:
+        item:
+          type: string
+      required:
+      - item
+    LootTable:
+      properties:
+        entries:
+          items:
+            $ref: "#/components/schemas/LootEntry"
+          type: array
+      required:
+      - entries
     MMRHistory:
       example:
         division: 0
@@ -9255,6 +12737,113 @@ components:
       - player_score
       - rank
       - start_time
+    Map:
+      description: The `/v1/assets/map` response.
+      example:
+        zipline_paths:
+        - color: color
+          P0_points:
+          - - 5.962133916683182
+            - 5.962133916683182
+          - - 5.962133916683182
+            - 5.962133916683182
+          origin:
+          - 7.061401241503109
+          - 7.061401241503109
+          color_parsed:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          P1_points:
+          - - 5.637376656633329
+            - 5.637376656633329
+          - - 5.637376656633329
+            - 5.637376656633329
+          P2_points:
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          - - 2.3021358869347655
+            - 2.3021358869347655
+        - color: color
+          P0_points:
+          - - 5.962133916683182
+            - 5.962133916683182
+          - - 5.962133916683182
+            - 5.962133916683182
+          origin:
+          - 7.061401241503109
+          - 7.061401241503109
+          color_parsed:
+            red: 0
+            green: 0
+            blue: 0
+            alpha: 0
+          P1_points:
+          - - 5.637376656633329
+            - 5.637376656633329
+          - - 5.637376656633329
+            - 5.637376656633329
+          P2_points:
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          - - 2.3021358869347655
+            - 2.3021358869347655
+        images:
+          background: background
+          minimap: minimap
+          plain: plain
+          mid: mid
+          frame: frame
+        objective_positions:
+          key:
+            top_relative: 6.027456183070403
+            left_relative: 0.8008281904610115
+        radius: 0
+      properties:
+        images:
+          $ref: "#/components/schemas/MapImages"
+        objective_positions:
+          additionalProperties:
+            $ref: "#/components/schemas/ObjectivePosition"
+        radius:
+          format: int32
+          minimum: 0
+          type: integer
+        zipline_paths:
+          items:
+            $ref: "#/components/schemas/ZiplanePath"
+          type: array
+      required:
+      - images
+      - objective_positions
+      - radius
+      - zipline_paths
+    MapImages:
+      description: Fixed CDN URLs for the minimap image layers.
+      example:
+        background: background
+        minimap: minimap
+        plain: plain
+        mid: mid
+        frame: frame
+      properties:
+        background:
+          type: string
+        frame:
+          type: string
+        mid:
+          type: string
+        minimap:
+          type: string
+        plain:
+          type: string
+      required:
+      - background
+      - frame
+      - mid
+      - minimap
+      - plain
     MatchPlayer:
       example:
         account_id: 0
@@ -9401,6 +12990,718 @@ components:
       - metric_value
       - region
       - server_id
+    MiniMapOffsets:
+      example:
+        lane_index: 8
+        entity_class: entity_class
+        offset_2d:
+        - 9.018348186070783
+        - 9.018348186070783
+      properties:
+        entity_class:
+          type: string
+        lane_index:
+          format: int64
+          nullable: true
+          type: integer
+        offset_2d:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - entity_class
+      - offset_2d
+    MiscEntity:
+      example:
+        initial_spawn_time: 9.301444243932576
+        initial_spawn_delay_seconds: 7
+        loot_list_deck_size: 2
+        color: ""
+        roll_type: ""
+        spawn_interval_in_seconds: 4
+        respawn_time: 7.457744773683766
+        modifier: ""
+        lifetime: 3.616076749251911
+        primary_pickups:
+        - pickup_weight: 4.145608029883936
+          pickup_name: pickup_name
+        - pickup_weight: 4.145608029883936
+          pickup_name: pickup_name
+        primary_drop_chance: 6.84685269835264
+        gold_amount: 6.027456183070403
+        damaged_by_bullets: true
+        spawn_interval: 1.1730742509559433
+        m_vecPickups_lv2:
+        - pickup_weight: 4.145608029883936
+          pickup_name: pickup_name
+        - pickup_weight: 4.145608029883936
+          pickup_name: pickup_name
+        m_vecPickups_lv3:
+        - pickup_weight: 4.145608029883936
+          pickup_name: pickup_name
+        - pickup_weight: 4.145608029883936
+          pickup_name: pickup_name
+        render_after_death: true
+        orb_spawn_delay_min: 1.4894159098541704
+        gold_per_minute_amount: 1.4658129805029452
+        is_mantleable: true
+        id: 0
+        class_name: class_name
+        orb_spawn_delay_max: 1.0246457001441578
+        break_on_dodge_touch: true
+        show_on_minimap: true
+        health: 5
+        pickup_radius: ""
+        damaged_by_abilities: true
+        match_time_mins_for_level2_pickups: 7
+        solid_after_death: true
+        initial_spawn_delay_in_seconds: 2
+        match_time_mins_for_level3_pickups: 1
+        collision_radius: 0.8008281904610115
+        damaged_by_melee: true
+        expiration_duration: ""
+      properties:
+        break_on_dodge_touch:
+          nullable: true
+          type: boolean
+        class_name:
+          type: string
+        collision_radius:
+          format: double
+          nullable: true
+          type: number
+        color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        damaged_by_abilities:
+          nullable: true
+          type: boolean
+        damaged_by_bullets:
+          nullable: true
+          type: boolean
+        damaged_by_melee:
+          nullable: true
+          type: boolean
+        expiration_duration:
+          allOf:
+          - $ref: "#/components/schemas/CurveOrFloat"
+          nullable: true
+        gold_amount:
+          format: double
+          nullable: true
+          type: number
+        gold_per_minute_amount:
+          format: double
+          nullable: true
+          type: number
+        health:
+          format: int64
+          nullable: true
+          type: integer
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        initial_spawn_delay_in_seconds:
+          format: int64
+          nullable: true
+          type: integer
+        initial_spawn_delay_seconds:
+          description: Duplicate of `initial_spawn_delay_in_seconds` for shape parity.
+          format: int64
+          nullable: true
+          type: integer
+        initial_spawn_time:
+          format: double
+          nullable: true
+          type: number
+        is_mantleable:
+          nullable: true
+          type: boolean
+        lifetime:
+          format: double
+          nullable: true
+          type: number
+        loot_list_deck_size:
+          format: int64
+          nullable: true
+          type: integer
+        m_vecPickups_lv2:
+          items:
+            $ref: "#/components/schemas/Pickup"
+          nullable: true
+          type: array
+        m_vecPickups_lv3:
+          items:
+            $ref: "#/components/schemas/Pickup"
+          nullable: true
+          type: array
+        match_time_mins_for_level2_pickups:
+          format: int64
+          nullable: true
+          type: integer
+        match_time_mins_for_level3_pickups:
+          format: int64
+          nullable: true
+          type: integer
+        modifier:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_ModifierDefinition"
+          nullable: true
+        orb_spawn_delay_max:
+          format: double
+          nullable: true
+          type: number
+        orb_spawn_delay_min:
+          format: double
+          nullable: true
+          type: number
+        pickup_radius:
+          allOf:
+          - $ref: "#/components/schemas/CurveOrFloat"
+          nullable: true
+        primary_drop_chance:
+          format: double
+          nullable: true
+          type: number
+        primary_pickups:
+          items:
+            $ref: "#/components/schemas/Pickup"
+          nullable: true
+          type: array
+        render_after_death:
+          nullable: true
+          type: boolean
+        respawn_time:
+          format: double
+          nullable: true
+          type: number
+        roll_type:
+          allOf:
+          - $ref: "#/components/schemas/RollType"
+          nullable: true
+        show_on_minimap:
+          nullable: true
+          type: boolean
+        solid_after_death:
+          nullable: true
+          type: boolean
+        spawn_interval:
+          format: double
+          nullable: true
+          type: number
+        spawn_interval_in_seconds:
+          format: int64
+          nullable: true
+          type: integer
+      required:
+      - class_name
+      - id
+    ModifierValue:
+      properties:
+        value:
+          format: double
+          nullable: true
+          type: number
+        value_max:
+          format: double
+          nullable: true
+          type: number
+        value_min:
+          format: double
+          nullable: true
+          type: number
+        value_type:
+          nullable: true
+          type: string
+    NewPlayerMetrics:
+      example:
+        abilities_upgraded: 6
+        last_hits: 1
+        net_worth: 6
+        skill_tier_name: skill_tier_name
+        boss_damage: 3
+        orbs_denied: 6
+        player_damage: 6
+        orbs_secured: 5
+        damage_taken: 6
+        mods_purchased: 2
+      properties:
+        abilities_upgraded:
+          format: int64
+          type: integer
+        boss_damage:
+          format: int64
+          type: integer
+        damage_taken:
+          format: int64
+          type: integer
+        last_hits:
+          format: int64
+          type: integer
+        mods_purchased:
+          format: int64
+          type: integer
+        net_worth:
+          format: int64
+          type: integer
+        orbs_denied:
+          format: int64
+          type: integer
+        orbs_secured:
+          format: int64
+          type: integer
+        player_damage:
+          format: int64
+          type: integer
+        skill_tier_name:
+          type: string
+      required:
+      - abilities_upgraded
+      - boss_damage
+      - damage_taken
+      - last_hits
+      - mods_purchased
+      - net_worth
+      - orbs_denied
+      - orbs_secured
+      - player_damage
+      - skill_tier_name
+    NpcUnit:
+      example:
+        gold_reward: 2.027123023002322
+        health_bar_color_enemy: ""
+        stomp_damage_max_health_percent: 6.878052220127876
+        bound_abilities:
+          key: bound_abilities
+        attack_t1_boss_max_range: 6.027456183070403
+        t1_boss_dps: 3.0937452626664474
+        trooper_dps: 5.533258397034986
+        melee_duration: 9.965781217890562
+        acceleration: 0.8008281904610115
+        gold_reward_bonus_percent_per_minute: 4.145608029883936
+        ranged_armor_modifier: ""
+        stomp_damage: 6.778324963048013
+        attack_trooper_max_range: 5.637376656633329
+        id: 0
+        t1_boss_damage_resist_pct: 3.353193347011243
+        no_shield_laser_dps_to_players: 8.762042012749001
+        walk_speed: 3.2588565619047607
+        barrack_guardian_damage_resist_pct: 7.061401241503109
+        max_health_final: 7
+        intrinsic_modifiers:
+        - subclass:
+            script_values:
+            - modifier_value: modifier_value
+              value: 1.2315135367772556
+            - modifier_value: modifier_value
+              value: 1.2315135367772556
+        - subclass:
+            script_values:
+            - modifier_value: modifier_value
+              value: 1.2315135367772556
+            - modifier_value: modifier_value
+              value: 1.2315135367772556
+        laser_dps_max_health: 1.0246457001441578
+        enemy_trooper_protection_range: 9.301444243932576
+        trooper_damage_resist_pct: 7.04836565559697
+        near_death_duration: 6.683562403749608
+        t2_boss_dpsmax_resist: 8.969578798196912
+        health_bar_color_team_neutral: ""
+        t1_boss_dpsmax_resist: 0.8851374739011653
+        melee_attempt_range: 4.965218492984954
+        player_damage_resist_pct: 6.438423552598547
+        objective_health_growth_phase1: ""
+        laser_dps_to_players: 1.4894159098541704
+        objective_health_growth_phase2: ""
+        phase2_health: 9
+        stomp_impact_radius: 5.944895607614016
+        enemy_trooper_damage_reduction: ""
+        melee_damage: 5.025004791520295
+        t2_boss_dps: 0.10263654006109402
+        melee_hit_range: 9.369310271410669
+        t2_boss_dpsbase_resist: 4.652396432933246
+        t2_boss_dpsmax_resist_time_in_seconds: 7.740351818741173
+        sight_range_players: 2.8841621266687802
+        t3_boss_damage_resist_pct: 3.0205796992916243
+        class_name: class_name
+        spawn_breakables_on_death: true
+        weapon_info: ""
+        health_bar_color_team2: ""
+        stun_duration: 6.704019297950036
+        max_health_generator: 1
+        health_bar_color_team1: ""
+        generator_boss_dps: 3.616076749251911
+        run_speed: 6.965117697638846
+        health_bar_color_friend: ""
+        objective_regen: ""
+        attack_t3_boss_max_range: 1.4658129805029452
+        attack_t3_boss_phase2_max_range: 5.962133916683182
+        sight_range_npcs: 1.284659006116532
+        max_health: 6
+        backdoor_bullet_resist_modifier: ""
+        t3_boss_dps: 3.0576100241049344
+        player_dps: 3.5571952270680973
+        barrack_boss_dps: 2.3021358869347655
+        empowered_modifier_level1: ""
+        t1_boss_dpsbase_resist: 7.143538047012306
+        t1_boss_dpsmax_resist_time_in_seconds: 7.058770351582356
+        empowered_modifier_level2: ""
+        t2_boss_damage_resist_pct: 6.519180951018382
+      properties:
+        acceleration:
+          format: double
+          nullable: true
+          type: number
+        attack_t1_boss_max_range:
+          format: double
+          nullable: true
+          type: number
+        attack_t3_boss_max_range:
+          format: double
+          nullable: true
+          type: number
+        attack_t3_boss_phase2_max_range:
+          format: double
+          nullable: true
+          type: number
+        attack_trooper_max_range:
+          format: double
+          nullable: true
+          type: number
+        backdoor_bullet_resist_modifier:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_BulletResistModifier"
+          nullable: true
+        barrack_boss_dps:
+          format: double
+          nullable: true
+          type: number
+        barrack_guardian_damage_resist_pct:
+          format: double
+          nullable: true
+          type: number
+        bound_abilities:
+          additionalProperties:
+            type: string
+        class_name:
+          type: string
+        empowered_modifier_level1:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_EmpoweredModifierLevel"
+          nullable: true
+        empowered_modifier_level2:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_EmpoweredModifierLevel"
+          nullable: true
+        enemy_trooper_damage_reduction:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_TrooperDamageReduction"
+          nullable: true
+        enemy_trooper_protection_range:
+          format: double
+          nullable: true
+          type: number
+        generator_boss_dps:
+          format: double
+          nullable: true
+          type: number
+        gold_reward:
+          format: double
+          nullable: true
+          type: number
+        gold_reward_bonus_percent_per_minute:
+          format: double
+          nullable: true
+          type: number
+        health_bar_color_enemy:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        health_bar_color_friend:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        health_bar_color_team1:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        health_bar_color_team2:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        health_bar_color_team_neutral:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          nullable: true
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        intrinsic_modifiers:
+          items:
+            $ref: "#/components/schemas/Subclass_IntrinsicModifiers"
+          nullable: true
+          type: array
+        laser_dps_max_health:
+          format: double
+          nullable: true
+          type: number
+        laser_dps_to_players:
+          format: double
+          nullable: true
+          type: number
+        max_health:
+          format: int64
+          nullable: true
+          type: integer
+        max_health_final:
+          format: int64
+          nullable: true
+          type: integer
+        max_health_generator:
+          format: int64
+          nullable: true
+          type: integer
+        melee_attempt_range:
+          format: double
+          nullable: true
+          type: number
+        melee_damage:
+          format: double
+          nullable: true
+          type: number
+        melee_duration:
+          format: double
+          nullable: true
+          type: number
+        melee_hit_range:
+          format: double
+          nullable: true
+          type: number
+        near_death_duration:
+          format: double
+          nullable: true
+          type: number
+        no_shield_laser_dps_to_players:
+          format: double
+          nullable: true
+          type: number
+        objective_health_growth_phase1:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_ObjectiveHealthGrowthPhase"
+          nullable: true
+        objective_health_growth_phase2:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_ObjectiveHealthGrowthPhase"
+          nullable: true
+        objective_regen:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_ObjectiveRegen"
+          nullable: true
+        phase2_health:
+          format: int64
+          nullable: true
+          type: integer
+        player_damage_resist_pct:
+          format: double
+          nullable: true
+          type: number
+        player_dps:
+          format: double
+          nullable: true
+          type: number
+        ranged_armor_modifier:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_RangedArmorModifier"
+          nullable: true
+        run_speed:
+          format: double
+          nullable: true
+          type: number
+        sight_range_npcs:
+          format: double
+          nullable: true
+          type: number
+        sight_range_players:
+          format: double
+          nullable: true
+          type: number
+        spawn_breakables_on_death:
+          nullable: true
+          type: boolean
+        stomp_damage:
+          format: double
+          nullable: true
+          type: number
+        stomp_damage_max_health_percent:
+          format: double
+          nullable: true
+          type: number
+        stomp_impact_radius:
+          format: double
+          nullable: true
+          type: number
+        stun_duration:
+          format: double
+          nullable: true
+          type: number
+        t1_boss_damage_resist_pct:
+          format: double
+          nullable: true
+          type: number
+        t1_boss_dps:
+          format: double
+          nullable: true
+          type: number
+        t1_boss_dpsbase_resist:
+          format: double
+          nullable: true
+          type: number
+        t1_boss_dpsmax_resist:
+          format: double
+          nullable: true
+          type: number
+        t1_boss_dpsmax_resist_time_in_seconds:
+          format: double
+          nullable: true
+          type: number
+        t2_boss_damage_resist_pct:
+          format: double
+          nullable: true
+          type: number
+        t2_boss_dps:
+          format: double
+          nullable: true
+          type: number
+        t2_boss_dpsbase_resist:
+          format: double
+          nullable: true
+          type: number
+        t2_boss_dpsmax_resist:
+          format: double
+          nullable: true
+          type: number
+        t2_boss_dpsmax_resist_time_in_seconds:
+          format: double
+          nullable: true
+          type: number
+        t3_boss_damage_resist_pct:
+          format: double
+          nullable: true
+          type: number
+        t3_boss_dps:
+          format: double
+          nullable: true
+          type: number
+        trooper_damage_resist_pct:
+          format: double
+          nullable: true
+          type: number
+        trooper_dps:
+          format: double
+          nullable: true
+          type: number
+        walk_speed:
+          format: double
+          nullable: true
+          type: number
+        weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/WeaponInfo"
+          nullable: true
+      required:
+      - class_name
+      - id
+    ObjectiveParams:
+      example:
+        patron_phase1_gold_orbs: 6
+        tier1_gold_orbs: 7
+        tier2_gold_kill: 3
+        shrines_gold_kill: 0
+        base_guardians_gold_orbs: 3
+        patron_phase1_gold_kill: 7
+        tier1_gold_kill: 8
+        tier2_gold_orbs: 3
+        shrines_gold_orbs: 4
+        near_player_split_pct: 0.8851374739011653
+        base_guardians_gold_kill: 3
+        gold_per_orb: 7
+      properties:
+        base_guardians_gold_kill:
+          format: int64
+          type: integer
+        base_guardians_gold_orbs:
+          format: int64
+          type: integer
+        gold_per_orb:
+          format: int64
+          type: integer
+        near_player_split_pct:
+          format: double
+          type: number
+        patron_phase1_gold_kill:
+          format: int64
+          type: integer
+        patron_phase1_gold_orbs:
+          format: int64
+          type: integer
+        shrines_gold_kill:
+          format: int64
+          type: integer
+        shrines_gold_orbs:
+          format: int64
+          type: integer
+        tier1_gold_kill:
+          format: int64
+          type: integer
+        tier1_gold_orbs:
+          format: int64
+          type: integer
+        tier2_gold_kill:
+          format: int64
+          type: integer
+        tier2_gold_orbs:
+          format: int64
+          type: integer
+      required:
+      - base_guardians_gold_kill
+      - base_guardians_gold_orbs
+      - gold_per_orb
+      - near_player_split_pct
+      - patron_phase1_gold_kill
+      - patron_phase1_gold_orbs
+      - shrines_gold_kill
+      - shrines_gold_orbs
+      - tier1_gold_kill
+      - tier1_gold_orbs
+      - tier2_gold_kill
+      - tier2_gold_orbs
+    ObjectivePosition:
+      description: "A position on the minimap, as fractions of its width/height."
+      example:
+        top_relative: 6.027456183070403
+        left_relative: 0.8008281904610115
+      properties:
+        left_relative:
+          format: double
+          type: number
+        top_relative:
+          format: double
+          type: number
+      required:
+      - left_relative
+      - top_relative
+    OutcomeToWeights:
+      properties:
+        outcomes_to_weights:
+          additionalProperties:
+            format: double
+            type: number
+      required:
+      - outcomes_to_weights
     Patch:
       example:
         pub_date: 2000-01-23T04:56:07.000+00:00
@@ -9470,6 +13771,18 @@ components:
       required:
       - is_perma_link
       - text
+    Pickup:
+      example:
+        pickup_weight: 4.145608029883936
+        pickup_name: pickup_name
+      properties:
+        pickup_name:
+          nullable: true
+          type: string
+        pickup_weight:
+          format: double
+          nullable: true
+          type: number
     PlayerAccountHeroStats:
       example:
         total_value:
@@ -9896,6 +14209,174 @@ components:
       - kills_std
       - net_worth_avg
       - net_worth_std
+    Rank:
+      example:
+        images:
+          small: small
+          small_subrank3_webp: small_subrank3_webp
+          small_subrank6_webp: small_subrank6_webp
+          small_webp: small_webp
+          large_subrank6_webp: large_subrank6_webp
+          large_subrank4: large_subrank4
+          large_subrank5: large_subrank5
+          large_subrank6: large_subrank6
+          large_subrank1: large_subrank1
+          large_subrank2: large_subrank2
+          large_subrank3: large_subrank3
+          small_subrank2_webp: small_subrank2_webp
+          small_subrank2: small_subrank2
+          small_subrank3: small_subrank3
+          small_subrank1: small_subrank1
+          large_subrank3_webp: large_subrank3_webp
+          small_subrank5_webp: small_subrank5_webp
+          large: large
+          small_subrank6: small_subrank6
+          large_subrank2_webp: large_subrank2_webp
+          small_subrank4: small_subrank4
+          small_subrank5: small_subrank5
+          small_subrank4_webp: small_subrank4_webp
+          small_subrank1_webp: small_subrank1_webp
+          large_subrank4_webp: large_subrank4_webp
+          large_subrank1_webp: large_subrank1_webp
+          large_subrank5_webp: large_subrank5_webp
+          large_webp: large_webp
+        color: color
+        tier: 0
+        name: name
+      properties:
+        color:
+          type: string
+        images:
+          $ref: "#/components/schemas/RankImages"
+        name:
+          type: string
+        tier:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - color
+      - images
+      - name
+      - tier
+    RankImages:
+      description: |-
+        Image URLs for a single rank tier. Field declaration order is load-bearing:
+        it sets the JSON key order, which is stable across versions of this API.
+      example:
+        small: small
+        small_subrank3_webp: small_subrank3_webp
+        small_subrank6_webp: small_subrank6_webp
+        small_webp: small_webp
+        large_subrank6_webp: large_subrank6_webp
+        large_subrank4: large_subrank4
+        large_subrank5: large_subrank5
+        large_subrank6: large_subrank6
+        large_subrank1: large_subrank1
+        large_subrank2: large_subrank2
+        large_subrank3: large_subrank3
+        small_subrank2_webp: small_subrank2_webp
+        small_subrank2: small_subrank2
+        small_subrank3: small_subrank3
+        small_subrank1: small_subrank1
+        large_subrank3_webp: large_subrank3_webp
+        small_subrank5_webp: small_subrank5_webp
+        large: large
+        small_subrank6: small_subrank6
+        large_subrank2_webp: large_subrank2_webp
+        small_subrank4: small_subrank4
+        small_subrank5: small_subrank5
+        small_subrank4_webp: small_subrank4_webp
+        small_subrank1_webp: small_subrank1_webp
+        large_subrank4_webp: large_subrank4_webp
+        large_subrank1_webp: large_subrank1_webp
+        large_subrank5_webp: large_subrank5_webp
+        large_webp: large_webp
+      properties:
+        large:
+          nullable: true
+          type: string
+        large_subrank1:
+          nullable: true
+          type: string
+        large_subrank1_webp:
+          nullable: true
+          type: string
+        large_subrank2:
+          nullable: true
+          type: string
+        large_subrank2_webp:
+          nullable: true
+          type: string
+        large_subrank3:
+          nullable: true
+          type: string
+        large_subrank3_webp:
+          nullable: true
+          type: string
+        large_subrank4:
+          nullable: true
+          type: string
+        large_subrank4_webp:
+          nullable: true
+          type: string
+        large_subrank5:
+          nullable: true
+          type: string
+        large_subrank5_webp:
+          nullable: true
+          type: string
+        large_subrank6:
+          nullable: true
+          type: string
+        large_subrank6_webp:
+          nullable: true
+          type: string
+        large_webp:
+          nullable: true
+          type: string
+        small:
+          nullable: true
+          type: string
+        small_subrank1:
+          nullable: true
+          type: string
+        small_subrank1_webp:
+          nullable: true
+          type: string
+        small_subrank2:
+          nullable: true
+          type: string
+        small_subrank2_webp:
+          nullable: true
+          type: string
+        small_subrank3:
+          nullable: true
+          type: string
+        small_subrank3_webp:
+          nullable: true
+          type: string
+        small_subrank4:
+          nullable: true
+          type: string
+        small_subrank4_webp:
+          nullable: true
+          type: string
+        small_subrank5:
+          nullable: true
+          type: string
+        small_subrank5_webp:
+          nullable: true
+          type: string
+        small_subrank6:
+          nullable: true
+          type: string
+        small_subrank6_webp:
+          nullable: true
+          type: string
+        small_webp:
+          nullable: true
+          type: string
     RankPredictResponse:
       allOf:
       - $ref: "#/components/schemas/RankPrediction"
@@ -9923,6 +14404,219 @@ components:
       required:
       - badge
       - raw_score
+    RawAbilityUpgrade:
+      example:
+        property_upgrades:
+        - scale_stat_filter: scale_stat_filter
+          bonus: bonus
+          name: name
+          upgrade_type: upgrade_type
+        - scale_stat_filter: scale_stat_filter
+          bonus: bonus
+          name: name
+          upgrade_type: upgrade_type
+      properties:
+        property_upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgrade"
+          type: array
+    RawAbilityUpgradePropertyUpgrade:
+      example:
+        scale_stat_filter: scale_stat_filter
+        bonus: bonus
+        name: name
+        upgrade_type: upgrade_type
+      properties:
+        bonus:
+          type: string
+        name:
+          type: string
+        scale_stat_filter:
+          nullable: true
+          type: string
+        upgrade_type:
+          nullable: true
+          type: string
+      required:
+      - bonus
+      - name
+    RawCustomCrosshairSettings:
+      properties:
+        m_DotColor:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        m_DotOutlineColor:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        m_PipColor:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        m_PipOutlineColor:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        m_SpreadIndicatingElement:
+          nullable: true
+          type: string
+        m_flBaseSpread:
+          format: double
+          nullable: true
+          type: number
+        m_flDotOpacity:
+          format: double
+          nullable: true
+          type: number
+        m_flDotOutlineOpacity:
+          format: double
+          nullable: true
+          type: number
+        m_flPipOpacity:
+          format: double
+          nullable: true
+          type: number
+        m_flPipOutlineOpacity:
+          format: double
+          nullable: true
+          type: number
+        m_nDotOutlineGap:
+          format: int32
+          nullable: true
+          type: integer
+        m_nDotOutlineWidth:
+          format: int32
+          nullable: true
+          type: integer
+        m_nDotRadius:
+          format: int32
+          nullable: true
+          type: integer
+        m_nPipHeight:
+          format: int32
+          nullable: true
+          type: integer
+        m_nPipOutlineGap:
+          format: int32
+          nullable: true
+          type: integer
+        m_nPipOutlineWidth:
+          format: int32
+          nullable: true
+          type: integer
+        m_nPipWidth:
+          format: int32
+          nullable: true
+          type: integer
+    RawItemPropertyScaleFunctionSubclass:
+      properties:
+        class_name:
+          nullable: true
+          type: string
+        scaling_stats:
+          items:
+            type: string
+          nullable: true
+          type: array
+        specific_stat_scale_type:
+          nullable: true
+          type: string
+        stat_scale:
+          format: double
+          nullable: true
+          type: number
+        street_brawl_stat_scale:
+          format: double
+          nullable: true
+          type: number
+        subclass_name:
+          nullable: true
+          type: string
+    RawItemWeaponInfoBulletSpeedCurve:
+      properties:
+        domain_maxs:
+          items:
+            format: double
+            type: number
+          type: array
+        domain_mins:
+          items:
+            format: double
+            type: number
+          type: array
+        spline:
+          items:
+            $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSpline"
+          nullable: true
+          type: array
+      required:
+      - domain_maxs
+      - domain_mins
+    RawItemWeaponInfoBulletSpeedCurveSpline:
+      properties:
+        slope_incoming:
+          format: double
+          type: number
+        slope_outgoing:
+          format: double
+          type: number
+        x:
+          format: double
+          type: number
+        "y":
+          format: double
+          type: number
+      required:
+      - slope_incoming
+      - slope_outgoing
+      - x
+      - "y"
+    RawItemWeaponInfoInner:
+      properties:
+        m_BulletSpeedCurve:
+          allOf:
+          - $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurve"
+          nullable: true
+    RawWeaponInfoHorizontalRecoil:
+      properties:
+        burst_exponent:
+          format: double
+          nullable: true
+          type: number
+        range: {}
+    RawWeaponInfoVerticalRecoil:
+      properties:
+        burst_constant:
+          format: double
+          nullable: true
+          type: number
+        burst_exponent:
+          format: double
+          nullable: true
+          type: number
+        burst_slope:
+          format: double
+          nullable: true
+          type: number
+        range: {}
+    RecoilRange:
+      description: "Recoil `m_Range` is either a `[min, max]` array or a single scalar."
+      oneOf:
+      - items:
+          format: double
+          type: number
+        type: array
+      - format: double
+        type: number
     RegionMode:
       enum:
       - row
@@ -9932,6 +14626,81 @@ components:
       - russia
       - oceania
       type: string
+    RejuvParams:
+      example:
+        rejuvinator_buff_duration: 5.533258397034986
+        rejuvinator_expiration_warning_timing: 0.2025324113236393
+        rejuvinator_rebirth_duration:
+        - 6.628464275087742
+        - 6.628464275087742
+        rejuvinator_drop_duration: 3.2588565619047607
+        player_respawn_mult:
+        - 7.04836565559697
+        - 7.04836565559697
+        rejuvinator_drop_height: 4.078845849666752
+        trooper_health_mult:
+        - 4.258773108174356
+        - 4.258773108174356
+      properties:
+        player_respawn_mult:
+          items:
+            format: double
+            type: number
+          type: array
+        rejuvinator_buff_duration:
+          format: double
+          type: number
+        rejuvinator_drop_duration:
+          format: double
+          type: number
+        rejuvinator_drop_height:
+          format: double
+          type: number
+        rejuvinator_expiration_warning_timing:
+          format: double
+          type: number
+        rejuvinator_rebirth_duration:
+          items:
+            format: double
+            type: number
+          type: array
+        trooper_health_mult:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - player_respawn_mult
+      - rejuvinator_buff_duration
+      - rejuvinator_drop_duration
+      - rejuvinator_drop_height
+      - rejuvinator_expiration_warning_timing
+      - rejuvinator_rebirth_duration
+      - trooper_health_mult
+    RollType:
+      description: |-
+        Known values for `m_eRollType`. Unknown values pass through as
+        [`RollType::Other`] so a newly-introduced roll type doesn't 500.
+      oneOf:
+      - enum:
+        - BreakablePowerupPickup
+        type: string
+      - enum:
+        - BreakableGoldPickup
+        type: string
+      - $ref: "#/components/schemas/RollType_oneOf"
+    ScriptValues:
+      example:
+        modifier_value: modifier_value
+        value: 1.2315135367772556
+      properties:
+        modifier_value:
+          nullable: true
+          type: string
+        value:
+          format: double
+          nullable: true
+          type: number
     ServerRegion:
       enum:
       - europe
@@ -10021,6 +14790,320 @@ components:
       required:
       - server_id
       - ttl_secs
+    ShopSpiritStatsDisplay:
+      example:
+        display_stats:
+        - display_stats
+        - display_stats
+      properties:
+        display_stats:
+          items:
+            type: string
+          type: array
+      required:
+      - display_stats
+    ShopStatDisplay:
+      example:
+        vitality_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
+          other_display_stats:
+          - other_display_stats
+          - other_display_stats
+        weapon_stats_display:
+          weapon_image_webp: weapon_image_webp
+          display_stats:
+          - display_stats
+          - display_stats
+          weapon_image: weapon_image
+          weapon_attributes:
+          - weapon_attributes
+          - weapon_attributes
+          other_display_stats:
+          - other_display_stats
+          - other_display_stats
+        spirit_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
+      properties:
+        spirit_stats_display:
+          $ref: "#/components/schemas/ShopSpiritStatsDisplay"
+        vitality_stats_display:
+          $ref: "#/components/schemas/ShopVitalityStatsDisplay"
+        weapon_stats_display:
+          $ref: "#/components/schemas/ShopWeaponStatsDisplay"
+      required:
+      - spirit_stats_display
+      - vitality_stats_display
+      - weapon_stats_display
+    ShopVitalityStatsDisplay:
+      example:
+        display_stats:
+        - display_stats
+        - display_stats
+        other_display_stats:
+        - other_display_stats
+        - other_display_stats
+      properties:
+        display_stats:
+          items:
+            type: string
+          type: array
+        other_display_stats:
+          items:
+            type: string
+          type: array
+      required:
+      - display_stats
+      - other_display_stats
+    ShopWeaponStatsDisplay:
+      example:
+        weapon_image_webp: weapon_image_webp
+        display_stats:
+        - display_stats
+        - display_stats
+        weapon_image: weapon_image
+        weapon_attributes:
+        - weapon_attributes
+        - weapon_attributes
+        other_display_stats:
+        - other_display_stats
+        - other_display_stats
+      properties:
+        display_stats:
+          items:
+            type: string
+          type: array
+        other_display_stats:
+          items:
+            type: string
+          type: array
+        weapon_attributes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        weapon_image:
+          nullable: true
+          type: string
+        weapon_image_webp:
+          nullable: true
+          type: string
+      required:
+      - display_stats
+      - other_display_stats
+    SpreadPenalty:
+      description: |-
+        Source data emits spread penalties as either a list of floats or a string
+        (sometimes a comma-separated list, sometimes a literal label).
+      oneOf:
+      - items:
+          format: double
+          type: number
+        type: array
+      - type: string
+    StartingStat:
+      example:
+        display_stat_name: display_stat_name
+        value: 1.1730742509559433
+      properties:
+        display_stat_name:
+          type: string
+        value:
+          format: double
+          type: number
+      required:
+      - display_stat_name
+      - value
+    StartingStats:
+      example:
+        heavy_melee_damage:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        tech_range:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        weapon_power_scale:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        crit_damage_received_scale:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        reload_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        stamina:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        move_acceleration:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        crouch_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        stamina_regen_per_second:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        ability_resource_max:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        max_health:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        bullet_armor_damage_reduction: ""
+        tech_armor_damage_reduction: ""
+        proc_build_up_rate_scale:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        sprint_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        tech_duration:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        ability_resource_regen_per_second:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        max_move_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        light_melee_damage:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        base_health_regen:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        weapon_power:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+      properties:
+        ability_resource_max:
+          $ref: "#/components/schemas/StartingStat"
+        ability_resource_regen_per_second:
+          $ref: "#/components/schemas/StartingStat"
+        base_health_regen:
+          $ref: "#/components/schemas/StartingStat"
+        bullet_armor_damage_reduction:
+          allOf:
+          - $ref: "#/components/schemas/StartingStat"
+          nullable: true
+        crit_damage_received_scale:
+          $ref: "#/components/schemas/StartingStat"
+        crouch_speed:
+          $ref: "#/components/schemas/StartingStat"
+        heavy_melee_damage:
+          $ref: "#/components/schemas/StartingStat"
+        light_melee_damage:
+          $ref: "#/components/schemas/StartingStat"
+        max_health:
+          $ref: "#/components/schemas/StartingStat"
+        max_move_speed:
+          $ref: "#/components/schemas/StartingStat"
+        move_acceleration:
+          $ref: "#/components/schemas/StartingStat"
+        proc_build_up_rate_scale:
+          $ref: "#/components/schemas/StartingStat"
+        reload_speed:
+          $ref: "#/components/schemas/StartingStat"
+        sprint_speed:
+          $ref: "#/components/schemas/StartingStat"
+        stamina:
+          $ref: "#/components/schemas/StartingStat"
+        stamina_regen_per_second:
+          $ref: "#/components/schemas/StartingStat"
+        tech_armor_damage_reduction:
+          allOf:
+          - $ref: "#/components/schemas/StartingStat"
+          nullable: true
+        tech_duration:
+          $ref: "#/components/schemas/StartingStat"
+        tech_range:
+          $ref: "#/components/schemas/StartingStat"
+        weapon_power:
+          $ref: "#/components/schemas/StartingStat"
+        weapon_power_scale:
+          $ref: "#/components/schemas/StartingStat"
+      required:
+      - ability_resource_max
+      - ability_resource_regen_per_second
+      - base_health_regen
+      - crit_damage_received_scale
+      - crouch_speed
+      - heavy_melee_damage
+      - light_melee_damage
+      - max_health
+      - max_move_speed
+      - move_acceleration
+      - proc_build_up_rate_scale
+      - reload_speed
+      - sprint_speed
+      - stamina
+      - stamina_regen_per_second
+      - tech_duration
+      - tech_range
+      - weapon_power
+      - weapon_power_scale
+    StatsDisplay:
+      example:
+        health_stats:
+        - health_stats
+        - health_stats
+        magic_stats:
+        - magic_stats
+        - magic_stats
+        weapon_stats:
+        - weapon_stats
+        - weapon_stats
+        weapon_header_stats:
+        - weapon_header_stats
+        - weapon_header_stats
+        magic_header_stats:
+        - magic_header_stats
+        - magic_header_stats
+        health_header_stats:
+        - health_header_stats
+        - health_header_stats
+      properties:
+        health_header_stats:
+          items:
+            type: string
+          type: array
+        health_stats:
+          items:
+            type: string
+          type: array
+        magic_header_stats:
+          items:
+            type: string
+          type: array
+        magic_stats:
+          items:
+            type: string
+          type: array
+        weapon_header_stats:
+          items:
+            type: string
+          type: array
+        weapon_stats:
+          items:
+            type: string
+          type: array
+      required:
+      - health_header_stats
+      - health_stats
+      - magic_header_stats
+      - magic_stats
+      - weapon_header_stats
+      - weapon_stats
+    StatsUsageFlag:
+      enum:
+      - ConditionallyApplied
+      - ConditionallyEnemyApplied
+      - IntrinsicallyProvidedInAbility
+      - IntrinsicallyProvidedInModifier
+      type: string
     Status:
       example:
         services: ""
@@ -10061,15 +15144,100 @@ components:
       required:
       - account_id
       - friend_since
+    SteamInfo:
+      description: |-
+        Per-patch Steam manifest as served by the public assets API.
+
+        Field order is load-bearing — it sets the JSON key order, which matches the
+        legacy Python endpoint.
+      example:
+        version_time: version_time
+        source_revision: 0
+        version_datetime: version_datetime
+        tools_app_id: 0
+        version_date: version_date
+        server_app_id: 0
+        client_version: 0
+        server_version: 0
+        app_id: 0
+        product_name: product_name
+      properties:
+        app_id:
+          format: int32
+          minimum: 0
+          type: integer
+        client_version:
+          format: int32
+          minimum: 0
+          type: integer
+        product_name:
+          type: string
+        server_app_id:
+          format: int32
+          minimum: 0
+          type: integer
+        server_version:
+          format: int32
+          minimum: 0
+          type: integer
+        source_revision:
+          format: int64
+          minimum: 0
+          type: integer
+        tools_app_id:
+          format: int32
+          minimum: 0
+          type: integer
+        version_date:
+          type: string
+        version_datetime:
+          description: |-
+            `version_date` + `version_time` combined into a naive ISO-8601 string
+            (`YYYY-MM-DDTHH:MM:SS`, no timezone) — matches the Python output.
+          type: string
+        version_time:
+          type: string
+      required:
+      - app_id
+      - client_version
+      - product_name
+      - server_app_id
+      - server_version
+      - source_revision
+      - tools_app_id
+      - version_date
+      - version_datetime
+      - version_time
+    SteamNews:
+      properties:
+        content:
+          type: string
+        guid:
+          $ref: "#/components/schemas/PatchGuid"
+        link:
+          type: string
+        pub_date:
+          format: date-time
+          type: string
+        title:
+          type: string
+      required:
+      - content
+      - guid
+      - link
+      - pub_date
+      - title
     SteamProfile:
       example:
         profileurl: profileurl
         last_updated: 2000-01-23T04:56:07.000+00:00
         account_id: 0
+        matches_played_last_30d: 0
         countrycode: countrycode
         avatarfull: avatarfull
         avatarmedium: avatarmedium
         avatar: avatar
+        last_team_avg_badge: 0
         personaname: personaname
         friends:
         - account_id: 0
@@ -10095,9 +15263,18 @@ components:
           items:
             $ref: "#/components/schemas/SteamFriend"
           type: array
+        last_team_avg_badge:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
         last_updated:
           format: date-time
           type: string
+        matches_played_last_30d:
+          format: int64
+          minimum: 0
+          type: integer
         personaname:
           type: string
         profileurl:
@@ -10112,6 +15289,7 @@ components:
       - avatarmedium
       - friends
       - last_updated
+      - matches_played_last_30d
       - personaname
       - profileurl
     SteamServer:
@@ -10215,6 +15393,229 @@ components:
       - secure
       - steamid
       - version
+    StreetBrawl:
+      properties:
+        apper_round:
+          items:
+            format: int64
+            type: integer
+          type: array
+        buy_time:
+          items:
+            format: int64
+            type: integer
+          type: array
+        buy_time_grace_period:
+          format: double
+          type: number
+        comeback_bonus_health:
+          format: int64
+          type: integer
+        comeback_bonus_health_critical:
+          format: int64
+          type: integer
+        gold_per_round:
+          items:
+            format: int64
+            type: integer
+          type: array
+        item_draft_rerolls_per_round:
+          items:
+            format: int64
+            type: integer
+          type: array
+        item_draft_rounds_per_game_round:
+          items:
+            $ref: "#/components/schemas/ItemDraftRoundPerGameRound"
+          type: array
+        item_drafts:
+          additionalProperties:
+            $ref: "#/components/schemas/DraftBuckets"
+        lane_number:
+          format: int64
+          type: integer
+        objective_max_health:
+          items:
+            format: int64
+            type: integer
+          type: array
+        overtime_respawn_time_increase:
+          items:
+            format: double
+            type: number
+          type: array
+        overtime_respawn_time_increase_urgent:
+          items:
+            format: double
+            type: number
+          type: array
+        overtime_trooper_damage_scale:
+          items:
+            format: double
+            type: number
+          type: array
+        overtime_trooper_health_scale:
+          items:
+            format: double
+            type: number
+          type: array
+        pre_buy_time:
+          items:
+            format: double
+            type: number
+          type: array
+        respawn_times:
+          items:
+            format: int64
+            type: integer
+          type: array
+        round_length_minutes:
+          items:
+            format: int64
+            type: integer
+          type: array
+        round_length_minutes_urgent:
+          items:
+            format: double
+            type: number
+          type: array
+        score_to_win:
+          format: int64
+          type: integer
+        scoring_time:
+          format: double
+          type: number
+        tier1_max_resist_time:
+          format: double
+          type: number
+        tier2_bonus_health:
+          format: int64
+          type: integer
+        tier2_max_resist_time:
+          format: double
+          type: number
+        trooper_spawn_before_round_start_timer:
+          format: double
+          type: number
+        trooper_spawn_timer:
+          items:
+            format: double
+            type: number
+          type: array
+        ultimate_unlock_round:
+          format: int64
+          type: integer
+        zip_boost_cooldown_on_start:
+          format: double
+          type: number
+      required:
+      - apper_round
+      - buy_time
+      - buy_time_grace_period
+      - comeback_bonus_health
+      - comeback_bonus_health_critical
+      - gold_per_round
+      - item_draft_rerolls_per_round
+      - item_draft_rounds_per_game_round
+      - item_drafts
+      - lane_number
+      - objective_max_health
+      - overtime_respawn_time_increase
+      - overtime_respawn_time_increase_urgent
+      - overtime_trooper_damage_scale
+      - overtime_trooper_health_scale
+      - pre_buy_time
+      - respawn_times
+      - round_length_minutes
+      - round_length_minutes_urgent
+      - score_to_win
+      - scoring_time
+      - tier1_max_resist_time
+      - tier2_bonus_health
+      - tier2_max_resist_time
+      - trooper_spawn_before_round_start_timer
+      - trooper_spawn_timer
+      - ultimate_unlock_round
+      - zip_boost_cooldown_on_start
+    Subclass_BulletResistModifier:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_BulletResistModifier_subclass"
+      required:
+      - subclass
+    Subclass_EmpoweredModifierLevel:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_EmpoweredModifierLevel_subclass"
+      required:
+      - subclass
+    Subclass_IntrinsicModifiers:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      example:
+        subclass:
+          script_values:
+          - modifier_value: modifier_value
+            value: 1.2315135367772556
+          - modifier_value: modifier_value
+            value: 1.2315135367772556
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_IntrinsicModifiers_subclass"
+      required:
+      - subclass
+    Subclass_ModifierDefinition:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_ModifierDefinition_subclass"
+      required:
+      - subclass
+    Subclass_ObjectiveHealthGrowthPhase:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_ObjectiveHealthGrowthPhase_subclass"
+      required:
+      - subclass
+    Subclass_ObjectiveRegen:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_ObjectiveRegen_subclass"
+      required:
+      - subclass
+    Subclass_RangedArmorModifier:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_RangedArmorModifier_subclass"
+      required:
+      - subclass
+    Subclass_TrooperDamageReduction:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_TrooperDamageReduction_subclass"
+      required:
+      - subclass
     TableSize:
       example:
         data_compressed_bytes: 0
@@ -10245,6 +15646,238 @@ components:
           type: integer
       required:
       - is_view
+    TooltipDetailsBlock:
+      properties:
+        loc_string:
+          nullable: true
+          type: string
+        properties:
+          items:
+            $ref: "#/components/schemas/TooltipDetailsBlockProperty"
+          nullable: true
+          type: array
+    TooltipDetailsBlockProperty:
+      properties:
+        important_property:
+          nullable: true
+          type: string
+        important_property_icon:
+          nullable: true
+          type: string
+        requires_ability_upgrade:
+          nullable: true
+          type: boolean
+        show_property_value:
+          nullable: true
+          type: boolean
+        status_effect_name:
+          nullable: true
+          type: string
+        status_effect_value:
+          nullable: true
+          type: string
+    TooltipDetailsInfoSection:
+      properties:
+        basic_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        loc_string:
+          nullable: true
+          type: string
+        properties_block:
+          items:
+            $ref: "#/components/schemas/TooltipDetailsBlock"
+          nullable: true
+          type: array
+        property_upgrade_required:
+          nullable: true
+          type: string
+    Upgrade:
+      properties:
+        activation:
+          $ref: "#/components/schemas/AbilityActivation"
+        class_name:
+          type: string
+        component_items:
+          items:
+            type: string
+          nullable: true
+          type: array
+        cost:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        description:
+          allOf:
+          - $ref: "#/components/schemas/UpgradeDescription"
+          nullable: true
+        disabled:
+          nullable: true
+          type: boolean
+        hero:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        imbue:
+          allOf:
+          - $ref: "#/components/schemas/AbilityImbue"
+          nullable: true
+        is_active_item:
+          type: boolean
+        item_slot_type:
+          $ref: "#/components/schemas/ItemSlotType"
+        item_tier:
+          format: int32
+          minimum: 0
+          type: integer
+        name:
+          type: string
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/UpgradeProperty"
+        shop_image:
+          nullable: true
+          type: string
+        shop_image_small:
+          nullable: true
+          type: string
+        shop_image_small_webp:
+          nullable: true
+          type: string
+        shop_image_webp:
+          nullable: true
+          type: string
+        shopable:
+          type: boolean
+        start_trained:
+          nullable: true
+          type: boolean
+        tooltip_sections:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipSection"
+          nullable: true
+          type: array
+        type:
+          $ref: "#/components/schemas/ItemType"
+        update_time:
+          format: int64
+          nullable: true
+          type: integer
+        upgrades:
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgrade"
+          nullable: true
+          type: array
+        weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/RawItemWeaponInfoInner"
+          nullable: true
+      required:
+      - activation
+      - class_name
+      - id
+      - is_active_item
+      - item_slot_type
+      - item_tier
+      - name
+      - shopable
+      - type
+    UpgradeDescription:
+      properties:
+        active:
+          nullable: true
+          type: string
+        desc:
+          nullable: true
+          type: string
+        desc2:
+          nullable: true
+          type: string
+        passive:
+          nullable: true
+          type: string
+    UpgradeProperty:
+      allOf:
+      - $ref: "#/components/schemas/ItemProperty"
+      - properties:
+          tooltip_is_elevated:
+            nullable: true
+            type: boolean
+          tooltip_is_important:
+            nullable: true
+            type: boolean
+          tooltip_section:
+            allOf:
+            - $ref: "#/components/schemas/AbilitySectionType"
+            nullable: true
+    UpgradeTooltipImportantPropertyWithIcon:
+      properties:
+        icon:
+          nullable: true
+          type: string
+        localized_name:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+    UpgradeTooltipSection:
+      properties:
+        section_attributes:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipSectionAttribute"
+          nullable: true
+          type: array
+        section_type:
+          allOf:
+          - $ref: "#/components/schemas/AbilitySectionType"
+          nullable: true
+    UpgradeTooltipSectionAttribute:
+      properties:
+        elevated_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        important_properties:
+          items:
+            type: string
+          nullable: true
+          type: array
+        important_properties_with_icon:
+          items:
+            $ref: "#/components/schemas/UpgradeTooltipImportantPropertyWithIcon"
+          nullable: true
+          type: array
+        loc_string:
+          nullable: true
+          type: string
+        properties:
+          items:
+            type: string
+          nullable: true
+          type: array
     VariableCategory:
       enum:
       - General
@@ -10288,6 +15921,458 @@ components:
       - description
       - extra_args
       - name
+    VerticalRecoil:
+      properties:
+        burst_constant:
+          format: double
+          nullable: true
+          type: number
+        burst_exponent:
+          format: double
+          nullable: true
+          type: number
+        burst_slope:
+          format: double
+          nullable: true
+          type: number
+        range:
+          allOf:
+          - $ref: "#/components/schemas/RecoilRange"
+          nullable: true
+    Weapon:
+      properties:
+        class_name:
+          type: string
+        crosshair_css_class:
+          nullable: true
+          type: string
+        custom_crosshair_settings:
+          allOf:
+          - $ref: "#/components/schemas/RawCustomCrosshairSettings"
+          nullable: true
+        hero:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        heroes:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        image:
+          nullable: true
+          type: string
+        image_webp:
+          nullable: true
+          type: string
+        name:
+          type: string
+        properties:
+          additionalProperties:
+            $ref: "#/components/schemas/ItemProperty"
+        start_trained:
+          nullable: true
+          type: boolean
+        type:
+          $ref: "#/components/schemas/ItemType"
+        update_time:
+          format: int64
+          nullable: true
+          type: integer
+        use_custom_crosshair_settings:
+          nullable: true
+          type: boolean
+        weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/WeaponInfo"
+          nullable: true
+      required:
+      - class_name
+      - id
+      - name
+      - type
+    WeaponInfo:
+      properties:
+        aiming_shot_spread_penalty: {}
+        build_up_rate:
+          format: double
+          nullable: true
+          type: number
+        bullet_damage:
+          format: double
+          nullable: true
+          type: number
+        bullet_gravity_scale:
+          format: double
+          nullable: true
+          type: number
+        bullet_inherit_shooter_velocity_scale:
+          format: double
+          nullable: true
+          type: number
+        bullet_lifetime:
+          format: double
+          nullable: true
+          type: number
+        bullet_radius:
+          format: double
+          nullable: true
+          type: number
+        bullet_radius_vs_world:
+          format: double
+          nullable: true
+          type: number
+        bullet_reflect_amount:
+          format: double
+          nullable: true
+          type: number
+        bullet_reflect_scale:
+          format: double
+          nullable: true
+          type: number
+        bullet_speed:
+          format: double
+          nullable: true
+          type: number
+        bullet_speed_curve:
+          allOf:
+          - $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurve"
+          nullable: true
+        bullet_whiz_distance:
+          format: double
+          nullable: true
+          type: number
+        bullets:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        bullets_per_second:
+          format: double
+          nullable: true
+          type: number
+        bullets_per_second_with_reload:
+          format: double
+          nullable: true
+          type: number
+        burst_shot_cooldown:
+          format: double
+          nullable: true
+          type: number
+        burst_shot_count:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        can_zoom:
+          nullable: true
+          type: boolean
+        clip_size:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        crit_bonus_against_npcs:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_end:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_end_range:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_start:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_start_range:
+          format: double
+          nullable: true
+          type: number
+        cycle_time:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_bias:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_end_range:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_end_scale:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_start_range:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_start_scale:
+          format: double
+          nullable: true
+          type: number
+        damage_per_magazine:
+          format: double
+          nullable: true
+          type: number
+        damage_per_second:
+          format: double
+          nullable: true
+          type: number
+        damage_per_second_with_reload:
+          format: double
+          nullable: true
+          type: number
+        damage_per_shot:
+          format: double
+          nullable: true
+          type: number
+        horizontal_punch:
+          format: double
+          nullable: true
+          type: number
+        horizontal_recoil:
+          allOf:
+          - $ref: "#/components/schemas/RawWeaponInfoHorizontalRecoil"
+          nullable: true
+        intra_burst_cycle_time:
+          format: double
+          nullable: true
+          type: number
+        is_semi_auto:
+          nullable: true
+          type: boolean
+        low_ammo_indicator_threshold:
+          format: double
+          nullable: true
+          type: number
+        max_spin_cycle_time:
+          format: double
+          nullable: true
+          type: number
+        range:
+          format: double
+          nullable: true
+          type: number
+        recoil_recovery_delay_factor:
+          format: double
+          nullable: true
+          type: number
+        recoil_recovery_speed:
+          format: double
+          nullable: true
+          type: number
+        recoil_seed:
+          format: double
+          nullable: true
+          type: number
+        recoil_shot_index_recovery_time_factor:
+          format: double
+          nullable: true
+          type: number
+        recoil_speed:
+          format: double
+          nullable: true
+          type: number
+        reload_duration:
+          format: double
+          nullable: true
+          type: number
+        reload_move_speed:
+          format: double
+          nullable: true
+          type: number
+        reload_single_bullets:
+          nullable: true
+          type: boolean
+        reload_single_bullets_allow_cancel:
+          nullable: true
+          type: boolean
+        reload_single_bullets_initial_delay:
+          format: double
+          nullable: true
+          type: number
+        scatter_yaw_scale:
+          format: double
+          nullable: true
+          type: number
+        semi_auto_cycle_rate:
+          format: double
+          nullable: true
+          type: number
+        shoot_move_speed_percent:
+          format: double
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay:
+          format: double
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay_delay:
+          format: double
+          nullable: true
+          type: number
+        shoot_spread_penalty_per_shot:
+          format: double
+          nullable: true
+          type: number
+        shooting_up_spread_penalty:
+          format: double
+          nullable: true
+          type: number
+        shots_per_second:
+          format: double
+          nullable: true
+          type: number
+        shots_per_second_with_reload:
+          format: double
+          nullable: true
+          type: number
+        spin_decay_rate:
+          format: double
+          nullable: true
+          type: number
+        spin_increase_rate:
+          format: double
+          nullable: true
+          type: number
+        spins_up:
+          nullable: true
+          type: boolean
+        spread:
+          format: double
+          nullable: true
+          type: number
+        standing_shot_spread_penalty: {}
+        standing_spread:
+          format: double
+          nullable: true
+          type: number
+        vertical_punch:
+          format: double
+          nullable: true
+          type: number
+        vertical_recoil:
+          allOf:
+          - $ref: "#/components/schemas/RawWeaponInfoVerticalRecoil"
+          nullable: true
+        zoom_fov:
+          format: double
+          nullable: true
+          type: number
+        zoom_move_speed_percent:
+          format: double
+          nullable: true
+          type: number
+    ZiplanePath:
+      description: A single lane's zip-line cubic spline.
+      example:
+        color: color
+        P0_points:
+        - - 5.962133916683182
+          - 5.962133916683182
+        - - 5.962133916683182
+          - 5.962133916683182
+        origin:
+        - 7.061401241503109
+        - 7.061401241503109
+        color_parsed:
+          red: 0
+          green: 0
+          blue: 0
+          alpha: 0
+        P1_points:
+        - - 5.637376656633329
+          - 5.637376656633329
+        - - 5.637376656633329
+          - 5.637376656633329
+        P2_points:
+        - - 2.3021358869347655
+          - 2.3021358869347655
+        - - 2.3021358869347655
+          - 2.3021358869347655
+      properties:
+        P0_points:
+          items:
+            items:
+              format: double
+              type: number
+            type: array
+          type: array
+        P1_points:
+          items:
+            items:
+              format: double
+              type: number
+            type: array
+          type: array
+        P2_points:
+          items:
+            items:
+              format: double
+              type: number
+            type: array
+          type: array
+        color:
+          type: string
+        color_parsed:
+          $ref: "#/components/schemas/Color"
+        origin:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - P0_points
+      - P1_points
+      - P2_points
+      - color
+      - color_parsed
+      - origin
+    FeedItem_oneOf:
+      allOf:
+      - $ref: "#/components/schemas/ForumPatch"
+      - properties:
+          source:
+            enum:
+            - forum
+            type: string
+        required:
+        - source
+      example:
+        pub_date: 2000-01-23T04:56:07.000+00:00
+        link: link
+        guid:
+          is_perma_link: true
+          text: text
+        source: forum
+        category:
+          domain: domain
+          text: text
+        title: title
+        content: content
+    FeedItem_oneOf_1:
+      allOf:
+      - $ref: "#/components/schemas/SteamNews"
+      - properties:
+          source:
+            enum:
+            - steam
+            type: string
+        required:
+        - source
     HashMap_value:
       properties:
         avg:
@@ -10335,6 +16420,221 @@ components:
       - percentile95
       - percentile99
       - std
+    HashMap_ItemSlotType_ItemSlotInfo_value:
+      example:
+        max_purchases_for_tier:
+        - 5
+        - 5
+      properties:
+        max_purchases_for_tier:
+          items:
+            format: int64
+            type: integer
+          type: array
+      required:
+      - max_purchases_for_tier
+    HashMap_ItemSlotType_Vec_MapModCostBonus_value_inner:
+      properties:
+        bonus:
+          format: double
+          type: number
+        gold_threshold:
+          format: int64
+          type: integer
+        percent_on_graph:
+          format: double
+          type: number
+      required:
+      - bonus
+      - gold_threshold
+      - percent_on_graph
+    HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner:
+      example:
+        value_type: value_type
+        tier: 1
+        value: value
+      properties:
+        tier:
+          format: int64
+          type: integer
+        value:
+          type: string
+        value_type:
+          type: string
+      required:
+      - tier
+      - value
+      - value_type
+    HashMap_String_LevelInfo_value:
+      example:
+        use_standard_upgrade: true
+        bonus_currencies:
+        - bonus_currencies
+        - bonus_currencies
+        required_gold: 2
+      properties:
+        bonus_currencies:
+          items:
+            type: string
+          nullable: true
+          type: array
+        required_gold:
+          format: int64
+          type: integer
+        use_standard_upgrade:
+          nullable: true
+          type: boolean
+      required:
+      - required_gold
+    HashMap_String_Option_DraftBucketing_value_oneOf:
+      nullable: true
+      properties:
+        bucket:
+          nullable: true
+          type: string
+        weight:
+          format: double
+          nullable: true
+          type: number
+    HashMap_String_Option_DraftBucketing_value:
+      nullable: true
+      oneOf:
+      - $ref: "#/components/schemas/HashMap_String_Option_DraftBucketing_value_oneOf"
+    HashMap_String_ScalingStat_value:
+      example:
+        scaling_stat: scaling_stat
+        scale: 1.4894159098541704
+      properties:
+        scale:
+          format: double
+          type: number
+        scaling_stat:
+          type: string
+      required:
+      - scale
+      - scaling_stat
+    RollType_oneOf:
+      properties:
+        Other:
+          type: string
+      required:
+      - Other
+    Subclass_BulletResistModifier_subclass:
+      properties:
+        bullet_resist:
+          format: int64
+          nullable: true
+          type: integer
+        bullet_resist_reduction_per_hero:
+          format: int64
+          nullable: true
+          type: integer
+    Subclass_EmpoweredModifierLevel_subclass:
+      properties:
+        max_health:
+          format: int64
+          nullable: true
+          type: integer
+        model_scale:
+          format: double
+          nullable: true
+          type: number
+        transition_duration:
+          format: double
+          nullable: true
+          type: number
+    Subclass_IntrinsicModifiers_subclass:
+      example:
+        script_values:
+        - modifier_value: modifier_value
+          value: 1.2315135367772556
+        - modifier_value: modifier_value
+          value: 1.2315135367772556
+      properties:
+        script_values:
+          items:
+            $ref: "#/components/schemas/ScriptValues"
+          nullable: true
+          type: array
+    Subclass_ModifierDefinition_subclass:
+      properties:
+        always_show_in_ui:
+          items:
+            type: string
+          nullable: true
+          type: array
+        class_name:
+          nullable: true
+          type: string
+        duration:
+          format: double
+          nullable: true
+          type: number
+        modifier_values:
+          items:
+            $ref: "#/components/schemas/ModifierValue"
+          nullable: true
+          type: array
+        script_values:
+          items:
+            $ref: "#/components/schemas/ModifierValue"
+          nullable: true
+          type: array
+        subclass_name:
+          nullable: true
+          type: string
+        time_max:
+          format: double
+          nullable: true
+          type: number
+        time_min:
+          format: double
+          nullable: true
+          type: number
+    Subclass_ObjectiveHealthGrowthPhase_subclass:
+      properties:
+        growth_per_minute:
+          format: int64
+          nullable: true
+          type: integer
+        growth_start_time_in_minutes:
+          format: int64
+          nullable: true
+          type: integer
+        tick_rate:
+          format: double
+          nullable: true
+          type: number
+    Subclass_ObjectiveRegen_subclass:
+      properties:
+        out_of_combat_health_regen:
+          format: double
+          nullable: true
+          type: number
+        out_of_combat_regen_delay:
+          format: double
+          nullable: true
+          type: number
+    Subclass_RangedArmorModifier_subclass:
+      properties:
+        invuln_range:
+          format: double
+          nullable: true
+          type: number
+        range_max:
+          format: double
+          nullable: true
+          type: number
+        range_min:
+          format: double
+          nullable: true
+          type: number
+    Subclass_TrooperDamageReduction_subclass:
+      properties:
+        damage_reduction_for_troopers:
+          format: double
+          nullable: true
+          type: number
   securitySchemes:
     api_key_header:
       in: header
@@ -10344,4 +16644,40 @@ components:
       in: query
       name: api_key
       type: apiKey
+x-tagGroups:
+- name: Assets
+  tags:
+  - Accolades
+  - Assets Bucket
+  - Build Tags
+  - Client Versions
+  - Colors
+  - Generic Data
+  - Heroes
+  - Items
+  - Loot Tables
+  - Map
+  - Misc Entities
+  - NPC Units
+  - Ranks
+  - Steam Info
+- name: Game Data
+  tags:
+  - Analytics
+  - Builds
+  - Custom Matches
+  - Info
+  - Leaderboard
+  - Matches
+  - MMR
+  - Patches
+  - Players
+  - Steam
+- name: Developer
+  tags:
+  - Commands
+  - GraphQL
+  - Internal
+  - Servers
+  - SQL
 

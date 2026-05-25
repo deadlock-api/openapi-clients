@@ -63,6 +63,9 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
+| *AccoladesApi* | [**getAccolade**](docs/AccoladesApi.md#getaccolade) | **GET** /v1/assets/accolades/{accolade_id} | Get Accolade |
+| *AccoladesApi* | [**getAccoladeByName**](docs/AccoladesApi.md#getaccoladebyname) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name |
+| *AccoladesApi* | [**listAccolades**](docs/AccoladesApi.md#listaccolades) | **GET** /v1/assets/accolades | List Accolades |
 | *AnalyticsApi* | [**abilityOrderStats**](docs/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
 | *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
@@ -80,7 +83,16 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**playerPerformanceCurve**](docs/AnalyticsApi.md#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve |
 | *AnalyticsApi* | [**playerScoreboard**](docs/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard |
 | *AnalyticsApi* | [**playerStatsMetrics**](docs/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics |
+| *AssetsBucketApi* | [**fonts**](docs/AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index |
+| *AssetsBucketApi* | [**icons**](docs/AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index |
+| *AssetsBucketApi* | [**images**](docs/AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index |
+| *AssetsBucketApi* | [**sounds**](docs/AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index |
+| *BuildTagsApi* | [**getBuildTag**](docs/BuildTagsApi.md#getbuildtag) | **GET** /v1/assets/build-tags/{build_tag_id} | Get Build Tag |
+| *BuildTagsApi* | [**getBuildTagByName**](docs/BuildTagsApi.md#getbuildtagbyname) | **GET** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name |
+| *BuildTagsApi* | [**listBuildTags**](docs/BuildTagsApi.md#listbuildtags) | **GET** /v1/assets/build-tags | List Build Tags |
 | *BuildsApi* | [**searchBuilds**](docs/BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search |
+| *ClientVersionsApi* | [**listClientVersions**](docs/ClientVersionsApi.md#listclientversions) | **GET** /v1/assets/client-versions | List Client Versions |
+| *ColorsApi* | [**listColors**](docs/ColorsApi.md#listcolors) | **GET** /v1/assets/colors | List Colors |
 | *CommandsApi* | [**availableVariables**](docs/CommandsApi.md#availablevariables) | **GET** /v1/commands/variables/available | Available Variables |
 | *CommandsApi* | [**commandResolve**](docs/CommandsApi.md#commandresolve) | **GET** /v1/commands/resolve | Resolve Command |
 | *CommandsApi* | [**variablesResolve**](docs/CommandsApi.md#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables |
@@ -91,20 +103,31 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
 | *CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match |
 | *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready |
+| *GenericDataApi* | [**getGenericData**](docs/GenericDataApi.md#getgenericdata) | **GET** /v1/assets/generic-data | Get Generic Data |
 | *GraphQLApi* | [**playground**](docs/GraphQLApi.md#playground) | **GET** /v1/graphql | GraphQL Playground |
+| *HeroesApi* | [**getHero**](docs/HeroesApi.md#gethero) | **GET** /v1/assets/heroes/{hero_id} | Get Hero |
+| *HeroesApi* | [**getHeroByName**](docs/HeroesApi.md#getherobyname) | **GET** /v1/assets/heroes/by-name/{name} | Get Hero By Name |
+| *HeroesApi* | [**listHeroes**](docs/HeroesApi.md#listheroes) | **GET** /v1/assets/heroes | List Heroes |
 | *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check |
 | *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info |
 | *InternalApi* | [**ingestSalts**](docs/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+| *ItemsApi* | [**getItem**](docs/ItemsApi.md#getitem) | **GET** /v1/assets/items/{id_or_class_name} | Get Item |
+| *ItemsApi* | [**getItemsByHeroId**](docs/ItemsApi.md#getitemsbyheroid) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero |
+| *ItemsApi* | [**getItemsBySlotType**](docs/ItemsApi.md#getitemsbyslottype) | **GET** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type |
+| *ItemsApi* | [**getItemsByType**](docs/ItemsApi.md#getitemsbytype) | **GET** /v1/assets/items/by-type/{type} | List Items By Type |
+| *ItemsApi* | [**listItems**](docs/ItemsApi.md#listitems) | **GET** /v1/assets/items | List Items |
 | *LeaderboardApi* | [**leaderboard**](docs/LeaderboardApi.md#leaderboard) | **GET** /v1/leaderboard/{region} | Leaderboard |
 | *LeaderboardApi* | [**leaderboardHero**](docs/LeaderboardApi.md#leaderboardhero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard |
 | *LeaderboardApi* | [**leaderboardHeroRaw**](docs/LeaderboardApi.md#leaderboardheroraw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf |
 | *LeaderboardApi* | [**leaderboardRaw**](docs/LeaderboardApi.md#leaderboardraw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf |
+| *LootTablesApi* | [**listLootTables**](docs/LootTablesApi.md#listloottables) | **GET** /v1/assets/loot-tables | List Loot Tables |
 | *MMRApi* | [**heroMmr**](docs/MMRApi.md#herommr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR |
 | *MMRApi* | [**heroMmrDistribution**](docs/MMRApi.md#herommrdistribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution |
 | *MMRApi* | [**heroMmrHistory**](docs/MMRApi.md#herommrhistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History |
 | *MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR |
 | *MMRApi* | [**mmrDistribution**](docs/MMRApi.md#mmrdistribution) | **GET** /v1/players/mmr/distribution | MMR Distribution |
 | *MMRApi* | [**mmrHistory**](docs/MMRApi.md#mmrhistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History |
+| *MapApi* | [**getMap**](docs/MapApi.md#getmap) | **GET** /v1/assets/map | Map |
 | *MatchesApi* | [**activeMatches**](docs/MatchesApi.md#activematches) | **GET** /v1/matches/active | Active |
 | *MatchesApi* | [**activeMatchesRaw**](docs/MatchesApi.md#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf |
 | *MatchesApi* | [**bulkMetadata**](docs/MatchesApi.md#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
@@ -114,8 +137,13 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *MatchesApi* | [**salts**](docs/MatchesApi.md#salts) | **GET** /v1/matches/{match_id}/salts | Salts |
 | *MatchesApi* | [**url**](docs/MatchesApi.md#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL |
 | *MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs |
+| *MiscEntitiesApi* | [**getMiscEntity**](docs/MiscEntitiesApi.md#getmiscentity) | **GET** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity |
+| *MiscEntitiesApi* | [**listMiscEntities**](docs/MiscEntitiesApi.md#listmiscentities) | **GET** /v1/assets/misc-entities | List Misc Entities |
+| *NPCUnitsApi* | [**getNpcUnit**](docs/NPCUnitsApi.md#getnpcunit) | **GET** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit |
+| *NPCUnitsApi* | [**listNpcUnits**](docs/NPCUnitsApi.md#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units |
 | *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days |
 | *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes |
+| *PatchesApi* | [**feed_0**](docs/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes |
 | *PlayersApi* | [**accountStats**](docs/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats |
 | *PlayersApi* | [**card**](docs/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card |
 | *PlayersApi* | [**enemyStats**](docs/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
@@ -123,7 +151,10 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
 | *PlayersApi* | [**rankPredict**](docs/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
+| *PlayersApi* | [**rankPredictAvgImage**](docs/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image |
 | *PlayersApi* | [**rankPredictImage**](docs/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image |
+| *RanksApi* | [**getRank**](docs/RanksApi.md#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank |
+| *RanksApi* | [**listRanks**](docs/RanksApi.md#listranks) | **GET** /v1/assets/ranks | List Ranks |
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
 | *SQLApi* | [**tableSchema**](docs/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema |
@@ -133,12 +164,23 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *ServersApi* | [**steamList**](docs/ServersApi.md#steamlist) | **GET** /v1/servers/steam | List Steam Game Servers |
 | *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
 | *SteamApi* | [**steamSearch**](docs/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search |
+| *SteamInfoApi* | [**getAllSteamInfo**](docs/SteamInfoApi.md#getallsteaminfo) | **GET** /v1/assets/steam-info/all | Get All Steam Infos |
+| *SteamInfoApi* | [**getSteamInfo**](docs/SteamInfoApi.md#getsteaminfo) | **GET** /v1/assets/steam-info | Get Steam Info |
 
 
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
  - [deadlock_api_client.models.APIInfo](docs/APIInfo.md)
+ - [deadlock_api_client.models.Ability](docs/Ability.md)
+ - [deadlock_api_client.models.AbilityActivation](docs/AbilityActivation.md)
+ - [deadlock_api_client.models.AbilityDescription](docs/AbilityDescription.md)
+ - [deadlock_api_client.models.AbilityImbue](docs/AbilityImbue.md)
+ - [deadlock_api_client.models.AbilitySectionType](docs/AbilitySectionType.md)
+ - [deadlock_api_client.models.AbilityTooltipDetails](docs/AbilityTooltipDetails.md)
+ - [deadlock_api_client.models.AbilityType](docs/AbilityType.md)
+ - [deadlock_api_client.models.AbilityVideos](docs/AbilityVideos.md)
+ - [deadlock_api_client.models.Accolade](docs/Accolade.md)
  - [deadlock_api_client.models.ActiveMatch](docs/ActiveMatch.md)
  - [deadlock_api_client.models.ActiveMatchGameMode](docs/ActiveMatchGameMode.md)
  - [deadlock_api_client.models.ActiveMatchMode](docs/ActiveMatchMode.md)
@@ -156,39 +198,91 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.BuildHeroDetailsCategory](docs/BuildHeroDetailsCategory.md)
  - [deadlock_api_client.models.BuildHeroDetailsCategoryAbility](docs/BuildHeroDetailsCategoryAbility.md)
  - [deadlock_api_client.models.BuildItemStats](docs/BuildItemStats.md)
+ - [deadlock_api_client.models.BuildTag](docs/BuildTag.md)
  - [deadlock_api_client.models.ClickhouseMatchInfo](docs/ClickhouseMatchInfo.md)
  - [deadlock_api_client.models.ClickhouseSalts](docs/ClickhouseSalts.md)
+ - [deadlock_api_client.models.Color](docs/Color.md)
  - [deadlock_api_client.models.CreateCustomRequest](docs/CreateCustomRequest.md)
  - [deadlock_api_client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
+ - [deadlock_api_client.models.Curve](docs/Curve.md)
+ - [deadlock_api_client.models.CurveOrFloat](docs/CurveOrFloat.md)
+ - [deadlock_api_client.models.DamageFlash](docs/DamageFlash.md)
+ - [deadlock_api_client.models.DependantAbilities](docs/DependantAbilities.md)
  - [deadlock_api_client.models.DistributionEntry](docs/DistributionEntry.md)
+ - [deadlock_api_client.models.DraftBucket](docs/DraftBucket.md)
+ - [deadlock_api_client.models.DraftBuckets](docs/DraftBuckets.md)
  - [deadlock_api_client.models.EnemyStats](docs/EnemyStats.md)
+ - [deadlock_api_client.models.FeedItem](docs/FeedItem.md)
+ - [deadlock_api_client.models.FeedItemOneOf](docs/FeedItemOneOf.md)
+ - [deadlock_api_client.models.FeedItemOneOf1](docs/FeedItemOneOf1.md)
+ - [deadlock_api_client.models.FlashData](docs/FlashData.md)
+ - [deadlock_api_client.models.ForumPatch](docs/ForumPatch.md)
  - [deadlock_api_client.models.GameMode](docs/GameMode.md)
  - [deadlock_api_client.models.GameServerInfo](docs/GameServerInfo.md)
+ - [deadlock_api_client.models.GenericData](docs/GenericData.md)
  - [deadlock_api_client.models.GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
+ - [deadlock_api_client.models.GlitchSettings](docs/GlitchSettings.md)
+ - [deadlock_api_client.models.HashMapItemSlotTypeItemSlotInfoValue](docs/HashMapItemSlotTypeItemSlotInfoValue.md)
+ - [deadlock_api_client.models.HashMapItemSlotTypeVecMapModCostBonusValueInner](docs/HashMapItemSlotTypeVecMapModCostBonusValueInner.md)
+ - [deadlock_api_client.models.HashMapItemSlotTypeVecPurchaseBonusValueInner](docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md)
+ - [deadlock_api_client.models.HashMapStringLevelInfoValue](docs/HashMapStringLevelInfoValue.md)
+ - [deadlock_api_client.models.HashMapStringOptionDraftBucketingValue](docs/HashMapStringOptionDraftBucketingValue.md)
+ - [deadlock_api_client.models.HashMapStringOptionDraftBucketingValueOneOf](docs/HashMapStringOptionDraftBucketingValueOneOf.md)
+ - [deadlock_api_client.models.HashMapStringScalingStatValue](docs/HashMapStringScalingStatValue.md)
  - [deadlock_api_client.models.HashMapValue](docs/HashMapValue.md)
+ - [deadlock_api_client.models.Hero](docs/Hero.md)
  - [deadlock_api_client.models.HeroBanStats](docs/HeroBanStats.md)
  - [deadlock_api_client.models.HeroBuildStats](docs/HeroBuildStats.md)
+ - [deadlock_api_client.models.HeroColors](docs/HeroColors.md)
  - [deadlock_api_client.models.HeroCombStats](docs/HeroCombStats.md)
  - [deadlock_api_client.models.HeroCounterStats](docs/HeroCounterStats.md)
+ - [deadlock_api_client.models.HeroDescription](docs/HeroDescription.md)
  - [deadlock_api_client.models.HeroEntry](docs/HeroEntry.md)
+ - [deadlock_api_client.models.HeroImages](docs/HeroImages.md)
+ - [deadlock_api_client.models.HeroPhysics](docs/HeroPhysics.md)
  - [deadlock_api_client.models.HeroStats](docs/HeroStats.md)
+ - [deadlock_api_client.models.HeroStatsUI](docs/HeroStatsUI.md)
+ - [deadlock_api_client.models.HeroStatsUIDisplay](docs/HeroStatsUIDisplay.md)
  - [deadlock_api_client.models.HeroSynergyStats](docs/HeroSynergyStats.md)
+ - [deadlock_api_client.models.HeroType](docs/HeroType.md)
+ - [deadlock_api_client.models.HorizontalRecoil](docs/HorizontalRecoil.md)
+ - [deadlock_api_client.models.Item](docs/Item.md)
+ - [deadlock_api_client.models.ItemDraftRound](docs/ItemDraftRound.md)
+ - [deadlock_api_client.models.ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
+ - [deadlock_api_client.models.ItemGroup](docs/ItemGroup.md)
  - [deadlock_api_client.models.ItemPermutationStats](docs/ItemPermutationStats.md)
+ - [deadlock_api_client.models.ItemProperty](docs/ItemProperty.md)
+ - [deadlock_api_client.models.ItemSlotType](docs/ItemSlotType.md)
  - [deadlock_api_client.models.ItemStats](docs/ItemStats.md)
+ - [deadlock_api_client.models.ItemType](docs/ItemType.md)
  - [deadlock_api_client.models.KillDeathStats](docs/KillDeathStats.md)
+ - [deadlock_api_client.models.LaneInfo](docs/LaneInfo.md)
  - [deadlock_api_client.models.Leaderboard](docs/Leaderboard.md)
  - [deadlock_api_client.models.LeaderboardEntry](docs/LeaderboardEntry.md)
  - [deadlock_api_client.models.ListServersResponse](docs/ListServersResponse.md)
  - [deadlock_api_client.models.LiveUrl](docs/LiveUrl.md)
+ - [deadlock_api_client.models.LootEntry](docs/LootEntry.md)
+ - [deadlock_api_client.models.LootTable](docs/LootTable.md)
  - [deadlock_api_client.models.MMRHistory](docs/MMRHistory.md)
+ - [deadlock_api_client.models.Map](docs/Map.md)
+ - [deadlock_api_client.models.MapImages](docs/MapImages.md)
  - [deadlock_api_client.models.MatchPlayer](docs/MatchPlayer.md)
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [deadlock_api_client.models.MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [deadlock_api_client.models.MateStats](docs/MateStats.md)
  - [deadlock_api_client.models.MetricIngestRequest](docs/MetricIngestRequest.md)
+ - [deadlock_api_client.models.MiniMapOffsets](docs/MiniMapOffsets.md)
+ - [deadlock_api_client.models.MiscEntity](docs/MiscEntity.md)
+ - [deadlock_api_client.models.ModifierValue](docs/ModifierValue.md)
+ - [deadlock_api_client.models.NewPlayerMetrics](docs/NewPlayerMetrics.md)
+ - [deadlock_api_client.models.NpcUnit](docs/NpcUnit.md)
+ - [deadlock_api_client.models.ObjectiveParams](docs/ObjectiveParams.md)
+ - [deadlock_api_client.models.ObjectivePosition](docs/ObjectivePosition.md)
+ - [deadlock_api_client.models.OutcomeToWeights](docs/OutcomeToWeights.md)
  - [deadlock_api_client.models.Patch](docs/Patch.md)
  - [deadlock_api_client.models.PatchCategory](docs/PatchCategory.md)
  - [deadlock_api_client.models.PatchGuid](docs/PatchGuid.md)
+ - [deadlock_api_client.models.Pickup](docs/Pickup.md)
  - [deadlock_api_client.models.PlayerAccountHeroStats](docs/PlayerAccountHeroStats.md)
  - [deadlock_api_client.models.PlayerAccountStats](docs/PlayerAccountStats.md)
  - [deadlock_api_client.models.PlayerCard](docs/PlayerCard.md)
@@ -198,20 +292,77 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PlayerEntry](docs/PlayerEntry.md)
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
+ - [deadlock_api_client.models.Rank](docs/Rank.md)
+ - [deadlock_api_client.models.RankImages](docs/RankImages.md)
  - [deadlock_api_client.models.RankPredictResponse](docs/RankPredictResponse.md)
  - [deadlock_api_client.models.RankPrediction](docs/RankPrediction.md)
+ - [deadlock_api_client.models.RawAbilityUpgrade](docs/RawAbilityUpgrade.md)
+ - [deadlock_api_client.models.RawAbilityUpgradePropertyUpgrade](docs/RawAbilityUpgradePropertyUpgrade.md)
+ - [deadlock_api_client.models.RawCustomCrosshairSettings](docs/RawCustomCrosshairSettings.md)
+ - [deadlock_api_client.models.RawItemPropertyScaleFunctionSubclass](docs/RawItemPropertyScaleFunctionSubclass.md)
+ - [deadlock_api_client.models.RawItemWeaponInfoBulletSpeedCurve](docs/RawItemWeaponInfoBulletSpeedCurve.md)
+ - [deadlock_api_client.models.RawItemWeaponInfoBulletSpeedCurveSpline](docs/RawItemWeaponInfoBulletSpeedCurveSpline.md)
+ - [deadlock_api_client.models.RawItemWeaponInfoInner](docs/RawItemWeaponInfoInner.md)
+ - [deadlock_api_client.models.RawWeaponInfoHorizontalRecoil](docs/RawWeaponInfoHorizontalRecoil.md)
+ - [deadlock_api_client.models.RawWeaponInfoVerticalRecoil](docs/RawWeaponInfoVerticalRecoil.md)
+ - [deadlock_api_client.models.RecoilRange](docs/RecoilRange.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
+ - [deadlock_api_client.models.RejuvParams](docs/RejuvParams.md)
+ - [deadlock_api_client.models.RollType](docs/RollType.md)
+ - [deadlock_api_client.models.RollTypeOneOf](docs/RollTypeOneOf.md)
+ - [deadlock_api_client.models.ScriptValues](docs/ScriptValues.md)
  - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
  - [deadlock_api_client.models.ServerStatusRequest](docs/ServerStatusRequest.md)
  - [deadlock_api_client.models.ServerStatusResponse](docs/ServerStatusResponse.md)
+ - [deadlock_api_client.models.ShopSpiritStatsDisplay](docs/ShopSpiritStatsDisplay.md)
+ - [deadlock_api_client.models.ShopStatDisplay](docs/ShopStatDisplay.md)
+ - [deadlock_api_client.models.ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)
+ - [deadlock_api_client.models.ShopWeaponStatsDisplay](docs/ShopWeaponStatsDisplay.md)
+ - [deadlock_api_client.models.SpreadPenalty](docs/SpreadPenalty.md)
+ - [deadlock_api_client.models.StartingStat](docs/StartingStat.md)
+ - [deadlock_api_client.models.StartingStats](docs/StartingStats.md)
+ - [deadlock_api_client.models.StatsDisplay](docs/StatsDisplay.md)
+ - [deadlock_api_client.models.StatsUsageFlag](docs/StatsUsageFlag.md)
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)
  - [deadlock_api_client.models.SteamFriend](docs/SteamFriend.md)
+ - [deadlock_api_client.models.SteamInfo](docs/SteamInfo.md)
+ - [deadlock_api_client.models.SteamNews](docs/SteamNews.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)
  - [deadlock_api_client.models.SteamServer](docs/SteamServer.md)
+ - [deadlock_api_client.models.StreetBrawl](docs/StreetBrawl.md)
+ - [deadlock_api_client.models.SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
+ - [deadlock_api_client.models.SubclassBulletResistModifierSubclass](docs/SubclassBulletResistModifierSubclass.md)
+ - [deadlock_api_client.models.SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)
+ - [deadlock_api_client.models.SubclassEmpoweredModifierLevelSubclass](docs/SubclassEmpoweredModifierLevelSubclass.md)
+ - [deadlock_api_client.models.SubclassIntrinsicModifiers](docs/SubclassIntrinsicModifiers.md)
+ - [deadlock_api_client.models.SubclassIntrinsicModifiersSubclass](docs/SubclassIntrinsicModifiersSubclass.md)
+ - [deadlock_api_client.models.SubclassModifierDefinition](docs/SubclassModifierDefinition.md)
+ - [deadlock_api_client.models.SubclassModifierDefinitionSubclass](docs/SubclassModifierDefinitionSubclass.md)
+ - [deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase](docs/SubclassObjectiveHealthGrowthPhase.md)
+ - [deadlock_api_client.models.SubclassObjectiveHealthGrowthPhaseSubclass](docs/SubclassObjectiveHealthGrowthPhaseSubclass.md)
+ - [deadlock_api_client.models.SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)
+ - [deadlock_api_client.models.SubclassObjectiveRegenSubclass](docs/SubclassObjectiveRegenSubclass.md)
+ - [deadlock_api_client.models.SubclassRangedArmorModifier](docs/SubclassRangedArmorModifier.md)
+ - [deadlock_api_client.models.SubclassRangedArmorModifierSubclass](docs/SubclassRangedArmorModifierSubclass.md)
+ - [deadlock_api_client.models.SubclassTrooperDamageReduction](docs/SubclassTrooperDamageReduction.md)
+ - [deadlock_api_client.models.SubclassTrooperDamageReductionSubclass](docs/SubclassTrooperDamageReductionSubclass.md)
  - [deadlock_api_client.models.TableSize](docs/TableSize.md)
+ - [deadlock_api_client.models.TooltipDetailsBlock](docs/TooltipDetailsBlock.md)
+ - [deadlock_api_client.models.TooltipDetailsBlockProperty](docs/TooltipDetailsBlockProperty.md)
+ - [deadlock_api_client.models.TooltipDetailsInfoSection](docs/TooltipDetailsInfoSection.md)
+ - [deadlock_api_client.models.Upgrade](docs/Upgrade.md)
+ - [deadlock_api_client.models.UpgradeDescription](docs/UpgradeDescription.md)
+ - [deadlock_api_client.models.UpgradeProperty](docs/UpgradeProperty.md)
+ - [deadlock_api_client.models.UpgradeTooltipImportantPropertyWithIcon](docs/UpgradeTooltipImportantPropertyWithIcon.md)
+ - [deadlock_api_client.models.UpgradeTooltipSection](docs/UpgradeTooltipSection.md)
+ - [deadlock_api_client.models.UpgradeTooltipSectionAttribute](docs/UpgradeTooltipSectionAttribute.md)
  - [deadlock_api_client.models.VariableCategory](docs/VariableCategory.md)
  - [deadlock_api_client.models.VariableDescription](docs/VariableDescription.md)
+ - [deadlock_api_client.models.VerticalRecoil](docs/VerticalRecoil.md)
+ - [deadlock_api_client.models.Weapon](docs/Weapon.md)
+ - [deadlock_api_client.models.WeaponInfo](docs/WeaponInfo.md)
+ - [deadlock_api_client.models.ZiplanePath](docs/ZiplanePath.md)
 
 
 <a id="documentation-for-authorization"></a>

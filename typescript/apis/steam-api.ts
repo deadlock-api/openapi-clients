@@ -13,16 +13,16 @@
  */
 
 
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
 // @ts-ignore
-import type { SteamProfile } from '../models';
+import type { SteamProfile } from '../models/index.js';
 /**
  * SteamApi - axios parameter creator
  */
@@ -74,10 +74,14 @@ export const SteamApiAxiosParamCreator = function (configuration?: Configuration
          *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Steam Profile Search
          * @param {string} searchQuery Search query for Steam profiles.
+         * @param {number | null} [limit] Maximum number of profiles to return.
+         * @param {number | null} [minMatchesPlayedLast30d] Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+         * @param {number | null} [minLastTeamAvgBadge] Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+         * @param {number | null} [matchesPlayedWeight] Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        steamSearch: async (searchQuery: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        steamSearch: async (searchQuery: string, limit?: number | null, minMatchesPlayedLast30d?: number | null, minLastTeamAvgBadge?: number | null, matchesPlayedWeight?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'searchQuery' is not null or undefined
             assertParamExists('steamSearch', 'searchQuery', searchQuery)
             const localVarPath = `/v1/players/steam-search`;
@@ -94,6 +98,22 @@ export const SteamApiAxiosParamCreator = function (configuration?: Configuration
 
             if (searchQuery !== undefined) {
                 localVarQueryParameter['search_query'] = searchQuery;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (minMatchesPlayedLast30d !== undefined) {
+                localVarQueryParameter['min_matches_played_last_30d'] = minMatchesPlayedLast30d;
+            }
+
+            if (minLastTeamAvgBadge !== undefined) {
+                localVarQueryParameter['min_last_team_avg_badge'] = minLastTeamAvgBadge;
+            }
+
+            if (matchesPlayedWeight !== undefined) {
+                localVarQueryParameter['matches_played_weight'] = matchesPlayedWeight;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -134,11 +154,15 @@ export const SteamApiFp = function(configuration?: Configuration) {
          *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Steam Profile Search
          * @param {string} searchQuery Search query for Steam profiles.
+         * @param {number | null} [limit] Maximum number of profiles to return.
+         * @param {number | null} [minMatchesPlayedLast30d] Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+         * @param {number | null} [minLastTeamAvgBadge] Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+         * @param {number | null} [matchesPlayedWeight] Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async steamSearch(searchQuery: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.steamSearch(searchQuery, options);
+        async steamSearch(searchQuery: string, limit?: number | null, minMatchesPlayedLast30d?: number | null, minLastTeamAvgBadge?: number | null, matchesPlayedWeight?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SteamProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.steamSearch(searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SteamApi.steamSearch']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -170,7 +194,7 @@ export const SteamApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         steamSearch(requestParameters: SteamApiSteamSearchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SteamProfile>> {
-            return localVarFp.steamSearch(requestParameters.searchQuery, options).then((request) => request(axios, basePath));
+            return localVarFp.steamSearch(requestParameters.searchQuery, requestParameters.limit, requestParameters.minMatchesPlayedLast30d, requestParameters.minLastTeamAvgBadge, requestParameters.matchesPlayedWeight, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -198,6 +222,26 @@ export interface SteamApiSteamSearchRequest {
      * Search query for Steam profiles.
      */
     readonly searchQuery: string
+
+    /**
+     * Maximum number of profiles to return.
+     */
+    readonly limit?: number | null
+
+    /**
+     * Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+     */
+    readonly minMatchesPlayedLast30d?: number | null
+
+    /**
+     * Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+     */
+    readonly minLastTeamAvgBadge?: number | null
+
+    /**
+     * Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
+     */
+    readonly matchesPlayedWeight?: number | null
 }
 
 /**
@@ -223,7 +267,7 @@ export class SteamApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public steamSearch(requestParameters: SteamApiSteamSearchRequest, options?: RawAxiosRequestConfig) {
-        return SteamApiFp(this.configuration).steamSearch(requestParameters.searchQuery, options).then((request) => request(this.axios, this.basePath));
+        return SteamApiFp(this.configuration).steamSearch(requestParameters.searchQuery, requestParameters.limit, requestParameters.minMatchesPlayedLast30d, requestParameters.minLastTeamAvgBadge, requestParameters.matchesPlayedWeight, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

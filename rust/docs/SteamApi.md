@@ -42,7 +42,7 @@ No authorization required
 
 ## steam_search
 
-> Vec<models::SteamProfile> steam_search(search_query)
+> Vec<models::SteamProfile> steam_search(search_query, limit, min_matches_played_last_30d, min_last_team_avg_badge, matches_played_weight)
 Steam Profile Search
 
  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -53,6 +53,10 @@ Steam Profile Search
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **search_query** | **String** | Search query for Steam profiles. | [required] |
+**limit** | Option<**u32**> | Maximum number of profiles to return. |  |[default to 100]
+**min_matches_played_last_30d** | Option<**u32**> | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. |  |[default to 5]
+**min_last_team_avg_badge** | Option<**u32**> | Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. |  |[default to 0]
+**matches_played_weight** | Option<**f64**> | Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. |  |[default to 0.02]
 
 ### Return type
 

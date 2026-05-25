@@ -11,6 +11,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**mateStats**](#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats|
 |[**playerHeroStats**](#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats|
 |[**rankPredict**](#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict|
+|[**rankPredictAvgImage**](#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image|
 |[**rankPredictImage**](#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image|
 
 # **accountStats**
@@ -483,6 +484,67 @@ No authorization required
 |**400** | Invalid account ID |  -  |
 |**403** | User is protected or endpoint unavailable |  -  |
 |**422** | Not enough recent ranked matches (need 30) |  -  |
+|**429** | Rate limit exceeded |  -  |
+|**500** | Prediction failed |  -  |
+|**503** | Rank prediction model not loaded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rankPredictAvgImage**
+> Array<number> rankPredictAvgImage()
+
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+
+### Example
+
+```typescript
+import {
+    PlayersApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new PlayersApi(configuration);
+
+let accountIds: Array<number>; //Comma-separated list of account IDs (max 12). (default to undefined)
+let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.rankPredictAvgImage(
+    accountIds,
+    format
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **accountIds** | **Array&lt;number&gt;** | Comma-separated list of account IDs (max 12). | defaults to undefined|
+| **format** | [**&#39;png&#39; | &#39;webp&#39;**]**Array<&#39;png&#39; &#124; &#39;webp&#39;>** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
+
+
+### Return type
+
+**Array<number>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: image/png, image/webp
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Average predicted rank badge image |  -  |
+|**400** | Invalid or missing account IDs |  -  |
+|**403** | One of the users is protected |  -  |
+|**404** | No image available for the predicted rank |  -  |
+|**422** | Not enough recent ranked matches for one or more accounts |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Prediction failed |  -  |
 |**503** | Rank prediction model not loaded |  -  |

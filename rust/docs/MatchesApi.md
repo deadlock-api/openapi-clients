@@ -76,7 +76,7 @@ No authorization required
 
 ## bulk_metadata
 
-> Vec<u32> bulk_metadata(include_info, include_more_info, include_objectives, include_mid_boss, include_player_info, include_player_kda, include_player_items, include_player_stats, include_player_death_details, game_mode, match_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, item_filter_hero_id, include_item_ids, exclude_item_ids, extra_match_columns, extra_player_columns, order_by, order_direction, limit)
+> Vec<u32> bulk_metadata(include_info, include_more_info, include_objectives, include_mid_boss, include_player_info, include_player_kda, include_player_items, include_player_stats, include_player_final_stats, include_player_death_details, game_mode, match_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, item_filter_hero_id, include_item_ids, exclude_item_ids, extra_match_columns, extra_player_columns, order_by, order_direction, limit)
 Bulk Metadata
 
  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
@@ -94,6 +94,7 @@ Name | Type | Description  | Required | Notes
 **include_player_kda** | Option<**bool**> | Include only K/D/A fields (`kills`, `deaths`, `assists`) for players. |  |
 **include_player_items** | Option<**bool**> | Include player items in the response. |  |
 **include_player_stats** | Option<**bool**> | Include player stats in the response. |  |
+**include_player_final_stats** | Option<**bool**> | Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field. |  |
 **include_player_death_details** | Option<**bool**> | Include player death details in the response. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |

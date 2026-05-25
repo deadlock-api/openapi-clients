@@ -111,20 +111,34 @@ impl From<&str> for ContentType {
     }
 }
 
+pub mod accolades_api;
 pub mod analytics_api;
+pub mod assets_bucket_api;
+pub mod build_tags_api;
 pub mod builds_api;
+pub mod client_versions_api;
+pub mod colors_api;
 pub mod commands_api;
 pub mod custom_matches_api;
+pub mod generic_data_api;
 pub mod graph_ql_api;
+pub mod heroes_api;
 pub mod info_api;
 pub mod internal_api;
+pub mod items_api;
 pub mod leaderboard_api;
+pub mod loot_tables_api;
 pub mod mmr_api;
+pub mod map_api;
 pub mod matches_api;
+pub mod misc_entities_api;
+pub mod npc_units_api;
 pub mod patches_api;
 pub mod players_api;
+pub mod ranks_api;
 pub mod sql_api;
 pub mod servers_api;
 pub mod steam_api;
+pub mod steam_info_api;
 
 pub mod configuration;

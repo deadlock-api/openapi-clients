@@ -98,6 +98,11 @@ export interface RankPredictRequest {
     accountId: number;
 }
 
+export interface RankPredictAvgImageRequest {
+    accountIds: Array<number>;
+    format?: RankPredictAvgImageFormatEnum;
+}
+
 export interface RankPredictImageRequest {
     accountId: number;
     format?: RankPredictImageFormatEnum;
@@ -610,6 +615,64 @@ export function rankPredict<T>(requestParameters: RankPredictRequest, requestCon
 }
 
 /**
+ * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+ * Rank Predict Avg Image
+ */
+function rankPredictAvgImageRaw<T>(requestParameters: RankPredictAvgImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
+    if (requestParameters.accountIds === null || requestParameters.accountIds === undefined) {
+        throw new runtime.RequiredError('accountIds','Required parameter requestParameters.accountIds was null or undefined when calling rankPredictAvgImage.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.format !== undefined) {
+        queryParameters['format'] = requestParameters.format;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/rank-predict/image`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+* Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+* Rank Predict Avg Image
+*/
+export function rankPredictAvgImage<T>(requestParameters: RankPredictAvgImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
+    return rankPredictAvgImageRaw(requestParameters, requestConfig);
+}
+
+/**
  * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
  * Rank Predict Image
  */
@@ -692,6 +755,14 @@ export enum PlayerHeroStatsGameModeEnum {
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
     Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RankPredictAvgImageFormatEnum {
+    Png = 'png',
+    Webp = 'webp'
 }
 /**
     * @export

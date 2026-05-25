@@ -14,6 +14,9 @@ There may be multiple requests for a single endpoint, one for each example descr
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccoladesApi* | [**getAccolade**](Apis/AccoladesApi.http#getaccolade) | **GET** /v1/assets/accolades/{accolade_id} | Get Accolade
+*AccoladesApi* | [**getAccoladeByName**](Apis/AccoladesApi.http#getaccoladebyname) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name
+*AccoladesApi* | [**listAccolades**](Apis/AccoladesApi.http#listaccolades) | **GET** /v1/assets/accolades | List Accolades
 *AnalyticsApi* | [**abilityOrderStats**](Apis/AnalyticsApi.http#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsApi* | [**badgeDistribution**](Apis/AnalyticsApi.http#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buildItemStats**](Apis/AnalyticsApi.http#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
@@ -31,7 +34,16 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**playerPerformanceCurve**](Apis/AnalyticsApi.http#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsApi* | [**playerScoreboard**](Apis/AnalyticsApi.http#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](Apis/AnalyticsApi.http#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
+*AssetsBucketApi* | [**fonts**](Apis/AssetsBucketApi.http#fonts) | **GET** /v1/assets/fonts | Fonts Index
+*AssetsBucketApi* | [**icons**](Apis/AssetsBucketApi.http#icons) | **GET** /v1/assets/icons | Icons Index
+*AssetsBucketApi* | [**images**](Apis/AssetsBucketApi.http#images) | **GET** /v1/assets/images | Images Index
+*AssetsBucketApi* | [**sounds**](Apis/AssetsBucketApi.http#sounds) | **GET** /v1/assets/sounds | Sounds Index
+*BuildTagsApi* | [**getBuildTag**](Apis/BuildTagsApi.http#getbuildtag) | **GET** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
+*BuildTagsApi* | [**getBuildTagByName**](Apis/BuildTagsApi.http#getbuildtagbyname) | **GET** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name
+*BuildTagsApi* | [**listBuildTags**](Apis/BuildTagsApi.http#listbuildtags) | **GET** /v1/assets/build-tags | List Build Tags
 *BuildsApi* | [**searchBuilds**](Apis/BuildsApi.http#searchbuilds) | **GET** /v1/builds | Search
+*ClientVersionsApi* | [**listClientVersions**](Apis/ClientVersionsApi.http#listclientversions) | **GET** /v1/assets/client-versions | List Client Versions
+*ColorsApi* | [**listColors**](Apis/ColorsApi.http#listcolors) | **GET** /v1/assets/colors | List Colors
 *CommandsApi* | [**availableVariables**](Apis/CommandsApi.http#availablevariables) | **GET** /v1/commands/variables/available | Available Variables
 *CommandsApi* | [**commandResolve**](Apis/CommandsApi.http#commandresolve) | **GET** /v1/commands/resolve | Resolve Command
 *CommandsApi* | [**variablesResolve**](Apis/CommandsApi.http#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
@@ -42,20 +54,31 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**readyUp**](Apis/CustomMatchesApi.http#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](Apis/CustomMatchesApi.http#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](Apis/CustomMatchesApi.http#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*GenericDataApi* | [**getGenericData**](Apis/GenericDataApi.http#getgenericdata) | **GET** /v1/assets/generic-data | Get Generic Data
 *GraphQLApi* | [**playground**](Apis/GraphQLApi.http#playground) | **GET** /v1/graphql | GraphQL Playground
+*HeroesApi* | [**getHero**](Apis/HeroesApi.http#gethero) | **GET** /v1/assets/heroes/{hero_id} | Get Hero
+*HeroesApi* | [**getHeroByName**](Apis/HeroesApi.http#getherobyname) | **GET** /v1/assets/heroes/by-name/{name} | Get Hero By Name
+*HeroesApi* | [**listHeroes**](Apis/HeroesApi.http#listheroes) | **GET** /v1/assets/heroes | List Heroes
 *InfoApi* | [**healthCheck**](Apis/InfoApi.http#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](Apis/InfoApi.http#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingestSalts**](Apis/InternalApi.http#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
+*ItemsApi* | [**getItem**](Apis/ItemsApi.http#getitem) | **GET** /v1/assets/items/{id_or_class_name} | Get Item
+*ItemsApi* | [**getItemsByHeroId**](Apis/ItemsApi.http#getitemsbyheroid) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero
+*ItemsApi* | [**getItemsBySlotType**](Apis/ItemsApi.http#getitemsbyslottype) | **GET** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type
+*ItemsApi* | [**getItemsByType**](Apis/ItemsApi.http#getitemsbytype) | **GET** /v1/assets/items/by-type/{type} | List Items By Type
+*ItemsApi* | [**listItems**](Apis/ItemsApi.http#listitems) | **GET** /v1/assets/items | List Items
 *LeaderboardApi* | [**leaderboard**](Apis/LeaderboardApi.http#leaderboard) | **GET** /v1/leaderboard/{region} | Leaderboard
 *LeaderboardApi* | [**leaderboardHero**](Apis/LeaderboardApi.http#leaderboardhero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard
 *LeaderboardApi* | [**leaderboardHeroRaw**](Apis/LeaderboardApi.http#leaderboardheroraw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
 *LeaderboardApi* | [**leaderboardRaw**](Apis/LeaderboardApi.http#leaderboardraw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
+*LootTablesApi* | [**listLootTables**](Apis/LootTablesApi.http#listloottables) | **GET** /v1/assets/loot-tables | List Loot Tables
 *MMRApi* | [**heroMmr**](Apis/MMRApi.http#herommr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
 *MMRApi* | [**heroMmrDistribution**](Apis/MMRApi.http#herommrdistribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
 *MMRApi* | [**heroMmrHistory**](Apis/MMRApi.http#herommrhistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
 *MMRApi* | [**mmr**](Apis/MMRApi.http#mmr) | **GET** /v1/players/mmr | Batch MMR
 *MMRApi* | [**mmrDistribution**](Apis/MMRApi.http#mmrdistribution) | **GET** /v1/players/mmr/distribution | MMR Distribution
 *MMRApi* | [**mmrHistory**](Apis/MMRApi.http#mmrhistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History
+*MapApi* | [**getMap**](Apis/MapApi.http#getmap) | **GET** /v1/assets/map | Map
 *MatchesApi* | [**activeMatches**](Apis/MatchesApi.http#activematches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**activeMatchesRaw**](Apis/MatchesApi.http#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf
 *MatchesApi* | [**bulkMetadata**](Apis/MatchesApi.http#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata
@@ -65,8 +88,13 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**salts**](Apis/MatchesApi.http#salts) | **GET** /v1/matches/{match_id}/salts | Salts
 *MatchesApi* | [**url**](Apis/MatchesApi.http#url) | **GET** /v1/matches/{match_id}/live/url | Live Broadcast URL
 *MatchesApi* | [**urls**](Apis/MatchesApi.http#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
+*MiscEntitiesApi* | [**getMiscEntity**](Apis/MiscEntitiesApi.http#getmiscentity) | **GET** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity
+*MiscEntitiesApi* | [**listMiscEntities**](Apis/MiscEntitiesApi.http#listmiscentities) | **GET** /v1/assets/misc-entities | List Misc Entities
+*NPCUnitsApi* | [**getNpcUnit**](Apis/NPCUnitsApi.http#getnpcunit) | **GET** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit
+*NPCUnitsApi* | [**listNpcUnits**](Apis/NPCUnitsApi.http#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units
 *PatchesApi* | [**bigPatchDays**](Apis/PatchesApi.http#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](Apis/PatchesApi.http#feed) | **GET** /v1/patches | Notes
+*PatchesApi* | [**feed_0**](Apis/PatchesApi.http#feed_0) | **GET** /v2/patches | Notes
 *PlayersApi* | [**accountStats**](Apis/PlayersApi.http#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
 *PlayersApi* | [**card**](Apis/PlayersApi.http#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemyStats**](Apis/PlayersApi.http#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
@@ -74,7 +102,10 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**mateStats**](Apis/PlayersApi.http#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**playerHeroStats**](Apis/PlayersApi.http#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
 *PlayersApi* | [**rankPredict**](Apis/PlayersApi.http#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
+*PlayersApi* | [**rankPredictAvgImage**](Apis/PlayersApi.http#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image
 *PlayersApi* | [**rankPredictImage**](Apis/PlayersApi.http#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
+*RanksApi* | [**getRank**](Apis/RanksApi.http#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank
+*RanksApi* | [**listRanks**](Apis/RanksApi.http#listranks) | **GET** /v1/assets/ranks | List Ranks
 *SQLApi* | [**listTables**](Apis/SQLApi.http#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](Apis/SQLApi.http#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](Apis/SQLApi.http#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
@@ -84,6 +115,8 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**steamList**](Apis/ServersApi.http#steamlist) | **GET** /v1/servers/steam | List Steam Game Servers
 *SteamApi* | [**steam**](Apis/SteamApi.http#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steamSearch**](Apis/SteamApi.http#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
+*SteamInfoApi* | [**getAllSteamInfo**](Apis/SteamInfoApi.http#getallsteaminfo) | **GET** /v1/assets/steam-info/all | Get All Steam Infos
+*SteamInfoApi* | [**getSteamInfo**](Apis/SteamInfoApi.http#getsteaminfo) | **GET** /v1/assets/steam-info | Get Steam Info
 
 
 ## Usage

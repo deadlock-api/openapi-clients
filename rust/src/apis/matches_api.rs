@@ -42,6 +42,8 @@ pub struct BulkMetadataParams {
     pub include_player_items: Option<bool>,
     /// Include player stats in the response.
     pub include_player_stats: Option<bool>,
+    /// Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.
+    pub include_player_final_stats: Option<bool>,
     /// Include player death details in the response.
     pub include_player_death_details: Option<bool>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.
@@ -322,6 +324,9 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     }
     if let Some(ref param_value) = params.include_player_stats {
         req_builder = req_builder.query(&[("include_player_stats", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_player_final_stats {
+        req_builder = req_builder.query(&[("include_player_final_stats", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.include_player_death_details {
         req_builder = req_builder.query(&[("include_player_death_details", &param_value.to_string())]);

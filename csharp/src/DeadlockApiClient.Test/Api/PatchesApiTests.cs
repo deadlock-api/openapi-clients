@@ -71,5 +71,16 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<List<Patch>>(model);
         }
+
+        /// <summary>
+        /// Test Feed_0
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task Feed_0AsyncTest()
+        {
+            var response = await _instance.Feed_0Async();
+            var model = response.Ok();
+            Assert.IsType<List<FeedItem>>(model);
+        }
     }
 }

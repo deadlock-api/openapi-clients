@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { PlayerCardSlotHero } from './player-card-slot-hero';
+import type { PlayerCardSlotHero } from './player-card-slot-hero.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { PlayerCardSlotStat } from './player-card-slot-stat';
+import type { PlayerCardSlotStat } from './player-card-slot-stat.js';
 
 export interface PlayerCardSlot {
     'hero'?: PlayerCardSlotHero | null;

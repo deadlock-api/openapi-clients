@@ -587,6 +587,7 @@ class MatchesApi:
         include_player_kda: Annotated[Optional[StrictBool], Field(description="Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.")] = None,
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
+        include_player_final_stats: Annotated[Optional[StrictBool], Field(description="Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
@@ -645,6 +646,8 @@ class MatchesApi:
         :type include_player_items: bool
         :param include_player_stats: Include player stats in the response.
         :type include_player_stats: bool
+        :param include_player_final_stats: Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.
+        :type include_player_final_stats: bool
         :param include_player_death_details: Include player death details in the response.
         :type include_player_death_details: bool
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.
@@ -726,6 +729,7 @@ class MatchesApi:
             include_player_kda=include_player_kda,
             include_player_items=include_player_items,
             include_player_stats=include_player_stats,
+            include_player_final_stats=include_player_final_stats,
             include_player_death_details=include_player_death_details,
             game_mode=game_mode,
             match_mode=match_mode,
@@ -784,6 +788,7 @@ class MatchesApi:
         include_player_kda: Annotated[Optional[StrictBool], Field(description="Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.")] = None,
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
+        include_player_final_stats: Annotated[Optional[StrictBool], Field(description="Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
@@ -842,6 +847,8 @@ class MatchesApi:
         :type include_player_items: bool
         :param include_player_stats: Include player stats in the response.
         :type include_player_stats: bool
+        :param include_player_final_stats: Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.
+        :type include_player_final_stats: bool
         :param include_player_death_details: Include player death details in the response.
         :type include_player_death_details: bool
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.
@@ -923,6 +930,7 @@ class MatchesApi:
             include_player_kda=include_player_kda,
             include_player_items=include_player_items,
             include_player_stats=include_player_stats,
+            include_player_final_stats=include_player_final_stats,
             include_player_death_details=include_player_death_details,
             game_mode=game_mode,
             match_mode=match_mode,
@@ -981,6 +989,7 @@ class MatchesApi:
         include_player_kda: Annotated[Optional[StrictBool], Field(description="Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.")] = None,
         include_player_items: Annotated[Optional[StrictBool], Field(description="Include player items in the response.")] = None,
         include_player_stats: Annotated[Optional[StrictBool], Field(description="Include player stats in the response.")] = None,
+        include_player_final_stats: Annotated[Optional[StrictBool], Field(description="Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.")] = None,
         include_player_death_details: Annotated[Optional[StrictBool], Field(description="Include player death details in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
@@ -1039,6 +1048,8 @@ class MatchesApi:
         :type include_player_items: bool
         :param include_player_stats: Include player stats in the response.
         :type include_player_stats: bool
+        :param include_player_final_stats: Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.
+        :type include_player_final_stats: bool
         :param include_player_death_details: Include player death details in the response.
         :type include_player_death_details: bool
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.
@@ -1120,6 +1131,7 @@ class MatchesApi:
             include_player_kda=include_player_kda,
             include_player_items=include_player_items,
             include_player_stats=include_player_stats,
+            include_player_final_stats=include_player_final_stats,
             include_player_death_details=include_player_death_details,
             game_mode=game_mode,
             match_mode=match_mode,
@@ -1173,6 +1185,7 @@ class MatchesApi:
         include_player_kda,
         include_player_items,
         include_player_stats,
+        include_player_final_stats,
         include_player_death_details,
         game_mode,
         match_mode,
@@ -1253,6 +1266,10 @@ class MatchesApi:
         if include_player_stats is not None:
             
             _query_params.append(('include_player_stats', include_player_stats))
+            
+        if include_player_final_stats is not None:
+            
+            _query_params.append(('include_player_final_stats', include_player_final_stats))
             
         if include_player_death_details is not None:
             

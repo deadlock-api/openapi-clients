@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GameServerInfo } from './game-server-info';
+import type { GameServerInfo } from './game-server-info.js';
 
 export interface ListServersResponse {
     'servers': Array<GameServerInfo>;

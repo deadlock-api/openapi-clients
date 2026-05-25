@@ -167,6 +167,19 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test RankPredictAvgImage
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RankPredictAvgImageAsyncTest()
+        {
+            List<int> accountIds = default!;
+            Client.Option<string> format = default!;
+            var response = await _instance.RankPredictAvgImageAsync(accountIds, format);
+            var model = response.Ok();
+            Assert.IsType<List<int>>(model);
+        }
+
+        /// <summary>
         /// Test RankPredictImage
         /// </summary>
         [Fact (Skip = "not implemented")]

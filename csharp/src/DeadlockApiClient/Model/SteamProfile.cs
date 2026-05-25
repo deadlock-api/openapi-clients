@@ -39,12 +39,14 @@ namespace DeadlockApiClient.Model
         /// <param name="avatarmedium">avatarmedium</param>
         /// <param name="friends">friends</param>
         /// <param name="lastUpdated">lastUpdated</param>
+        /// <param name="matchesPlayedLast30d">matchesPlayedLast30d</param>
         /// <param name="personaname">personaname</param>
         /// <param name="profileurl">profileurl</param>
         /// <param name="countrycode">countrycode</param>
+        /// <param name="lastTeamAvgBadge">lastTeamAvgBadge</param>
         /// <param name="realname">realname</param>
         [JsonConstructor]
-        public SteamProfile(int accountId, string avatar, string avatarfull, string avatarmedium, List<SteamFriend> friends, DateTime lastUpdated, string personaname, string profileurl, Option<string?> countrycode = default, Option<string?> realname = default)
+        public SteamProfile(int accountId, string avatar, string avatarfull, string avatarmedium, List<SteamFriend> friends, DateTime lastUpdated, long matchesPlayedLast30d, string personaname, string profileurl, Option<string?> countrycode = default, Option<int?> lastTeamAvgBadge = default, Option<string?> realname = default)
         {
             AccountId = accountId;
             Avatar = avatar;
@@ -52,9 +54,11 @@ namespace DeadlockApiClient.Model
             Avatarmedium = avatarmedium;
             Friends = friends;
             LastUpdated = lastUpdated;
+            MatchesPlayedLast30d = matchesPlayedLast30d;
             Personaname = personaname;
             Profileurl = profileurl;
             CountrycodeOption = countrycode;
+            LastTeamAvgBadgeOption = lastTeamAvgBadge;
             RealnameOption = realname;
             OnCreated();
         }
@@ -98,6 +102,12 @@ namespace DeadlockApiClient.Model
         public DateTime LastUpdated { get; set; }
 
         /// <summary>
+        /// Gets or Sets MatchesPlayedLast30d
+        /// </summary>
+        [JsonPropertyName("matches_played_last_30d")]
+        public long MatchesPlayedLast30d { get; set; }
+
+        /// <summary>
         /// Gets or Sets Personaname
         /// </summary>
         [JsonPropertyName("personaname")]
@@ -121,6 +131,19 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("countrycode")]
         public string? Countrycode { get { return this.CountrycodeOption.Value; } set { this.CountrycodeOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of LastTeamAvgBadge
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> LastTeamAvgBadgeOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets LastTeamAvgBadge
+        /// </summary>
+        [JsonPropertyName("last_team_avg_badge")]
+        public int? LastTeamAvgBadge { get { return this.LastTeamAvgBadgeOption.Value; } set { this.LastTeamAvgBadgeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Realname
@@ -149,9 +172,11 @@ namespace DeadlockApiClient.Model
             sb.Append("  Avatarmedium: ").Append(Avatarmedium).Append("\n");
             sb.Append("  Friends: ").Append(Friends).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
+            sb.Append("  MatchesPlayedLast30d: ").Append(MatchesPlayedLast30d).Append("\n");
             sb.Append("  Personaname: ").Append(Personaname).Append("\n");
             sb.Append("  Profileurl: ").Append(Profileurl).Append("\n");
             sb.Append("  Countrycode: ").Append(Countrycode).Append("\n");
+            sb.Append("  LastTeamAvgBadge: ").Append(LastTeamAvgBadge).Append("\n");
             sb.Append("  Realname: ").Append(Realname).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -168,6 +193,18 @@ namespace DeadlockApiClient.Model
             if (this.AccountId < (int)0)
             {
                 yield return new ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
+            }
+
+            // MatchesPlayedLast30d (long) minimum
+            if (this.MatchesPlayedLast30d < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for MatchesPlayedLast30d, must be a value greater than or equal to 0.", new [] { "MatchesPlayedLast30d" });
+            }
+
+            // LastTeamAvgBadge (int) minimum
+            if (this.LastTeamAvgBadgeOption.IsSet && this.LastTeamAvgBadgeOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for LastTeamAvgBadge, must be a value greater than or equal to 0.", new [] { "LastTeamAvgBadge" });
             }
 
             yield break;
@@ -207,9 +244,11 @@ namespace DeadlockApiClient.Model
             Option<string?> avatarmedium = default;
             Option<List<SteamFriend>?> friends = default;
             Option<DateTime?> lastUpdated = default;
+            Option<long?> matchesPlayedLast30d = default;
             Option<string?> personaname = default;
             Option<string?> profileurl = default;
             Option<string?> countrycode = default;
+            Option<int?> lastTeamAvgBadge = default;
             Option<string?> realname = default;
 
             while (utf8JsonReader.Read())
@@ -245,6 +284,9 @@ namespace DeadlockApiClient.Model
                         case "last_updated":
                             lastUpdated = new Option<DateTime?>(JsonSerializer.Deserialize<DateTime>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "matches_played_last_30d":
+                            matchesPlayedLast30d = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
                         case "personaname":
                             personaname = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
@@ -253,6 +295,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "countrycode":
                             countrycode = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "last_team_avg_badge":
+                            lastTeamAvgBadge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "realname":
                             realname = new Option<string?>(utf8JsonReader.GetString());
@@ -281,6 +326,9 @@ namespace DeadlockApiClient.Model
             if (!lastUpdated.IsSet)
                 throw new ArgumentException("Property is required for class SteamProfile.", nameof(lastUpdated));
 
+            if (!matchesPlayedLast30d.IsSet)
+                throw new ArgumentException("Property is required for class SteamProfile.", nameof(matchesPlayedLast30d));
+
             if (!personaname.IsSet)
                 throw new ArgumentException("Property is required for class SteamProfile.", nameof(personaname));
 
@@ -305,13 +353,16 @@ namespace DeadlockApiClient.Model
             if (lastUpdated.IsSet && lastUpdated.Value == null)
                 throw new ArgumentNullException(nameof(lastUpdated), "Property is not nullable for class SteamProfile.");
 
+            if (matchesPlayedLast30d.IsSet && matchesPlayedLast30d.Value == null)
+                throw new ArgumentNullException(nameof(matchesPlayedLast30d), "Property is not nullable for class SteamProfile.");
+
             if (personaname.IsSet && personaname.Value == null)
                 throw new ArgumentNullException(nameof(personaname), "Property is not nullable for class SteamProfile.");
 
             if (profileurl.IsSet && profileurl.Value == null)
                 throw new ArgumentNullException(nameof(profileurl), "Property is not nullable for class SteamProfile.");
 
-            return new SteamProfile(accountId.Value!.Value!, avatar.Value!, avatarfull.Value!, avatarmedium.Value!, friends.Value!, lastUpdated.Value!.Value!, personaname.Value!, profileurl.Value!, countrycode, realname);
+            return new SteamProfile(accountId.Value!.Value!, avatar.Value!, avatarfull.Value!, avatarmedium.Value!, friends.Value!, lastUpdated.Value!.Value!, matchesPlayedLast30d.Value!.Value!, personaname.Value!, profileurl.Value!, countrycode, lastTeamAvgBadge, realname);
         }
 
         /// <summary>
@@ -368,6 +419,8 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, steamProfile.Friends, jsonSerializerOptions);
             writer.WriteString("last_updated", steamProfile.LastUpdated.ToString(LastUpdatedFormat));
 
+            writer.WriteNumber("matches_played_last_30d", steamProfile.MatchesPlayedLast30d);
+
             writer.WriteString("personaname", steamProfile.Personaname);
 
             writer.WriteString("profileurl", steamProfile.Profileurl);
@@ -377,6 +430,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteString("countrycode", steamProfile.Countrycode);
                 else
                     writer.WriteNull("countrycode");
+
+            if (steamProfile.LastTeamAvgBadgeOption.IsSet)
+                if (steamProfile.LastTeamAvgBadgeOption.Value != null)
+                    writer.WriteNumber("last_team_avg_badge", steamProfile.LastTeamAvgBadgeOption.Value!.Value);
+                else
+                    writer.WriteNull("last_team_avg_badge");
 
             if (steamProfile.RealnameOption.IsSet)
                 if (steamProfile.RealnameOption.Value != null)

@@ -25,8 +25,12 @@ pub struct SteamProfile {
     pub countrycode: Option<Option<String>>,
     #[serde(rename = "friends")]
     pub friends: Vec<models::SteamFriend>,
+    #[serde(rename = "last_team_avg_badge", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub last_team_avg_badge: Option<Option<u32>>,
     #[serde(rename = "last_updated")]
     pub last_updated: chrono::DateTime<chrono::FixedOffset>,
+    #[serde(rename = "matches_played_last_30d")]
+    pub matches_played_last_30d: u64,
     #[serde(rename = "personaname")]
     pub personaname: String,
     #[serde(rename = "profileurl")]
@@ -36,7 +40,7 @@ pub struct SteamProfile {
 }
 
 impl SteamProfile {
-    pub fn new(account_id: u32, avatar: String, avatarfull: String, avatarmedium: String, friends: Vec<models::SteamFriend>, last_updated: chrono::DateTime<chrono::FixedOffset>, personaname: String, profileurl: String) -> SteamProfile {
+    pub fn new(account_id: u32, avatar: String, avatarfull: String, avatarmedium: String, friends: Vec<models::SteamFriend>, last_updated: chrono::DateTime<chrono::FixedOffset>, matches_played_last_30d: u64, personaname: String, profileurl: String) -> SteamProfile {
         SteamProfile {
             account_id,
             avatar,
@@ -44,7 +48,9 @@ impl SteamProfile {
             avatarmedium,
             countrycode: None,
             friends,
+            last_team_avg_badge: None,
             last_updated,
+            matches_played_last_30d,
             personaname,
             profileurl,
             realname: None,

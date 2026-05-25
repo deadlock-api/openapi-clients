@@ -82,11 +82,26 @@ namespace DeadlockApiClient.Test.Api
         [Fact]
         public void ConfigureApiWithAClientTest()
         {
+            var accoladesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IAccoladesApi>();
+            Assert.True(accoladesApi.HttpClient.BaseAddress != null);
+
             var analyticsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IAnalyticsApi>();
             Assert.True(analyticsApi.HttpClient.BaseAddress != null);
 
+            var assetsBucketApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IAssetsBucketApi>();
+            Assert.True(assetsBucketApi.HttpClient.BaseAddress != null);
+
+            var buildTagsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IBuildTagsApi>();
+            Assert.True(buildTagsApi.HttpClient.BaseAddress != null);
+
             var buildsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IBuildsApi>();
             Assert.True(buildsApi.HttpClient.BaseAddress != null);
+
+            var clientVersionsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IClientVersionsApi>();
+            Assert.True(clientVersionsApi.HttpClient.BaseAddress != null);
+
+            var colorsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IColorsApi>();
+            Assert.True(colorsApi.HttpClient.BaseAddress != null);
 
             var commandsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
@@ -94,8 +109,14 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
 
+            var genericDataApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IGenericDataApi>();
+            Assert.True(genericDataApi.HttpClient.BaseAddress != null);
+
             var graphQLApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IGraphQLApi>();
             Assert.True(graphQLApi.HttpClient.BaseAddress != null);
+
+            var heroesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IHeroesApi>();
+            Assert.True(heroesApi.HttpClient.BaseAddress != null);
 
             var infoApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);
@@ -103,20 +124,38 @@ namespace DeadlockApiClient.Test.Api
             var internalApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IInternalApi>();
             Assert.True(internalApi.HttpClient.BaseAddress != null);
 
+            var itemsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IItemsApi>();
+            Assert.True(itemsApi.HttpClient.BaseAddress != null);
+
             var leaderboardApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
+
+            var lootTablesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ILootTablesApi>();
+            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
 
             var mMRApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMMRApi>();
             Assert.True(mMRApi.HttpClient.BaseAddress != null);
 
+            var mapApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMapApi>();
+            Assert.True(mapApi.HttpClient.BaseAddress != null);
+
             var matchesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMatchesApi>();
             Assert.True(matchesApi.HttpClient.BaseAddress != null);
+
+            var miscEntitiesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMiscEntitiesApi>();
+            Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
+
+            var nPCUnitsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<INPCUnitsApi>();
+            Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);
 
             var patchesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IPatchesApi>();
             Assert.True(patchesApi.HttpClient.BaseAddress != null);
 
             var playersApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
+
+            var ranksApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IRanksApi>();
+            Assert.True(ranksApi.HttpClient.BaseAddress != null);
 
             var sQLApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
@@ -126,6 +165,9 @@ namespace DeadlockApiClient.Test.Api
 
             var steamApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);
+
+            var steamInfoApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ISteamInfoApi>();
+            Assert.True(steamInfoApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -134,11 +176,26 @@ namespace DeadlockApiClient.Test.Api
         [Fact]
         public void ConfigureApiWithoutAClientTest()
         {
+            var accoladesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IAccoladesApi>();
+            Assert.True(accoladesApi.HttpClient.BaseAddress != null);
+
             var analyticsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IAnalyticsApi>();
             Assert.True(analyticsApi.HttpClient.BaseAddress != null);
 
+            var assetsBucketApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IAssetsBucketApi>();
+            Assert.True(assetsBucketApi.HttpClient.BaseAddress != null);
+
+            var buildTagsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IBuildTagsApi>();
+            Assert.True(buildTagsApi.HttpClient.BaseAddress != null);
+
             var buildsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IBuildsApi>();
             Assert.True(buildsApi.HttpClient.BaseAddress != null);
+
+            var clientVersionsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IClientVersionsApi>();
+            Assert.True(clientVersionsApi.HttpClient.BaseAddress != null);
+
+            var colorsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IColorsApi>();
+            Assert.True(colorsApi.HttpClient.BaseAddress != null);
 
             var commandsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
@@ -146,8 +203,14 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
 
+            var genericDataApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IGenericDataApi>();
+            Assert.True(genericDataApi.HttpClient.BaseAddress != null);
+
             var graphQLApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IGraphQLApi>();
             Assert.True(graphQLApi.HttpClient.BaseAddress != null);
+
+            var heroesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IHeroesApi>();
+            Assert.True(heroesApi.HttpClient.BaseAddress != null);
 
             var infoApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);
@@ -155,20 +218,38 @@ namespace DeadlockApiClient.Test.Api
             var internalApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IInternalApi>();
             Assert.True(internalApi.HttpClient.BaseAddress != null);
 
+            var itemsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IItemsApi>();
+            Assert.True(itemsApi.HttpClient.BaseAddress != null);
+
             var leaderboardApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
+
+            var lootTablesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ILootTablesApi>();
+            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
 
             var mMRApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMMRApi>();
             Assert.True(mMRApi.HttpClient.BaseAddress != null);
 
+            var mapApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMapApi>();
+            Assert.True(mapApi.HttpClient.BaseAddress != null);
+
             var matchesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMatchesApi>();
             Assert.True(matchesApi.HttpClient.BaseAddress != null);
+
+            var miscEntitiesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMiscEntitiesApi>();
+            Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
+
+            var nPCUnitsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<INPCUnitsApi>();
+            Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);
 
             var patchesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IPatchesApi>();
             Assert.True(patchesApi.HttpClient.BaseAddress != null);
 
             var playersApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
+
+            var ranksApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IRanksApi>();
+            Assert.True(ranksApi.HttpClient.BaseAddress != null);
 
             var sQLApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
@@ -178,6 +259,9 @@ namespace DeadlockApiClient.Test.Api
 
             var steamApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);
+
+            var steamInfoApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ISteamInfoApi>();
+            Assert.True(steamInfoApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -186,11 +270,26 @@ namespace DeadlockApiClient.Test.Api
         [Fact]
         public void AddApiWithAClientTest()
         {
+            var accoladesApi = _hostUsingAddWithAClient.Services.GetRequiredService<IAccoladesApi>();
+            Assert.True(accoladesApi.HttpClient.BaseAddress != null);
+            
             var analyticsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IAnalyticsApi>();
             Assert.True(analyticsApi.HttpClient.BaseAddress != null);
             
+            var assetsBucketApi = _hostUsingAddWithAClient.Services.GetRequiredService<IAssetsBucketApi>();
+            Assert.True(assetsBucketApi.HttpClient.BaseAddress != null);
+            
+            var buildTagsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IBuildTagsApi>();
+            Assert.True(buildTagsApi.HttpClient.BaseAddress != null);
+            
             var buildsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IBuildsApi>();
             Assert.True(buildsApi.HttpClient.BaseAddress != null);
+            
+            var clientVersionsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IClientVersionsApi>();
+            Assert.True(clientVersionsApi.HttpClient.BaseAddress != null);
+            
+            var colorsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IColorsApi>();
+            Assert.True(colorsApi.HttpClient.BaseAddress != null);
             
             var commandsApi = _hostUsingAddWithAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
@@ -198,8 +297,14 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingAddWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
             
+            var genericDataApi = _hostUsingAddWithAClient.Services.GetRequiredService<IGenericDataApi>();
+            Assert.True(genericDataApi.HttpClient.BaseAddress != null);
+            
             var graphQLApi = _hostUsingAddWithAClient.Services.GetRequiredService<IGraphQLApi>();
             Assert.True(graphQLApi.HttpClient.BaseAddress != null);
+            
+            var heroesApi = _hostUsingAddWithAClient.Services.GetRequiredService<IHeroesApi>();
+            Assert.True(heroesApi.HttpClient.BaseAddress != null);
             
             var infoApi = _hostUsingAddWithAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);
@@ -207,20 +312,38 @@ namespace DeadlockApiClient.Test.Api
             var internalApi = _hostUsingAddWithAClient.Services.GetRequiredService<IInternalApi>();
             Assert.True(internalApi.HttpClient.BaseAddress != null);
             
+            var itemsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IItemsApi>();
+            Assert.True(itemsApi.HttpClient.BaseAddress != null);
+            
             var leaderboardApi = _hostUsingAddWithAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
+            
+            var lootTablesApi = _hostUsingAddWithAClient.Services.GetRequiredService<ILootTablesApi>();
+            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
             
             var mMRApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMMRApi>();
             Assert.True(mMRApi.HttpClient.BaseAddress != null);
             
+            var mapApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMapApi>();
+            Assert.True(mapApi.HttpClient.BaseAddress != null);
+            
             var matchesApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMatchesApi>();
             Assert.True(matchesApi.HttpClient.BaseAddress != null);
+            
+            var miscEntitiesApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMiscEntitiesApi>();
+            Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
+            
+            var nPCUnitsApi = _hostUsingAddWithAClient.Services.GetRequiredService<INPCUnitsApi>();
+            Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);
             
             var patchesApi = _hostUsingAddWithAClient.Services.GetRequiredService<IPatchesApi>();
             Assert.True(patchesApi.HttpClient.BaseAddress != null);
             
             var playersApi = _hostUsingAddWithAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
+            
+            var ranksApi = _hostUsingAddWithAClient.Services.GetRequiredService<IRanksApi>();
+            Assert.True(ranksApi.HttpClient.BaseAddress != null);
             
             var sQLApi = _hostUsingAddWithAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
@@ -230,6 +353,9 @@ namespace DeadlockApiClient.Test.Api
             
             var steamApi = _hostUsingAddWithAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);
+            
+            var steamInfoApi = _hostUsingAddWithAClient.Services.GetRequiredService<ISteamInfoApi>();
+            Assert.True(steamInfoApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -238,11 +364,26 @@ namespace DeadlockApiClient.Test.Api
         [Fact]
         public void AddApiWithoutAClientTest()
         {
+            var accoladesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IAccoladesApi>();
+            Assert.True(accoladesApi.HttpClient.BaseAddress != null);
+
             var analyticsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IAnalyticsApi>();
             Assert.True(analyticsApi.HttpClient.BaseAddress != null);
 
+            var assetsBucketApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IAssetsBucketApi>();
+            Assert.True(assetsBucketApi.HttpClient.BaseAddress != null);
+
+            var buildTagsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IBuildTagsApi>();
+            Assert.True(buildTagsApi.HttpClient.BaseAddress != null);
+
             var buildsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IBuildsApi>();
             Assert.True(buildsApi.HttpClient.BaseAddress != null);
+
+            var clientVersionsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IClientVersionsApi>();
+            Assert.True(clientVersionsApi.HttpClient.BaseAddress != null);
+
+            var colorsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IColorsApi>();
+            Assert.True(colorsApi.HttpClient.BaseAddress != null);
 
             var commandsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
@@ -250,8 +391,14 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
 
+            var genericDataApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IGenericDataApi>();
+            Assert.True(genericDataApi.HttpClient.BaseAddress != null);
+
             var graphQLApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IGraphQLApi>();
             Assert.True(graphQLApi.HttpClient.BaseAddress != null);
+
+            var heroesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IHeroesApi>();
+            Assert.True(heroesApi.HttpClient.BaseAddress != null);
 
             var infoApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IInfoApi>();
             Assert.True(infoApi.HttpClient.BaseAddress != null);
@@ -259,20 +406,38 @@ namespace DeadlockApiClient.Test.Api
             var internalApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IInternalApi>();
             Assert.True(internalApi.HttpClient.BaseAddress != null);
 
+            var itemsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IItemsApi>();
+            Assert.True(itemsApi.HttpClient.BaseAddress != null);
+
             var leaderboardApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
+
+            var lootTablesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ILootTablesApi>();
+            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
 
             var mMRApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMMRApi>();
             Assert.True(mMRApi.HttpClient.BaseAddress != null);
 
+            var mapApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMapApi>();
+            Assert.True(mapApi.HttpClient.BaseAddress != null);
+
             var matchesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMatchesApi>();
             Assert.True(matchesApi.HttpClient.BaseAddress != null);
+
+            var miscEntitiesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMiscEntitiesApi>();
+            Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
+
+            var nPCUnitsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<INPCUnitsApi>();
+            Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);
 
             var patchesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IPatchesApi>();
             Assert.True(patchesApi.HttpClient.BaseAddress != null);
 
             var playersApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
+
+            var ranksApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IRanksApi>();
+            Assert.True(ranksApi.HttpClient.BaseAddress != null);
 
             var sQLApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
@@ -282,6 +447,9 @@ namespace DeadlockApiClient.Test.Api
 
             var steamApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);
+
+            var steamInfoApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ISteamInfoApi>();
+            Assert.True(steamInfoApi.HttpClient.BaseAddress != null);
         }
     }
 }

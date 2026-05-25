@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**MateStats**](PlayersAPI.md#MateStats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 [**PlayerHeroStats**](PlayersAPI.md#PlayerHeroStats) | **Get** /v1/players/hero-stats | Hero Stats
 [**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict
+[**RankPredictAvgImage**](PlayersAPI.md#RankPredictAvgImage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image
 [**RankPredictImage**](PlayersAPI.md#RankPredictImage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
 
 
@@ -559,6 +560,74 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RankPredictAvgImage
+
+> []int32 RankPredictAvgImage(ctx).AccountIds(accountIds).Format(format).Execute()
+
+Rank Predict Avg Image
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountIds := []int32{int32(123)} // []int32 | Comma-separated list of account IDs (max 12).
+	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.RankPredictAvgImage(context.Background()).AccountIds(accountIds).Format(format).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredictAvgImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RankPredictAvgImage`: []int32
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankPredictAvgImage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRankPredictAvgImageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountIds** | **[]int32** | Comma-separated list of account IDs (max 12). | 
+ **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
+
+### Return type
+
+**[]int32**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: image/png, image/webp
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

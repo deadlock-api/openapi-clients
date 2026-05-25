@@ -9,3 +9,8 @@ Accept: application/json
 ## Notes
 GET https://api.deadlock-api.com/v1/patches
 Accept: application/json
+
+### Notes
+## Notes
+GET https://api.deadlock-api.com/v2/patches
+Accept: application/json

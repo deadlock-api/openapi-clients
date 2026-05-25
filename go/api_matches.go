@@ -291,6 +291,7 @@ type ApiBulkMetadataRequest struct {
 	includePlayerKda *bool
 	includePlayerItems *bool
 	includePlayerStats *bool
+	includePlayerFinalStats *bool
 	includePlayerDeathDetails *bool
 	gameMode *string
 	matchMode *string
@@ -363,6 +364,12 @@ func (r ApiBulkMetadataRequest) IncludePlayerItems(includePlayerItems bool) ApiB
 // Include player stats in the response.
 func (r ApiBulkMetadataRequest) IncludePlayerStats(includePlayerStats bool) ApiBulkMetadataRequest {
 	r.includePlayerStats = &includePlayerStats
+	return r
+}
+
+// Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field.
+func (r ApiBulkMetadataRequest) IncludePlayerFinalStats(includePlayerFinalStats bool) ApiBulkMetadataRequest {
+	r.includePlayerFinalStats = &includePlayerFinalStats
 	return r
 }
 
@@ -596,6 +603,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	}
 	if r.includePlayerStats != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_stats", r.includePlayerStats, "form", "")
+	}
+	if r.includePlayerFinalStats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_final_stats", r.includePlayerFinalStats, "form", "")
 	}
 	if r.includePlayerDeathDetails != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_death_details", r.includePlayerDeathDetails, "form", "")

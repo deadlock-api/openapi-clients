@@ -1,0 +1,21 @@
+## AssetsBucketApi
+
+### Fonts Index
+## Fonts Index
+GET https://api.deadlock-api.com/v1/assets/fonts
+Accept: application/json
+
+### Icons Index
+## Icons Index
+GET https://api.deadlock-api.com/v1/assets/icons
+Accept: application/json
+
+### Images Index
+## Images Index
+GET https://api.deadlock-api.com/v1/assets/images
+Accept: application/json
+
+### Sounds Index
+## Sounds Index
+GET https://api.deadlock-api.com/v1/assets/sounds
+Accept: application/json

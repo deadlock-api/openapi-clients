@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictBool, StrictStr
-from typing import List, Optional
+from typing import List, Optional, Union
 from typing_extensions import Annotated
 from deadlock_api_client.models.steam_profile import SteamProfile
 
@@ -337,6 +337,10 @@ class SteamApi:
     def steam_search(
         self,
         search_query: Annotated[StrictStr, Field(description="Search query for Steam profiles.")],
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Maximum number of profiles to return.")] = None,
+        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
+        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
+        matches_played_weight: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]], Field(description="Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -356,6 +360,14 @@ class SteamApi:
 
         :param search_query: Search query for Steam profiles. (required)
         :type search_query: str
+        :param limit: Maximum number of profiles to return.
+        :type limit: int
+        :param min_matches_played_last_30d: Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+        :type min_matches_played_last_30d: int
+        :param min_last_team_avg_badge: Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+        :type min_last_team_avg_badge: int
+        :param matches_played_weight: Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
+        :type matches_played_weight: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -380,6 +392,10 @@ class SteamApi:
 
         _param = self._steam_search_serialize(
             search_query=search_query,
+            limit=limit,
+            min_matches_played_last_30d=min_matches_played_last_30d,
+            min_last_team_avg_badge=min_last_team_avg_badge,
+            matches_played_weight=matches_played_weight,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -407,6 +423,10 @@ class SteamApi:
     def steam_search_with_http_info(
         self,
         search_query: Annotated[StrictStr, Field(description="Search query for Steam profiles.")],
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Maximum number of profiles to return.")] = None,
+        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
+        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
+        matches_played_weight: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]], Field(description="Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -426,6 +446,14 @@ class SteamApi:
 
         :param search_query: Search query for Steam profiles. (required)
         :type search_query: str
+        :param limit: Maximum number of profiles to return.
+        :type limit: int
+        :param min_matches_played_last_30d: Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+        :type min_matches_played_last_30d: int
+        :param min_last_team_avg_badge: Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+        :type min_last_team_avg_badge: int
+        :param matches_played_weight: Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
+        :type matches_played_weight: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -450,6 +478,10 @@ class SteamApi:
 
         _param = self._steam_search_serialize(
             search_query=search_query,
+            limit=limit,
+            min_matches_played_last_30d=min_matches_played_last_30d,
+            min_last_team_avg_badge=min_last_team_avg_badge,
+            matches_played_weight=matches_played_weight,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -477,6 +509,10 @@ class SteamApi:
     def steam_search_without_preload_content(
         self,
         search_query: Annotated[StrictStr, Field(description="Search query for Steam profiles.")],
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Maximum number of profiles to return.")] = None,
+        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
+        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
+        matches_played_weight: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]], Field(description="Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -496,6 +532,14 @@ class SteamApi:
 
         :param search_query: Search query for Steam profiles. (required)
         :type search_query: str
+        :param limit: Maximum number of profiles to return.
+        :type limit: int
+        :param min_matches_played_last_30d: Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+        :type min_matches_played_last_30d: int
+        :param min_last_team_avg_badge: Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+        :type min_last_team_avg_badge: int
+        :param matches_played_weight: Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
+        :type matches_played_weight: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -520,6 +564,10 @@ class SteamApi:
 
         _param = self._steam_search_serialize(
             search_query=search_query,
+            limit=limit,
+            min_matches_played_last_30d=min_matches_played_last_30d,
+            min_last_team_avg_badge=min_last_team_avg_badge,
+            matches_played_weight=matches_played_weight,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -542,6 +590,10 @@ class SteamApi:
     def _steam_search_serialize(
         self,
         search_query,
+        limit,
+        min_matches_played_last_30d,
+        min_last_team_avg_badge,
+        matches_played_weight,
         _request_auth,
         _content_type,
         _headers,
@@ -567,6 +619,22 @@ class SteamApi:
         if search_query is not None:
             
             _query_params.append(('search_query', search_query))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if min_matches_played_last_30d is not None:
+            
+            _query_params.append(('min_matches_played_last_30d', min_matches_played_last_30d))
+            
+        if min_last_team_avg_badge is not None:
+            
+            _query_params.append(('min_last_team_avg_badge', min_last_team_avg_badge))
+            
+        if matches_played_weight is not None:
+            
+            _query_params.append(('matches_played_weight', matches_played_weight))
             
         # process the header parameters
         # process the form parameters

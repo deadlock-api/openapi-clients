@@ -1,0 +1,11 @@
+## NPCUnitsApi
+
+### Get NPC Unit
+## Get NPC Unit
+GET https://api.deadlock-api.com/v1/assets/npc-units/{{id_or_classname}}?clientVersion={{clientVersion}}
+Accept: application/json
+
+### List NPC Units
+## List NPC Units
+GET https://api.deadlock-api.com/v1/assets/npc-units?clientVersion={{clientVersion}}
+Accept: application/json

@@ -7,5 +7,5 @@ Accept: application/json
 
 ### Steam Profile Search
 ## Steam Profile Search
-GET https://api.deadlock-api.com/v1/players/steam-search?searchQuery={{searchQuery}}
+GET https://api.deadlock-api.com/v1/players/steam-search?searchQuery={{searchQuery}}&limit={{limit}}&minMatchesPlayedLast30d={{minMatchesPlayedLast30d}}&minLastTeamAvgBadge={{minLastTeamAvgBadge}}&matchesPlayedWeight={{matchesPlayedWeight}}
 Accept: application/json

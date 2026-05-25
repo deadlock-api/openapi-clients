@@ -62,10 +62,22 @@ export interface SteamProfile  {
     friends: Array<SteamFriend>;
     /**
      * 
+     * @type {number}
+     * @memberof SteamProfile
+     */
+    lastTeamAvgBadge?: number;
+    /**
+     * 
      * @type {Date}
      * @memberof SteamProfile
      */
     lastUpdated: Date;
+    /**
+     * 
+     * @type {number}
+     * @memberof SteamProfile
+     */
+    matchesPlayedLast30d: number;
     /**
      * 
      * @type {string}
@@ -94,7 +106,9 @@ export function SteamProfileFromJSON(json: any): SteamProfile {
         'avatarmedium': json['avatarmedium'],
         'countrycode': !exists(json, 'countrycode') ? undefined : json['countrycode'],
         'friends': (json['friends'] as Array<any>).map(SteamFriendFromJSON),
+        'lastTeamAvgBadge': !exists(json, 'last_team_avg_badge') ? undefined : json['last_team_avg_badge'],
         'lastUpdated': new Date(json['last_updated']),
+        'matchesPlayedLast30d': json['matches_played_last_30d'],
         'personaname': json['personaname'],
         'profileurl': json['profileurl'],
         'realname': !exists(json, 'realname') ? undefined : json['realname'],
@@ -112,7 +126,9 @@ export function SteamProfileToJSON(value?: SteamProfile): any {
         'avatarmedium': value.avatarmedium,
         'countrycode': value.countrycode,
         'friends': (value.friends as Array<any>).map(SteamFriendToJSON),
+        'last_team_avg_badge': value.lastTeamAvgBadge,
         'last_updated': value.lastUpdated.toISOString(),
+        'matches_played_last_30d': value.matchesPlayedLast30d,
         'personaname': value.personaname,
         'profileurl': value.profileurl,
         'realname': value.realname,

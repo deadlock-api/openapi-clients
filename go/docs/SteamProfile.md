@@ -10,7 +10,9 @@ Name | Type | Description | Notes
 **Avatarmedium** | **string** |  | 
 **Countrycode** | Pointer to **NullableString** |  | [optional] 
 **Friends** | [**[]SteamFriend**](SteamFriend.md) |  | 
+**LastTeamAvgBadge** | Pointer to **NullableInt32** |  | [optional] 
 **LastUpdated** | **time.Time** |  | 
+**MatchesPlayedLast30d** | **int64** |  | 
 **Personaname** | **string** |  | 
 **Profileurl** | **string** |  | 
 **Realname** | Pointer to **NullableString** |  | [optional] 
@@ -19,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSteamProfile
 
-`func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, personaname string, profileurl string, ) *SteamProfile`
+`func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, matchesPlayedLast30d int64, personaname string, profileurl string, ) *SteamProfile`
 
 NewSteamProfile instantiates a new SteamProfile object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +171,41 @@ and a boolean to check if the value has been set.
 SetFriends sets Friends field to given value.
 
 
+### GetLastTeamAvgBadge
+
+`func (o *SteamProfile) GetLastTeamAvgBadge() int32`
+
+GetLastTeamAvgBadge returns the LastTeamAvgBadge field if non-nil, zero value otherwise.
+
+### GetLastTeamAvgBadgeOk
+
+`func (o *SteamProfile) GetLastTeamAvgBadgeOk() (*int32, bool)`
+
+GetLastTeamAvgBadgeOk returns a tuple with the LastTeamAvgBadge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastTeamAvgBadge
+
+`func (o *SteamProfile) SetLastTeamAvgBadge(v int32)`
+
+SetLastTeamAvgBadge sets LastTeamAvgBadge field to given value.
+
+### HasLastTeamAvgBadge
+
+`func (o *SteamProfile) HasLastTeamAvgBadge() bool`
+
+HasLastTeamAvgBadge returns a boolean if a field has been set.
+
+### SetLastTeamAvgBadgeNil
+
+`func (o *SteamProfile) SetLastTeamAvgBadgeNil(b bool)`
+
+ SetLastTeamAvgBadgeNil sets the value for LastTeamAvgBadge to be an explicit nil
+
+### UnsetLastTeamAvgBadge
+`func (o *SteamProfile) UnsetLastTeamAvgBadge()`
+
+UnsetLastTeamAvgBadge ensures that no value is present for LastTeamAvgBadge, not even an explicit nil
 ### GetLastUpdated
 
 `func (o *SteamProfile) GetLastUpdated() time.Time`
@@ -187,6 +224,26 @@ and a boolean to check if the value has been set.
 `func (o *SteamProfile) SetLastUpdated(v time.Time)`
 
 SetLastUpdated sets LastUpdated field to given value.
+
+
+### GetMatchesPlayedLast30d
+
+`func (o *SteamProfile) GetMatchesPlayedLast30d() int64`
+
+GetMatchesPlayedLast30d returns the MatchesPlayedLast30d field if non-nil, zero value otherwise.
+
+### GetMatchesPlayedLast30dOk
+
+`func (o *SteamProfile) GetMatchesPlayedLast30dOk() (*int64, bool)`
+
+GetMatchesPlayedLast30dOk returns a tuple with the MatchesPlayedLast30d field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMatchesPlayedLast30d
+
+`func (o *SteamProfile) SetMatchesPlayedLast30d(v int64)`
+
+SetMatchesPlayedLast30d sets MatchesPlayedLast30d field to given value.
 
 
 ### GetPersonaname

@@ -131,7 +131,7 @@ No authorization required
 ## `bulkMetadata()`
 
 ```php
-bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit): int[]
+bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit): int[]
 ```
 
 Bulk Metadata
@@ -159,6 +159,7 @@ $include_player_info = True; // bool | Include player info in the response.
 $include_player_kda = True; // bool | Include only K/D/A fields (`kills`, `deaths`, `assists`) for players.
 $include_player_items = True; // bool | Include player items in the response.
 $include_player_stats = True; // bool | Include player stats in the response.
+$include_player_final_stats = True; // bool | Include only the final per-player stats (last sample of every `stats.*` time-series) as a single `final_stats` object. Far cheaper than `include_player_stats`, which returns the whole array per field.
 $include_player_death_details = True; // bool | Include player death details in the response.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. Omit or pass empty string for no filter.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
@@ -186,7 +187,7 @@ $order_direction = 'order_direction_example'; // string | The direction to order
 $limit = 1000; // int | The maximum number of matches to return.
 
 try {
-    $result = $apiInstance->bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit);
+    $result = $apiInstance->bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->bulkMetadata: ', $e->getMessage(), PHP_EOL;
@@ -205,6 +206,7 @@ try {
 | **include_player_kda** | **bool**| Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players. | [optional] |
 | **include_player_items** | **bool**| Include player items in the response. | [optional] |
 | **include_player_stats** | **bool**| Include player stats in the response. | [optional] |
+| **include_player_final_stats** | **bool**| Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field. | [optional] |
 | **include_player_death_details** | **bool**| Include player death details in the response. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |

@@ -1,0 +1,32 @@
+# AbilityDescription
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**active** | **string** |  | [optional] [default to undefined]
+**desc** | **string** |  | [optional] [default to undefined]
+**passive** | **string** |  | [optional] [default to undefined]
+**quip** | **string** |  | [optional] [default to undefined]
+**t1_desc** | **string** |  | [optional] [default to undefined]
+**t2_desc** | **string** |  | [optional] [default to undefined]
+**t3_desc** | **string** |  | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { AbilityDescription } from 'deadlock_api_client';
+
+const instance: AbilityDescription = {
+    active,
+    desc,
+    passive,
+    quip,
+    t1_desc,
+    t2_desc,
+    t3_desc,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

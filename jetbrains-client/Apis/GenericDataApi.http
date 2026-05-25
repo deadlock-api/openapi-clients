@@ -1,0 +1,6 @@
+## GenericDataApi
+
+### Get Generic Data
+## Get Generic Data
+GET https://api.deadlock-api.com/v1/assets/generic-data?clientVersion={{clientVersion}}
+Accept: application/json

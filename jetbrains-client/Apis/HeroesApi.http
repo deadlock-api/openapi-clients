@@ -1,0 +1,16 @@
+## HeroesApi
+
+### Get Hero
+## Get Hero
+GET https://api.deadlock-api.com/v1/assets/heroes/{{hero_id}}?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json
+
+### Get Hero By Name
+## Get Hero By Name
+GET https://api.deadlock-api.com/v1/assets/heroes/by-name/{{name}}?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json
+
+### List Heroes
+## List Heroes
+GET https://api.deadlock-api.com/v1/assets/heroes?language={{language}}&clientVersion={{clientVersion}}&onlyActive={{onlyActive}}
+Accept: application/json

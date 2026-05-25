@@ -134,9 +134,27 @@ class SteamProfileTest extends TestCase
     }
 
     /**
+     * Test attribute "last_team_avg_badge"
+     */
+    public function testPropertyLastTeamAvgBadge()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "last_updated"
      */
     public function testPropertyLastUpdated()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "matches_played_last_30d"
+     */
+    public function testPropertyMatchesPlayedLast30d()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

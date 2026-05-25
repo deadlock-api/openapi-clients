@@ -1,0 +1,16 @@
+## BuildTagsApi
+
+### Get Build Tag
+## Get Build Tag
+GET https://api.deadlock-api.com/v1/assets/build-tags/{{build_tag_id}}?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json
+
+### Get Build Tag By Name
+## Get Build Tag By Name
+GET https://api.deadlock-api.com/v1/assets/build-tags/by-name/{{name}}?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json
+
+### List Build Tags
+## List Build Tags
+GET https://api.deadlock-api.com/v1/assets/build-tags?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json

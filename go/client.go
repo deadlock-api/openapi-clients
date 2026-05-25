@@ -49,35 +49,63 @@ type APIClient struct {
 
 	// API Services
 
+	AccoladesAPI *AccoladesAPIService
+
 	AnalyticsAPI *AnalyticsAPIService
 
+	AssetsBucketAPI *AssetsBucketAPIService
+
+	BuildTagsAPI *BuildTagsAPIService
+
 	BuildsAPI *BuildsAPIService
+
+	ClientVersionsAPI *ClientVersionsAPIService
+
+	ColorsAPI *ColorsAPIService
 
 	CommandsAPI *CommandsAPIService
 
 	CustomMatchesAPI *CustomMatchesAPIService
 
+	GenericDataAPI *GenericDataAPIService
+
 	GraphQLAPI *GraphQLAPIService
+
+	HeroesAPI *HeroesAPIService
 
 	InfoAPI *InfoAPIService
 
 	InternalAPI *InternalAPIService
 
+	ItemsAPI *ItemsAPIService
+
 	LeaderboardAPI *LeaderboardAPIService
+
+	LootTablesAPI *LootTablesAPIService
 
 	MMRAPI *MMRAPIService
 
+	MapAPI *MapAPIService
+
 	MatchesAPI *MatchesAPIService
+
+	MiscEntitiesAPI *MiscEntitiesAPIService
+
+	NPCUnitsAPI *NPCUnitsAPIService
 
 	PatchesAPI *PatchesAPIService
 
 	PlayersAPI *PlayersAPIService
+
+	RanksAPI *RanksAPIService
 
 	SQLAPI *SQLAPIService
 
 	ServersAPI *ServersAPIService
 
 	SteamAPI *SteamAPIService
+
+	SteamInfoAPI *SteamInfoAPIService
 }
 
 type service struct {
@@ -96,21 +124,35 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
+	c.AccoladesAPI = (*AccoladesAPIService)(&c.common)
 	c.AnalyticsAPI = (*AnalyticsAPIService)(&c.common)
+	c.AssetsBucketAPI = (*AssetsBucketAPIService)(&c.common)
+	c.BuildTagsAPI = (*BuildTagsAPIService)(&c.common)
 	c.BuildsAPI = (*BuildsAPIService)(&c.common)
+	c.ClientVersionsAPI = (*ClientVersionsAPIService)(&c.common)
+	c.ColorsAPI = (*ColorsAPIService)(&c.common)
 	c.CommandsAPI = (*CommandsAPIService)(&c.common)
 	c.CustomMatchesAPI = (*CustomMatchesAPIService)(&c.common)
+	c.GenericDataAPI = (*GenericDataAPIService)(&c.common)
 	c.GraphQLAPI = (*GraphQLAPIService)(&c.common)
+	c.HeroesAPI = (*HeroesAPIService)(&c.common)
 	c.InfoAPI = (*InfoAPIService)(&c.common)
 	c.InternalAPI = (*InternalAPIService)(&c.common)
+	c.ItemsAPI = (*ItemsAPIService)(&c.common)
 	c.LeaderboardAPI = (*LeaderboardAPIService)(&c.common)
+	c.LootTablesAPI = (*LootTablesAPIService)(&c.common)
 	c.MMRAPI = (*MMRAPIService)(&c.common)
+	c.MapAPI = (*MapAPIService)(&c.common)
 	c.MatchesAPI = (*MatchesAPIService)(&c.common)
+	c.MiscEntitiesAPI = (*MiscEntitiesAPIService)(&c.common)
+	c.NPCUnitsAPI = (*NPCUnitsAPIService)(&c.common)
 	c.PatchesAPI = (*PatchesAPIService)(&c.common)
 	c.PlayersAPI = (*PlayersAPIService)(&c.common)
+	c.RanksAPI = (*RanksAPIService)(&c.common)
 	c.SQLAPI = (*SQLAPIService)(&c.common)
 	c.ServersAPI = (*ServersAPIService)(&c.common)
 	c.SteamAPI = (*SteamAPIService)(&c.common)
+	c.SteamInfoAPI = (*SteamInfoAPIService)(&c.common)
 
 	return c
 }

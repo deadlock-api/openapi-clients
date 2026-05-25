@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { PlayerCardSlot } from './player-card-slot';
+import type { PlayerCardSlot } from './player-card-slot.js';
 
 export interface PlayerCard {
     'account_id': number;
