@@ -35,7 +35,7 @@ import java.io.Serializable
  * @param authorAccountId 
  * @param details 
  * @param heroBuildId 
- * @param heroId See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param language 
  * @param name 
  * @param originBuildId 
@@ -59,7 +59,7 @@ data class BuildHero (
     @Json(name = "hero_build_id")
     val heroBuildId: kotlin.Int,
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
     val heroId: kotlin.Int,
 

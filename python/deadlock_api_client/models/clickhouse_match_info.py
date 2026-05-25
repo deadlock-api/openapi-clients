@@ -29,8 +29,8 @@ class ClickhouseMatchInfo(BaseModel):
     """
     ClickhouseMatchInfo
     """ # noqa: E501
-    average_badge_team0: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/ranks>")
-    average_badge_team1: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/ranks>")
+    average_badge_team0: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    average_badge_team1: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     duration_s: Annotated[int, Field(strict=True, ge=0)]
     game_mode: StrictInt
     match_id: Annotated[int, Field(strict=True, ge=0)]

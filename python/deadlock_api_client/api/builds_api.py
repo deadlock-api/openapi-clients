@@ -56,7 +56,7 @@ class BuildsApi:
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
         version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         tag: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
         rollup_category: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
         author_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
@@ -107,7 +107,7 @@ class BuildsApi:
         :type build_id: int
         :param version: Filter builds by version.
         :type version: int
-        :param hero_id: Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param tag: Filter builds by tag.
         :type tag: int
@@ -198,7 +198,7 @@ class BuildsApi:
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
         version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         tag: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
         rollup_category: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
         author_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
@@ -249,7 +249,7 @@ class BuildsApi:
         :type build_id: int
         :param version: Filter builds by version.
         :type version: int
-        :param hero_id: Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param tag: Filter builds by tag.
         :type tag: int
@@ -340,7 +340,7 @@ class BuildsApi:
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
         version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         tag: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
         rollup_category: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
         author_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
@@ -391,7 +391,7 @@ class BuildsApi:
         :type build_id: int
         :param version: Filter builds by version.
         :type version: int
-        :param hero_id: Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param tag: Filter builds by tag.
         :type tag: int

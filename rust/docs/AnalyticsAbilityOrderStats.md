@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**abilities** | **Vec<u32>** | See more: <https://assets.deadlock-api.com/v2/heroes> | 
+**abilities** | **Vec<u32>** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **losses** | **u64** |  | 
 **matches** | **u64** |  | 
 **players** | **u64** |  | 

@@ -22,7 +22,7 @@ var _ MappedNullable = &AnalyticsHeroStats{}
 // AnalyticsHeroStats struct for AnalyticsHeroStats
 type AnalyticsHeroStats struct {
 	Bucket int32 `json:"bucket"`
-	// See more: <https://assets.deadlock-api.com/v2/heroes>
+	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`

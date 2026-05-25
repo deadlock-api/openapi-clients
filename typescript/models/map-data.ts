@@ -26,7 +26,7 @@ import type { ZiplanePath } from './ziplane-path.js';
 /**
  * The `/v1/assets/map` response.
  */
-export interface ModelMap {
+export interface MapData {
     'images': MapImages;
     'objective_positions': { [key: string]: ObjectivePosition; };
     'radius': number;

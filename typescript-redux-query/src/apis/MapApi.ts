@@ -14,6 +14,11 @@
 
 import { HttpMethods, QueryConfig, ResponseBody, ResponseText } from 'redux-query';
 import * as runtime from '../runtime';
+import {
+    MapData,
+    MapDataFromJSON,
+    MapDataToJSON,
+} from '../models';
 
 export interface GetMapRequest {
     clientVersion?: number;
@@ -24,7 +29,7 @@ export interface GetMapRequest {
  * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
  * Map
  */
-function getMapRaw<T>(requestParameters: GetMapRequest, requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+function getMapRaw<T>(requestParameters: GetMapRequest, requestConfig: runtime.TypedQueryConfig<T, MapData> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
@@ -56,7 +61,7 @@ function getMapRaw<T>(requestParameters: GetMapRequest, requestConfig: runtime.T
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        throw "OH NO";
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(MapDataFromJSON(body), text);
     }
 
     return config;
@@ -66,7 +71,7 @@ function getMapRaw<T>(requestParameters: GetMapRequest, requestConfig: runtime.T
 * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
 * Map
 */
-export function getMap<T>(requestParameters: GetMapRequest, requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+export function getMap<T>(requestParameters: GetMapRequest, requestConfig?: runtime.TypedQueryConfig<T, MapData>): QueryConfig<T> {
     return getMapRaw(requestParameters, requestConfig);
 }
 

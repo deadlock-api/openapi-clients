@@ -1,4 +1,4 @@
-# Map
+# MapData
 
 ## Properties
 
@@ -11,99 +11,99 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewMap
+### NewMapData
 
-`func NewMap(images MapImages, objectivePositions map[string]ObjectivePosition, radius int32, ziplinePaths []ZiplanePath, ) *Map`
+`func NewMapData(images MapImages, objectivePositions map[string]ObjectivePosition, radius int32, ziplinePaths []ZiplanePath, ) *MapData`
 
-NewMap instantiates a new Map object
+NewMapData instantiates a new MapData object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewMapWithDefaults
+### NewMapDataWithDefaults
 
-`func NewMapWithDefaults() *Map`
+`func NewMapDataWithDefaults() *MapData`
 
-NewMapWithDefaults instantiates a new Map object
+NewMapDataWithDefaults instantiates a new MapData object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetImages
 
-`func (o *Map) GetImages() MapImages`
+`func (o *MapData) GetImages() MapImages`
 
 GetImages returns the Images field if non-nil, zero value otherwise.
 
 ### GetImagesOk
 
-`func (o *Map) GetImagesOk() (*MapImages, bool)`
+`func (o *MapData) GetImagesOk() (*MapImages, bool)`
 
 GetImagesOk returns a tuple with the Images field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImages
 
-`func (o *Map) SetImages(v MapImages)`
+`func (o *MapData) SetImages(v MapImages)`
 
 SetImages sets Images field to given value.
 
 
 ### GetObjectivePositions
 
-`func (o *Map) GetObjectivePositions() map[string]ObjectivePosition`
+`func (o *MapData) GetObjectivePositions() map[string]ObjectivePosition`
 
 GetObjectivePositions returns the ObjectivePositions field if non-nil, zero value otherwise.
 
 ### GetObjectivePositionsOk
 
-`func (o *Map) GetObjectivePositionsOk() (*map[string]ObjectivePosition, bool)`
+`func (o *MapData) GetObjectivePositionsOk() (*map[string]ObjectivePosition, bool)`
 
 GetObjectivePositionsOk returns a tuple with the ObjectivePositions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjectivePositions
 
-`func (o *Map) SetObjectivePositions(v map[string]ObjectivePosition)`
+`func (o *MapData) SetObjectivePositions(v map[string]ObjectivePosition)`
 
 SetObjectivePositions sets ObjectivePositions field to given value.
 
 
 ### GetRadius
 
-`func (o *Map) GetRadius() int32`
+`func (o *MapData) GetRadius() int32`
 
 GetRadius returns the Radius field if non-nil, zero value otherwise.
 
 ### GetRadiusOk
 
-`func (o *Map) GetRadiusOk() (*int32, bool)`
+`func (o *MapData) GetRadiusOk() (*int32, bool)`
 
 GetRadiusOk returns a tuple with the Radius field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRadius
 
-`func (o *Map) SetRadius(v int32)`
+`func (o *MapData) SetRadius(v int32)`
 
 SetRadius sets Radius field to given value.
 
 
 ### GetZiplinePaths
 
-`func (o *Map) GetZiplinePaths() []ZiplanePath`
+`func (o *MapData) GetZiplinePaths() []ZiplanePath`
 
 GetZiplinePaths returns the ZiplinePaths field if non-nil, zero value otherwise.
 
 ### GetZiplinePathsOk
 
-`func (o *Map) GetZiplinePathsOk() (*[]ZiplanePath, bool)`
+`func (o *MapData) GetZiplinePathsOk() (*[]ZiplanePath, bool)`
 
 GetZiplinePathsOk returns a tuple with the ZiplinePaths field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetZiplinePaths
 
-`func (o *Map) SetZiplinePaths(v []ZiplanePath)`
+`func (o *MapData) SetZiplinePaths(v []ZiplanePath)`
 
 SetZiplinePaths sets ZiplinePaths field to given value.
 

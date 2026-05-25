@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Abandoned** | **bool** |  | [optional] 
 **AccountId** | **int** |  | [optional] 
-**HeroId** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
+**HeroId** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 **Team** | **int** |  | [optional] 
 **TeamParsed** | **ActiveMatchTeam** |  | [optional] 
 

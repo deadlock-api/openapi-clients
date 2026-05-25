@@ -49,7 +49,7 @@ namespace DeadlockApiClient.Model
         /// <param name="deniesPerMatch">deniesPerMatch</param>
         /// <param name="deniesPerMin">deniesPerMin</param>
         /// <param name="endingLevel">endingLevel</param>
-        /// <param name="heroId">See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="kills">kills</param>
         /// <param name="killsPerMin">killsPerMin</param>
         /// <param name="lastHitsPerMin">lastHitsPerMin</param>
@@ -204,9 +204,9 @@ namespace DeadlockApiClient.Model
         public double EndingLevel { get; set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
         public int HeroId { get; set; }
 

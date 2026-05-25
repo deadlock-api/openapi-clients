@@ -56,7 +56,7 @@ Batch Player Hero MMR
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param heroId The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @param heroId The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiHeroMmrRequest
 */
 func (a *MMRAPIService) HeroMmr(ctx context.Context, heroId int32) ApiHeroMmrRequest {
@@ -250,7 +250,7 @@ Player Hero MMR Distribution
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param heroId The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @param heroId The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiHeroMmrDistributionRequest
 */
 func (a *MMRAPIService) HeroMmrDistribution(ctx context.Context, heroId int32) ApiHeroMmrDistributionRequest {
@@ -389,7 +389,7 @@ Player Hero MMR History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
- @param heroId The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @param heroId The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiHeroMmrHistoryRequest
 */
 func (a *MMRAPIService) HeroMmrHistory(ctx context.Context, accountId int32, heroId int32) ApiHeroMmrHistoryRequest {

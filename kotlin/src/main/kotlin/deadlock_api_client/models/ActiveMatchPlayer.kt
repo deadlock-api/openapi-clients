@@ -34,7 +34,7 @@ import java.io.Serializable
  *
  * @param abandoned 
  * @param accountId 
- * @param heroId See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param team 
  * @param teamParsed 
  */
@@ -48,7 +48,7 @@ data class ActiveMatchPlayer (
     @Json(name = "account_id")
     val accountId: kotlin.Int? = null,
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
     val heroId: kotlin.Int? = null,
 

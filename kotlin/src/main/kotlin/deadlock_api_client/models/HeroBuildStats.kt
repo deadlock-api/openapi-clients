@@ -32,7 +32,7 @@ import java.io.Serializable
  * 
  *
  * @param heroBuildId The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
- * @param heroId The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroId The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param losses The number of losses with this build.
  * @param matches The total number of matches played with this build (`wins + losses`).
  * @param players The number of unique players who used this build.
@@ -46,7 +46,7 @@ data class HeroBuildStats (
     @Json(name = "hero_build_id")
     val heroBuildId: kotlin.Long,
 
-    /* The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
     val heroId: kotlin.Int,
 

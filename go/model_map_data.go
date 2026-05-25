@@ -16,25 +16,25 @@ import (
 	"fmt"
 )
 
-// checks if the Map type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &Map{}
+// checks if the MapData type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MapData{}
 
-// Map The `/v1/assets/map` response.
-type Map struct {
+// MapData The `/v1/assets/map` response.
+type MapData struct {
 	Images MapImages `json:"images"`
 	ObjectivePositions map[string]ObjectivePosition `json:"objective_positions"`
 	Radius int32 `json:"radius"`
 	ZiplinePaths []ZiplanePath `json:"zipline_paths"`
 }
 
-type _Map Map
+type _MapData MapData
 
-// NewMap instantiates a new Map object
+// NewMapData instantiates a new MapData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMap(images MapImages, objectivePositions map[string]ObjectivePosition, radius int32, ziplinePaths []ZiplanePath) *Map {
-	this := Map{}
+func NewMapData(images MapImages, objectivePositions map[string]ObjectivePosition, radius int32, ziplinePaths []ZiplanePath) *MapData {
+	this := MapData{}
 	this.Images = images
 	this.ObjectivePositions = objectivePositions
 	this.Radius = radius
@@ -42,16 +42,16 @@ func NewMap(images MapImages, objectivePositions map[string]ObjectivePosition, r
 	return &this
 }
 
-// NewMapWithDefaults instantiates a new Map object
+// NewMapDataWithDefaults instantiates a new MapData object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewMapWithDefaults() *Map {
-	this := Map{}
+func NewMapDataWithDefaults() *MapData {
+	this := MapData{}
 	return &this
 }
 
 // GetImages returns the Images field value
-func (o *Map) GetImages() MapImages {
+func (o *MapData) GetImages() MapImages {
 	if o == nil {
 		var ret MapImages
 		return ret
@@ -62,7 +62,7 @@ func (o *Map) GetImages() MapImages {
 
 // GetImagesOk returns a tuple with the Images field value
 // and a boolean to check if the value has been set.
-func (o *Map) GetImagesOk() (*MapImages, bool) {
+func (o *MapData) GetImagesOk() (*MapImages, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,12 +70,12 @@ func (o *Map) GetImagesOk() (*MapImages, bool) {
 }
 
 // SetImages sets field value
-func (o *Map) SetImages(v MapImages) {
+func (o *MapData) SetImages(v MapImages) {
 	o.Images = v
 }
 
 // GetObjectivePositions returns the ObjectivePositions field value
-func (o *Map) GetObjectivePositions() map[string]ObjectivePosition {
+func (o *MapData) GetObjectivePositions() map[string]ObjectivePosition {
 	if o == nil {
 		var ret map[string]ObjectivePosition
 		return ret
@@ -86,7 +86,7 @@ func (o *Map) GetObjectivePositions() map[string]ObjectivePosition {
 
 // GetObjectivePositionsOk returns a tuple with the ObjectivePositions field value
 // and a boolean to check if the value has been set.
-func (o *Map) GetObjectivePositionsOk() (map[string]ObjectivePosition, bool) {
+func (o *MapData) GetObjectivePositionsOk() (map[string]ObjectivePosition, bool) {
 	if o == nil {
 		return map[string]ObjectivePosition{}, false
 	}
@@ -94,12 +94,12 @@ func (o *Map) GetObjectivePositionsOk() (map[string]ObjectivePosition, bool) {
 }
 
 // SetObjectivePositions sets field value
-func (o *Map) SetObjectivePositions(v map[string]ObjectivePosition) {
+func (o *MapData) SetObjectivePositions(v map[string]ObjectivePosition) {
 	o.ObjectivePositions = v
 }
 
 // GetRadius returns the Radius field value
-func (o *Map) GetRadius() int32 {
+func (o *MapData) GetRadius() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -110,7 +110,7 @@ func (o *Map) GetRadius() int32 {
 
 // GetRadiusOk returns a tuple with the Radius field value
 // and a boolean to check if the value has been set.
-func (o *Map) GetRadiusOk() (*int32, bool) {
+func (o *MapData) GetRadiusOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,12 +118,12 @@ func (o *Map) GetRadiusOk() (*int32, bool) {
 }
 
 // SetRadius sets field value
-func (o *Map) SetRadius(v int32) {
+func (o *MapData) SetRadius(v int32) {
 	o.Radius = v
 }
 
 // GetZiplinePaths returns the ZiplinePaths field value
-func (o *Map) GetZiplinePaths() []ZiplanePath {
+func (o *MapData) GetZiplinePaths() []ZiplanePath {
 	if o == nil {
 		var ret []ZiplanePath
 		return ret
@@ -134,7 +134,7 @@ func (o *Map) GetZiplinePaths() []ZiplanePath {
 
 // GetZiplinePathsOk returns a tuple with the ZiplinePaths field value
 // and a boolean to check if the value has been set.
-func (o *Map) GetZiplinePathsOk() ([]ZiplanePath, bool) {
+func (o *MapData) GetZiplinePathsOk() ([]ZiplanePath, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -142,11 +142,11 @@ func (o *Map) GetZiplinePathsOk() ([]ZiplanePath, bool) {
 }
 
 // SetZiplinePaths sets field value
-func (o *Map) SetZiplinePaths(v []ZiplanePath) {
+func (o *MapData) SetZiplinePaths(v []ZiplanePath) {
 	o.ZiplinePaths = v
 }
 
-func (o Map) MarshalJSON() ([]byte, error) {
+func (o MapData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -154,7 +154,7 @@ func (o Map) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Map) ToMap() (map[string]interface{}, error) {
+func (o MapData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["images"] = o.Images
 	toSerialize["objective_positions"] = o.ObjectivePositions
@@ -163,7 +163,7 @@ func (o Map) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *Map) UnmarshalJSON(data []byte) (err error) {
+func (o *MapData) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -188,53 +188,53 @@ func (o *Map) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varMap := _Map{}
+	varMapData := _MapData{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varMap)
+	err = decoder.Decode(&varMapData)
 
 	if err != nil {
 		return err
 	}
 
-	*o = Map(varMap)
+	*o = MapData(varMapData)
 
 	return err
 }
 
-type NullableMap struct {
-	value *Map
+type NullableMapData struct {
+	value *MapData
 	isSet bool
 }
 
-func (v NullableMap) Get() *Map {
+func (v NullableMapData) Get() *MapData {
 	return v.value
 }
 
-func (v *NullableMap) Set(val *Map) {
+func (v *NullableMapData) Set(val *MapData) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableMap) IsSet() bool {
+func (v NullableMapData) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableMap) Unset() {
+func (v *NullableMapData) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableMap(val *Map) *NullableMap {
-	return &NullableMap{value: val, isSet: true}
+func NewNullableMapData(val *MapData) *NullableMapData {
+	return &NullableMapData{value: val, isSet: true}
 }
 
-func (v NullableMap) MarshalJSON() ([]byte, error) {
+func (v NullableMapData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableMap) UnmarshalJSON(src []byte) error {
+func (v *NullableMapData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

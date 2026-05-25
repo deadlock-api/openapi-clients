@@ -7,7 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**getMap**](#getmap) | **GET** /v1/assets/map | Map|
 
 # **getMap**
-> any getMap()
+> MapData getMap()
 
 Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
 
@@ -38,7 +38,7 @@ const { status, data } = await apiInstance.getMap(
 
 ### Return type
 
-**any**
+**MapData**
 
 ### Authorization
 

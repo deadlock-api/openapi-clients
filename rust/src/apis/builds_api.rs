@@ -47,7 +47,7 @@ pub struct SearchBuildsParams {
     pub build_id: Option<u32>,
     /// Filter builds by version.
     pub version: Option<u32>,
-    /// Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: Option<u32>,
     /// Filter builds by tag.
     pub tag: Option<u32>,

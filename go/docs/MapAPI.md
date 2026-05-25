@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetMap
 
-> Map GetMap(ctx).ClientVersion(clientVersion).Execute()
+> MapData GetMap(ctx).ClientVersion(clientVersion).Execute()
 
 Map
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MapAPI.GetMap``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetMap`: Map
+	// response from `GetMap`: MapData
 	fmt.Fprintf(os.Stdout, "Response from `MapAPI.GetMap`: %v\n", resp)
 }
 ```
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map**](Map.md)
+[**MapData**](MapData.md)
 
 ### Authorization
 

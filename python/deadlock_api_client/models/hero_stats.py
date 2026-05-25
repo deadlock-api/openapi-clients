@@ -44,7 +44,7 @@ class HeroStats(BaseModel):
     denies_per_match: Union[StrictFloat, StrictInt]
     denies_per_min: Union[StrictFloat, StrictInt]
     ending_level: Union[StrictFloat, StrictInt]
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://assets.deadlock-api.com/v2/heroes>")
+    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     kills: Annotated[int, Field(strict=True, ge=0)]
     kills_per_min: Union[StrictFloat, StrictInt]
     last_hits_per_min: Union[StrictFloat, StrictInt]

@@ -25,7 +25,7 @@ export interface LeaderboardEntry  {
      */
     accountName?: string;
     /**
-     * The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof LeaderboardEntry
      */
@@ -37,25 +37,25 @@ export interface LeaderboardEntry  {
      */
     possibleAccountIds?: Array<number>;
     /**
-     * The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof LeaderboardEntry
      */
     rank?: number;
     /**
-     * The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof LeaderboardEntry
      */
     rankedRank?: number;
     /**
-     * The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof LeaderboardEntry
      */
     rankedSubrank?: number;
     /**
-     * The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
+     * The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      * @type {Array<number>}
      * @memberof LeaderboardEntry
      */

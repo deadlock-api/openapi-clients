@@ -45,7 +45,7 @@ class HeroBanStatsTest : ShouldSpec() {
             //modelInstance.bucket shouldBe ("TODO")
         }
 
-        // to test the property `heroId` - The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `heroId` - The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test heroId") {
             // uncomment below to test the property
             //modelInstance.heroId shouldBe ("TODO")

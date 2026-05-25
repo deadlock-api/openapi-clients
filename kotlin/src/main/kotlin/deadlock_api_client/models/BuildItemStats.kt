@@ -32,7 +32,7 @@ import java.io.Serializable
  * 
  *
  * @param builds 
- * @param itemId See more: <https://assets.deadlock-api.com/v2/items>
+ * @param itemId See more: <https://api.deadlock-api.com/v1/assets/items>
  */
 
 
@@ -41,7 +41,7 @@ data class BuildItemStats (
     @Json(name = "builds")
     val builds: kotlin.Long,
 
-    /* See more: <https://assets.deadlock-api.com/v2/items> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/items> */
     @Json(name = "item_id")
     val itemId: kotlin.Long
 

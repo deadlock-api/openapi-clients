@@ -64,7 +64,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IGetMapApiResponse"/>
     /// </summary>
-    public interface IGetMapApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.Map?>
+    public interface IGetMapApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.MapData?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -354,11 +354,11 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public DeadlockApiClient.Model.Map? Ok()
+            public DeadlockApiClient.Model.MapData? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Map>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.MapData>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -367,7 +367,7 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.Map? result)
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.MapData? result)
             {
                 result = null;
 

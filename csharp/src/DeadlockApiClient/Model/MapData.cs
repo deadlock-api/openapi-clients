@@ -28,17 +28,17 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// The &#x60;/v1/assets/map&#x60; response.
     /// </summary>
-    public partial class Map : IValidatableObject
+    public partial class MapData : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Map" /> class.
+        /// Initializes a new instance of the <see cref="MapData" /> class.
         /// </summary>
         /// <param name="images">images</param>
         /// <param name="objectivePositions">objectivePositions</param>
         /// <param name="radius">radius</param>
         /// <param name="ziplinePaths">ziplinePaths</param>
         [JsonConstructor]
-        public Map(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, int radius, List<ZiplanePath> ziplinePaths)
+        public MapData(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, int radius, List<ZiplanePath> ziplinePaths)
         {
             Images = images;
             ObjectivePositions = objectivePositions;
@@ -80,7 +80,7 @@ namespace DeadlockApiClient.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Map {\n");
+            sb.Append("class MapData {\n");
             sb.Append("  Images: ").Append(Images).Append("\n");
             sb.Append("  ObjectivePositions: ").Append(ObjectivePositions).Append("\n");
             sb.Append("  Radius: ").Append(Radius).Append("\n");
@@ -107,19 +107,19 @@ namespace DeadlockApiClient.Model
     }
 
     /// <summary>
-    /// A Json converter for type <see cref="Map" />
+    /// A Json converter for type <see cref="MapData" />
     /// </summary>
-    public class MapJsonConverter : JsonConverter<Map>
+    public class MapDataJsonConverter : JsonConverter<MapData>
     {
         /// <summary>
-        /// Deserializes json to <see cref="Map" />
+        /// Deserializes json to <see cref="MapData" />
         /// </summary>
         /// <param name="utf8JsonReader"></param>
         /// <param name="typeToConvert"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <returns></returns>
         /// <exception cref="JsonException"></exception>
-        public override Map Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
+        public override MapData Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
         {
             int currentDepth = utf8JsonReader.CurrentDepth;
 
@@ -167,73 +167,73 @@ namespace DeadlockApiClient.Model
             }
 
             if (!images.IsSet)
-                throw new ArgumentException("Property is required for class Map.", nameof(images));
+                throw new ArgumentException("Property is required for class MapData.", nameof(images));
 
             if (!objectivePositions.IsSet)
-                throw new ArgumentException("Property is required for class Map.", nameof(objectivePositions));
+                throw new ArgumentException("Property is required for class MapData.", nameof(objectivePositions));
 
             if (!radius.IsSet)
-                throw new ArgumentException("Property is required for class Map.", nameof(radius));
+                throw new ArgumentException("Property is required for class MapData.", nameof(radius));
 
             if (!ziplinePaths.IsSet)
-                throw new ArgumentException("Property is required for class Map.", nameof(ziplinePaths));
+                throw new ArgumentException("Property is required for class MapData.", nameof(ziplinePaths));
 
             if (images.IsSet && images.Value == null)
-                throw new ArgumentNullException(nameof(images), "Property is not nullable for class Map.");
+                throw new ArgumentNullException(nameof(images), "Property is not nullable for class MapData.");
 
             if (objectivePositions.IsSet && objectivePositions.Value == null)
-                throw new ArgumentNullException(nameof(objectivePositions), "Property is not nullable for class Map.");
+                throw new ArgumentNullException(nameof(objectivePositions), "Property is not nullable for class MapData.");
 
             if (radius.IsSet && radius.Value == null)
-                throw new ArgumentNullException(nameof(radius), "Property is not nullable for class Map.");
+                throw new ArgumentNullException(nameof(radius), "Property is not nullable for class MapData.");
 
             if (ziplinePaths.IsSet && ziplinePaths.Value == null)
-                throw new ArgumentNullException(nameof(ziplinePaths), "Property is not nullable for class Map.");
+                throw new ArgumentNullException(nameof(ziplinePaths), "Property is not nullable for class MapData.");
 
-            return new Map(images.Value!, objectivePositions.Value!, radius.Value!.Value!, ziplinePaths.Value!);
+            return new MapData(images.Value!, objectivePositions.Value!, radius.Value!.Value!, ziplinePaths.Value!);
         }
 
         /// <summary>
-        /// Serializes a <see cref="Map" />
+        /// Serializes a <see cref="MapData" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="map"></param>
+        /// <param name="mapData"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public override void Write(Utf8JsonWriter writer, Map map, JsonSerializerOptions jsonSerializerOptions)
+        public override void Write(Utf8JsonWriter writer, MapData mapData, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
 
-            WriteProperties(writer, map, jsonSerializerOptions);
+            WriteProperties(writer, mapData, jsonSerializerOptions);
             writer.WriteEndObject();
         }
 
         /// <summary>
-        /// Serializes the properties of <see cref="Map" />
+        /// Serializes the properties of <see cref="MapData" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="map"></param>
+        /// <param name="mapData"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void WriteProperties(Utf8JsonWriter writer, Map map, JsonSerializerOptions jsonSerializerOptions)
+        public void WriteProperties(Utf8JsonWriter writer, MapData mapData, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (map.Images == null)
-                throw new ArgumentNullException(nameof(map.Images), "Property is required for class Map.");
+            if (mapData.Images == null)
+                throw new ArgumentNullException(nameof(mapData.Images), "Property is required for class MapData.");
 
-            if (map.ObjectivePositions == null)
-                throw new ArgumentNullException(nameof(map.ObjectivePositions), "Property is required for class Map.");
+            if (mapData.ObjectivePositions == null)
+                throw new ArgumentNullException(nameof(mapData.ObjectivePositions), "Property is required for class MapData.");
 
-            if (map.ZiplinePaths == null)
-                throw new ArgumentNullException(nameof(map.ZiplinePaths), "Property is required for class Map.");
+            if (mapData.ZiplinePaths == null)
+                throw new ArgumentNullException(nameof(mapData.ZiplinePaths), "Property is required for class MapData.");
 
             writer.WritePropertyName("images");
-            JsonSerializer.Serialize(writer, map.Images, jsonSerializerOptions);
+            JsonSerializer.Serialize(writer, mapData.Images, jsonSerializerOptions);
             writer.WritePropertyName("objective_positions");
-            JsonSerializer.Serialize(writer, map.ObjectivePositions, jsonSerializerOptions);
-            writer.WriteNumber("radius", map.Radius);
+            JsonSerializer.Serialize(writer, mapData.ObjectivePositions, jsonSerializerOptions);
+            writer.WriteNumber("radius", mapData.Radius);
 
             writer.WritePropertyName("zipline_paths");
-            JsonSerializer.Serialize(writer, map.ZiplinePaths, jsonSerializerOptions);
+            JsonSerializer.Serialize(writer, mapData.ZiplinePaths, jsonSerializerOptions);
         }
     }
 }

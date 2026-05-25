@@ -34,12 +34,12 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="LeaderboardEntry" /> class.
         /// </summary>
         /// <param name="accountName">The account name of the player.</param>
-        /// <param name="badgeLevel">The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
+        /// <param name="badgeLevel">The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="possibleAccountIds">The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</param>
-        /// <param name="rank">The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
-        /// <param name="rankedRank">The ranked rank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
-        /// <param name="rankedSubrank">The ranked subrank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
-        /// <param name="topHeroIds">The top hero IDs of the player. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="rank">The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rankedRank">The ranked rank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rankedSubrank">The ranked subrank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="topHeroIds">The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         [JsonConstructor]
         public LeaderboardEntry(Option<string?> accountName = default, Option<int?> badgeLevel = default, Option<List<int>?> possibleAccountIds = default, Option<int?> rank = default, Option<int?> rankedRank = default, Option<int?> rankedSubrank = default, Option<List<int>?> topHeroIds = default)
         {
@@ -77,9 +77,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> BadgeLevelOption { get; private set; }
 
         /// <summary>
-        /// The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("badge_level")]
         public int? BadgeLevel { get { return this.BadgeLevelOption.Value; } set { this.BadgeLevelOption = new(value); } }
 
@@ -105,9 +105,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankOption { get; private set; }
 
         /// <summary>
-        /// The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("rank")]
         public int? Rank { get { return this.RankOption.Value; } set { this.RankOption = new(value); } }
 
@@ -119,9 +119,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankedRankOption { get; private set; }
 
         /// <summary>
-        /// The ranked rank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// The ranked rank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>The ranked rank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>The ranked rank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_rank")]
         public int? RankedRank { get { return this.RankedRankOption.Value; } set { this.RankedRankOption = new(value); } }
 
@@ -133,9 +133,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankedSubrankOption { get; private set; }
 
         /// <summary>
-        /// The ranked subrank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// The ranked subrank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>The ranked subrank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>The ranked subrank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_subrank")]
         public int? RankedSubrank { get { return this.RankedSubrankOption.Value; } set { this.RankedSubrankOption = new(value); } }
 
@@ -147,9 +147,9 @@ namespace DeadlockApiClient.Model
         public Option<List<int>?> TopHeroIdsOption { get; private set; }
 
         /// <summary>
-        /// The top hero IDs of the player. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The top hero IDs of the player. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("top_hero_ids")]
         public List<int>? TopHeroIds { get { return this.TopHeroIdsOption.Value; } set { this.TopHeroIdsOption = new(value); } }
 

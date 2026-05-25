@@ -21,7 +21,7 @@ var _ MappedNullable = &ActiveMatchPlayer{}
 type ActiveMatchPlayer struct {
 	Abandoned NullableBool `json:"abandoned,omitempty"`
 	AccountId NullableInt32 `json:"account_id,omitempty"`
-	// See more: <https://assets.deadlock-api.com/v2/heroes>
+	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId NullableInt32 `json:"hero_id,omitempty"`
 	Team NullableInt32 `json:"team,omitempty"`
 	TeamParsed NullableActiveMatchTeam `json:"team_parsed,omitempty"`

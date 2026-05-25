@@ -37,7 +37,7 @@ type HeroCounterStats struct {
 	EnemyDeaths int64 `json:"enemy_deaths"`
 	// The number of denies by `enemy_hero_id` when facing `hero_id`.
 	EnemyDenies int64 `json:"enemy_denies"`
-	// The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+	// The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	EnemyHeroId int32 `json:"enemy_hero_id"`
 	// The number of kills by `enemy_hero_id` when facing `hero_id`.
 	EnemyKills int64 `json:"enemy_kills"`
@@ -47,7 +47,7 @@ type HeroCounterStats struct {
 	EnemyNetworth int64 `json:"enemy_networth"`
 	// The amount of objective damage dealt by `enemy_hero_id` when facing `hero_id`.
 	EnemyObjDamage int64 `json:"enemy_obj_damage"`
-	// The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+	// The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	// The number of kills by `hero_id` when facing `enemy_hero_id`.
 	Kills int64 `json:"kills"`

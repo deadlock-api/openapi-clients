@@ -28,7 +28,7 @@ class PlayerCardSlotHero(BaseModel):
     """
     PlayerCardSlotHero
     """ # noqa: E501
-    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/heroes>")
+    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     kills: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     wins: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     __properties: ClassVar[List[str]] = ["id", "kills", "wins"]

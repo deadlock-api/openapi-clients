@@ -21,7 +21,7 @@ var _ MappedNullable = &ItemPermutationStats{}
 
 // ItemPermutationStats struct for ItemPermutationStats
 type ItemPermutationStats struct {
-	// See more: <https://assets.deadlock-api.com/v2/items>
+	// See more: <https://api.deadlock-api.com/v1/assets/items>
 	ItemIds []int32 `json:"item_ids"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`

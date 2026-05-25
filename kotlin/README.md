@@ -264,7 +264,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.LootEntry](docs/LootEntry.md)
  - [deadlock_api_client.models.LootTable](docs/LootTable.md)
  - [deadlock_api_client.models.MMRHistory](docs/MMRHistory.md)
- - [deadlock_api_client.models.Map](docs/Map.md)
+ - [deadlock_api_client.models.MapData](docs/MapData.md)
  - [deadlock_api_client.models.MapImages](docs/MapImages.md)
  - [deadlock_api_client.models.MatchPlayer](docs/MatchPlayer.md)
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)

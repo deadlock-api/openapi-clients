@@ -38,7 +38,7 @@ class MMRApiTest : ShouldSpec() {
         // to test heroMmr
         should("test heroMmr") {
             // uncomment below to test heroMmr
-            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val result : kotlin.collections.List<MMRHistory> = apiInstance.heroMmr(heroId, accountIds, maxMatchId)
@@ -48,7 +48,7 @@ class MMRApiTest : ShouldSpec() {
         // to test heroMmrDistribution
         should("test heroMmrDistribution") {
             // uncomment below to test heroMmrDistribution
-            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -66,7 +66,7 @@ class MMRApiTest : ShouldSpec() {
         should("test heroMmrHistory") {
             // uncomment below to test heroMmrHistory
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val result : kotlin.collections.List<MMRHistory> = apiInstance.heroMmrHistory(accountId, heroId)
             //result shouldBe ("TODO")
         }

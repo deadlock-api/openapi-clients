@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getMap"></a>
 # **getMap**
-> Map getMap(clientVersion)
+> MapData getMap(clientVersion)
 
 Map
 
@@ -24,7 +24,7 @@ Map metadata for a client version: the minimap radius, image-layer CDN URLs, the
 val apiInstance = MapApi()
 val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
-    val result : Map = apiInstance.getMap(clientVersion)
+    val result : MapData = apiInstance.getMap(clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MapApi#getMap")
@@ -42,7 +42,7 @@ try {
 
 ### Return type
 
-[**Map**](Map.md)
+[**MapData**](MapData.md)
 
 ### Authorization
 

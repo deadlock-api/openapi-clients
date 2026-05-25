@@ -35,7 +35,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="bans">The number of matches in which this hero was banned.</param>
         /// <param name="bucket">The bucket value (depends on the bucket query parameter).</param>
-        /// <param name="heroId">The ID of the banned hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         [JsonConstructor]
         public HeroBanStats(long bans, int bucket, int heroId)
         {
@@ -62,9 +62,9 @@ namespace DeadlockApiClient.Model
         public int Bucket { get; set; }
 
         /// <summary>
-        /// The ID of the banned hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The ID of the banned hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
         public int HeroId { get; set; }
 

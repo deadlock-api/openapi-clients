@@ -137,7 +137,7 @@ func (r ApiSearchBuildsRequest) Version(version int32) ApiSearchBuildsRequest {
 	return r
 }
 
-// Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiSearchBuildsRequest) HeroId(heroId int32) ApiSearchBuildsRequest {
 	r.heroId = &heroId
 	return r

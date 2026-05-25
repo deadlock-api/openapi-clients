@@ -34,7 +34,7 @@ import java.io.Serializable
  * @param accountId 
  * @param denies 
  * @param gameMode 
- * @param heroId See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param heroLevel 
  * @param lastHits 
  * @param matchDurationS 
@@ -68,7 +68,7 @@ data class PlayerMatchHistoryEntry (
     @Json(name = "game_mode")
     val gameMode: kotlin.Int,
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
     val heroId: kotlin.Int,
 

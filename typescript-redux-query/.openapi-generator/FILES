@@ -127,6 +127,7 @@ src/models/LiveUrl.ts
 src/models/LootEntry.ts
 src/models/LootTable.ts
 src/models/MMRHistory.ts
+src/models/MapData.ts
 src/models/MapImages.ts
 src/models/MatchPlayer.ts
 src/models/MatchSaltsResponse.ts
@@ -135,7 +136,6 @@ src/models/MateStats.ts
 src/models/MetricIngestRequest.ts
 src/models/MiniMapOffsets.ts
 src/models/MiscEntity.ts
-src/models/ModelMap.ts
 src/models/ModifierValue.ts
 src/models/NewPlayerMetrics.ts
 src/models/NpcUnit.ts

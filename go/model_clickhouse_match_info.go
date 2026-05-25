@@ -21,9 +21,9 @@ var _ MappedNullable = &ClickhouseMatchInfo{}
 
 // ClickhouseMatchInfo struct for ClickhouseMatchInfo
 type ClickhouseMatchInfo struct {
-	// See more: <https://assets.deadlock-api.com/v2/ranks>
+	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	AverageBadgeTeam0 NullableInt32 `json:"average_badge_team0,omitempty"`
-	// See more: <https://assets.deadlock-api.com/v2/ranks>
+	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	AverageBadgeTeam1 NullableInt32 `json:"average_badge_team1,omitempty"`
 	DurationS int32 `json:"duration_s"`
 	GameMode int32 `json:"game_mode"`

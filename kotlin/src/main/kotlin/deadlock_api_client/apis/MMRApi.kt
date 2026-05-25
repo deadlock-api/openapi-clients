@@ -58,7 +58,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * GET /v1/players/mmr/{hero_id}
      * Batch Hero MMR
      *  Batch Player Hero MMR 
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return kotlin.collections.List<MMRHistory>
@@ -92,7 +92,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * GET /v1/players/mmr/{hero_id}
      * Batch Hero MMR
      *  Batch Player Hero MMR 
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
@@ -112,7 +112,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation heroMmr
      *
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
@@ -143,7 +143,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * GET /v1/players/mmr/distribution/{hero_id}
      * Hero MMR Distribution
      *  Player Hero MMR Distribution 
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -184,7 +184,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * GET /v1/players/mmr/distribution/{hero_id}
      * Hero MMR Distribution
      *  Player Hero MMR Distribution 
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -211,7 +211,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation heroMmrDistribution
      *
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -273,7 +273,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Hero MMR History
      * Player Hero MMR History
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return kotlin.collections.List<MMRHistory>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -306,7 +306,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Hero MMR History
      * Player Hero MMR History
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -325,7 +325,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation heroMmrHistory
      *
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return RequestConfig
      */
     fun heroMmrHistoryRequestConfig(accountId: kotlin.Int, heroId: kotlin.Int) : RequestConfig<Unit> {

@@ -27,7 +27,7 @@ Batch Hero MMR
 //import deadlock_api_client.models.*
 
 val apiInstance = MMRApi()
-val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 try {
@@ -43,7 +43,7 @@ try {
 ```
 
 ### Parameters
-| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -77,7 +77,7 @@ Hero MMR Distribution
 //import deadlock_api_client.models.*
 
 val apiInstance = MMRApi()
-val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
@@ -100,7 +100,7 @@ try {
 ```
 
 ### Parameters
-| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1777075200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -142,7 +142,7 @@ Player Hero MMR History
 
 val apiInstance = MMRApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 try {
     val result : kotlin.collections.List<MMRHistory> = apiInstance.heroMmrHistory(accountId, heroId)
     println(result)
@@ -159,7 +159,7 @@ try {
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 
 ### Return type
 

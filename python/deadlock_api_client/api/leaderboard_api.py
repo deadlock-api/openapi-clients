@@ -308,7 +308,7 @@ class LeaderboardApi:
     def leaderboard_hero(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -328,7 +328,7 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
-        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -381,7 +381,7 @@ class LeaderboardApi:
     def leaderboard_hero_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -401,7 +401,7 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
-        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -454,7 +454,7 @@ class LeaderboardApi:
     def leaderboard_hero_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -474,7 +474,7 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
-        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -589,7 +589,7 @@ class LeaderboardApi:
     def leaderboard_hero_raw(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -609,7 +609,7 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
-        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -662,7 +662,7 @@ class LeaderboardApi:
     def leaderboard_hero_raw_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -682,7 +682,7 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
-        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -735,7 +735,7 @@ class LeaderboardApi:
     def leaderboard_hero_raw_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -755,7 +755,7 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
-        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

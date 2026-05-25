@@ -33,7 +33,7 @@ class RankPredictResponseTest : ShouldSpec() {
         // uncomment below to create an instance of RankPredictResponse
         //val modelInstance = RankPredictResponse()
 
-        // to test the property `badge` - See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `badge` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test badge") {
             // uncomment below to test the property
             //modelInstance.badge shouldBe ("TODO")

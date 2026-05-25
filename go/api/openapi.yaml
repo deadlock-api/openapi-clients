@@ -138,7 +138,7 @@ paths:
         | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: ability_order_stats
       parameters:
-      - description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_id
@@ -258,7 +258,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -271,7 +271,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -346,7 +346,7 @@ paths:
           type: array
         style: form
       - description: "Comma separated list of item ids to include (only players who\
-          \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: include_item_ids
@@ -360,7 +360,7 @@ paths:
           type: array
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
-          \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: exclude_item_ids
@@ -534,7 +534,7 @@ paths:
         \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: build_item_stats
       parameters:
-      - description: "Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_id
@@ -668,7 +668,7 @@ paths:
           type: integer
         style: form
       - description: |-
-          Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+          Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
           Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         explode: true
         in: query
@@ -682,7 +682,7 @@ paths:
           type: integer
         style: form
       - description: |-
-          Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+          Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
           Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         explode: true
         in: query
@@ -807,7 +807,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -820,7 +820,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -883,7 +883,7 @@ paths:
         \ Global | 2000req/min |\n    "
       operationId: hero_build_stats
       parameters:
-      - description: "The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: false
         in: path
         name: hero_id
@@ -940,7 +940,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -953,7 +953,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -1149,7 +1149,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -1162,7 +1162,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -1196,7 +1196,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: include_hero_ids
@@ -1209,7 +1209,7 @@ paths:
           nullable: true
           type: array
         style: form
-      - description: "Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: exclude_hero_ids
@@ -1223,7 +1223,7 @@ paths:
           type: array
         style: form
       - description: "Comma separated list of enemy hero ids to include. See more:\
-          \ <https://assets.deadlock-api.com/v2/heroes>"
+          \ <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: include_enemy_hero_ids
@@ -1237,7 +1237,7 @@ paths:
           type: array
         style: form
       - description: "Comma separated list of enemy hero ids to exclude. See more:\
-          \ <https://assets.deadlock-api.com/v2/heroes>"
+          \ <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: exclude_enemy_hero_ids
@@ -1451,7 +1451,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -1464,7 +1464,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -1685,7 +1685,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -1698,7 +1698,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -1781,7 +1781,7 @@ paths:
           type: integer
         style: form
       - description: "Comma separated list of item ids to include (only players who\
-          \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: include_item_ids
@@ -1795,7 +1795,7 @@ paths:
           type: array
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
-          \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: exclude_item_ids
@@ -1949,7 +1949,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -1962,7 +1962,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -2087,7 +2087,7 @@ paths:
         \ Global | 2000req/min |\n    "
       operationId: item_permutation_stats
       parameters:
-      - description: "Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>"
+      - description: "Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: item_ids
@@ -2128,7 +2128,7 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -2138,7 +2138,7 @@ paths:
           type: string
         style: form
       - deprecated: true
-        description: "Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        description: "Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_id
@@ -2218,7 +2218,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -2231,7 +2231,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -2357,7 +2357,7 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -2367,7 +2367,7 @@ paths:
           type: string
         style: form
       - deprecated: true
-        description: "Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>"
+        description: "Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_id
@@ -2380,7 +2380,7 @@ paths:
         style: form
       - description: "Filter to matches where one or more of these heroes were on\
           \ the opposing team. Comma separated. When set, returns \"what items beat\
-          \ hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          \ hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: enemy_hero_ids
@@ -2505,7 +2505,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -2518,7 +2518,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -2552,7 +2552,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>"
+      - description: "Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: include_item_ids
@@ -2565,7 +2565,7 @@ paths:
           nullable: true
           type: array
         style: form
-      - description: "Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>"
+      - description: "Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: exclude_item_ids
@@ -2763,7 +2763,7 @@ paths:
           nullable: true
           type: array
         style: form
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -2845,7 +2845,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -2858,7 +2858,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -3064,7 +3064,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -3077,7 +3077,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -3111,7 +3111,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -3121,7 +3121,7 @@ paths:
           type: string
         style: form
       - description: "Comma separated list of item ids to include (only players who\
-          \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: include_item_ids
@@ -3135,7 +3135,7 @@ paths:
           type: array
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
-          \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: exclude_item_ids
@@ -3192,7 +3192,7 @@ paths:
         | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: player_stats_metrics
       parameters:
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -3285,7 +3285,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -3298,7 +3298,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -3344,7 +3344,7 @@ paths:
           type: integer
         style: form
       - description: "Comma separated list of item ids to include (only players who\
-          \ have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: include_item_ids
@@ -3358,7 +3358,7 @@ paths:
           type: array
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
-          \ have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>"
+          \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
         in: query
         name: exclude_item_ids
@@ -3584,7 +3584,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -3597,7 +3597,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -3778,7 +3778,7 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_id
@@ -3881,7 +3881,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -3894,7 +3894,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -5284,7 +5284,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Map"
+                $ref: "#/components/schemas/MapData"
           description: ""
         "404":
           description: Requested client_version is not available
@@ -5836,7 +5836,7 @@ paths:
           minimum: 0
           type: integer
         style: form
-      - description: "Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_id
@@ -6221,7 +6221,7 @@ paths:
           - Oceania
           type: string
         style: simple
-      - description: "The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: false
         in: path
         name: hero_id
@@ -6270,7 +6270,7 @@ paths:
           - Oceania
           type: string
         style: simple
-      - description: "The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: false
         in: path
         name: hero_id
@@ -6805,7 +6805,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -6818,7 +6818,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -6894,7 +6894,7 @@ paths:
           nullable: true
           type: array
         style: form
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -7339,7 +7339,7 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -7415,7 +7415,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: min_average_badge
@@ -7428,7 +7428,7 @@ paths:
           type: integer
         style: form
       - description: "Filter matches based on the average badge level (tier = first\
-          \ digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
         explode: true
         in: query
         name: max_average_badge
@@ -7749,7 +7749,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: false
         in: path
         name: hero_id
@@ -7808,7 +7808,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: false
         in: path
         name: hero_id
@@ -8525,7 +8525,7 @@ paths:
           minimum: 0
           type: integer
         style: simple
-      - description: "The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>"
+      - description: "The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: false
         in: path
         name: hero_id
@@ -9372,7 +9372,7 @@ components:
           nullable: true
           type: integer
         hero_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           nullable: true
@@ -9405,7 +9405,7 @@ components:
         matches: 0
       properties:
         abilities:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
             format: int32
             minimum: 0
@@ -9721,7 +9721,7 @@ components:
           minimum: 0
           type: integer
         hero_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -9830,7 +9830,7 @@ components:
       properties:
         badge_level:
           description: "The badge level (tier = first digits, subtier = last digit).\
-            \ See more: <https://assets.deadlock-api.com/v2/ranks>"
+            \ See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           type: integer
@@ -9998,7 +9998,7 @@ components:
           minimum: 0
           type: integer
         hero_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -10195,7 +10195,7 @@ components:
           format: int64
           type: integer
         item_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/items>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
           format: int64
           type: integer
       required:
@@ -10237,13 +10237,13 @@ components:
         duration_s: 0
       properties:
         average_badge_team0:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
           type: integer
         average_badge_team1:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
@@ -11417,7 +11417,7 @@ components:
           minimum: 0
           type: integer
         hero_id:
-          description: "The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -11441,7 +11441,7 @@ components:
           minimum: 0
           type: integer
         hero_id:
-          description: "The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -11511,7 +11511,7 @@ components:
         matches: 0
       properties:
         hero_ids:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
             format: int32
             minimum: 0
@@ -11599,7 +11599,7 @@ components:
           minimum: 0
           type: integer
         enemy_hero_id:
-          description: "The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -11625,7 +11625,7 @@ components:
           minimum: 0
           type: integer
         hero_id:
-          description: "The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -11705,7 +11705,7 @@ components:
         value: 5.962133916683182
       properties:
         hero_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -11925,7 +11925,7 @@ components:
           format: double
           type: number
         hero_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -12279,7 +12279,7 @@ components:
         matches: 0
       properties:
         item_ids:
-          description: "See more: <https://assets.deadlock-api.com/v2/items>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
           items:
             format: int32
             minimum: 0
@@ -12423,7 +12423,7 @@ components:
           minimum: 0
           type: integer
         item_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/items>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
           format: int32
           minimum: 0
           type: integer
@@ -12576,7 +12576,7 @@ components:
           type: string
         badge_level:
           description: "The badge level of the player (tier = first digits, subtier\
-            \ = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>"
+            \ = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
@@ -12591,25 +12591,25 @@ components:
           type: array
         rank:
           description: "The rank of the player (tier = first digits, subtier = last\
-            \ digit). See more: <https://assets.deadlock-api.com/v2/ranks>"
+            \ digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
           type: integer
         ranked_rank:
-          description: "The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
           type: integer
         ranked_subrank:
-          description: "The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
           type: integer
         top_hero_ids:
-          description: "The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
             format: int32
             minimum: 0
@@ -12720,7 +12720,7 @@ components:
           type: number
         rank:
           description: "The Player Rank (tier = first digits, subtier = last digit).\
-            \ See more: <https://assets.deadlock-api.com/v2/ranks>"
+            \ See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           type: integer
@@ -12737,7 +12737,7 @@ components:
       - player_score
       - rank
       - start_time
-    Map:
+    MapData:
       description: The `/v1/assets/map` response.
       example:
         zipline_paths:
@@ -13910,19 +13910,19 @@ components:
           minimum: 0
           type: integer
         ranked_badge_level:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
           type: integer
         ranked_rank:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
           type: integer
         ranked_subrank:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           minimum: 0
           nullable: true
@@ -13956,7 +13956,7 @@ components:
     PlayerCardSlotHero:
       properties:
         id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           nullable: true
@@ -14067,7 +14067,7 @@ components:
           format: int32
           type: integer
         hero_id:
-          description: "See more: <https://assets.deadlock-api.com/v2/heroes>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
           minimum: 0
           type: integer
@@ -14394,7 +14394,7 @@ components:
     RankPrediction:
       properties:
         badge:
-          description: "See more: <https://assets.deadlock-api.com/v2/ranks>"
+          description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
           format: int32
           type: integer
         raw_score:

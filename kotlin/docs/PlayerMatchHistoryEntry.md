@@ -7,7 +7,7 @@
 | **accountId** | **kotlin.Int** |  |  |
 | **denies** | **kotlin.Int** |  |  |
 | **gameMode** | **kotlin.Int** |  |  |
-| **heroId** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **heroId** | **kotlin.Int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **heroLevel** | **kotlin.Int** |  |  |
 | **lastHits** | **kotlin.Int** |  |  |
 | **matchDurationS** | **kotlin.Int** |  |  |

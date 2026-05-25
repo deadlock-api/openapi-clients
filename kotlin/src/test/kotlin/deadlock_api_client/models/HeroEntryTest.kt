@@ -33,7 +33,7 @@ class HeroEntryTest : ShouldSpec() {
         // uncomment below to create an instance of HeroEntry
         //val modelInstance = HeroEntry()
 
-        // to test the property `heroId` - See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `heroId` - See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test heroId") {
             // uncomment below to test the property
             //modelInstance.heroId shouldBe ("TODO")

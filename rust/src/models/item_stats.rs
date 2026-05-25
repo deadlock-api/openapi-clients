@@ -27,7 +27,7 @@ pub struct ItemStats {
     pub avg_sell_time_s: f64,
     #[serde(rename = "bucket")]
     pub bucket: u32,
-    /// See more: <https://assets.deadlock-api.com/v2/items>
+    /// See more: <https://api.deadlock-api.com/v1/assets/items>
     #[serde(rename = "item_id")]
     pub item_id: u32,
     #[serde(rename = "losses")]

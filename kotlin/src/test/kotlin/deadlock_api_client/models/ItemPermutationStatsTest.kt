@@ -33,7 +33,7 @@ class ItemPermutationStatsTest : ShouldSpec() {
         // uncomment below to create an instance of ItemPermutationStats
         //val modelInstance = ItemPermutationStats()
 
-        // to test the property `itemIds` - See more: <https://assets.deadlock-api.com/v2/items>
+        // to test the property `itemIds` - See more: <https://api.deadlock-api.com/v1/assets/items>
         should("test itemIds") {
             // uncomment below to test the property
             //modelInstance.itemIds shouldBe ("TODO")

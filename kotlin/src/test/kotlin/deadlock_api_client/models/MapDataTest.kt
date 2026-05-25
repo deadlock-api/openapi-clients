@@ -26,15 +26,15 @@ package deadlock_api_client.models
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
-import deadlock_api_client.models.Map
+import deadlock_api_client.models.MapData
 import deadlock_api_client.models.MapImages
 import deadlock_api_client.models.ObjectivePosition
 import deadlock_api_client.models.ZiplanePath
 
-class MapTest : ShouldSpec() {
+class MapDataTest : ShouldSpec() {
     init {
-        // uncomment below to create an instance of Map
-        //val modelInstance = Map()
+        // uncomment below to create an instance of MapData
+        //val modelInstance = MapData()
 
         // to test the property `images`
         should("test images") {

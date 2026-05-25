@@ -34,7 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="HeroBuildStats" /> class.
         /// </summary>
         /// <param name="heroBuildId">The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started.</param>
-        /// <param name="heroId">The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="losses">The number of losses with this build.</param>
         /// <param name="matches">The total number of matches played with this build (&#x60;wins + losses&#x60;).</param>
         /// <param name="players">The number of unique players who used this build.</param>
@@ -61,9 +61,9 @@ namespace DeadlockApiClient.Model
         public long HeroBuildId { get; set; }
 
         /// <summary>
-        /// The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
         public int HeroId { get; set; }
 

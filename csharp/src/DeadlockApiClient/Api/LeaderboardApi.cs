@@ -68,7 +68,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>&gt;</returns>
         Task<ILeaderboardHeroApiResponse> LeaderboardHeroAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
@@ -80,7 +80,7 @@ namespace DeadlockApiClient.Api
         ///  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>?&gt;</returns>
         Task<ILeaderboardHeroApiResponse?> LeaderboardHeroOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
@@ -93,7 +93,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>&gt;</returns>
         Task<ILeaderboardHeroRawApiResponse> LeaderboardHeroRawAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
@@ -105,7 +105,7 @@ namespace DeadlockApiClient.Api
         ///  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>?&gt;</returns>
         Task<ILeaderboardHeroRawApiResponse?> LeaderboardHeroRawOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
@@ -684,7 +684,7 @@ namespace DeadlockApiClient.Api
         /// Hero Leaderboard  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>&gt;</returns>
         public async Task<ILeaderboardHeroApiResponse?> LeaderboardHeroOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)
@@ -704,7 +704,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>&gt;</returns>
         public async Task<ILeaderboardHeroApiResponse> LeaderboardHeroAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)
@@ -945,7 +945,7 @@ namespace DeadlockApiClient.Api
         /// Hero Leaderboard as Protobuf  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>&gt;</returns>
         public async Task<ILeaderboardHeroRawApiResponse?> LeaderboardHeroRawOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)
@@ -965,7 +965,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
-        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>&gt;</returns>
         public async Task<ILeaderboardHeroRawApiResponse> LeaderboardHeroRawAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)

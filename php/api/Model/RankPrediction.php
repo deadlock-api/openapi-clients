@@ -315,7 +315,7 @@ class RankPrediction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets badge
      *
-     * @param int $badge See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int $badge See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */

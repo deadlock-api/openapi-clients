@@ -33,7 +33,7 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyticsAbilityOrderStats" /> class.
         /// </summary>
-        /// <param name="abilities">See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="abilities">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="losses">losses</param>
         /// <param name="matches">matches</param>
         /// <param name="players">players</param>
@@ -58,9 +58,9 @@ namespace DeadlockApiClient.Model
         partial void OnCreated();
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("abilities")]
         public List<int> Abilities { get; set; }
 

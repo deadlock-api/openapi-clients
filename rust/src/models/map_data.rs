@@ -11,9 +11,9 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// Map : The `/v1/assets/map` response.
+/// MapData : The `/v1/assets/map` response.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Map {
+pub struct MapData {
     #[serde(rename = "images")]
     pub images: Box<models::MapImages>,
     #[serde(rename = "objective_positions")]
@@ -24,10 +24,10 @@ pub struct Map {
     pub zipline_paths: Vec<models::ZiplanePath>,
 }
 
-impl Map {
+impl MapData {
     /// The `/v1/assets/map` response.
-    pub fn new(images: models::MapImages, objective_positions: std::collections::HashMap<String, models::ObjectivePosition>, radius: u32, zipline_paths: Vec<models::ZiplanePath>) -> Map {
-        Map {
+    pub fn new(images: models::MapImages, objective_positions: std::collections::HashMap<String, models::ObjectivePosition>, radius: u32, zipline_paths: Vec<models::ZiplanePath>) -> MapData {
+        MapData {
             images: Box::new(images),
             objective_positions,
             radius,

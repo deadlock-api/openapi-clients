@@ -57,7 +57,7 @@ class AnalyticsApi:
     @validate_call
     def ability_order_stats(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -67,15 +67,15 @@ class AnalyticsApi:
         max_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Filter players based on their maximum number of ability upgrades over the whole match.")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -93,7 +93,7 @@ class AnalyticsApi:
 
          Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -113,9 +113,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -127,9 +127,9 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -198,7 +198,7 @@ class AnalyticsApi:
     @validate_call
     def ability_order_stats_with_http_info(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -208,15 +208,15 @@ class AnalyticsApi:
         max_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Filter players based on their maximum number of ability upgrades over the whole match.")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -234,7 +234,7 @@ class AnalyticsApi:
 
          Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -254,9 +254,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -268,9 +268,9 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -339,7 +339,7 @@ class AnalyticsApi:
     @validate_call
     def ability_order_stats_without_preload_content(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -349,15 +349,15 @@ class AnalyticsApi:
         max_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Filter players based on their maximum number of ability upgrades over the whole match.")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -375,7 +375,7 @@ class AnalyticsApi:
 
          Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -395,9 +395,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -409,9 +409,9 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1055,7 +1055,7 @@ class AnalyticsApi:
     @validate_call
     def build_item_stats(
         self,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_last_updated_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_last_updated_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their last updated time (Unix timestamp).")] = None,
         _request_timeout: Union[
@@ -1075,7 +1075,7 @@ class AnalyticsApi:
 
          Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_last_updated_unix_timestamp: Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
         :type min_last_updated_unix_timestamp: int
@@ -1132,7 +1132,7 @@ class AnalyticsApi:
     @validate_call
     def build_item_stats_with_http_info(
         self,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_last_updated_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_last_updated_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their last updated time (Unix timestamp).")] = None,
         _request_timeout: Union[
@@ -1152,7 +1152,7 @@ class AnalyticsApi:
 
          Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_last_updated_unix_timestamp: Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
         :type min_last_updated_unix_timestamp: int
@@ -1209,7 +1209,7 @@ class AnalyticsApi:
     @validate_call
     def build_item_stats_without_preload_content(
         self,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_last_updated_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_last_updated_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their last updated time (Unix timestamp).")] = None,
         _request_timeout: Union[
@@ -1229,7 +1229,7 @@ class AnalyticsApi:
 
          Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_last_updated_unix_timestamp: Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
         :type min_last_updated_unix_timestamp: int
@@ -1363,8 +1363,8 @@ class AnalyticsApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1396,9 +1396,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -1468,8 +1468,8 @@ class AnalyticsApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1501,9 +1501,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -1573,8 +1573,8 @@ class AnalyticsApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1606,9 +1606,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -1783,8 +1783,8 @@ class AnalyticsApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1814,9 +1814,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -1884,8 +1884,8 @@ class AnalyticsApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -1915,9 +1915,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -1985,8 +1985,8 @@ class AnalyticsApi:
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -2016,9 +2016,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -2182,13 +2182,13 @@ class AnalyticsApi:
     @validate_call
     def hero_build_stats(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
@@ -2212,7 +2212,7 @@ class AnalyticsApi:
 
          Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
@@ -2222,9 +2222,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -2299,13 +2299,13 @@ class AnalyticsApi:
     @validate_call
     def hero_build_stats_with_http_info(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
@@ -2329,7 +2329,7 @@ class AnalyticsApi:
 
          Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
@@ -2339,9 +2339,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -2416,13 +2416,13 @@ class AnalyticsApi:
     @validate_call
     def hero_build_stats_without_preload_content(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
@@ -2446,7 +2446,7 @@ class AnalyticsApi:
 
          Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_id: The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
@@ -2456,9 +2456,9 @@ class AnalyticsApi:
         :type min_duration_s: int
         :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
         :type max_duration_s: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -2660,14 +2660,14 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=6, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
@@ -2704,21 +2704,21 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param include_hero_ids: Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param include_hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type include_hero_ids: List[int]
-        :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type exclude_hero_ids: List[int]
-        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type include_enemy_hero_ids: List[int]
-        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type exclude_enemy_hero_ids: List[int]
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
@@ -2805,14 +2805,14 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=6, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
@@ -2849,21 +2849,21 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param include_hero_ids: Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param include_hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type include_hero_ids: List[int]
-        :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type exclude_hero_ids: List[int]
-        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type include_enemy_hero_ids: List[int]
-        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type exclude_enemy_hero_ids: List[int]
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
@@ -2950,14 +2950,14 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        include_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        exclude_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        exclude_enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a hero combination to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=6, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
@@ -2994,21 +2994,21 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param include_hero_ids: Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param include_hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type include_hero_ids: List[int]
-        :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param exclude_hero_ids: Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type exclude_hero_ids: List[int]
-        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param include_enemy_hero_ids: Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type include_enemy_hero_ids: List[int]
-        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param exclude_enemy_hero_ids: Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type exclude_enemy_hero_ids: List[int]
         :param min_matches: The minimum number of matches played for a hero combination to be included in the response.
         :type min_matches: int
@@ -3258,8 +3258,8 @@ class AnalyticsApi:
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter enemy players based on their net worth.")] = None,
         max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter enemy players based on their net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
@@ -3302,9 +3302,9 @@ class AnalyticsApi:
         :type min_enemy_networth: int
         :param max_enemy_networth: Filter enemy players based on their net worth.
         :type max_enemy_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -3395,8 +3395,8 @@ class AnalyticsApi:
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter enemy players based on their net worth.")] = None,
         max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter enemy players based on their net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
@@ -3439,9 +3439,9 @@ class AnalyticsApi:
         :type min_enemy_networth: int
         :param max_enemy_networth: Filter enemy players based on their net worth.
         :type max_enemy_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -3532,8 +3532,8 @@ class AnalyticsApi:
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter enemy players based on their net worth.")] = None,
         max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter enemy players based on their net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
@@ -3576,9 +3576,9 @@ class AnalyticsApi:
         :type min_enemy_networth: int
         :param max_enemy_networth: Filter enemy players based on their net worth.
         :type max_enemy_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -3817,8 +3817,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -3860,9 +3860,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -3946,8 +3946,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -3989,9 +3989,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -4075,8 +4075,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -4118,9 +4118,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -4339,16 +4339,16 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -4384,9 +4384,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -4400,9 +4400,9 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
         :type max_hero_matches_total: int
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -4484,16 +4484,16 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -4529,9 +4529,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -4545,9 +4545,9 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
         :type max_hero_matches_total: int
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -4629,16 +4629,16 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -4674,9 +4674,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -4690,9 +4690,9 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
         :type max_hero_matches_total: int
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -4932,8 +4932,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
@@ -4972,9 +4972,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -5061,8 +5061,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
@@ -5101,9 +5101,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -5190,8 +5190,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         same_lane_filter: Annotated[Optional[StrictBool], Field(description="When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane.")] = None,
@@ -5230,9 +5230,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -5449,19 +5449,19 @@ class AnalyticsApi:
     @validate_call
     def item_permutation_stats(
         self,
-        item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -5483,15 +5483,15 @@ class AnalyticsApi:
 
          Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param item_ids: Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>
+        :param item_ids: Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -5505,9 +5505,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -5582,19 +5582,19 @@ class AnalyticsApi:
     @validate_call
     def item_permutation_stats_with_http_info(
         self,
-        item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -5616,15 +5616,15 @@ class AnalyticsApi:
 
          Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param item_ids: Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>
+        :param item_ids: Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -5638,9 +5638,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -5715,19 +5715,19 @@ class AnalyticsApi:
     @validate_call
     def item_permutation_stats_without_preload_content(
         self,
-        item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -5749,15 +5749,15 @@ class AnalyticsApi:
 
          Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param item_ids: Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>
+        :param item_ids: Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -5771,9 +5771,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -5993,9 +5993,9 @@ class AnalyticsApi:
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids_all_match: Annotated[Optional[StrictBool], Field(description="When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.")] = None,
         min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
         max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
@@ -6006,12 +6006,12 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -6039,11 +6039,11 @@ class AnalyticsApi:
         :type bucket: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
-        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: str
         :param enemy_hero_ids_all_match: When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
         :type enemy_hero_ids_all_match: bool
@@ -6065,17 +6065,17 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param include_item_ids: Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
@@ -6166,9 +6166,9 @@ class AnalyticsApi:
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids_all_match: Annotated[Optional[StrictBool], Field(description="When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.")] = None,
         min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
         max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
@@ -6179,12 +6179,12 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -6212,11 +6212,11 @@ class AnalyticsApi:
         :type bucket: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
-        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: str
         :param enemy_hero_ids_all_match: When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
         :type enemy_hero_ids_all_match: bool
@@ -6238,17 +6238,17 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param include_item_ids: Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
@@ -6339,9 +6339,9 @@ class AnalyticsApi:
         self,
         bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[StrictStr], Field(description="Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids_all_match: Annotated[Optional[StrictBool], Field(description="When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.")] = None,
         min_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
         max_enemy_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.")] = None,
@@ -6352,12 +6352,12 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -6385,11 +6385,11 @@ class AnalyticsApi:
         :type bucket: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
-        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param enemy_hero_ids: Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: str
         :param enemy_hero_ids_all_match: When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
         :type enemy_hero_ids_all_match: bool
@@ -6411,17 +6411,17 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param include_item_ids: Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
@@ -6711,7 +6711,7 @@ class AnalyticsApi:
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
@@ -6719,8 +6719,8 @@ class AnalyticsApi:
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_kills_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on minimum kills.")] = None,
         max_kills_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on maximum kills.")] = None,
         min_deaths_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on minimum deaths.")] = None,
@@ -6758,7 +6758,7 @@ class AnalyticsApi:
         :type max_duration_s: int
         :param account_ids: Filter matches by account IDs of players that participated in the match.
         :type account_ids: List[int]
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param min_networth: Filter players based on their final net worth.
         :type min_networth: int
@@ -6774,9 +6774,9 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_kills_per_raster: Filter Raster cells based on minimum kills.
         :type min_kills_per_raster: int
@@ -6868,7 +6868,7 @@ class AnalyticsApi:
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
@@ -6876,8 +6876,8 @@ class AnalyticsApi:
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_kills_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on minimum kills.")] = None,
         max_kills_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on maximum kills.")] = None,
         min_deaths_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on minimum deaths.")] = None,
@@ -6915,7 +6915,7 @@ class AnalyticsApi:
         :type max_duration_s: int
         :param account_ids: Filter matches by account IDs of players that participated in the match.
         :type account_ids: List[int]
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param min_networth: Filter players based on their final net worth.
         :type min_networth: int
@@ -6931,9 +6931,9 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_kills_per_raster: Filter Raster cells based on minimum kills.
         :type min_kills_per_raster: int
@@ -7025,7 +7025,7 @@ class AnalyticsApi:
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
@@ -7033,8 +7033,8 @@ class AnalyticsApi:
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_kills_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on minimum kills.")] = None,
         max_kills_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on maximum kills.")] = None,
         min_deaths_per_raster: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter Raster cells based on minimum deaths.")] = None,
@@ -7072,7 +7072,7 @@ class AnalyticsApi:
         :type max_duration_s: int
         :param account_ids: Filter matches by account IDs of players that participated in the match.
         :type account_ids: List[int]
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param min_networth: Filter players based on their final net worth.
         :type min_networth: int
@@ -7088,9 +7088,9 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_kills_per_raster: Filter Raster cells based on minimum kills.
         :type min_kills_per_raster: int
@@ -7355,13 +7355,13 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -7396,19 +7396,19 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -7484,13 +7484,13 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -7525,19 +7525,19 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -7613,13 +7613,13 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -7654,19 +7654,19 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -7876,7 +7876,7 @@ class AnalyticsApi:
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort players in.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -7885,8 +7885,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The offset to start fetching players from.")] = None,
@@ -7915,7 +7915,7 @@ class AnalyticsApi:
         :type sort_direction: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
         :type min_matches: int
@@ -7933,9 +7933,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -8017,7 +8017,7 @@ class AnalyticsApi:
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort players in.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -8026,8 +8026,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The offset to start fetching players from.")] = None,
@@ -8056,7 +8056,7 @@ class AnalyticsApi:
         :type sort_direction: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
         :type min_matches: int
@@ -8074,9 +8074,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -8158,7 +8158,7 @@ class AnalyticsApi:
         sort_by: Annotated[StrictStr, Field(description="The field to sort by.")],
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort players in.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -8167,8 +8167,8 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The offset to start fetching players from.")] = None,
@@ -8197,7 +8197,7 @@ class AnalyticsApi:
         :type sort_direction: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
-        :param hero_id: Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
         :type min_matches: int
@@ -8215,9 +8215,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -8448,7 +8448,7 @@ class AnalyticsApi:
     @validate_call
     def player_stats_metrics(
         self,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -8456,13 +8456,13 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -8481,7 +8481,7 @@ class AnalyticsApi:
 
          Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -8497,9 +8497,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -8507,9 +8507,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -8577,7 +8577,7 @@ class AnalyticsApi:
     @validate_call
     def player_stats_metrics_with_http_info(
         self,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -8585,13 +8585,13 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -8610,7 +8610,7 @@ class AnalyticsApi:
 
          Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -8626,9 +8626,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -8636,9 +8636,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -8706,7 +8706,7 @@ class AnalyticsApi:
     @validate_call
     def player_stats_metrics_without_preload_content(
         self,
-        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>")] = None,
+        hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -8714,13 +8714,13 @@ class AnalyticsApi:
         max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
-        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
-        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
-        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
-        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -8739,7 +8739,7 @@ class AnalyticsApi:
 
          Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
-        :param hero_ids: Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+        :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -8755,9 +8755,9 @@ class AnalyticsApi:
         :type min_networth: int
         :param max_networth: Filter players based on their final net worth.
         :type max_networth: int
-        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type min_average_badge: int
-        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         :type max_average_badge: int
         :param min_match_id: Filter matches based on their ID.
         :type min_match_id: int
@@ -8765,9 +8765,9 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
-        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
-        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]

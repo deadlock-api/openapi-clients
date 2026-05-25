@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hero_build_id** | **u64** | The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started. | 
-**hero_id** | **u32** | The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes> | 
+**hero_id** | **u32** | The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **losses** | **u64** | The number of losses with this build. | 
 **matches** | **u64** | The total number of matches played with this build (`wins + losses`). | 
 **players** | **u64** | The number of unique players who used this build. | 

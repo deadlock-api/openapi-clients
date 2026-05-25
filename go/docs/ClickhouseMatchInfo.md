@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AverageBadgeTeam0** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
-**AverageBadgeTeam1** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
+**AverageBadgeTeam0** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**AverageBadgeTeam1** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **DurationS** | **int32** |  | 
 **GameMode** | **int32** |  | 
 **MatchId** | **int64** |  | 

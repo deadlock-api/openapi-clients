@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **avg_sell_time_relative** | **number** | Average sell time as percentage of match duration (for items that were sold) | [default to undefined]
 **avg_sell_time_s** | **number** | Average sell time in seconds (absolute, for items that were sold) | [default to undefined]
 **bucket** | **number** |  | [default to undefined]
-**item_id** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | [default to undefined]
+**item_id** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [default to undefined]
 **losses** | **number** |  | [default to undefined]
 **matches** | **number** |  | [default to undefined]
 **players** | **number** |  | [default to undefined]

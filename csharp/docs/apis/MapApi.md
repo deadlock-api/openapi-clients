@@ -8,7 +8,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getmap"></a>
 # **GetMap**
-> Map GetMap (int clientVersion = null)
+> MapData GetMap (int clientVersion = null)
 
 Map
 
@@ -23,7 +23,7 @@ Map metadata for a client version: the minimap radius, image-layer CDN URLs, the
 
 ### Return type
 
-[**Map**](Map.md)
+[**MapData**](MapData.md)
 
 ### Authorization
 

@@ -19,7 +19,7 @@ var _ MappedNullable = &PlayerCardSlotHero{}
 
 // PlayerCardSlotHero struct for PlayerCardSlotHero
 type PlayerCardSlotHero struct {
-	// See more: <https://assets.deadlock-api.com/v2/heroes>
+	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	Id NullableInt32 `json:"id,omitempty"`
 	Kills NullableInt32 `json:"kills,omitempty"`
 	Wins NullableInt32 `json:"wins,omitempty"`

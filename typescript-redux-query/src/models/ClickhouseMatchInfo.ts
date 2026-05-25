@@ -25,13 +25,13 @@ import {
  */
 export interface ClickhouseMatchInfo  {
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof ClickhouseMatchInfo
      */
     averageBadgeTeam0?: number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof ClickhouseMatchInfo
      */

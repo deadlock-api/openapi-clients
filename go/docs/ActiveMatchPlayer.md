@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Abandoned** | Pointer to **NullableBool** |  | [optional] 
 **AccountId** | Pointer to **NullableInt32** |  | [optional] 
-**HeroId** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
+**HeroId** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 **Team** | Pointer to **NullableInt32** |  | [optional] 
 **TeamParsed** | Pointer to [**NullableActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional] 
 

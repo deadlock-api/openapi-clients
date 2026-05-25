@@ -10,8 +10,8 @@
 | **matchMode** | **kotlin.Int** |  |  |
 | **players** | [**kotlin.collections.List&lt;MatchPlayer&gt;**](MatchPlayer.md) |  |  |
 | **startTime** | **kotlin.Int** |  |  |
-| **averageBadgeTeam0** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; |  [optional] |
-| **averageBadgeTeam1** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; |  [optional] |
+| **averageBadgeTeam0** | **kotlin.Int** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; |  [optional] |
+| **averageBadgeTeam1** | **kotlin.Int** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; |  [optional] |
 
 
 

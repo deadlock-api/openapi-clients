@@ -22,7 +22,7 @@ var _ MappedNullable = &BuildItemStats{}
 // BuildItemStats struct for BuildItemStats
 type BuildItemStats struct {
 	Builds int64 `json:"builds"`
-	// See more: <https://assets.deadlock-api.com/v2/items>
+	// See more: <https://api.deadlock-api.com/v1/assets/items>
 	ItemId int64 `json:"item_id"`
 }
 

@@ -33,7 +33,7 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BadgeDistribution" /> class.
         /// </summary>
-        /// <param name="badgeLevel">The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
+        /// <param name="badgeLevel">The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="totalMatches">The total number of matches.</param>
         [JsonConstructor]
         public BadgeDistribution(int badgeLevel, long totalMatches)
@@ -46,9 +46,9 @@ namespace DeadlockApiClient.Model
         partial void OnCreated();
 
         /// <summary>
-        /// The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("badge_level")]
         public int BadgeLevel { get; set; }
 

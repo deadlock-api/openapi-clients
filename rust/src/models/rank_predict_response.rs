@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RankPredictResponse {
-    /// See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "badge")]
     pub badge: i32,
     /// Calibrated model output (float index into badge space)

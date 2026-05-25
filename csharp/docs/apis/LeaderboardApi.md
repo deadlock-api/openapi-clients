@@ -61,7 +61,7 @@ Hero Leaderboard
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** | The region to fetch the leaderboard for. |  |
-| **heroId** | **int** | The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **heroId** | **int** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 
 ### Return type
 
@@ -100,7 +100,7 @@ Hero Leaderboard as Protobuf
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** | The region to fetch the leaderboard for. |  |
-| **heroId** | **int** | The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **heroId** | **int** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 
 ### Return type
 

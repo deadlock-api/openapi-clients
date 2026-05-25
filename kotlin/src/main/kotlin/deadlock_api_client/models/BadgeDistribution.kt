@@ -31,14 +31,14 @@ import java.io.Serializable
 /**
  * 
  *
- * @param badgeLevel The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param badgeLevel The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param totalMatches The total number of matches.
  */
 
 
 data class BadgeDistribution (
 
-    /* The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge_level")
     val badgeLevel: kotlin.Int,
 

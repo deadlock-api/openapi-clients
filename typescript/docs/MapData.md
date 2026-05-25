@@ -1,4 +1,4 @@
-# ModelMap
+# MapData
 
 The `/v1/assets/map` response.
 
@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ModelMap } from 'deadlock_api_client';
+import { MapData } from 'deadlock_api_client';
 
-const instance: ModelMap = {
+const instance: MapData = {
     images,
     objective_positions,
     radius,

@@ -46,19 +46,19 @@ class PlayerCardTest : ShouldSpec() {
             //modelInstance.slots shouldBe ("TODO")
         }
 
-        // to test the property `rankedBadgeLevel` - See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rankedBadgeLevel` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rankedBadgeLevel") {
             // uncomment below to test the property
             //modelInstance.rankedBadgeLevel shouldBe ("TODO")
         }
 
-        // to test the property `rankedRank` - See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rankedRank` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rankedRank") {
             // uncomment below to test the property
             //modelInstance.rankedRank shouldBe ("TODO")
         }
 
-        // to test the property `rankedSubrank` - See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rankedSubrank` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rankedSubrank") {
             // uncomment below to test the property
             //modelInstance.rankedSubrank shouldBe ("TODO")

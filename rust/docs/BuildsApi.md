@@ -35,7 +35,7 @@ Name | Type | Description  | Required | Notes
 **build_language** | Option<**String**> | Filter builds by language. |  |
 **build_id** | Option<**u32**> | Filter builds by ID. |  |
 **version** | Option<**u32**> | Filter builds by version. |  |
-**hero_id** | Option<**u32**> | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> |  |
+**hero_id** | Option<**u32**> | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **tag** | Option<**u32**> | Filter builds by tag. |  |
 **rollup_category** | Option<**u32**> | Filter builds by rollup category. |  |
 **author_id** | Option<**u32**> | The author's `SteamID3` |  |

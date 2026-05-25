@@ -14,10 +14,10 @@
 
 import unittest
 
-from deadlock_api_client.models.map import Map
+from deadlock_api_client.models.map_data import MapData
 
-class TestMap(unittest.TestCase):
-    """Map unit test stubs"""
+class TestMapData(unittest.TestCase):
+    """MapData unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestMap(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Map:
-        """Test Map
+    def make_instance(self, include_optional) -> MapData:
+        """Test MapData
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Map`
+        # uncomment below to create an instance of `MapData`
         """
-        model = Map()
+        model = MapData()
         if include_optional:
-            return Map(
+            return MapData(
                 images = deadlock_api_client.models.map_images.MapImages(
                     background = '', 
                     frame = '', 
@@ -76,7 +76,7 @@ class TestMap(unittest.TestCase):
                     ]
             )
         else:
-            return Map(
+            return MapData(
                 images = deadlock_api_client.models.map_images.MapImages(
                     background = '', 
                     frame = '', 
@@ -119,8 +119,8 @@ class TestMap(unittest.TestCase):
         )
         """
 
-    def testMap(self):
-        """Test Map"""
+    def testMapData(self):
+        """Test MapData"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

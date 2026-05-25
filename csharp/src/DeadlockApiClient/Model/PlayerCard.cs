@@ -35,9 +35,9 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="accountId">accountId</param>
         /// <param name="slots">slots</param>
-        /// <param name="rankedBadgeLevel">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
-        /// <param name="rankedRank">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
-        /// <param name="rankedSubrank">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
+        /// <param name="rankedBadgeLevel">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rankedRank">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rankedSubrank">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         [JsonConstructor]
         public PlayerCard(int accountId, List<PlayerCardSlot> slots, Option<int?> rankedBadgeLevel = default, Option<int?> rankedRank = default, Option<int?> rankedSubrank = default)
         {
@@ -71,9 +71,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankedBadgeLevelOption { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_badge_level")]
         public int? RankedBadgeLevel { get { return this.RankedBadgeLevelOption.Value; } set { this.RankedBadgeLevelOption = new(value); } }
 
@@ -85,9 +85,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankedRankOption { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_rank")]
         public int? RankedRank { get { return this.RankedRankOption.Value; } set { this.RankedRankOption = new(value); } }
 
@@ -99,9 +99,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankedSubrankOption { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_subrank")]
         public int? RankedSubrank { get { return this.RankedSubrankOption.Value; } set { this.RankedSubrankOption = new(value); } }
 

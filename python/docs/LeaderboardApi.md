@@ -134,7 +134,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
-    hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
     try:
         # Hero Leaderboard
@@ -153,7 +153,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **str**| The region to fetch the leaderboard for. | 
- **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+ **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Return type
 
@@ -225,7 +225,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
-    hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
     try:
         # Hero Leaderboard as Protobuf
@@ -244,7 +244,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **str**| The region to fetch the leaderboard for. | 
- **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+ **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Return type
 

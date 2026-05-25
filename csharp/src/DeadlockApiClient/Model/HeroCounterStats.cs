@@ -41,12 +41,12 @@ namespace DeadlockApiClient.Model
         /// <param name="enemyCreeps">The number of creeps killed by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;.</param>
         /// <param name="enemyDeaths">The number of deaths by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;.</param>
         /// <param name="enemyDenies">The number of denies by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;.</param>
-        /// <param name="enemyHeroId">The ID of the opposing hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="enemyHeroId">The ID of the opposing hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="enemyKills">The number of kills by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;.</param>
         /// <param name="enemyLastHits">The number of last hits by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;.</param>
         /// <param name="enemyNetworth">The net worth of &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;.</param>
         /// <param name="enemyObjDamage">The amount of objective damage dealt by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;.</param>
-        /// <param name="heroId">The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="kills">The number of kills by &#x60;hero_id&#x60; when facing &#x60;enemy_hero_id&#x60;.</param>
         /// <param name="lastHits">The number of last hits by &#x60;hero_id&#x60; when facing &#x60;enemy_hero_id&#x60;.</param>
         /// <param name="matchesPlayed">The total number of matches played between &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; that meet the filter criteria.</param>
@@ -138,9 +138,9 @@ namespace DeadlockApiClient.Model
         public long EnemyDenies { get; set; }
 
         /// <summary>
-        /// The ID of the opposing hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// The ID of the opposing hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The ID of the opposing hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>The ID of the opposing hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("enemy_hero_id")]
         public int EnemyHeroId { get; set; }
 
@@ -173,9 +173,9 @@ namespace DeadlockApiClient.Model
         public long EnemyObjDamage { get; set; }
 
         /// <summary>
-        /// The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
         public int HeroId { get; set; }
 

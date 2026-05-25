@@ -17,7 +17,7 @@
 export interface AnalyticsHeroStats {
     'bucket': number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
     'losses': number;

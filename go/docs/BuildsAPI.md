@@ -44,7 +44,7 @@ func main() {
 	buildLanguage := "buildLanguage_example" // string | Filter builds by language. (optional)
 	buildId := int32(56) // int32 | Filter builds by ID. (optional)
 	version := int32(56) // int32 | Filter builds by version. (optional)
-	heroId := int32(56) // int32 | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
+	heroId := int32(56) // int32 | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	tag := int32(56) // int32 | Filter builds by tag. (optional)
 	rollupCategory := int32(56) // int32 | Filter builds by rollup category. (optional)
 	authorId := int32(56) // int32 | The author's `SteamID3` (optional)
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
  **buildLanguage** | **string** | Filter builds by language. | 
  **buildId** | **int32** | Filter builds by ID. | 
  **version** | **int32** | Filter builds by version. | 
- **heroId** | **int32** | Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+ **heroId** | **int32** | Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **tag** | **int32** | Filter builds by tag. | 
  **rollupCategory** | **int32** | Filter builds by rollup category. | 
  **authorId** | **int32** | The author&#39;s &#x60;SteamID3&#x60; | 

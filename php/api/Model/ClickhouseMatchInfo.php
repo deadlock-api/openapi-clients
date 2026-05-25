@@ -389,7 +389,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets average_badge_team0
      *
-     * @param int|null $average_badge_team0 See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int|null $average_badge_team0 See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets average_badge_team1
      *
-     * @param int|null $average_badge_team1 See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int|null $average_badge_team1 See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */

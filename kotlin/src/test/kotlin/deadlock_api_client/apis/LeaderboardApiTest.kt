@@ -46,7 +46,7 @@ class LeaderboardApiTest : ShouldSpec() {
         should("test leaderboardHero") {
             // uncomment below to test leaderboardHero
             //val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
-            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val result : Leaderboard = apiInstance.leaderboardHero(region, heroId)
             //result shouldBe ("TODO")
         }
@@ -55,7 +55,7 @@ class LeaderboardApiTest : ShouldSpec() {
         should("test leaderboardHeroRaw") {
             // uncomment below to test leaderboardHeroRaw
             //val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
-            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.leaderboardHeroRaw(region, heroId)
             //result shouldBe ("TODO")
         }

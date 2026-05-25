@@ -12,12 +12,12 @@
 | **enemyCreeps** | **kotlin.Long** | The number of creeps killed by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. |  |
 | **enemyDeaths** | **kotlin.Long** | The number of deaths by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. |  |
 | **enemyDenies** | **kotlin.Long** | The number of denies by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. |  |
-| **enemyHeroId** | **kotlin.Int** | The ID of the opposing hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **enemyHeroId** | **kotlin.Int** | The ID of the opposing hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **enemyKills** | **kotlin.Long** | The number of kills by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. |  |
 | **enemyLastHits** | **kotlin.Long** | The number of last hits by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. |  |
 | **enemyNetworth** | **kotlin.Long** | The net worth of &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. |  |
 | **enemyObjDamage** | **kotlin.Long** | The amount of objective damage dealt by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. |  |
-| **heroId** | **kotlin.Int** | The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **heroId** | **kotlin.Int** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **kills** | **kotlin.Long** | The number of kills by &#x60;hero_id&#x60; when facing &#x60;enemy_hero_id&#x60;. |  |
 | **lastHits** | **kotlin.Long** | The number of last hits by &#x60;hero_id&#x60; when facing &#x60;enemy_hero_id&#x60;. |  |
 | **matchesPlayed** | **kotlin.Long** | The total number of matches played between &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; that meet the filter criteria. |  |

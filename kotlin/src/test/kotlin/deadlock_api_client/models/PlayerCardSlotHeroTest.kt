@@ -33,7 +33,7 @@ class PlayerCardSlotHeroTest : ShouldSpec() {
         // uncomment below to create an instance of PlayerCardSlotHero
         //val modelInstance = PlayerCardSlotHero()
 
-        // to test the property `id` - See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `id` - See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test id") {
             // uncomment below to test the property
             //modelInstance.id shouldBe ("TODO")

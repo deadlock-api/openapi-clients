@@ -20,15 +20,15 @@ import type { PlayerCardSlot } from './player-card-slot.js';
 export interface PlayerCard {
     'account_id': number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'ranked_badge_level'?: number | null;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'ranked_rank'?: number | null;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'ranked_subrank'?: number | null;
     'slots': Array<PlayerCardSlot>;

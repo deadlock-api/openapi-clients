@@ -30,9 +30,9 @@ class PlayerCard(BaseModel):
     PlayerCard
     """ # noqa: E501
     account_id: Annotated[int, Field(strict=True, ge=0)]
-    ranked_badge_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/ranks>")
-    ranked_rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/ranks>")
-    ranked_subrank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://assets.deadlock-api.com/v2/ranks>")
+    ranked_badge_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    ranked_rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    ranked_subrank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     slots: List[PlayerCardSlot]
     __properties: ClassVar[List[str]] = ["account_id", "ranked_badge_level", "ranked_rank", "ranked_subrank", "slots"]
 

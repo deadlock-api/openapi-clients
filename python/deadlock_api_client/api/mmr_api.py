@@ -43,7 +43,7 @@ class MMRApi:
     def hero_mmr(
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
@@ -64,7 +64,7 @@ class MMRApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
@@ -120,7 +120,7 @@ class MMRApi:
     def hero_mmr_with_http_info(
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
@@ -141,7 +141,7 @@ class MMRApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
@@ -197,7 +197,7 @@ class MMRApi:
     def hero_mmr_without_preload_content(
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
@@ -218,7 +218,7 @@ class MMRApi:
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
@@ -343,7 +343,7 @@ class MMRApi:
     @validate_call
     def hero_mmr_distribution(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -370,7 +370,7 @@ class MMRApi:
 
          Player Hero MMR Distribution 
 
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -448,7 +448,7 @@ class MMRApi:
     @validate_call
     def hero_mmr_distribution_with_http_info(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -475,7 +475,7 @@ class MMRApi:
 
          Player Hero MMR Distribution 
 
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -553,7 +553,7 @@ class MMRApi:
     @validate_call
     def hero_mmr_distribution_without_preload_content(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -580,7 +580,7 @@ class MMRApi:
 
          Player Hero MMR Distribution 
 
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -763,7 +763,7 @@ class MMRApi:
     def hero_mmr_history(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -783,7 +783,7 @@ class MMRApi:
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -836,7 +836,7 @@ class MMRApi:
     def hero_mmr_history_with_http_info(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -856,7 +856,7 @@ class MMRApi:
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -909,7 +909,7 @@ class MMRApi:
     def hero_mmr_history_without_preload_content(
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>")],
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -929,7 +929,7 @@ class MMRApi:
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
-        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes> (required)
+        :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

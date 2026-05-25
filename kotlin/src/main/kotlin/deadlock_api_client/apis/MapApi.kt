@@ -27,7 +27,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import deadlock_api_client.models.Map
+import deadlock_api_client.models.MapData
 
 import com.squareup.moshi.Json
 
@@ -58,7 +58,7 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Map
      * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
-     * @return Map
+     * @return MapData
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -67,11 +67,11 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMap(clientVersion: kotlin.Int? = null) : Map {
+    fun getMap(clientVersion: kotlin.Int? = null) : MapData {
         val localVarResponse = getMapWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Map
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MapData
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -90,16 +90,16 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Map
      * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
-     * @return ApiResponse<Map?>
+     * @return ApiResponse<MapData?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMapWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<Map?> {
+    fun getMapWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<MapData?> {
         val localVariableConfig = getMapRequestConfig(clientVersion = clientVersion)
 
-        return request<Unit, Map>(
+        return request<Unit, MapData>(
             localVariableConfig
         )
     }

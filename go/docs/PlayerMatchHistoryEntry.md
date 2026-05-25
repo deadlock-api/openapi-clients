@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **BrawlScoreTeam1** | Pointer to **NullableInt32** |  | [optional] 
 **Denies** | **int32** |  | 
 **GameMode** | **int32** |  | 
-**HeroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**HeroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **HeroLevel** | **int32** |  | 
 **LastHits** | **int32** |  | 
 **MatchDurationS** | **int32** |  | 

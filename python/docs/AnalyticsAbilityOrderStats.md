@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**abilities** | **List[int]** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**abilities** | **List[int]** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **losses** | **int** |  | 
 **matches** | **int** |  | 
 **players** | **int** |  | 

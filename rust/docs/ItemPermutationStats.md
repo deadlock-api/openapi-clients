@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**item_ids** | **Vec<u32>** | See more: <https://assets.deadlock-api.com/v2/items> | 
+**item_ids** | **Vec<u32>** | See more: <https://api.deadlock-api.com/v1/assets/items> | 
 **losses** | **u64** |  | 
 **matches** | **u64** |  | 
 **wins** | **u64** |  | 

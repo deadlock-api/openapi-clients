@@ -33,7 +33,7 @@ class HeroCombStatsTest : ShouldSpec() {
         // uncomment below to create an instance of HeroCombStats
         //val modelInstance = HeroCombStats()
 
-        // to test the property `heroIds` - See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `heroIds` - See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test heroIds") {
             // uncomment below to test the property
             //modelInstance.heroIds shouldBe ("TODO")

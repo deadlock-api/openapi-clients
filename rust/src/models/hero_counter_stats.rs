@@ -37,7 +37,7 @@ pub struct HeroCounterStats {
     /// The number of denies by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_denies")]
     pub enemy_denies: u64,
-    /// The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "enemy_hero_id")]
     pub enemy_hero_id: u32,
     /// The number of kills by `enemy_hero_id` when facing `hero_id`.
@@ -52,7 +52,7 @@ pub struct HeroCounterStats {
     /// The amount of objective damage dealt by `enemy_hero_id` when facing `hero_id`.
     #[serde(rename = "enemy_obj_damage")]
     pub enemy_obj_damage: u64,
-    /// The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
     /// The number of kills by `hero_id` when facing `enemy_hero_id`.

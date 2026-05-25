@@ -126,7 +126,7 @@ docs/models/LiveUrl.md
 docs/models/LootEntry.md
 docs/models/LootTable.md
 docs/models/MMRHistory.md
-docs/models/Map.md
+docs/models/MapData.md
 docs/models/MapImages.md
 docs/models/MatchPlayer.md
 docs/models/MatchSaltsResponse.md
@@ -352,8 +352,8 @@ src/DeadlockApiClient.Test/Model/LiveUrlTests.cs
 src/DeadlockApiClient.Test/Model/LootEntryTests.cs
 src/DeadlockApiClient.Test/Model/LootTableTests.cs
 src/DeadlockApiClient.Test/Model/MMRHistoryTests.cs
+src/DeadlockApiClient.Test/Model/MapDataTests.cs
 src/DeadlockApiClient.Test/Model/MapImagesTests.cs
-src/DeadlockApiClient.Test/Model/MapTests.cs
 src/DeadlockApiClient.Test/Model/MatchPlayerTests.cs
 src/DeadlockApiClient.Test/Model/MatchSaltsResponseTests.cs
 src/DeadlockApiClient.Test/Model/MatchSpectateResponseTests.cs
@@ -599,7 +599,7 @@ src/DeadlockApiClient/Model/LiveUrl.cs
 src/DeadlockApiClient/Model/LootEntry.cs
 src/DeadlockApiClient/Model/LootTable.cs
 src/DeadlockApiClient/Model/MMRHistory.cs
-src/DeadlockApiClient/Model/Map.cs
+src/DeadlockApiClient/Model/MapData.cs
 src/DeadlockApiClient/Model/MapImages.cs
 src/DeadlockApiClient/Model/MatchPlayer.cs
 src/DeadlockApiClient/Model/MatchSaltsResponse.cs

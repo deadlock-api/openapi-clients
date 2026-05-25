@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param abilities See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param abilities See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param losses 
  * @param matches 
  * @param players 
@@ -44,7 +44,7 @@ import java.io.Serializable
 
 data class AnalyticsAbilityOrderStats (
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "abilities")
     val abilities: kotlin.collections.List<kotlin.Int>,
 

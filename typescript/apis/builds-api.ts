@@ -46,7 +46,7 @@ export const BuildsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
          * @param {number} [version] Filter builds by version.
-         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number} [tag] Filter builds by tag.
          * @param {number} [rollupCategory] Filter builds by rollup category.
          * @param {number} [authorId] The author\&#39;s &#x60;SteamID3&#x60;
@@ -180,7 +180,7 @@ export const BuildsApiFp = function(configuration?: Configuration) {
          * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
          * @param {number} [version] Filter builds by version.
-         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number} [tag] Filter builds by tag.
          * @param {number} [rollupCategory] Filter builds by rollup category.
          * @param {number} [authorId] The author\&#39;s &#x60;SteamID3&#x60;
@@ -295,7 +295,7 @@ export interface BuildsApiSearchBuildsRequest {
     readonly version?: number
 
     /**
-     * Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId?: number
 

@@ -28,7 +28,7 @@ class ItemPermutationStats(BaseModel):
     """
     ItemPermutationStats
     """ # noqa: E501
-    item_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="See more: <https://assets.deadlock-api.com/v2/items>")
+    item_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]

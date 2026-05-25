@@ -37,7 +37,7 @@ type HeroStats struct {
 	DeniesPerMatch float64 `json:"denies_per_match"`
 	DeniesPerMin float64 `json:"denies_per_min"`
 	EndingLevel float64 `json:"ending_level"`
-	// See more: <https://assets.deadlock-api.com/v2/heroes>
+	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	Kills int64 `json:"kills"`
 	KillsPerMin float64 `json:"kills_per_min"`

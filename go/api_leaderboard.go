@@ -170,7 +170,7 @@ Valve updates the leaderboard once per hour.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param region The region to fetch the leaderboard for.
- @param heroId The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @param heroId The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiLeaderboardHeroRequest
 */
 func (a *LeaderboardAPIService) LeaderboardHero(ctx context.Context, region string, heroId int32) ApiLeaderboardHeroRequest {
@@ -300,7 +300,7 @@ Valve updates the leaderboard once per hour.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param region The region to fetch the leaderboard for.
- @param heroId The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @param heroId The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiLeaderboardHeroRawRequest
 */
 func (a *LeaderboardAPIService) LeaderboardHeroRaw(ctx context.Context, region string, heroId int32) ApiLeaderboardHeroRawRequest {

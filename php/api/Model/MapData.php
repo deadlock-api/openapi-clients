@@ -1,6 +1,6 @@
 <?php
 /**
- * Map
+ * MapData
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * Map Class Doc Comment
+ * MapData Class Doc Comment
  *
  * @category Class
  * @description The &#x60;/v1/assets/map&#x60; response.
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Map implements ModelInterface, ArrayAccess, \JsonSerializable
+class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Map implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'Map';
+    protected static $openAPIModelName = 'MapData';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -405,7 +405,7 @@ class Map implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         if (($radius < 0)) {
-            throw new \InvalidArgumentException('invalid value for $radius when calling Map., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for $radius when calling MapData., must be bigger than or equal to 0.');
         }
 
         $this->container['radius'] = $radius;

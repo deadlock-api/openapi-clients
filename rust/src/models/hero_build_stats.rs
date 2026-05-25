@@ -16,7 +16,7 @@ pub struct HeroBuildStats {
     /// The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
     #[serde(rename = "hero_build_id")]
     pub hero_build_id: u64,
-    /// The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
     /// The number of losses with this build.

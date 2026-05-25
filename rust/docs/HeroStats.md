@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **denies_per_match** | **f64** |  | 
 **denies_per_min** | **f64** |  | 
 **ending_level** | **f64** |  | 
-**hero_id** | **u32** | See more: <https://assets.deadlock-api.com/v2/heroes> | 
+**hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **kills** | **u64** |  | 
 **kills_per_min** | **f64** |  | 
 **last_hits_per_min** | **f64** |  | 

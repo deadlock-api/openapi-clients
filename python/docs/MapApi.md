@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_map**
-> Map get_map(client_version=client_version)
+> MapData get_map(client_version=client_version)
 
 Map
 
@@ -19,7 +19,7 @@ Map metadata for a client version: the minimap radius, image-layer CDN URLs, the
 
 ```python
 import deadlock_api_client
-from deadlock_api_client.models.map import Map
+from deadlock_api_client.models.map_data import MapData
 from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map**](Map.md)
+[**MapData**](MapData.md)
 
 ### Authorization
 

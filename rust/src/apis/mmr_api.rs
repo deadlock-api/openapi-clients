@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 pub struct HeroMmrParams {
     /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
     pub account_ids: Vec<u32>,
-    /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>
@@ -28,7 +28,7 @@ pub struct HeroMmrParams {
 /// struct for passing parameters to the method [`hero_mmr_distribution`]
 #[derive(Clone, Debug)]
 pub struct HeroMmrDistributionParams {
-    /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -55,7 +55,7 @@ pub struct HeroMmrDistributionParams {
 pub struct HeroMmrHistoryParams {
     /// The players `SteamID3`
     pub account_id: u32,
-    /// The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32
 }
 

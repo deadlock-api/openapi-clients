@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
+**Id** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 **Kills** | Pointer to **NullableInt32** |  | [optional] 
 **Wins** | Pointer to **NullableInt32** |  | [optional] 
 

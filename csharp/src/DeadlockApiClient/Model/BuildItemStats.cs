@@ -34,7 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="BuildItemStats" /> class.
         /// </summary>
         /// <param name="builds">builds</param>
-        /// <param name="itemId">See more: &lt;https://assets.deadlock-api.com/v2/items&gt;</param>
+        /// <param name="itemId">See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</param>
         [JsonConstructor]
         public BuildItemStats(long builds, long itemId)
         {
@@ -52,9 +52,9 @@ namespace DeadlockApiClient.Model
         public long Builds { get; set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/items&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</value>
         [JsonPropertyName("item_id")]
         public long ItemId { get; set; }
 

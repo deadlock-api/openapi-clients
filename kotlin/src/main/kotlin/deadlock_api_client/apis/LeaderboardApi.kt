@@ -171,7 +171,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Hero Leaderboard
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return Leaderboard
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -204,7 +204,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Hero Leaderboard
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return ApiResponse<Leaderboard?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -223,7 +223,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * To obtain the request config of the operation leaderboardHero
      *
      * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return RequestConfig
      */
     fun leaderboardHeroRequestConfig(region: RegionLeaderboardHero, heroId: kotlin.Int) : RequestConfig<Unit> {
@@ -267,7 +267,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Hero Leaderboard as Protobuf
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return kotlin.collections.List<kotlin.Int>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -300,7 +300,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Hero Leaderboard as Protobuf
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -319,7 +319,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * To obtain the request config of the operation leaderboardHeroRaw
      *
      * @param region The region to fetch the leaderboard for.
-     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return RequestConfig
      */
     fun leaderboardHeroRawRequestConfig(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int) : RequestConfig<Unit> {

@@ -33,7 +33,7 @@ class AnalyticsAbilityOrderStatsTest : ShouldSpec() {
         // uncomment below to create an instance of AnalyticsAbilityOrderStats
         //val modelInstance = AnalyticsAbilityOrderStats()
 
-        // to test the property `abilities` - See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `abilities` - See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test abilities") {
             // uncomment below to test the property
             //modelInstance.abilities shouldBe ("TODO")

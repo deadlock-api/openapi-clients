@@ -37,7 +37,7 @@ val language : kotlin.Int = 56 // kotlin.Int | Filter builds by language.
 val buildLanguage : kotlin.String = buildLanguage_example // kotlin.String | Filter builds by language.
 val buildId : kotlin.Int = 56 // kotlin.Int | Filter builds by ID.
 val version : kotlin.Int = 56 // kotlin.Int | Filter builds by version.
-val heroId : kotlin.Int = 56 // kotlin.Int | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+val heroId : kotlin.Int = 56 // kotlin.Int | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val tag : kotlin.Int = 56 // kotlin.Int | Filter builds by tag.
 val rollupCategory : kotlin.Int = 56 // kotlin.Int | Filter builds by rollup category.
 val authorId : kotlin.Int = 56 // kotlin.Int | The author's `SteamID3`
@@ -69,7 +69,7 @@ try {
 | **buildLanguage** | **kotlin.String**| Filter builds by language. | [optional] [enum: English, German, French, Italian, Korean, SpanishSpain, ChineseSimplified, Russian, Thai, Japanese, PortuguesePortugal, Polish, Czech, Turkish, PortugueseBrazil, Ukrainian, SpanishLatinAmerica, Vietnamese] |
 | **buildId** | **kotlin.Int**| Filter builds by ID. | [optional] |
 | **version** | **kotlin.Int**| Filter builds by version. | [optional] |
-| **heroId** | **kotlin.Int**| Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
+| **heroId** | **kotlin.Int**| Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **tag** | **kotlin.Int**| Filter builds by tag. | [optional] |
 | **rollupCategory** | **kotlin.Int**| Filter builds by rollup category. | [optional] |
 | Name | Type | Description  | Notes |

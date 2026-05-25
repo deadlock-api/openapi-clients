@@ -47,7 +47,7 @@ $language = 56; // int | Filter builds by language.
 $build_language = 'build_language_example'; // string | Filter builds by language.
 $build_id = 56; // int | Filter builds by ID.
 $version = 56; // int | Filter builds by version.
-$hero_id = 56; // int | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+$hero_id = 56; // int | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $tag = 56; // int | Filter builds by tag.
 $rollup_category = 56; // int | Filter builds by rollup category.
 $author_id = 56; // int | The author's `SteamID3`
@@ -79,7 +79,7 @@ try {
 | **build_language** | **string**| Filter builds by language. | [optional] |
 | **build_id** | **int**| Filter builds by ID. | [optional] |
 | **version** | **int**| Filter builds by version. | [optional] |
-| **hero_id** | **int**| Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] |
+| **hero_id** | **int**| Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **tag** | **int**| Filter builds by tag. | [optional] |
 | **rollup_category** | **int**| Filter builds by rollup category. | [optional] |
 | **author_id** | **int**| The author&#39;s &#x60;SteamID3&#x60; | [optional] |

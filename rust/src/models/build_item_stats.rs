@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct BuildItemStats {
     #[serde(rename = "builds")]
     pub builds: i64,
-    /// See more: <https://assets.deadlock-api.com/v2/items>
+    /// See more: <https://api.deadlock-api.com/v1/assets/items>
     #[serde(rename = "item_id")]
     pub item_id: i64,
 }

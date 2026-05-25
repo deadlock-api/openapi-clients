@@ -27,7 +27,7 @@ pub struct PlayerMatchHistoryEntry {
     pub denies: u32,
     #[serde(rename = "game_mode")]
     pub game_mode: i32,
-    /// See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
     #[serde(rename = "hero_level")]

@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyticsAbilityOrderStats {
-    /// See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "abilities")]
     pub abilities: Vec<u32>,
     #[serde(rename = "losses")]

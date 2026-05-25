@@ -129,7 +129,7 @@ api/Model/LiveUrl.php
 api/Model/LootEntry.php
 api/Model/LootTable.php
 api/Model/MMRHistory.php
-api/Model/Map.php
+api/Model/MapData.php
 api/Model/MapImages.php
 api/Model/MatchPlayer.php
 api/Model/MatchSaltsResponse.php
@@ -353,7 +353,7 @@ docs/Model/LiveUrl.md
 docs/Model/LootEntry.md
 docs/Model/LootTable.md
 docs/Model/MMRHistory.md
-docs/Model/Map.md
+docs/Model/MapData.md
 docs/Model/MapImages.md
 docs/Model/MatchPlayer.md
 docs/Model/MatchSaltsResponse.md
@@ -576,8 +576,8 @@ test/Model/LiveUrlTest.php
 test/Model/LootEntryTest.php
 test/Model/LootTableTest.php
 test/Model/MMRHistoryTest.php
+test/Model/MapDataTest.php
 test/Model/MapImagesTest.php
-test/Model/MapTest.php
 test/Model/MatchPlayerTest.php
 test/Model/MatchSaltsResponseTest.php
 test/Model/MatchSpectateResponseTest.php

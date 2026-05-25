@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Details** | [**BuildHeroDetails**](BuildHeroDetails.md) |  | 
 **DevelopmentBuild** | Pointer to **NullableBool** |  | [optional] 
 **HeroBuildId** | **int32** |  | 
-**HeroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**HeroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Language** | **int32** |  | 
 **LastUpdatedTimestamp** | Pointer to **NullableInt64** |  | [optional] 
 **Name** | **string** |  | 

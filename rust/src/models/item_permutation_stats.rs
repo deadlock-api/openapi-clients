@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ItemPermutationStats {
-    /// See more: <https://assets.deadlock-api.com/v2/items>
+    /// See more: <https://api.deadlock-api.com/v1/assets/items>
     #[serde(rename = "item_ids")]
     pub item_ids: Vec<u32>,
     #[serde(rename = "losses")]

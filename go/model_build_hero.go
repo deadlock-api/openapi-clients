@@ -26,7 +26,7 @@ type BuildHero struct {
 	Details BuildHeroDetails `json:"details"`
 	DevelopmentBuild NullableBool `json:"development_build,omitempty"`
 	HeroBuildId int32 `json:"hero_build_id"`
-	// See more: <https://assets.deadlock-api.com/v2/heroes>
+	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	Language int32 `json:"language"`
 	LastUpdatedTimestamp NullableInt64 `json:"last_updated_timestamp,omitempty"`

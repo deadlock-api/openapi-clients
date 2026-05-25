@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **brawl_score_team1** | **number** |  | [optional] [default to undefined]
 **denies** | **number** |  | [default to undefined]
 **game_mode** | **number** |  | [default to undefined]
-**hero_id** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [default to undefined]
+**hero_id** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [default to undefined]
 **hero_level** | **number** |  | [default to undefined]
 **last_hits** | **number** |  | [default to undefined]
 **match_duration_s** | **number** |  | [default to undefined]

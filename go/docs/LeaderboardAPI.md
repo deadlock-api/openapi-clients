@@ -103,7 +103,7 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
-	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **region** | **string** | The region to fetch the leaderboard for. | 
-**heroId** | **int32** | The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**heroId** | **int32** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 
@@ -176,7 +176,7 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
-	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **region** | **string** | The region to fetch the leaderboard for. | 
-**heroId** | **int32** | The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**heroId** | **int32** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 

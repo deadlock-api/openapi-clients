@@ -31,19 +31,19 @@ export interface PlayerCard  {
      */
     accountId: number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof PlayerCard
      */
     rankedBadgeLevel?: number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof PlayerCard
      */
     rankedRank?: number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof PlayerCard
      */

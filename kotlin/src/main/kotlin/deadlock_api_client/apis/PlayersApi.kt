@@ -613,15 +613,15 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param minNetworth Filter players based on their final net worth. (optional)
      * @param maxNetworth Filter players based on their final net worth. (optional)
-     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return kotlin.collections.List<HeroStats>
@@ -657,15 +657,15 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param minNetworth Filter players based on their final net worth. (optional)
      * @param maxNetworth Filter players based on their final net worth. (optional)
-     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return ApiResponse<kotlin.collections.List<HeroStats>?>
@@ -687,15 +687,15 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
-     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)
+     * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param minNetworth Filter players based on their final net worth. (optional)
      * @param maxNetworth Filter players based on their final net worth. (optional)
-     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
-     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig

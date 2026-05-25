@@ -25,7 +25,7 @@ type HeroBanStats struct {
 	Bans int64 `json:"bans"`
 	// The bucket value (depends on the bucket query parameter).
 	Bucket int32 `json:"bucket"`
-	// The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+	// The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 }
 

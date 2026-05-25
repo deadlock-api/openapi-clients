@@ -27,36 +27,36 @@ import {
 /**
  * The `/v1/assets/map` response.
  * @export
- * @interface ModelMap
+ * @interface MapData
  */
-export interface ModelMap  {
+export interface MapData  {
     /**
      * 
      * @type {MapImages}
-     * @memberof ModelMap
+     * @memberof MapData
      */
     images: MapImages;
     /**
      * 
      * @type {{ [key: string]: ObjectivePosition; }}
-     * @memberof ModelMap
+     * @memberof MapData
      */
     objectivePositions: { [key: string]: ObjectivePosition; };
     /**
      * 
      * @type {number}
-     * @memberof ModelMap
+     * @memberof MapData
      */
     radius: number;
     /**
      * 
      * @type {Array<ZiplanePath>}
-     * @memberof ModelMap
+     * @memberof MapData
      */
     ziplinePaths: Array<ZiplanePath>;
 }
 
-export function ModelMapFromJSON(json: any): ModelMap {
+export function MapDataFromJSON(json: any): MapData {
     return {
         'images': MapImagesFromJSON(json['images']),
         'objectivePositions': mapValues(json['objective_positions'], ObjectivePositionFromJSON),
@@ -65,7 +65,7 @@ export function ModelMapFromJSON(json: any): ModelMap {
     };
 }
 
-export function ModelMapToJSON(value?: ModelMap): any {
+export function MapDataToJSON(value?: MapData): any {
     if (value === undefined) {
         return undefined;
     }

@@ -33,7 +33,7 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeroEntry" /> class.
         /// </summary>
-        /// <param name="heroId">See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matches">matches</param>
         /// <param name="rank">rank</param>
         /// <param name="value">value</param>
@@ -50,9 +50,9 @@ namespace DeadlockApiClient.Model
         partial void OnCreated();
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
         public int HeroId { get; set; }
 

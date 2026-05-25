@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param badge See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param badge See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param rawScore Calibrated model output (float index into badge space)
  * @param matchesUsed Number of recent matches used for the prediction
  */
@@ -39,7 +39,7 @@ import java.io.Serializable
 
 data class RankPredictResponse (
 
-    /* See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge")
     val badge: kotlin.Int,
 

@@ -1,4 +1,4 @@
-# DeadlockApiClient.Model.Map
+# DeadlockApiClient.Model.MapData
 The `/v1/assets/map` response.
 
 ## Properties

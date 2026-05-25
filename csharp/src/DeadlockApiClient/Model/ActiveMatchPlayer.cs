@@ -35,7 +35,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="abandoned">abandoned</param>
         /// <param name="accountId">accountId</param>
-        /// <param name="heroId">See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="team">team</param>
         /// <param name="teamParsed">teamParsed</param>
         [JsonConstructor]
@@ -98,9 +98,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> HeroIdOption { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
         public int? HeroId { get { return this.HeroIdOption.Value; } set { this.HeroIdOption = new(value); } }
 

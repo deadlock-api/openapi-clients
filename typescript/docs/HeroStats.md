@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **denies_per_match** | **number** |  | [default to undefined]
 **denies_per_min** | **number** |  | [default to undefined]
 **ending_level** | **number** |  | [default to undefined]
-**hero_id** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [default to undefined]
+**hero_id** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [default to undefined]
 **kills** | **number** |  | [default to undefined]
 **kills_per_min** | **number** |  | [default to undefined]
 **last_hits_per_min** | **number** |  | [default to undefined]

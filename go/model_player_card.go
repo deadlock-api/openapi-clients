@@ -22,11 +22,11 @@ var _ MappedNullable = &PlayerCard{}
 // PlayerCard struct for PlayerCard
 type PlayerCard struct {
 	AccountId int32 `json:"account_id"`
-	// See more: <https://assets.deadlock-api.com/v2/ranks>
+	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	RankedBadgeLevel NullableInt32 `json:"ranked_badge_level,omitempty"`
-	// See more: <https://assets.deadlock-api.com/v2/ranks>
+	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	RankedRank NullableInt32 `json:"ranked_rank,omitempty"`
-	// See more: <https://assets.deadlock-api.com/v2/ranks>
+	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	RankedSubrank NullableInt32 `json:"ranked_subrank,omitempty"`
 	Slots []PlayerCardSlot `json:"slots"`
 }

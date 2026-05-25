@@ -12,12 +12,12 @@ Name | Type | Description | Notes
 **EnemyCreeps** | **int64** | The number of creeps killed by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. | 
 **EnemyDeaths** | **int64** | The number of deaths by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. | 
 **EnemyDenies** | **int64** | The number of denies by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. | 
-**EnemyHeroId** | **int32** | The ID of the opposing hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**EnemyHeroId** | **int32** | The ID of the opposing hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **EnemyKills** | **int64** | The number of kills by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. | 
 **EnemyLastHits** | **int64** | The number of last hits by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. | 
 **EnemyNetworth** | **int64** | The net worth of &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. | 
 **EnemyObjDamage** | **int64** | The amount of objective damage dealt by &#x60;enemy_hero_id&#x60; when facing &#x60;hero_id&#x60;. | 
-**HeroId** | **int32** | The ID of the hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**HeroId** | **int32** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Kills** | **int64** | The number of kills by &#x60;hero_id&#x60; when facing &#x60;enemy_hero_id&#x60;. | 
 **LastHits** | **int64** | The number of last hits by &#x60;hero_id&#x60; when facing &#x60;enemy_hero_id&#x60;. | 
 **MatchesPlayed** | **int64** | The total number of matches played between &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; that meet the filter criteria. | 

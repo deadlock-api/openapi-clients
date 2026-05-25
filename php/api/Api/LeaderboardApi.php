@@ -408,7 +408,7 @@ class LeaderboardApi
      * Hero Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -427,7 +427,7 @@ class LeaderboardApi
      * Hero Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -513,7 +513,7 @@ class LeaderboardApi
      * Hero Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -535,7 +535,7 @@ class LeaderboardApi
      * Hero Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -586,7 +586,7 @@ class LeaderboardApi
      * Create request for operation 'leaderboardHero'
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -699,7 +699,7 @@ class LeaderboardApi
      * Hero Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -718,7 +718,7 @@ class LeaderboardApi
      * Hero Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -804,7 +804,7 @@ class LeaderboardApi
      * Hero Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -826,7 +826,7 @@ class LeaderboardApi
      * Hero Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -877,7 +877,7 @@ class LeaderboardApi
      * Create request for operation 'leaderboardHeroRaw'
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
-     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -149,7 +149,7 @@ __all__ = [
     "LootEntry",
     "LootTable",
     "MMRHistory",
-    "Map",
+    "MapData",
     "MapImages",
     "MatchPlayer",
     "MatchSaltsResponse",
@@ -386,7 +386,7 @@ from deadlock_api_client.models.live_url import LiveUrl as LiveUrl
 from deadlock_api_client.models.loot_entry import LootEntry as LootEntry
 from deadlock_api_client.models.loot_table import LootTable as LootTable
 from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
-from deadlock_api_client.models.map import Map as Map
+from deadlock_api_client.models.map_data import MapData as MapData
 from deadlock_api_client.models.map_images import MapImages as MapImages
 from deadlock_api_client.models.match_player import MatchPlayer as MatchPlayer
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse

@@ -236,15 +236,15 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
-    min_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
-    max_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> (optional)
+    min_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
+    max_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
     min_match_id = 56 # int | Filter matches based on their ID. (optional)
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
     is_high_skill_range_parties = True # bool | Filter matches based on whether they are in the high skill range. (optional)
     is_low_pri_pool = True # bool | Filter matches based on whether they are in the low priority pool. (optional)
     is_new_player_pool = True # bool | Filter matches based on whether they are in the new player pool. (optional)
     account_ids = [56] # List[int] | Filter matches by account IDs of players that participated in the match. (optional)
-    hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes> (optional)
+    hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
     item_filter_hero_id = 56 # int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. (optional)
     include_item_ids = 'include_item_ids_example' # str | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. (optional)
     exclude_item_ids = 'exclude_item_ids_example' # str | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items. (optional)
@@ -287,15 +287,15 @@ Name | Type | Description  | Notes
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
- **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
- **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
+ **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+ **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
  **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
  **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
  **is_high_skill_range_parties** | **bool**| Filter matches based on whether they are in the high skill range. | [optional] 
  **is_low_pri_pool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] 
  **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] 
  **account_ids** | [**List[int]**](int.md)| Filter matches by account IDs of players that participated in the match. | [optional] 
- **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
+ **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
  **item_filter_hero_id** | **int**| Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional] 
  **include_item_ids** | **str**| Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional] 
  **exclude_item_ids** | **str**| Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | [optional] 

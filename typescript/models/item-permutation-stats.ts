@@ -16,7 +16,7 @@
 
 export interface ItemPermutationStats {
     /**
-     * See more: <https://assets.deadlock-api.com/v2/items>
+     * See more: <https://api.deadlock-api.com/v1/assets/items>
      */
     'item_ids': Array<number>;
     'losses': number;

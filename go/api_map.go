@@ -34,7 +34,7 @@ func (r ApiGetMapRequest) ClientVersion(clientVersion int32) ApiGetMapRequest {
 	return r
 }
 
-func (r ApiGetMapRequest) Execute() (*Map, *http.Response, error) {
+func (r ApiGetMapRequest) Execute() (*MapData, *http.Response, error) {
 	return r.ApiService.GetMapExecute(r)
 }
 
@@ -54,13 +54,13 @@ func (a *MapAPIService) GetMap(ctx context.Context) ApiGetMapRequest {
 }
 
 // Execute executes the request
-//  @return Map
-func (a *MapAPIService) GetMapExecute(r ApiGetMapRequest) (*Map, *http.Response, error) {
+//  @return MapData
+func (a *MapAPIService) GetMapExecute(r ApiGetMapRequest) (*MapData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Map
+		localVarReturnValue  *MapData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MapAPIService.GetMap")

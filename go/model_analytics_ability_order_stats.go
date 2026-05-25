@@ -21,7 +21,7 @@ var _ MappedNullable = &AnalyticsAbilityOrderStats{}
 
 // AnalyticsAbilityOrderStats struct for AnalyticsAbilityOrderStats
 type AnalyticsAbilityOrderStats struct {
-	// See more: <https://assets.deadlock-api.com/v2/heroes>
+	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	Abilities []int32 `json:"abilities"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`

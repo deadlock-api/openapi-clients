@@ -30,7 +30,7 @@ export interface MMRHistory {
      */
     'player_score': number;
     /**
-     * The Player Rank (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The Player Rank (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'rank': number;
     /**

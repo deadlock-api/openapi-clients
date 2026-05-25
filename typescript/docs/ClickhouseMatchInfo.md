@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**average_badge_team0** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] [default to undefined]
-**average_badge_team1** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] [default to undefined]
+**average_badge_team0** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
+**average_badge_team1** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
 **duration_s** | **number** |  | [default to undefined]
 **game_mode** | **number** |  | [default to undefined]
 **match_id** | **number** |  | [default to undefined]

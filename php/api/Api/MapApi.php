@@ -135,7 +135,7 @@ class MapApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Map
+     * @return \OpenAPI\Client\Model\MapData
      */
     public function getMap($client_version = null, string $contentType = self::contentTypes['getMap'][0])
     {
@@ -153,7 +153,7 @@ class MapApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Map, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\MapData, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMapWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getMap'][0])
     {
@@ -185,7 +185,7 @@ class MapApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\Map',
+                        '\OpenAPI\Client\Model\MapData',
                         $request,
                         $response,
                     );
@@ -207,7 +207,7 @@ class MapApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\Map',
+                '\OpenAPI\Client\Model\MapData',
                 $request,
                 $response,
             );
@@ -216,7 +216,7 @@ class MapApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Map',
+                        '\OpenAPI\Client\Model\MapData',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -262,7 +262,7 @@ class MapApi
      */
     public function getMapAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getMap'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\Map';
+        $returnType = '\OpenAPI\Client\Model\MapData';
         $request = $this->getMapRequest($client_version, $contentType);
 
         return $this->client

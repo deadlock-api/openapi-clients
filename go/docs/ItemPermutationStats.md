@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemIds** | **[]int32** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+**ItemIds** | **[]int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Wins** | **int64** |  | 

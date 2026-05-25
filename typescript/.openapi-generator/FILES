@@ -146,8 +146,8 @@ docs/LootTable.md
 docs/LootTablesApi.md
 docs/MMRApi.md
 docs/MMRHistory.md
-docs/Map.md
 docs/MapApi.md
+docs/MapData.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -351,6 +351,7 @@ models/list-servers-response.ts
 models/live-url.ts
 models/loot-entry.ts
 models/loot-table.ts
+models/map-data.ts
 models/map-images.ts
 models/match-player.ts
 models/match-salts-response.ts
@@ -360,7 +361,6 @@ models/metric-ingest-request.ts
 models/mini-map-offsets.ts
 models/misc-entity.ts
 models/mmrhistory.ts
-models/model-map.ts
 models/modifier-value.ts
 models/new-player-metrics.ts
 models/npc-unit.ts

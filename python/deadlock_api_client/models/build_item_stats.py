@@ -28,7 +28,7 @@ class BuildItemStats(BaseModel):
     BuildItemStats
     """ # noqa: E501
     builds: StrictInt
-    item_id: StrictInt = Field(description="See more: <https://assets.deadlock-api.com/v2/items>")
+    item_id: StrictInt = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
     __properties: ClassVar[List[str]] = ["builds", "item_id"]
 
     model_config = ConfigDict(

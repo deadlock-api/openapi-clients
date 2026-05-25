@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **bucket** | **kotlin.Int** |  |  |
-| **heroId** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **heroId** | **kotlin.Int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **losses** | **kotlin.Long** |  |  |
 | **matches** | **kotlin.Long** |  |  |
 | **matchesPerBucket** | **kotlin.Long** |  |  |

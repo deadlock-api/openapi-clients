@@ -30,7 +30,7 @@ type ItemStats struct {
 	// Average sell time in seconds (absolute, for items that were sold)
 	AvgSellTimeS float64 `json:"avg_sell_time_s"`
 	Bucket int32 `json:"bucket"`
-	// See more: <https://assets.deadlock-api.com/v2/items>
+	// See more: <https://api.deadlock-api.com/v1/assets/items>
 	ItemId int32 `json:"item_id"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`

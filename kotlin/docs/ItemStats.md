@@ -9,7 +9,7 @@
 | **avgSellTimeRelative** | **kotlin.Double** | Average sell time as percentage of match duration (for items that were sold) |  |
 | **avgSellTimeS** | **kotlin.Double** | Average sell time in seconds (absolute, for items that were sold) |  |
 | **bucket** | **kotlin.Int** |  |  |
-| **itemId** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; |  |
+| **itemId** | **kotlin.Int** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; |  |
 | **losses** | **kotlin.Long** |  |  |
 | **matches** | **kotlin.Long** |  |  |
 | **players** | **kotlin.Long** |  |  |

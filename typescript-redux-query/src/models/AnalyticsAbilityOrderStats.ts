@@ -19,7 +19,7 @@ import { exists, mapValues } from '../runtime';
  */
 export interface AnalyticsAbilityOrderStats  {
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      * @type {Array<number>}
      * @memberof AnalyticsAbilityOrderStats
      */

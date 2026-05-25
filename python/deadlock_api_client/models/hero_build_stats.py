@@ -29,7 +29,7 @@ class HeroBuildStats(BaseModel):
     HeroBuildStats
     """ # noqa: E501
     hero_build_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.")
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>")
+    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of losses with this build.")
     matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of matches played with this build (`wins + losses`).")
     players: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of unique players who used this build.")

@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param itemIds See more: <https://assets.deadlock-api.com/v2/items>
+ * @param itemIds See more: <https://api.deadlock-api.com/v1/assets/items>
  * @param losses 
  * @param matches 
  * @param wins 
@@ -40,7 +40,7 @@ import java.io.Serializable
 
 data class ItemPermutationStats (
 
-    /* See more: <https://assets.deadlock-api.com/v2/items> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/items> */
     @Json(name = "item_ids")
     val itemIds: kotlin.collections.List<kotlin.Int>,
 

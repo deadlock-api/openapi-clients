@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**item_ids** | **List[int]** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+**item_ids** | **List[int]** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **losses** | **int** |  | 
 **matches** | **int** |  | 
 **wins** | **int** |  | 

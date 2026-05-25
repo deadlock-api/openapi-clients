@@ -45,7 +45,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrApiResponse"/>&gt;</returns>
@@ -58,7 +58,7 @@ namespace DeadlockApiClient.Api
         ///  Batch Player Hero MMR 
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrApiResponse"/>?&gt;</returns>
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Api
         ///  Player Hero MMR Distribution 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -91,7 +91,7 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         ///  Player Hero MMR Distribution 
         /// </remarks>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -113,7 +113,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrHistoryApiResponse"/>&gt;</returns>
         Task<IHeroMmrHistoryApiResponse> HeroMmrHistoryAsync(int accountId, int heroId, System.Threading.CancellationToken cancellationToken = default);
@@ -125,7 +125,7 @@ namespace DeadlockApiClient.Api
         /// Player Hero MMR History
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrHistoryApiResponse"/>?&gt;</returns>
         Task<IHeroMmrHistoryApiResponse?> HeroMmrHistoryOrDefaultAsync(int accountId, int heroId, System.Threading.CancellationToken cancellationToken = default);
@@ -606,7 +606,7 @@ namespace DeadlockApiClient.Api
         /// Batch Hero MMR  Batch Player Hero MMR 
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrApiResponse"/>&gt;</returns>
@@ -627,7 +627,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrApiResponse"/>&gt;</returns>
@@ -897,7 +897,7 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// Hero MMR Distribution  Player Hero MMR Distribution 
         /// </summary>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -925,7 +925,7 @@ namespace DeadlockApiClient.Api
         /// Hero MMR Distribution  Player Hero MMR Distribution 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1192,7 +1192,7 @@ namespace DeadlockApiClient.Api
         /// Hero MMR History Player Hero MMR History
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrHistoryApiResponse"/>&gt;</returns>
         public async Task<IHeroMmrHistoryApiResponse?> HeroMmrHistoryOrDefaultAsync(int accountId, int heroId, System.Threading.CancellationToken cancellationToken = default)
@@ -1212,7 +1212,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
-        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroMmrHistoryApiResponse"/>&gt;</returns>
         public async Task<IHeroMmrHistoryApiResponse> HeroMmrHistoryAsync(int accountId, int heroId, System.Threading.CancellationToken cancellationToken = default)

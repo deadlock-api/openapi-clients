@@ -19,7 +19,7 @@ pub struct HeroBanStats {
     /// The bucket value (depends on the bucket query parameter).
     #[serde(rename = "bucket")]
     pub bucket: u32,
-    /// The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
 }

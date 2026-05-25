@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="divisionTier">Extracted from the rank the division tier (rank % 10)</param>
         /// <param name="matchId">matchId</param>
         /// <param name="playerScore">Player Score is the index for the rank array (internally used for the rank regression)</param>
-        /// <param name="rank">The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
+        /// <param name="rank">The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="startTime">Start time of the match</param>
         [JsonConstructor]
         public MMRHistory(int accountId, int division, int divisionTier, long matchId, double playerScore, int rank, int startTime)
@@ -89,9 +89,9 @@ namespace DeadlockApiClient.Model
         public double PlayerScore { get; set; }
 
         /// <summary>
-        /// The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("rank")]
         public int Rank { get; set; }
 

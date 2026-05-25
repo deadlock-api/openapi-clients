@@ -23,7 +23,7 @@ var _ MappedNullable = &HeroBuildStats{}
 type HeroBuildStats struct {
 	// The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
 	HeroBuildId int64 `json:"hero_build_id"`
-	// The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+	// The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	// The number of losses with this build.
 	Losses int64 `json:"losses"`

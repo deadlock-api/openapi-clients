@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Builds** | **int64** |  | 
-**ItemId** | **int64** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+**ItemId** | **int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 
 ## Methods
 

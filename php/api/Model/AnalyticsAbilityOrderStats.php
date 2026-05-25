@@ -403,7 +403,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets abilities
      *
-     * @param int[] $abilities See more: <https://assets.deadlock-api.com/v2/heroes>
+     * @param int[] $abilities See more: <https://api.deadlock-api.com/v1/assets/heroes>
      *
      * @return self
      */

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **brawl_score_team1** | **int** |  | [optional]
 **denies** | **int** |  |
 **game_mode** | **int** |  |
-**hero_id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |
+**hero_id** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |
 **hero_level** | **int** |  |
 **last_hits** | **int** |  |
 **match_duration_s** | **int** |  |

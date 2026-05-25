@@ -12,7 +12,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `getMap()`
 
 ```php
-getMap($client_version): \OpenAPI\Client\Model\Map
+getMap($client_version): \OpenAPI\Client\Model\MapData
 ```
 
 Map
@@ -50,7 +50,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Map**](../Model/Map.md)
+[**\OpenAPI\Client\Model\MapData**](../Model/MapData.md)
 
 ### Authorization
 

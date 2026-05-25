@@ -72,7 +72,7 @@ Hero Leaderboard
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
-val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 try {
     val result : Leaderboard = apiInstance.leaderboardHero(region, heroId)
     println(result)
@@ -89,7 +89,7 @@ try {
 | **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 
 ### Return type
 
@@ -120,7 +120,7 @@ Hero Leaderboard as Protobuf
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
-val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 try {
     val result : kotlin.collections.List<kotlin.Int> = apiInstance.leaderboardHeroRaw(region, heroId)
     println(result)
@@ -137,7 +137,7 @@ try {
 | **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 
 ### Return type
 

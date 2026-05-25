@@ -34,7 +34,7 @@ class BuildHero(BaseModel):
     details: BuildHeroDetails
     development_build: Optional[StrictBool] = None
     hero_build_id: Annotated[int, Field(strict=True, ge=0)]
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://assets.deadlock-api.com/v2/heroes>")
+    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     language: Annotated[int, Field(strict=True, ge=0)]
     last_updated_timestamp: Optional[StrictInt] = None
     name: StrictStr

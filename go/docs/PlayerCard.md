@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **int32** |  | 
-**RankedBadgeLevel** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
-**RankedRank** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
-**RankedSubrank** | Pointer to **NullableInt32** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
+**RankedBadgeLevel** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**RankedRank** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**RankedSubrank** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **Slots** | [**[]PlayerCardSlot**](PlayerCardSlot.md) |  | 
 
 ## Methods

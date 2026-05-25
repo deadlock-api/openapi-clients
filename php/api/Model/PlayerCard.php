@@ -384,7 +384,7 @@ class PlayerCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ranked_badge_level
      *
-     * @param int|null $ranked_badge_level See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int|null $ranked_badge_level See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */
@@ -423,7 +423,7 @@ class PlayerCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ranked_rank
      *
-     * @param int|null $ranked_rank See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int|null $ranked_rank See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */
@@ -462,7 +462,7 @@ class PlayerCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ranked_subrank
      *
-     * @param int|null $ranked_subrank See more: <https://assets.deadlock-api.com/v2/ranks>
+     * @param int|null $ranked_subrank See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */

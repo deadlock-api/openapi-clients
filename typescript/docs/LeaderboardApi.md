@@ -79,7 +79,7 @@ const configuration = new Configuration();
 const apiInstance = new LeaderboardApi(configuration);
 
 let region: 'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'; //The region to fetch the leaderboard for. (default to undefined)
-let heroId: number; //The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (default to undefined)
+let heroId: number; //The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
 
 const { status, data } = await apiInstance.leaderboardHero(
     region,
@@ -92,7 +92,7 @@ const { status, data } = await apiInstance.leaderboardHero(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **region** | [**&#39;Europe&#39; | &#39;Asia&#39; | &#39;NAmerica&#39; | &#39;SAmerica&#39; | &#39;Oceania&#39;**]**Array<&#39;Europe&#39; &#124; &#39;Asia&#39; &#124; &#39;NAmerica&#39; &#124; &#39;SAmerica&#39; &#124; &#39;Oceania&#39;>** | The region to fetch the leaderboard for. | defaults to undefined|
-| **heroId** | [**number**] | The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | defaults to undefined|
+| **heroId** | [**number**] | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
 
 
 ### Return type
@@ -135,7 +135,7 @@ const configuration = new Configuration();
 const apiInstance = new LeaderboardApi(configuration);
 
 let region: 'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'; //The region to fetch the leaderboard for. (default to undefined)
-let heroId: number; //The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes> (default to undefined)
+let heroId: number; //The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
 
 const { status, data } = await apiInstance.leaderboardHeroRaw(
     region,
@@ -148,7 +148,7 @@ const { status, data } = await apiInstance.leaderboardHeroRaw(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **region** | [**&#39;Europe&#39; | &#39;Asia&#39; | &#39;NAmerica&#39; | &#39;SAmerica&#39; | &#39;Oceania&#39;**]**Array<&#39;Europe&#39; &#124; &#39;Asia&#39; &#124; &#39;NAmerica&#39; &#124; &#39;SAmerica&#39; &#124; &#39;Oceania&#39;>** | The region to fetch the leaderboard for. | defaults to undefined|
-| **heroId** | [**number**] | The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | defaults to undefined|
+| **heroId** | [**number**] | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
 
 
 ### Return type

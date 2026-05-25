@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bucket** | **int32** |  | 
-**HeroId** | **int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**HeroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **MatchesPerBucket** | **int64** |  | 

@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param heroIds See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroIds See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param losses 
  * @param matches 
  * @param wins 
@@ -40,7 +40,7 @@ import java.io.Serializable
 
 data class HeroCombStats (
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_ids")
     val heroIds: kotlin.collections.List<kotlin.Int>,
 

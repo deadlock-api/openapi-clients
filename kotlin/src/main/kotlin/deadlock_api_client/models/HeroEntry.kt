@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param heroId See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param matches 
  * @param rank 
  * @param `value` 
@@ -40,7 +40,7 @@ import java.io.Serializable
 
 data class HeroEntry (
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
     val heroId: kotlin.Int,
 

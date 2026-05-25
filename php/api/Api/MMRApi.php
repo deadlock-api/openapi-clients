@@ -146,7 +146,7 @@ class MMRApi
      * Batch Hero MMR
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
      *
@@ -166,7 +166,7 @@ class MMRApi
      * Batch Hero MMR
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
      *
@@ -253,7 +253,7 @@ class MMRApi
      * Batch Hero MMR
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
      *
@@ -276,7 +276,7 @@ class MMRApi
      * Batch Hero MMR
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
      *
@@ -328,7 +328,7 @@ class MMRApi
      * Create request for operation 'heroMmr'
      *
      * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmr'] to see the possible values for this operation
      *
@@ -461,7 +461,7 @@ class MMRApi
      *
      * Hero MMR Distribution
      *
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -488,7 +488,7 @@ class MMRApi
      *
      * Hero MMR Distribution
      *
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -582,7 +582,7 @@ class MMRApi
      *
      * Hero MMR Distribution
      *
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -612,7 +612,7 @@ class MMRApi
      *
      * Hero MMR Distribution
      *
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -671,7 +671,7 @@ class MMRApi
     /**
      * Create request for operation 'heroMmrDistribution'
      *
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1777075200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -886,7 +886,7 @@ class MMRApi
      * Hero MMR History
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrHistory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -905,7 +905,7 @@ class MMRApi
      * Hero MMR History
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrHistory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -991,7 +991,7 @@ class MMRApi
      * Hero MMR History
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1013,7 +1013,7 @@ class MMRApi
      * Hero MMR History
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1064,7 +1064,7 @@ class MMRApi
      * Create request for operation 'heroMmrHistory'
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
-     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (required)
+     * @param  int $hero_id The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroMmrHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

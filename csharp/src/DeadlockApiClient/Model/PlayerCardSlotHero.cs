@@ -33,7 +33,7 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerCardSlotHero" /> class.
         /// </summary>
-        /// <param name="id">See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="id">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="kills">kills</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
@@ -55,9 +55,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> IdOption { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("id")]
         public int? Id { get { return this.IdOption.Value; } set { this.IdOption = new(value); } }
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bans** | **number** | The number of matches in which this hero was banned. | [default to undefined]
 **bucket** | **number** | The bucket value (depends on the bucket query parameter). | [default to undefined]
-**hero_id** | **number** | The ID of the banned hero. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [default to undefined]
+**hero_id** | **number** | The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [default to undefined]
 
 ## Example
 

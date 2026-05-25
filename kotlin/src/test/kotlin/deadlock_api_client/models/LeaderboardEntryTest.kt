@@ -39,7 +39,7 @@ class LeaderboardEntryTest : ShouldSpec() {
             //modelInstance.accountName shouldBe ("TODO")
         }
 
-        // to test the property `badgeLevel` - The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `badgeLevel` - The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test badgeLevel") {
             // uncomment below to test the property
             //modelInstance.badgeLevel shouldBe ("TODO")
@@ -51,25 +51,25 @@ class LeaderboardEntryTest : ShouldSpec() {
             //modelInstance.possibleAccountIds shouldBe ("TODO")
         }
 
-        // to test the property `rank` - The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rank` - The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rank") {
             // uncomment below to test the property
             //modelInstance.rank shouldBe ("TODO")
         }
 
-        // to test the property `rankedRank` - The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rankedRank` - The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rankedRank") {
             // uncomment below to test the property
             //modelInstance.rankedRank shouldBe ("TODO")
         }
 
-        // to test the property `rankedSubrank` - The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `rankedSubrank` - The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rankedSubrank") {
             // uncomment below to test the property
             //modelInstance.rankedSubrank shouldBe ("TODO")
         }
 
-        // to test the property `topHeroIds` - The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `topHeroIds` - The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test topHeroIds") {
             // uncomment below to test the property
             //modelInstance.topHeroIds shouldBe ("TODO")

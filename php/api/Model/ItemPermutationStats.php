@@ -347,7 +347,7 @@ class ItemPermutationStats implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets item_ids
      *
-     * @param int[] $item_ids See more: <https://assets.deadlock-api.com/v2/items>
+     * @param int[] $item_ids See more: <https://api.deadlock-api.com/v1/assets/items>
      *
      * @return self
      */

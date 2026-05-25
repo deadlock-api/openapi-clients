@@ -92,7 +92,7 @@ $apiInstance = new OpenAPI\Client\Api\LeaderboardApi(
     new GuzzleHttp\Client()
 );
 $region = 'region_example'; // string | The region to fetch the leaderboard for.
-$hero_id = 56; // int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+$hero_id = 56; // int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 try {
     $result = $apiInstance->leaderboardHero($region, $hero_id);
@@ -107,7 +107,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **string**| The region to fetch the leaderboard for. | |
-| **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 
 ### Return type
 
@@ -150,7 +150,7 @@ $apiInstance = new OpenAPI\Client\Api\LeaderboardApi(
     new GuzzleHttp\Client()
 );
 $region = 'region_example'; // string | The region to fetch the leaderboard for.
-$hero_id = 56; // int | The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+$hero_id = 56; // int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 try {
     $result = $apiInstance->leaderboardHeroRaw($region, $hero_id);
@@ -165,7 +165,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **string**| The region to fetch the leaderboard for. | |
-| **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | |
+| **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 
 ### Return type
 

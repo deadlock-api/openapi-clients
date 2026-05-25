@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AuthorAccountId** | **int** |  | 
 **Details** | [**BuildHeroDetails**](BuildHeroDetails.md) |  | 
 **HeroBuildId** | **int** |  | 
-**HeroId** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**HeroId** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Language** | **int** |  | 
 **Name** | **string** |  | 
 **OriginBuildId** | **int** |  | 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hero_id** | **u32** | See more: <https://assets.deadlock-api.com/v2/heroes> | 
+**hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **matches** | **u64** |  | 
 **rank** | **u64** |  | 
 **value** | **f64** |  | 

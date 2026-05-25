@@ -112,8 +112,8 @@ docs/LiveUrl.md
 docs/LootEntry.md
 docs/LootTable.md
 docs/LootTablesApi.md
-docs/Map.md
 docs/MapApi.md
+docs/MapData.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -349,7 +349,7 @@ src/models/list_servers_response.rs
 src/models/live_url.rs
 src/models/loot_entry.rs
 src/models/loot_table.rs
-src/models/map.rs
+src/models/map_data.rs
 src/models/map_images.rs
 src/models/match_player.rs
 src/models/match_salts_response.rs

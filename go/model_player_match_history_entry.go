@@ -28,7 +28,7 @@ type PlayerMatchHistoryEntry struct {
 	BrawlScoreTeam1 NullableInt32 `json:"brawl_score_team1,omitempty"`
 	Denies int32 `json:"denies"`
 	GameMode int32 `json:"game_mode"`
-	// See more: <https://assets.deadlock-api.com/v2/heroes>
+	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	HeroLevel int32 `json:"hero_level"`
 	LastHits int32 `json:"last_hits"`

@@ -47,7 +47,7 @@ import java.io.Serializable
  * @param deniesPerMatch 
  * @param deniesPerMin 
  * @param endingLevel 
- * @param heroId See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param kills 
  * @param killsPerMin 
  * @param lastHitsPerMin 
@@ -117,7 +117,7 @@ data class HeroStats (
     @Json(name = "ending_level")
     val endingLevel: kotlin.Double,
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
     val heroId: kotlin.Int,
 

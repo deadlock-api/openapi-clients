@@ -48,7 +48,7 @@ type ApiAbilityOrderStatsRequest struct {
 	excludeItemIds *[]int32
 }
 
-// See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiAbilityOrderStatsRequest) HeroId(heroId int32) ApiAbilityOrderStatsRequest {
 	r.heroId = &heroId
 	return r
@@ -108,13 +108,13 @@ func (r ApiAbilityOrderStatsRequest) MaxNetworth(maxNetworth int64) ApiAbilityOr
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiAbilityOrderStatsRequest) MinAverageBadge(minAverageBadge int32) ApiAbilityOrderStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiAbilityOrderStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiAbilityOrderStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -151,13 +151,13 @@ func (r ApiAbilityOrderStatsRequest) AccountIds(accountIds []int32) ApiAbilityOr
 	return r
 }
 
-// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiAbilityOrderStatsRequest) IncludeItemIds(includeItemIds []int32) ApiAbilityOrderStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiAbilityOrderStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiAbilityOrderStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
@@ -583,7 +583,7 @@ type ApiBuildItemStatsRequest struct {
 	maxLastUpdatedUnixTimestamp *int64
 }
 
-// Filter builds based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiBuildItemStatsRequest) HeroId(heroId int32) ApiBuildItemStatsRequest {
 	r.heroId = &heroId
 	return r
@@ -772,13 +772,13 @@ func (r ApiGameStatsRequest) MaxDurationS(maxDurationS int64) ApiGameStatsReques
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; Only works for &#x60;game_modes&#x60; with badge data (e.g. &#x60;normal&#x60;, not &#x60;street_brawl&#x60;).
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; Only works for &#x60;game_modes&#x60; with badge data (e.g. &#x60;normal&#x60;, not &#x60;street_brawl&#x60;).
 func (r ApiGameStatsRequest) MinAverageBadge(minAverageBadge int32) ApiGameStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; Only works for &#x60;game_modes&#x60; with badge data (e.g. &#x60;normal&#x60;, not &#x60;street_brawl&#x60;).
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; Only works for &#x60;game_modes&#x60; with badge data (e.g. &#x60;normal&#x60;, not &#x60;street_brawl&#x60;).
 func (r ApiGameStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiGameStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -979,13 +979,13 @@ func (r ApiHeroBanStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroBanStats
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroBanStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroBanStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroBanStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroBanStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -1185,13 +1185,13 @@ func (r ApiHeroBuildStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroBuildS
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroBuildStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroBuildStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroBuildStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroBuildStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -1261,7 +1261,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param heroId The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
+ @param heroId The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiHeroBuildStatsRequest
 */
 func (a *AnalyticsAPIService) HeroBuildStats(ctx context.Context, heroId int32) ApiHeroBuildStatsRequest {
@@ -1470,13 +1470,13 @@ func (r ApiHeroCombStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroCombStats
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroCombStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroCombStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroCombStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroCombStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -1494,25 +1494,25 @@ func (r ApiHeroCombStatsRequest) MaxMatchId(maxMatchId int64) ApiHeroCombStatsRe
 	return r
 }
 
-// Comma separated list of hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiHeroCombStatsRequest) IncludeHeroIds(includeHeroIds []int32) ApiHeroCombStatsRequest {
 	r.includeHeroIds = &includeHeroIds
 	return r
 }
 
-// Comma separated list of hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Comma separated list of hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiHeroCombStatsRequest) ExcludeHeroIds(excludeHeroIds []int32) ApiHeroCombStatsRequest {
 	r.excludeHeroIds = &excludeHeroIds
 	return r
 }
 
-// Comma separated list of enemy hero ids to include. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Comma separated list of enemy hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiHeroCombStatsRequest) IncludeEnemyHeroIds(includeEnemyHeroIds []int32) ApiHeroCombStatsRequest {
 	r.includeEnemyHeroIds = &includeEnemyHeroIds
 	return r
 }
 
-// Comma separated list of enemy hero ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Comma separated list of enemy hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiHeroCombStatsRequest) ExcludeEnemyHeroIds(excludeEnemyHeroIds []int32) ApiHeroCombStatsRequest {
 	r.excludeEnemyHeroIds = &excludeEnemyHeroIds
 	return r
@@ -1845,13 +1845,13 @@ func (r ApiHeroCountersStatsRequest) MaxEnemyNetworth(maxEnemyNetworth int64) Ap
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroCountersStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroCountersStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroCountersStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroCountersStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -2164,13 +2164,13 @@ func (r ApiHeroScoreboardRequest) MaxNetworth(maxNetworth int64) ApiHeroScoreboa
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroScoreboardRequest) MinAverageBadge(minAverageBadge int32) ApiHeroScoreboardRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroScoreboardRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroScoreboardRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -2440,13 +2440,13 @@ func (r ApiHeroStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroStatsRequest 
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -2488,13 +2488,13 @@ func (r ApiHeroStatsRequest) MaxHeroMatchesTotal(maxHeroMatchesTotal int64) ApiH
 	return r
 }
 
-// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiHeroStatsRequest) IncludeItemIds(includeItemIds []int32) ApiHeroStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiHeroStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiHeroStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
@@ -2769,13 +2769,13 @@ func (r ApiHeroSynergiesStatsRequest) MaxNetworth(maxNetworth int64) ApiHeroSyne
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroSynergiesStatsRequest) MinAverageBadge(minAverageBadge int32) ApiHeroSynergiesStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiHeroSynergiesStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiHeroSynergiesStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -3023,7 +3023,7 @@ type ApiItemPermutationStatsRequest struct {
 	accountIds *[]int32
 }
 
-// Comma separated list of item ids. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiItemPermutationStatsRequest) ItemIds(itemIds []int32) ApiItemPermutationStatsRequest {
 	r.itemIds = &itemIds
 	return r
@@ -3041,13 +3041,13 @@ func (r ApiItemPermutationStatsRequest) GameMode(gameMode string) ApiItemPermuta
 	return r
 }
 
-// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiItemPermutationStatsRequest) HeroIds(heroIds string) ApiItemPermutationStatsRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
-// Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 // Deprecated
 func (r ApiItemPermutationStatsRequest) HeroId(heroId int32) ApiItemPermutationStatsRequest {
 	r.heroId = &heroId
@@ -3090,13 +3090,13 @@ func (r ApiItemPermutationStatsRequest) MaxNetworth(maxNetworth int64) ApiItemPe
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiItemPermutationStatsRequest) MinAverageBadge(minAverageBadge int32) ApiItemPermutationStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiItemPermutationStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiItemPermutationStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -3353,20 +3353,20 @@ func (r ApiItemStatsRequest) GameMode(gameMode string) ApiItemStatsRequest {
 	return r
 }
 
-// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiItemStatsRequest) HeroIds(heroIds string) ApiItemStatsRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
-// Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 // Deprecated
 func (r ApiItemStatsRequest) HeroId(heroId int32) ApiItemStatsRequest {
 	r.heroId = &heroId
 	return r
 }
 
-// Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \&quot;what items beat hero(es) X?\&quot; stats. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \&quot;what items beat hero(es) X?\&quot; stats. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiItemStatsRequest) EnemyHeroIds(enemyHeroIds string) ApiItemStatsRequest {
 	r.enemyHeroIds = &enemyHeroIds
 	return r
@@ -3432,13 +3432,13 @@ func (r ApiItemStatsRequest) MaxNetworth(maxNetworth int64) ApiItemStatsRequest 
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiItemStatsRequest) MinAverageBadge(minAverageBadge int32) ApiItemStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiItemStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiItemStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -3456,13 +3456,13 @@ func (r ApiItemStatsRequest) MaxMatchId(maxMatchId int64) ApiItemStatsRequest {
 	return r
 }
 
-// Comma separated list of item ids to include. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiItemStatsRequest) IncludeItemIds(includeItemIds []int32) ApiItemStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude. See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiItemStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiItemStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
@@ -3795,7 +3795,7 @@ func (r ApiKillDeathStatsRequest) AccountIds(accountIds []int32) ApiKillDeathSta
 	return r
 }
 
-// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiKillDeathStatsRequest) HeroIds(heroIds string) ApiKillDeathStatsRequest {
 	r.heroIds = &heroIds
 	return r
@@ -3843,13 +3843,13 @@ func (r ApiKillDeathStatsRequest) MaxMatchId(maxMatchId int64) ApiKillDeathStats
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiKillDeathStatsRequest) MinAverageBadge(minAverageBadge int32) ApiKillDeathStatsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiKillDeathStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiKillDeathStatsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -4146,13 +4146,13 @@ func (r ApiPlayerPerformanceCurveRequest) MaxNetworth(maxNetworth int64) ApiPlay
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiPlayerPerformanceCurveRequest) MinAverageBadge(minAverageBadge int32) ApiPlayerPerformanceCurveRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiPlayerPerformanceCurveRequest) MaxAverageBadge(maxAverageBadge int32) ApiPlayerPerformanceCurveRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -4170,19 +4170,19 @@ func (r ApiPlayerPerformanceCurveRequest) MaxMatchId(maxMatchId int64) ApiPlayer
 	return r
 }
 
-// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiPlayerPerformanceCurveRequest) HeroIds(heroIds string) ApiPlayerPerformanceCurveRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
-// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiPlayerPerformanceCurveRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiPlayerPerformanceCurveRequest) ExcludeItemIds(excludeItemIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
@@ -4423,7 +4423,7 @@ func (r ApiPlayerScoreboardRequest) GameMode(gameMode string) ApiPlayerScoreboar
 	return r
 }
 
-// Filter matches based on the hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiPlayerScoreboardRequest) HeroId(heroId int32) ApiPlayerScoreboardRequest {
 	r.heroId = &heroId
 	return r
@@ -4477,13 +4477,13 @@ func (r ApiPlayerScoreboardRequest) MaxNetworth(maxNetworth int64) ApiPlayerScor
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiPlayerScoreboardRequest) MinAverageBadge(minAverageBadge int32) ApiPlayerScoreboardRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiPlayerScoreboardRequest) MaxAverageBadge(maxAverageBadge int32) ApiPlayerScoreboardRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -4719,7 +4719,7 @@ type ApiPlayerStatsMetricsRequest struct {
 	accountIds *[]int32
 }
 
-// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiPlayerStatsMetricsRequest) HeroIds(heroIds string) ApiPlayerStatsMetricsRequest {
 	r.heroIds = &heroIds
 	return r
@@ -4767,13 +4767,13 @@ func (r ApiPlayerStatsMetricsRequest) MaxNetworth(maxNetworth int64) ApiPlayerSt
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiPlayerStatsMetricsRequest) MinAverageBadge(minAverageBadge int32) ApiPlayerStatsMetricsRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiPlayerStatsMetricsRequest) MaxAverageBadge(maxAverageBadge int32) ApiPlayerStatsMetricsRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -4797,13 +4797,13 @@ func (r ApiPlayerStatsMetricsRequest) MaxMatches(maxMatches int32) ApiPlayerStat
 	return r
 }
 
-// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiPlayerStatsMetricsRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerStatsMetricsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
-// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiPlayerStatsMetricsRequest) ExcludeItemIds(excludeItemIds []int32) ApiPlayerStatsMetricsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **builds** | **int** |  | 
-**item_id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+**item_id** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 
 ## Example
 

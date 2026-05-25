@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemIds** | **List&lt;int&gt;** | See more: &lt;https://assets.deadlock-api.com/v2/items&gt; | 
+**ItemIds** | **List&lt;int&gt;** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Losses** | **long** |  | 
 **Matches** | **long** |  | 
 **Wins** | **long** |  | 

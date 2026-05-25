@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BadgeDistribution {
-    /// The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "badge_level")]
     pub badge_level: u32,
     /// The total number of matches.

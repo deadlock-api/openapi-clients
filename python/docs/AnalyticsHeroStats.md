@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bucket** | **int** |  | 
-**hero_id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**hero_id** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **losses** | **int** |  | 
 **matches** | **int** |  | 
 **matches_per_bucket** | **int** |  | 

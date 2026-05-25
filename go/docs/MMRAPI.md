@@ -35,7 +35,7 @@ import (
 
 func main() {
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, Account IDs are in `SteamID3` format.
-	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -56,7 +56,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**heroId** | **int32** | The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**heroId** | **int32** | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 
@@ -108,7 +108,7 @@ import (
 )
 
 func main() {
-	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1777075200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -137,7 +137,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**heroId** | **int32** | The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**heroId** | **int32** | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 
@@ -197,7 +197,7 @@ import (
 
 func main() {
 	accountId := int32(56) // int32 | The players `SteamID3`
-	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://assets.deadlock-api.com/v2/heroes>
+	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
-**heroId** | **int32** | The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**heroId** | **int32** | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 

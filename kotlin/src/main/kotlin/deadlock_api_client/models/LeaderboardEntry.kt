@@ -32,12 +32,12 @@ import java.io.Serializable
  * 
  *
  * @param accountName The account name of the player.
- * @param badgeLevel The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param badgeLevel The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param possibleAccountIds The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
- * @param rank The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
- * @param rankedRank The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
- * @param rankedSubrank The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks>
- * @param topHeroIds The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param rank The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rankedRank The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rankedSubrank The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param topHeroIds The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  */
 
 
@@ -47,7 +47,7 @@ data class LeaderboardEntry (
     @Json(name = "account_name")
     val accountName: kotlin.String? = null,
 
-    /* The badge level of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge_level")
     val badgeLevel: kotlin.Int? = null,
 
@@ -55,19 +55,19 @@ data class LeaderboardEntry (
     @Json(name = "possible_account_ids")
     val possibleAccountIds: kotlin.collections.List<kotlin.Int>? = null,
 
-    /* The rank of the player (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "rank")
     val rank: kotlin.Int? = null,
 
-    /* The ranked rank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "ranked_rank")
     val rankedRank: kotlin.Int? = null,
 
-    /* The ranked subrank of the player. See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "ranked_subrank")
     val rankedSubrank: kotlin.Int? = null,
 
-    /* The top hero IDs of the player. See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "top_hero_ids")
     val topHeroIds: kotlin.collections.List<kotlin.Int>? = null
 

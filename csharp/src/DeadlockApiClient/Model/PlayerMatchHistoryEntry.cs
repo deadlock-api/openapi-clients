@@ -36,7 +36,7 @@ namespace DeadlockApiClient.Model
         /// <param name="accountId">accountId</param>
         /// <param name="denies">denies</param>
         /// <param name="gameMode">gameMode</param>
-        /// <param name="heroId">See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</param>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="heroLevel">heroLevel</param>
         /// <param name="lastHits">lastHits</param>
         /// <param name="matchDurationS">matchDurationS</param>
@@ -106,9 +106,9 @@ namespace DeadlockApiClient.Model
         public int GameMode { get; set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
         public int HeroId { get; set; }
 

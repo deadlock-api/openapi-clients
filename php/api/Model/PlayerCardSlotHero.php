@@ -328,7 +328,7 @@ class PlayerCardSlotHero implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets id
      *
-     * @param int|null $id See more: <https://assets.deadlock-api.com/v2/heroes>
+     * @param int|null $id See more: <https://api.deadlock-api.com/v1/assets/heroes>
      *
      * @return self
      */

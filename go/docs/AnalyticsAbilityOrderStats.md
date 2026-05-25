@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Abilities** | **[]int32** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**Abilities** | **[]int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Players** | **int64** |  | 

@@ -833,7 +833,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets hero_id
      *
-     * @param int $hero_id See more: <https://assets.deadlock-api.com/v2/heroes>
+     * @param int $hero_id See more: <https://api.deadlock-api.com/v1/assets/heroes>
      *
      * @return self
      */

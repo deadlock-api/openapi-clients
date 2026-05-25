@@ -36,7 +36,7 @@ import java.io.Serializable
  * @param avgSellTimeRelative Average sell time as percentage of match duration (for items that were sold)
  * @param avgSellTimeS Average sell time in seconds (absolute, for items that were sold)
  * @param bucket 
- * @param itemId See more: <https://assets.deadlock-api.com/v2/items>
+ * @param itemId See more: <https://api.deadlock-api.com/v1/assets/items>
  * @param losses 
  * @param matches 
  * @param players 
@@ -65,7 +65,7 @@ data class ItemStats (
     @Json(name = "bucket")
     val bucket: kotlin.Int,
 
-    /* See more: <https://assets.deadlock-api.com/v2/items> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/items> */
     @Json(name = "item_id")
     val itemId: kotlin.Int,
 

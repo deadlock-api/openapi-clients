@@ -26,7 +26,7 @@ pub struct LeaderboardParams {
 pub struct LeaderboardHeroParams {
     /// The region to fetch the leaderboard for.
     pub region: String,
-    /// The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32
 }
 
@@ -35,7 +35,7 @@ pub struct LeaderboardHeroParams {
 pub struct LeaderboardHeroRawParams {
     /// The region to fetch the leaderboard for.
     pub region: String,
-    /// The hero ID to fetch the leaderboard for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32
 }
 

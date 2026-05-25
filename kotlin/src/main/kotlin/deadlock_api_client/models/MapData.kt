@@ -41,7 +41,7 @@ import java.io.Serializable
  */
 
 
-data class Map (
+data class MapData (
 
     @Json(name = "images")
     val images: MapImages,

@@ -37,7 +37,7 @@ let language: number; //Filter builds by language. (optional) (default to undefi
 let buildLanguage: 'English' | 'German' | 'French' | 'Italian' | 'Korean' | 'SpanishSpain' | 'ChineseSimplified' | 'Russian' | 'Thai' | 'Japanese' | 'PortuguesePortugal' | 'Polish' | 'Czech' | 'Turkish' | 'PortugueseBrazil' | 'Ukrainian' | 'SpanishLatinAmerica' | 'Vietnamese'; //Filter builds by language. (optional) (default to undefined)
 let buildId: number; //Filter builds by ID. (optional) (default to undefined)
 let version: number; //Filter builds by version. (optional) (default to undefined)
-let heroId: number; //Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes> (optional) (default to undefined)
+let heroId: number; //Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional) (default to undefined)
 let tag: number; //Filter builds by tag. (optional) (default to undefined)
 let rollupCategory: number; //Filter builds by rollup category. (optional) (default to undefined)
 let authorId: number; //The author\'s `SteamID3` (optional) (default to undefined)
@@ -84,7 +84,7 @@ const { status, data } = await apiInstance.searchBuilds(
 | **buildLanguage** | [**&#39;English&#39; | &#39;German&#39; | &#39;French&#39; | &#39;Italian&#39; | &#39;Korean&#39; | &#39;SpanishSpain&#39; | &#39;ChineseSimplified&#39; | &#39;Russian&#39; | &#39;Thai&#39; | &#39;Japanese&#39; | &#39;PortuguesePortugal&#39; | &#39;Polish&#39; | &#39;Czech&#39; | &#39;Turkish&#39; | &#39;PortugueseBrazil&#39; | &#39;Ukrainian&#39; | &#39;SpanishLatinAmerica&#39; | &#39;Vietnamese&#39;**]**Array<&#39;English&#39; &#124; &#39;German&#39; &#124; &#39;French&#39; &#124; &#39;Italian&#39; &#124; &#39;Korean&#39; &#124; &#39;SpanishSpain&#39; &#124; &#39;ChineseSimplified&#39; &#124; &#39;Russian&#39; &#124; &#39;Thai&#39; &#124; &#39;Japanese&#39; &#124; &#39;PortuguesePortugal&#39; &#124; &#39;Polish&#39; &#124; &#39;Czech&#39; &#124; &#39;Turkish&#39; &#124; &#39;PortugueseBrazil&#39; &#124; &#39;Ukrainian&#39; &#124; &#39;SpanishLatinAmerica&#39; &#124; &#39;Vietnamese&#39;>** | Filter builds by language. | (optional) defaults to undefined|
 | **buildId** | [**number**] | Filter builds by ID. | (optional) defaults to undefined|
 | **version** | [**number**] | Filter builds by version. | (optional) defaults to undefined|
-| **heroId** | [**number**] | Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | (optional) defaults to undefined|
+| **heroId** | [**number**] | Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | (optional) defaults to undefined|
 | **tag** | [**number**] | Filter builds by tag. | (optional) defaults to undefined|
 | **rollupCategory** | [**number**] | Filter builds by rollup category. | (optional) defaults to undefined|
 | **authorId** | [**number**] | The author\&#39;s &#x60;SteamID3&#x60; | (optional) defaults to undefined|

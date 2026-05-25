@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetMapAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<Map>(model);
+            Assert.IsType<MapData>(model);
         }
     }
 }

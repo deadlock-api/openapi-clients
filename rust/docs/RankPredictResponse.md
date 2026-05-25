@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**badge** | **i32** | See more: <https://assets.deadlock-api.com/v2/ranks> | 
+**badge** | **i32** | See more: <https://api.deadlock-api.com/v1/assets/ranks> | 
 **raw_score** | **f32** | Calibrated model output (float index into badge space) | 
 **matches_used** | **u32** | Number of recent matches used for the prediction | 
 

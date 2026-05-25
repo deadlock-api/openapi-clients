@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param id See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param id See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param kills 
  * @param wins 
  */
@@ -39,7 +39,7 @@ import java.io.Serializable
 
 data class PlayerCardSlotHero (
 
-    /* See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "id")
     val id: kotlin.Int? = null,
 

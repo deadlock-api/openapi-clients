@@ -45,7 +45,7 @@ pub struct HeroStats {
     pub denies_per_min: f64,
     #[serde(rename = "ending_level")]
     pub ending_level: f64,
-    /// See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
     #[serde(rename = "kills")]

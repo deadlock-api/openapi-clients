@@ -147,7 +147,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new LootEntryJsonConverter());
             _jsonOptions.Converters.Add(new LootTableJsonConverter());
             _jsonOptions.Converters.Add(new MMRHistoryJsonConverter());
-            _jsonOptions.Converters.Add(new MapJsonConverter());
+            _jsonOptions.Converters.Add(new MapDataJsonConverter());
             _jsonOptions.Converters.Add(new MapImagesJsonConverter());
             _jsonOptions.Converters.Add(new MatchPlayerJsonConverter());
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());

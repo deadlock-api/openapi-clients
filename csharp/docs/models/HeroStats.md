@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **DeniesPerMatch** | **double** |  | 
 **DeniesPerMin** | **double** |  | 
 **EndingLevel** | **double** |  | 
-**HeroId** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**HeroId** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Kills** | **long** |  | 
 **KillsPerMin** | **double** |  | 
 **LastHitsPerMin** | **double** |  | 

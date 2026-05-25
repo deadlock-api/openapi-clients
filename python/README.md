@@ -305,7 +305,7 @@ Class | Method | HTTP request | Description
  - [LootEntry](docs/LootEntry.md)
  - [LootTable](docs/LootTable.md)
  - [MMRHistory](docs/MMRHistory.md)
- - [Map](docs/Map.md)
+ - [MapData](docs/MapData.md)
  - [MapImages](docs/MapImages.md)
  - [MatchPlayer](docs/MatchPlayer.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)

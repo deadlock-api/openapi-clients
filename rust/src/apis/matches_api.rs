@@ -60,9 +60,9 @@ pub struct BulkMetadataParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -76,7 +76,7 @@ pub struct BulkMetadataParams {
     pub is_new_player_pool: Option<bool>,
     /// Filter matches by account IDs of players that participated in the match.
     pub account_ids: Option<Vec<u32>>,
-    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<String>,
     /// Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
     pub item_filter_hero_id: Option<u32>,

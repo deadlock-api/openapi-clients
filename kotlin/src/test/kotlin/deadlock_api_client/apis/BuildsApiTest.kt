@@ -52,7 +52,7 @@ class BuildsApiTest : ShouldSpec() {
             //val buildLanguage : kotlin.String = buildLanguage_example // kotlin.String | Filter builds by language.
             //val buildId : kotlin.Int = 56 // kotlin.Int | Filter builds by ID.
             //val version : kotlin.Int = 56 // kotlin.Int | Filter builds by version.
-            //val heroId : kotlin.Int = 56 // kotlin.Int | Filter builds by hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+            //val heroId : kotlin.Int = 56 // kotlin.Int | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val tag : kotlin.Int = 56 // kotlin.Int | Filter builds by tag.
             //val rollupCategory : kotlin.Int = 56 // kotlin.Int | Filter builds by rollup category.
             //val authorId : kotlin.Int = 56 // kotlin.Int | The author's `SteamID3`

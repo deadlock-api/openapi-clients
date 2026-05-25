@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountName** | Pointer to **NullableString** | The account name of the player. | [optional] 
-**BadgeLevel** | Pointer to **NullableInt32** | The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
+**BadgeLevel** | Pointer to **NullableInt32** | The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **PossibleAccountIds** | Pointer to **[]int32** | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | [optional] 
-**Rank** | Pointer to **NullableInt32** | The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
-**RankedRank** | Pointer to **NullableInt32** | The ranked rank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
-**RankedSubrank** | Pointer to **NullableInt32** | The ranked subrank of the player. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] 
-**TopHeroIds** | Pointer to **[]int32** | The top hero IDs of the player. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional] 
+**Rank** | Pointer to **NullableInt32** | The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**RankedRank** | Pointer to **NullableInt32** | The ranked rank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**RankedSubrank** | Pointer to **NullableInt32** | The ranked subrank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**TopHeroIds** | Pointer to **[]int32** | The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 
 ## Methods
 

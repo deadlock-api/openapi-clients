@@ -1,4 +1,4 @@
-# Map
+# MapData
 
 ## Properties
 

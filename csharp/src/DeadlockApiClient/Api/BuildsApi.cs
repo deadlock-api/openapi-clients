@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>
         /// <param name="version">Filter builds by version. (optional)</param>
-        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)</param>
+        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="tag">Filter builds by tag. (optional)</param>
         /// <param name="rollupCategory">Filter builds by rollup category. (optional)</param>
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>
@@ -88,7 +88,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>
         /// <param name="version">Filter builds by version. (optional)</param>
-        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)</param>
+        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="tag">Filter builds by tag. (optional)</param>
         /// <param name="rollupCategory">Filter builds by rollup category. (optional)</param>
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>
@@ -365,7 +365,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>
         /// <param name="version">Filter builds by version. (optional)</param>
-        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)</param>
+        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="tag">Filter builds by tag. (optional)</param>
         /// <param name="rollupCategory">Filter builds by rollup category. (optional)</param>
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>
@@ -402,7 +402,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>
         /// <param name="version">Filter builds by version. (optional)</param>
-        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; (optional)</param>
+        /// <param name="heroId">Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="tag">Filter builds by tag. (optional)</param>
         /// <param name="rollupCategory">Filter builds by rollup category. (optional)</param>
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>

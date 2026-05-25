@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **details** | [**BuildHeroDetails**](BuildHeroDetails.md) |  | 
 **development_build** | **bool** |  | [optional] 
 **hero_build_id** | **int** |  | 
-**hero_id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | 
+**hero_id** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **language** | **int** |  | 
 **last_updated_timestamp** | **int** |  | [optional] 
 **name** | **str** |  | 

@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 from pydantic import Field
 from typing import Optional
 from typing_extensions import Annotated
-from deadlock_api_client.models.map import Map
+from deadlock_api_client.models.map_data import MapData
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
 from deadlock_api_client.api_response import ApiResponse
@@ -54,7 +54,7 @@ class MapApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Map:
+    ) -> MapData:
         """Map
 
         Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
@@ -92,7 +92,7 @@ class MapApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Map",
+            '200': "MapData",
             '404': None,
             '500': None,
         }
@@ -123,7 +123,7 @@ class MapApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Map]:
+    ) -> ApiResponse[MapData]:
         """Map
 
         Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
@@ -161,7 +161,7 @@ class MapApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Map",
+            '200': "MapData",
             '404': None,
             '500': None,
         }
@@ -230,7 +230,7 @@ class MapApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Map",
+            '200': "MapData",
             '404': None,
             '500': None,
         }

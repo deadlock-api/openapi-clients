@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="avgSellTimeRelative">Average sell time as percentage of match duration (for items that were sold)</param>
         /// <param name="avgSellTimeS">Average sell time in seconds (absolute, for items that were sold)</param>
         /// <param name="bucket">bucket</param>
-        /// <param name="itemId">See more: &lt;https://assets.deadlock-api.com/v2/items&gt;</param>
+        /// <param name="itemId">See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</param>
         /// <param name="losses">losses</param>
         /// <param name="matches">matches</param>
         /// <param name="players">players</param>
@@ -96,9 +96,9 @@ namespace DeadlockApiClient.Model
         public int Bucket { get; set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/items&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</value>
         [JsonPropertyName("item_id")]
         public int ItemId { get; set; }
 

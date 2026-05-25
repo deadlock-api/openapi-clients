@@ -17,7 +17,7 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`ability_order_stats`]
 #[derive(Clone, Debug)]
 pub struct AbilityOrderStatsParams {
-    /// See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
@@ -37,9 +37,9 @@ pub struct AbilityOrderStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -51,9 +51,9 @@ pub struct AbilityOrderStatsParams {
     pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
     pub account_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub exclude_item_ids: Option<Vec<u32>>
 }
 
@@ -85,7 +85,7 @@ pub struct BadgeDistributionParams {
 /// struct for passing parameters to the method [`build_item_stats`]
 #[derive(Clone, Debug)]
 pub struct BuildItemStatsParams {
-    /// Filter builds based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: Option<u32>,
     /// Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
     pub min_last_updated_unix_timestamp: Option<i64>,
@@ -108,9 +108,9 @@ pub struct GameStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -131,9 +131,9 @@ pub struct HeroBanStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -144,7 +144,7 @@ pub struct HeroBanStatsParams {
 /// struct for passing parameters to the method [`hero_build_stats`]
 #[derive(Clone, Debug)]
 pub struct HeroBuildStatsParams {
-    /// The hero ID to fetch build stats for. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
     pub min_unix_timestamp: Option<i64>,
@@ -154,9 +154,9 @@ pub struct HeroBuildStatsParams {
     pub min_duration_s: Option<u64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
     pub max_duration_s: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -189,21 +189,21 @@ pub struct HeroCombStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// Comma separated list of hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub include_hero_ids: Option<Vec<u32>>,
-    /// Comma separated list of hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub exclude_hero_ids: Option<Vec<u32>>,
-    /// Comma separated list of enemy hero ids to include. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub include_enemy_hero_ids: Option<Vec<u32>>,
-    /// Comma separated list of enemy hero ids to exclude. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub exclude_enemy_hero_ids: Option<Vec<u32>>,
     /// The minimum number of matches played for a hero combination to be included in the response.
     pub min_matches: Option<u32>,
@@ -238,9 +238,9 @@ pub struct HeroCountersStatsParams {
     pub min_enemy_networth: Option<u64>,
     /// Filter enemy players based on their net worth.
     pub max_enemy_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -281,9 +281,9 @@ pub struct HeroScoreboardParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -314,9 +314,9 @@ pub struct HeroStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -330,9 +330,9 @@ pub struct HeroStatsParams {
     pub min_hero_matches_total: Option<u64>,
     /// Filter players based on the number of matches they have played with a specific hero in their entire history.
     pub max_hero_matches_total: Option<u64>,
-    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub exclude_item_ids: Option<Vec<u32>>,
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
@@ -357,9 +357,9 @@ pub struct HeroSynergiesStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -380,15 +380,15 @@ pub struct HeroSynergiesStatsParams {
 /// struct for passing parameters to the method [`item_permutation_stats`]
 #[derive(Clone, Debug)]
 pub struct ItemPermutationStatsParams {
-    /// Comma separated list of item ids. See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
     pub item_ids: Option<Vec<u32>>,
     /// The combination size to return.
     pub comb_size: Option<u32>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
-    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<String>,
-    /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: Option<u32>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
     pub min_unix_timestamp: Option<i64>,
@@ -402,9 +402,9 @@ pub struct ItemPermutationStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -423,11 +423,11 @@ pub struct ItemStatsParams {
     pub bucket: Option<String>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
-    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<String>,
-    /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: Option<u32>,
-    /// Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub enemy_hero_ids: Option<String>,
     /// When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset.
     pub enemy_hero_ids_all_match: Option<bool>,
@@ -449,17 +449,17 @@ pub struct ItemStatsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// Comma separated list of item ids to include. See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude. See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
     pub exclude_item_ids: Option<Vec<u32>>,
     /// The minimum number of matches played for an item to be included in the response.
     pub min_matches: Option<u32>,
@@ -492,7 +492,7 @@ pub struct KillDeathStatsParams {
     pub max_duration_s: Option<u64>,
     /// Filter matches by account IDs of players that participated in the match.
     pub account_ids: Option<Vec<u32>>,
-    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<String>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
@@ -508,9 +508,9 @@ pub struct KillDeathStatsParams {
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter Raster cells based on minimum kills.
     pub min_kills_per_raster: Option<u32>,
@@ -545,19 +545,19 @@ pub struct PlayerPerformanceCurveParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<String>,
-    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub exclude_item_ids: Option<Vec<u32>>,
     /// Comma separated list of account ids to include
     pub account_ids: Option<Vec<u32>>
@@ -572,7 +572,7 @@ pub struct PlayerScoreboardParams {
     pub sort_direction: Option<String>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
-    /// Filter matches based on the hero ID. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: Option<u32>,
     /// The minimum number of matches played for a player to be included in the scoreboard.
     pub min_matches: Option<u32>,
@@ -590,9 +590,9 @@ pub struct PlayerScoreboardParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -609,7 +609,7 @@ pub struct PlayerScoreboardParams {
 /// struct for passing parameters to the method [`player_stats_metrics`]
 #[derive(Clone, Debug)]
 pub struct PlayerStatsMetricsParams {
-    /// Filter matches based on the hero IDs. See more: <https://assets.deadlock-api.com/v2/heroes>
+    /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<String>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
@@ -625,9 +625,9 @@ pub struct PlayerStatsMetricsParams {
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
     pub max_networth: Option<u64>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
-    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub max_average_badge: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
@@ -635,9 +635,9 @@ pub struct PlayerStatsMetricsParams {
     pub max_match_id: Option<u64>,
     /// The maximum number of matches to analyze.
     pub max_matches: Option<u32>,
-    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
-    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://assets.deadlock-api.com/v2/items>
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub exclude_item_ids: Option<Vec<u32>>,
     /// Comma separated list of account ids to include
     pub account_ids: Option<Vec<u32>>

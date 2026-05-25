@@ -243,7 +243,7 @@ Class | Method | HTTP request | Description
  - [LiveUrl](docs/LiveUrl.md)
  - [LootEntry](docs/LootEntry.md)
  - [LootTable](docs/LootTable.md)
- - [Map](docs/Map.md)
+ - [MapData](docs/MapData.md)
  - [MapImages](docs/MapImages.md)
  - [MatchPlayer](docs/MatchPlayer.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)

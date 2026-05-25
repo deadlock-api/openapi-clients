@@ -33,7 +33,7 @@ pub enum GetMapError {
 
 
 /// Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
-pub async fn get_map(configuration: &configuration::Configuration, params: GetMapParams) -> Result<models::Map, Error<GetMapError>> {
+pub async fn get_map(configuration: &configuration::Configuration, params: GetMapParams) -> Result<models::MapData, Error<GetMapError>> {
 
     let uri_str = format!("{}/v1/assets/map", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -60,8 +60,8 @@ pub async fn get_map(configuration: &configuration::Configuration, params: GetMa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Map`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Map`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MapData`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MapData`")))),
         }
     } else {
         let content = resp.text().await?;

@@ -13,10 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClickhouseMatchInfo {
-    /// See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "average_badge_team0", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub average_badge_team0: Option<Option<u32>>,
-    /// See more: <https://assets.deadlock-api.com/v2/ranks>
+    /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "average_badge_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub average_badge_team1: Option<Option<u32>>,
     #[serde(rename = "duration_s")]

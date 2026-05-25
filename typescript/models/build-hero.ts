@@ -24,7 +24,7 @@ export interface BuildHero {
     'development_build'?: boolean | null;
     'hero_build_id': number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
     'language': number;

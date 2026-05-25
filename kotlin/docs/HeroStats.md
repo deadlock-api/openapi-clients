@@ -20,7 +20,7 @@
 | **deniesPerMatch** | **kotlin.Double** |  |  |
 | **deniesPerMin** | **kotlin.Double** |  |  |
 | **endingLevel** | **kotlin.Double** |  |  |
-| **heroId** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **heroId** | **kotlin.Int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **kills** | **kotlin.Long** |  |  |
 | **killsPerMin** | **kotlin.Double** |  |  |
 | **lastHitsPerMin** | **kotlin.Double** |  |  |

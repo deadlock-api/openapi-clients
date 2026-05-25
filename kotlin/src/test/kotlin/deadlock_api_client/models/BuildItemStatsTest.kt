@@ -39,7 +39,7 @@ class BuildItemStatsTest : ShouldSpec() {
             //modelInstance.builds shouldBe ("TODO")
         }
 
-        // to test the property `itemId` - See more: <https://assets.deadlock-api.com/v2/items>
+        // to test the property `itemId` - See more: <https://api.deadlock-api.com/v1/assets/items>
         should("test itemId") {
             // uncomment below to test the property
             //modelInstance.itemId shouldBe ("TODO")

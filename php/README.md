@@ -290,7 +290,7 @@ Class | Method | HTTP request | Description
 - [LootEntry](docs/Model/LootEntry.md)
 - [LootTable](docs/Model/LootTable.md)
 - [MMRHistory](docs/Model/MMRHistory.md)
-- [Map](docs/Model/Map.md)
+- [MapData](docs/Model/MapData.md)
 - [MapImages](docs/Model/MapImages.md)
 - [MatchPlayer](docs/Model/MatchPlayer.md)
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)

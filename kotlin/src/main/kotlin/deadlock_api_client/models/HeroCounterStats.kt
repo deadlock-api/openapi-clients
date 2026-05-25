@@ -39,12 +39,12 @@ import java.io.Serializable
  * @param enemyCreeps The number of creeps killed by `enemy_hero_id` when facing `hero_id`.
  * @param enemyDeaths The number of deaths by `enemy_hero_id` when facing `hero_id`.
  * @param enemyDenies The number of denies by `enemy_hero_id` when facing `hero_id`.
- * @param enemyHeroId The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param enemyHeroId The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param enemyKills The number of kills by `enemy_hero_id` when facing `hero_id`.
  * @param enemyLastHits The number of last hits by `enemy_hero_id` when facing `hero_id`.
  * @param enemyNetworth The net worth of `enemy_hero_id` when facing `hero_id`.
  * @param enemyObjDamage The amount of objective damage dealt by `enemy_hero_id` when facing `hero_id`.
- * @param heroId The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+ * @param heroId The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param kills The number of kills by `hero_id` when facing `enemy_hero_id`.
  * @param lastHits The number of last hits by `hero_id` when facing `enemy_hero_id`.
  * @param matchesPlayed The total number of matches played between `hero_id` and `enemy_hero_id` that meet the filter criteria.
@@ -88,7 +88,7 @@ data class HeroCounterStats (
     @Json(name = "enemy_denies")
     val enemyDenies: kotlin.Long,
 
-    /* The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "enemy_hero_id")
     val enemyHeroId: kotlin.Int,
 
@@ -108,7 +108,7 @@ data class HeroCounterStats (
     @Json(name = "enemy_obj_damage")
     val enemyObjDamage: kotlin.Long,
 
-    /* The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes> */
+    /* The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
     val heroId: kotlin.Int,
 

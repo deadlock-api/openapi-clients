@@ -145,8 +145,8 @@ docs/LootTable.md
 docs/LootTablesAPI.md
 docs/MMRAPI.md
 docs/MMRHistory.md
-docs/Map.md
 docs/MapAPI.md
+docs/MapData.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -350,7 +350,7 @@ model_list_servers_response.go
 model_live_url.go
 model_loot_entry.go
 model_loot_table.go
-model_map.go
+model_map_data.go
 model_map_images.go
 model_match_player.go
 model_match_salts_response.go

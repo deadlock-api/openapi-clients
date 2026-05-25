@@ -81,7 +81,7 @@ class HeroCounterStatsTest : ShouldSpec() {
             //modelInstance.enemyDenies shouldBe ("TODO")
         }
 
-        // to test the property `enemyHeroId` - The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `enemyHeroId` - The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test enemyHeroId") {
             // uncomment below to test the property
             //modelInstance.enemyHeroId shouldBe ("TODO")
@@ -111,7 +111,7 @@ class HeroCounterStatsTest : ShouldSpec() {
             //modelInstance.enemyObjDamage shouldBe ("TODO")
         }
 
-        // to test the property `heroId` - The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+        // to test the property `heroId` - The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test heroId") {
             // uncomment below to test the property
             //modelInstance.heroId shouldBe ("TODO")

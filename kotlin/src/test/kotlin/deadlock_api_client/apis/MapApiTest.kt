@@ -27,7 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.MapApi
-import deadlock_api_client.models.Map
+import deadlock_api_client.models.MapData
 
 class MapApiTest : ShouldSpec() {
     init {
@@ -38,7 +38,7 @@ class MapApiTest : ShouldSpec() {
         should("test getMap") {
             // uncomment below to test getMap
             //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
-            //val result : Map = apiInstance.getMap(clientVersion)
+            //val result : MapData = apiInstance.getMap(clientVersion)
             //result shouldBe ("TODO")
         }
 

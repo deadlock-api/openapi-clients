@@ -559,7 +559,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets item_id
      *
-     * @param int $item_id See more: <https://assets.deadlock-api.com/v2/items>
+     * @param int $item_id See more: <https://api.deadlock-api.com/v1/assets/items>
      *
      * @return self
      */

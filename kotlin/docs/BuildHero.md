@@ -7,7 +7,7 @@
 | **authorAccountId** | **kotlin.Int** |  |  |
 | **details** | [**BuildHeroDetails**](BuildHeroDetails.md) |  |  |
 | **heroBuildId** | **kotlin.Int** |  |  |
-| **heroId** | **kotlin.Int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |  |
+| **heroId** | **kotlin.Int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **language** | **kotlin.Int** |  |  |
 | **name** | **kotlin.String** |  |  |
 | **originBuildId** | **kotlin.Int** |  |  |

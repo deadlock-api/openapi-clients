@@ -32,7 +32,7 @@ export interface HeroStats {
     'denies_per_min': number;
     'ending_level': number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
     'kills': number;

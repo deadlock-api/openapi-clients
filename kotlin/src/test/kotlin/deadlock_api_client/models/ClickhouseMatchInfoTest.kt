@@ -70,13 +70,13 @@ class ClickhouseMatchInfoTest : ShouldSpec() {
             //modelInstance.startTime shouldBe ("TODO")
         }
 
-        // to test the property `averageBadgeTeam0` - See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `averageBadgeTeam0` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test averageBadgeTeam0") {
             // uncomment below to test the property
             //modelInstance.averageBadgeTeam0 shouldBe ("TODO")
         }
 
-        // to test the property `averageBadgeTeam1` - See more: <https://assets.deadlock-api.com/v2/ranks>
+        // to test the property `averageBadgeTeam1` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test averageBadgeTeam1") {
             // uncomment below to test the property
             //modelInstance.averageBadgeTeam1 shouldBe ("TODO")

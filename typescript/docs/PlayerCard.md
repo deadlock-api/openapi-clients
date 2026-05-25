@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | **number** |  | [default to undefined]
-**ranked_badge_level** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] [default to undefined]
-**ranked_rank** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] [default to undefined]
-**ranked_subrank** | **number** | See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt; | [optional] [default to undefined]
+**ranked_badge_level** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
+**ranked_rank** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
+**ranked_subrank** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
 **slots** | [**Array&lt;PlayerCardSlot&gt;**](PlayerCardSlot.md) |  | [default to undefined]
 
 ## Example

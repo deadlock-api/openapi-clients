@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **denies_per_match** | **float** |  |
 **denies_per_min** | **float** |  |
 **ending_level** | **float** |  |
-**hero_id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; |
+**hero_id** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |
 **kills** | **int** |  |
 **kills_per_min** | **float** |  |
 **last_hits_per_min** | **float** |  |

@@ -421,13 +421,13 @@ func (r ApiBulkMetadataRequest) MaxDurationS(maxDurationS int64) ApiBulkMetadata
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiBulkMetadataRequest) MinAverageBadge(minAverageBadge int32) ApiBulkMetadataRequest {
 	r.minAverageBadge = &minAverageBadge
 	return r
 }
 
-// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
 func (r ApiBulkMetadataRequest) MaxAverageBadge(maxAverageBadge int32) ApiBulkMetadataRequest {
 	r.maxAverageBadge = &maxAverageBadge
 	return r
@@ -469,7 +469,7 @@ func (r ApiBulkMetadataRequest) AccountIds(accountIds []int32) ApiBulkMetadataRe
 	return r
 }
 
-// Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+// Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiBulkMetadataRequest) HeroIds(heroIds string) ApiBulkMetadataRequest {
 	r.heroIds = &heroIds
 	return r

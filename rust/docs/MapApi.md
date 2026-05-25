@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## get_map
 
-> models::Map get_map(client_version)
+> models::MapData get_map(client_version)
 Map
 
 Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
@@ -24,7 +24,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::Map**](Map.md)
+[**models::MapData**](MapData.md)
 
 ### Authorization
 

@@ -39,8 +39,8 @@ namespace DeadlockApiClient.Model
         /// <param name="matchMode">matchMode</param>
         /// <param name="players">players</param>
         /// <param name="startTime">startTime</param>
-        /// <param name="averageBadgeTeam0">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
-        /// <param name="averageBadgeTeam1">See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</param>
+        /// <param name="averageBadgeTeam0">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="averageBadgeTeam1">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         [JsonConstructor]
         public ClickhouseMatchInfo(int durationS, int gameMode, long matchId, int matchMode, List<MatchPlayer> players, int startTime, Option<int?> averageBadgeTeam0 = default, Option<int?> averageBadgeTeam1 = default)
         {
@@ -101,9 +101,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> AverageBadgeTeam0Option { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("average_badge_team0")]
         public int? AverageBadgeTeam0 { get { return this.AverageBadgeTeam0Option.Value; } set { this.AverageBadgeTeam0Option = new(value); } }
 
@@ -115,9 +115,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> AverageBadgeTeam1Option { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("average_badge_team1")]
         public int? AverageBadgeTeam1 { get { return this.AverageBadgeTeam1Option.Value; } set { this.AverageBadgeTeam1Option = new(value); } }
 

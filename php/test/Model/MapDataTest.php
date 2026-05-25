@@ -1,6 +1,6 @@
 <?php
 /**
- * MapTest
+ * MapDataTest
  *
  * PHP version 8.1
  *
@@ -31,7 +31,7 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MapTest Class Doc Comment
+ * MapDataTest Class Doc Comment
  *
  * @category    Class
  * @description The &#x60;/v1/assets/map&#x60; response.
@@ -39,7 +39,7 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MapTest extends TestCase
+class MapDataTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class MapTest extends TestCase
     }
 
     /**
-     * Test "Map"
+     * Test "MapData"
      */
-    public function testMap()
+    public function testMapData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

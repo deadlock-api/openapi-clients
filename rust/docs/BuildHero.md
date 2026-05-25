@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **details** | [**models::BuildHeroDetails**](BuildHeroDetails.md) |  | 
 **development_build** | Option<**bool**> |  | [optional]
 **hero_build_id** | **u32** |  | 
-**hero_id** | **u32** | See more: <https://assets.deadlock-api.com/v2/heroes> | 
+**hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **language** | **u32** |  | 
 **last_updated_timestamp** | Option<**i64**> |  | [optional]
 **name** | **String** |  | 

@@ -33,7 +33,7 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPermutationStats" /> class.
         /// </summary>
-        /// <param name="itemIds">See more: &lt;https://assets.deadlock-api.com/v2/items&gt;</param>
+        /// <param name="itemIds">See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</param>
         /// <param name="losses">losses</param>
         /// <param name="matches">matches</param>
         /// <param name="wins">wins</param>
@@ -50,9 +50,9 @@ namespace DeadlockApiClient.Model
         partial void OnCreated();
 
         /// <summary>
-        /// See more: &lt;https://assets.deadlock-api.com/v2/items&gt;
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
         /// </summary>
-        /// <value>See more: &lt;https://assets.deadlock-api.com/v2/items&gt;</value>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</value>
         [JsonPropertyName("item_ids")]
         public List<int> ItemIds { get; set; }
 

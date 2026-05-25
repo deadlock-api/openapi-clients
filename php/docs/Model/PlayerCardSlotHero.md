@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+**id** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]
 **kills** | **int** |  | [optional]
 **wins** | **int** |  | [optional]
 

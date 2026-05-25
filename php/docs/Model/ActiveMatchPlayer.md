@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abandoned** | **bool** |  | [optional]
 **account_id** | **int** |  | [optional]
-**hero_id** | **int** | See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt; | [optional]
+**hero_id** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]
 **team** | **int** |  | [optional]
 **team_parsed** | [**\OpenAPI\Client\Model\ActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional]
 

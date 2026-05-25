@@ -1,5 +1,5 @@
 
-# Map
+# MapData
 
 ## Properties
 | Name | Type | Description | Notes |

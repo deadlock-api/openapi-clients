@@ -34,9 +34,9 @@ import java.io.Serializable
  *
  * @param accountId 
  * @param slots 
- * @param rankedBadgeLevel See more: <https://assets.deadlock-api.com/v2/ranks>
- * @param rankedRank See more: <https://assets.deadlock-api.com/v2/ranks>
- * @param rankedSubrank See more: <https://assets.deadlock-api.com/v2/ranks>
+ * @param rankedBadgeLevel See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rankedRank See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rankedSubrank See more: <https://api.deadlock-api.com/v1/assets/ranks>
  */
 
 
@@ -48,15 +48,15 @@ data class PlayerCard (
     @Json(name = "slots")
     val slots: kotlin.collections.List<PlayerCardSlot>,
 
-    /* See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "ranked_badge_level")
     val rankedBadgeLevel: kotlin.Int? = null,
 
-    /* See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "ranked_rank")
     val rankedRank: kotlin.Int? = null,
 
-    /* See more: <https://assets.deadlock-api.com/v2/ranks> */
+    /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "ranked_subrank")
     val rankedSubrank: kotlin.Int? = null
 
