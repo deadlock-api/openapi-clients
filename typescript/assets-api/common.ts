@@ -119,9 +119,35 @@ export const toPathString = function (url: URL) {
     return url.pathname + url.search + url.hash
 }
 
+const ASSETS_API_BASE_PATH = "https://assets.deadlock-api.com";
+const CANONICAL_VERSIONED_ASSETS_API_BASE_PATH = "https://api.deadlock-api.com/v1/assets";
+
+function normalizeBasePath(basePath?: string) {
+    return (basePath ?? "").replace(/\/+$/, "");
+}
+
+function createRequestUrl(axios: AxiosInstance, requestPath: string, configuredBasePath: string) {
+    const axiosBasePath = typeof axios.defaults.baseURL === "string" ? normalizeBasePath(axios.defaults.baseURL) : "";
+    const normalizedConfiguredBasePath = normalizeBasePath(configuredBasePath);
+    const effectiveBasePath = axiosBasePath || normalizedConfiguredBasePath;
+
+    if (requestPath.startsWith("/v2/")) {
+        const canonicalPath = requestPath.slice("/v2".length);
+        if (effectiveBasePath === ASSETS_API_BASE_PATH) {
+            return `${CANONICAL_VERSIONED_ASSETS_API_BASE_PATH}${canonicalPath}`;
+        }
+        if (effectiveBasePath === CANONICAL_VERSIONED_ASSETS_API_BASE_PATH) {
+            return axiosBasePath ? canonicalPath : `${normalizedConfiguredBasePath}${canonicalPath}`;
+        }
+    }
+
+    return `${axiosBasePath ? "" : configuredBasePath}${requestPath}`;
+}
+
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        const axiosRequestArgs = {...axiosArgs.options, url: (axios.defaults.baseURL ? '' : configuration?.basePath ?? basePath) + axiosArgs.url};
+        const configuredBasePath = configuration?.basePath ?? basePath;
+        const axiosRequestArgs = {...axiosArgs.options, url: createRequestUrl(axios, axiosArgs.url, configuredBasePath)};
         return axios.request<T, R>(axiosRequestArgs);
     };
 }
