@@ -1,35 +1,19 @@
 # Deadlock API Client Libraries
 
-This repository contains the generated API client libraries for the Deadlock API and Deadlock Assets API. The clients are available in multiple languages and are automatically generated from our OpenAPI specifications.
+This repository contains the generated API client libraries for the Deadlock API. The clients are available in multiple languages and are automatically generated from our OpenAPI specification.
 
 ## Available Clients
 
-The clients are organized by language and API:
+The clients are organized by language:
 
--   **Python**:
-    -   `python/api`: Client for the main Deadlock API.
-    -   `python/assets-api`: Client for the Deadlock Assets API.
--   **Rust**:
-    -   `rust/api`: Client for the main Deadlock API.
-    -   `rust/assets-api`: Client for the Deadlock Assets API.
--   **TypeScript**:
-    -   `typescript/api`: Client for the main Deadlock API.
-    -   `typescript/assets-api`: Client for the Deadlock Assets API.
--   **TypeScript Redux Query**:
-    -   `typescript-redux-query/api`: Client for the main Deadlock API.
-    -   `typescript-redux-query/assets-api`: Client for the Deadlock Assets API.
--   **Kotlin & Java**:
-    -   `kotlin/api`: Client for the main Deadlock API.
-    -   `kotlin/assets-api`: Client for the Deadlock Assets API.
--   **Go**:
-    -   `go/api`: Client for the main Deadlock API.
-    -   `go/assets-api`: Client for the Deadlock Assets API.
--   **PHP**:
-    -   `php/api`: Client for the main Deadlock API.
-    -   `php/assets-api`: Client for the Deadlock Assets API.
--   **C#**:
-    -   `csharp/api`: Client for the main Deadlock API.
-    -   `csharp/assets-api`: Client for the Deadlock Assets API.
+-   **Python**: `python/` — Client for the Deadlock API.
+-   **Rust**: `rust/` — Client for the Deadlock API.
+-   **TypeScript**: `typescript/` — Client for the Deadlock API.
+-   **TypeScript Redux Query**: `typescript-redux-query/` — Client for the Deadlock API.
+-   **Kotlin & Java**: `kotlin/` — Client for the Deadlock API.
+-   **Go**: `go/` — Client for the Deadlock API.
+-   **PHP**: `php/` — Client for the Deadlock API.
+-   **C#**: `csharp/` — Client for the Deadlock API.
 
 ## Installation from GitHub
 
@@ -37,157 +21,90 @@ You can install the clients directly from this GitHub repository.
 
 ### Rust
 
-Use `cargo` to add the clients to your project:
+Use `cargo` to add the client to your project:
 
--   **API Client:**
-    ```bash
-    cargo add --git https://github.com/deadlock-api/openapi-clients deadlock-api-client
-    ```
--   **Assets API Client:**
-    ```bash
-    cargo add --git https://github.com/deadlock-api/openapi-clients assets-deadlock-api-client
-    ```
+```bash
+cargo add --git https://github.com/deadlock-api/openapi-clients deadlock-api-client
+```
 
 ### Python
 
-Use `pip`, `poetry`, or `uv` to install the clients:
+Use `pip`, `poetry`, or `uv` to install the client:
 
--   **API Client:**
-    ```bash
-    # pip
-    pip install git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/api
+```bash
+# pip
+pip install git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python
 
-    # poetry
-    poetry add git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/api
+# poetry
+poetry add git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python
 
-    # uv
-    uv add git+https://github.com/deadlock-api/openapi-clients#subdirectory=python/api
-    ```
--   **Assets API Client:**
-    ```bash
-    # pip
-    pip install git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/assets-api
-
-    # poetry
-    poetry add git+https://github.com/deadlock-api/openapi-clients.git#subdirectory=python/assets-api
-
-    # uv
-    uv add git+https://github.com/deadlock-api/openapi-clients#subdirectory=python/assets-api
-    ```
+# uv
+uv add git+https://github.com/deadlock-api/openapi-clients#subdirectory=python
+```
 
 ### TypeScript
 
-Use `npm`, `yarn`, `pnpm`, or `bun` to install the clients:
+Use `npm`, `yarn`, `pnpm`, or `bun` to install the client:
 
--   **API Client:**
-    ```bash
-    # npm
-    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/api?master'
+```bash
+# npm
+npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript?master'
 
-    # yarn
-    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/api?master'
+# yarn
+yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript?master'
 
-    # pnpm
-    pnpm add github:deadlock-api/openapi-clients#path:/typescript/api
-    ```
--   **Assets API Client:**
-    ```bash
-    # npm
-    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/assets-api?master'
-
-    # yarn
-    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript/assets-api?master'
-
-    # pnpm
-    pnpm add github:deadlock-api/openapi-clients#path:/typescript/assets-api
-    ```
+# pnpm
+pnpm add github:deadlock-api/openapi-clients#path:/typescript
+```
 
 ### TypeScript Redux Query
 
-Use `npm`, `yarn`, `pnpm`, or `bun` to install the clients:
+Use `npm`, `yarn`, `pnpm`, or `bun` to install the client:
 
--   **API Client:**
-    ```bash
-    # npm
-    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/api?master'
+```bash
+# npm
+npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query?master'
 
-    # yarn
-    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/api?master'
+# yarn
+yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query?master'
 
-    # pnpm
-    pnpm add github:deadlock-api/openapi-clients#path:/typescript-redux-query/api
-    ```
--   **Assets API Client:**
-    ```bash
-    # npm
-    npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/assets-api?master'
-
-    # yarn
-    yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redux-query/assets-api?master'
-
-    # pnpm
-    pnpm add github:deadlock-api/openapi-clients#path:/typescript-redux-query/assets-api
-    ```
+# pnpm
+pnpm add github:deadlock-api/openapi-clients#path:/typescript-redux-query
+```
 
 ### Kotlin & Java
 
-Use `gradle` or `maven` to install the clients:
+Use `gradle` or `maven` to install the client:
 
--   **API Client:**
-    ```bash
-    # settings.gradle
-    sourceControl {
-        gitRepository(url = "https://github.com/deadlock-api/openapi-clients") {
-            producesModule("com.deadlock-api:deadlock-api-client")
-            rootDir = "kotlin/api"
-        }
+```bash
+# settings.gradle
+sourceControl {
+    gitRepository(url = "https://github.com/deadlock-api/openapi-clients") {
+        producesModule("com.deadlock-api:deadlock-api-client")
+        rootDir = "kotlin"
     }
-    
-    # build.gradle
-    implementation 'com.deadlock-api:deadlock-api-client:0.1.0'
-    ```
-    
--   **Assets API Client:**
-    ```bash
-    # settings.gradle
-    sourceControl {
-        gitRepository(url = "https://github.com/deadlock-api/openapi-clients") {
-            producesModule("com.deadlock-api:assets-deadlock-api-client")
-            rootDir = "kotlin/assets-api"
-        }
-    }
-    
-    # build.gradle
-    implementation 'com.deadlock-api:assets-deadlock-api-client:0.1.0'
-    ```
+}
+
+# build.gradle
+implementation 'com.deadlock-api:deadlock-api-client:0.1.0'
+```
 
 ### Go
 
-Use `go get` to install the clients:
+Use `go get` to install the client:
 
--   **API Client:**
-    ```bash
-    go get github.com/deadlock-api/openapi-clients/go/api
-    ```
--   **Assets API Client:**
-    ```bash
-    go get github.com/deadlock-api/openapi-clients/go/assets-api
-    ```
+```bash
+go get github.com/deadlock-api/openapi-clients/go
+```
 
 ### C#
 
 Clone the repository and add a project reference:
 
--   **API Client:**
-    ```bash
-    git clone https://github.com/deadlock-api/openapi-clients.git
-    dotnet add reference openapi-clients/csharp/api/src/DeadlockApiClient/DeadlockApiClient.csproj
-    ```
--   **Assets API Client:**
-    ```bash
-    git clone https://github.com/deadlock-api/openapi-clients.git
-    dotnet add reference openapi-clients/csharp/assets-api/src/AssetsDeadlockApiClient/AssetsDeadlockApiClient.csproj
-    ```
+```bash
+git clone https://github.com/deadlock-api/openapi-clients.git
+dotnet add reference openapi-clients/csharp/src/DeadlockApiClient/DeadlockApiClient.csproj
+```
 
 ## Usage
 
@@ -213,7 +130,6 @@ You can regenerate the clients manually using the provided `Makefile`:
     make typescript
     make typescript-redux-query
     make kotlin
-    make java
     make go
     make php
     make csharp
@@ -224,13 +140,12 @@ You can regenerate the clients manually using the provided `Makefile`:
     make clean
     ```
 
-The generation scripts fetch the latest OpenAPI specifications from:
+The generation scripts fetch the latest OpenAPI specification from:
 -   `https://api.deadlock-api.com/openapi.json`
--   `https://assets.deadlock-api.com/openapi.json`
 
 ### Automated Updates
 
-A GitHub Actions workflow, defined in `.github/workflows/update-clients.yml`, automatically runs `make all` every day at midnight UTC. It will commit and push any changes to the `master` branch. This ensures the clients are always up-to-date with the latest API specifications. The workflow can also be triggered manually.
+A GitHub Actions workflow, defined in `.github/workflows/update-clients.yml`, automatically runs `make all` every day at midnight UTC. It will commit and push any changes to the `master` branch. This ensures the clients are always up-to-date with the latest API specification. The workflow can also be triggered manually.
 
 ## Contributing
 

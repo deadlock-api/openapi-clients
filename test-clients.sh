@@ -40,10 +40,9 @@ print_status() {
 # Function to test a client
 test_client() {
     local language=$1
-    local api_type=$2
-    local client_path="${language}/${api_type}"
-    
-    print_status "INFO" "Testing ${language} ${api_type} client..."
+    local client_path="${language}"
+
+    print_status "INFO" "Testing ${language} client..."
     
     if [ ! -d "$client_path" ]; then
         print_status "WARNING" "Directory $client_path does not exist, skipping..."
@@ -78,11 +77,11 @@ test_client() {
     
     local result=$?
     if [ $result -eq 0 ]; then
-        print_status "SUCCESS" "${language} ${api_type} client test passed"
-        PASSED_TESTS+=("${language}/${api_type}")
+        print_status "SUCCESS" "${language} client test passed"
+        PASSED_TESTS+=("${language}")
     else
-        print_status "ERROR" "${language} ${api_type} client test failed"
-        FAILED_TESTS+=("${language}/${api_type}")
+        print_status "ERROR" "${language} client test failed"
+        FAILED_TESTS+=("${language}")
     fi
     
     return $result
@@ -97,8 +96,7 @@ test_python_client() {
         set -e
         pip install --quiet --upgrade pip setuptools wheel
         pip install --quiet .
-        python -c 'import deadlock_api_client; print(\"Python client imported successfully\")' || \
-        python -c 'import assets_deadlock_api_client; print(\"Python assets client imported successfully\")'
+        python -c 'import deadlock_api_client; print(\"Python client imported successfully\")'
     "
 }
 
@@ -196,14 +194,10 @@ main() {
     # Test all client packages
     # Note: jetbrains-client is excluded as it's HTTP client files, not a package
     local languages=("python" "typescript" "rust" "go" "php" "kotlin")
-    local api_types=("api" "assets-api")
 
-    # Allow testing specific language/api if provided as arguments
+    # Allow testing a specific language if provided as an argument
     if [ $# -gt 0 ]; then
         languages=("$1")
-        if [ $# -gt 1 ]; then
-            api_types=("$2")
-        fi
     fi
 
     local continue_on_error=false
@@ -212,13 +206,11 @@ main() {
     fi
 
     for language in "${languages[@]}"; do
-        for api_type in "${api_types[@]}"; do
-            if [ "$continue_on_error" = true ]; then
-                test_client "$language" "$api_type" || true
-            else
-                test_client "$language" "$api_type"
-            fi
-        done
+        if [ "$continue_on_error" = true ]; then
+            test_client "$language" || true
+        else
+            test_client "$language"
+        fi
     done
 
     # Print summary
