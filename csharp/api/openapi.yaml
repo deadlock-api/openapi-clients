@@ -170,7 +170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -419,7 +419,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -552,7 +552,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -628,7 +628,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -767,7 +767,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -900,7 +900,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -1087,7 +1087,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -1367,7 +1367,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -1623,7 +1623,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -1887,7 +1887,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -2156,7 +2156,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -2443,7 +2443,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -2710,7 +2710,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -3002,7 +3002,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -3223,7 +3223,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -3522,7 +3522,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -6402,7 +6402,7 @@ paths:
         ### Rate Limits:
         | Type | Limit |
         | ---- | ----- |
-        | IP | API-Key ONLY |
+        | IP | 10req/h |
         | Key | 100req/30min |
         | Global | 1000req/h |
       operationId: create_custom
@@ -6438,7 +6438,7 @@ paths:
         ### Rate Limits:
         | Type | Limit |
         | ---- | ----- |
-        | IP | API-Key ONLY |
+        | IP | 10req/h |
         | Key | 100req/30min |
         | Global | 1000req/h |
       operationId: leave
@@ -6471,7 +6471,7 @@ paths:
         ### Rate Limits:
         | Type | Limit |
         | ---- | ----- |
-        | IP | API-Key ONLY |
+        | IP | 10req/h |
         | Key | 100req/30min |
         | Global | 1000req/h |
       operationId: ready_up
@@ -6504,7 +6504,7 @@ paths:
         ### Rate Limits:
         | Type | Limit |
         | ---- | ----- |
-        | IP | API-Key ONLY |
+        | IP | 10req/h |
         | Key | 100req/30min |
         | Global | 1000req/h |
       operationId: start
@@ -6537,7 +6537,7 @@ paths:
         ### Rate Limits:
         | Type | Limit |
         | ---- | ----- |
-        | IP | API-Key ONLY |
+        | IP | 10req/h |
         | Key | 100req/30min |
         | Global | 1000req/h |
       operationId: unready
@@ -7541,7 +7541,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer
@@ -7660,7 +7660,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777075200
+          default: 1777334400
           format: int64
           nullable: true
           type: integer

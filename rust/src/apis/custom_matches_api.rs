@@ -112,7 +112,7 @@ pub enum UnreadyError {
 }
 
 
-///  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+///  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 pub async fn create_custom(configuration: &configuration::Configuration, params: CreateCustomParams) -> Result<models::CreateCustomResponse, Error<CreateCustomError>> {
 
     let uri_str = format!("{}/v1/matches/custom/create", configuration.base_path);
@@ -183,7 +183,7 @@ pub async fn get_custom(configuration: &configuration::Configuration, params: Ge
     }
 }
 
-///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 pub async fn leave(configuration: &configuration::Configuration, params: LeaveParams) -> Result<(), Error<LeaveError>> {
 
     let uri_str = format!("{}/v1/matches/custom/{lobby_id}/leave", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));
@@ -207,7 +207,7 @@ pub async fn leave(configuration: &configuration::Configuration, params: LeavePa
     }
 }
 
-///  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+///  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 pub async fn ready_up(configuration: &configuration::Configuration, params: ReadyUpParams) -> Result<(), Error<ReadyUpError>> {
 
     let uri_str = format!("{}/v1/matches/custom/{lobby_id}/ready", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));
@@ -231,7 +231,7 @@ pub async fn ready_up(configuration: &configuration::Configuration, params: Read
     }
 }
 
-///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 pub async fn start(configuration: &configuration::Configuration, params: StartParams) -> Result<(), Error<StartError>> {
 
     let uri_str = format!("{}/v1/matches/custom/{lobby_id}/start", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));
@@ -255,7 +255,7 @@ pub async fn start(configuration: &configuration::Configuration, params: StartPa
     }
 }
 
-///  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+///  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 pub async fn unready(configuration: &configuration::Configuration, params: UnreadyParams) -> Result<(), Error<UnreadyError>> {
 
     let uri_str = format!("{}/v1/matches/custom/{lobby_id}/unready", configuration.base_path, lobby_id=crate::apis::urlencode(params.lobby_id));

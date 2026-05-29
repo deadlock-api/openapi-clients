@@ -41,7 +41,7 @@ namespace DeadlockApiClient.Api
         /// Create Match
         /// </summary>
         /// <remarks>
-        ///  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCustomRequest"></param>
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Api
         /// Create Match
         /// </summary>
         /// <remarks>
-        ///  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <param name="createCustomRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -87,7 +87,7 @@ namespace DeadlockApiClient.Api
         /// Leave Lobby
         /// </summary>
         /// <remarks>
-        ///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>
@@ -99,7 +99,7 @@ namespace DeadlockApiClient.Api
         /// Leave Lobby
         /// </summary>
         /// <remarks>
-        ///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -110,7 +110,7 @@ namespace DeadlockApiClient.Api
         /// Ready Up
         /// </summary>
         /// <remarks>
-        ///  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>
@@ -122,7 +122,7 @@ namespace DeadlockApiClient.Api
         /// Ready Up
         /// </summary>
         /// <remarks>
-        ///  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -133,7 +133,7 @@ namespace DeadlockApiClient.Api
         /// Start Match
         /// </summary>
         /// <remarks>
-        ///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>
@@ -145,7 +145,7 @@ namespace DeadlockApiClient.Api
         /// Start Match
         /// </summary>
         /// <remarks>
-        ///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -156,7 +156,7 @@ namespace DeadlockApiClient.Api
         /// Unready
         /// </summary>
         /// <remarks>
-        ///  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>
@@ -168,7 +168,7 @@ namespace DeadlockApiClient.Api
         /// Unready
         /// </summary>
         /// <remarks>
-        ///  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        ///  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </remarks>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -589,7 +589,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorCreateCustom(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, CreateCustomRequest createCustomRequest);
 
         /// <summary>
-        /// Create Match  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Create Match  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <param name="createCustomRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -607,7 +607,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Create Match  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Create Match  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to &#x60;{callback_url}/settings&#x60; with the &#x60;CsoCitadelParty&#x60; protobuf message as JSON. - **match start:** When the match starts, a POST is sent to &#x60;{callback_url}&#x60; with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCustomRequest"></param>
@@ -1108,7 +1108,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorLeave(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId);
 
         /// <summary>
-        /// Leave Lobby  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Leave Lobby  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1126,7 +1126,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Leave Lobby  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Leave Lobby  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>
@@ -1327,7 +1327,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorReadyUp(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId);
 
         /// <summary>
-        /// Ready Up  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Ready Up  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1345,7 +1345,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Ready Up  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Ready Up  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>
@@ -1546,7 +1546,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorStart(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId);
 
         /// <summary>
-        /// Start Match  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Start Match  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1564,7 +1564,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Start Match  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Start Match  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>
@@ -1765,7 +1765,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorUnready(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string lobbyId);
 
         /// <summary>
-        /// Unready  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Unready  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <param name="lobbyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1783,7 +1783,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Unready  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+        /// Unready  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="lobbyId"></param>

@@ -52,7 +52,7 @@ export interface UnreadyRequest {
 
 
 /**
- *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+ *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
  * Create Match
  */
 function createCustomRaw<T>(requestParameters: CreateCustomRequest, requestConfig: runtime.TypedQueryConfig<T, CreateCustomResponse> = {}): QueryConfig<T> {
@@ -94,7 +94,7 @@ function createCustomRaw<T>(requestParameters: CreateCustomRequest, requestConfi
 }
 
 /**
-*  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+*  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 * Create Match
 */
 export function createCustom<T>(requestParameters: CreateCustomRequest, requestConfig?: runtime.TypedQueryConfig<T, CreateCustomResponse>): QueryConfig<T> {
@@ -150,7 +150,7 @@ export function getCustom<T>(requestParameters: GetCustomRequest, requestConfig?
 }
 
 /**
- *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+ *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
  * Leave Lobby
  */
 function leaveRaw<T>(requestParameters: LeaveRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
@@ -189,7 +189,7 @@ function leaveRaw<T>(requestParameters: LeaveRequest, requestConfig: runtime.Typ
 }
 
 /**
-*  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+*  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 * Leave Lobby
 */
 export function leave<T>(requestParameters: LeaveRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
@@ -197,7 +197,7 @@ export function leave<T>(requestParameters: LeaveRequest, requestConfig?: runtim
 }
 
 /**
- *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+ *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
  * Ready Up
  */
 function readyUpRaw<T>(requestParameters: ReadyUpRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
@@ -236,7 +236,7 @@ function readyUpRaw<T>(requestParameters: ReadyUpRequest, requestConfig: runtime
 }
 
 /**
-*  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+*  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 * Ready Up
 */
 export function readyUp<T>(requestParameters: ReadyUpRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
@@ -244,7 +244,7 @@ export function readyUp<T>(requestParameters: ReadyUpRequest, requestConfig?: ru
 }
 
 /**
- *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+ *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
  * Start Match
  */
 function startRaw<T>(requestParameters: StartRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
@@ -283,7 +283,7 @@ function startRaw<T>(requestParameters: StartRequest, requestConfig: runtime.Typ
 }
 
 /**
-*  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+*  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 * Start Match
 */
 export function start<T>(requestParameters: StartRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
@@ -291,7 +291,7 @@ export function start<T>(requestParameters: StartRequest, requestConfig?: runtim
 }
 
 /**
- *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+ *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
  * Unready
  */
 function unreadyRaw<T>(requestParameters: UnreadyRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
@@ -330,7 +330,7 @@ function unreadyRaw<T>(requestParameters: UnreadyRequest, requestConfig: runtime
 }
 
 /**
-*  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h | 
+*  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h | 
 * Unready
 */
 export function unready<T>(requestParameters: UnreadyRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {

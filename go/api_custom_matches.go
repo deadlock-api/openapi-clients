@@ -65,7 +65,7 @@ The bot will leave the match 15 minutes after creation, regardless of match stat
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | API-Key ONLY |
+| IP | 10req/h |
 | Key | 100req/30min |
 | Global | 1000req/h |
 
@@ -295,7 +295,7 @@ By default the bot leaves automatically after 15 minutes, but this endpoint allo
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | API-Key ONLY |
+| IP | 10req/h |
 | Key | 100req/30min |
 | Global | 1000req/h |
 
@@ -396,7 +396,7 @@ This endpoint allows you to ready up for a custom match.
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | API-Key ONLY |
+| IP | 10req/h |
 | Key | 100req/30min |
 | Global | 1000req/h |
 
@@ -497,7 +497,7 @@ This endpoint starts a custom match.
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | API-Key ONLY |
+| IP | 10req/h |
 | Key | 100req/30min |
 | Global | 1000req/h |
 
@@ -598,7 +598,7 @@ This endpoint allows you to unready for a custom match.
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | API-Key ONLY |
+| IP | 10req/h |
 | Key | 100req/30min |
 | Global | 1000req/h |
 
