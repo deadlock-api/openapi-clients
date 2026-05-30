@@ -587,7 +587,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **salts**
-> MatchSaltsResponse salts(match_id)
+> MatchSaltsResponse salts(match_id, disable_steam=disable_steam)
 
 Salts
 
@@ -625,10 +625,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.MatchesApi(api_client)
     match_id = 56 # int | The match ID
+    disable_steam = True # bool | If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
 
     try:
         # Salts
-        api_response = api_instance.salts(match_id)
+        api_response = api_instance.salts(match_id, disable_steam=disable_steam)
         print("The response of MatchesApi->salts:\n")
         pprint(api_response)
     except Exception as e:
@@ -643,6 +644,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **int**| The match ID | 
+ **disable_steam** | **bool**| If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. | [optional] 
 
 ### Return type
 
@@ -683,9 +685,9 @@ Example Parsers:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 10req/30mins |
-| Key | 60req/min |
-| Global | 100req/10s |
+| IP | 2req/h |
+| Key | 5req/m, 100req/h |
+| Global | 5req/10s, 500req/h |
     
 
 ### Example

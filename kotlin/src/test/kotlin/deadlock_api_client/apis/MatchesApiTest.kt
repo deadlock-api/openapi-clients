@@ -125,7 +125,8 @@ class MatchesApiTest : ShouldSpec() {
         should("test salts") {
             // uncomment below to test salts
             //val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
-            //val result : MatchSaltsResponse = apiInstance.salts(matchId)
+            //val disableSteam : kotlin.Boolean = true // kotlin.Boolean | If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+            //val result : MatchSaltsResponse = apiInstance.salts(matchId, disableSteam)
             //result shouldBe ("TODO")
         }
 

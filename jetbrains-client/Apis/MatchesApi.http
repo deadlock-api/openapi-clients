@@ -31,7 +31,7 @@ Accept: application/json
 
 ### Salts
 ## Salts
-GET https://api.deadlock-api.com/v1/matches/{{match_id}}/salts
+GET https://api.deadlock-api.com/v1/matches/{{match_id}}/salts?disableSteam={{disableSteam}}
 Accept: application/json
 
 ### Live Broadcast URL

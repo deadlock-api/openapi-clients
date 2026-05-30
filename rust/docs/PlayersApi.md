@@ -260,10 +260,10 @@ No authorization required
 
 ## rank_predict_avg_image
 
-> Vec<u32> rank_predict_avg_image(account_ids, format)
+> Vec<u32> rank_predict_avg_image(account_ids, format, size)
 Rank Predict Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 ### Parameters
 
@@ -272,6 +272,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_ids** | [**Vec<u32>**](U32.md) | Comma-separated list of account IDs (max 12). | [required] |
 **format** | Option<**String**> | Image format. Defaults to `png`. Supported: `png`, `webp`. |  |
+**size** | Option<**String**> | Image size. Defaults to `large`. Supported: `large`, `small`. |  |
 
 ### Return type
 
@@ -291,10 +292,10 @@ No authorization required
 
 ## rank_predict_image
 
-> Vec<u32> rank_predict_image(account_id, format)
+> Vec<u32> rank_predict_image(account_id, format, size)
 Rank Predict Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 ### Parameters
 
@@ -303,6 +304,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **account_id** | **u32** | The players `SteamID3` | [required] |
 **format** | Option<**String**> | Image format. Defaults to `png`. Supported: `png`, `webp`. |  |
+**size** | Option<**String**> | Image size. Defaults to `large`. Supported: `large`, `small`. |  |
 
 ### Return type
 

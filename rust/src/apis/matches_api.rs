@@ -120,7 +120,9 @@ pub struct MetadataRawParams {
 #[derive(Clone, Debug)]
 pub struct SaltsParams {
     /// The match ID
-    pub match_id: u64
+    pub match_id: u64,
+    /// If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+    pub disable_steam: Option<bool>
 }
 
 /// struct for passing parameters to the method [`url`]
@@ -550,6 +552,9 @@ pub async fn salts(configuration: &configuration::Configuration, params: SaltsPa
     let uri_str = format!("{}/v1/matches/{match_id}/salts", configuration.base_path, match_id=params.match_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.disable_steam {
+        req_builder = req_builder.query(&[("disable_steam", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -579,7 +584,7 @@ pub async fn salts(configuration: &configuration::Configuration, params: SaltsPa
     }
 }
 
-///  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+///  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
 pub async fn url(configuration: &configuration::Configuration, params: UrlParams) -> Result<models::MatchSpectateResponse, Error<UrlError>> {
 
     let uri_str = format!("{}/v1/matches/{match_id}/live/url", configuration.base_path, match_id=params.match_id);

@@ -2293,15 +2293,16 @@ class MatchesApi
      * Salts
      *
      * @param  int $match_id The match ID (required)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['salts'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MatchSaltsResponse
      */
-    public function salts($match_id, string $contentType = self::contentTypes['salts'][0])
+    public function salts($match_id, $disable_steam = null, string $contentType = self::contentTypes['salts'][0])
     {
-        list($response) = $this->saltsWithHttpInfo($match_id, $contentType);
+        list($response) = $this->saltsWithHttpInfo($match_id, $disable_steam, $contentType);
         return $response;
     }
 
@@ -2311,15 +2312,16 @@ class MatchesApi
      * Salts
      *
      * @param  int $match_id The match ID (required)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['salts'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MatchSaltsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saltsWithHttpInfo($match_id, string $contentType = self::contentTypes['salts'][0])
+    public function saltsWithHttpInfo($match_id, $disable_steam = null, string $contentType = self::contentTypes['salts'][0])
     {
-        $request = $this->saltsRequest($match_id, $contentType);
+        $request = $this->saltsRequest($match_id, $disable_steam, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2396,14 +2398,15 @@ class MatchesApi
      * Salts
      *
      * @param  int $match_id The match ID (required)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['salts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saltsAsync($match_id, string $contentType = self::contentTypes['salts'][0])
+    public function saltsAsync($match_id, $disable_steam = null, string $contentType = self::contentTypes['salts'][0])
     {
-        return $this->saltsAsyncWithHttpInfo($match_id, $contentType)
+        return $this->saltsAsyncWithHttpInfo($match_id, $disable_steam, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2417,15 +2420,16 @@ class MatchesApi
      * Salts
      *
      * @param  int $match_id The match ID (required)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['salts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saltsAsyncWithHttpInfo($match_id, string $contentType = self::contentTypes['salts'][0])
+    public function saltsAsyncWithHttpInfo($match_id, $disable_steam = null, string $contentType = self::contentTypes['salts'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MatchSaltsResponse';
-        $request = $this->saltsRequest($match_id, $contentType);
+        $request = $this->saltsRequest($match_id, $disable_steam, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2467,12 +2471,13 @@ class MatchesApi
      * Create request for operation 'salts'
      *
      * @param  int $match_id The match ID (required)
+     * @param  bool|null $disable_steam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['salts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function saltsRequest($match_id, string $contentType = self::contentTypes['salts'][0])
+    public function saltsRequest($match_id, $disable_steam = null, string $contentType = self::contentTypes['salts'][0])
     {
 
         // verify the required parameter 'match_id' is set
@@ -2486,6 +2491,7 @@ class MatchesApi
         }
         
 
+
         $resourcePath = '/v1/matches/{match_id}/salts';
         $formParams = [];
         $queryParams = [];
@@ -2493,6 +2499,15 @@ class MatchesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $disable_steam,
+            'disable_steam', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

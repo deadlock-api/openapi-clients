@@ -37,12 +37,12 @@ Accept: application/json
 
 ### Rank Predict Avg Image
 ## Rank Predict Avg Image
-GET https://api.deadlock-api.com/v1/players/rank-predict/image?accountIds={{accountIds}}&format={{format}}
+GET https://api.deadlock-api.com/v1/players/rank-predict/image?accountIds={{accountIds}}&format={{format}}&size={{size}}
 Accept: image/png
 Accept: image/webp
 
 ### Rank Predict Image
 ## Rank Predict Image
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict/image?format={{format}}
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict/image?format={{format}}&size={{size}}
 Accept: image/png
 Accept: image/webp

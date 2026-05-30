@@ -403,11 +403,11 @@ No authorization required
 
 <a id="rankPredictAvgImage"></a>
 # **rankPredictAvgImage**
-> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictAvgImage(accountIds, format)
+> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictAvgImage(accountIds, format, size)
 
 Rank Predict Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
 
 ### Example
 ```kotlin
@@ -418,8 +418,9 @@ Returns the average predicted rank badge image (binary) for a comma-separated li
 val apiInstance = PlayersApi()
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
 val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+val size : kotlin.String = size_example // kotlin.String | Image size. Defaults to `large`. Supported: `large`, `small`.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format, size)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#rankPredictAvgImage")
@@ -432,9 +433,10 @@ try {
 
 ### Parameters
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
+| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
+| **size** | **kotlin.String**| Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional] [enum: large, small] |
 
 ### Return type
 
@@ -451,11 +453,11 @@ No authorization required
 
 <a id="rankPredictImage"></a>
 # **rankPredictImage**
-> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictImage(accountId, format)
+> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictImage(accountId, format, size)
 
 Rank Predict Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
 
 ### Example
 ```kotlin
@@ -466,8 +468,9 @@ Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
 val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+val size : kotlin.String = size_example // kotlin.String | Image size. Defaults to `large`. Supported: `large`, `small`.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format, size)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#rankPredictImage")
@@ -480,9 +483,10 @@ try {
 
 ### Parameters
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
+| **size** | **kotlin.String**| Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional] [enum: large, small] |
 
 ### Return type
 

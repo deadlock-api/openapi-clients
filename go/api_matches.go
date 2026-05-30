@@ -1143,6 +1143,13 @@ type ApiSaltsRequest struct {
 	ctx context.Context
 	ApiService *MatchesAPIService
 	matchId int64
+	disableSteam *bool
+}
+
+// If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+func (r ApiSaltsRequest) DisableSteam(disableSteam bool) ApiSaltsRequest {
+	r.disableSteam = &disableSteam
+	return r
 }
 
 func (r ApiSaltsRequest) Execute() (*MatchSaltsResponse, *http.Response, error) {
@@ -1202,6 +1209,9 @@ func (a *MatchesAPIService) SaltsExecute(r ApiSaltsRequest) (*MatchSaltsResponse
 		return localVarReturnValue, nil, reportError("matchId must be greater than 0")
 	}
 
+	if r.disableSteam != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "disable_steam", r.disableSteam, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1279,9 +1289,9 @@ Example Parsers:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 10req/30mins |
-| Key | 60req/min |
-| Global | 100req/10s |
+| IP | 2req/h |
+| Key | 5req/m, 100req/h |
+| Global | 5req/10s, 500req/h |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

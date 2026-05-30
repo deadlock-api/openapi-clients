@@ -255,9 +255,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaltsApiResponse"/>&gt;</returns>
-        Task<ISaltsApiResponse> SaltsAsync(long matchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaltsApiResponse> SaltsAsync(long matchId, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Salts
@@ -266,15 +267,16 @@ namespace DeadlockApiClient.Api
         ///  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From DB: 100req/s&lt;br&gt;From Steam: 10req/30mins | | Key | From DB: -&lt;br&gt;From Steam: 10req/min | | Global | From DB: -&lt;br&gt;From Steam: 10req/10s |     
         /// </remarks>
         /// <param name="matchId">The match ID</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaltsApiResponse"/>?&gt;</returns>
-        Task<ISaltsApiResponse?> SaltsOrDefaultAsync(long matchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaltsApiResponse?> SaltsOrDefaultAsync(long matchId, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Live Broadcast URL
         /// </summary>
         /// <remarks>
-        ///  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+        ///  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
@@ -286,7 +288,7 @@ namespace DeadlockApiClient.Api
         /// Live Broadcast URL
         /// </summary>
         /// <remarks>
-        ///  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+        ///  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
         /// </remarks>
         /// <param name="matchId">The match ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2556,17 +2558,18 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSalts(ref long matchId);
+        partial void FormatSalts(ref long matchId, ref Option<bool?> disableSteam);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="matchId"></param>
-        private void AfterSaltsDefaultImplementation(ISaltsApiResponse apiResponseLocalVar, long matchId)
+        /// <param name="disableSteam"></param>
+        private void AfterSaltsDefaultImplementation(ISaltsApiResponse apiResponseLocalVar, long matchId, Option<bool?> disableSteam)
         {
             bool suppressDefaultLog = false;
-            AfterSalts(ref suppressDefaultLog, apiResponseLocalVar, matchId);
+            AfterSalts(ref suppressDefaultLog, apiResponseLocalVar, matchId, disableSteam);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2577,7 +2580,8 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="matchId"></param>
-        partial void AfterSalts(ref bool suppressDefaultLog, ISaltsApiResponse apiResponseLocalVar, long matchId);
+        /// <param name="disableSteam"></param>
+        partial void AfterSalts(ref bool suppressDefaultLog, ISaltsApiResponse apiResponseLocalVar, long matchId, Option<bool?> disableSteam);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2586,10 +2590,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="matchId"></param>
-        private void OnErrorSaltsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId)
+        /// <param name="disableSteam"></param>
+        private void OnErrorSaltsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> disableSteam)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSalts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, matchId);
+            OnErrorSalts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, matchId, disableSteam);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2602,19 +2607,21 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="matchId"></param>
-        partial void OnErrorSalts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId);
+        /// <param name="disableSteam"></param>
+        partial void OnErrorSalts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId, Option<bool?> disableSteam);
 
         /// <summary>
         /// Salts  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | From DB: 100req/s&lt;br&gt;From Steam: 10req/30mins | | Key | From DB: -&lt;br&gt;From Steam: 10req/min | | Global | From DB: -&lt;br&gt;From Steam: 10req/10s |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaltsApiResponse"/>&gt;</returns>
-        public async Task<ISaltsApiResponse?> SaltsOrDefaultAsync(long matchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaltsApiResponse?> SaltsOrDefaultAsync(long matchId, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SaltsAsync(matchId, cancellationToken).ConfigureAwait(false);
+                return await SaltsAsync(matchId, disableSteam, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2627,15 +2634,16 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>
+        /// <param name="disableSteam">If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaltsApiResponse"/>&gt;</returns>
-        public async Task<ISaltsApiResponse> SaltsAsync(long matchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaltsApiResponse> SaltsAsync(long matchId, Option<bool?> disableSteam = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSalts(ref matchId);
+                FormatSalts(ref matchId, ref disableSteam);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2646,6 +2654,13 @@ namespace DeadlockApiClient.Api
                         ? "/v1/matches/{match_id}/salts"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/{match_id}/salts");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bmatch_id%7D", Uri.EscapeDataString(matchId.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (disableSteam.IsSet)
+                        parseQueryStringLocalVar["disable_steam"] = ClientUtils.ParameterToString(disableSteam.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -2676,7 +2691,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterSaltsDefaultImplementation(apiResponseLocalVar, matchId);
+                        AfterSaltsDefaultImplementation(apiResponseLocalVar, matchId, disableSteam);
 
                         Events.ExecuteOnSalts(apiResponseLocalVar);
 
@@ -2686,7 +2701,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorSaltsDefaultImplementation(e, "/v1/matches/{match_id}/salts", uriBuilderLocalVar.Path, matchId);
+                OnErrorSaltsDefaultImplementation(e, "/v1/matches/{match_id}/salts", uriBuilderLocalVar.Path, matchId, disableSteam);
                 Events.ExecuteOnErrorSalts(e);
                 throw;
             }
@@ -2852,7 +2867,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorUrl(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long matchId);
 
         /// <summary>
-        /// Live Broadcast URL  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+        /// Live Broadcast URL  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
         /// </summary>
         /// <param name="matchId">The match ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2870,7 +2885,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Live Broadcast URL  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+        /// Live Broadcast URL  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchId">The match ID</param>

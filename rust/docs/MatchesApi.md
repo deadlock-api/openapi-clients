@@ -230,7 +230,7 @@ No authorization required
 
 ## salts
 
-> models::MatchSaltsResponse salts(match_id)
+> models::MatchSaltsResponse salts(match_id, disable_steam)
 Salts
 
  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
@@ -241,6 +241,7 @@ Salts
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_id** | **u64** | The match ID | [required] |
+**disable_steam** | Option<**bool**> | If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. |  |
 
 ### Return type
 
@@ -263,7 +264,7 @@ No authorization required
 > models::MatchSpectateResponse url(match_id)
 Live Broadcast URL
 
- This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+ This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
 
 ### Parameters
 

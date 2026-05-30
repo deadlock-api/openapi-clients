@@ -700,11 +700,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rank_predict_avg_image**
-> List[int] rank_predict_avg_image(account_ids, format=format)
+> List[int] rank_predict_avg_image(account_ids, format=format, size=size)
 
 Rank Predict Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 ### Example
 
@@ -727,10 +727,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.PlayersApi(api_client)
     account_ids = [56] # List[int] | Comma-separated list of account IDs (max 12).
     format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+    size = 'size_example' # str | Image size. Defaults to `large`. Supported: `large`, `small`. (optional)
 
     try:
         # Rank Predict Avg Image
-        api_response = api_instance.rank_predict_avg_image(account_ids, format=format)
+        api_response = api_instance.rank_predict_avg_image(account_ids, format=format, size=size)
         print("The response of PlayersApi->rank_predict_avg_image:\n")
         pprint(api_response)
     except Exception as e:
@@ -746,6 +747,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_ids** | [**List[int]**](int.md)| Comma-separated list of account IDs (max 12). | 
  **format** | **str**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
+ **size** | **str**| Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional] 
 
 ### Return type
 
@@ -776,11 +778,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rank_predict_image**
-> List[int] rank_predict_image(account_id, format=format)
+> List[int] rank_predict_image(account_id, format=format, size=size)
 
 Rank Predict Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 ### Example
 
@@ -803,10 +805,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.PlayersApi(api_client)
     account_id = 56 # int | The players `SteamID3`
     format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+    size = 'size_example' # str | Image size. Defaults to `large`. Supported: `large`, `small`. (optional)
 
     try:
         # Rank Predict Image
-        api_response = api_instance.rank_predict_image(account_id, format=format)
+        api_response = api_instance.rank_predict_image(account_id, format=format, size=size)
         print("The response of PlayersApi->rank_predict_image:\n")
         pprint(api_response)
     except Exception as e:
@@ -822,6 +825,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
  **format** | **str**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
+ **size** | **str**| Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional] 
 
 ### Return type
 

@@ -170,7 +170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -419,7 +419,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -552,7 +552,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -628,7 +628,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -767,7 +767,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -900,7 +900,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -1087,7 +1087,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -1367,7 +1367,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -1623,7 +1623,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -1887,7 +1887,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -2156,7 +2156,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -2443,7 +2443,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -2710,7 +2710,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -3002,7 +3002,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -3223,7 +3223,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -3522,7 +3522,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -7071,8 +7071,8 @@ paths:
       description: "\nThis endpoints spectates a match and returns the live URL to\
         \ be used in any demofile broadcast parser.\n\nExample Parsers:\n- [Demofile-Net](https://github.com/saul/demofile-net)\n\
         - [Haste](https://github.com/blukai/haste/)\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 10req/30mins |\n| Key | 60req/min |\n\
-        | Global | 100req/10s |\n    "
+        \ Limit |\n| ---- | ----- |\n| IP | 2req/h |\n| Key | 5req/m, 100req/h |\n\
+        | Global | 5req/10s, 500req/h |\n    "
       operationId: url
       parameters:
       - description: The match ID
@@ -7242,6 +7242,17 @@ paths:
           minimum: 0
           type: integer
         style: simple
+      - description: |-
+          If `true`, skip the Steam fallback when the salts are not available in Clickhouse
+          and return an error instead.
+        explode: true
+        in: query
+        name: disable_steam
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -7541,7 +7552,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -7660,7 +7671,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1777334400
+          default: 1777420800
           format: int64
           nullable: true
           type: integer
@@ -7837,7 +7848,8 @@ paths:
   /v1/players/rank-predict/image:
     get:
       description: Returns the average predicted rank badge image (binary) for a comma-separated
-        list of account IDs. Use `?format=webp` for WebP.
+        list of account IDs. Use `?format=webp` for WebP and `?size=small` for the
+        small badge (defaults to large).
       operationId: rank_predict_avg_image
       parameters:
       - description: Comma-separated list of account IDs (max 12).
@@ -7861,6 +7873,17 @@ paths:
           enum:
           - png
           - webp
+          type: string
+        style: form
+      - description: "Image size. Defaults to `large`. Supported: `large`, `small`."
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          enum:
+          - large
+          - small
           type: string
         style: form
       responses:
@@ -8625,7 +8648,8 @@ paths:
   /v1/players/{account_id}/rank-predict/image:
     get:
       description: "Returns the predicted rank badge image directly (binary), not\
-        \ a URL. Use `?format=webp` for WebP."
+        \ a URL. Use `?format=webp` for WebP and `?size=small` for the small badge\
+        \ (defaults to large)."
       operationId: rank_predict_image
       parameters:
       - description: The players `SteamID3`
@@ -8647,6 +8671,17 @@ paths:
           enum:
           - png
           - webp
+          type: string
+        style: form
+      - description: "Image size. Defaults to `large`. Supported: `large`, `small`."
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          enum:
+          - large
+          - small
           type: string
         style: form
       responses:

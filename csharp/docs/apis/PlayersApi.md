@@ -323,11 +323,11 @@ No authorization required
 
 <a id="rankpredictavgimage"></a>
 # **RankPredictAvgImage**
-> List&lt;int&gt; RankPredictAvgImage (List<int> accountIds, string format = null)
+> List&lt;int&gt; RankPredictAvgImage (List<int> accountIds, string format = null, string size = null)
 
 Rank Predict Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 
 ### Parameters
@@ -336,6 +336,7 @@ Returns the average predicted rank badge image (binary) for a comma-separated li
 |------|------|-------------|-------|
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma-separated list of account IDs (max 12). |  |
 | **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
+| **size** | **string** | Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional]  |
 
 ### Return type
 
@@ -367,11 +368,11 @@ No authorization required
 
 <a id="rankpredictimage"></a>
 # **RankPredictImage**
-> List&lt;int&gt; RankPredictImage (int accountId, string format = null)
+> List&lt;int&gt; RankPredictImage (int accountId, string format = null, string size = null)
 
 Rank Predict Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 
 ### Parameters
@@ -380,6 +381,7 @@ Returns the predicted rank badge image directly (binary), not a URL. Use `?forma
 |------|------|-------------|-------|
 | **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
 | **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
+| **size** | **string** | Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional]  |
 
 ### Return type
 

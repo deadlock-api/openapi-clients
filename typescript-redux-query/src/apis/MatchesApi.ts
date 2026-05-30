@@ -88,6 +88,7 @@ export interface MetadataRawRequest {
 
 export interface SaltsRequest {
     matchId: number;
+    disableSteam?: boolean;
 }
 
 export interface UrlRequest {
@@ -578,6 +579,12 @@ function saltsRaw<T>(requestParameters: SaltsRequest, requestConfig: runtime.Typ
 
     let queryParameters = null;
 
+    queryParameters = {};
+
+
+    if (requestParameters.disableSteam !== undefined) {
+        queryParameters['disable_steam'] = requestParameters.disableSteam;
+    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -616,7 +623,7 @@ export function salts<T>(requestParameters: SaltsRequest, requestConfig?: runtim
 }
 
 /**
- *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+ *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
  * Live Broadcast URL
  */
 function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQueryConfig<T, MatchSpectateResponse> = {}): QueryConfig<T> {
@@ -656,7 +663,7 @@ function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQu
 }
 
 /**
-*  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+*  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
 * Live Broadcast URL
 */
 export function url<T>(requestParameters: UrlRequest, requestConfig?: runtime.TypedQueryConfig<T, MatchSpectateResponse>): QueryConfig<T> {

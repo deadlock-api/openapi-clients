@@ -451,9 +451,11 @@ const configuration = new Configuration();
 const apiInstance = new MatchesApi(configuration);
 
 let matchId: number; //The match ID (default to undefined)
+let disableSteam: boolean; //If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.salts(
-    matchId
+    matchId,
+    disableSteam
 );
 ```
 
@@ -462,6 +464,7 @@ const { status, data } = await apiInstance.salts(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **matchId** | [**number**] | The match ID | defaults to undefined|
+| **disableSteam** | [**boolean**] | If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -491,7 +494,7 @@ No authorization required
 # **url**
 > MatchSpectateResponse url()
 
- This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+ This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
 
 ### Example
 

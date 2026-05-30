@@ -2635,15 +2635,16 @@ class PlayersApi
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictAvgImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function rankPredictAvgImage($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
+    public function rankPredictAvgImage($account_ids, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
-        list($response) = $this->rankPredictAvgImageWithHttpInfo($account_ids, $format, $contentType);
+        list($response) = $this->rankPredictAvgImageWithHttpInfo($account_ids, $format, $size, $contentType);
         return $response;
     }
 
@@ -2654,15 +2655,16 @@ class PlayersApi
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictAvgImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function rankPredictAvgImageWithHttpInfo($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
+    public function rankPredictAvgImageWithHttpInfo($account_ids, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
-        $request = $this->rankPredictAvgImageRequest($account_ids, $format, $contentType);
+        $request = $this->rankPredictAvgImageRequest($account_ids, $format, $size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2740,14 +2742,15 @@ class PlayersApi
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictAvgImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankPredictAvgImageAsync($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
+    public function rankPredictAvgImageAsync($account_ids, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
-        return $this->rankPredictAvgImageAsyncWithHttpInfo($account_ids, $format, $contentType)
+        return $this->rankPredictAvgImageAsyncWithHttpInfo($account_ids, $format, $size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2762,15 +2765,16 @@ class PlayersApi
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictAvgImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankPredictAvgImageAsyncWithHttpInfo($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
+    public function rankPredictAvgImageAsyncWithHttpInfo($account_ids, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
         $returnType = 'int[]';
-        $request = $this->rankPredictAvgImageRequest($account_ids, $format, $contentType);
+        $request = $this->rankPredictAvgImageRequest($account_ids, $format, $size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2813,12 +2817,13 @@ class PlayersApi
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictAvgImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rankPredictAvgImageRequest($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
+    public function rankPredictAvgImageRequest($account_ids, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
 
         // verify the required parameter 'account_ids' is set
@@ -2827,6 +2832,7 @@ class PlayersApi
                 'Missing the required parameter $account_ids when calling rankPredictAvgImage'
             );
         }
+
 
 
 
@@ -2850,6 +2856,15 @@ class PlayersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $size,
+            'size', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -2919,15 +2934,16 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function rankPredictImage($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
+    public function rankPredictImage($account_id, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
-        list($response) = $this->rankPredictImageWithHttpInfo($account_id, $format, $contentType);
+        list($response) = $this->rankPredictImageWithHttpInfo($account_id, $format, $size, $contentType);
         return $response;
     }
 
@@ -2938,15 +2954,16 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function rankPredictImageWithHttpInfo($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
+    public function rankPredictImageWithHttpInfo($account_id, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
-        $request = $this->rankPredictImageRequest($account_id, $format, $contentType);
+        $request = $this->rankPredictImageRequest($account_id, $format, $size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3024,14 +3041,15 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankPredictImageAsync($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
+    public function rankPredictImageAsync($account_id, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
-        return $this->rankPredictImageAsyncWithHttpInfo($account_id, $format, $contentType)
+        return $this->rankPredictImageAsyncWithHttpInfo($account_id, $format, $size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3046,15 +3064,16 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankPredictImageAsyncWithHttpInfo($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
+    public function rankPredictImageAsyncWithHttpInfo($account_id, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
         $returnType = 'int[]';
-        $request = $this->rankPredictImageRequest($account_id, $format, $contentType);
+        $request = $this->rankPredictImageRequest($account_id, $format, $size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3097,12 +3116,13 @@ class PlayersApi
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string|null $size Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredictImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rankPredictImageRequest($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
+    public function rankPredictImageRequest($account_id, $format = null, $size = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
 
         // verify the required parameter 'account_id' is set
@@ -3117,6 +3137,7 @@ class PlayersApi
         
 
 
+
         $resourcePath = '/v1/players/{account_id}/rank-predict/image';
         $formParams = [];
         $queryParams = [];
@@ -3128,6 +3149,15 @@ class PlayersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $size,
+            'size', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

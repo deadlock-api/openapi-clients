@@ -493,7 +493,7 @@ No authorization required
 # **rankPredictAvgImage**
 > Array<number> rankPredictAvgImage()
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 ### Example
 
@@ -508,10 +508,12 @@ const apiInstance = new PlayersApi(configuration);
 
 let accountIds: Array<number>; //Comma-separated list of account IDs (max 12). (default to undefined)
 let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
+let size: 'large' | 'small'; //Image size. Defaults to `large`. Supported: `large`, `small`. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.rankPredictAvgImage(
     accountIds,
-    format
+    format,
+    size
 );
 ```
 
@@ -521,6 +523,7 @@ const { status, data } = await apiInstance.rankPredictAvgImage(
 |------------- | ------------- | ------------- | -------------|
 | **accountIds** | **Array&lt;number&gt;** | Comma-separated list of account IDs (max 12). | defaults to undefined|
 | **format** | [**&#39;png&#39; | &#39;webp&#39;**]**Array<&#39;png&#39; &#124; &#39;webp&#39;>** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
+| **size** | [**&#39;large&#39; | &#39;small&#39;**]**Array<&#39;large&#39; &#124; &#39;small&#39;>** | Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -554,7 +557,7 @@ No authorization required
 # **rankPredictImage**
 > Array<number> rankPredictImage()
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 
 ### Example
 
@@ -569,10 +572,12 @@ const apiInstance = new PlayersApi(configuration);
 
 let accountId: number; //The players `SteamID3` (default to undefined)
 let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
+let size: 'large' | 'small'; //Image size. Defaults to `large`. Supported: `large`, `small`. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.rankPredictImage(
     accountId,
-    format
+    format,
+    size
 );
 ```
 
@@ -582,6 +587,7 @@ const { status, data } = await apiInstance.rankPredictImage(
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
 | **format** | [**&#39;png&#39; | &#39;webp&#39;**]**Array<&#39;png&#39; &#124; &#39;webp&#39;>** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
+| **size** | [**&#39;large&#39; | &#39;small&#39;**]**Array<&#39;large&#39; &#124; &#39;small&#39;>** | Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | (optional) defaults to undefined|
 
 
 ### Return type

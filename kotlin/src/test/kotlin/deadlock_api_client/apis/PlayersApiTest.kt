@@ -133,7 +133,8 @@ class PlayersApiTest : ShouldSpec() {
             // uncomment below to test rankPredictAvgImage
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
             //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format)
+            //val size : kotlin.String = size_example // kotlin.String | Image size. Defaults to `large`. Supported: `large`, `small`.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format, size)
             //result shouldBe ("TODO")
         }
 
@@ -142,7 +143,8 @@ class PlayersApiTest : ShouldSpec() {
             // uncomment below to test rankPredictImage
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
             //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format)
+            //val size : kotlin.String = size_example // kotlin.String | Image size. Defaults to `large`. Supported: `large`, `small`.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format, size)
             //result shouldBe ("TODO")
         }
 

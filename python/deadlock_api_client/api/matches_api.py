@@ -2264,6 +2264,7 @@ class MatchesApi:
     def salts(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2283,6 +2284,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param disable_steam: If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2307,6 +2310,7 @@ class MatchesApi:
 
         _param = self._salts_serialize(
             match_id=match_id,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2334,6 +2338,7 @@ class MatchesApi:
     def salts_with_http_info(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2353,6 +2358,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param disable_steam: If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2377,6 +2384,7 @@ class MatchesApi:
 
         _param = self._salts_serialize(
             match_id=match_id,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2404,6 +2412,7 @@ class MatchesApi:
     def salts_without_preload_content(
         self,
         match_id: Annotated[int, Field(strict=True, ge=0, description="The match ID")],
+        disable_steam: Annotated[Optional[StrictBool], Field(description="If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2423,6 +2432,8 @@ class MatchesApi:
 
         :param match_id: The match ID (required)
         :type match_id: int
+        :param disable_steam: If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+        :type disable_steam: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2447,6 +2458,7 @@ class MatchesApi:
 
         _param = self._salts_serialize(
             match_id=match_id,
+            disable_steam=disable_steam,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2469,6 +2481,7 @@ class MatchesApi:
     def _salts_serialize(
         self,
         match_id,
+        disable_steam,
         _request_auth,
         _content_type,
         _headers,
@@ -2493,6 +2506,10 @@ class MatchesApi:
         if match_id is not None:
             _path_params['match_id'] = match_id
         # process the query parameters
+        if disable_steam is not None:
+            
+            _query_params.append(('disable_steam', disable_steam))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2548,7 +2565,7 @@ class MatchesApi:
     ) -> MatchSpectateResponse:
         """Live Broadcast URL
 
-         This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+         This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -2618,7 +2635,7 @@ class MatchesApi:
     ) -> ApiResponse[MatchSpectateResponse]:
         """Live Broadcast URL
 
-         This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+         This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int
@@ -2688,7 +2705,7 @@ class MatchesApi:
     ) -> RESTResponseType:
         """Live Broadcast URL
 
-         This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+         This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
 
         :param match_id: The match ID (required)
         :type match_id: int

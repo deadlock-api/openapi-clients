@@ -486,7 +486,7 @@ No authorization required
 
 ## Salts
 
-> MatchSaltsResponse Salts(ctx, matchId).Execute()
+> MatchSaltsResponse Salts(ctx, matchId).DisableSteam(disableSteam).Execute()
 
 Salts
 
@@ -506,10 +506,11 @@ import (
 
 func main() {
 	matchId := int64(789) // int64 | The match ID
+	disableSteam := true // bool | If `true`, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.Salts(context.Background(), matchId).Execute()
+	resp, r, err := apiClient.MatchesAPI.Salts(context.Background(), matchId).DisableSteam(disableSteam).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.Salts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -535,6 +536,7 @@ Other parameters are passed through a pointer to a apiSaltsRequest struct via th
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **disableSteam** | **bool** | If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. | 
 
 ### Return type
 

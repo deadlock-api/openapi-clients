@@ -266,51 +266,55 @@ namespace DeadlockApiClient.Api
         /// Rank Predict Avg Image
         /// </summary>
         /// <remarks>
-        /// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictAvgImageApiResponse"/>&gt;</returns>
-        Task<IRankPredictAvgImageApiResponse> RankPredictAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankPredictAvgImageApiResponse> RankPredictAvgImageAsync(List<int> accountIds, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Predict Avg Image
         /// </summary>
         /// <remarks>
-        /// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </remarks>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictAvgImageApiResponse"/>?&gt;</returns>
-        Task<IRankPredictAvgImageApiResponse?> RankPredictAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankPredictAvgImageApiResponse?> RankPredictAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Predict Image
         /// </summary>
         /// <remarks>
-        /// Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>&gt;</returns>
-        Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Predict Image
         /// </summary>
         /// <remarks>
-        /// Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>?&gt;</returns>
-        Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -2967,21 +2971,25 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRankPredictAvgImage(List<int> accountIds, ref Option<string> format);
+        partial void FormatRankPredictAvgImage(List<int> accountIds, ref Option<string> format, ref Option<string> size);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
+        /// <param name="size"></param>
         /// <returns></returns>
-        private void ValidateRankPredictAvgImage(List<int> accountIds, Option<string> format)
+        private void ValidateRankPredictAvgImage(List<int> accountIds, Option<string> format, Option<string> size)
         {
             if (accountIds == null)
                 throw new ArgumentNullException(nameof(accountIds));
 
             if (format.IsSet && format.Value == null)
                 throw new ArgumentNullException(nameof(format));
+
+            if (size.IsSet && size.Value == null)
+                throw new ArgumentNullException(nameof(size));
         }
 
         /// <summary>
@@ -2990,10 +2998,11 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        private void AfterRankPredictAvgImageDefaultImplementation(IRankPredictAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format)
+        /// <param name="size"></param>
+        private void AfterRankPredictAvgImageDefaultImplementation(IRankPredictAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format, Option<string> size)
         {
             bool suppressDefaultLog = false;
-            AfterRankPredictAvgImage(ref suppressDefaultLog, apiResponseLocalVar, accountIds, format);
+            AfterRankPredictAvgImage(ref suppressDefaultLog, apiResponseLocalVar, accountIds, format, size);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3005,7 +3014,8 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        partial void AfterRankPredictAvgImage(ref bool suppressDefaultLog, IRankPredictAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format);
+        /// <param name="size"></param>
+        partial void AfterRankPredictAvgImage(ref bool suppressDefaultLog, IRankPredictAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format, Option<string> size);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3015,10 +3025,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        private void OnErrorRankPredictAvgImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format)
+        /// <param name="size"></param>
+        private void OnErrorRankPredictAvgImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format, Option<string> size)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRankPredictAvgImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds, format);
+            OnErrorRankPredictAvgImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds, format, size);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3032,20 +3043,22 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        partial void OnErrorRankPredictAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format);
+        /// <param name="size"></param>
+        partial void OnErrorRankPredictAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format, Option<string> size);
 
         /// <summary>
-        /// Rank Predict Avg Image Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Avg Image Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </summary>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictAvgImageApiResponse"/>&gt;</returns>
-        public async Task<IRankPredictAvgImageApiResponse?> RankPredictAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankPredictAvgImageApiResponse?> RankPredictAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RankPredictAvgImageAsync(accountIds, format, cancellationToken).ConfigureAwait(false);
+                return await RankPredictAvgImageAsync(accountIds, format, size, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3054,22 +3067,23 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Predict Avg Image Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Avg Image Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictAvgImageApiResponse"/>&gt;</returns>
-        public async Task<IRankPredictAvgImageApiResponse> RankPredictAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankPredictAvgImageApiResponse> RankPredictAvgImageAsync(List<int> accountIds, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                ValidateRankPredictAvgImage(accountIds, format);
+                ValidateRankPredictAvgImage(accountIds, format, size);
 
-                FormatRankPredictAvgImage(accountIds, ref format);
+                FormatRankPredictAvgImage(accountIds, ref format, ref size);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3086,6 +3100,9 @@ namespace DeadlockApiClient.Api
 
                     if (format.IsSet)
                         parseQueryStringLocalVar["format"] = ClientUtils.ParameterToString(format.Value);
+
+                    if (size.IsSet)
+                        parseQueryStringLocalVar["size"] = ClientUtils.ParameterToString(size.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -3119,7 +3136,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterRankPredictAvgImageDefaultImplementation(apiResponseLocalVar, accountIds, format);
+                        AfterRankPredictAvgImageDefaultImplementation(apiResponseLocalVar, accountIds, format, size);
 
                         Events.ExecuteOnRankPredictAvgImage(apiResponseLocalVar);
 
@@ -3129,7 +3146,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorRankPredictAvgImageDefaultImplementation(e, "/v1/players/rank-predict/image", uriBuilderLocalVar.Path, accountIds, format);
+                OnErrorRankPredictAvgImageDefaultImplementation(e, "/v1/players/rank-predict/image", uriBuilderLocalVar.Path, accountIds, format, size);
                 Events.ExecuteOnErrorRankPredictAvgImage(e);
                 throw;
             }
@@ -3270,17 +3287,21 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRankPredictImage(ref int accountId, ref Option<string> format);
+        partial void FormatRankPredictImage(ref int accountId, ref Option<string> format, ref Option<string> size);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
         /// <param name="format"></param>
+        /// <param name="size"></param>
         /// <returns></returns>
-        private void ValidateRankPredictImage(Option<string> format)
+        private void ValidateRankPredictImage(Option<string> format, Option<string> size)
         {
             if (format.IsSet && format.Value == null)
                 throw new ArgumentNullException(nameof(format));
+
+            if (size.IsSet && size.Value == null)
+                throw new ArgumentNullException(nameof(size));
         }
 
         /// <summary>
@@ -3289,10 +3310,11 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        private void AfterRankPredictImageDefaultImplementation(IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<string> format)
+        /// <param name="size"></param>
+        private void AfterRankPredictImageDefaultImplementation(IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<string> format, Option<string> size)
         {
             bool suppressDefaultLog = false;
-            AfterRankPredictImage(ref suppressDefaultLog, apiResponseLocalVar, accountId, format);
+            AfterRankPredictImage(ref suppressDefaultLog, apiResponseLocalVar, accountId, format, size);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3304,7 +3326,8 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        partial void AfterRankPredictImage(ref bool suppressDefaultLog, IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<string> format);
+        /// <param name="size"></param>
+        partial void AfterRankPredictImage(ref bool suppressDefaultLog, IRankPredictImageApiResponse apiResponseLocalVar, int accountId, Option<string> format, Option<string> size);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3314,10 +3337,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        private void OnErrorRankPredictImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format)
+        /// <param name="size"></param>
+        private void OnErrorRankPredictImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format, Option<string> size)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRankPredictImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, format);
+            OnErrorRankPredictImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, format, size);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3331,20 +3355,22 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        partial void OnErrorRankPredictImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format);
+        /// <param name="size"></param>
+        partial void OnErrorRankPredictImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format, Option<string> size);
 
         /// <summary>
-        /// Rank Predict Image Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Image Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>&gt;</returns>
-        public async Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RankPredictImageAsync(accountId, format, cancellationToken).ConfigureAwait(false);
+                return await RankPredictImageAsync(accountId, format, size, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3353,22 +3379,23 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Predict Image Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Image Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP and &#x60;?size&#x3D;small&#x60; for the small badge (defaults to large).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="size">Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>&gt;</returns>
-        public async Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                ValidateRankPredictImage(format);
+                ValidateRankPredictImage(format, size);
 
-                FormatRankPredictImage(ref accountId, ref format);
+                FormatRankPredictImage(ref accountId, ref format, ref size);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3384,6 +3411,9 @@ namespace DeadlockApiClient.Api
 
                     if (format.IsSet)
                         parseQueryStringLocalVar["format"] = ClientUtils.ParameterToString(format.Value);
+
+                    if (size.IsSet)
+                        parseQueryStringLocalVar["size"] = ClientUtils.ParameterToString(size.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -3417,7 +3447,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterRankPredictImageDefaultImplementation(apiResponseLocalVar, accountId, format);
+                        AfterRankPredictImageDefaultImplementation(apiResponseLocalVar, accountId, format, size);
 
                         Events.ExecuteOnRankPredictImage(apiResponseLocalVar);
 
@@ -3427,7 +3457,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorRankPredictImageDefaultImplementation(e, "/v1/players/{account_id}/rank-predict/image", uriBuilderLocalVar.Path, accountId, format);
+                OnErrorRankPredictImageDefaultImplementation(e, "/v1/players/{account_id}/rank-predict/image", uriBuilderLocalVar.Path, accountId, format, size);
                 Events.ExecuteOnErrorRankPredictImage(e);
                 throw;
             }

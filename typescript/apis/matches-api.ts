@@ -427,10 +427,11 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
          *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
          * @summary Salts
          * @param {number} matchId The match ID
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        salts: async (matchId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        salts: async (matchId: number, disableSteam?: boolean | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('salts', 'matchId', matchId)
             const localVarPath = `/v1/matches/{match_id}/salts`
@@ -446,6 +447,10 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            if (disableSteam !== undefined) {
+                localVarQueryParameter['disable_steam'] = disableSteam;
+            }
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -458,7 +463,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
          * @summary Live Broadcast URL
          * @param {number} matchId The match ID
          * @param {*} [options] Override http request option.
@@ -648,17 +653,18 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
          * @summary Salts
          * @param {number} matchId The match ID
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async salts(matchId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MatchSaltsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.salts(matchId, options);
+        async salts(matchId: number, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MatchSaltsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.salts(matchId, disableSteam, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.salts']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
          * @summary Live Broadcast URL
          * @param {number} matchId The match ID
          * @param {*} [options] Override http request option.
@@ -757,10 +763,10 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         salts(requestParameters: MatchesApiSaltsRequest, options?: RawAxiosRequestConfig): AxiosPromise<MatchSaltsResponse> {
-            return localVarFp.salts(requestParameters.matchId, options).then((request) => request(axios, basePath));
+            return localVarFp.salts(requestParameters.matchId, requestParameters.disableSteam, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
          * @summary Live Broadcast URL
          * @param {MatchesApiUrlRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1013,6 +1019,11 @@ export interface MatchesApiSaltsRequest {
      * The match ID
      */
     readonly matchId: number
+
+    /**
+     * If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+     */
+    readonly disableSteam?: boolean | null
 }
 
 /**
@@ -1101,11 +1112,11 @@ export class MatchesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public salts(requestParameters: MatchesApiSaltsRequest, options?: RawAxiosRequestConfig) {
-        return MatchesApiFp(this.configuration).salts(requestParameters.matchId, options).then((request) => request(this.axios, this.basePath));
+        return MatchesApiFp(this.configuration).salts(requestParameters.matchId, requestParameters.disableSteam, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
      * @summary Live Broadcast URL
      * @param {MatchesApiUrlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

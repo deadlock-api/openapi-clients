@@ -442,14 +442,15 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
          * @summary Rank Predict Avg Image
          * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
          * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictAvgImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        rankPredictAvgImage: async (accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rankPredictAvgImage: async (accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, size?: RankPredictAvgImageSizeEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountIds' is not null or undefined
             assertParamExists('rankPredictAvgImage', 'accountIds', accountIds)
             const localVarPath = `/v1/players/rank-predict/image`;
@@ -472,6 +473,10 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['format'] = format;
             }
 
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+
             localVarHeaderParameter['Accept'] = 'image/png,image/webp';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -484,14 +489,15 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
          * @summary Rank Predict Image
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        rankPredictImage: async (accountId: number, format?: RankPredictImageFormatEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rankPredictImage: async (accountId: number, format?: RankPredictImageFormatEnum, size?: RankPredictImageSizeEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('rankPredictImage', 'accountId', accountId)
             const localVarPath = `/v1/players/{account_id}/rank-predict/image`
@@ -509,6 +515,10 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (format !== undefined) {
                 localVarQueryParameter['format'] = format;
+            }
+
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
             }
 
             localVarHeaderParameter['Accept'] = 'image/png,image/webp';
@@ -655,29 +665,31 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
          * @summary Rank Predict Avg Image
          * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
          * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictAvgImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async rankPredictAvgImage(accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictAvgImage(accountIds, format, options);
+        async rankPredictAvgImage(accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, size?: RankPredictAvgImageSizeEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictAvgImage(accountIds, format, size, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictAvgImage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
          * @summary Rank Predict Image
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async rankPredictImage(accountId: number, format?: RankPredictImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictImage(accountId, format, options);
+        async rankPredictImage(accountId: number, format?: RankPredictImageFormatEnum, size?: RankPredictImageSizeEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictImage(accountId, format, size, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictImage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -762,24 +774,24 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.rankPredict(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
          * @summary Rank Predict Avg Image
          * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         rankPredictAvgImage(requestParameters: PlayersApiRankPredictAvgImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
-            return localVarFp.rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, options).then((request) => request(axios, basePath));
+            return localVarFp.rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, requestParameters.size, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
          * @summary Rank Predict Image
          * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
-            return localVarFp.rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(axios, basePath));
+            return localVarFp.rankPredictImage(requestParameters.accountId, requestParameters.format, requestParameters.size, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1027,6 +1039,11 @@ export interface PlayersApiRankPredictAvgImageRequest {
      * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
      */
     readonly format?: RankPredictAvgImageFormatEnum
+
+    /**
+     * Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
+     */
+    readonly size?: RankPredictAvgImageSizeEnum
 }
 
 /**
@@ -1042,6 +1059,11 @@ export interface PlayersApiRankPredictImageRequest {
      * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
      */
     readonly format?: RankPredictImageFormatEnum
+
+    /**
+     * Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
+     */
+    readonly size?: RankPredictImageSizeEnum
 }
 
 /**
@@ -1126,25 +1148,25 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+     * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
      * @summary Rank Predict Avg Image
      * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public rankPredictAvgImage(requestParameters: PlayersApiRankPredictAvgImageRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, requestParameters.size, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+     * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
      * @summary Rank Predict Image
      * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).rankPredictImage(requestParameters.accountId, requestParameters.format, requestParameters.size, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1174,8 +1196,18 @@ export const RankPredictAvgImageFormatEnum = {
     Webp: 'webp',
 } as const;
 export type RankPredictAvgImageFormatEnum = typeof RankPredictAvgImageFormatEnum[keyof typeof RankPredictAvgImageFormatEnum];
+export const RankPredictAvgImageSizeEnum = {
+    Large: 'large',
+    Small: 'small',
+} as const;
+export type RankPredictAvgImageSizeEnum = typeof RankPredictAvgImageSizeEnum[keyof typeof RankPredictAvgImageSizeEnum];
 export const RankPredictImageFormatEnum = {
     Png: 'png',
     Webp: 'webp',
 } as const;
 export type RankPredictImageFormatEnum = typeof RankPredictImageFormatEnum[keyof typeof RankPredictImageFormatEnum];
+export const RankPredictImageSizeEnum = {
+    Large: 'large',
+    Small: 'small',
+} as const;
+export type RankPredictImageSizeEnum = typeof RankPredictImageSizeEnum[keyof typeof RankPredictImageSizeEnum];

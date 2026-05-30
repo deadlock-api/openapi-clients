@@ -133,7 +133,9 @@ pub struct RankPredictAvgImageParams {
     /// Comma-separated list of account IDs (max 12).
     pub account_ids: Vec<u32>,
     /// Image format. Defaults to `png`. Supported: `png`, `webp`.
-    pub format: Option<String>
+    pub format: Option<String>,
+    /// Image size. Defaults to `large`. Supported: `large`, `small`.
+    pub size: Option<String>
 }
 
 /// struct for passing parameters to the method [`rank_predict_image`]
@@ -142,7 +144,9 @@ pub struct RankPredictImageParams {
     /// The players `SteamID3`
     pub account_id: u32,
     /// Image format. Defaults to `png`. Supported: `png`, `webp`.
-    pub format: Option<String>
+    pub format: Option<String>,
+    /// Image size. Defaults to `large`. Supported: `large`, `small`.
+    pub size: Option<String>
 }
 
 
@@ -592,7 +596,7 @@ pub async fn rank_predict(configuration: &configuration::Configuration, params: 
     }
 }
 
-/// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+/// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 pub async fn rank_predict_avg_image(configuration: &configuration::Configuration, params: RankPredictAvgImageParams) -> Result<Vec<u32>, Error<RankPredictAvgImageError>> {
 
     let uri_str = format!("{}/v1/players/rank-predict/image", configuration.base_path);
@@ -604,6 +608,9 @@ pub async fn rank_predict_avg_image(configuration: &configuration::Configuration
     };
     if let Some(ref param_value) = params.format {
         req_builder = req_builder.query(&[("format", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.size {
+        req_builder = req_builder.query(&[("size", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -634,7 +641,7 @@ pub async fn rank_predict_avg_image(configuration: &configuration::Configuration
     }
 }
 
-/// Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+/// Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
 pub async fn rank_predict_image(configuration: &configuration::Configuration, params: RankPredictImageParams) -> Result<Vec<u32>, Error<RankPredictImageError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/rank-predict/image", configuration.base_path, account_id=params.account_id);
@@ -642,6 +649,9 @@ pub async fn rank_predict_image(configuration: &configuration::Configuration, pa
 
     if let Some(ref param_value) = params.format {
         req_builder = req_builder.query(&[("format", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.size {
+        req_builder = req_builder.query(&[("size", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

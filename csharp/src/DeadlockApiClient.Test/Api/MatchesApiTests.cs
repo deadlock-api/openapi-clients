@@ -163,7 +163,8 @@ namespace DeadlockApiClient.Test.Api
         public async Task SaltsAsyncTest()
         {
             long matchId = default!;
-            var response = await _instance.SaltsAsync(matchId);
+            Client.Option<bool?> disableSteam = default!;
+            var response = await _instance.SaltsAsync(matchId, disableSteam);
             var model = response.Ok();
             Assert.IsType<MatchSaltsResponse>(model);
         }

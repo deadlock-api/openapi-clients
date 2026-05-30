@@ -787,6 +787,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Salts
      *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s&lt;br&gt;From Steam: 10req/30mins | | Key | From DB: -&lt;br&gt;From Steam: 10req/min | | Global | From DB: -&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @return MatchSaltsResponse
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -796,8 +797,8 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun salts(matchId: kotlin.Long) : MatchSaltsResponse {
-        val localVarResponse = saltsWithHttpInfo(matchId = matchId)
+    fun salts(matchId: kotlin.Long, disableSteam: kotlin.Boolean? = null) : MatchSaltsResponse {
+        val localVarResponse = saltsWithHttpInfo(matchId = matchId, disableSteam = disableSteam)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MatchSaltsResponse
@@ -819,14 +820,15 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * Salts
      *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s&lt;br&gt;From Steam: 10req/30mins | | Key | From DB: -&lt;br&gt;From Steam: 10req/min | | Global | From DB: -&lt;br&gt;From Steam: 10req/10s |     
      * @param matchId The match ID
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @return ApiResponse<MatchSaltsResponse?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun saltsWithHttpInfo(matchId: kotlin.Long) : ApiResponse<MatchSaltsResponse?> {
-        val localVariableConfig = saltsRequestConfig(matchId = matchId)
+    fun saltsWithHttpInfo(matchId: kotlin.Long, disableSteam: kotlin.Boolean?) : ApiResponse<MatchSaltsResponse?> {
+        val localVariableConfig = saltsRequestConfig(matchId = matchId, disableSteam = disableSteam)
 
         return request<Unit, MatchSaltsResponse>(
             localVariableConfig
@@ -837,11 +839,17 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * To obtain the request config of the operation salts
      *
      * @param matchId The match ID
+     * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. (optional)
      * @return RequestConfig
      */
-    fun saltsRequestConfig(matchId: kotlin.Long) : RequestConfig<Unit> {
+    fun saltsRequestConfig(matchId: kotlin.Long, disableSteam: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (disableSteam != null) {
+                    put("disable_steam", listOf(disableSteam.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -858,7 +866,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/live/url
      * Live Broadcast URL
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
      * @param matchId The match ID
      * @return MatchSpectateResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -890,7 +898,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/live/url
      * Live Broadcast URL
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |     
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |     
      * @param matchId The match ID
      * @return ApiResponse<MatchSpectateResponse?>
      * @throws IllegalStateException If the request is not correctly configured
