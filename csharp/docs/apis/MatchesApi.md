@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**ActiveMatches**](MatchesApi.md#activematches) | **GET** /v1/matches/active | Active |
 | [**ActiveMatchesRaw**](MatchesApi.md#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf |
 | [**BulkMetadata**](MatchesApi.md#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
+| [**IngestUrls**](MatchesApi.md#ingesturls) | **POST** /v1/matches/live/urls | Ingest Live Broadcast URLs |
 | [**Metadata**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
 | [**MetadataRaw**](MatchesApi.md#metadataraw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |
 | [**RecentlyFetched**](MatchesApi.md#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
@@ -154,6 +155,45 @@ No authorization required
 | **200** |  |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **429** | Rate limit exceeded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="ingesturls"></a>
+# **IngestUrls**
+> void IngestUrls (List<IngestLiveUrl> ingestLiveUrl)
+
+Ingest Live Broadcast URLs
+
+ Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ingestLiveUrl** | [**List&lt;IngestLiveUrl&gt;**](IngestLiveUrl.md) |  |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **400** | Provided parameters are invalid. |  -  |
+| **429** | Rate limit exceeded |  -  |
+| **500** | Ingesting live URLs failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

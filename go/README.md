@@ -157,6 +157,7 @@ Class | Method | HTTP request | Description
 *MatchesAPI* | [**ActiveMatches**](docs/MatchesAPI.md#activematches) | **Get** /v1/matches/active | Active
 *MatchesAPI* | [**ActiveMatchesRaw**](docs/MatchesAPI.md#activematchesraw) | **Get** /v1/matches/active/raw | Active as Protobuf
 *MatchesAPI* | [**BulkMetadata**](docs/MatchesAPI.md#bulkmetadata) | **Get** /v1/matches/metadata | Bulk Metadata
+*MatchesAPI* | [**IngestUrls**](docs/MatchesAPI.md#ingesturls) | **Post** /v1/matches/live/urls | Ingest Live Broadcast URLs
 *MatchesAPI* | [**Metadata**](docs/MatchesAPI.md#metadata) | **Get** /v1/matches/{match_id}/metadata | Metadata
 *MatchesAPI* | [**MetadataRaw**](docs/MatchesAPI.md#metadataraw) | **Get** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf
 *MatchesAPI* | [**RecentlyFetched**](docs/MatchesAPI.md#recentlyfetched) | **Get** /v1/matches/recently-fetched | Recently Fetched
@@ -271,6 +272,7 @@ Class | Method | HTTP request | Description
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
  - [HeroType](docs/HeroType.md)
  - [HorizontalRecoil](docs/HorizontalRecoil.md)
+ - [IngestLiveUrl](docs/IngestLiveUrl.md)
  - [Item](docs/Item.md)
  - [ItemDraftRound](docs/ItemDraftRound.md)
  - [ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)

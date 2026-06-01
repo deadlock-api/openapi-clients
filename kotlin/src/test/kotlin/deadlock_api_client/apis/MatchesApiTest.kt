@@ -29,6 +29,7 @@ import io.kotlintest.specs.ShouldSpec
 import deadlock_api_client.apis.MatchesApi
 import deadlock_api_client.models.ActiveMatch
 import deadlock_api_client.models.ClickhouseMatchInfo
+import deadlock_api_client.models.IngestLiveUrl
 import deadlock_api_client.models.LiveUrl
 import deadlock_api_client.models.MatchSaltsResponse
 import deadlock_api_client.models.MatchSpectateResponse
@@ -93,6 +94,13 @@ class MatchesApiTest : ShouldSpec() {
             //val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit)
             //result shouldBe ("TODO")
+        }
+
+        // to test ingestUrls
+        should("test ingestUrls") {
+            // uncomment below to test ingestUrls
+            //val ingestLiveUrl : kotlin.collections.List<IngestLiveUrl> =  // kotlin.collections.List<IngestLiveUrl> | 
+            //apiInstance.ingestUrls(ingestLiveUrl)
         }
 
         // to test metadata

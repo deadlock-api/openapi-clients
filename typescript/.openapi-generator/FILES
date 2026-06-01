@@ -123,6 +123,7 @@ docs/HeroType.md
 docs/HeroesApi.md
 docs/HorizontalRecoil.md
 docs/InfoApi.md
+docs/IngestLiveUrl.md
 docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
@@ -334,6 +335,7 @@ models/hero-type.ts
 models/hero.ts
 models/horizontal-recoil.ts
 models/index.ts
+models/ingest-live-url.ts
 models/item-draft-round-per-game-round.ts
 models/item-draft-round.ts
 models/item-group.ts

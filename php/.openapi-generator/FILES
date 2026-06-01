@@ -111,6 +111,7 @@ api/Model/HeroStatsUIDisplay.php
 api/Model/HeroSynergyStats.php
 api/Model/HeroType.php
 api/Model/HorizontalRecoil.php
+api/Model/IngestLiveUrl.php
 api/Model/Item.php
 api/Model/ItemDraftRound.php
 api/Model/ItemDraftRoundPerGameRound.php
@@ -335,6 +336,7 @@ docs/Model/HeroStatsUIDisplay.md
 docs/Model/HeroSynergyStats.md
 docs/Model/HeroType.md
 docs/Model/HorizontalRecoil.md
+docs/Model/IngestLiveUrl.md
 docs/Model/Item.md
 docs/Model/ItemDraftRound.md
 docs/Model/ItemDraftRoundPerGameRound.md
@@ -558,6 +560,7 @@ test/Model/HeroSynergyStatsTest.php
 test/Model/HeroTest.php
 test/Model/HeroTypeTest.php
 test/Model/HorizontalRecoilTest.php
+test/Model/IngestLiveUrlTest.php
 test/Model/ItemDraftRoundPerGameRoundTest.php
 test/Model/ItemDraftRoundTest.php
 test/Model/ItemGroupTest.php

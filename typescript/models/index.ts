@@ -73,6 +73,7 @@ export * from './hero-stats-uidisplay.js';
 export * from './hero-synergy-stats.js';
 export * from './hero-type.js';
 export * from './horizontal-recoil.js';
+export * from './ingest-live-url.js';
 export * from './item.js';
 export * from './item-draft-round.js';
 export * from './item-draft-round-per-game-round.js';

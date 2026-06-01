@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ActiveMatches**](MatchesAPI.md#ActiveMatches) | **Get** /v1/matches/active | Active
 [**ActiveMatchesRaw**](MatchesAPI.md#ActiveMatchesRaw) | **Get** /v1/matches/active/raw | Active as Protobuf
 [**BulkMetadata**](MatchesAPI.md#BulkMetadata) | **Get** /v1/matches/metadata | Bulk Metadata
+[**IngestUrls**](MatchesAPI.md#IngestUrls) | **Post** /v1/matches/live/urls | Ingest Live Broadcast URLs
 [**Metadata**](MatchesAPI.md#Metadata) | **Get** /v1/matches/{match_id}/metadata | Metadata
 [**MetadataRaw**](MatchesAPI.md#MetadataRaw) | **Get** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf
 [**RecentlyFetched**](MatchesAPI.md#RecentlyFetched) | **Get** /v1/matches/recently-fetched | Recently Fetched
@@ -271,6 +272,70 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IngestUrls
+
+> IngestUrls(ctx).IngestLiveUrl(ingestLiveUrl).Execute()
+
+Ingest Live Broadcast URLs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	ingestLiveUrl := []openapiclient.IngestLiveUrl{*openapiclient.NewIngestLiveUrl("BroadcastUrl_example", int64(123))} // []IngestLiveUrl | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.MatchesAPI.IngestUrls(context.Background()).IngestLiveUrl(ingestLiveUrl).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.IngestUrls``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIngestUrlsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ingestLiveUrl** | [**[]IngestLiveUrl**](IngestLiveUrl.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

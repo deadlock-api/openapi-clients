@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**activeMatches**](MatchesApi.md#activeMatches) | **GET** /v1/matches/active | Active |
 | [**activeMatchesRaw**](MatchesApi.md#activeMatchesRaw) | **GET** /v1/matches/active/raw | Active as Protobuf |
 | [**bulkMetadata**](MatchesApi.md#bulkMetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
+| [**ingestUrls**](MatchesApi.md#ingestUrls) | **POST** /v1/matches/live/urls | Ingest Live Broadcast URLs |
 | [**metadata**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
 | [**metadataRaw**](MatchesApi.md#metadataRaw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |
 | [**recentlyFetched**](MatchesApi.md#recentlyFetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
@@ -217,6 +218,51 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
+
+<a id="ingestUrls"></a>
+# **ingestUrls**
+> ingestUrls(ingestLiveUrl)
+
+Ingest Live Broadcast URLs
+
+ Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = MatchesApi()
+val ingestLiveUrl : kotlin.collections.List<IngestLiveUrl> =  // kotlin.collections.List<IngestLiveUrl> | 
+try {
+    apiInstance.ingestUrls(ingestLiveUrl)
+} catch (e: ClientException) {
+    println("4xx response calling MatchesApi#ingestUrls")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling MatchesApi#ingestUrls")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ingestLiveUrl** | [**kotlin.collections.List&lt;IngestLiveUrl&gt;**](IngestLiveUrl.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 <a id="metadata"></a>
 # **metadata**

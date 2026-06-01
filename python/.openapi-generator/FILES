@@ -115,6 +115,7 @@ deadlock_api_client/models/hero_stats_ui_display.py
 deadlock_api_client/models/hero_synergy_stats.py
 deadlock_api_client/models/hero_type.py
 deadlock_api_client/models/horizontal_recoil.py
+deadlock_api_client/models/ingest_live_url.py
 deadlock_api_client/models/item.py
 deadlock_api_client/models/item_draft_round.py
 deadlock_api_client/models/item_draft_round_per_game_round.py
@@ -322,6 +323,7 @@ docs/HeroType.md
 docs/HeroesApi.md
 docs/HorizontalRecoil.md
 docs/InfoApi.md
+docs/IngestLiveUrl.md
 docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
@@ -550,6 +552,7 @@ test/test_hero_type.py
 test/test_heroes_api.py
 test/test_horizontal_recoil.py
 test/test_info_api.py
+test/test_ingest_live_url.py
 test/test_internal_api.py
 test/test_item.py
 test/test_item_draft_round.py

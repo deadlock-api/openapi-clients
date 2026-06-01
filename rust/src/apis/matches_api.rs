@@ -96,6 +96,12 @@ pub struct BulkMetadataParams {
     pub limit: Option<u32>
 }
 
+/// struct for passing parameters to the method [`ingest_urls`]
+#[derive(Clone, Debug)]
+pub struct IngestUrlsParams {
+    pub ingest_live_url: Vec<models::IngestLiveUrl>
+}
+
 /// struct for passing parameters to the method [`metadata`]
 #[derive(Clone, Debug)]
 pub struct MetadataParams {
@@ -156,6 +162,16 @@ pub enum ActiveMatchesRawError {
 pub enum BulkMetadataError {
     Status400(),
     Status429(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`ingest_urls`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum IngestUrlsError {
+    Status400(),
+    Status429(),
+    Status500(),
     UnknownValue(serde_json::Value),
 }
 
@@ -436,6 +452,31 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     } else {
         let content = resp.text().await?;
         let entity: Option<BulkMetadataError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+pub async fn ingest_urls(configuration: &configuration::Configuration, params: IngestUrlsParams) -> Result<(), Error<IngestUrlsError>> {
+
+    let uri_str = format!("{}/v1/matches/live/urls", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.ingest_live_url);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<IngestUrlsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -173,6 +173,29 @@ namespace DeadlockApiClient.Api
         Task<IBulkMetadataApiResponse?> BulkMetadataOrDefaultAsync(Option<bool> includeInfo = default, Option<bool> includeMoreInfo = default, Option<bool> includeObjectives = default, Option<bool> includeMidBoss = default, Option<bool> includePlayerInfo = default, Option<bool> includePlayerKda = default, Option<bool> includePlayerItems = default, Option<bool> includePlayerStats = default, Option<bool> includePlayerFinalStats = default, Option<bool> includePlayerDeathDetails = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<List<long>?> matchIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<List<int>?> accountIds = default, Option<string?> heroIds = default, Option<int?> itemFilterHeroId = default, Option<string?> includeItemIds = default, Option<string?> excludeItemIds = default, Option<string?> extraMatchColumns = default, Option<string?> extraPlayerColumns = default, Option<string> orderBy = default, Option<string> orderDirection = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Ingest Live Broadcast URLs
+        /// </summary>
+        /// <remarks>
+        ///  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingestLiveUrl"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestUrlsApiResponse"/>&gt;</returns>
+        Task<IIngestUrlsApiResponse> IngestUrlsAsync(List<IngestLiveUrl> ingestLiveUrl, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Ingest Live Broadcast URLs
+        /// </summary>
+        /// <remarks>
+        ///  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </remarks>
+        /// <param name="ingestLiveUrl"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestUrlsApiResponse"/>?&gt;</returns>
+        Task<IIngestUrlsApiResponse?> IngestUrlsOrDefaultAsync(List<IngestLiveUrl> ingestLiveUrl, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Metadata
         /// </summary>
         /// <remarks>
@@ -381,6 +404,36 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsTooManyRequests { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IIngestUrlsApiResponse"/>
+    /// </summary>
+    public interface IIngestUrlsApiResponse : DeadlockApiClient.Client.IApiResponse
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
     }
 
     /// <summary>
@@ -614,6 +667,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorBulkMetadata(Exception exception)
         {
             OnErrorBulkMetadata?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnIngestUrls;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorIngestUrls;
+
+        internal void ExecuteOnIngestUrls(MatchesApi.IngestUrlsApiResponse apiResponse)
+        {
+            OnIngestUrls?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorIngestUrls(Exception exception)
+        {
+            OnErrorIngestUrls?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -1813,6 +1886,237 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatIngestUrls(List<IngestLiveUrl> ingestLiveUrl);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="ingestLiveUrl"></param>
+        /// <returns></returns>
+        private void ValidateIngestUrls(List<IngestLiveUrl> ingestLiveUrl)
+        {
+            if (ingestLiveUrl == null)
+                throw new ArgumentNullException(nameof(ingestLiveUrl));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="ingestLiveUrl"></param>
+        private void AfterIngestUrlsDefaultImplementation(IIngestUrlsApiResponse apiResponseLocalVar, List<IngestLiveUrl> ingestLiveUrl)
+        {
+            bool suppressDefaultLog = false;
+            AfterIngestUrls(ref suppressDefaultLog, apiResponseLocalVar, ingestLiveUrl);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="ingestLiveUrl"></param>
+        partial void AfterIngestUrls(ref bool suppressDefaultLog, IIngestUrlsApiResponse apiResponseLocalVar, List<IngestLiveUrl> ingestLiveUrl);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="ingestLiveUrl"></param>
+        private void OnErrorIngestUrlsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<IngestLiveUrl> ingestLiveUrl)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorIngestUrls(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, ingestLiveUrl);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="ingestLiveUrl"></param>
+        partial void OnErrorIngestUrls(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<IngestLiveUrl> ingestLiveUrl);
+
+        /// <summary>
+        /// Ingest Live Broadcast URLs  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </summary>
+        /// <param name="ingestLiveUrl"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestUrlsApiResponse"/>&gt;</returns>
+        public async Task<IIngestUrlsApiResponse?> IngestUrlsOrDefaultAsync(List<IngestLiveUrl> ingestLiveUrl, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await IngestUrlsAsync(ingestLiveUrl, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Ingest Live Broadcast URLs  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ingestLiveUrl"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestUrlsApiResponse"/>&gt;</returns>
+        public async Task<IIngestUrlsApiResponse> IngestUrlsAsync(List<IngestLiveUrl> ingestLiveUrl, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateIngestUrls(ingestLiveUrl);
+
+                FormatIngestUrls(ingestLiveUrl);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/matches/live/urls"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/live/urls");
+
+                    httpRequestMessageLocalVar.Content = (ingestLiveUrl as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
+                        : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(ingestLiveUrl, _jsonSerializerOptions));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] contentTypes = new string[] {
+                        "application/json"
+                    };
+
+                    string? contentTypeLocalVar = ClientUtils.SelectHeaderContentType(contentTypes);
+
+                    if (contentTypeLocalVar != null && httpRequestMessageLocalVar.Content != null)
+                        httpRequestMessageLocalVar.Content.Headers.ContentType = new MediaTypeHeaderValue(contentTypeLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<IngestUrlsApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<IngestUrlsApiResponse>();
+                        IngestUrlsApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/matches/live/urls", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterIngestUrlsDefaultImplementation(apiResponseLocalVar, ingestLiveUrl);
+
+                        Events.ExecuteOnIngestUrls(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorIngestUrlsDefaultImplementation(e, "/v1/matches/live/urls", uriBuilderLocalVar.Path, ingestLiveUrl);
+                Events.ExecuteOnErrorIngestUrls(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="IngestUrlsApiResponse"/>
+        /// </summary>
+        public partial class IngestUrlsApiResponse : DeadlockApiClient.Client.ApiResponse, IIngestUrlsApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<IngestUrlsApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="IngestUrlsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public IngestUrlsApiResponse(ILogger<IngestUrlsApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="IngestUrlsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public IngestUrlsApiResponse(ILogger<IngestUrlsApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {

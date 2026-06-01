@@ -131,6 +131,7 @@ __all__ = [
     "HeroSynergyStats",
     "HeroType",
     "HorizontalRecoil",
+    "IngestLiveUrl",
     "Item",
     "ItemDraftRound",
     "ItemDraftRoundPerGameRound",
@@ -368,6 +369,7 @@ from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay 
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats as HeroSynergyStats
 from deadlock_api_client.models.hero_type import HeroType as HeroType
 from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil as HorizontalRecoil
+from deadlock_api_client.models.ingest_live_url import IngestLiveUrl as IngestLiveUrl
 from deadlock_api_client.models.item import Item as Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound as ItemDraftRoundPerGameRound

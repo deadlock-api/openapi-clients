@@ -122,6 +122,7 @@ docs/HeroType.md
 docs/HeroesAPI.md
 docs/HorizontalRecoil.md
 docs/InfoAPI.md
+docs/IngestLiveUrl.md
 docs/InternalAPI.md
 docs/Item.md
 docs/ItemDraftRound.md
@@ -333,6 +334,7 @@ model_hero_stats_ui_display.go
 model_hero_synergy_stats.go
 model_hero_type.go
 model_horizontal_recoil.go
+model_ingest_live_url.go
 model_item.go
 model_item_draft_round.go
 model_item_draft_round_per_game_round.go

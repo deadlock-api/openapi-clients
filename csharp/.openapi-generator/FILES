@@ -108,6 +108,7 @@ docs/models/HeroStatsUIDisplay.md
 docs/models/HeroSynergyStats.md
 docs/models/HeroType.md
 docs/models/HorizontalRecoil.md
+docs/models/IngestLiveUrl.md
 docs/models/Item.md
 docs/models/ItemDraftRound.md
 docs/models/ItemDraftRoundPerGameRound.md
@@ -334,6 +335,7 @@ src/DeadlockApiClient.Test/Model/HeroSynergyStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroTests.cs
 src/DeadlockApiClient.Test/Model/HeroTypeTests.cs
 src/DeadlockApiClient.Test/Model/HorizontalRecoilTests.cs
+src/DeadlockApiClient.Test/Model/IngestLiveUrlTests.cs
 src/DeadlockApiClient.Test/Model/ItemDraftRoundPerGameRoundTests.cs
 src/DeadlockApiClient.Test/Model/ItemDraftRoundTests.cs
 src/DeadlockApiClient.Test/Model/ItemGroupTests.cs
@@ -581,6 +583,7 @@ src/DeadlockApiClient/Model/HeroStatsUIDisplay.cs
 src/DeadlockApiClient/Model/HeroSynergyStats.cs
 src/DeadlockApiClient/Model/HeroType.cs
 src/DeadlockApiClient/Model/HorizontalRecoil.cs
+src/DeadlockApiClient/Model/IngestLiveUrl.cs
 src/DeadlockApiClient/Model/Item.cs
 src/DeadlockApiClient/Model/ItemDraftRound.cs
 src/DeadlockApiClient/Model/ItemDraftRoundPerGameRound.cs

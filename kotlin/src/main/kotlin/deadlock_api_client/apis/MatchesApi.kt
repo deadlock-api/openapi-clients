@@ -29,6 +29,7 @@ import okhttp3.HttpUrl
 
 import deadlock_api_client.models.ActiveMatch
 import deadlock_api_client.models.ClickhouseMatchInfo
+import deadlock_api_client.models.IngestLiveUrl
 import deadlock_api_client.models.LiveUrl
 import deadlock_api_client.models.MatchSaltsResponse
 import deadlock_api_client.models.MatchSpectateResponse
@@ -534,6 +535,77 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/matches/metadata",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * POST /v1/matches/live/urls
+     * Ingest Live Broadcast URLs
+     *  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param ingestLiveUrl 
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun ingestUrls(ingestLiveUrl: kotlin.collections.List<IngestLiveUrl>) : Unit {
+        val localVarResponse = ingestUrlsWithHttpInfo(ingestLiveUrl = ingestLiveUrl)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * POST /v1/matches/live/urls
+     * Ingest Live Broadcast URLs
+     *  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @param ingestLiveUrl 
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun ingestUrlsWithHttpInfo(ingestLiveUrl: kotlin.collections.List<IngestLiveUrl>) : ApiResponse<Unit?> {
+        val localVariableConfig = ingestUrlsRequestConfig(ingestLiveUrl = ingestLiveUrl)
+
+        return request<kotlin.collections.List<IngestLiveUrl>, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation ingestUrls
+     *
+     * @param ingestLiveUrl 
+     * @return RequestConfig
+     */
+    fun ingestUrlsRequestConfig(ingestLiveUrl: kotlin.collections.List<IngestLiveUrl>) : RequestConfig<kotlin.collections.List<IngestLiveUrl>> {
+        val localVariableBody = ingestLiveUrl
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/v1/matches/live/urls",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

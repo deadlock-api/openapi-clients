@@ -47,6 +47,13 @@ class TestMatchesApi(unittest.TestCase):
         """
         pass
 
+    def test_ingest_urls(self) -> None:
+        """Test case for ingest_urls
+
+        Ingest Live Broadcast URLs
+        """
+        pass
+
     def test_metadata(self) -> None:
         """Test case for metadata
 

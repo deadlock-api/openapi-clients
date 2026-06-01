@@ -148,6 +148,8 @@ pub mod hero_type;
 pub use self::hero_type::HeroType;
 pub mod horizontal_recoil;
 pub use self::horizontal_recoil::HorizontalRecoil;
+pub mod ingest_live_url;
+pub use self::ingest_live_url::IngestLiveUrl;
 pub mod item;
 pub use self::item::Item;
 pub mod item_draft_round;

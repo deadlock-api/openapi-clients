@@ -9,6 +9,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**activeMatches()**](MatchesApi.md#activeMatches) | **GET** /v1/matches/active | Active |
 | [**activeMatchesRaw()**](MatchesApi.md#activeMatchesRaw) | **GET** /v1/matches/active/raw | Active as Protobuf |
 | [**bulkMetadata()**](MatchesApi.md#bulkMetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
+| [**ingestUrls()**](MatchesApi.md#ingestUrls) | **POST** /v1/matches/live/urls | Ingest Live Broadcast URLs |
 | [**metadata()**](MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
 | [**metadataRaw()**](MatchesApi.md#metadataRaw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |
 | [**recentlyFetched()**](MatchesApi.md#recentlyFetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
@@ -245,6 +246,61 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/octet-stream`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `ingestUrls()`
+
+```php
+ingestUrls($ingest_live_url)
+```
+
+Ingest Live Broadcast URLs
+
+Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\MatchesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$ingest_live_url = array(new \OpenAPI\Client\Model\IngestLiveUrl()); // \OpenAPI\Client\Model\IngestLiveUrl[]
+
+try {
+    $apiInstance->ingestUrls($ingest_live_url);
+} catch (Exception $e) {
+    echo 'Exception when calling MatchesApi->ingestUrls: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **ingest_live_url** | [**\OpenAPI\Client\Model\IngestLiveUrl[]**](../Model/IngestLiveUrl.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

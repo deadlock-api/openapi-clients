@@ -109,6 +109,7 @@ src/models/HeroStatsUIDisplay.ts
 src/models/HeroSynergyStats.ts
 src/models/HeroType.ts
 src/models/HorizontalRecoil.ts
+src/models/IngestLiveUrl.ts
 src/models/Item.ts
 src/models/ItemDraftRound.ts
 src/models/ItemDraftRoundPerGameRound.ts

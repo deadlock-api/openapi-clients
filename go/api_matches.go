@@ -756,6 +756,121 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiIngestUrlsRequest struct {
+	ctx context.Context
+	ApiService *MatchesAPIService
+	ingestLiveUrl *[]IngestLiveUrl
+}
+
+func (r ApiIngestUrlsRequest) IngestLiveUrl(ingestLiveUrl []IngestLiveUrl) ApiIngestUrlsRequest {
+	r.ingestLiveUrl = &ingestLiveUrl
+	return r
+}
+
+func (r ApiIngestUrlsRequest) Execute() (*http.Response, error) {
+	return r.ApiService.IngestUrlsExecute(r)
+}
+
+/*
+IngestUrls Ingest Live Broadcast URLs
+
+
+Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.
+
+Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed
+while it is still live. Existing entries for the same `match_id` are overwritten.
+
+These URLs can be used in any demofile broadcast parser:
+- [Demofile-Net](https://github.com/saul/demofile-net)
+- [Haste](https://github.com/blukai/haste/)
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 100req/s |
+| Key | - |
+| Global | - |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiIngestUrlsRequest
+*/
+func (a *MatchesAPIService) IngestUrls(ctx context.Context) ApiIngestUrlsRequest {
+	return ApiIngestUrlsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *MatchesAPIService) IngestUrlsExecute(r ApiIngestUrlsRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatchesAPIService.IngestUrls")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/matches/live/urls"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.ingestLiveUrl == nil {
+		return nil, reportError("ingestLiveUrl is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.ingestLiveUrl
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiMetadataRequest struct {
 	ctx context.Context
 	ApiService *MatchesAPIService

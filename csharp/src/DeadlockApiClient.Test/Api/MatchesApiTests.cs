@@ -120,6 +120,16 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test IngestUrls
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task IngestUrlsAsyncTest()
+        {
+            List<IngestLiveUrl> ingestLiveUrl = default!;
+            await _instance.IngestUrlsAsync(ingestLiveUrl);
+        }
+
+        /// <summary>
         /// Test Metadata
         /// </summary>
         [Fact (Skip = "not implemented")]

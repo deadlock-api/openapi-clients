@@ -58,6 +58,17 @@ func Test_deadlock_api_client_MatchesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test MatchesAPIService IngestUrls", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.MatchesAPI.IngestUrls(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MatchesAPIService Metadata", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -131,6 +131,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *MatchesApi* | [**activeMatches**](docs/MatchesApi.md#activematches) | **GET** /v1/matches/active | Active |
 | *MatchesApi* | [**activeMatchesRaw**](docs/MatchesApi.md#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf |
 | *MatchesApi* | [**bulkMetadata**](docs/MatchesApi.md#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata |
+| *MatchesApi* | [**ingestUrls**](docs/MatchesApi.md#ingesturls) | **POST** /v1/matches/live/urls | Ingest Live Broadcast URLs |
 | *MatchesApi* | [**metadata**](docs/MatchesApi.md#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata |
 | *MatchesApi* | [**metadataRaw**](docs/MatchesApi.md#metadataraw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf |
 | *MatchesApi* | [**recentlyFetched**](docs/MatchesApi.md#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched |
@@ -246,6 +247,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.HeroSynergyStats](docs/HeroSynergyStats.md)
  - [deadlock_api_client.models.HeroType](docs/HeroType.md)
  - [deadlock_api_client.models.HorizontalRecoil](docs/HorizontalRecoil.md)
+ - [deadlock_api_client.models.IngestLiveUrl](docs/IngestLiveUrl.md)
  - [deadlock_api_client.models.Item](docs/Item.md)
  - [deadlock_api_client.models.ItemDraftRound](docs/ItemDraftRound.md)
  - [deadlock_api_client.models.ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)

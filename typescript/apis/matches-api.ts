@@ -26,6 +26,8 @@ import type { ActiveMatch } from '../models/index.js';
 // @ts-ignore
 import type { ClickhouseMatchInfo } from '../models/index.js';
 // @ts-ignore
+import type { IngestLiveUrl } from '../models/index.js';
+// @ts-ignore
 import type { LiveUrl } from '../models/index.js';
 // @ts-ignore
 import type { MatchSaltsResponse } from '../models/index.js';
@@ -300,6 +302,40 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Ingest Live Broadcast URLs
+         * @param {Array<IngestLiveUrl>} ingestLiveUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestUrls: async (ingestLiveUrl: Array<IngestLiveUrl>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'ingestLiveUrl' is not null or undefined
+            assertParamExists('ingestUrls', 'ingestLiveUrl', ingestLiveUrl)
+            const localVarPath = `/v1/matches/live/urls`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ingestLiveUrl, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -608,6 +644,19 @@ export const MatchesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Ingest Live Broadcast URLs
+         * @param {Array<IngestLiveUrl>} ingestLiveUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ingestUrls(ingestLiveUrl: Array<IngestLiveUrl>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ingestUrls(ingestLiveUrl, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MatchesApi.ingestUrls']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
          * @summary Metadata
          * @param {number} matchId The match ID
@@ -725,6 +774,16 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          */
         bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
             return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerFinalStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.extraMatchColumns, requestParameters.extraPlayerColumns, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         * @summary Ingest Live Broadcast URLs
+         * @param {MatchesApiIngestUrlsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestUrls(requestParameters: MatchesApiIngestUrlsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.ingestUrls(requestParameters.ingestLiveUrl, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
@@ -978,6 +1037,13 @@ export interface MatchesApiBulkMetadataRequest {
 }
 
 /**
+ * Request parameters for ingestUrls operation in MatchesApi.
+ */
+export interface MatchesApiIngestUrlsRequest {
+    readonly ingestLiveUrl: Array<IngestLiveUrl>
+}
+
+/**
  * Request parameters for metadata operation in MatchesApi.
  */
 export interface MatchesApiMetadataRequest {
@@ -1070,6 +1136,17 @@ export class MatchesApi extends BaseAPI {
      */
     public bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig) {
         return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerFinalStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.extraMatchColumns, requestParameters.extraPlayerColumns, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     * @summary Ingest Live Broadcast URLs
+     * @param {MatchesApiIngestUrlsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public ingestUrls(requestParameters: MatchesApiIngestUrlsRequest, options?: RawAxiosRequestConfig) {
+        return MatchesApiFp(this.configuration).ingestUrls(requestParameters.ingestLiveUrl, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

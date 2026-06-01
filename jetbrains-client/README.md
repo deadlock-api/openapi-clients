@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**activeMatches**](Apis/MatchesApi.http#activematches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**activeMatchesRaw**](Apis/MatchesApi.http#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf
 *MatchesApi* | [**bulkMetadata**](Apis/MatchesApi.http#bulkmetadata) | **GET** /v1/matches/metadata | Bulk Metadata
+*MatchesApi* | [**ingestUrls**](Apis/MatchesApi.http#ingesturls) | **POST** /v1/matches/live/urls | Ingest Live Broadcast URLs
 *MatchesApi* | [**metadata**](Apis/MatchesApi.http#metadata) | **GET** /v1/matches/{match_id}/metadata | Metadata
 *MatchesApi* | [**metadataRaw**](Apis/MatchesApi.http#metadataraw) | **GET** /v1/matches/{match_id}/metadata/raw | Metadata as Protobuf
 *MatchesApi* | [**recentlyFetched**](Apis/MatchesApi.http#recentlyfetched) | **GET** /v1/matches/recently-fetched | Recently Fetched

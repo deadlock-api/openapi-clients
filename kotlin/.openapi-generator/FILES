@@ -89,6 +89,7 @@ docs/HeroType.md
 docs/HeroesApi.md
 docs/HorizontalRecoil.md
 docs/InfoApi.md
+docs/IngestLiveUrl.md
 docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
@@ -344,6 +345,7 @@ src/main/kotlin/deadlock_api_client/models/HeroStatsUIDisplay.kt
 src/main/kotlin/deadlock_api_client/models/HeroSynergyStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroType.kt
 src/main/kotlin/deadlock_api_client/models/HorizontalRecoil.kt
+src/main/kotlin/deadlock_api_client/models/IngestLiveUrl.kt
 src/main/kotlin/deadlock_api_client/models/Item.kt
 src/main/kotlin/deadlock_api_client/models/ItemDraftRound.kt
 src/main/kotlin/deadlock_api_client/models/ItemDraftRoundPerGameRound.kt
@@ -565,6 +567,7 @@ src/test/kotlin/deadlock_api_client/models/HeroSynergyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/HorizontalRecoilTest.kt
+src/test/kotlin/deadlock_api_client/models/IngestLiveUrlTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemDraftRoundPerGameRoundTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemDraftRoundTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemGroupTest.kt

@@ -91,6 +91,7 @@ docs/HeroType.md
 docs/HeroesApi.md
 docs/HorizontalRecoil.md
 docs/InfoApi.md
+docs/IngestLiveUrl.md
 docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
@@ -332,6 +333,7 @@ src/models/hero_stats_ui_display.rs
 src/models/hero_synergy_stats.rs
 src/models/hero_type.rs
 src/models/horizontal_recoil.rs
+src/models/ingest_live_url.rs
 src/models/item.rs
 src/models/item_draft_round.rs
 src/models/item_draft_round_per_game_round.rs

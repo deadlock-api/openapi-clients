@@ -21,6 +21,9 @@ import {
     ClickhouseMatchInfo,
     ClickhouseMatchInfoFromJSON,
     ClickhouseMatchInfoToJSON,
+    IngestLiveUrl,
+    IngestLiveUrlFromJSON,
+    IngestLiveUrlToJSON,
     LiveUrl,
     LiveUrlFromJSON,
     LiveUrlToJSON,
@@ -72,6 +75,10 @@ export interface BulkMetadataRequest {
     orderBy?: BulkMetadataOrderByEnum;
     orderDirection?: BulkMetadataOrderDirectionEnum;
     limit?: number;
+}
+
+export interface IngestUrlsRequest {
+    ingestLiveUrl: Array<IngestLiveUrl>;
 }
 
 export interface MetadataRequest {
@@ -406,6 +413,55 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 */
 export function bulkMetadata<T>(requestParameters: BulkMetadataRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
     return bulkMetadataRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ * Ingest Live Broadcast URLs
+ */
+function ingestUrlsRaw<T>(requestParameters: IngestUrlsRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
+    if (requestParameters.ingestLiveUrl === null || requestParameters.ingestLiveUrl === undefined) {
+        throw new runtime.RequiredError('ingestLiveUrl','Required parameter requestParameters.ingestLiveUrl was null or undefined when calling ingestUrls.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/matches/live/urls`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'POST',
+            headers: headerParameters,
+        },
+        body: queryParameters || requestParameters.ingestLiveUrl?.map(IngestLiveUrlToJSON),
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+*  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+* Ingest Live Broadcast URLs
+*/
+export function ingestUrls<T>(requestParameters: IngestUrlsRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
+    return ingestUrlsRaw(requestParameters, requestConfig);
 }
 
 /**
