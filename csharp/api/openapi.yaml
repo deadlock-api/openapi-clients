@@ -29,6 +29,8 @@ externalDocs:
 servers:
 - url: https://api.deadlock-api.com
 tags:
+- description: Endpoints that return data about game patches.
+  name: Patches
 - description: |2
 
     Comprehensive match data endpoints for retrieving detailed information about games.
@@ -66,8 +68,6 @@ tags:
 
     Search and retrieve hero builds with comprehensive filtering options.
   name: Builds
-- description: Endpoints that return data about game patches.
-  name: Patches
 - description: |2
 
     Integration endpoints for the [Deadlock Streamkit](https://streamkit.deadlock-api.com/).
