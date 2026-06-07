@@ -18,7 +18,9 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct SqlParams {
     /// The SQL query to execute. It must follow the Clickhouse SQL syntax.
-    pub query: String
+    pub query: String,
+    /// The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+    pub format: Option<String>
 }
 
 /// struct for passing parameters to the method [`table_schema`]
@@ -96,6 +98,9 @@ pub async fn sql(configuration: &configuration::Configuration, params: SqlParams
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("query", &params.query.to_string())]);
+    if let Some(ref param_value) = params.format {
+        req_builder = req_builder.query(&[("format", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

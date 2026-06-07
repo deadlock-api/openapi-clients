@@ -39,7 +39,7 @@ No authorization required
 
 ## sql
 
-> String sql(query)
+> String sql(query, format)
 Query
 
  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
@@ -50,6 +50,7 @@ Query
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **query** | **String** | The SQL query to execute. It must follow the Clickhouse SQL syntax. | [required] |
+**format** | Option<**String**> | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). |  |
 
 ### Return type
 

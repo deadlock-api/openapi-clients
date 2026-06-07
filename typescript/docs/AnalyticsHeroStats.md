@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **losses** | **number** |  | [default to undefined]
 **matches** | **number** |  | [default to undefined]
 **matches_per_bucket** | **number** |  | [default to undefined]
-**players** | **number** |  | [default to undefined]
 **total_assists** | **number** |  | [default to undefined]
 **total_boss_damage** | **number** |  | [default to undefined]
 **total_creep_damage** | **number** |  | [default to undefined]
@@ -38,7 +37,6 @@ const instance: AnalyticsHeroStats = {
     losses,
     matches,
     matches_per_bucket,
-    players,
     total_assists,
     total_boss_damage,
     total_creep_damage,

@@ -75,6 +75,7 @@ export interface BulkMetadataRequest {
     orderBy?: BulkMetadataOrderByEnum;
     orderDirection?: BulkMetadataOrderDirectionEnum;
     limit?: number;
+    format?: BulkMetadataFormatEnum;
 }
 
 export interface IngestUrlsRequest {
@@ -378,6 +379,11 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 
     if (requestParameters.limit !== undefined) {
         queryParameters['limit'] = requestParameters.limit;
+    }
+
+
+    if (requestParameters.format !== undefined) {
+        queryParameters['format'] = requestParameters.format;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -797,4 +803,12 @@ export enum BulkMetadataOrderByEnum {
 export enum BulkMetadataOrderDirectionEnum {
     Desc = 'desc',
     Asc = 'asc'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BulkMetadataFormatEnum {
+    Json = 'json',
+    Ndjson = 'ndjson'
 }

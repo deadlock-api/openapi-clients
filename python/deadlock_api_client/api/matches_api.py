@@ -614,6 +614,7 @@ class MatchesApi:
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
+        format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -699,6 +700,8 @@ class MatchesApi:
         :type order_direction: str
         :param limit: The maximum number of matches to return.
         :type limit: int
+        :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -756,6 +759,7 @@ class MatchesApi:
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -815,6 +819,7 @@ class MatchesApi:
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
+        format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -900,6 +905,8 @@ class MatchesApi:
         :type order_direction: str
         :param limit: The maximum number of matches to return.
         :type limit: int
+        :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -957,6 +964,7 @@ class MatchesApi:
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1016,6 +1024,7 @@ class MatchesApi:
         order_by: Annotated[Optional[StrictStr], Field(description="The field to order the results by.")] = None,
         order_direction: Annotated[Optional[StrictStr], Field(description="The direction to order the results by.")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]], Field(description="The maximum number of matches to return.")] = None,
+        format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1101,6 +1110,8 @@ class MatchesApi:
         :type order_direction: str
         :param limit: The maximum number of matches to return.
         :type limit: int
+        :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1158,6 +1169,7 @@ class MatchesApi:
             order_by=order_by,
             order_direction=order_direction,
             limit=limit,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1212,6 +1224,7 @@ class MatchesApi:
         order_by,
         order_direction,
         limit,
+        format,
         _request_auth,
         _content_type,
         _headers,
@@ -1371,6 +1384,10 @@ class MatchesApi:
         if limit is not None:
             
             _query_params.append(('limit', limit))
+            
+        if format is not None:
+            
+            _query_params.append(('format', format))
             
         # process the header parameters
         # process the form parameters

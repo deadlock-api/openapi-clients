@@ -123,10 +123,28 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     }
 
     /**
+     * enum for parameter format
+     */
+     enum class FormatSql(val value: kotlin.String) {
+         @Json(name = "json") json("json"),
+         @Json(name = "ndjson") ndjson("ndjson");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/sql
      * Query
      *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -136,8 +154,8 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun sql(query: kotlin.String) : kotlin.String {
-        val localVarResponse = sqlWithHttpInfo(query = query)
+    fun sql(query: kotlin.String, format: FormatSql? = null) : kotlin.String {
+        val localVarResponse = sqlWithHttpInfo(query = query, format = format)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
@@ -159,14 +177,15 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Query
      *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun sqlWithHttpInfo(query: kotlin.String) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = sqlRequestConfig(query = query)
+    fun sqlWithHttpInfo(query: kotlin.String, format: FormatSql?) : ApiResponse<kotlin.String?> {
+        val localVariableConfig = sqlRequestConfig(query = query, format = format)
 
         return request<Unit, kotlin.String>(
             localVariableConfig
@@ -177,13 +196,17 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation sql
      *
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @return RequestConfig
      */
-    fun sqlRequestConfig(query: kotlin.String) : RequestConfig<Unit> {
+    fun sqlRequestConfig(query: kotlin.String, format: FormatSql?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("query", listOf(query.toString()))
+                if (format != null) {
+                    put("format", listOf(format.value))
+                }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "text/plain"

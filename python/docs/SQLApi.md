@@ -83,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sql**
-> str sql(query)
+> str sql(query, format=format)
 
 Query
 
@@ -118,10 +118,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.SQLApi(api_client)
     query = 'query_example' # str | The SQL query to execute. It must follow the Clickhouse SQL syntax.
+    format = 'format_example' # str | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional)
 
     try:
         # Query
-        api_response = api_instance.sql(query)
+        api_response = api_instance.sql(query, format=format)
         print("The response of SQLApi->sql:\n")
         pprint(api_response)
     except Exception as e:
@@ -136,6 +137,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **str**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | 
+ **format** | **str**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] 
 
 ### Return type
 

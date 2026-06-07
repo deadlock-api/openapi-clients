@@ -17,6 +17,7 @@ import * as runtime from '../runtime';
 
 export interface SqlRequest {
     query: string;
+    format?: SqlFormatEnum;
 }
 
 export interface TableSchemaRequest {
@@ -83,6 +84,11 @@ function sqlRaw<T>(requestParameters: SqlRequest, requestConfig: runtime.TypedQu
 
     if (requestParameters.query !== undefined) {
         queryParameters['query'] = requestParameters.query;
+    }
+
+
+    if (requestParameters.format !== undefined) {
+        queryParameters['format'] = requestParameters.format;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -168,3 +174,12 @@ export function tableSchema<T>(requestParameters: TableSchemaRequest, requestCon
     return tableSchemaRaw(requestParameters, requestConfig);
 }
 
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SqlFormatEnum {
+    Json = 'json',
+    Ndjson = 'ndjson'
+}

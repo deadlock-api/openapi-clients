@@ -43,7 +43,7 @@ No authorization required
 
 <a id="sql"></a>
 # **Sql**
-> string Sql (string query)
+> string Sql (string query, string format = null)
 
 Query
 
@@ -55,6 +55,7 @@ Query
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | The SQL query to execute. It must follow the Clickhouse SQL syntax. |  |
+| **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional]  |
 
 ### Return type
 

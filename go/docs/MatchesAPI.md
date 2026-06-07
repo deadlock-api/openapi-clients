@@ -148,7 +148,7 @@ No authorization required
 
 ## BulkMetadata
 
-> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerFinalStats(includePlayerFinalStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchMode(matchMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).ExtraMatchColumns(extraMatchColumns).ExtraPlayerColumns(extraPlayerColumns).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerFinalStats(includePlayerFinalStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchMode(matchMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).ExtraMatchColumns(extraMatchColumns).ExtraPlayerColumns(extraPlayerColumns).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Format(format).Execute()
 
 Bulk Metadata
 
@@ -201,10 +201,11 @@ func main() {
 	orderBy := "orderBy_example" // string | The field to order the results by. (optional)
 	orderDirection := "orderDirection_example" // string | The direction to order the results by. (optional)
 	limit := int32(56) // int32 | The maximum number of matches to return. (optional) (default to 1000)
+	format := "format_example" // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerFinalStats(includePlayerFinalStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchMode(matchMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).ExtraMatchColumns(extraMatchColumns).ExtraPlayerColumns(extraPlayerColumns).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Execute()
+	resp, r, err := apiClient.MatchesAPI.BulkMetadata(context.Background()).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerFinalStats(includePlayerFinalStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchMode(matchMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).ExtraMatchColumns(extraMatchColumns).ExtraPlayerColumns(extraPlayerColumns).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.BulkMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -259,6 +260,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | The field to order the results by. | 
  **orderDirection** | **string** | The direction to order the results by. | 
  **limit** | **int32** | The maximum number of matches to return. | [default to 1000]
+ **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | 
 
 ### Return type
 

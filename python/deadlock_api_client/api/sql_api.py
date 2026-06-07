@@ -15,8 +15,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
-from typing import Dict, List
+from pydantic import Field, StrictStr, field_validator
+from typing import Dict, List, Optional
 from typing_extensions import Annotated
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
@@ -290,6 +290,7 @@ class SQLApi:
     def sql(
         self,
         query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the Clickhouse SQL syntax.")],
+        format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -309,6 +310,8 @@ class SQLApi:
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
+        :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -333,6 +336,7 @@ class SQLApi:
 
         _param = self._sql_serialize(
             query=query,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -358,6 +362,7 @@ class SQLApi:
     def sql_with_http_info(
         self,
         query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the Clickhouse SQL syntax.")],
+        format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -377,6 +382,8 @@ class SQLApi:
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
+        :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -401,6 +408,7 @@ class SQLApi:
 
         _param = self._sql_serialize(
             query=query,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -426,6 +434,7 @@ class SQLApi:
     def sql_without_preload_content(
         self,
         query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the Clickhouse SQL syntax.")],
+        format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -445,6 +454,8 @@ class SQLApi:
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
+        :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+        :type format: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -469,6 +480,7 @@ class SQLApi:
 
         _param = self._sql_serialize(
             query=query,
+            format=format,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -489,6 +501,7 @@ class SQLApi:
     def _sql_serialize(
         self,
         query,
+        format,
         _request_auth,
         _content_type,
         _headers,
@@ -514,6 +527,10 @@ class SQLApi:
         if query is not None:
             
             _query_params.append(('query', query))
+            
+        if format is not None:
+            
+            _query_params.append(('format', format))
             
         # process the header parameters
         # process the form parameters

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **MatchesPerBucket** | **int64** |  | 
-**Players** | **int64** |  | 
 **TotalAssists** | **int64** |  | 
 **TotalBossDamage** | **int64** |  | 
 **TotalCreepDamage** | **int64** |  | 
@@ -30,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsHeroStats
 
-`func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, players int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
+`func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
 
 NewAnalyticsHeroStats instantiates a new AnalyticsHeroStats object
 This constructor will assign default values to properties that have it defined,
@@ -143,26 +142,6 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsHeroStats) SetMatchesPerBucket(v int64)`
 
 SetMatchesPerBucket sets MatchesPerBucket field to given value.
-
-
-### GetPlayers
-
-`func (o *AnalyticsHeroStats) GetPlayers() int64`
-
-GetPlayers returns the Players field if non-nil, zero value otherwise.
-
-### GetPlayersOk
-
-`func (o *AnalyticsHeroStats) GetPlayersOk() (*int64, bool)`
-
-GetPlayersOk returns a tuple with the Players field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPlayers
-
-`func (o *AnalyticsHeroStats) SetPlayers(v int64)`
-
-SetPlayers sets Players field to given value.
 
 
 ### GetTotalAssists

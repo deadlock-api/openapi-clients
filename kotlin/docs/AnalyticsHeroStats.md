@@ -9,7 +9,6 @@
 | **losses** | **kotlin.Long** |  |  |
 | **matches** | **kotlin.Long** |  |  |
 | **matchesPerBucket** | **kotlin.Long** |  |  |
-| **players** | **kotlin.Long** |  |  |
 | **totalAssists** | **kotlin.Long** |  |  |
 | **totalBossDamage** | **kotlin.Long** |  |  |
 | **totalCreepDamage** | **kotlin.Long** |  |  |

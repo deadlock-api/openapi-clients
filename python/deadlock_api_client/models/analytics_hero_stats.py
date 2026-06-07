@@ -33,7 +33,6 @@ class AnalyticsHeroStats(BaseModel):
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     matches_per_bucket: Annotated[int, Field(strict=True, ge=0)]
-    players: Annotated[int, Field(strict=True, ge=0)]
     total_assists: Annotated[int, Field(strict=True, ge=0)]
     total_boss_damage: Annotated[int, Field(strict=True, ge=0)]
     total_creep_damage: Annotated[int, Field(strict=True, ge=0)]
@@ -49,7 +48,7 @@ class AnalyticsHeroStats(BaseModel):
     total_shots_hit: Annotated[int, Field(strict=True, ge=0)]
     total_shots_missed: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["bucket", "hero_id", "losses", "matches", "matches_per_bucket", "players", "total_assists", "total_boss_damage", "total_creep_damage", "total_deaths", "total_denies", "total_kills", "total_last_hits", "total_max_health", "total_net_worth", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "total_shots_hit", "total_shots_missed", "wins"]
+    __properties: ClassVar[List[str]] = ["bucket", "hero_id", "losses", "matches", "matches_per_bucket", "total_assists", "total_boss_damage", "total_creep_damage", "total_deaths", "total_denies", "total_kills", "total_last_hits", "total_max_health", "total_net_worth", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "total_shots_hit", "total_shots_missed", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -107,7 +106,6 @@ class AnalyticsHeroStats(BaseModel):
             "losses": obj.get("losses"),
             "matches": obj.get("matches"),
             "matches_per_bucket": obj.get("matches_per_bucket"),
-            "players": obj.get("players"),
             "total_assists": obj.get("total_assists"),
             "total_boss_damage": obj.get("total_boss_damage"),
             "total_creep_damage": obj.get("total_creep_damage"),

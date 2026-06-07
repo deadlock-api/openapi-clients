@@ -89,7 +89,7 @@ No authorization required
 
 <a id="bulkmetadata"></a>
 # **BulkMetadata**
-> List&lt;int&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null)
+> List&lt;int&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null, string format = null)
 
 Bulk Metadata
 
@@ -134,6 +134,7 @@ Bulk Metadata
 | **orderBy** | **string** | The field to order the results by. | [optional]  |
 | **orderDirection** | **string** | The direction to order the results by. | [optional]  |
 | **limit** | **int** | The maximum number of matches to return. | [optional] [default to 1000] |
+| **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional]  |
 
 ### Return type
 

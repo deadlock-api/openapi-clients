@@ -125,15 +125,6 @@ class AnalyticsHeroStatsTest extends TestCase
     }
 
     /**
-     * Test attribute "players"
-     */
-    public function testPropertyPlayers()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "total_assists"
      */
     public function testPropertyTotalAssists()

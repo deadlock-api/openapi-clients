@@ -60,10 +60,11 @@ export const SQLApiAxiosParamCreator = function (configuration?: Configuration) 
          *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+         * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sql: async (query: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sql: async (query: string, format?: SqlFormatEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'query' is not null or undefined
             assertParamExists('sql', 'query', query)
             const localVarPath = `/v1/sql`;
@@ -80,6 +81,10 @@ export const SQLApiAxiosParamCreator = function (configuration?: Configuration) 
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+
+            if (format !== undefined) {
+                localVarQueryParameter['format'] = format;
             }
 
             localVarHeaderParameter['Accept'] = 'text/plain';
@@ -152,11 +157,12 @@ export const SQLApiFp = function(configuration?: Configuration) {
          *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+         * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sql(query: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sql(query, options);
+        async sql(query: string, format?: SqlFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sql(query, format, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SQLApi.sql']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -200,7 +206,7 @@ export const SQLApiFactory = function (configuration?: Configuration, basePath?:
          * @throws {RequiredError}
          */
         sql(requestParameters: SQLApiSqlRequest, options?: RawAxiosRequestConfig): AxiosPromise<string> {
-            return localVarFp.sql(requestParameters.query, options).then((request) => request(axios, basePath));
+            return localVarFp.sql(requestParameters.query, requestParameters.format, options).then((request) => request(axios, basePath));
         },
         /**
          *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
@@ -223,6 +229,11 @@ export interface SQLApiSqlRequest {
      * The SQL query to execute. It must follow the Clickhouse SQL syntax.
      */
     readonly query: string
+
+    /**
+     * The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
+     */
+    readonly format?: SqlFormatEnum
 }
 
 /**
@@ -257,7 +268,7 @@ export class SQLApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public sql(requestParameters: SQLApiSqlRequest, options?: RawAxiosRequestConfig) {
-        return SQLApiFp(this.configuration).sql(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
+        return SQLApiFp(this.configuration).sql(requestParameters.query, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -272,3 +283,8 @@ export class SQLApi extends BaseAPI {
     }
 }
 
+export const SqlFormatEnum = {
+    Json: 'json',
+    Ndjson: 'ndjson',
+} as const;
+export type SqlFormatEnum = typeof SqlFormatEnum[keyof typeof SqlFormatEnum];

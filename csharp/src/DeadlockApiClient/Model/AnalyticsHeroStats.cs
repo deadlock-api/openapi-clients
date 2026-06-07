@@ -38,7 +38,6 @@ namespace DeadlockApiClient.Model
         /// <param name="losses">losses</param>
         /// <param name="matches">matches</param>
         /// <param name="matchesPerBucket">matchesPerBucket</param>
-        /// <param name="players">players</param>
         /// <param name="totalAssists">totalAssists</param>
         /// <param name="totalBossDamage">totalBossDamage</param>
         /// <param name="totalCreepDamage">totalCreepDamage</param>
@@ -55,14 +54,13 @@ namespace DeadlockApiClient.Model
         /// <param name="totalShotsMissed">totalShotsMissed</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public AnalyticsHeroStats(int bucket, int heroId, long losses, long matches, long matchesPerBucket, long players, long totalAssists, long totalBossDamage, long totalCreepDamage, long totalDeaths, long totalDenies, long totalKills, long totalLastHits, long totalMaxHealth, long totalNetWorth, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long totalShotsHit, long totalShotsMissed, long wins)
+        public AnalyticsHeroStats(int bucket, int heroId, long losses, long matches, long matchesPerBucket, long totalAssists, long totalBossDamage, long totalCreepDamage, long totalDeaths, long totalDenies, long totalKills, long totalLastHits, long totalMaxHealth, long totalNetWorth, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long totalShotsHit, long totalShotsMissed, long wins)
         {
             Bucket = bucket;
             HeroId = heroId;
             Losses = losses;
             Matches = matches;
             MatchesPerBucket = matchesPerBucket;
-            Players = players;
             TotalAssists = totalAssists;
             TotalBossDamage = totalBossDamage;
             TotalCreepDamage = totalCreepDamage;
@@ -113,12 +111,6 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("matches_per_bucket")]
         public long MatchesPerBucket { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Players
-        /// </summary>
-        [JsonPropertyName("players")]
-        public long Players { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalAssists
@@ -223,7 +215,6 @@ namespace DeadlockApiClient.Model
             sb.Append("  Losses: ").Append(Losses).Append("\n");
             sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("  MatchesPerBucket: ").Append(MatchesPerBucket).Append("\n");
-            sb.Append("  Players: ").Append(Players).Append("\n");
             sb.Append("  TotalAssists: ").Append(TotalAssists).Append("\n");
             sb.Append("  TotalBossDamage: ").Append(TotalBossDamage).Append("\n");
             sb.Append("  TotalCreepDamage: ").Append(TotalCreepDamage).Append("\n");
@@ -278,12 +269,6 @@ namespace DeadlockApiClient.Model
             if (this.MatchesPerBucket < (long)0)
             {
                 yield return new ValidationResult("Invalid value for MatchesPerBucket, must be a value greater than or equal to 0.", new [] { "MatchesPerBucket" });
-            }
-
-            // Players (long) minimum
-            if (this.Players < (long)0)
-            {
-                yield return new ValidationResult("Invalid value for Players, must be a value greater than or equal to 0.", new [] { "Players" });
             }
 
             // TotalAssists (long) minimum
@@ -407,7 +392,6 @@ namespace DeadlockApiClient.Model
             Option<long?> losses = default;
             Option<long?> matches = default;
             Option<long?> matchesPerBucket = default;
-            Option<long?> players = default;
             Option<long?> totalAssists = default;
             Option<long?> totalBossDamage = default;
             Option<long?> totalCreepDamage = default;
@@ -453,9 +437,6 @@ namespace DeadlockApiClient.Model
                             break;
                         case "matches_per_bucket":
                             matchesPerBucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
-                            break;
-                        case "players":
-                            players = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "total_assists":
                             totalAssists = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -523,9 +504,6 @@ namespace DeadlockApiClient.Model
             if (!matchesPerBucket.IsSet)
                 throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(matchesPerBucket));
 
-            if (!players.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(players));
-
             if (!totalAssists.IsSet)
                 throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalAssists));
 
@@ -586,9 +564,6 @@ namespace DeadlockApiClient.Model
             if (matchesPerBucket.IsSet && matchesPerBucket.Value == null)
                 throw new ArgumentNullException(nameof(matchesPerBucket), "Property is not nullable for class AnalyticsHeroStats.");
 
-            if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class AnalyticsHeroStats.");
-
             if (totalAssists.IsSet && totalAssists.Value == null)
                 throw new ArgumentNullException(nameof(totalAssists), "Property is not nullable for class AnalyticsHeroStats.");
 
@@ -634,7 +609,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new ArgumentNullException(nameof(wins), "Property is not nullable for class AnalyticsHeroStats.");
 
-            return new AnalyticsHeroStats(bucket.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, matchesPerBucket.Value!.Value!, players.Value!.Value!, totalAssists.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalDeaths.Value!.Value!, totalDenies.Value!.Value!, totalKills.Value!.Value!, totalLastHits.Value!.Value!, totalMaxHealth.Value!.Value!, totalNetWorth.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, totalShotsHit.Value!.Value!, totalShotsMissed.Value!.Value!, wins.Value!.Value!);
+            return new AnalyticsHeroStats(bucket.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, matchesPerBucket.Value!.Value!, totalAssists.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalDeaths.Value!.Value!, totalDenies.Value!.Value!, totalKills.Value!.Value!, totalLastHits.Value!.Value!, totalMaxHealth.Value!.Value!, totalNetWorth.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, totalShotsHit.Value!.Value!, totalShotsMissed.Value!.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -670,8 +645,6 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("matches", analyticsHeroStats.Matches);
 
             writer.WriteNumber("matches_per_bucket", analyticsHeroStats.MatchesPerBucket);
-
-            writer.WriteNumber("players", analyticsHeroStats.Players);
 
             writer.WriteNumber("total_assists", analyticsHeroStats.TotalAssists);
 

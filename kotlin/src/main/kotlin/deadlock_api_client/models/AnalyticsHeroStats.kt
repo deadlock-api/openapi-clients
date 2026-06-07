@@ -36,7 +36,6 @@ import java.io.Serializable
  * @param losses 
  * @param matches 
  * @param matchesPerBucket 
- * @param players 
  * @param totalAssists 
  * @param totalBossDamage 
  * @param totalCreepDamage 
@@ -72,9 +71,6 @@ data class AnalyticsHeroStats (
 
     @Json(name = "matches_per_bucket")
     val matchesPerBucket: kotlin.Long,
-
-    @Json(name = "players")
-    val players: kotlin.Long,
 
     @Json(name = "total_assists")
     val totalAssists: kotlin.Long,

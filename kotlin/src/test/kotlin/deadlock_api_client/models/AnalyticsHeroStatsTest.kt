@@ -63,12 +63,6 @@ class AnalyticsHeroStatsTest : ShouldSpec() {
             //modelInstance.matchesPerBucket shouldBe ("TODO")
         }
 
-        // to test the property `players`
-        should("test players") {
-            // uncomment below to test the property
-            //modelInstance.players shouldBe ("TODO")
-        }
-
         // to test the property `totalAssists`
         should("test totalAssists") {
             // uncomment below to test the property

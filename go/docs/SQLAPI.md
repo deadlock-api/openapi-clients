@@ -73,7 +73,7 @@ No authorization required
 
 ## Sql
 
-> string Sql(ctx).Query(query).Execute()
+> string Sql(ctx).Query(query).Format(format).Execute()
 
 Query
 
@@ -93,10 +93,11 @@ import (
 
 func main() {
 	query := "query_example" // string | The SQL query to execute. It must follow the Clickhouse SQL syntax.
+	format := "format_example" // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SQLAPI.Sql(context.Background()).Query(query).Execute()
+	resp, r, err := apiClient.SQLAPI.Sql(context.Background()).Query(query).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SQLAPI.Sql``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -118,6 +119,7 @@ Other parameters are passed through a pointer to a apiSqlRequest struct via the 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string** | The SQL query to execute. It must follow the Clickhouse SQL syntax. | 
+ **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | 
 
 ### Return type
 

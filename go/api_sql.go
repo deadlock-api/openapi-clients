@@ -145,11 +145,18 @@ type ApiSqlRequest struct {
 	ctx context.Context
 	ApiService *SQLAPIService
 	query *string
+	format *string
 }
 
 // The SQL query to execute. It must follow the Clickhouse SQL syntax.
 func (r ApiSqlRequest) Query(query string) ApiSqlRequest {
 	r.query = &query
+	return r
+}
+
+// The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
+func (r ApiSqlRequest) Format(format string) ApiSqlRequest {
+	r.format = &format
 	return r
 }
 
@@ -206,6 +213,9 @@ func (a *SQLAPIService) SqlExecute(r ApiSqlRequest) (string, *http.Response, err
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
+	if r.format != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

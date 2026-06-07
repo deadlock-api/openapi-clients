@@ -24,8 +24,6 @@ pub struct AnalyticsHeroStats {
     pub matches: u64,
     #[serde(rename = "matches_per_bucket")]
     pub matches_per_bucket: u64,
-    #[serde(rename = "players")]
-    pub players: u64,
     #[serde(rename = "total_assists")]
     pub total_assists: u64,
     #[serde(rename = "total_boss_damage")]
@@ -59,14 +57,13 @@ pub struct AnalyticsHeroStats {
 }
 
 impl AnalyticsHeroStats {
-    pub fn new(bucket: u32, hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, players: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
+    pub fn new(bucket: u32, hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
         AnalyticsHeroStats {
             bucket,
             hero_id,
             losses,
             matches,
             matches_per_bucket,
-            players,
             total_assists,
             total_boss_damage,
             total_creep_damage,

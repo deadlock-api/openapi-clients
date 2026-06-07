@@ -53,12 +53,6 @@ export interface AnalyticsHeroStats  {
      * @type {number}
      * @memberof AnalyticsHeroStats
      */
-    players: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AnalyticsHeroStats
-     */
     totalAssists: number;
     /**
      * 
@@ -153,7 +147,6 @@ export function AnalyticsHeroStatsFromJSON(json: any): AnalyticsHeroStats {
         'losses': json['losses'],
         'matches': json['matches'],
         'matchesPerBucket': json['matches_per_bucket'],
-        'players': json['players'],
         'totalAssists': json['total_assists'],
         'totalBossDamage': json['total_boss_damage'],
         'totalCreepDamage': json['total_creep_damage'],
@@ -182,7 +175,6 @@ export function AnalyticsHeroStatsToJSON(value?: AnalyticsHeroStats): any {
         'losses': value.losses,
         'matches': value.matches,
         'matches_per_bucket': value.matchesPerBucket,
-        'players': value.players,
         'total_assists': value.totalAssists,
         'total_boss_damage': value.totalBossDamage,
         'total_creep_damage': value.totalCreepDamage,

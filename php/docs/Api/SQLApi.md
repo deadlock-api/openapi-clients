@@ -67,7 +67,7 @@ No authorization required
 ## `sql()`
 
 ```php
-sql($query): string
+sql($query, $format): string
 ```
 
 Query
@@ -88,9 +88,10 @@ $apiInstance = new OpenAPI\Client\Api\SQLApi(
     new GuzzleHttp\Client()
 );
 $query = 'query_example'; // string | The SQL query to execute. It must follow the Clickhouse SQL syntax.
+$format = 'format_example'; // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
 
 try {
-    $result = $apiInstance->sql($query);
+    $result = $apiInstance->sql($query, $format);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SQLApi->sql: ', $e->getMessage(), PHP_EOL;
@@ -102,6 +103,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **query** | **string**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | |
+| **format** | **string**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] |
 
 ### Return type
 

@@ -399,15 +399,16 @@ class SQLApi
      * Query
      *
      * @param  string $query The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+     * @param  string|null $format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sql'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string|string
      */
-    public function sql($query, string $contentType = self::contentTypes['sql'][0])
+    public function sql($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
-        list($response) = $this->sqlWithHttpInfo($query, $contentType);
+        list($response) = $this->sqlWithHttpInfo($query, $format, $contentType);
         return $response;
     }
 
@@ -417,15 +418,16 @@ class SQLApi
      * Query
      *
      * @param  string $query The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+     * @param  string|null $format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sql'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string|string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sqlWithHttpInfo($query, string $contentType = self::contentTypes['sql'][0])
+    public function sqlWithHttpInfo($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
-        $request = $this->sqlRequest($query, $contentType);
+        $request = $this->sqlRequest($query, $format, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -516,14 +518,15 @@ class SQLApi
      * Query
      *
      * @param  string $query The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+     * @param  string|null $format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sql'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sqlAsync($query, string $contentType = self::contentTypes['sql'][0])
+    public function sqlAsync($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
-        return $this->sqlAsyncWithHttpInfo($query, $contentType)
+        return $this->sqlAsyncWithHttpInfo($query, $format, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -537,15 +540,16 @@ class SQLApi
      * Query
      *
      * @param  string $query The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+     * @param  string|null $format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sql'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sqlAsyncWithHttpInfo($query, string $contentType = self::contentTypes['sql'][0])
+    public function sqlAsyncWithHttpInfo($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
         $returnType = 'string';
-        $request = $this->sqlRequest($query, $contentType);
+        $request = $this->sqlRequest($query, $format, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -587,12 +591,13 @@ class SQLApi
      * Create request for operation 'sql'
      *
      * @param  string $query The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+     * @param  string|null $format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sql'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sqlRequest($query, string $contentType = self::contentTypes['sql'][0])
+    public function sqlRequest($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
 
         // verify the required parameter 'query' is set
@@ -601,6 +606,7 @@ class SQLApi
                 'Missing the required parameter $query when calling sql'
             );
         }
+
 
 
         $resourcePath = '/v1/sql';
@@ -618,6 +624,15 @@ class SQLApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $format,
+            'format', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
 
 

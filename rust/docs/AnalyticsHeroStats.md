@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **losses** | **u64** |  | 
 **matches** | **u64** |  | 
 **matches_per_bucket** | **u64** |  | 
-**players** | **u64** |  | 
 **total_assists** | **u64** |  | 
 **total_boss_damage** | **u64** |  | 
 **total_creep_damage** | **u64** |  | 

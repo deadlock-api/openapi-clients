@@ -170,7 +170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -419,7 +419,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -552,7 +552,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -628,7 +628,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -767,7 +767,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -900,7 +900,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -1087,7 +1087,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -1367,7 +1367,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -1623,7 +1623,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -1887,7 +1887,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -2156,7 +2156,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -2443,7 +2443,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -2710,7 +2710,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -3002,7 +3002,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -3223,7 +3223,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -3522,7 +3522,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -7028,6 +7028,18 @@ paths:
           minimum: 1
           type: integer
         style: form
+      - description: "The response format. Valid values: `json` (a JSON array), `ndjson`\
+          \ (newline-delimited JSON objects)."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - json
+          - ndjson
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -7582,7 +7594,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -7701,7 +7713,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778025600
+          default: 1778198400
           format: int64
           nullable: true
           type: integer
@@ -8849,6 +8861,18 @@ paths:
         schema:
           type: string
         style: form
+      - description: "The response format. Valid values: `json` (a JSON array), `ndjson`\
+          \ (newline-delimited JSON objects)."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - json
+          - ndjson
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9763,7 +9787,6 @@ components:
         total_net_worth: 0
         total_kills: 0
         total_player_damage_taken: 0
-        players: 0
         total_assists: 0
         total_max_health: 0
         total_player_damage: 0
@@ -9799,10 +9822,6 @@ components:
           minimum: 0
           type: integer
         matches_per_bucket:
-          format: int64
-          minimum: 0
-          type: integer
-        players:
           format: int64
           minimum: 0
           type: integer
@@ -9872,7 +9891,6 @@ components:
       - losses
       - matches
       - matches_per_bucket
-      - players
       - total_assists
       - total_boss_damage
       - total_creep_damage

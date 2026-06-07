@@ -166,6 +166,7 @@ let extraPlayerColumns: string; //Comma separated list of extra player-level col
 let orderBy: 'match_id' | 'start_time' | 'average_badge'; //The field to order the results by. (optional) (default to undefined)
 let orderDirection: 'desc' | 'asc'; //The direction to order the results by. (optional) (default to undefined)
 let limit: number; //The maximum number of matches to return. (optional) (default to 1000)
+let format: 'json' | 'ndjson'; //The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to undefined)
 
 const { status, data } = await apiInstance.bulkMetadata(
     includeInfo,
@@ -201,7 +202,8 @@ const { status, data } = await apiInstance.bulkMetadata(
     extraPlayerColumns,
     orderBy,
     orderDirection,
-    limit
+    limit,
+    format
 );
 ```
 
@@ -243,6 +245,7 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **orderBy** | [**&#39;match_id&#39; | &#39;start_time&#39; | &#39;average_badge&#39;**]**Array<&#39;match_id&#39; &#124; &#39;start_time&#39; &#124; &#39;average_badge&#39;>** | The field to order the results by. | (optional) defaults to undefined|
 | **orderDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to order the results by. | (optional) defaults to undefined|
 | **limit** | [**number**] | The maximum number of matches to return. | (optional) defaults to 1000|
+| **format** | [**&#39;json&#39; | &#39;ndjson&#39;**]**Array<&#39;json&#39; &#124; &#39;ndjson&#39;>** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | (optional) defaults to undefined|
 
 
 ### Return type

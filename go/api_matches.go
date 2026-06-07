@@ -317,6 +317,7 @@ type ApiBulkMetadataRequest struct {
 	orderBy *string
 	orderDirection *string
 	limit *int32
+	format *string
 }
 
 // Include match info in the response.
@@ -523,6 +524,12 @@ func (r ApiBulkMetadataRequest) Limit(limit int32) ApiBulkMetadataRequest {
 	return r
 }
 
+// The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
+func (r ApiBulkMetadataRequest) Format(format string) ApiBulkMetadataRequest {
+	r.format = &format
+	return r
+}
+
 func (r ApiBulkMetadataRequest) Execute() ([]int32, *http.Response, error) {
 	return r.ApiService.BulkMetadataExecute(r)
 }
@@ -701,6 +708,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 		var defaultValue int32 = 1000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
 		r.limit = &defaultValue
+	}
+	if r.format != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

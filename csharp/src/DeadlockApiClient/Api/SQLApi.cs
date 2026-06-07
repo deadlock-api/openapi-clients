@@ -65,9 +65,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>&gt;</returns>
-        Task<ISqlApiResponse> SqlAsync(string query, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISqlApiResponse> SqlAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Query
@@ -76,9 +77,10 @@ namespace DeadlockApiClient.Api
         ///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </remarks>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>?&gt;</returns>
-        Task<ISqlApiResponse?> SqlOrDefaultAsync(string query, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISqlApiResponse?> SqlOrDefaultAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Table Schema
@@ -528,17 +530,21 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSql(ref string query);
+        partial void FormatSql(ref string query, ref Option<string> format);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
         /// <param name="query"></param>
+        /// <param name="format"></param>
         /// <returns></returns>
-        private void ValidateSql(string query)
+        private void ValidateSql(string query, Option<string> format)
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));
+
+            if (format.IsSet && format.Value == null)
+                throw new ArgumentNullException(nameof(format));
         }
 
         /// <summary>
@@ -546,10 +552,11 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="query"></param>
-        private void AfterSqlDefaultImplementation(ISqlApiResponse apiResponseLocalVar, string query)
+        /// <param name="format"></param>
+        private void AfterSqlDefaultImplementation(ISqlApiResponse apiResponseLocalVar, string query, Option<string> format)
         {
             bool suppressDefaultLog = false;
-            AfterSql(ref suppressDefaultLog, apiResponseLocalVar, query);
+            AfterSql(ref suppressDefaultLog, apiResponseLocalVar, query, format);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -560,7 +567,8 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="query"></param>
-        partial void AfterSql(ref bool suppressDefaultLog, ISqlApiResponse apiResponseLocalVar, string query);
+        /// <param name="format"></param>
+        partial void AfterSql(ref bool suppressDefaultLog, ISqlApiResponse apiResponseLocalVar, string query, Option<string> format);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -569,10 +577,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="query"></param>
-        private void OnErrorSqlDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query)
+        /// <param name="format"></param>
+        private void OnErrorSqlDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query, Option<string> format)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSql(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, query);
+            OnErrorSql(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, query, format);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -585,19 +594,21 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="query"></param>
-        partial void OnErrorSql(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query);
+        /// <param name="format"></param>
+        partial void OnErrorSql(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query, Option<string> format);
 
         /// <summary>
         /// Query  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </summary>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>&gt;</returns>
-        public async Task<ISqlApiResponse?> SqlOrDefaultAsync(string query, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISqlApiResponse?> SqlOrDefaultAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SqlAsync(query, cancellationToken).ConfigureAwait(false);
+                return await SqlAsync(query, format, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -610,17 +621,18 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>&gt;</returns>
-        public async Task<ISqlApiResponse> SqlAsync(string query, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISqlApiResponse> SqlAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                ValidateSql(query);
+                ValidateSql(query, format);
 
-                FormatSql(ref query);
+                FormatSql(ref query, ref format);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -634,6 +646,9 @@ namespace DeadlockApiClient.Api
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
                     parseQueryStringLocalVar["query"] = ClientUtils.ParameterToString(query);
+
+                    if (format.IsSet)
+                        parseQueryStringLocalVar["format"] = ClientUtils.ParameterToString(format.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -666,7 +681,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterSqlDefaultImplementation(apiResponseLocalVar, query);
+                        AfterSqlDefaultImplementation(apiResponseLocalVar, query, format);
 
                         Events.ExecuteOnSql(apiResponseLocalVar);
 
@@ -676,7 +691,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorSqlDefaultImplementation(e, "/v1/sql", uriBuilderLocalVar.Path, query);
+                OnErrorSqlDefaultImplementation(e, "/v1/sql", uriBuilderLocalVar.Path, query, format);
                 Events.ExecuteOnErrorSql(e);
                 throw;
             }

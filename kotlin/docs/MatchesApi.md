@@ -109,7 +109,7 @@ No authorization required
 
 <a id="bulkMetadata"></a>
 # **bulkMetadata**
-> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit)
+> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
 
 Bulk Metadata
 
@@ -156,8 +156,9 @@ val extraPlayerColumns : kotlin.String = extraPlayerColumns_example // kotlin.St
 val orderBy : kotlin.String = orderBy_example // kotlin.String | The field to order the results by.
 val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
 val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
+val format : kotlin.String = format_example // kotlin.String | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#bulkMetadata")
@@ -202,9 +203,10 @@ try {
 | **extraPlayerColumns** | **kotlin.String**| Comma separated list of extra player-level columns to include in the response. Each column is added inside the player tuple. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;stats.player_damage,stats.player_healing&#x60;. Implicitly enables player fields. | [optional] |
 | **orderBy** | **kotlin.String**| The field to order the results by. | [optional] [enum: match_id, start_time, average_badge] |
 | **orderDirection** | **kotlin.String**| The direction to order the results by. | [optional] [enum: desc, asc] |
+| **limit** | **kotlin.Int**| The maximum number of matches to return. | [optional] [default to 1000] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limit** | **kotlin.Int**| The maximum number of matches to return. | [optional] [default to 1000] |
+| **format** | **kotlin.String**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [enum: json, ndjson] |
 
 ### Return type
 

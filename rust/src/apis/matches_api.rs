@@ -93,7 +93,9 @@ pub struct BulkMetadataParams {
     /// The direction to order the results by.
     pub order_direction: Option<String>,
     /// The maximum number of matches to return.
-    pub limit: Option<u32>
+    pub limit: Option<u32>,
+    /// The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+    pub format: Option<String>
 }
 
 /// struct for passing parameters to the method [`ingest_urls`]
@@ -426,6 +428,9 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
     }
     if let Some(ref param_value) = params.limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.format {
+        req_builder = req_builder.query(&[("format", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

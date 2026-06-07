@@ -62,7 +62,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'int',
         'matches' => 'int',
         'matches_per_bucket' => 'int',
-        'players' => 'int',
         'total_assists' => 'int',
         'total_boss_damage' => 'int',
         'total_creep_damage' => 'int',
@@ -93,7 +92,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'int64',
         'matches' => 'int64',
         'matches_per_bucket' => 'int64',
-        'players' => 'int64',
         'total_assists' => 'int64',
         'total_boss_damage' => 'int64',
         'total_creep_damage' => 'int64',
@@ -122,7 +120,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => false,
         'matches' => false,
         'matches_per_bucket' => false,
-        'players' => false,
         'total_assists' => false,
         'total_boss_damage' => false,
         'total_creep_damage' => false,
@@ -231,7 +228,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'losses',
         'matches' => 'matches',
         'matches_per_bucket' => 'matches_per_bucket',
-        'players' => 'players',
         'total_assists' => 'total_assists',
         'total_boss_damage' => 'total_boss_damage',
         'total_creep_damage' => 'total_creep_damage',
@@ -260,7 +256,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'setLosses',
         'matches' => 'setMatches',
         'matches_per_bucket' => 'setMatchesPerBucket',
-        'players' => 'setPlayers',
         'total_assists' => 'setTotalAssists',
         'total_boss_damage' => 'setTotalBossDamage',
         'total_creep_damage' => 'setTotalCreepDamage',
@@ -289,7 +284,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'getLosses',
         'matches' => 'getMatches',
         'matches_per_bucket' => 'getMatchesPerBucket',
-        'players' => 'getPlayers',
         'total_assists' => 'getTotalAssists',
         'total_boss_damage' => 'getTotalBossDamage',
         'total_creep_damage' => 'getTotalCreepDamage',
@@ -369,7 +363,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('losses', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('matches_per_bucket', $data ?? [], null);
-        $this->setIfExists('players', $data ?? [], null);
         $this->setIfExists('total_assists', $data ?? [], null);
         $this->setIfExists('total_boss_damage', $data ?? [], null);
         $this->setIfExists('total_creep_damage', $data ?? [], null);
@@ -447,13 +440,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if (($this->container['matches_per_bucket'] < 0)) {
             $invalidProperties[] = "invalid value for 'matches_per_bucket', must be bigger than or equal to 0.";
-        }
-
-        if ($this->container['players'] === null) {
-            $invalidProperties[] = "'players' can't be null";
-        }
-        if (($this->container['players'] < 0)) {
-            $invalidProperties[] = "invalid value for 'players', must be bigger than or equal to 0.";
         }
 
         if ($this->container['total_assists'] === null) {
@@ -732,38 +718,6 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['matches_per_bucket'] = $matches_per_bucket;
-
-        return $this;
-    }
-
-    /**
-     * Gets players
-     *
-     * @return int
-     */
-    public function getPlayers()
-    {
-        return $this->container['players'];
-    }
-
-    /**
-     * Sets players
-     *
-     * @param int $players players
-     *
-     * @return self
-     */
-    public function setPlayers($players)
-    {
-        if (is_null($players)) {
-            throw new \InvalidArgumentException('non-nullable players cannot be null');
-        }
-
-        if (($players < 0)) {
-            throw new \InvalidArgumentException('invalid value for $players when calling AnalyticsHeroStats., must be bigger than or equal to 0.');
-        }
-
-        $this->container['players'] = $players;
 
         return $this;
     }

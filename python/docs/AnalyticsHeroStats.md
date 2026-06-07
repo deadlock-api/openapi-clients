@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **losses** | **int** |  | 
 **matches** | **int** |  | 
 **matches_per_bucket** | **int** |  | 
-**players** | **int** |  | 
 **total_assists** | **int** |  | 
 **total_boss_damage** | **int** |  | 
 **total_creep_damage** | **int** |  | 

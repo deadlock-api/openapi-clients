@@ -67,7 +67,8 @@ namespace DeadlockApiClient.Test.Api
         public async Task SqlAsyncTest()
         {
             string query = default!;
-            var response = await _instance.SqlAsync(query);
+            Client.Option<string> format = default!;
+            var response = await _instance.SqlAsync(query, format);
             var model = response.Ok();
             Assert.IsType<string>(model);
         }

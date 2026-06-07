@@ -23,7 +23,6 @@ export interface AnalyticsHeroStats {
     'losses': number;
     'matches': number;
     'matches_per_bucket': number;
-    'players': number;
     'total_assists': number;
     'total_boss_damage': number;
     'total_creep_damage': number;

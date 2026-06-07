@@ -44,7 +44,8 @@ class SQLApiTest : ShouldSpec() {
         should("test sql") {
             // uncomment below to test sql
             //val query : kotlin.String = query_example // kotlin.String | The SQL query to execute. It must follow the Clickhouse SQL syntax.
-            //val result : kotlin.String = apiInstance.sql(query)
+            //val format : kotlin.String = format_example // kotlin.String | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
+            //val result : kotlin.String = apiInstance.sql(query, format)
             //result shouldBe ("TODO")
         }
 

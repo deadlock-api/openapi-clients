@@ -54,7 +54,7 @@ No authorization required
 
 <a id="sql"></a>
 # **sql**
-> kotlin.String sql(query)
+> kotlin.String sql(query, format)
 
 Query
 
@@ -68,8 +68,9 @@ Query
 
 val apiInstance = SQLApi()
 val query : kotlin.String = query_example // kotlin.String | The SQL query to execute. It must follow the Clickhouse SQL syntax.
+val format : kotlin.String = format_example // kotlin.String | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
 try {
-    val result : kotlin.String = apiInstance.sql(query)
+    val result : kotlin.String = apiInstance.sql(query, format)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SQLApi#sql")
@@ -81,9 +82,10 @@ try {
 ```
 
 ### Parameters
+| **query** | **kotlin.String**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **kotlin.String**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | |
+| **format** | **kotlin.String**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [enum: json, ndjson] |
 
 ### Return type
 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Losses** | **long** |  | 
 **Matches** | **long** |  | 
 **MatchesPerBucket** | **long** |  | 
-**Players** | **long** |  | 
 **TotalAssists** | **long** |  | 
 **TotalBossDamage** | **long** |  | 
 **TotalCreepDamage** | **long** |  | 
