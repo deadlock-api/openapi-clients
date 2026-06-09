@@ -141,8 +141,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "section_type":
                             string? sectionTypeRawValue = utf8JsonReader.GetString();
-                            if (sectionTypeRawValue != null)
-                                sectionType = new Option<AbilitySectionType?>(AbilitySectionTypeValueConverter.FromStringOrDefault(sectionTypeRawValue));
+                            sectionType = new Option<AbilitySectionType?>(sectionTypeRawValue == null ? null : AbilitySectionTypeValueConverter.FromStringOrDefault(sectionTypeRawValue));
                             break;
                         default:
                             break;

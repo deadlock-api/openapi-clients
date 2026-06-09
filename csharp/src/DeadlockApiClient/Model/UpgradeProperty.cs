@@ -502,8 +502,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "tooltip_section":
                             string? tooltipSectionRawValue = utf8JsonReader.GetString();
-                            if (tooltipSectionRawValue != null)
-                                tooltipSection = new Option<AbilitySectionType?>(AbilitySectionTypeValueConverter.FromStringOrDefault(tooltipSectionRawValue));
+                            tooltipSection = new Option<AbilitySectionType?>(tooltipSectionRawValue == null ? null : AbilitySectionTypeValueConverter.FromStringOrDefault(tooltipSectionRawValue));
                             break;
                         default:
                             break;

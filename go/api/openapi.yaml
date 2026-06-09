@@ -170,7 +170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -344,6 +344,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of item ids to include (only players who\
           \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -358,6 +359,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
           \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -372,6 +374,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -381,6 +384,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/AnalyticsAbilityOrderStats"
                 type: array
+                default: null
           description: Ability Order Stats
         "400":
           description: Provided parameters are invalid.
@@ -419,7 +423,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -516,6 +520,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/BadgeDistribution"
                 type: array
+                default: null
           description: Badge Distribution
         "400":
           description: Provided parameters are invalid.
@@ -552,7 +557,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -575,6 +580,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/BuildItemStats"
                 type: array
+                default: null
           description: Build Item Stats
         "400":
           description: Provided parameters are invalid.
@@ -628,7 +634,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -725,6 +731,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/AnalyticsGameStats"
                 type: array
+                default: null
           description: Game Stats
         "400":
           description: Provided parameters are invalid.
@@ -767,7 +774,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -862,6 +869,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/HeroBanStats"
                 type: array
+                default: null
           description: Hero Ban Stats
         "400":
           description: Provided parameters are invalid.
@@ -900,7 +908,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -1037,6 +1045,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -1046,6 +1055,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/HeroBuildStats"
                 type: array
+                default: null
           description: Hero Build Stats
         "400":
           description: Provided parameters are invalid.
@@ -1087,7 +1097,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -1208,6 +1218,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
@@ -1221,6 +1232,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of enemy hero ids to include. See more:\
           \ <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -1235,6 +1247,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of enemy hero ids to exclude. See more:\
           \ <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -1249,6 +1262,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: The minimum number of matches played for a hero combination to
           be included in the response.
@@ -1314,6 +1328,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -1323,6 +1338,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/HeroCombStats"
                 type: array
+                default: null
           description: Hero Comb Stats
         "400":
           description: Provided parameters are invalid.
@@ -1367,7 +1383,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -1561,6 +1577,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -1570,6 +1587,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/HeroCounterStats"
                 type: array
+                default: null
           description: Hero Counter Stats
         "400":
           description: Provided parameters are invalid.
@@ -1623,7 +1641,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -1793,6 +1811,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
           \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -1807,6 +1826,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - deprecated: true
         description: Filter for matches with a specific player account ID.
@@ -1834,6 +1854,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -1843,6 +1864,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/AnalyticsHeroStats"
                 type: array
+                default: null
           description: Hero Stats
         "400":
           description: Provided parameters are invalid.
@@ -1887,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -2059,6 +2081,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -2068,6 +2091,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/HeroSynergyStats"
                 type: array
+                default: null
           description: Hero Synergy Stats
         "400":
           description: Provided parameters are invalid.
@@ -2099,6 +2123,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: The combination size to return.
         explode: true
@@ -2156,7 +2181,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -2291,6 +2316,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -2300,6 +2326,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/ItemPermutationStats"
                 type: array
+                default: null
           description: Item Stats
         "400":
           description: Provided parameters are invalid.
@@ -2443,7 +2470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -2564,6 +2591,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true
@@ -2577,6 +2605,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: The minimum number of matches played for an item to be included
           in the response.
@@ -2629,6 +2658,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       - description: Filter items bought after this game time (seconds).
         explode: true
@@ -2660,6 +2690,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/ItemStats"
                 type: array
+                default: null
           description: Item Stats
         "400":
           description: Provided parameters are invalid.
@@ -2710,7 +2741,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -2762,6 +2793,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
@@ -2946,6 +2978,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/KillDeathStats"
                 type: array
+                default: null
           description: Kill Death Stats
         "400":
           description: Provided parameters are invalid.
@@ -3002,7 +3035,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -3133,6 +3166,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
           \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -3147,6 +3181,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: Comma separated list of account ids to include
         explode: true
@@ -3162,6 +3197,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -3171,6 +3207,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/PlayerPerformanceCurvePoint"
                 type: array
+                default: null
           description: Player Performance Curve
         "400":
           description: Provided parameters are invalid.
@@ -3223,7 +3260,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -3356,6 +3393,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Comma separated list of item ids to exclude (only players who\
           \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -3370,6 +3408,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: Comma separated list of account ids to include
         explode: true
@@ -3385,6 +3424,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -3522,7 +3562,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -3657,6 +3697,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -3666,6 +3707,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/HeroEntry"
                 type: array
+                default: null
           description: Hero Scoreboard
         "400":
           description: Provided parameters are invalid.
@@ -3966,6 +4008,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -3975,6 +4018,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/PlayerEntry"
                 type: array
+                default: null
           description: Player Scoreboard
         "400":
           description: Provided parameters are invalid.
@@ -4050,6 +4094,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Accolade"
                 type: array
+                default: null
           description: ""
         "404":
           description: Requested client_version is not available
@@ -4288,6 +4333,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/BuildTag"
                 type: array
+                default: null
           description: ""
         "404":
           description: Requested client_version is not available
@@ -4473,6 +4519,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: ""
         "500":
           description: Failed to load source assets
@@ -4638,6 +4685,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Hero"
                 type: array
+                default: null
           description: ""
         "404":
           description: Requested client_version is not available
@@ -4908,6 +4956,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Item"
                 type: array
+                default: null
           description: ""
         "404":
           description: Requested client_version is not available
@@ -4992,6 +5041,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Item"
                 type: array
+                default: null
           description: ""
       summary: List Items By Hero
       tags:
@@ -5069,6 +5119,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Item"
                 type: array
+                default: null
           description: ""
       summary: List Items By Slot Type
       tags:
@@ -5146,6 +5197,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Item"
                 type: array
+                default: null
           description: ""
       summary: List Items By Type
       tags:
@@ -5319,6 +5371,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/MiscEntity"
                 type: array
+                default: null
           description: ""
         "404":
           description: Requested client_version is not available
@@ -5392,6 +5445,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/NpcUnit"
                 type: array
+                default: null
           description: ""
         "404":
           description: Requested client_version is not available
@@ -5506,6 +5560,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Rank"
                 type: array
+                default: null
           description: ""
         "404":
           description: Requested client_version is not available
@@ -5657,6 +5712,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/SteamInfo"
                 type: array
+                default: null
           description: ""
         "500":
           description: Failed to load source assets
@@ -5884,6 +5940,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Build"
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -5968,6 +6025,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/VariableDescription"
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -6191,6 +6249,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -6290,6 +6349,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -6332,6 +6392,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       responses:
         "200":
@@ -6341,6 +6402,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/ActiveMatch"
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -6369,6 +6431,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: ""
         "500":
           description: Fetching active matches failed
@@ -6616,6 +6679,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/LiveUrl"
                 type: array
+                default: null
           description: ""
         "500":
           description: Fetching live URLs failed
@@ -6639,6 +6703,7 @@ paths:
               items:
                 $ref: "#/components/schemas/IngestLiveUrl"
               type: array
+              default: null
         required: true
       responses:
         "200":
@@ -6789,6 +6854,7 @@ paths:
           minItems: 1
           nullable: true
           type: array
+          default: null
         style: form
       - description: Filter matches based on their start time (Unix timestamp).
         explode: true
@@ -6923,6 +6989,7 @@ paths:
             type: integer
           nullable: true
           type: array
+          default: null
         style: form
       - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
@@ -7050,6 +7117,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -7072,6 +7140,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/ClickhouseMatchInfo"
                 type: array
+                default: null
           description: Recently fetched match info
         "500":
           description: Failed to fetch recently fetched matches
@@ -7095,6 +7164,7 @@ paths:
               items:
                 $ref: "#/components/schemas/ClickhouseSalts"
               type: array
+              default: null
         required: true
       responses:
         "200":
@@ -7252,6 +7322,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -7328,6 +7399,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Patch"
                 type: array
+                default: null
           description: ""
         "500":
           description: Fetching or parsing the RSS-Feed failed
@@ -7351,6 +7423,7 @@ paths:
                 items:
                   type: string
                 type: array
+                default: null
           description: ""
       summary: Big Days
       tags:
@@ -7376,6 +7449,7 @@ paths:
           maxItems: 1000
           minItems: 1
           type: array
+          default: null
         style: form
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
           \ `street_brawl`. **Default:** `normal`."
@@ -7523,6 +7597,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/HeroStats"
                 type: array
+                default: null
           description: Hero Stats
         "400":
           description: Provided parameters are invalid.
@@ -7552,6 +7627,7 @@ paths:
           maxItems: 1000
           minItems: 1
           type: array
+          default: null
         style: form
       - description: Filter matches based on their ID.
         explode: true
@@ -7572,6 +7648,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/MMRHistory"
                 type: array
+                default: null
           description: MMR
         "400":
           description: Provided parameters are invalid.
@@ -7594,7 +7671,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -7691,6 +7768,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/DistributionEntry"
                 type: array
+                default: null
           description: MMR
         "400":
           description: Provided parameters are invalid.
@@ -7713,7 +7791,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778198400
+          default: 1778284800
           format: int64
           nullable: true
           type: integer
@@ -7820,6 +7898,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/DistributionEntry"
                 type: array
+                default: null
           description: Hero MMR
         "400":
           description: Provided parameters are invalid.
@@ -7849,6 +7928,7 @@ paths:
           maxItems: 1000
           minItems: 1
           type: array
+          default: null
         style: form
       - description: Filter matches based on their ID.
         explode: true
@@ -7879,6 +7959,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/MMRHistory"
                 type: array
+                default: null
           description: Hero MMR
         "400":
           description: Provided parameters are invalid.
@@ -7905,6 +7986,7 @@ paths:
             minimum: 0
             type: integer
           type: array
+          default: null
         style: form
       - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
         explode: true
@@ -7938,6 +8020,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
             image/webp:
               schema:
                 items:
@@ -7945,6 +8028,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: Average predicted rank badge image
         "400":
           description: Invalid or missing account IDs
@@ -7992,6 +8076,7 @@ paths:
           maxItems: 1000
           minItems: 1
           type: array
+          default: null
         style: form
       - description: Refresh the listed profiles from the Steam Web API before returning.
         explode: true
@@ -8009,6 +8094,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/SteamProfile"
                 type: array
+                default: null
           description: Steam Profiles
         "400":
           description: Provided parameters are invalid.
@@ -8107,6 +8193,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/SteamProfile"
                 type: array
+                default: null
           description: Steam Profile Search
         "400":
           description: Provided parameters are invalid.
@@ -8326,6 +8413,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/EnemyStats"
                 type: array
+                default: null
           description: Enemy Stats
         "400":
           description: Provided parameters are invalid.
@@ -8379,6 +8467,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/PlayerMatchHistoryEntry"
                 type: array
+                default: null
           description: ""
         "400":
           description: Provided parameters are invalid.
@@ -8389,6 +8478,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/PlayerMatchHistoryEntry"
                 type: array
+                default: null
           description: "Rate limit exceeded. Returns stored match history from ClickHouse\
             \ as a fallback. When `force_refetch=true`, returns an error instead."
         "500":
@@ -8536,6 +8626,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/MateStats"
                 type: array
+                default: null
           description: Mate Stats
         "400":
           description: Provided parameters are invalid.
@@ -8567,6 +8658,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/MMRHistory"
                 type: array
+                default: null
           description: MMR History
         "400":
           description: Provided parameters are invalid.
@@ -8608,6 +8700,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/MMRHistory"
                 type: array
+                default: null
           description: Hero MMR History
         "400":
           description: Provided parameters are invalid.
@@ -8736,6 +8829,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
             image/webp:
               schema:
                 items:
@@ -8743,6 +8837,7 @@ paths:
                   minimum: 0
                   type: integer
                 type: array
+                default: null
           description: Predicted rank badge image
         "400":
           description: Invalid account ID
@@ -8840,6 +8935,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/SteamServer"
                 type: array
+                default: null
           description: ""
         "500":
           description: Fetching the Steam server list failed.
@@ -8903,6 +8999,7 @@ paths:
                 items:
                   type: string
                 type: array
+                default: null
           description: ""
         "500":
           content:
@@ -8962,6 +9059,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/FeedItem"
                 type: array
+                default: null
           description: ""
         "500":
           description: Fetching or parsing one of the RSS feeds failed
@@ -8972,14 +9070,14 @@ components:
   schemas:
     APIInfo:
       example:
-        user_ingested_matches_last24h: 0
         fetched_matches_per_day: 0
         table_sizes:
           key:
             data_compressed_bytes: 0
-            is_view: true
             data_uncompressed_bytes: 0
+            is_view: true
             rows: 0
+        user_ingested_matches_last24h: 0
       properties:
         fetched_matches_per_day:
           description: The number of matches fetched in the last 24 hours.
@@ -9000,82 +9098,82 @@ components:
           type: integer
     Ability:
       example:
-        image: image
-        image_webp: image_webp
-        start_trained: true
+        ability_type: ""
+        behaviours:
+        - behaviours
+        - behaviours
         boss_damage_scale: 0.8008281904610115
-        description:
-          t3_desc: t3_desc
-          active: active
-          t1_desc: t1_desc
-          t2_desc: t2_desc
-          passive: passive
-          quip: quip
-          desc: desc
-        hero: 0
-        videos: ""
-        type: ability
+        class_name: class_name
+        dependant_abilities:
+        - dependant_abilities
+        - dependant_abilities
         dependent_abilities:
           key:
             flags:
             - flags
             - flags
-        upgrades:
-        - property_upgrades:
-          - scale_stat_filter: scale_stat_filter
-            bonus: bonus
-            name: name
-            upgrade_type: upgrade_type
-          - scale_stat_filter: scale_stat_filter
-            bonus: bonus
-            name: name
-            upgrade_type: upgrade_type
-        - property_upgrades:
-          - scale_stat_filter: scale_stat_filter
-            bonus: bonus
-            name: name
-            upgrade_type: upgrade_type
-          - scale_stat_filter: scale_stat_filter
-            bonus: bonus
-            name: name
-            upgrade_type: upgrade_type
-        update_time: 5
+        description:
+          active: active
+          desc: desc
+          passive: passive
+          quip: quip
+          t1_desc: t1_desc
+          t2_desc: t2_desc
+          t3_desc: t3_desc
         grant_ammo_on_cast: true
+        hero: 0
         heroes:
         - 0
         - 0
-        tooltip_details: ""
-        name: name
-        ability_type: ""
         id: 0
-        behaviours:
-        - behaviours
-        - behaviours
-        class_name: class_name
-        dependant_abilities:
-        - dependant_abilities
-        - dependant_abilities
+        image: image
+        image_webp: image_webp
+        name: name
         properties:
           key:
-            conditional: conditional
-            usage_flags:
-            - ConditionallyApplied
-            - ConditionallyApplied
-            prefix: prefix
-            icon: icon
             can_set_token_override: true
-            label: label
-            scale_function: ""
-            street_brawl_value: street_brawl_value
-            loc_token_override: loc_token_override
+            conditional: conditional
             css_class: css_class
             disable_value: disable_value
-            provided_property_type: provided_property_type
+            display_units: display_units
+            icon: icon
+            label: label
+            loc_token_override: loc_token_override
             negative_attribute: true
             postfix: postfix
             postvalue_label: postvalue_label
+            prefix: prefix
+            provided_property_type: provided_property_type
+            scale_function: ""
+            street_brawl_value: street_brawl_value
+            usage_flags:
+            - ConditionallyApplied
+            - ConditionallyApplied
             value: value
-            display_units: display_units
+        start_trained: true
+        tooltip_details: ""
+        type: ability
+        update_time: 5
+        upgrades:
+        - property_upgrades:
+          - bonus: bonus
+            name: name
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+          - bonus: bonus
+            name: name
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+        - property_upgrades:
+          - bonus: bonus
+            name: name
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+          - bonus: bonus
+            name: name
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+        videos: ""
         weapon_info: ""
       properties:
         ability_type:
@@ -9087,6 +9185,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         boss_damage_scale:
           format: double
           nullable: true
@@ -9098,6 +9197,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         dependent_abilities:
           additionalProperties:
             $ref: "#/components/schemas/DependantAbilities"
@@ -9118,6 +9218,7 @@ components:
             type: integer
           nullable: true
           type: array
+          default: null
         id:
           format: int32
           minimum: 0
@@ -9151,6 +9252,7 @@ components:
             $ref: "#/components/schemas/RawAbilityUpgrade"
           nullable: true
           type: array
+          default: null
         videos:
           allOf:
           - $ref: "#/components/schemas/AbilityVideos"
@@ -9177,13 +9279,13 @@ components:
       type: string
     AbilityDescription:
       example:
-        t3_desc: t3_desc
         active: active
-        t1_desc: t1_desc
-        t2_desc: t2_desc
+        desc: desc
         passive: passive
         quip: quip
-        desc: desc
+        t1_desc: t1_desc
+        t2_desc: t2_desc
+        t3_desc: t3_desc
       properties:
         active:
           nullable: true
@@ -9225,11 +9327,13 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         info_sections:
           items:
             $ref: "#/components/schemas/TooltipDetailsInfoSection"
           nullable: true
           type: array
+          default: null
     AbilityType:
       enum:
       - innate
@@ -9250,15 +9354,15 @@ components:
           type: string
     Accolade:
       example:
-        flavor_name: flavor_name
+        class_name: class_name
+        description: description
         enabled_game_modes:
         - enabled_game_modes
         - enabled_game_modes
-        tracked_stat_name: tracked_stat_name
-        description: description
-        threshold_type: threshold_type
+        flavor_name: flavor_name
         id: 0
-        class_name: class_name
+        threshold_type: threshold_type
+        tracked_stat_name: tracked_stat_name
       properties:
         class_name:
           type: string
@@ -9269,6 +9373,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         flavor_name:
           type: string
         id:
@@ -9288,38 +9393,38 @@ components:
       - tracked_stat_name
     ActiveMatch:
       example:
-        objectives_mask_team0: 0
-        game_mode_version: 0
-        objectives_mask_team1: 0
-        region_mode: 7
-        winning_team_parsed: ""
+        compat_version: 0
+        duration_s: 0
+        game_mode: 1
         game_mode_parsed: ""
-        match_mode_parsed: ""
-        players:
-        - account_id: 0
-          team_parsed: ""
-          hero_id: 0
-          team: 6
-          abandoned: true
-        - account_id: 0
-          team_parsed: ""
-          hero_id: 0
-          team: 6
-          abandoned: true
+        game_mode_version: 0
+        lobby_id: 0
         match_id: 0
-        net_worth_team_1: 0
-        spectators: 0
+        match_mode: 7
+        match_mode_parsed: ""
         match_score: 0
         net_worth_team_0: 0
-        lobby_id: 0
-        duration_s: 0
-        region_mode_parsed: ""
-        start_time: 0
+        net_worth_team_1: 0
+        objectives_mask_team0: 0
+        objectives_mask_team1: 0
         open_spectator_slots: 0
-        match_mode: 7
+        players:
+        - abandoned: true
+          account_id: 0
+          hero_id: 0
+          team: 6
+          team_parsed: ""
+        - abandoned: true
+          account_id: 0
+          hero_id: 0
+          team: 6
+          team_parsed: ""
+        region_mode: 7
+        region_mode_parsed: ""
+        spectators: 0
+        start_time: 0
         winning_team: 5
-        game_mode: 1
-        compat_version: 0
+        winning_team_parsed: ""
       properties:
         compat_version:
           format: int32
@@ -9396,6 +9501,7 @@ components:
           items:
             $ref: "#/components/schemas/ActiveMatchPlayer"
           type: array
+          default: null
         region_mode:
           format: int32
           nullable: true
@@ -9446,11 +9552,11 @@ components:
       type: string
     ActiveMatchPlayer:
       example:
+        abandoned: true
         account_id: 0
-        team_parsed: ""
         hero_id: 0
         team: 6
-        abandoned: true
+        team_parsed: ""
       properties:
         abandoned:
           nullable: true
@@ -9485,13 +9591,13 @@ components:
         abilities:
         - 0
         - 0
-        wins: 0
-        total_deaths: 0
-        total_kills: 0
-        players: 0
-        total_assists: 0
         losses: 0
         matches: 0
+        players: 0
+        total_assists: 0
+        total_deaths: 0
+        total_kills: 0
+        wins: 0
       properties:
         abilities:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -9500,6 +9606,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         losses:
           format: int64
           minimum: 0
@@ -9539,53 +9646,53 @@ components:
       - wins
     AnalyticsGameStats:
       example:
-        avg_creep_kills: 2.3021358869347655
-        avg_net_worth: 6.878052220127876
-        avg_deaths: 2.027123023002322
-        avg_gold_lane_creep: 5.025004791520295
-        avg_gold_player_orbs: 9.018348186070783
-        avg_neutral_damage: 5.944895607614016
-        avg_neutral_kills: 6.704019297950036
-        avg_tech_power: 6.519180951018382
-        avg_weapon_power: 0.10263654006109402
-        avg_max_health: 6.778324963048013
-        avg_damage_mitigated: 3.616076749251911
-        avg_gold_neutral_creep_orbs: 6.683562403749608
-        avg_gold_player: 8.762042012749001
-        avg_self_healing: 7.058770351582356
-        avg_creep_damage: 5.637376656633329
-        avg_player_damage_taken: 3.0937452626664474
-        avg_player_damage: 3.353193347011243
-        team0_wins: 0
-        avg_gold_boss: 6.84685269835264
-        avg_accuracy: 6.027456183070403
-        avg_last_hits: 2.8841621266687802
-        avg_gold_boss_orb: 7.457744773683766
-        avg_gold_death_loss: 1.1730742509559433
-        avg_heal_prevented: 3.5571952270680973
-        total_matches: 0
-        avg_crit_rate: 7.061401241503109
-        mid_boss_kill_rate: 8.969578798196912
-        avg_assists: 1.4658129805029452
-        avg_gold_denied: 4.965218492984954
-        avg_kills: 1.284659006116532
-        avg_first_objective_destroyed_time_s: 1.4894159098541704
-        avg_damage_absorbed: 9.301444243932576
-        total_players: 0
-        avg_gold_lane_creep_orbs: 9.965781217890562
         abandon_rate: 0.8008281904610115
-        bucket: 0
-        avg_gold_treasure: 6.438423552598547
-        team1_wins: 0
-        avg_first_mid_boss_time_s: 1.0246457001441578
+        avg_accuracy: 6.027456183070403
+        avg_assists: 1.4658129805029452
+        avg_boss_damage: 5.962133916683182
+        avg_creep_damage: 5.637376656633329
+        avg_creep_kills: 2.3021358869347655
+        avg_crit_rate: 7.061401241503109
+        avg_damage_absorbed: 9.301444243932576
+        avg_damage_mitigated: 3.616076749251911
+        avg_deaths: 2.027123023002322
         avg_denies: 4.145608029883936
         avg_duration_s: 7.386281948385884
         avg_ending_level: 1.2315135367772556
-        avg_kd_ratio: 6.965117697638846
+        avg_first_mid_boss_time_s: 1.0246457001441578
+        avg_first_objective_destroyed_time_s: 1.4894159098541704
+        avg_gold_boss: 6.84685269835264
+        avg_gold_boss_orb: 7.457744773683766
+        avg_gold_death_loss: 1.1730742509559433
+        avg_gold_denied: 4.965218492984954
+        avg_gold_lane_creep: 5.025004791520295
+        avg_gold_lane_creep_orbs: 9.965781217890562
         avg_gold_neutral_creep: 9.369310271410669
+        avg_gold_neutral_creep_orbs: 6.683562403749608
+        avg_gold_player: 8.762042012749001
+        avg_gold_player_orbs: 9.018348186070783
+        avg_gold_treasure: 6.438423552598547
+        avg_heal_prevented: 3.5571952270680973
+        avg_kd_ratio: 6.965117697638846
+        avg_kills: 1.284659006116532
+        avg_last_hits: 2.8841621266687802
+        avg_max_health: 6.778324963048013
+        avg_net_worth: 6.878052220127876
+        avg_neutral_damage: 5.944895607614016
+        avg_neutral_kills: 6.704019297950036
+        avg_player_damage: 3.353193347011243
+        avg_player_damage_taken: 3.0937452626664474
         avg_player_healing: 7.143538047012306
         avg_possible_creeps: 0.8851374739011653
-        avg_boss_damage: 5.962133916683182
+        avg_self_healing: 7.058770351582356
+        avg_tech_power: 6.519180951018382
+        avg_weapon_power: 0.10263654006109402
+        bucket: 0
+        mid_boss_kill_rate: 8.969578798196912
+        team0_wins: 0
+        team1_wins: 0
+        total_matches: 0
+        total_players: 0
       properties:
         abandon_rate:
           format: double
@@ -9783,26 +9890,26 @@ components:
       - total_players
     AnalyticsHeroStats:
       example:
-        wins: 0
-        total_net_worth: 0
-        total_kills: 0
-        total_player_damage_taken: 0
-        total_assists: 0
-        total_max_health: 0
-        total_player_damage: 0
+        bucket: 0
+        hero_id: 0
         losses: 0
         matches: 0
         matches_per_bucket: 0
+        total_assists: 0
         total_boss_damage: 0
-        total_shots_missed: 0
-        bucket: 0
-        total_neutral_damage: 0
-        total_denies: 0
-        total_last_hits: 0
-        total_shots_hit: 0
-        total_deaths: 0
-        hero_id: 0
         total_creep_damage: 0
+        total_deaths: 0
+        total_denies: 0
+        total_kills: 0
+        total_last_hits: 0
+        total_max_health: 0
+        total_net_worth: 0
+        total_neutral_damage: 0
+        total_player_damage: 0
+        total_player_damage_taken: 0
+        total_shots_hit: 0
+        total_shots_missed: 0
+        wins: 0
       properties:
         bucket:
           format: int32
@@ -9927,61 +10034,61 @@ components:
       - total_matches
     Build:
       example:
-        num_reports: 0
-        rollup_category: 0
-        num_ignores: 0
-        num_weekly_favorites: 0
-        num_favorites: 0
         hero_build:
+          author_account_id: 0
           description: description
-          language: 0
-          version: 0
+          details:
+            ability_order: ""
+            mod_categories:
+            - description: description
+              height: 6.0274563
+              mods:
+              - ability_id: 0
+                annotation: annotation
+                imbue_target_ability_id: 0
+                required_flex_slots: 0
+                sell_priority: 0
+              - ability_id: 0
+                annotation: annotation
+                imbue_target_ability_id: 0
+                required_flex_slots: 0
+                sell_priority: 0
+              name: name
+              optional: true
+              width: 7.0614014
+            - description: description
+              height: 6.0274563
+              mods:
+              - ability_id: 0
+                annotation: annotation
+                imbue_target_ability_id: 0
+                required_flex_slots: 0
+                sell_priority: 0
+              - ability_id: 0
+                annotation: annotation
+                imbue_target_ability_id: 0
+                required_flex_slots: 0
+                sell_priority: 0
+              name: name
+              optional: true
+              width: 7.0614014
+          development_build: true
           hero_build_id: 0
+          hero_id: 0
+          language: 0
+          last_updated_timestamp: 4
+          name: name
+          origin_build_id: 0
           publish_timestamp: 1
           tags:
           - 0
           - 0
-          author_account_id: 0
-          last_updated_timestamp: 4
-          name: name
-          details:
-            ability_order: ""
-            mod_categories:
-            - mods:
-              - annotation: annotation
-                sell_priority: 0
-                ability_id: 0
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-              - annotation: annotation
-                sell_priority: 0
-                ability_id: 0
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-              name: name
-              width: 7.0614014
-              description: description
-              optional: true
-              height: 6.0274563
-            - mods:
-              - annotation: annotation
-                sell_priority: 0
-                ability_id: 0
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-              - annotation: annotation
-                sell_priority: 0
-                ability_id: 0
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-              name: name
-              width: 7.0614014
-              description: description
-              optional: true
-              height: 6.0274563
-          hero_id: 0
-          origin_build_id: 0
-          development_build: true
+          version: 0
+        num_favorites: 0
+        num_ignores: 0
+        num_reports: 0
+        num_weekly_favorites: 0
+        rollup_category: 0
       properties:
         hero_build:
           $ref: "#/components/schemas/BuildHero"
@@ -10014,55 +10121,55 @@ components:
       - hero_build
     BuildHero:
       example:
+        author_account_id: 0
         description: description
-        language: 0
-        version: 0
+        details:
+          ability_order: ""
+          mod_categories:
+          - description: description
+            height: 6.0274563
+            mods:
+            - ability_id: 0
+              annotation: annotation
+              imbue_target_ability_id: 0
+              required_flex_slots: 0
+              sell_priority: 0
+            - ability_id: 0
+              annotation: annotation
+              imbue_target_ability_id: 0
+              required_flex_slots: 0
+              sell_priority: 0
+            name: name
+            optional: true
+            width: 7.0614014
+          - description: description
+            height: 6.0274563
+            mods:
+            - ability_id: 0
+              annotation: annotation
+              imbue_target_ability_id: 0
+              required_flex_slots: 0
+              sell_priority: 0
+            - ability_id: 0
+              annotation: annotation
+              imbue_target_ability_id: 0
+              required_flex_slots: 0
+              sell_priority: 0
+            name: name
+            optional: true
+            width: 7.0614014
+        development_build: true
         hero_build_id: 0
+        hero_id: 0
+        language: 0
+        last_updated_timestamp: 4
+        name: name
+        origin_build_id: 0
         publish_timestamp: 1
         tags:
         - 0
         - 0
-        author_account_id: 0
-        last_updated_timestamp: 4
-        name: name
-        details:
-          ability_order: ""
-          mod_categories:
-          - mods:
-            - annotation: annotation
-              sell_priority: 0
-              ability_id: 0
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-            - annotation: annotation
-              sell_priority: 0
-              ability_id: 0
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-            name: name
-            width: 7.0614014
-            description: description
-            optional: true
-            height: 6.0274563
-          - mods:
-            - annotation: annotation
-              sell_priority: 0
-              ability_id: 0
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-            - annotation: annotation
-              sell_priority: 0
-              ability_id: 0
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-            name: name
-            width: 7.0614014
-            description: description
-            optional: true
-            height: 6.0274563
-        hero_id: 0
-        origin_build_id: 0
-        development_build: true
+        version: 0
       properties:
         author_account_id:
           format: int32
@@ -10109,6 +10216,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         version:
           format: int32
           minimum: 0
@@ -10126,38 +10234,38 @@ components:
       example:
         ability_order: ""
         mod_categories:
-        - mods:
-          - annotation: annotation
-            sell_priority: 0
-            ability_id: 0
-            imbue_target_ability_id: 0
-            required_flex_slots: 0
-          - annotation: annotation
-            sell_priority: 0
-            ability_id: 0
-            imbue_target_ability_id: 0
-            required_flex_slots: 0
-          name: name
-          width: 7.0614014
-          description: description
-          optional: true
+        - description: description
           height: 6.0274563
-        - mods:
-          - annotation: annotation
-            sell_priority: 0
-            ability_id: 0
+          mods:
+          - ability_id: 0
+            annotation: annotation
             imbue_target_ability_id: 0
             required_flex_slots: 0
-          - annotation: annotation
             sell_priority: 0
-            ability_id: 0
+          - ability_id: 0
+            annotation: annotation
             imbue_target_ability_id: 0
             required_flex_slots: 0
+            sell_priority: 0
           name: name
-          width: 7.0614014
-          description: description
           optional: true
+          width: 7.0614014
+        - description: description
           height: 6.0274563
+          mods:
+          - ability_id: 0
+            annotation: annotation
+            imbue_target_ability_id: 0
+            required_flex_slots: 0
+            sell_priority: 0
+          - ability_id: 0
+            annotation: annotation
+            imbue_target_ability_id: 0
+            required_flex_slots: 0
+            sell_priority: 0
+          name: name
+          optional: true
+          width: 7.0614014
       properties:
         ability_order:
           allOf:
@@ -10167,6 +10275,7 @@ components:
           items:
             $ref: "#/components/schemas/BuildHeroDetailsCategory"
           type: array
+          default: null
       required:
       - mod_categories
     BuildHeroDetailsAbilityOrder:
@@ -10176,6 +10285,7 @@ components:
             $ref: "#/components/schemas/BuildHeroDetailsAbilityOrderCurrencyChange"
           nullable: true
           type: array
+          default: null
     BuildHeroDetailsAbilityOrderCurrencyChange:
       properties:
         ability_id:
@@ -10197,22 +10307,22 @@ components:
       - delta
     BuildHeroDetailsCategory:
       example:
-        mods:
-        - annotation: annotation
-          sell_priority: 0
-          ability_id: 0
-          imbue_target_ability_id: 0
-          required_flex_slots: 0
-        - annotation: annotation
-          sell_priority: 0
-          ability_id: 0
-          imbue_target_ability_id: 0
-          required_flex_slots: 0
-        name: name
-        width: 7.0614014
         description: description
-        optional: true
         height: 6.0274563
+        mods:
+        - ability_id: 0
+          annotation: annotation
+          imbue_target_ability_id: 0
+          required_flex_slots: 0
+          sell_priority: 0
+        - ability_id: 0
+          annotation: annotation
+          imbue_target_ability_id: 0
+          required_flex_slots: 0
+          sell_priority: 0
+        name: name
+        optional: true
+        width: 7.0614014
       properties:
         description:
           nullable: true
@@ -10226,6 +10336,7 @@ components:
             $ref: "#/components/schemas/BuildHeroDetailsCategoryAbility"
           nullable: true
           type: array
+          default: null
         name:
           type: string
         optional:
@@ -10239,11 +10350,11 @@ components:
       - name
     BuildHeroDetailsCategoryAbility:
       example:
-        annotation: annotation
-        sell_priority: 0
         ability_id: 0
+        annotation: annotation
         imbue_target_ability_id: 0
         required_flex_slots: 0
+        sell_priority: 0
       properties:
         ability_id:
           format: int32
@@ -10271,8 +10382,8 @@ components:
       - ability_id
     BuildItemStats:
       example:
-        item_id: 6
         builds: 0
+        item_id: 6
       properties:
         builds:
           format: int64
@@ -10286,10 +10397,10 @@ components:
       - item_id
     BuildTag:
       example:
+        class_name: class_name
         icon: icon
         id: 0
         label: label
-        class_name: class_name
       properties:
         class_name:
           type: string
@@ -10308,16 +10419,16 @@ components:
       - label
     ClickhouseMatchInfo:
       example:
-        start_time: 0
+        average_badge_team0: 0
+        average_badge_team1: 0
+        duration_s: 0
+        game_mode: 5
+        match_id: 0
+        match_mode: 2
         players:
         - account_id: 0
         - account_id: 0
-        match_id: 0
-        match_mode: 2
-        average_badge_team0: 0
-        game_mode: 5
-        average_badge_team1: 0
-        duration_s: 0
+        start_time: 0
       properties:
         average_badge_team0:
           description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
@@ -10349,6 +10460,7 @@ components:
           items:
             $ref: "#/components/schemas/MatchPlayer"
           type: array
+          default: null
         start_time:
           format: int32
           minimum: 0
@@ -10363,9 +10475,9 @@ components:
     ClickhouseSalts:
       example:
         cluster_id: 0
-        replay_salt: 0
         match_id: 0
         metadata_salt: 0
+        replay_salt: 0
         username: username
       properties:
         cluster_id:
@@ -10397,10 +10509,10 @@ components:
         RGBA color emitted by KV3 as a 3- or 4-element integer array. Alpha
         defaults to 255 when omitted.
       example:
-        red: 0
-        green: 0
-        blue: 0
         alpha: 0
+        blue: 0
+        green: 0
+        red: 0
       properties:
         alpha:
           format: int32
@@ -10426,14 +10538,14 @@ components:
     CreateCustomRequest:
       example:
         callback_url: callback_url
-        is_publicly_visible: true
-        server_region: ""
         cheats_enabled: true
         disable_auto_ready: true
-        randomize_lanes: true
-        game_mode: ""
-        min_roster_size: 0
         duplicate_heroes_enabled: true
+        game_mode: ""
+        is_publicly_visible: true
+        min_roster_size: 0
+        randomize_lanes: true
+        server_region: ""
       properties:
         callback_url:
           description: "If a callback url is provided, we will send a POST request\
@@ -10474,8 +10586,8 @@ components:
     CreateCustomResponse:
       example:
         callback_secret: callback_secret
-        party_id: party_id
         party_code: party_code
+        party_id: party_id
       properties:
         callback_secret:
           description: |-
@@ -10508,61 +10620,61 @@ components:
         type: number
     DamageFlash:
       example:
-        healing_damage:
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
-          brightness: 6.027456183070403
-          color:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
-        tech_damage:
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
-          brightness: 6.027456183070403
-          color:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
-        melee_damage:
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
-          brightness: 6.027456183070403
-          color:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
-        crit_damage:
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
-          brightness: 6.027456183070403
-          color:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
         bullet_damage:
+          brightness: 6.027456183070403
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
           coverage: 9.301444243932576
           duration: 3.616076749251911
           hardness: 2.027123023002322
+        crit_damage:
           brightness: 6.027456183070403
-          color:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
           brightness_in_light_sensitivity_mode: 1.4658129805029452
+          color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+        healing_damage:
+          brightness: 6.027456183070403
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+        melee_damage:
+          brightness: 6.027456183070403
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
+        tech_damage:
+          brightness: 6.027456183070403
+          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          coverage: 9.301444243932576
+          duration: 3.616076749251911
+          hardness: 2.027123023002322
       properties:
         bullet_damage:
           $ref: "#/components/schemas/FlashData"
@@ -10591,6 +10703,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
     DistributionEntry:
       example:
         players: 0
@@ -10628,12 +10741,12 @@ components:
           type: string
     EnemyStats:
       example:
-        matches_played: 0
-        wins: 0
         enemy_id: 0
         matches:
         - 0
         - 0
+        matches_played: 0
+        wins: 0
       properties:
         enemy_id:
           format: int32
@@ -10645,6 +10758,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         matches_played:
           format: int64
           minimum: 0
@@ -10665,16 +10779,16 @@ components:
       - $ref: "#/components/schemas/FeedItem_oneOf_1"
     FlashData:
       example:
+        brightness: 6.027456183070403
+        brightness_in_light_sensitivity_mode: 1.4658129805029452
+        color:
+          alpha: 0
+          blue: 0
+          green: 0
+          red: 0
         coverage: 9.301444243932576
         duration: 3.616076749251911
         hardness: 2.027123023002322
-        brightness: 6.027456183070403
-        color:
-          red: 0
-          green: 0
-          blue: 0
-          alpha: 0
-        brightness_in_light_sensitivity_mode: 1.4658129805029452
       properties:
         brightness:
           format: double
@@ -10732,12 +10846,12 @@ components:
       type: string
     GameServerInfo:
       example:
-        hostname: hostname
-        last_updated: last_updated
         current_player_count: 0
-        port: 0
-        ip: ip
         game_mode: game_mode
+        hostname: hostname
+        ip: ip
+        last_updated: last_updated
+        port: 0
         region: region
         server_id: server_id
       properties:
@@ -10772,107 +10886,9 @@ components:
       - server_id
     GenericData:
       example:
-        trooper_kill_gold_share_frac:
-        - 4.678947989005849
-        - 4.678947989005849
-        lane_info:
-        - css_class: css_class
-          objective_color: ""
-          color:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          minimap_zipline_color_override: ""
-          lane_name: lane_name
-        - css_class: css_class
-          objective_color: ""
-          color:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          minimap_zipline_color_override: ""
-          lane_name: lane_name
-        enemy_objectives_and_zipline_color: ""
-        hero_kill_gold_share_frac:
-        - 9.369310271410669
-        - 9.369310271410669
-        new_player_metrics:
-        - abilities_upgraded: 6
-          last_hits: 1
-          net_worth: 6
-          skill_tier_name: skill_tier_name
-          boss_damage: 3
-          orbs_denied: 6
-          player_damage: 6
-          orbs_secured: 5
-          damage_taken: 6
-          mods_purchased: 2
-        - abilities_upgraded: 6
-          last_hits: 1
-          net_worth: 6
-          skill_tier_name: skill_tier_name
-          boss_damage: 3
-          orbs_denied: 6
-          player_damage: 6
-          orbs_secured: 5
-          damage_taken: 6
-          mods_purchased: 2
-        targeting_spring_strength:
-        - 1.041444916118296
-        - 1.041444916118296
-        rejuv_params:
-          rejuvinator_buff_duration: 5.533258397034986
-          rejuvinator_expiration_warning_timing: 0.2025324113236393
-          rejuvinator_rebirth_duration:
-          - 6.628464275087742
-          - 6.628464275087742
-          rejuvinator_drop_duration: 3.2588565619047607
-          player_respawn_mult:
-          - 7.04836565559697
-          - 7.04836565559697
-          rejuvinator_drop_height: 4.078845849666752
-          trooper_health_mult:
-          - 4.258773108174356
-          - 4.258773108174356
-        street_brawl: ""
-        glitch_settings:
-          uantize_type: 5.025004791520295
-          breakup_strength: 4.145608029883936
-          strength: 4.965218492984954
-          quantize_scale: 1.4894159098541704
-          distort_strength: 7.386281948385884
-          scanline_strength: 7.457744773683766
-          frame_rate: 1.2315135367772556
-          quantize_strength: 6.84685269835264
-          speed: 1.1730742509559433
-          jump_strength: 1.0246457001441578
-          white_noise_strength: 9.965781217890562
-        enemy_zipline_color: ""
-        item_price_per_tier:
-        - 6
-        - 6
-        mini_map_offsets:
-        - lane_index: 8
-          entity_class: entity_class
-          offset_2d:
-          - 9.018348186070783
-          - 9.018348186070783
-        - lane_index: 8
-          entity_class: entity_class
-          offset_2d:
-          - 9.018348186070783
-          - 9.018348186070783
-        weapon_groups:
-        - shop_group: shop_group
-          upgrades:
-          - upgrades
-          - upgrades
-        - shop_group: shop_group
-          upgrades:
-          - upgrades
-          - upgrades
+        aim_spring_strength:
+        - 0.8008281904610115
+        - 0.8008281904610115
         armor_groups:
         - shop_group: shop_group
           upgrades:
@@ -10882,82 +10898,180 @@ components:
           upgrades:
           - upgrades
           - upgrades
+        damage_flash:
+          bullet_damage:
+            brightness: 6.027456183070403
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+          crit_damage:
+            brightness: 6.027456183070403
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+          healing_damage:
+            brightness: 6.027456183070403
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+          melee_damage:
+            brightness: 6.027456183070403
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+          tech_damage:
+            brightness: 6.027456183070403
+            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            coverage: 9.301444243932576
+            duration: 3.616076749251911
+            hardness: 2.027123023002322
+        enemy_objectives_and_zipline_color: ""
+        enemy_objectives_color: ""
+        enemy_zipline_color: ""
+        glitch_settings:
+          breakup_strength: 4.145608029883936
+          distort_strength: 7.386281948385884
+          frame_rate: 1.2315135367772556
+          jump_strength: 1.0246457001441578
+          quantize_scale: 1.4894159098541704
+          quantize_strength: 6.84685269835264
+          scanline_strength: 7.457744773683766
+          speed: 1.1730742509559433
+          strength: 4.965218492984954
+          uantize_type: 5.025004791520295
+          white_noise_strength: 9.965781217890562
+        hero_kill_gold_share_frac:
+        - 9.369310271410669
+        - 9.369310271410669
+        item_price_per_tier:
+        - 6
+        - 6
+        lane_info:
+        - color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          css_class: css_class
+          lane_name: lane_name
+          minimap_zipline_color_override: ""
+          objective_color: ""
+        - color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          css_class: css_class
+          lane_name: lane_name
+          minimap_zipline_color_override: ""
+          objective_color: ""
+        mini_map_offsets:
+        - entity_class: entity_class
+          lane_index: 8
+          offset_2d:
+          - 9.018348186070783
+          - 9.018348186070783
+        - entity_class: entity_class
+          lane_index: 8
+          offset_2d:
+          - 9.018348186070783
+          - 9.018348186070783
         minimap_team_combine_color: ""
+        minimap_team_rebels_color: ""
+        new_player_metrics:
+        - abilities_upgraded: 6
+          boss_damage: 3
+          damage_taken: 6
+          last_hits: 1
+          mods_purchased: 2
+          net_worth: 6
+          orbs_denied: 6
+          orbs_secured: 5
+          player_damage: 6
+          skill_tier_name: skill_tier_name
+        - abilities_upgraded: 6
+          boss_damage: 3
+          damage_taken: 6
+          last_hits: 1
+          mods_purchased: 2
+          net_worth: 6
+          orbs_denied: 6
+          orbs_secured: 5
+          player_damage: 6
+          skill_tier_name: skill_tier_name
         objective_params:
+          base_guardians_gold_kill: 3
+          base_guardians_gold_orbs: 3
+          gold_per_orb: 7
+          near_player_split_pct: 0.8851374739011653
+          patron_phase1_gold_kill: 7
           patron_phase1_gold_orbs: 6
+          shrines_gold_kill: 0
+          shrines_gold_orbs: 4
+          tier1_gold_kill: 8
           tier1_gold_orbs: 7
           tier2_gold_kill: 3
-          shrines_gold_kill: 0
-          base_guardians_gold_orbs: 3
-          patron_phase1_gold_kill: 7
-          tier1_gold_kill: 8
           tier2_gold_orbs: 3
-          shrines_gold_orbs: 4
-          near_player_split_pct: 0.8851374739011653
-          base_guardians_gold_kill: 3
-          gold_per_orb: 7
-        damage_flash:
-          healing_damage:
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
-            brightness: 6.027456183070403
-            color:
-              red: 0
-              green: 0
-              blue: 0
-              alpha: 0
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
-          tech_damage:
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
-            brightness: 6.027456183070403
-            color:
-              red: 0
-              green: 0
-              blue: 0
-              alpha: 0
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
-          melee_damage:
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
-            brightness: 6.027456183070403
-            color:
-              red: 0
-              green: 0
-              blue: 0
-              alpha: 0
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
-          crit_damage:
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
-            brightness: 6.027456183070403
-            color:
-              red: 0
-              green: 0
-              blue: 0
-              alpha: 0
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
-          bullet_damage:
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
-            brightness: 6.027456183070403
-            color:
-              red: 0
-              green: 0
-              blue: 0
-              alpha: 0
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
-        aim_spring_strength:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        enemy_objectives_color: ""
-        minimap_team_rebels_color: ""
+        rejuv_params:
+          player_respawn_mult:
+          - 7.04836565559697
+          - 7.04836565559697
+          rejuvinator_buff_duration: 5.533258397034986
+          rejuvinator_drop_duration: 3.2588565619047607
+          rejuvinator_drop_height: 4.078845849666752
+          rejuvinator_expiration_warning_timing: 0.2025324113236393
+          rejuvinator_rebirth_duration:
+          - 6.628464275087742
+          - 6.628464275087742
+          trooper_health_mult:
+          - 4.258773108174356
+          - 4.258773108174356
         spirit_groups:
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        - shop_group: shop_group
+          upgrades:
+          - upgrades
+          - upgrades
+        street_brawl: ""
+        targeting_spring_strength:
+        - 1.041444916118296
+        - 1.041444916118296
+        trooper_kill_gold_share_frac:
+        - 4.678947989005849
+        - 4.678947989005849
+        weapon_groups:
         - shop_group: shop_group
           upgrades:
           - upgrades
@@ -10972,10 +11086,12 @@ components:
             format: double
             type: number
           type: array
+          default: null
         armor_groups:
           items:
             $ref: "#/components/schemas/ItemGroup"
           type: array
+          default: null
         damage_flash:
           $ref: "#/components/schemas/DamageFlash"
         enemy_objectives_and_zipline_color:
@@ -10997,19 +11113,23 @@ components:
             format: double
             type: number
           type: array
+          default: null
         item_price_per_tier:
           items:
             format: int64
             type: integer
           type: array
+          default: null
         lane_info:
           items:
             $ref: "#/components/schemas/LaneInfo"
           type: array
+          default: null
         mini_map_offsets:
           items:
             $ref: "#/components/schemas/MiniMapOffsets"
           type: array
+          default: null
         minimap_team_combine_color:
           allOf:
           - $ref: "#/components/schemas/Color"
@@ -11022,6 +11142,7 @@ components:
           items:
             $ref: "#/components/schemas/NewPlayerMetrics"
           type: array
+          default: null
         objective_params:
           $ref: "#/components/schemas/ObjectiveParams"
         rejuv_params:
@@ -11030,6 +11151,7 @@ components:
           items:
             $ref: "#/components/schemas/ItemGroup"
           type: array
+          default: null
         street_brawl:
           allOf:
           - $ref: "#/components/schemas/StreetBrawl"
@@ -11039,15 +11161,18 @@ components:
             format: double
             type: number
           type: array
+          default: null
         trooper_kill_gold_share_frac:
           items:
             format: double
             type: number
           type: array
+          default: null
         weapon_groups:
           items:
             $ref: "#/components/schemas/ItemGroup"
           type: array
+          default: null
       required:
       - aim_spring_strength
       - armor_groups
@@ -11076,16 +11201,16 @@ components:
       - match_id
     GlitchSettings:
       example:
-        uantize_type: 5.025004791520295
         breakup_strength: 4.145608029883936
-        strength: 4.965218492984954
-        quantize_scale: 1.4894159098541704
         distort_strength: 7.386281948385884
-        scanline_strength: 7.457744773683766
         frame_rate: 1.2315135367772556
-        quantize_strength: 6.84685269835264
-        speed: 1.1730742509559433
         jump_strength: 1.0246457001441578
+        quantize_scale: 1.4894159098541704
+        quantize_strength: 6.84685269835264
+        scanline_strength: 7.457744773683766
+        speed: 1.1730742509559433
+        strength: 4.965218492984954
+        uantize_type: 5.025004791520295
         white_noise_strength: 9.965781217890562
       properties:
         breakup_strength:
@@ -11166,24 +11291,99 @@ components:
         type: number
     Hero:
       example:
-        complexity: 1
-        item_draft_weights: ""
-        skin: 6
-        description:
-          role: role
-          lore: lore
-          playstyle: playstyle
-        prerelease_only: true
+        assigned_players_only: true
+        class_name: class_name
         colors:
+          style:
+          - 0
+          - 0
           style_hex: style_hex
           ui:
           - 0
           - 0
-          style:
-          - 0
-          - 0
+        complexity: 1
+        cost_bonuses: ""
+        description:
+          lore: lore
+          playstyle: playstyle
+          role: role
+        disabled: true
+        gun_tag: gun_tag
+        hero_stats_ui:
+          display_stats:
+          - category: category
+            stat_type: stat_type
+          - category: category
+            stat_type: stat_type
+          weapon_stat_display: weapon_stat_display
+        hero_type: ""
+        hideout_rich_presence: hideout_rich_presence
+        id: 0
+        images:
+          background_image: background_image
+          background_image_webp: background_image_webp
+          hero_card_critical: hero_card_critical
+          hero_card_critical_webp: hero_card_critical_webp
+          hero_card_gloat: hero_card_gloat
+          hero_card_gloat_webp: hero_card_gloat_webp
+          icon_hero_card: icon_hero_card
+          icon_hero_card_webp: icon_hero_card_webp
+          icon_image_small: icon_image_small
+          icon_image_small_webp: icon_image_small_webp
+          minimap_image: minimap_image
+          minimap_image_webp: minimap_image_webp
+          name_image: name_image
+          top_bar_vertical_image: top_bar_vertical_image
+          top_bar_vertical_image_webp: top_bar_vertical_image_webp
+          weapon_image: weapon_image
+          weapon_image_webp: weapon_image_webp
+        in_development: true
         item_draft_bucketing: ""
+        item_draft_weights: ""
+        item_slot_info:
+          key:
+            max_purchases_for_tier:
+            - 5
+            - 5
+        items:
+          key: items
+        level_info:
+          key:
+            bonus_currencies:
+            - bonus_currencies
+            - bonus_currencies
+            required_gold: 2
+            use_standard_upgrade: true
+        limited_testing: true
+        name: name
+        needs_testing: true
+        physics:
+          collision_height: 7.061401241503109
+          collision_radius: 9.301444243932576
+          footstep_sound_travel_distance_meters: 3.616076749251911
+          stealth_speed_meters_per_second: 2.027123023002322
+          step_height: 4.145608029883936
+          step_sound_time: 7.386281948385884
+          step_sound_time_sprinting: 1.2315135367772556
+        player_selectable: true
+        prerelease_only: true
+        purchase_bonuses:
+          key:
+          - tier: 1
+            value: value
+            value_type: value_type
+          - tier: 1
+            value: value
+            value_type: value_type
+        scaling_stats:
+          key:
+            scale: 1.4894159098541704
+            scaling_stat: scaling_stat
         shop_stat_display:
+          spirit_stats_display:
+            display_stats:
+            - display_stats
+            - display_stats
           vitality_stats_display:
             display_stats:
             - display_stats
@@ -11192,177 +11392,102 @@ components:
             - other_display_stats
             - other_display_stats
           weapon_stats_display:
-            weapon_image_webp: weapon_image_webp
             display_stats:
             - display_stats
             - display_stats
-            weapon_image: weapon_image
-            weapon_attributes:
-            - weapon_attributes
-            - weapon_attributes
             other_display_stats:
             - other_display_stats
             - other_display_stats
-          spirit_stats_display:
-            display_stats:
-            - display_stats
-            - display_stats
-        physics:
-          footstep_sound_travel_distance_meters: 3.616076749251911
-          step_height: 4.145608029883936
-          collision_height: 7.061401241503109
-          collision_radius: 9.301444243932576
-          stealth_speed_meters_per_second: 2.027123023002322
-          step_sound_time: 7.386281948385884
-          step_sound_time_sprinting: 1.2315135367772556
-        gun_tag: gun_tag
-        disabled: true
-        hero_type: ""
-        level_info:
-          key:
-            use_standard_upgrade: true
-            bonus_currencies:
-            - bonus_currencies
-            - bonus_currencies
-            required_gold: 2
-        id: 0
-        class_name: class_name
-        stats_display:
-          health_stats:
-          - health_stats
-          - health_stats
-          magic_stats:
-          - magic_stats
-          - magic_stats
-          weapon_stats:
-          - weapon_stats
-          - weapon_stats
-          weapon_header_stats:
-          - weapon_header_stats
-          - weapon_header_stats
-          magic_header_stats:
-          - magic_header_stats
-          - magic_header_stats
-          health_header_stats:
-          - health_header_stats
-          - health_header_stats
-        item_slot_info:
-          key:
-            max_purchases_for_tier:
-            - 5
-            - 5
-        assigned_players_only: true
-        limited_testing: true
-        images:
-          weapon_image: weapon_image
-          icon_hero_card: icon_hero_card
-          top_bar_vertical_image_webp: top_bar_vertical_image_webp
-          icon_hero_card_webp: icon_hero_card_webp
-          background_image_webp: background_image_webp
-          hero_card_gloat_webp: hero_card_gloat_webp
-          icon_image_small_webp: icon_image_small_webp
-          name_image: name_image
-          background_image: background_image
-          minimap_image: minimap_image
-          weapon_image_webp: weapon_image_webp
-          hero_card_critical_webp: hero_card_critical_webp
-          hero_card_gloat: hero_card_gloat
-          hero_card_critical: hero_card_critical
-          minimap_image_webp: minimap_image_webp
-          icon_image_small: icon_image_small
-          top_bar_vertical_image: top_bar_vertical_image
-        cost_bonuses: ""
-        hero_stats_ui:
-          display_stats:
-          - stat_type: stat_type
-            category: category
-          - stat_type: stat_type
-            category: category
-          weapon_stat_display: weapon_stat_display
-        scaling_stats:
-          key:
-            scaling_stat: scaling_stat
-            scale: 1.4894159098541704
+            weapon_attributes:
+            - weapon_attributes
+            - weapon_attributes
+            weapon_image: weapon_image
+            weapon_image_webp: weapon_image_webp
+        skin: 6
+        standard_level_up_upgrades:
+          key: 7.457744773683766
         starting_stats:
-          heavy_melee_damage:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          tech_range:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          weapon_power_scale:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          crit_damage_received_scale:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          reload_speed:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          stamina:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          move_acceleration:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          crouch_speed:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          stamina_regen_per_second:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
           ability_resource_max:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          max_health:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          bullet_armor_damage_reduction: ""
-          tech_armor_damage_reduction: ""
-          proc_build_up_rate_scale:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          sprint_speed:
-            display_stat_name: display_stat_name
-            value: 1.1730742509559433
-          tech_duration:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
           ability_resource_regen_per_second:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
-          max_move_speed:
+          base_health_regen:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          bullet_armor_damage_reduction: ""
+          crit_damage_received_scale:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          crouch_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          heavy_melee_damage:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
           light_melee_damage:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
-          base_health_regen:
+          max_health:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          max_move_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          move_acceleration:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          proc_build_up_rate_scale:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          reload_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          sprint_speed:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          stamina:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          stamina_regen_per_second:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          tech_armor_damage_reduction: ""
+          tech_duration:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+          tech_range:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
           weapon_power:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
-        in_development: true
-        standard_level_up_upgrades:
-          key: 7.457744773683766
+          weapon_power_scale:
+            display_stat_name: display_stat_name
+            value: 1.1730742509559433
+        stats_display:
+          health_header_stats:
+          - health_header_stats
+          - health_header_stats
+          health_stats:
+          - health_stats
+          - health_stats
+          magic_header_stats:
+          - magic_header_stats
+          - magic_header_stats
+          magic_stats:
+          - magic_stats
+          - magic_stats
+          weapon_header_stats:
+          - weapon_header_stats
+          - weapon_header_stats
+          weapon_stats:
+          - weapon_stats
+          - weapon_stats
         tags:
         - tags
         - tags
-        purchase_bonuses:
-          key:
-          - value_type: value_type
-            tier: 1
-            value: value
-          - value_type: value_type
-            tier: 1
-            value: value
-        name: name
-        player_selectable: true
-        needs_testing: true
-        hideout_rich_presence: hideout_rich_presence
-        items:
-          key: items
       properties:
         assigned_players_only:
           type: boolean
@@ -11456,6 +11581,7 @@ components:
           items:
             type: string
           type: array
+          default: null
       required:
       - assigned_players_only
       - class_name
@@ -11485,8 +11611,8 @@ components:
       - tags
     HeroBanStats:
       example:
-        bucket: 0
         bans: 0
+        bucket: 0
         hero_id: 0
       properties:
         bans:
@@ -11510,12 +11636,12 @@ components:
       - hero_id
     HeroBuildStats:
       example:
-        wins: 0
-        players: 0
+        hero_build_id: 0
         hero_id: 0
         losses: 0
         matches: 0
-        hero_build_id: 0
+        players: 0
+        wins: 0
       properties:
         hero_build_id:
           description: The ID of the hero build. The `hero_build_id` is the first
@@ -11558,11 +11684,11 @@ components:
       - wins
     HeroColors:
       example:
+        style:
+        - 0
+        - 0
         style_hex: style_hex
         ui:
-        - 0
-        - 0
-        style:
         - 0
         - 0
       properties:
@@ -11573,6 +11699,7 @@ components:
             type: integer
           nullable: true
           type: array
+          default: null
         style_hex:
           nullable: true
           type: string
@@ -11582,16 +11709,17 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
       required:
       - ui
     HeroCombStats:
       example:
-        wins: 0
         hero_ids:
         - 0
         - 0
         losses: 0
         matches: 0
+        wins: 0
       properties:
         hero_ids:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -11600,6 +11728,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         losses:
           format: int64
           minimum: 0
@@ -11619,26 +11748,26 @@ components:
       - wins
     HeroCounterStats:
       example:
-        kills: 0
-        wins: 0
-        enemy_deaths: 0
-        enemy_networth: 0
-        enemy_hero_id: 0
-        denies: 0
-        matches_played: 0
-        enemy_creeps: 0
-        enemy_kills: 0
-        last_hits: 0
-        obj_damage: 0
         assists: 0
-        enemy_last_hits: 0
         creeps: 0
-        enemy_obj_damage: 0
-        networth: 0
-        hero_id: 0
-        enemy_denies: 0
-        enemy_assists: 0
         deaths: 0
+        denies: 0
+        enemy_assists: 0
+        enemy_creeps: 0
+        enemy_deaths: 0
+        enemy_denies: 0
+        enemy_hero_id: 0
+        enemy_kills: 0
+        enemy_last_hits: 0
+        enemy_networth: 0
+        enemy_obj_damage: 0
+        hero_id: 0
+        kills: 0
+        last_hits: 0
+        matches_played: 0
+        networth: 0
+        obj_damage: 0
+        wins: 0
       properties:
         assists:
           description: The number of assists by `hero_id` when facing `enemy_hero_id`.
@@ -11767,9 +11896,9 @@ components:
       - wins
     HeroDescription:
       example:
-        role: role
         lore: lore
         playstyle: playstyle
+        role: role
       properties:
         lore:
           nullable: true
@@ -11782,9 +11911,9 @@ components:
           type: string
     HeroEntry:
       example:
-        rank: 0
         hero_id: 0
         matches: 0
+        rank: 0
         value: 5.962133916683182
       properties:
         hero_id:
@@ -11810,23 +11939,23 @@ components:
       - value
     HeroImages:
       example:
-        weapon_image: weapon_image
-        icon_hero_card: icon_hero_card
-        top_bar_vertical_image_webp: top_bar_vertical_image_webp
-        icon_hero_card_webp: icon_hero_card_webp
-        background_image_webp: background_image_webp
-        hero_card_gloat_webp: hero_card_gloat_webp
-        icon_image_small_webp: icon_image_small_webp
-        name_image: name_image
         background_image: background_image
-        minimap_image: minimap_image
-        weapon_image_webp: weapon_image_webp
+        background_image_webp: background_image_webp
+        hero_card_critical: hero_card_critical
         hero_card_critical_webp: hero_card_critical_webp
         hero_card_gloat: hero_card_gloat
-        hero_card_critical: hero_card_critical
-        minimap_image_webp: minimap_image_webp
+        hero_card_gloat_webp: hero_card_gloat_webp
+        icon_hero_card: icon_hero_card
+        icon_hero_card_webp: icon_hero_card_webp
         icon_image_small: icon_image_small
+        icon_image_small_webp: icon_image_small_webp
+        minimap_image: minimap_image
+        minimap_image_webp: minimap_image_webp
+        name_image: name_image
         top_bar_vertical_image: top_bar_vertical_image
+        top_bar_vertical_image_webp: top_bar_vertical_image_webp
+        weapon_image: weapon_image
+        weapon_image_webp: weapon_image_webp
       properties:
         background_image:
           nullable: true
@@ -11881,11 +12010,11 @@ components:
           type: string
     HeroPhysics:
       example:
-        footstep_sound_travel_distance_meters: 3.616076749251911
-        step_height: 4.145608029883936
         collision_height: 7.061401241503109
         collision_radius: 9.301444243932576
+        footstep_sound_travel_distance_meters: 3.616076749251911
         stealth_speed_meters_per_second: 2.027123023002322
+        step_height: 4.145608029883936
         step_sound_time: 7.386281948385884
         step_sound_time_sprinting: 1.2315135367772556
       properties:
@@ -11920,41 +12049,41 @@ components:
       - stealth_speed_meters_per_second
     HeroStats:
       example:
-        kills: 0
-        damage_taken_per_soul: 4.145608029883936
-        last_hits_per_min: 5.025004791520295
+        account_id: 0
         accuracy: 6.027456183070403
-        total_player_damage: 0
-        assists_per_min: 5.962133916683182
-        total_boss_damage: 0
-        denies_per_match: 1.0246457001441578
-        ending_level: 6.84685269835264
         assists: 0
+        assists_per_min: 5.962133916683182
+        creeps_per_min: 5.637376656633329
+        crit_shot_rate: 2.3021358869347655
+        damage_mitigated_per_min: 7.061401241503109
         damage_per_min: 9.301444243932576
-        last_played: 0
-        hero_id: 0
-        total_creep_damage: 0
+        damage_per_soul: 3.616076749251911
+        damage_taken_per_min: 2.027123023002322
+        damage_taken_per_soul: 4.145608029883936
         deaths: 0
         deaths_per_min: 1.2315135367772556
+        denies_per_match: 1.0246457001441578
         denies_per_min: 1.4894159098541704
-        obj_damage_per_soul: 6.438423552598547
-        wins: 0
-        damage_taken_per_min: 2.027123023002322
-        total_player_damage_taken: 0
-        creeps_per_min: 5.637376656633329
-        damage_per_soul: 3.616076749251911
-        crit_shot_rate: 2.3021358869347655
-        networth_per_min: 8.762042012749001
-        damage_mitigated_per_min: 7.061401241503109
+        ending_level: 6.84685269835264
+        hero_id: 0
+        kills: 0
         kills_per_min: 4.965218492984954
+        last_hits_per_min: 5.025004791520295
+        last_played: 0
         matches:
         - 0
         - 0
-        time_played: 0
         matches_played: 0
-        total_neutral_damage: 0
-        account_id: 0
+        networth_per_min: 8.762042012749001
         obj_damage_per_min: 9.018348186070783
+        obj_damage_per_soul: 6.438423552598547
+        time_played: 0
+        total_boss_damage: 0
+        total_creep_damage: 0
+        total_neutral_damage: 0
+        total_player_damage: 0
+        total_player_damage_taken: 0
+        wins: 0
       properties:
         account_id:
           format: int32
@@ -12032,6 +12161,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         matches_played:
           format: int64
           minimum: 0
@@ -12110,16 +12240,17 @@ components:
     HeroStatsUI:
       example:
         display_stats:
-        - stat_type: stat_type
-          category: category
-        - stat_type: stat_type
-          category: category
+        - category: category
+          stat_type: stat_type
+        - category: category
+          stat_type: stat_type
         weapon_stat_display: weapon_stat_display
       properties:
         display_stats:
           items:
             $ref: "#/components/schemas/HeroStatsUIDisplay"
           type: array
+          default: null
         weapon_stat_display:
           type: string
       required:
@@ -12127,8 +12258,8 @@ components:
       - weapon_stat_display
     HeroStatsUIDisplay:
       example:
-        stat_type: stat_type
         category: category
+        stat_type: stat_type
       properties:
         category:
           type: string
@@ -12139,26 +12270,26 @@ components:
       - stat_type
     HeroSynergyStats:
       example:
-        denies1: 0
-        wins: 0
-        last_hits2: 0
-        last_hits1: 0
-        deaths2: 0
+        assists1: 0
+        assists2: 0
+        creeps1: 0
+        creeps2: 0
         deaths1: 0
+        deaths2: 0
+        denies1: 0
+        denies2: 0
+        hero_id1: 0
+        hero_id2: 0
         kills1: 0
         kills2: 0
-        creeps1: 0
-        denies2: 0
-        creeps2: 0
-        hero_id1: 0
+        last_hits1: 0
+        last_hits2: 0
         matches_played: 0
-        assists2: 0
-        networth2: 0
-        hero_id2: 0
         networth1: 0
-        obj_damage2: 0
+        networth2: 0
         obj_damage1: 0
-        assists1: 0
+        obj_damage2: 0
+        wins: 0
       properties:
         assists1:
           description: The number of assists by `hero_id1` when playing with `hero_id2`.
@@ -12306,10 +12437,10 @@ components:
           nullable: true
     IngestLiveUrl:
       example:
-        match_id: 0
-        started_at: 1
         broadcast_url: broadcast_url
         lobby_id: 0
+        match_id: 0
+        started_at: 1
       properties:
         broadcast_url:
           type: string
@@ -12357,6 +12488,7 @@ components:
           items:
             $ref: "#/components/schemas/ItemDraftRound"
           type: array
+          default: null
       required:
       - chance_enhanced
       - chance_rare
@@ -12374,17 +12506,18 @@ components:
           items:
             type: string
           type: array
+          default: null
       required:
       - shop_group
       - upgrades
     ItemPermutationStats:
       example:
-        wins: 0
         item_ids:
         - 0
         - 0
         losses: 0
         matches: 0
+        wins: 0
       properties:
         item_ids:
           description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -12393,6 +12526,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         losses:
           format: int64
           minimum: 0
@@ -12412,25 +12546,25 @@ components:
       - wins
     ItemProperty:
       example:
-        conditional: conditional
-        usage_flags:
-        - ConditionallyApplied
-        - ConditionallyApplied
-        prefix: prefix
-        icon: icon
         can_set_token_override: true
-        label: label
-        scale_function: ""
-        street_brawl_value: street_brawl_value
-        loc_token_override: loc_token_override
+        conditional: conditional
         css_class: css_class
         disable_value: disable_value
-        provided_property_type: provided_property_type
+        display_units: display_units
+        icon: icon
+        label: label
+        loc_token_override: loc_token_override
         negative_attribute: true
         postfix: postfix
         postvalue_label: postvalue_label
+        prefix: prefix
+        provided_property_type: provided_property_type
+        scale_function: ""
+        street_brawl_value: street_brawl_value
+        usage_flags:
+        - ConditionallyApplied
+        - ConditionallyApplied
         value: value
-        display_units: display_units
       properties:
         can_set_token_override:
           nullable: true
@@ -12483,6 +12617,7 @@ components:
             $ref: "#/components/schemas/StatsUsageFlag"
           nullable: true
           type: array
+          default: null
         value:
           description: |-
             Raw JSON value preserves the source distinction between numeric and
@@ -12497,16 +12632,16 @@ components:
       type: string
     ItemStats:
       example:
-        bucket: 0
-        wins: 0
-        avg_buy_time_s: 6.027456183070403
-        avg_sell_time_s: 5.962133916683182
-        item_id: 0
-        avg_sell_time_relative: 1.4658129805029452
-        players: 0
         avg_buy_time_relative: 0.8008281904610115
+        avg_buy_time_s: 6.027456183070403
+        avg_sell_time_relative: 1.4658129805029452
+        avg_sell_time_s: 5.962133916683182
+        bucket: 0
+        item_id: 0
         losses: 0
         matches: 0
+        players: 0
+        wins: 0
       properties:
         avg_buy_time_relative:
           description: Average buy time as percentage of match duration
@@ -12571,11 +12706,11 @@ components:
       type: string
     KillDeathStats:
       example:
+        deaths: 0
+        killer_team: 0
         kills: 0
         position_x: 5
-        killer_team: 0
         position_y: 5
-        deaths: 0
       properties:
         deaths:
           format: int64
@@ -12603,15 +12738,15 @@ components:
       - position_y
     LaneInfo:
       example:
-        css_class: css_class
-        objective_color: ""
         color:
-          red: 0
-          green: 0
-          blue: 0
           alpha: 0
-        minimap_zipline_color_override: ""
+          blue: 0
+          green: 0
+          red: 0
+        css_class: css_class
         lane_name: lane_name
+        minimap_zipline_color_override: ""
+        objective_color: ""
       properties:
         color:
           $ref: "#/components/schemas/Color"
@@ -12634,49 +12769,50 @@ components:
     Leaderboard:
       example:
         entries:
-        - badge_level: 0
+        - account_name: account_name
+          badge_level: 0
           possible_account_ids:
           - 0
           - 0
-          account_name: account_name
           rank: 0
           ranked_rank: 0
+          ranked_subrank: 0
           top_hero_ids:
           - 0
           - 0
-          ranked_subrank: 0
-        - badge_level: 0
+        - account_name: account_name
+          badge_level: 0
           possible_account_ids:
           - 0
           - 0
-          account_name: account_name
           rank: 0
           ranked_rank: 0
+          ranked_subrank: 0
           top_hero_ids:
           - 0
           - 0
-          ranked_subrank: 0
       properties:
         entries:
           description: The leaderboard entries.
           items:
             $ref: "#/components/schemas/LeaderboardEntry"
           type: array
+          default: null
       required:
       - entries
     LeaderboardEntry:
       example:
+        account_name: account_name
         badge_level: 0
         possible_account_ids:
         - 0
         - 0
-        account_name: account_name
         rank: 0
         ranked_rank: 0
+        ranked_subrank: 0
         top_hero_ids:
         - 0
         - 0
-        ranked_subrank: 0
       properties:
         account_name:
           description: The account name of the player.
@@ -12697,6 +12833,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         rank:
           description: "The rank of the player (tier = first digits, subtier = last\
             \ digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>"
@@ -12723,23 +12860,24 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
     ListServersResponse:
       example:
         servers:
-        - hostname: hostname
-          last_updated: last_updated
-          current_player_count: 0
-          port: 0
-          ip: ip
+        - current_player_count: 0
           game_mode: game_mode
+          hostname: hostname
+          ip: ip
+          last_updated: last_updated
+          port: 0
           region: region
           server_id: server_id
-        - hostname: hostname
-          last_updated: last_updated
-          current_player_count: 0
-          port: 0
-          ip: ip
+        - current_player_count: 0
           game_mode: game_mode
+          hostname: hostname
+          ip: ip
+          last_updated: last_updated
+          port: 0
           region: region
           server_id: server_id
       properties:
@@ -12747,15 +12885,16 @@ components:
           items:
             $ref: "#/components/schemas/GameServerInfo"
           type: array
+          default: null
       required:
       - servers
     LiveUrl:
       example:
-        updated_at: 5
-        match_id: 0
-        started_at: 1
         broadcast_url: broadcast_url
         lobby_id: 0
+        match_id: 0
+        started_at: 1
+        updated_at: 5
       properties:
         broadcast_url:
           type: string
@@ -12791,17 +12930,18 @@ components:
           items:
             $ref: "#/components/schemas/LootEntry"
           type: array
+          default: null
       required:
       - entries
     MMRHistory:
       example:
-        division: 0
-        start_time: 0
         account_id: 0
+        division: 0
+        division_tier: 0
         match_id: 0
         player_score: 5.637376656633329
         rank: 0
-        division_tier: 0
+        start_time: 0
       properties:
         account_id:
           format: int32
@@ -12848,66 +12988,66 @@ components:
     MapData:
       description: The `/v1/assets/map` response.
       example:
-        zipline_paths:
-        - color: color
-          P0_points:
-          - - 5.962133916683182
-            - 5.962133916683182
-          - - 5.962133916683182
-            - 5.962133916683182
-          origin:
-          - 7.061401241503109
-          - 7.061401241503109
-          color_parsed:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          P1_points:
-          - - 5.637376656633329
-            - 5.637376656633329
-          - - 5.637376656633329
-            - 5.637376656633329
-          P2_points:
-          - - 2.3021358869347655
-            - 2.3021358869347655
-          - - 2.3021358869347655
-            - 2.3021358869347655
-        - color: color
-          P0_points:
-          - - 5.962133916683182
-            - 5.962133916683182
-          - - 5.962133916683182
-            - 5.962133916683182
-          origin:
-          - 7.061401241503109
-          - 7.061401241503109
-          color_parsed:
-            red: 0
-            green: 0
-            blue: 0
-            alpha: 0
-          P1_points:
-          - - 5.637376656633329
-            - 5.637376656633329
-          - - 5.637376656633329
-            - 5.637376656633329
-          P2_points:
-          - - 2.3021358869347655
-            - 2.3021358869347655
-          - - 2.3021358869347655
-            - 2.3021358869347655
         images:
           background: background
+          frame: frame
+          mid: mid
           minimap: minimap
           plain: plain
-          mid: mid
-          frame: frame
         objective_positions:
           key:
-            top_relative: 6.027456183070403
             left_relative: 0.8008281904610115
+            top_relative: 6.027456183070403
         radius: 0
+        zipline_paths:
+        - P0_points:
+          - - 5.962133916683182
+            - 5.962133916683182
+          - - 5.962133916683182
+            - 5.962133916683182
+          P1_points:
+          - - 5.637376656633329
+            - 5.637376656633329
+          - - 5.637376656633329
+            - 5.637376656633329
+          P2_points:
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          color: color
+          color_parsed:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          origin:
+          - 7.061401241503109
+          - 7.061401241503109
+        - P0_points:
+          - - 5.962133916683182
+            - 5.962133916683182
+          - - 5.962133916683182
+            - 5.962133916683182
+          P1_points:
+          - - 5.637376656633329
+            - 5.637376656633329
+          - - 5.637376656633329
+            - 5.637376656633329
+          P2_points:
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          color: color
+          color_parsed:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          origin:
+          - 7.061401241503109
+          - 7.061401241503109
       properties:
         images:
           $ref: "#/components/schemas/MapImages"
@@ -12922,6 +13062,7 @@ components:
           items:
             $ref: "#/components/schemas/ZiplanePath"
           type: array
+          default: null
       required:
       - images
       - objective_positions
@@ -12931,10 +13072,10 @@ components:
       description: Fixed CDN URLs for the minimap image layers.
       example:
         background: background
+        frame: frame
+        mid: mid
         minimap: minimap
         plain: plain
-        mid: mid
-        frame: frame
       properties:
         background:
           type: string
@@ -12965,11 +13106,11 @@ components:
     MatchSaltsResponse:
       example:
         cluster_id: 0
-        metadata_url: metadata_url
-        replay_salt: 0
         demo_url: demo_url
         match_id: 0
         metadata_salt: 0
+        metadata_url: metadata_url
+        replay_salt: 0
       properties:
         cluster_id:
           format: int32
@@ -13014,12 +13155,12 @@ components:
       - broadcast_url
     MateStats:
       example:
-        matches_played: 0
-        wins: 0
-        mate_id: 0
         matches:
         - 0
         - 0
+        matches_played: 0
+        mate_id: 0
+        wins: 0
       properties:
         matches:
           items:
@@ -13027,6 +13168,7 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         matches_played:
           format: int64
           minimum: 0
@@ -13046,16 +13188,16 @@ components:
       - wins
     MetricIngestRequest:
       example:
+        account_id: 0
+        game_mode: game_mode
         game_mode_version: game_mode_version
+        map: map
         metadata:
           key: metadata
-        account_id: 0
         metric_name: metric_name
-        game_mode: game_mode
         metric_value: 6.027456183070403
         region: region
         server_id: server_id
-        map: map
       properties:
         account_id:
           description: Steam account id (`UInt32`) of the player this metric is about
@@ -13100,8 +13242,8 @@ components:
       - server_id
     MiniMapOffsets:
       example:
-        lane_index: 8
         entity_class: entity_class
+        lane_index: 8
         offset_2d:
         - 9.018348186070783
         - 9.018348186070783
@@ -13117,58 +13259,59 @@ components:
             format: double
             type: number
           type: array
+          default: null
       required:
       - entity_class
       - offset_2d
     MiscEntity:
       example:
-        initial_spawn_time: 9.301444243932576
-        initial_spawn_delay_seconds: 7
-        loot_list_deck_size: 2
-        color: ""
-        roll_type: ""
-        spawn_interval_in_seconds: 4
-        respawn_time: 7.457744773683766
-        modifier: ""
-        lifetime: 3.616076749251911
-        primary_pickups:
-        - pickup_weight: 4.145608029883936
-          pickup_name: pickup_name
-        - pickup_weight: 4.145608029883936
-          pickup_name: pickup_name
-        primary_drop_chance: 6.84685269835264
-        gold_amount: 6.027456183070403
-        damaged_by_bullets: true
-        spawn_interval: 1.1730742509559433
-        m_vecPickups_lv2:
-        - pickup_weight: 4.145608029883936
-          pickup_name: pickup_name
-        - pickup_weight: 4.145608029883936
-          pickup_name: pickup_name
-        m_vecPickups_lv3:
-        - pickup_weight: 4.145608029883936
-          pickup_name: pickup_name
-        - pickup_weight: 4.145608029883936
-          pickup_name: pickup_name
-        render_after_death: true
-        orb_spawn_delay_min: 1.4894159098541704
-        gold_per_minute_amount: 1.4658129805029452
-        is_mantleable: true
-        id: 0
-        class_name: class_name
-        orb_spawn_delay_max: 1.0246457001441578
         break_on_dodge_touch: true
-        show_on_minimap: true
-        health: 5
-        pickup_radius: ""
-        damaged_by_abilities: true
-        match_time_mins_for_level2_pickups: 7
-        solid_after_death: true
-        initial_spawn_delay_in_seconds: 2
-        match_time_mins_for_level3_pickups: 1
+        class_name: class_name
         collision_radius: 0.8008281904610115
+        color: ""
+        damaged_by_abilities: true
+        damaged_by_bullets: true
         damaged_by_melee: true
         expiration_duration: ""
+        gold_amount: 6.027456183070403
+        gold_per_minute_amount: 1.4658129805029452
+        health: 5
+        id: 0
+        initial_spawn_delay_in_seconds: 2
+        initial_spawn_delay_seconds: 7
+        initial_spawn_time: 9.301444243932576
+        is_mantleable: true
+        lifetime: 3.616076749251911
+        loot_list_deck_size: 2
+        m_vecPickups_lv2:
+        - pickup_name: pickup_name
+          pickup_weight: 4.145608029883936
+        - pickup_name: pickup_name
+          pickup_weight: 4.145608029883936
+        m_vecPickups_lv3:
+        - pickup_name: pickup_name
+          pickup_weight: 4.145608029883936
+        - pickup_name: pickup_name
+          pickup_weight: 4.145608029883936
+        match_time_mins_for_level2_pickups: 7
+        match_time_mins_for_level3_pickups: 1
+        modifier: ""
+        orb_spawn_delay_max: 1.0246457001441578
+        orb_spawn_delay_min: 1.4894159098541704
+        pickup_radius: ""
+        primary_drop_chance: 6.84685269835264
+        primary_pickups:
+        - pickup_name: pickup_name
+          pickup_weight: 4.145608029883936
+        - pickup_name: pickup_name
+          pickup_weight: 4.145608029883936
+        render_after_death: true
+        respawn_time: 7.457744773683766
+        roll_type: ""
+        show_on_minimap: true
+        solid_after_death: true
+        spawn_interval: 1.1730742509559433
+        spawn_interval_in_seconds: 4
       properties:
         break_on_dodge_touch:
           nullable: true
@@ -13241,11 +13384,13 @@ components:
             $ref: "#/components/schemas/Pickup"
           nullable: true
           type: array
+          default: null
         m_vecPickups_lv3:
           items:
             $ref: "#/components/schemas/Pickup"
           nullable: true
           type: array
+          default: null
         match_time_mins_for_level2_pickups:
           format: int64
           nullable: true
@@ -13279,6 +13424,7 @@ components:
             $ref: "#/components/schemas/Pickup"
           nullable: true
           type: array
+          default: null
         render_after_death:
           nullable: true
           type: boolean
@@ -13327,15 +13473,15 @@ components:
     NewPlayerMetrics:
       example:
         abilities_upgraded: 6
-        last_hits: 1
-        net_worth: 6
-        skill_tier_name: skill_tier_name
         boss_damage: 3
-        orbs_denied: 6
-        player_damage: 6
-        orbs_secured: 5
         damage_taken: 6
+        last_hits: 1
         mods_purchased: 2
+        net_worth: 6
+        orbs_denied: 6
+        orbs_secured: 5
+        player_damage: 6
+        skill_tier_name: skill_tier_name
       properties:
         abilities_upgraded:
           format: int64
@@ -13379,26 +13525,30 @@ components:
       - skill_tier_name
     NpcUnit:
       example:
-        gold_reward: 2.027123023002322
-        health_bar_color_enemy: ""
-        stomp_damage_max_health_percent: 6.878052220127876
+        acceleration: 0.8008281904610115
+        attack_t1_boss_max_range: 6.027456183070403
+        attack_t3_boss_max_range: 1.4658129805029452
+        attack_t3_boss_phase2_max_range: 5.962133916683182
+        attack_trooper_max_range: 5.637376656633329
+        backdoor_bullet_resist_modifier: ""
+        barrack_boss_dps: 2.3021358869347655
+        barrack_guardian_damage_resist_pct: 7.061401241503109
         bound_abilities:
           key: bound_abilities
-        attack_t1_boss_max_range: 6.027456183070403
-        t1_boss_dps: 3.0937452626664474
-        trooper_dps: 5.533258397034986
-        melee_duration: 9.965781217890562
-        acceleration: 0.8008281904610115
+        class_name: class_name
+        empowered_modifier_level1: ""
+        empowered_modifier_level2: ""
+        enemy_trooper_damage_reduction: ""
+        enemy_trooper_protection_range: 9.301444243932576
+        generator_boss_dps: 3.616076749251911
+        gold_reward: 2.027123023002322
         gold_reward_bonus_percent_per_minute: 4.145608029883936
-        ranged_armor_modifier: ""
-        stomp_damage: 6.778324963048013
-        attack_trooper_max_range: 5.637376656633329
+        health_bar_color_enemy: ""
+        health_bar_color_friend: ""
+        health_bar_color_team1: ""
+        health_bar_color_team2: ""
+        health_bar_color_team_neutral: ""
         id: 0
-        t1_boss_damage_resist_pct: 3.353193347011243
-        no_shield_laser_dps_to_players: 8.762042012749001
-        walk_speed: 3.2588565619047607
-        barrack_guardian_damage_resist_pct: 7.061401241503109
-        max_health_final: 7
         intrinsic_modifiers:
         - subclass:
             script_values:
@@ -13413,51 +13563,47 @@ components:
             - modifier_value: modifier_value
               value: 1.2315135367772556
         laser_dps_max_health: 1.0246457001441578
-        enemy_trooper_protection_range: 9.301444243932576
-        trooper_damage_resist_pct: 7.04836565559697
-        near_death_duration: 6.683562403749608
-        t2_boss_dpsmax_resist: 8.969578798196912
-        health_bar_color_team_neutral: ""
-        t1_boss_dpsmax_resist: 0.8851374739011653
-        melee_attempt_range: 4.965218492984954
-        player_damage_resist_pct: 6.438423552598547
-        objective_health_growth_phase1: ""
         laser_dps_to_players: 1.4894159098541704
-        objective_health_growth_phase2: ""
-        phase2_health: 9
-        stomp_impact_radius: 5.944895607614016
-        enemy_trooper_damage_reduction: ""
-        melee_damage: 5.025004791520295
-        t2_boss_dps: 0.10263654006109402
-        melee_hit_range: 9.369310271410669
-        t2_boss_dpsbase_resist: 4.652396432933246
-        t2_boss_dpsmax_resist_time_in_seconds: 7.740351818741173
-        sight_range_players: 2.8841621266687802
-        t3_boss_damage_resist_pct: 3.0205796992916243
-        class_name: class_name
-        spawn_breakables_on_death: true
-        weapon_info: ""
-        health_bar_color_team2: ""
-        stun_duration: 6.704019297950036
-        max_health_generator: 1
-        health_bar_color_team1: ""
-        generator_boss_dps: 3.616076749251911
-        run_speed: 6.965117697638846
-        health_bar_color_friend: ""
-        objective_regen: ""
-        attack_t3_boss_max_range: 1.4658129805029452
-        attack_t3_boss_phase2_max_range: 5.962133916683182
-        sight_range_npcs: 1.284659006116532
         max_health: 6
-        backdoor_bullet_resist_modifier: ""
-        t3_boss_dps: 3.0576100241049344
+        max_health_final: 7
+        max_health_generator: 1
+        melee_attempt_range: 4.965218492984954
+        melee_damage: 5.025004791520295
+        melee_duration: 9.965781217890562
+        melee_hit_range: 9.369310271410669
+        near_death_duration: 6.683562403749608
+        no_shield_laser_dps_to_players: 8.762042012749001
+        objective_health_growth_phase1: ""
+        objective_health_growth_phase2: ""
+        objective_regen: ""
+        phase2_health: 9
+        player_damage_resist_pct: 6.438423552598547
         player_dps: 3.5571952270680973
-        barrack_boss_dps: 2.3021358869347655
-        empowered_modifier_level1: ""
+        ranged_armor_modifier: ""
+        run_speed: 6.965117697638846
+        sight_range_npcs: 1.284659006116532
+        sight_range_players: 2.8841621266687802
+        spawn_breakables_on_death: true
+        stomp_damage: 6.778324963048013
+        stomp_damage_max_health_percent: 6.878052220127876
+        stomp_impact_radius: 5.944895607614016
+        stun_duration: 6.704019297950036
+        t1_boss_damage_resist_pct: 3.353193347011243
+        t1_boss_dps: 3.0937452626664474
         t1_boss_dpsbase_resist: 7.143538047012306
+        t1_boss_dpsmax_resist: 0.8851374739011653
         t1_boss_dpsmax_resist_time_in_seconds: 7.058770351582356
-        empowered_modifier_level2: ""
         t2_boss_damage_resist_pct: 6.519180951018382
+        t2_boss_dps: 0.10263654006109402
+        t2_boss_dpsbase_resist: 4.652396432933246
+        t2_boss_dpsmax_resist: 8.969578798196912
+        t2_boss_dpsmax_resist_time_in_seconds: 7.740351818741173
+        t3_boss_damage_resist_pct: 3.0205796992916243
+        t3_boss_dps: 3.0576100241049344
+        trooper_damage_resist_pct: 7.04836565559697
+        trooper_dps: 5.533258397034986
+        walk_speed: 3.2588565619047607
+        weapon_info: ""
       properties:
         acceleration:
           format: double
@@ -13553,6 +13699,7 @@ components:
             $ref: "#/components/schemas/Subclass_IntrinsicModifiers"
           nullable: true
           type: array
+          default: null
         laser_dps_max_health:
           format: double
           nullable: true
@@ -13725,18 +13872,18 @@ components:
       - id
     ObjectiveParams:
       example:
+        base_guardians_gold_kill: 3
+        base_guardians_gold_orbs: 3
+        gold_per_orb: 7
+        near_player_split_pct: 0.8851374739011653
+        patron_phase1_gold_kill: 7
         patron_phase1_gold_orbs: 6
+        shrines_gold_kill: 0
+        shrines_gold_orbs: 4
+        tier1_gold_kill: 8
         tier1_gold_orbs: 7
         tier2_gold_kill: 3
-        shrines_gold_kill: 0
-        base_guardians_gold_orbs: 3
-        patron_phase1_gold_kill: 7
-        tier1_gold_kill: 8
         tier2_gold_orbs: 3
-        shrines_gold_orbs: 4
-        near_player_split_pct: 0.8851374739011653
-        base_guardians_gold_kill: 3
-        gold_per_orb: 7
       properties:
         base_guardians_gold_kill:
           format: int64
@@ -13790,8 +13937,8 @@ components:
     ObjectivePosition:
       description: "A position on the minimap, as fractions of its width/height."
       example:
-        top_relative: 6.027456183070403
         left_relative: 0.8008281904610115
+        top_relative: 6.027456183070403
       properties:
         left_relative:
           format: double
@@ -13812,18 +13959,18 @@ components:
       - outcomes_to_weights
     Patch:
       example:
-        pub_date: 2000-01-23T04:56:07.000+00:00
-        slash_comments: slash_comments
-        content_encoded: content_encoded
         author: author
-        link: link
+        category:
+          domain: domain
+          text: text
+        content_encoded: content_encoded
         dc_creator: dc_creator
         guid:
           is_perma_link: true
           text: text
-        category:
-          domain: domain
-          text: text
+        link: link
+        pub_date: 2000-01-23T04:56:07.000+00:00
+        slash_comments: slash_comments
         title: title
       properties:
         author:
@@ -13881,8 +14028,8 @@ components:
       - text
     Pickup:
       example:
-        pickup_weight: 4.145608029883936
         pickup_name: pickup_name
+        pickup_weight: 4.145608029883936
       properties:
         pickup_name:
           nullable: true
@@ -13893,7 +14040,8 @@ components:
           type: number
     PlayerAccountHeroStats:
       example:
-        total_value:
+        hero_id: 0
+        medals_bronze:
         - 0
         - 0
         medals_gold:
@@ -13902,11 +14050,10 @@ components:
         medals_silver:
         - 0
         - 0
-        medals_bronze:
-        - 0
-        - 0
-        hero_id: 0
         stat_id:
+        - 0
+        - 0
+        total_value:
         - 0
         - 0
       properties:
@@ -13921,30 +14068,35 @@ components:
             minimum: 0
             type: integer
           type: array
+          default: null
         medals_gold:
           items:
             format: int32
             minimum: 0
             type: integer
           type: array
+          default: null
         medals_silver:
           items:
             format: int32
             minimum: 0
             type: integer
           type: array
+          default: null
         stat_id:
           items:
             format: int32
             minimum: 0
             type: integer
           type: array
+          default: null
         total_value:
           items:
             format: int64
             minimum: 0
             type: integer
           type: array
+          default: null
       required:
       - medals_bronze
       - medals_gold
@@ -13955,7 +14107,8 @@ components:
       example:
         account_id: 0
         stats:
-        - total_value:
+        - hero_id: 0
+          medals_bronze:
           - 0
           - 0
           medals_gold:
@@ -13964,14 +14117,14 @@ components:
           medals_silver:
           - 0
           - 0
-          medals_bronze:
-          - 0
-          - 0
-          hero_id: 0
           stat_id:
           - 0
           - 0
-        - total_value:
+          total_value:
+          - 0
+          - 0
+        - hero_id: 0
+          medals_bronze:
           - 0
           - 0
           medals_gold:
@@ -13980,11 +14133,10 @@ components:
           medals_silver:
           - 0
           - 0
-          medals_bronze:
-          - 0
-          - 0
-          hero_id: 0
           stat_id:
+          - 0
+          - 0
+          total_value:
           - 0
           - 0
       properties:
@@ -13996,22 +14148,23 @@ components:
           items:
             $ref: "#/components/schemas/PlayerAccountHeroStats"
           type: array
+          default: null
       required:
       - account_id
       - stats
     PlayerCard:
       example:
-        slots:
-        - stat: ""
-          slot_id: 0
-          hero: ""
-        - stat: ""
-          slot_id: 0
-          hero: ""
         account_id: 0
-        ranked_rank: 0
         ranked_badge_level: 0
+        ranked_rank: 0
         ranked_subrank: 0
+        slots:
+        - hero: ""
+          slot_id: 0
+          stat: ""
+        - hero: ""
+          slot_id: 0
+          stat: ""
       properties:
         account_id:
           format: int32
@@ -14039,14 +14192,15 @@ components:
           items:
             $ref: "#/components/schemas/PlayerCardSlot"
           type: array
+          default: null
       required:
       - account_id
       - slots
     PlayerCardSlot:
       example:
-        stat: ""
-        slot_id: 0
         hero: ""
+        slot_id: 0
+        stat: ""
       properties:
         hero:
           allOf:
@@ -14093,8 +14247,8 @@ components:
     PlayerEntry:
       example:
         account_id: 0
-        rank: 0
         matches: 0
+        rank: 0
         value: 5.962133916683182
       properties:
         account_id:
@@ -14119,28 +14273,28 @@ components:
       - value
     PlayerMatchHistoryEntry:
       example:
-        objectives_mask_team0: 0
-        net_worth: 0
-        objectives_mask_team1: 0
         abandoned_time_s: 0
+        account_id: 0
         brawl_avg_round_time_s: 0
-        match_id: 0
-        player_deaths: 0
+        brawl_score_team0: 0
         brawl_score_team1: 0
         denies: 0
-        brawl_score_team0: 0
-        player_team: 9
-        start_time: 0
+        game_mode: 7
+        hero_id: 0
         hero_level: 0
         last_hits: 0
-        account_id: 0
-        player_assists: 0
-        match_result: 0
-        match_mode: 1
         match_duration_s: 0
-        game_mode: 7
+        match_id: 0
+        match_mode: 1
+        match_result: 0
+        net_worth: 0
+        objectives_mask_team0: 0
+        objectives_mask_team1: 0
+        player_assists: 0
+        player_deaths: 0
         player_kills: 0
-        hero_id: 0
+        player_team: 9
+        start_time: 0
         team_abandoned: true
       properties:
         abandoned_time_s:
@@ -14257,15 +14411,15 @@ components:
       - start_time
     PlayerPerformanceCurvePoint:
       example:
-        assists_std: 6.027456183070403
         assists_avg: 0.8008281904610115
-        game_time: 0
-        net_worth_std: 3.616076749251911
-        kills_std: 7.061401241503109
-        net_worth_avg: 9.301444243932576
-        kills_avg: 2.3021358869347655
+        assists_std: 6.027456183070403
         deaths_avg: 1.4658129805029452
         deaths_std: 5.962133916683182
+        game_time: 0
+        kills_avg: 2.3021358869347655
+        kills_std: 7.061401241503109
+        net_worth_avg: 9.301444243932576
+        net_worth_std: 3.616076749251911
       properties:
         assists_avg:
           description: Average assists at this time point
@@ -14319,38 +14473,38 @@ components:
       - net_worth_std
     Rank:
       example:
+        color: color
         images:
+          large: large
+          large_subrank1: large_subrank1
+          large_subrank1_webp: large_subrank1_webp
+          large_subrank2: large_subrank2
+          large_subrank2_webp: large_subrank2_webp
+          large_subrank3: large_subrank3
+          large_subrank3_webp: large_subrank3_webp
+          large_subrank4: large_subrank4
+          large_subrank4_webp: large_subrank4_webp
+          large_subrank5: large_subrank5
+          large_subrank5_webp: large_subrank5_webp
+          large_subrank6: large_subrank6
+          large_subrank6_webp: large_subrank6_webp
+          large_webp: large_webp
           small: small
+          small_subrank1: small_subrank1
+          small_subrank1_webp: small_subrank1_webp
+          small_subrank2: small_subrank2
+          small_subrank2_webp: small_subrank2_webp
+          small_subrank3: small_subrank3
           small_subrank3_webp: small_subrank3_webp
+          small_subrank4: small_subrank4
+          small_subrank4_webp: small_subrank4_webp
+          small_subrank5: small_subrank5
+          small_subrank5_webp: small_subrank5_webp
+          small_subrank6: small_subrank6
           small_subrank6_webp: small_subrank6_webp
           small_webp: small_webp
-          large_subrank6_webp: large_subrank6_webp
-          large_subrank4: large_subrank4
-          large_subrank5: large_subrank5
-          large_subrank6: large_subrank6
-          large_subrank1: large_subrank1
-          large_subrank2: large_subrank2
-          large_subrank3: large_subrank3
-          small_subrank2_webp: small_subrank2_webp
-          small_subrank2: small_subrank2
-          small_subrank3: small_subrank3
-          small_subrank1: small_subrank1
-          large_subrank3_webp: large_subrank3_webp
-          small_subrank5_webp: small_subrank5_webp
-          large: large
-          small_subrank6: small_subrank6
-          large_subrank2_webp: large_subrank2_webp
-          small_subrank4: small_subrank4
-          small_subrank5: small_subrank5
-          small_subrank4_webp: small_subrank4_webp
-          small_subrank1_webp: small_subrank1_webp
-          large_subrank4_webp: large_subrank4_webp
-          large_subrank1_webp: large_subrank1_webp
-          large_subrank5_webp: large_subrank5_webp
-          large_webp: large_webp
-        color: color
-        tier: 0
         name: name
+        tier: 0
       properties:
         color:
           type: string
@@ -14372,34 +14526,34 @@ components:
         Image URLs for a single rank tier. Field declaration order is load-bearing:
         it sets the JSON key order, which is stable across versions of this API.
       example:
+        large: large
+        large_subrank1: large_subrank1
+        large_subrank1_webp: large_subrank1_webp
+        large_subrank2: large_subrank2
+        large_subrank2_webp: large_subrank2_webp
+        large_subrank3: large_subrank3
+        large_subrank3_webp: large_subrank3_webp
+        large_subrank4: large_subrank4
+        large_subrank4_webp: large_subrank4_webp
+        large_subrank5: large_subrank5
+        large_subrank5_webp: large_subrank5_webp
+        large_subrank6: large_subrank6
+        large_subrank6_webp: large_subrank6_webp
+        large_webp: large_webp
         small: small
+        small_subrank1: small_subrank1
+        small_subrank1_webp: small_subrank1_webp
+        small_subrank2: small_subrank2
+        small_subrank2_webp: small_subrank2_webp
+        small_subrank3: small_subrank3
         small_subrank3_webp: small_subrank3_webp
+        small_subrank4: small_subrank4
+        small_subrank4_webp: small_subrank4_webp
+        small_subrank5: small_subrank5
+        small_subrank5_webp: small_subrank5_webp
+        small_subrank6: small_subrank6
         small_subrank6_webp: small_subrank6_webp
         small_webp: small_webp
-        large_subrank6_webp: large_subrank6_webp
-        large_subrank4: large_subrank4
-        large_subrank5: large_subrank5
-        large_subrank6: large_subrank6
-        large_subrank1: large_subrank1
-        large_subrank2: large_subrank2
-        large_subrank3: large_subrank3
-        small_subrank2_webp: small_subrank2_webp
-        small_subrank2: small_subrank2
-        small_subrank3: small_subrank3
-        small_subrank1: small_subrank1
-        large_subrank3_webp: large_subrank3_webp
-        small_subrank5_webp: small_subrank5_webp
-        large: large
-        small_subrank6: small_subrank6
-        large_subrank2_webp: large_subrank2_webp
-        small_subrank4: small_subrank4
-        small_subrank5: small_subrank5
-        small_subrank4_webp: small_subrank4_webp
-        small_subrank1_webp: small_subrank1_webp
-        large_subrank4_webp: large_subrank4_webp
-        large_subrank1_webp: large_subrank1_webp
-        large_subrank5_webp: large_subrank5_webp
-        large_webp: large_webp
       properties:
         large:
           nullable: true
@@ -14515,24 +14669,25 @@ components:
     RawAbilityUpgrade:
       example:
         property_upgrades:
-        - scale_stat_filter: scale_stat_filter
-          bonus: bonus
+        - bonus: bonus
           name: name
+          scale_stat_filter: scale_stat_filter
           upgrade_type: upgrade_type
-        - scale_stat_filter: scale_stat_filter
-          bonus: bonus
+        - bonus: bonus
           name: name
+          scale_stat_filter: scale_stat_filter
           upgrade_type: upgrade_type
       properties:
         property_upgrades:
           items:
             $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgrade"
           type: array
+          default: null
     RawAbilityUpgradePropertyUpgrade:
       example:
-        scale_stat_filter: scale_stat_filter
         bonus: bonus
         name: name
+        scale_stat_filter: scale_stat_filter
         upgrade_type: upgrade_type
       properties:
         bonus:
@@ -14556,24 +14711,28 @@ components:
             type: integer
           nullable: true
           type: array
+          default: null
         m_DotOutlineColor:
           items:
             format: int32
             type: integer
           nullable: true
           type: array
+          default: null
         m_PipColor:
           items:
             format: int32
             type: integer
           nullable: true
           type: array
+          default: null
         m_PipOutlineColor:
           items:
             format: int32
             type: integer
           nullable: true
           type: array
+          default: null
         m_SpreadIndicatingElement:
           nullable: true
           type: string
@@ -14635,6 +14794,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         specific_stat_scale_type:
           nullable: true
           type: string
@@ -14656,16 +14816,19 @@ components:
             format: double
             type: number
           type: array
+          default: null
         domain_mins:
           items:
             format: double
             type: number
           type: array
+          default: null
         spline:
           items:
             $ref: "#/components/schemas/RawItemWeaponInfoBulletSpeedCurveSpline"
           nullable: true
           type: array
+          default: null
       required:
       - domain_maxs
       - domain_mins
@@ -14723,6 +14886,7 @@ components:
           format: double
           type: number
         type: array
+        default: null
       - format: double
         type: number
     RegionMode:
@@ -14736,16 +14900,16 @@ components:
       type: string
     RejuvParams:
       example:
+        player_respawn_mult:
+        - 7.04836565559697
+        - 7.04836565559697
         rejuvinator_buff_duration: 5.533258397034986
+        rejuvinator_drop_duration: 3.2588565619047607
+        rejuvinator_drop_height: 4.078845849666752
         rejuvinator_expiration_warning_timing: 0.2025324113236393
         rejuvinator_rebirth_duration:
         - 6.628464275087742
         - 6.628464275087742
-        rejuvinator_drop_duration: 3.2588565619047607
-        player_respawn_mult:
-        - 7.04836565559697
-        - 7.04836565559697
-        rejuvinator_drop_height: 4.078845849666752
         trooper_health_mult:
         - 4.258773108174356
         - 4.258773108174356
@@ -14755,6 +14919,7 @@ components:
             format: double
             type: number
           type: array
+          default: null
         rejuvinator_buff_duration:
           format: double
           type: number
@@ -14772,11 +14937,13 @@ components:
             format: double
             type: number
           type: array
+          default: null
         trooper_health_mult:
           items:
             format: double
             type: number
           type: array
+          default: null
       required:
       - player_respawn_mult
       - rejuvinator_buff_duration
@@ -14840,11 +15007,11 @@ components:
       type: string
     ServerStatusRequest:
       example:
-        hostname: hostname
         current_player_count: 0
-        port: 0
-        ip: ip
         game_mode: game_mode
+        hostname: hostname
+        ip: ip
+        port: 0
         region: region
         server_id: server_id
       properties:
@@ -14885,8 +15052,8 @@ components:
       - server_id
     ServerStatusResponse:
       example:
-        ttl_secs: 0
         server_id: server_id
+        ttl_secs: 0
       properties:
         server_id:
           description: The server ID that reported status
@@ -14908,10 +15075,15 @@ components:
           items:
             type: string
           type: array
+          default: null
       required:
       - display_stats
     ShopStatDisplay:
       example:
+        spirit_stats_display:
+          display_stats:
+          - display_stats
+          - display_stats
         vitality_stats_display:
           display_stats:
           - display_stats
@@ -14920,21 +15092,17 @@ components:
           - other_display_stats
           - other_display_stats
         weapon_stats_display:
-          weapon_image_webp: weapon_image_webp
           display_stats:
           - display_stats
           - display_stats
-          weapon_image: weapon_image
-          weapon_attributes:
-          - weapon_attributes
-          - weapon_attributes
           other_display_stats:
           - other_display_stats
           - other_display_stats
-        spirit_stats_display:
-          display_stats:
-          - display_stats
-          - display_stats
+          weapon_attributes:
+          - weapon_attributes
+          - weapon_attributes
+          weapon_image: weapon_image
+          weapon_image_webp: weapon_image_webp
       properties:
         spirit_stats_display:
           $ref: "#/components/schemas/ShopSpiritStatsDisplay"
@@ -14959,40 +15127,45 @@ components:
           items:
             type: string
           type: array
+          default: null
         other_display_stats:
           items:
             type: string
           type: array
+          default: null
       required:
       - display_stats
       - other_display_stats
     ShopWeaponStatsDisplay:
       example:
-        weapon_image_webp: weapon_image_webp
         display_stats:
         - display_stats
         - display_stats
-        weapon_image: weapon_image
-        weapon_attributes:
-        - weapon_attributes
-        - weapon_attributes
         other_display_stats:
         - other_display_stats
         - other_display_stats
+        weapon_attributes:
+        - weapon_attributes
+        - weapon_attributes
+        weapon_image: weapon_image
+        weapon_image_webp: weapon_image_webp
       properties:
         display_stats:
           items:
             type: string
           type: array
+          default: null
         other_display_stats:
           items:
             type: string
           type: array
+          default: null
         weapon_attributes:
           items:
             type: string
           nullable: true
           type: array
+          default: null
         weapon_image:
           nullable: true
           type: string
@@ -15011,6 +15184,7 @@ components:
           format: double
           type: number
         type: array
+        default: null
       - type: string
     StartingStat:
       example:
@@ -15027,63 +15201,63 @@ components:
       - value
     StartingStats:
       example:
-        heavy_melee_damage:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        tech_range:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        weapon_power_scale:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        crit_damage_received_scale:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        reload_speed:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        stamina:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        move_acceleration:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        crouch_speed:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        stamina_regen_per_second:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
         ability_resource_max:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        max_health:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        bullet_armor_damage_reduction: ""
-        tech_armor_damage_reduction: ""
-        proc_build_up_rate_scale:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        sprint_speed:
-          display_stat_name: display_stat_name
-          value: 1.1730742509559433
-        tech_duration:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
         ability_resource_regen_per_second:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
-        max_move_speed:
+        base_health_regen:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        bullet_armor_damage_reduction: ""
+        crit_damage_received_scale:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        crouch_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        heavy_melee_damage:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
         light_melee_damage:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
-        base_health_regen:
+        max_health:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        max_move_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        move_acceleration:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        proc_build_up_rate_scale:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        reload_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        sprint_speed:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        stamina:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        stamina_regen_per_second:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        tech_armor_damage_reduction: ""
+        tech_duration:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        tech_range:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
         weapon_power:
+          display_stat_name: display_stat_name
+          value: 1.1730742509559433
+        weapon_power_scale:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
       properties:
@@ -15155,49 +15329,55 @@ components:
       - weapon_power_scale
     StatsDisplay:
       example:
-        health_stats:
-        - health_stats
-        - health_stats
-        magic_stats:
-        - magic_stats
-        - magic_stats
-        weapon_stats:
-        - weapon_stats
-        - weapon_stats
-        weapon_header_stats:
-        - weapon_header_stats
-        - weapon_header_stats
-        magic_header_stats:
-        - magic_header_stats
-        - magic_header_stats
         health_header_stats:
         - health_header_stats
         - health_header_stats
+        health_stats:
+        - health_stats
+        - health_stats
+        magic_header_stats:
+        - magic_header_stats
+        - magic_header_stats
+        magic_stats:
+        - magic_stats
+        - magic_stats
+        weapon_header_stats:
+        - weapon_header_stats
+        - weapon_header_stats
+        weapon_stats:
+        - weapon_stats
+        - weapon_stats
       properties:
         health_header_stats:
           items:
             type: string
           type: array
+          default: null
         health_stats:
           items:
             type: string
           type: array
+          default: null
         magic_header_stats:
           items:
             type: string
           type: array
+          default: null
         magic_stats:
           items:
             type: string
           type: array
+          default: null
         weapon_header_stats:
           items:
             type: string
           type: array
+          default: null
         weapon_stats:
           items:
             type: string
           type: array
+          default: null
       required:
       - health_header_stats
       - health_stats
@@ -15259,16 +15439,16 @@ components:
         Field order is load-bearing — it sets the JSON key order, which matches the
         legacy Python endpoint.
       example:
-        version_time: version_time
+        app_id: 0
+        client_version: 0
+        product_name: product_name
+        server_app_id: 0
+        server_version: 0
         source_revision: 0
-        version_datetime: version_datetime
         tools_app_id: 0
         version_date: version_date
-        server_app_id: 0
-        client_version: 0
-        server_version: 0
-        app_id: 0
-        product_name: product_name
+        version_datetime: version_datetime
+        version_time: version_time
       properties:
         app_id:
           format: int32
@@ -15337,21 +15517,21 @@ components:
       - title
     SteamProfile:
       example:
-        profileurl: profileurl
-        last_updated: 2000-01-23T04:56:07.000+00:00
         account_id: 0
-        matches_played_last_30d: 0
-        countrycode: countrycode
+        avatar: avatar
         avatarfull: avatarfull
         avatarmedium: avatarmedium
-        avatar: avatar
-        last_team_avg_badge: 0
-        personaname: personaname
+        countrycode: countrycode
         friends:
         - account_id: 0
           friend_since: 2000-01-23T04:56:07.000+00:00
         - account_id: 0
           friend_since: 2000-01-23T04:56:07.000+00:00
+        last_team_avg_badge: 0
+        last_updated: 2000-01-23T04:56:07.000+00:00
+        matches_played_last_30d: 0
+        personaname: personaname
+        profileurl: profileurl
         realname: realname
       properties:
         account_id:
@@ -15371,6 +15551,7 @@ components:
           items:
             $ref: "#/components/schemas/SteamFriend"
           type: array
+          default: null
         last_team_avg_badge:
           format: int32
           minimum: 0
@@ -15402,23 +15583,23 @@ components:
       - profileurl
     SteamServer:
       example:
-        dedicated: true
+        addr: addr
+        appid: 0
         bots: 0
-        product: product
+        dedicated: true
+        gamedir: gamedir
+        gameport: 0
+        gametype: gametype
+        map: map
+        max_players: 0
+        name: name
         os: os
         players: 0
-        gameport: 0
-        gamedir: gamedir
-        secure: true
-        version: version
-        steamid: steamid
-        appid: 0
-        gametype: gametype
-        name: name
-        max_players: 0
-        addr: addr
+        product: product
         region: 2
-        map: map
+        secure: true
+        steamid: steamid
+        version: version
       properties:
         addr:
           description: Full address of the server including port (e.g. `1.2.3.4:27015`)
@@ -15508,11 +15689,13 @@ components:
             format: int64
             type: integer
           type: array
+          default: null
         buy_time:
           items:
             format: int64
             type: integer
           type: array
+          default: null
         buy_time_grace_period:
           format: double
           type: number
@@ -15527,15 +15710,18 @@ components:
             format: int64
             type: integer
           type: array
+          default: null
         item_draft_rerolls_per_round:
           items:
             format: int64
             type: integer
           type: array
+          default: null
         item_draft_rounds_per_game_round:
           items:
             $ref: "#/components/schemas/ItemDraftRoundPerGameRound"
           type: array
+          default: null
         item_drafts:
           additionalProperties:
             $ref: "#/components/schemas/DraftBuckets"
@@ -15547,46 +15733,55 @@ components:
             format: int64
             type: integer
           type: array
+          default: null
         overtime_respawn_time_increase:
           items:
             format: double
             type: number
           type: array
+          default: null
         overtime_respawn_time_increase_urgent:
           items:
             format: double
             type: number
           type: array
+          default: null
         overtime_trooper_damage_scale:
           items:
             format: double
             type: number
           type: array
+          default: null
         overtime_trooper_health_scale:
           items:
             format: double
             type: number
           type: array
+          default: null
         pre_buy_time:
           items:
             format: double
             type: number
           type: array
+          default: null
         respawn_times:
           items:
             format: int64
             type: integer
           type: array
+          default: null
         round_length_minutes:
           items:
             format: int64
             type: integer
           type: array
+          default: null
         round_length_minutes_urgent:
           items:
             format: double
             type: number
           type: array
+          default: null
         score_to_win:
           format: int64
           type: integer
@@ -15610,6 +15805,7 @@ components:
             format: double
             type: number
           type: array
+          default: null
         ultimate_unlock_round:
           format: int64
           type: integer
@@ -15727,8 +15923,8 @@ components:
     TableSize:
       example:
         data_compressed_bytes: 0
-        is_view: true
         data_uncompressed_bytes: 0
+        is_view: true
         rows: 0
       properties:
         data_compressed_bytes:
@@ -15764,6 +15960,7 @@ components:
             $ref: "#/components/schemas/TooltipDetailsBlockProperty"
           nullable: true
           type: array
+          default: null
     TooltipDetailsBlockProperty:
       properties:
         important_property:
@@ -15791,6 +15988,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         loc_string:
           nullable: true
           type: string
@@ -15799,6 +15997,7 @@ components:
             $ref: "#/components/schemas/TooltipDetailsBlock"
           nullable: true
           type: array
+          default: null
         property_upgrade_required:
           nullable: true
           type: string
@@ -15813,6 +16012,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         cost:
           format: int32
           minimum: 0
@@ -15837,6 +16037,7 @@ components:
             type: integer
           nullable: true
           type: array
+          default: null
         id:
           format: int32
           minimum: 0
@@ -15886,6 +16087,7 @@ components:
             $ref: "#/components/schemas/UpgradeTooltipSection"
           nullable: true
           type: array
+          default: null
         type:
           $ref: "#/components/schemas/ItemType"
         update_time:
@@ -15897,6 +16099,7 @@ components:
             $ref: "#/components/schemas/RawAbilityUpgrade"
           nullable: true
           type: array
+          default: null
         weapon_info:
           allOf:
           - $ref: "#/components/schemas/RawItemWeaponInfoInner"
@@ -15957,6 +16160,7 @@ components:
             $ref: "#/components/schemas/UpgradeTooltipSectionAttribute"
           nullable: true
           type: array
+          default: null
         section_type:
           allOf:
           - $ref: "#/components/schemas/AbilitySectionType"
@@ -15968,16 +16172,19 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         important_properties:
           items:
             type: string
           nullable: true
           type: array
+          default: null
         important_properties_with_icon:
           items:
             $ref: "#/components/schemas/UpgradeTooltipImportantPropertyWithIcon"
           nullable: true
           type: array
+          default: null
         loc_string:
           nullable: true
           type: string
@@ -15986,6 +16193,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
     VariableCategory:
       enum:
       - General
@@ -15997,13 +16205,13 @@ components:
       type: string
     VariableDescription:
       example:
+        category: ""
+        default_label: default_label
+        description: description
         extra_args:
         - extra_args
         - extra_args
         name: name
-        description: description
-        default_label: default_label
-        category: ""
       properties:
         category:
           allOf:
@@ -16021,6 +16229,7 @@ components:
           items:
             type: string
           type: array
+          default: null
         name:
           description: The name of the variable.
           type: string
@@ -16070,6 +16279,7 @@ components:
             type: integer
           nullable: true
           type: array
+          default: null
         id:
           format: int32
           minimum: 0
@@ -16387,20 +16597,11 @@ components:
     ZiplanePath:
       description: A single lane's zip-line cubic spline.
       example:
-        color: color
         P0_points:
         - - 5.962133916683182
           - 5.962133916683182
         - - 5.962133916683182
           - 5.962133916683182
-        origin:
-        - 7.061401241503109
-        - 7.061401241503109
-        color_parsed:
-          red: 0
-          green: 0
-          blue: 0
-          alpha: 0
         P1_points:
         - - 5.637376656633329
           - 5.637376656633329
@@ -16411,6 +16612,15 @@ components:
           - 2.3021358869347655
         - - 2.3021358869347655
           - 2.3021358869347655
+        color: color
+        color_parsed:
+          alpha: 0
+          blue: 0
+          green: 0
+          red: 0
+        origin:
+        - 7.061401241503109
+        - 7.061401241503109
       properties:
         P0_points:
           items:
@@ -16418,21 +16628,27 @@ components:
               format: double
               type: number
             type: array
+            default: null
           type: array
+          default: null
         P1_points:
           items:
             items:
               format: double
               type: number
             type: array
+            default: null
           type: array
+          default: null
         P2_points:
           items:
             items:
               format: double
               type: number
             type: array
+            default: null
           type: array
+          default: null
         color:
           type: string
         color_parsed:
@@ -16442,6 +16658,7 @@ components:
             format: double
             type: number
           type: array
+          default: null
       required:
       - P0_points
       - P1_points
@@ -16460,17 +16677,17 @@ components:
         required:
         - source
       example:
-        pub_date: 2000-01-23T04:56:07.000+00:00
-        link: link
-        guid:
-          is_perma_link: true
-          text: text
-        source: forum
         category:
           domain: domain
           text: text
-        title: title
         content: content
+        guid:
+          is_perma_link: true
+          text: text
+        link: link
+        pub_date: 2000-01-23T04:56:07.000+00:00
+        title: title
+        source: forum
     FeedItem_oneOf_1:
       allOf:
       - $ref: "#/components/schemas/SteamNews"
@@ -16539,6 +16756,7 @@ components:
             format: int64
             type: integer
           type: array
+          default: null
       required:
       - max_purchases_for_tier
     HashMap_ItemSlotType_Vec_MapModCostBonus_value_inner:
@@ -16558,9 +16776,9 @@ components:
       - percent_on_graph
     HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner:
       example:
-        value_type: value_type
         tier: 1
         value: value
+        value_type: value_type
       properties:
         tier:
           format: int64
@@ -16575,17 +16793,18 @@ components:
       - value_type
     HashMap_String_LevelInfo_value:
       example:
-        use_standard_upgrade: true
         bonus_currencies:
         - bonus_currencies
         - bonus_currencies
         required_gold: 2
+        use_standard_upgrade: true
       properties:
         bonus_currencies:
           items:
             type: string
           nullable: true
           type: array
+          default: null
         required_gold:
           format: int64
           type: integer
@@ -16610,8 +16829,8 @@ components:
       - $ref: "#/components/schemas/HashMap_String_Option_DraftBucketing_value_oneOf"
     HashMap_String_ScalingStat_value:
       example:
-        scaling_stat: scaling_stat
         scale: 1.4894159098541704
+        scaling_stat: scaling_stat
       properties:
         scale:
           format: double
@@ -16664,6 +16883,7 @@ components:
             $ref: "#/components/schemas/ScriptValues"
           nullable: true
           type: array
+          default: null
     Subclass_ModifierDefinition_subclass:
       properties:
         always_show_in_ui:
@@ -16671,6 +16891,7 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
         class_name:
           nullable: true
           type: string
@@ -16683,11 +16904,13 @@ components:
             $ref: "#/components/schemas/ModifierValue"
           nullable: true
           type: array
+          default: null
         script_values:
           items:
             $ref: "#/components/schemas/ModifierValue"
           nullable: true
           type: array
+          default: null
         subclass_name:
           nullable: true
           type: string

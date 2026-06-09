@@ -574,8 +574,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "hero_type":
                             string? heroTypeRawValue = utf8JsonReader.GetString();
-                            if (heroTypeRawValue != null)
-                                heroType = new Option<HeroType?>(HeroTypeValueConverter.FromStringOrDefault(heroTypeRawValue));
+                            heroType = new Option<HeroType?>(heroTypeRawValue == null ? null : HeroTypeValueConverter.FromStringOrDefault(heroTypeRawValue));
                             break;
                         case "hideout_rich_presence":
                             hideoutRichPresence = new Option<string?>(utf8JsonReader.GetString());

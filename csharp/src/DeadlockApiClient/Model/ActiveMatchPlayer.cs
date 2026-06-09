@@ -214,8 +214,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "team_parsed":
                             string? teamParsedRawValue = utf8JsonReader.GetString();
-                            if (teamParsedRawValue != null)
-                                teamParsed = new Option<ActiveMatchTeam?>(ActiveMatchTeamValueConverter.FromStringOrDefault(teamParsedRawValue));
+                            teamParsed = new Option<ActiveMatchTeam?>(teamParsedRawValue == null ? null : ActiveMatchTeamValueConverter.FromStringOrDefault(teamParsedRawValue));
                             break;
                         default:
                             break;

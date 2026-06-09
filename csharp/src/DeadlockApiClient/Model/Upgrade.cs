@@ -598,8 +598,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "imbue":
                             string? imbueRawValue = utf8JsonReader.GetString();
-                            if (imbueRawValue != null)
-                                imbue = new Option<AbilityImbue?>(AbilityImbueValueConverter.FromStringOrDefault(imbueRawValue));
+                            imbue = new Option<AbilityImbue?>(imbueRawValue == null ? null : AbilityImbueValueConverter.FromStringOrDefault(imbueRawValue));
                             break;
                         case "properties":
                             properties = new Option<Dictionary<string, UpgradeProperty>?>(JsonSerializer.Deserialize<Dictionary<string, UpgradeProperty>>(ref utf8JsonReader, jsonSerializerOptions)!);

@@ -277,8 +277,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "game_mode":
                             string? gameModeRawValue = utf8JsonReader.GetString();
-                            if (gameModeRawValue != null)
-                                gameMode = new Option<GameMode?>(GameModeValueConverter.FromStringOrDefault(gameModeRawValue));
+                            gameMode = new Option<GameMode?>(gameModeRawValue == null ? null : GameModeValueConverter.FromStringOrDefault(gameModeRawValue));
                             break;
                         case "is_publicly_visible":
                             isPubliclyVisible = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -291,8 +290,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "server_region":
                             string? serverRegionRawValue = utf8JsonReader.GetString();
-                            if (serverRegionRawValue != null)
-                                serverRegion = new Option<ServerRegion?>(ServerRegionValueConverter.FromStringOrDefault(serverRegionRawValue));
+                            serverRegion = new Option<ServerRegion?>(serverRegionRawValue == null ? null : ServerRegionValueConverter.FromStringOrDefault(serverRegionRawValue));
                             break;
                         default:
                             break;

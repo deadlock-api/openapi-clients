@@ -561,8 +561,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "game_mode_parsed":
                             string? gameModeParsedRawValue = utf8JsonReader.GetString();
-                            if (gameModeParsedRawValue != null)
-                                gameModeParsed = new Option<ActiveMatchGameMode?>(ActiveMatchGameModeValueConverter.FromStringOrDefault(gameModeParsedRawValue));
+                            gameModeParsed = new Option<ActiveMatchGameMode?>(gameModeParsedRawValue == null ? null : ActiveMatchGameModeValueConverter.FromStringOrDefault(gameModeParsedRawValue));
                             break;
                         case "game_mode_version":
                             gameModeVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -578,8 +577,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "match_mode_parsed":
                             string? matchModeParsedRawValue = utf8JsonReader.GetString();
-                            if (matchModeParsedRawValue != null)
-                                matchModeParsed = new Option<ActiveMatchMode?>(ActiveMatchModeValueConverter.FromStringOrDefault(matchModeParsedRawValue));
+                            matchModeParsed = new Option<ActiveMatchMode?>(matchModeParsedRawValue == null ? null : ActiveMatchModeValueConverter.FromStringOrDefault(matchModeParsedRawValue));
                             break;
                         case "match_score":
                             matchScore = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -604,8 +602,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "region_mode_parsed":
                             string? regionModeParsedRawValue = utf8JsonReader.GetString();
-                            if (regionModeParsedRawValue != null)
-                                regionModeParsed = new Option<RegionMode?>(RegionModeValueConverter.FromStringOrDefault(regionModeParsedRawValue));
+                            regionModeParsed = new Option<RegionMode?>(regionModeParsedRawValue == null ? null : RegionModeValueConverter.FromStringOrDefault(regionModeParsedRawValue));
                             break;
                         case "spectators":
                             spectators = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -618,8 +615,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "winning_team_parsed":
                             string? winningTeamParsedRawValue = utf8JsonReader.GetString();
-                            if (winningTeamParsedRawValue != null)
-                                winningTeamParsed = new Option<ActiveMatchTeam?>(ActiveMatchTeamValueConverter.FromStringOrDefault(winningTeamParsedRawValue));
+                            winningTeamParsed = new Option<ActiveMatchTeam?>(winningTeamParsedRawValue == null ? null : ActiveMatchTeamValueConverter.FromStringOrDefault(winningTeamParsedRawValue));
                             break;
                         default:
                             break;

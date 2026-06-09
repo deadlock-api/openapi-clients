@@ -472,8 +472,7 @@ namespace DeadlockApiClient.Model
                             break;
                         case "ability_type":
                             string? abilityTypeRawValue = utf8JsonReader.GetString();
-                            if (abilityTypeRawValue != null)
-                                abilityType = new Option<AbilityType?>(AbilityTypeValueConverter.FromStringOrDefault(abilityTypeRawValue));
+                            abilityType = new Option<AbilityType?>(abilityTypeRawValue == null ? null : AbilityTypeValueConverter.FromStringOrDefault(abilityTypeRawValue));
                             break;
                         case "behaviours":
                             behaviours = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
