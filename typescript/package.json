@@ -19,8 +19,7 @@
   "module": "./dist/index.js",
   "sideEffects": false,
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build"
+    "build": "tsc"
   },
   "dependencies": {
     "axios": "^1.16.0"

@@ -47,7 +47,7 @@ const patchedPkg = {
   main: "./dist/index.js",
   module: "./dist/index.js",
   types: "./dist/index.d.ts",
-  scripts: { ...pkg.scripts, build: "tsc" },
+  scripts: { build: "tsc" },
   exports: {
     ".": { types: "./dist/index.d.ts", import: "./dist/index.js" },
     "./api": { types: "./dist/api.d.ts", import: "./dist/api.js" },
