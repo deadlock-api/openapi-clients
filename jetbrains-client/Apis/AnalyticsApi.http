@@ -55,6 +55,11 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/analytics/hero-synergy-stats?gameMode={{gameMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&sameLaneFilter={{sameLaneFilter}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
+### Item Flow Stats
+## Item Flow Stats
+GET https://api.deadlock-api.com/v1/analytics/item-flow-stats?phaseIntervalS={{phaseIntervalS}}&phaseCount={{phaseCount}}&gameMode={{gameMode}}&heroIds={{heroIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minMatches={{minMatches}}&accountIds={{accountIds}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&lockedItemIds={{lockedItemIds}}&lockedColumns={{lockedColumns}}
+Accept: application/json
+
 ### Item Permutation Stats
 ## Item Permutation Stats
 GET https://api.deadlock-api.com/v1/analytics/item-permutation-stats?itemIds={{itemIds}}&combSize={{combSize}}&gameMode={{gameMode}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&accountId={{accountId}}&accountIds={{accountIds}}

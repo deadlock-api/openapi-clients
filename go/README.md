@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *AnalyticsAPI* | [**HeroScoreboard**](docs/AnalyticsAPI.md#heroscoreboard) | **Get** /v1/analytics/scoreboards/heroes | Hero Scoreboard
 *AnalyticsAPI* | [**HeroStats**](docs/AnalyticsAPI.md#herostats) | **Get** /v1/analytics/hero-stats | Hero Stats
 *AnalyticsAPI* | [**HeroSynergiesStats**](docs/AnalyticsAPI.md#herosynergiesstats) | **Get** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
+*AnalyticsAPI* | [**ItemFlowStats**](docs/AnalyticsAPI.md#itemflowstats) | **Get** /v1/analytics/item-flow-stats | Item Flow Stats
 *AnalyticsAPI* | [**ItemPermutationStats**](docs/AnalyticsAPI.md#itempermutationstats) | **Get** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsAPI* | [**ItemStats**](docs/AnalyticsAPI.md#itemstats) | **Get** /v1/analytics/item-stats | Item Stats
 *AnalyticsAPI* | [**KillDeathStats**](docs/AnalyticsAPI.md#killdeathstats) | **Get** /v1/analytics/kill-death-stats | Kill Death Stats
@@ -276,6 +277,10 @@ Class | Method | HTTP request | Description
  - [Item](docs/Item.md)
  - [ItemDraftRound](docs/ItemDraftRound.md)
  - [ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
+ - [ItemFlowEdge](docs/ItemFlowEdge.md)
+ - [ItemFlowNode](docs/ItemFlowNode.md)
+ - [ItemFlowStats](docs/ItemFlowStats.md)
+ - [ItemFlowSummary](docs/ItemFlowSummary.md)
  - [ItemGroup](docs/ItemGroup.md)
  - [ItemPermutationStats](docs/ItemPermutationStats.md)
  - [ItemProperty](docs/ItemProperty.md)

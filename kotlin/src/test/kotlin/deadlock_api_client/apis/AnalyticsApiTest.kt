@@ -39,6 +39,7 @@ import deadlock_api_client.models.HeroCombStats
 import deadlock_api_client.models.HeroCounterStats
 import deadlock_api_client.models.HeroEntry
 import deadlock_api_client.models.HeroSynergyStats
+import deadlock_api_client.models.ItemFlowStats
 import deadlock_api_client.models.ItemPermutationStats
 import deadlock_api_client.models.ItemStats
 import deadlock_api_client.models.KillDeathStats
@@ -278,6 +279,33 @@ class AnalyticsApiTest : ShouldSpec() {
             //val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
             //val result : kotlin.collections.List<HeroSynergyStats> = apiInstance.heroSynergiesStats(gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds)
+            //result shouldBe ("TODO")
+        }
+
+        // to test itemFlowStats
+        should("test itemFlowStats") {
+            // uncomment below to test itemFlowStats
+            //val phaseIntervalS : kotlin.Int = 56 // kotlin.Int | Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; `street_brawl` columns are rounds.
+            //val phaseCount : kotlin.Int = 56 // kotlin.Int | Number of columns for `street_brawl` (rounds). Ignored for `normal`, which has fixed time phases. **Default:** 4.
+            //val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+            //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their final net worth.
+            //val maxNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their final net worth.
+            //val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+            //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val minMatches : kotlin.Int = 56 // kotlin.Int | The minimum number of matches for a node or edge to be included in the response.
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+            //val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+            //val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+            //val lockedItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>
+            //val lockedColumns : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
+            //val result : ItemFlowStats = apiInstance.itemFlowStats(phaseIntervalS, phaseCount, gameMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountIds, includeItemIds, excludeItemIds, lockedItemIds, lockedColumns)
             //result shouldBe ("TODO")
         }
 

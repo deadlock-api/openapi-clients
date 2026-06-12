@@ -135,6 +135,10 @@ __all__ = [
     "Item",
     "ItemDraftRound",
     "ItemDraftRoundPerGameRound",
+    "ItemFlowEdge",
+    "ItemFlowNode",
+    "ItemFlowStats",
+    "ItemFlowSummary",
     "ItemGroup",
     "ItemPermutationStats",
     "ItemProperty",
@@ -373,6 +377,10 @@ from deadlock_api_client.models.ingest_live_url import IngestLiveUrl as IngestLi
 from deadlock_api_client.models.item import Item as Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound as ItemDraftRoundPerGameRound
+from deadlock_api_client.models.item_flow_edge import ItemFlowEdge as ItemFlowEdge
+from deadlock_api_client.models.item_flow_node import ItemFlowNode as ItemFlowNode
+from deadlock_api_client.models.item_flow_stats import ItemFlowStats as ItemFlowStats
+from deadlock_api_client.models.item_flow_summary import ItemFlowSummary as ItemFlowSummary
 from deadlock_api_client.models.item_group import ItemGroup as ItemGroup
 from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats as ItemPermutationStats
 from deadlock_api_client.models.item_property import ItemProperty as ItemProperty

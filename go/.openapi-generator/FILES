@@ -127,6 +127,10 @@ docs/InternalAPI.md
 docs/Item.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
+docs/ItemFlowEdge.md
+docs/ItemFlowNode.md
+docs/ItemFlowStats.md
+docs/ItemFlowSummary.md
 docs/ItemGroup.md
 docs/ItemPermutationStats.md
 docs/ItemProperty.md
@@ -338,6 +342,10 @@ model_ingest_live_url.go
 model_item.go
 model_item_draft_round.go
 model_item_draft_round_per_game_round.go
+model_item_flow_edge.go
+model_item_flow_node.go
+model_item_flow_stats.go
+model_item_flow_summary.go
 model_item_group.go
 model_item_permutation_stats.go
 model_item_property.go

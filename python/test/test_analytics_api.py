@@ -103,6 +103,13 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
+    def test_item_flow_stats(self) -> None:
+        """Test case for item_flow_stats
+
+        Item Flow Stats
+        """
+        pass
+
     def test_item_permutation_stats(self) -> None:
         """Test case for item_permutation_stats
 

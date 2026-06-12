@@ -377,6 +377,51 @@ pub struct HeroSynergiesStatsParams {
     pub account_ids: Option<Vec<u32>>
 }
 
+/// struct for passing parameters to the method [`item_flow_stats`]
+#[derive(Clone, Debug)]
+pub struct ItemFlowStatsParams {
+    /// Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; `street_brawl` columns are rounds.
+    pub phase_interval_s: Option<u32>,
+    /// Number of columns for `street_brawl` (rounds). Ignored for `normal`, which has fixed time phases. **Default:** 4.
+    pub phase_count: Option<u32>,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+    pub game_mode: Option<String>,
+    /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    pub hero_ids: Option<String>,
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub min_networth: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub max_networth: Option<u64>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>,
+    /// The minimum number of matches for a node or edge to be included in the response.
+    pub min_matches: Option<u32>,
+    /// Comma separated list of account ids to include
+    pub account_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub include_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub exclude_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub locked_item_ids: Option<Vec<u32>>,
+    /// Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
+    pub locked_columns: Option<Vec<u32>>
+}
+
 /// struct for passing parameters to the method [`item_permutation_stats`]
 #[derive(Clone, Debug)]
 pub struct ItemPermutationStatsParams {
@@ -738,6 +783,15 @@ pub enum HeroStatsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum HeroSynergiesStatsError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`item_flow_stats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ItemFlowStatsError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -1679,6 +1733,116 @@ pub async fn hero_synergies_stats(configuration: &configuration::Configuration, 
     } else {
         let content = resp.text().await?;
         let entity: Option<HeroSynergiesStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+pub async fn item_flow_stats(configuration: &configuration::Configuration, params: ItemFlowStatsParams) -> Result<models::ItemFlowStats, Error<ItemFlowStatsError>> {
+
+    let uri_str = format!("{}/v1/analytics/item-flow-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.phase_interval_s {
+        req_builder = req_builder.query(&[("phase_interval_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.phase_count {
+        req_builder = req_builder.query(&[("phase_count", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.locked_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("locked_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("locked_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.locked_columns {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("locked_columns".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("locked_columns", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItemFlowStats`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItemFlowStats`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ItemFlowStatsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

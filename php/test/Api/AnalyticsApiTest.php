@@ -204,6 +204,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for itemFlowStats
+     *
+     * Item Flow Stats.
+     *
+     */
+    public function testItemFlowStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for itemPermutationStats
      *
      * Item Permutation Stats.

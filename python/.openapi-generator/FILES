@@ -119,6 +119,10 @@ deadlock_api_client/models/ingest_live_url.py
 deadlock_api_client/models/item.py
 deadlock_api_client/models/item_draft_round.py
 deadlock_api_client/models/item_draft_round_per_game_round.py
+deadlock_api_client/models/item_flow_edge.py
+deadlock_api_client/models/item_flow_node.py
+deadlock_api_client/models/item_flow_stats.py
+deadlock_api_client/models/item_flow_summary.py
 deadlock_api_client/models/item_group.py
 deadlock_api_client/models/item_permutation_stats.py
 deadlock_api_client/models/item_property.py
@@ -328,6 +332,10 @@ docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
+docs/ItemFlowEdge.md
+docs/ItemFlowNode.md
+docs/ItemFlowStats.md
+docs/ItemFlowSummary.md
 docs/ItemGroup.md
 docs/ItemPermutationStats.md
 docs/ItemProperty.md
@@ -557,6 +565,10 @@ test/test_internal_api.py
 test/test_item.py
 test/test_item_draft_round.py
 test/test_item_draft_round_per_game_round.py
+test/test_item_flow_edge.py
+test/test_item_flow_node.py
+test/test_item_flow_stats.py
+test/test_item_flow_summary.py
 test/test_item_group.py
 test/test_item_permutation_stats.py
 test/test_item_property.py

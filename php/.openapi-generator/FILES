@@ -115,6 +115,10 @@ api/Model/IngestLiveUrl.php
 api/Model/Item.php
 api/Model/ItemDraftRound.php
 api/Model/ItemDraftRoundPerGameRound.php
+api/Model/ItemFlowEdge.php
+api/Model/ItemFlowNode.php
+api/Model/ItemFlowStats.php
+api/Model/ItemFlowSummary.php
 api/Model/ItemGroup.php
 api/Model/ItemPermutationStats.php
 api/Model/ItemProperty.php
@@ -340,6 +344,10 @@ docs/Model/IngestLiveUrl.md
 docs/Model/Item.md
 docs/Model/ItemDraftRound.md
 docs/Model/ItemDraftRoundPerGameRound.md
+docs/Model/ItemFlowEdge.md
+docs/Model/ItemFlowNode.md
+docs/Model/ItemFlowStats.md
+docs/Model/ItemFlowSummary.md
 docs/Model/ItemGroup.md
 docs/Model/ItemPermutationStats.md
 docs/Model/ItemProperty.md
@@ -563,6 +571,10 @@ test/Model/HorizontalRecoilTest.php
 test/Model/IngestLiveUrlTest.php
 test/Model/ItemDraftRoundPerGameRoundTest.php
 test/Model/ItemDraftRoundTest.php
+test/Model/ItemFlowEdgeTest.php
+test/Model/ItemFlowNodeTest.php
+test/Model/ItemFlowStatsTest.php
+test/Model/ItemFlowSummaryTest.php
 test/Model/ItemGroupTest.php
 test/Model/ItemPermutationStatsTest.php
 test/Model/ItemPropertyTest.php

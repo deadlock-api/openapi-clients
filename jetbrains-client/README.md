@@ -28,6 +28,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**heroScoreboard**](Apis/AnalyticsApi.http#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
 *AnalyticsApi* | [**heroStats**](Apis/AnalyticsApi.http#herostats) | **GET** /v1/analytics/hero-stats | Hero Stats
 *AnalyticsApi* | [**heroSynergiesStats**](Apis/AnalyticsApi.http#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
+*AnalyticsApi* | [**itemFlowStats**](Apis/AnalyticsApi.http#itemflowstats) | **GET** /v1/analytics/item-flow-stats | Item Flow Stats
 *AnalyticsApi* | [**itemPermutationStats**](Apis/AnalyticsApi.http#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](Apis/AnalyticsApi.http#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**killDeathStats**](Apis/AnalyticsApi.http#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats

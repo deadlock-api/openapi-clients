@@ -94,6 +94,10 @@ docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
+docs/ItemFlowEdge.md
+docs/ItemFlowNode.md
+docs/ItemFlowStats.md
+docs/ItemFlowSummary.md
 docs/ItemGroup.md
 docs/ItemPermutationStats.md
 docs/ItemProperty.md
@@ -349,6 +353,10 @@ src/main/kotlin/deadlock_api_client/models/IngestLiveUrl.kt
 src/main/kotlin/deadlock_api_client/models/Item.kt
 src/main/kotlin/deadlock_api_client/models/ItemDraftRound.kt
 src/main/kotlin/deadlock_api_client/models/ItemDraftRoundPerGameRound.kt
+src/main/kotlin/deadlock_api_client/models/ItemFlowEdge.kt
+src/main/kotlin/deadlock_api_client/models/ItemFlowNode.kt
+src/main/kotlin/deadlock_api_client/models/ItemFlowStats.kt
+src/main/kotlin/deadlock_api_client/models/ItemFlowSummary.kt
 src/main/kotlin/deadlock_api_client/models/ItemGroup.kt
 src/main/kotlin/deadlock_api_client/models/ItemPermutationStats.kt
 src/main/kotlin/deadlock_api_client/models/ItemProperty.kt
@@ -570,6 +578,10 @@ src/test/kotlin/deadlock_api_client/models/HorizontalRecoilTest.kt
 src/test/kotlin/deadlock_api_client/models/IngestLiveUrlTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemDraftRoundPerGameRoundTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemDraftRoundTest.kt
+src/test/kotlin/deadlock_api_client/models/ItemFlowEdgeTest.kt
+src/test/kotlin/deadlock_api_client/models/ItemFlowNodeTest.kt
+src/test/kotlin/deadlock_api_client/models/ItemFlowStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/ItemFlowSummaryTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemGroupTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemPermutationStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemPropertyTest.kt

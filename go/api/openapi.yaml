@@ -170,7 +170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -423,7 +423,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -557,7 +557,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -634,7 +634,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -774,7 +774,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -908,7 +908,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -1097,7 +1097,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -1383,7 +1383,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -1641,7 +1641,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -1909,7 +1909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -2100,6 +2100,305 @@ paths:
       summary: Hero Synergy Stats
       tags:
       - Analytics
+  /v1/analytics/item-flow-stats:
+    get:
+      description: "\nRetrieves item build-flow statistics: per-phase item win/pick\
+        \ rates and the transitions between them.\n\nItems are grouped into columns\
+        \ by the in-match phase they were bought in (controlled by\n`phase_interval_s`\
+        \ and `phase_count`). The response contains `nodes` (items aggregated within\
+        \ a phase)\nand `edges` (transitions between an item and items in the next\
+        \ phase). A locked build path can be\nsupplied via `locked_item_ids` / `locked_columns`\
+        \ to restrict the population to players who bought\nthose items in the given\
+        \ stage columns.\n\nEach node also carries `adjusted_win_rate`: the item's\
+        \ win rate standardized to the stage's\nnet-worth-at-buy distribution. Because\
+        \ players who are already ahead have more souls and buy items\nsooner, raw\
+        \ win rate is heavily confounded by wealth; the adjusted figure re-weights\
+        \ each item's win\nrate across net-worth buckets to the stage-wide distribution,\
+        \ isolating the item's contribution from\nthe buyer's lead. It is still observational,\
+        \ not a controlled/causal estimate. `reached_per_column`\ngives the distinct\
+        \ baseline games that bought any upgrade in each column, so consumers can\
+        \ show how\nsurvivorship-selected (e.g. long-game-only) a late stage is.\n\
+        \nResults are cached for **1 hour** based on the unique combination of query\
+        \ parameters provided.\n\n### Rate Limits:\n> The rate limits below are **shared\
+        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
+        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      operationId: item_flow_stats
+      parameters:
+      - description: |-
+          Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+)
+          aligned to the stats time-series; `street_brawl` columns are rounds.
+        explode: true
+        in: query
+        name: phase_interval_s
+        required: false
+        schema:
+          default: 600
+          format: int32
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Number of columns for `street_brawl` (rounds). Ignored for `normal`, which has fixed time
+          phases. **Default:** 4.
+        explode: true
+        in: query
+        name: phase_count
+        required: false
+        schema:
+          default: 4
+          format: int32
+          maximum: 12
+          minimum: 2
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. **Default:** `normal`."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          - explore_n_y_c
+          - internal
+          nullable: true
+          type: string
+        style: form
+      - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1778630400
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: min_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: max_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: The minimum number of matches for a node or edge to be included
+          in the response.
+        explode: true
+        in: query
+        name: min_matches
+        required: false
+        schema:
+          default: 20
+          format: int32
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: Comma separated list of account ids to include
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of item ids to include (only players who\
+          \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
+        explode: true
+        in: query
+        name: include_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of item ids to exclude (only players who\
+          \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
+        explode: true
+        in: query
+        name: exclude_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: |-
+          Comma separated list of item ids forming a "locked" build path. Pairs positionally with
+          `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage.
+          See more: <https://api.deadlock-api.com/v1/assets/items>
+        explode: true
+        in: query
+        name: locked_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: |-
+          Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for
+          `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
+        explode: true
+        in: query
+        name: locked_columns
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ItemFlowStats"
+          description: Item Flow Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch item flow stats
+      summary: Item Flow Stats
+      tags:
+      - Analytics
   /v1/analytics/item-permutation-stats:
     get:
       description: "\nRetrieves item permutation statistics based on historical match\
@@ -2181,7 +2480,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -2470,7 +2769,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -2741,7 +3040,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -3035,7 +3334,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -3260,7 +3559,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -3562,7 +3861,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -7671,7 +7970,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -7791,7 +8090,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1778371200
+          default: 1778630400
           format: int64
           nullable: true
           type: integer
@@ -12493,6 +12792,255 @@ components:
       - chance_enhanced
       - chance_rare
       - item_draft_rounds
+    ItemFlowEdge:
+      description: |-
+        A transition between an item in one column and an item in the next column,
+        counted across players who purchased both.
+      example:
+        from_column: 0
+        from_item_id: 0
+        losses: 0
+        matches: 0
+        to_item_id: 0
+        wins: 0
+      properties:
+        from_column:
+          description: The column of the source item.
+          format: int32
+          minimum: 0
+          type: integer
+        from_item_id:
+          format: int32
+          minimum: 0
+          type: integer
+        losses:
+          format: int64
+          minimum: 0
+          type: integer
+        matches:
+          format: int64
+          minimum: 0
+          type: integer
+        to_item_id:
+          format: int32
+          minimum: 0
+          type: integer
+        wins:
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - from_column
+      - from_item_id
+      - losses
+      - matches
+      - to_item_id
+      - wins
+    ItemFlowNode:
+      description: "A single item, aggregated within one column of the flow graph."
+      example:
+        adjusted_win_rate: 7.061401241503109
+        avg_net_worth_at_buy: 9.301444243932576
+        column: 0
+        item_id: 0
+        losses: 0
+        matches: 0
+        players: 0
+        total_assists: 0
+        total_deaths: 0
+        total_kills: 0
+        wins: 0
+      properties:
+        adjusted_win_rate:
+          description: |-
+            Win rate standardized to the stage's net-worth-at-buy distribution, removing the
+            "richer buyers win more" confound. See the endpoint description.
+          format: double
+          type: number
+        avg_net_worth_at_buy:
+          description: Average net worth of buyers at the moment they bought this
+            item (confound visibility).
+          format: double
+          type: number
+        column:
+          description: The phase column (0-based) the item was bought in.
+          format: int32
+          minimum: 0
+          type: integer
+        item_id:
+          description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
+          format: int32
+          minimum: 0
+          type: integer
+        losses:
+          format: int64
+          minimum: 0
+          type: integer
+        matches:
+          format: int64
+          minimum: 0
+          type: integer
+        players:
+          format: int64
+          minimum: 0
+          type: integer
+        total_assists:
+          format: int64
+          minimum: 0
+          type: integer
+        total_deaths:
+          format: int64
+          minimum: 0
+          type: integer
+        total_kills:
+          format: int64
+          minimum: 0
+          type: integer
+        wins:
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - adjusted_win_rate
+      - avg_net_worth_at_buy
+      - column
+      - item_id
+      - losses
+      - matches
+      - players
+      - total_assists
+      - total_deaths
+      - total_kills
+      - wins
+    ItemFlowStats:
+      example:
+        baseline: ""
+        edges:
+        - from_column: 0
+          from_item_id: 0
+          losses: 0
+          matches: 0
+          to_item_id: 0
+          wins: 0
+        - from_column: 0
+          from_item_id: 0
+          losses: 0
+          matches: 0
+          to_item_id: 0
+          wins: 0
+        nodes:
+        - adjusted_win_rate: 7.061401241503109
+          avg_net_worth_at_buy: 9.301444243932576
+          column: 0
+          item_id: 0
+          losses: 0
+          matches: 0
+          players: 0
+          total_assists: 0
+          total_deaths: 0
+          total_kills: 0
+          wins: 0
+        - adjusted_win_rate: 7.061401241503109
+          avg_net_worth_at_buy: 9.301444243932576
+          column: 0
+          item_id: 0
+          losses: 0
+          matches: 0
+          players: 0
+          total_assists: 0
+          total_deaths: 0
+          total_kills: 0
+          wins: 0
+        reached_per_column:
+        - 0
+        - 0
+        summary: ""
+      properties:
+        baseline:
+          allOf:
+          - $ref: "#/components/schemas/ItemFlowSummary"
+          description: Totals ignoring the locked build path (item filters only).
+            Denominator for chained pick rate.
+        edges:
+          items:
+            $ref: "#/components/schemas/ItemFlowEdge"
+          type: array
+          default: null
+        nodes:
+          items:
+            $ref: "#/components/schemas/ItemFlowNode"
+          type: array
+          default: null
+        reached_per_column:
+          description: |-
+            Distinct baseline games that bought any upgrade in each stage column (index = column).
+            `reached / baseline.matches` shows how survivorship-selected a (late) stage is.
+          items:
+            format: int64
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        summary:
+          allOf:
+          - $ref: "#/components/schemas/ItemFlowSummary"
+          description: Totals for the locked build-path population (all filters applied).
+            Denominator for pick rate.
+      required:
+      - baseline
+      - edges
+      - nodes
+      - reached_per_column
+      - summary
+    ItemFlowSummary:
+      description: Population-level totals for the (optionally locked) build path.
+      properties:
+        avg_duration_s:
+          description: Average match duration (seconds) of the population.
+          format: double
+          type: number
+        avg_net_worth:
+          description: Average final net worth of the population.
+          format: double
+          type: number
+        losses:
+          format: int64
+          minimum: 0
+          type: integer
+        matches:
+          format: int64
+          minimum: 0
+          type: integer
+        players:
+          format: int64
+          minimum: 0
+          type: integer
+        total_assists:
+          format: int64
+          minimum: 0
+          type: integer
+        total_deaths:
+          format: int64
+          minimum: 0
+          type: integer
+        total_kills:
+          format: int64
+          minimum: 0
+          type: integer
+        wins:
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - avg_duration_s
+      - avg_net_worth
+      - losses
+      - matches
+      - players
+      - total_assists
+      - total_deaths
+      - total_kills
+      - wins
     ItemGroup:
       example:
         shop_group: shop_group

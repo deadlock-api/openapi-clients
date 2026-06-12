@@ -77,6 +77,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**heroScoreboard**](docs/AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
 | *AnalyticsApi* | [**heroStats**](docs/AnalyticsApi.md#herostats) | **GET** /v1/analytics/hero-stats | Hero Stats |
 | *AnalyticsApi* | [**heroSynergiesStats**](docs/AnalyticsApi.md#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats |
+| *AnalyticsApi* | [**itemFlowStats**](docs/AnalyticsApi.md#itemflowstats) | **GET** /v1/analytics/item-flow-stats | Item Flow Stats |
 | *AnalyticsApi* | [**itemPermutationStats**](docs/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats |
 | *AnalyticsApi* | [**itemStats**](docs/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats |
 | *AnalyticsApi* | [**killDeathStats**](docs/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats |
@@ -251,6 +252,10 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Item](docs/Item.md)
  - [deadlock_api_client.models.ItemDraftRound](docs/ItemDraftRound.md)
  - [deadlock_api_client.models.ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
+ - [deadlock_api_client.models.ItemFlowEdge](docs/ItemFlowEdge.md)
+ - [deadlock_api_client.models.ItemFlowNode](docs/ItemFlowNode.md)
+ - [deadlock_api_client.models.ItemFlowStats](docs/ItemFlowStats.md)
+ - [deadlock_api_client.models.ItemFlowSummary](docs/ItemFlowSummary.md)
  - [deadlock_api_client.models.ItemGroup](docs/ItemGroup.md)
  - [deadlock_api_client.models.ItemPermutationStats](docs/ItemPermutationStats.md)
  - [deadlock_api_client.models.ItemProperty](docs/ItemProperty.md)

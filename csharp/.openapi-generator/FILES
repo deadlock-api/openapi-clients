@@ -112,6 +112,10 @@ docs/models/IngestLiveUrl.md
 docs/models/Item.md
 docs/models/ItemDraftRound.md
 docs/models/ItemDraftRoundPerGameRound.md
+docs/models/ItemFlowEdge.md
+docs/models/ItemFlowNode.md
+docs/models/ItemFlowStats.md
+docs/models/ItemFlowSummary.md
 docs/models/ItemGroup.md
 docs/models/ItemPermutationStats.md
 docs/models/ItemProperty.md
@@ -338,6 +342,10 @@ src/DeadlockApiClient.Test/Model/HorizontalRecoilTests.cs
 src/DeadlockApiClient.Test/Model/IngestLiveUrlTests.cs
 src/DeadlockApiClient.Test/Model/ItemDraftRoundPerGameRoundTests.cs
 src/DeadlockApiClient.Test/Model/ItemDraftRoundTests.cs
+src/DeadlockApiClient.Test/Model/ItemFlowEdgeTests.cs
+src/DeadlockApiClient.Test/Model/ItemFlowNodeTests.cs
+src/DeadlockApiClient.Test/Model/ItemFlowStatsTests.cs
+src/DeadlockApiClient.Test/Model/ItemFlowSummaryTests.cs
 src/DeadlockApiClient.Test/Model/ItemGroupTests.cs
 src/DeadlockApiClient.Test/Model/ItemPermutationStatsTests.cs
 src/DeadlockApiClient.Test/Model/ItemPropertyTests.cs
@@ -587,6 +595,10 @@ src/DeadlockApiClient/Model/IngestLiveUrl.cs
 src/DeadlockApiClient/Model/Item.cs
 src/DeadlockApiClient/Model/ItemDraftRound.cs
 src/DeadlockApiClient/Model/ItemDraftRoundPerGameRound.cs
+src/DeadlockApiClient/Model/ItemFlowEdge.cs
+src/DeadlockApiClient/Model/ItemFlowNode.cs
+src/DeadlockApiClient/Model/ItemFlowStats.cs
+src/DeadlockApiClient/Model/ItemFlowSummary.cs
 src/DeadlockApiClient/Model/ItemGroup.cs
 src/DeadlockApiClient/Model/ItemPermutationStats.cs
 src/DeadlockApiClient/Model/ItemProperty.cs

@@ -92,6 +92,10 @@ from deadlock_api_client.models.ingest_live_url import IngestLiveUrl
 from deadlock_api_client.models.item import Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound
+from deadlock_api_client.models.item_flow_edge import ItemFlowEdge
+from deadlock_api_client.models.item_flow_node import ItemFlowNode
+from deadlock_api_client.models.item_flow_stats import ItemFlowStats
+from deadlock_api_client.models.item_flow_summary import ItemFlowSummary
 from deadlock_api_client.models.item_group import ItemGroup
 from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats
 from deadlock_api_client.models.item_property import ItemProperty

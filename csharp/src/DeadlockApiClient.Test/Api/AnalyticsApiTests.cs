@@ -326,6 +326,37 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test ItemFlowStats
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task ItemFlowStatsAsyncTest()
+        {
+            Client.Option<int?> phaseIntervalS = default!;
+            Client.Option<int?> phaseCount = default!;
+            Client.Option<string?> gameMode = default!;
+            Client.Option<string?> heroIds = default!;
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<long?> minNetworth = default!;
+            Client.Option<long?> maxNetworth = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            Client.Option<int?> minMatches = default!;
+            Client.Option<List<int>?> accountIds = default!;
+            Client.Option<List<int>?> includeItemIds = default!;
+            Client.Option<List<int>?> excludeItemIds = default!;
+            Client.Option<List<int>?> lockedItemIds = default!;
+            Client.Option<List<int>?> lockedColumns = default!;
+            var response = await _instance.ItemFlowStatsAsync(phaseIntervalS, phaseCount, gameMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountIds, includeItemIds, excludeItemIds, lockedItemIds, lockedColumns);
+            var model = response.Ok();
+            Assert.IsType<ItemFlowStats>(model);
+        }
+
+        /// <summary>
         /// Test ItemPermutationStats
         /// </summary>
         [Fact (Skip = "not implemented")]
