@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActiveMatchGameMode } from './active-match-game-mode';
-import type { ActiveMatchMode } from './active-match-mode';
-import type { ActiveMatchPlayer } from './active-match-player';
-import type { ActiveMatchTeam } from './active-match-team';
-import type { RegionMode } from './region-mode';
+import type { ActiveMatchGameMode } from './active-match-game-mode.js';
+import type { ActiveMatchMode } from './active-match-mode.js';
+import type { ActiveMatchPlayer } from './active-match-player.js';
+import type { ActiveMatchTeam } from './active-match-team.js';
+import type { RegionMode } from './region-mode.js';
 export interface ActiveMatch {
     'compat_version'?: number | null;
     'duration_s'?: number | null;

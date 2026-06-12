@@ -1,0 +1,1 @@
+{"version":3,"file":"item-flow-edge.d.ts","sourceRoot":"","sources":["../../models/item-flow-edge.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH;;GAEG;AACH,MAAM,WAAW,YAAY;IACzB;;OAEG;IACH,aAAa,EAAE,MAAM,CAAC;IACtB,cAAc,EAAE,MAAM,CAAC;IACvB,QAAQ,EAAE,MAAM,CAAC;IACjB,SAAS,EAAE,MAAM,CAAC;IAClB,YAAY,EAAE,MAAM,CAAC;IACrB,MAAM,EAAE,MAAM,CAAC;CAClB"}

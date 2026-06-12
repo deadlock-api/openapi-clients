@@ -1,0 +1,1 @@
+{"version":3,"file":"steam-news.d.ts","sourceRoot":"","sources":["../../models/steam-news.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,iBAAiB,CAAC;AAEjD,MAAM,WAAW,SAAS;IACtB,SAAS,EAAE,MAAM,CAAC;IAClB,MAAM,EAAE,SAAS,CAAC;IAClB,MAAM,EAAE,MAAM,CAAC;IACf,UAAU,EAAE,MAAM,CAAC;IACnB,OAAO,EAAE,MAAM,CAAC;CACnB"}

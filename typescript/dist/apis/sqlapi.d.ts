@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { type RequestArgs, BaseAPI } from '../base';
+import { type RequestArgs, BaseAPI } from '../base.js';
 /**
  * SQLApi - axios parameter creator
  */
@@ -27,10 +27,11 @@ export declare const SQLApiAxiosParamCreator: (configuration?: Configuration) =>
      *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
      * @summary Query
      * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sql: (query: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    sql: (query: string, format?: SqlFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
      * @summary Table Schema
@@ -55,10 +56,11 @@ export declare const SQLApiFp: (configuration?: Configuration) => {
      *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
      * @summary Query
      * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sql(query: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    sql(query: string, format?: SqlFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
      * @summary Table Schema
@@ -108,6 +110,10 @@ export interface SQLApiSqlRequest {
      * The SQL query to execute. It must follow the Clickhouse SQL syntax.
      */
     readonly query: string;
+    /**
+     * The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
+     */
+    readonly format?: SqlFormatEnum;
 }
 /**
  * Request parameters for tableSchema operation in SQLApi.
@@ -148,4 +154,9 @@ export declare class SQLApi extends BaseAPI {
         [key: string]: string;
     }, any, {}>>;
 }
+export declare const SqlFormatEnum: {
+    readonly Json: "json";
+    readonly Ndjson: "ndjson";
+};
+export type SqlFormatEnum = typeof SqlFormatEnum[keyof typeof SqlFormatEnum];
 //# sourceMappingURL=sqlapi.d.ts.map

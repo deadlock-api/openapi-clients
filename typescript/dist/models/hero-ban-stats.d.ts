@@ -19,7 +19,7 @@ export interface HeroBanStats {
      */
     'bucket': number;
     /**
-     * The ID of the banned hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+     * The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
 }

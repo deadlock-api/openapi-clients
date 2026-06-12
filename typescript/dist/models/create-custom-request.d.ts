@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GameMode } from './game-mode';
-import type { ServerRegion } from './server-region';
+import type { GameMode } from './game-mode.js';
+import type { ServerRegion } from './server-region.js';
 export interface CreateCustomRequest {
     /**
      * If a callback url is provided, we will send a POST request to this url when the match starts.

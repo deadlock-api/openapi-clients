@@ -14,9 +14,9 @@
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setSearchParams, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setSearchParams, toPathString, createRequestFunction } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
+import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 /**
  * PlayersApi - axios parameter creator
  */
@@ -257,15 +257,15 @@ export const PlayersApiAxiosParamCreator = function (configuration) {
          * @summary Hero Stats
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {PlayerHeroStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
-         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their final net worth.
          * @param {number | null} [maxNetworth] Filter players based on their final net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -363,14 +363,55 @@ export const PlayersApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
-         * @summary Rank Predict Image
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+         * @summary Rank Predict Avg Image
+         * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
+         * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictAvgImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        rankPredictImage: async (accountId, format, options = {}) => {
+        rankPredictAvgImage: async (accountIds, format, size, options = {}) => {
+            // verify required parameter 'accountIds' is not null or undefined
+            assertParamExists('rankPredictAvgImage', 'accountIds', accountIds);
+            const localVarPath = `/v1/players/rank-predict/image`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+            if (format !== undefined) {
+                localVarQueryParameter['format'] = format;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarHeaderParameter['Accept'] = 'image/png,image/webp';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+         * @summary Rank Predict Image
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankPredictImage: async (accountId, format, size, options = {}) => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('rankPredictImage', 'accountId', accountId);
             const localVarPath = `/v1/players/{account_id}/rank-predict/image`
@@ -386,6 +427,9 @@ export const PlayersApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             if (format !== undefined) {
                 localVarQueryParameter['format'] = format;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
             }
             localVarHeaderParameter['Accept'] = 'image/png,image/webp';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -494,15 +538,15 @@ export const PlayersApiFp = function (configuration) {
          * @summary Hero Stats
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {PlayerHeroStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
-         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [minNetworth] Filter players based on their final net worth.
          * @param {number | null} [maxNetworth] Filter players based on their final net worth.
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -528,15 +572,31 @@ export const PlayersApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
-         * @summary Rank Predict Image
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+         * @summary Rank Predict Avg Image
+         * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
+         * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictAvgImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async rankPredictImage(accountId, format, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictImage(accountId, format, options);
+        async rankPredictAvgImage(accountIds, format, size, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictAvgImage(accountIds, format, size, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictAvgImage']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+         * @summary Rank Predict Image
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {RankPredictImageSizeEnum} [size] Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rankPredictImage(accountId, format, size, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictImage(accountId, format, size, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictImage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -620,14 +680,24 @@ export const PlayersApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rankPredict(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+         * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+         * @summary Rank Predict Avg Image
+         * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankPredictAvgImage(requestParameters, options) {
+            return localVarFp.rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, requestParameters.size, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
          * @summary Rank Predict Image
          * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         rankPredictImage(requestParameters, options) {
-            return localVarFp.rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(axios, basePath));
+            return localVarFp.rankPredictImage(requestParameters.accountId, requestParameters.format, requestParameters.size, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -706,14 +776,24 @@ export class PlayersApi extends BaseAPI {
         return PlayersApiFp(this.configuration).rankPredict(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+     * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+     * @summary Rank Predict Avg Image
+     * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rankPredictAvgImage(requestParameters, options) {
+        return PlayersApiFp(this.configuration).rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, requestParameters.size, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
      * @summary Rank Predict Image
      * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     rankPredictImage(requestParameters, options) {
-        return PlayersApiFp(this.configuration).rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
+        return PlayersApiFp(this.configuration).rankPredictImage(requestParameters.accountId, requestParameters.format, requestParameters.size, options).then((request) => request(this.axios, this.basePath));
     }
 }
 export const EnemyStatsGameModeEnum = {
@@ -734,8 +814,20 @@ export const PlayerHeroStatsGameModeEnum = {
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
 };
+export const RankPredictAvgImageFormatEnum = {
+    Png: 'png',
+    Webp: 'webp',
+};
+export const RankPredictAvgImageSizeEnum = {
+    Large: 'large',
+    Small: 'small',
+};
 export const RankPredictImageFormatEnum = {
     Png: 'png',
     Webp: 'webp',
+};
+export const RankPredictImageSizeEnum = {
+    Large: 'large',
+    Small: 'small',
 };
 //# sourceMappingURL=players-api.js.map

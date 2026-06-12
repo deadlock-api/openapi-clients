@@ -14,9 +14,9 @@
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setSearchParams, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
+import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 /**
  * MatchesApi - axios parameter creator
  */
@@ -93,6 +93,7 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
          * @param {boolean} [includePlayerKda] Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
+         * @param {boolean} [includePlayerFinalStats] Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
          * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
@@ -101,15 +102,15 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
-         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [itemFilterHeroId] Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
          * @param {string | null} [includeItemIds] Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
          * @param {string | null} [excludeItemIds] Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
@@ -118,10 +119,11 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
          * @param {number} [limit] The maximum number of matches to return.
+         * @param {BulkMetadataFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        bulkMetadata: async (includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, options = {}) => {
+        bulkMetadata: async (includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format, options = {}) => {
             const localVarPath = `/v1/matches/metadata`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -155,6 +157,9 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             }
             if (includePlayerStats !== undefined) {
                 localVarQueryParameter['include_player_stats'] = includePlayerStats;
+            }
+            if (includePlayerFinalStats !== undefined) {
+                localVarQueryParameter['include_player_final_stats'] = includePlayerFinalStats;
             }
             if (includePlayerDeathDetails !== undefined) {
                 localVarQueryParameter['include_player_death_details'] = includePlayerDeathDetails;
@@ -231,10 +236,43 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
+            if (format !== undefined) {
+                localVarQueryParameter['format'] = format;
+            }
             localVarHeaderParameter['Accept'] = 'application/octet-stream';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         * @summary Ingest Live Broadcast URLs
+         * @param {Array<IngestLiveUrl>} ingestLiveUrl
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestUrls: async (ingestLiveUrl, options = {}) => {
+            // verify required parameter 'ingestLiveUrl' is not null or undefined
+            assertParamExists('ingestUrls', 'ingestLiveUrl', ingestLiveUrl);
+            const localVarPath = `/v1/matches/live/urls`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            localVarRequestOptions.data = serializeDataIfNeeded(ingestLiveUrl, localVarRequestOptions, configuration);
             return {
                 url: toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -345,10 +383,11 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
          *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |
          * @summary Salts
          * @param {number} matchId The match ID
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        salts: async (matchId, options = {}) => {
+        salts: async (matchId, disableSteam, options = {}) => {
             // verify required parameter 'matchId' is not null or undefined
             assertParamExists('salts', 'matchId', matchId);
             const localVarPath = `/v1/matches/{match_id}/salts`
@@ -362,6 +401,9 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (disableSteam !== undefined) {
+                localVarQueryParameter['disable_steam'] = disableSteam;
+            }
             localVarHeaderParameter['Accept'] = 'application/json';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -372,7 +414,7 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
          * @summary Live Broadcast URL
          * @param {number} matchId The match ID
          * @param {*} [options] Override http request option.
@@ -472,6 +514,7 @@ export const MatchesApiFp = function (configuration) {
          * @param {boolean} [includePlayerKda] Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
          * @param {boolean} [includePlayerItems] Include player items in the response.
          * @param {boolean} [includePlayerStats] Include player stats in the response.
+         * @param {boolean} [includePlayerFinalStats] Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field.
          * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
          * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
@@ -480,15 +523,15 @@ export const MatchesApiFp = function (configuration) {
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
          * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
          * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
          * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
          * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
-         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [itemFilterHeroId] Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
          * @param {string | null} [includeItemIds] Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
          * @param {string | null} [excludeItemIds] Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
@@ -497,13 +540,27 @@ export const MatchesApiFp = function (configuration) {
          * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
          * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
          * @param {number} [limit] The maximum number of matches to return.
+         * @param {BulkMetadataFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, options);
+        async bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.bulkMetadata']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         * @summary Ingest Live Broadcast URLs
+         * @param {Array<IngestLiveUrl>} ingestLiveUrl
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ingestUrls(ingestLiveUrl, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ingestUrls(ingestLiveUrl, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MatchesApi.ingestUrls']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -552,17 +609,18 @@ export const MatchesApiFp = function (configuration) {
          *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |
          * @summary Salts
          * @param {number} matchId The match ID
+         * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async salts(matchId, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.salts(matchId, options);
+        async salts(matchId, disableSteam, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.salts(matchId, disableSteam, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.salts']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
          * @summary Live Broadcast URL
          * @param {number} matchId The match ID
          * @param {*} [options] Override http request option.
@@ -621,7 +679,17 @@ export const MatchesApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         bulkMetadata(requestParameters = {}, options) {
-            return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.extraMatchColumns, requestParameters.extraPlayerColumns, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(axios, basePath));
+            return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerFinalStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.extraMatchColumns, requestParameters.extraPlayerColumns, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, requestParameters.format, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         * @summary Ingest Live Broadcast URLs
+         * @param {MatchesApiIngestUrlsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestUrls(requestParameters, options) {
+            return localVarFp.ingestUrls(requestParameters.ingestLiveUrl, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
@@ -660,10 +728,10 @@ export const MatchesApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         salts(requestParameters, options) {
-            return localVarFp.salts(requestParameters.matchId, options).then((request) => request(axios, basePath));
+            return localVarFp.salts(requestParameters.matchId, requestParameters.disableSteam, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+         *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
          * @summary Live Broadcast URL
          * @param {MatchesApiUrlRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -714,7 +782,17 @@ export class MatchesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     bulkMetadata(requestParameters = {}, options) {
-        return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.extraMatchColumns, requestParameters.extraPlayerColumns, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return MatchesApiFp(this.configuration).bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerFinalStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.extraMatchColumns, requestParameters.extraPlayerColumns, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Ingest Live Broadcast URLs
+     * @param {MatchesApiIngestUrlsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestUrls(requestParameters, options) {
+        return MatchesApiFp(this.configuration).ingestUrls(requestParameters.ingestLiveUrl, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
@@ -753,10 +831,10 @@ export class MatchesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     salts(requestParameters, options) {
-        return MatchesApiFp(this.configuration).salts(requestParameters.matchId, options).then((request) => request(this.axios, this.basePath));
+        return MatchesApiFp(this.configuration).salts(requestParameters.matchId, requestParameters.disableSteam, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
      * @summary Live Broadcast URL
      * @param {MatchesApiUrlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -789,5 +867,9 @@ export const BulkMetadataOrderByEnum = {
 export const BulkMetadataOrderDirectionEnum = {
     Desc: 'desc',
     Asc: 'asc',
+};
+export const BulkMetadataFormatEnum = {
+    Json: 'json',
+    Ndjson: 'ndjson',
 };
 //# sourceMappingURL=matches-api.js.map

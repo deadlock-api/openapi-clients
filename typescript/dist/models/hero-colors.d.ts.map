@@ -1,0 +1,1 @@
+{"version":3,"file":"hero-colors.d.ts","sourceRoot":"","sources":["../../models/hero-colors.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,UAAU;IACvB,OAAO,CAAC,EAAE,KAAK,CAAC,MAAM,CAAC,GAAG,IAAI,CAAC;IAC/B,WAAW,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC5B,IAAI,EAAE,KAAK,CAAC,MAAM,CAAC,CAAC;CACvB"}

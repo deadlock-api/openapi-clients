@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BuildHero } from './build-hero';
+import type { BuildHero } from './build-hero.js';
 export interface Build {
     'hero_build': BuildHero;
     'num_favorites'?: number | null;

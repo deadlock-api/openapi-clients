@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { VariableCategory } from './variable-category';
+import type { VariableCategory } from './variable-category.js';
 export interface VariableDescription {
     /**
      * The category of the variable.

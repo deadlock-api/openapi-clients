@@ -14,9 +14,9 @@
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setSearchParams, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setSearchParams, toPathString, createRequestFunction } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
+import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 /**
  * SQLApi - axios parameter creator
  */
@@ -52,10 +52,11 @@ export const SQLApiAxiosParamCreator = function (configuration) {
          *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+         * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sql: async (query, options = {}) => {
+        sql: async (query, format, options = {}) => {
             // verify required parameter 'query' is not null or undefined
             assertParamExists('sql', 'query', query);
             const localVarPath = `/v1/sql`;
@@ -70,6 +71,9 @@ export const SQLApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (format !== undefined) {
+                localVarQueryParameter['format'] = format;
             }
             localVarHeaderParameter['Accept'] = 'text/plain';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -134,11 +138,12 @@ export const SQLApiFp = function (configuration) {
          *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
          * @summary Query
          * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+         * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sql(query, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sql(query, options);
+        async sql(query, format, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sql(query, format, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SQLApi.sql']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -181,7 +186,7 @@ export const SQLApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         sql(requestParameters, options) {
-            return localVarFp.sql(requestParameters.query, options).then((request) => request(axios, basePath));
+            return localVarFp.sql(requestParameters.query, requestParameters.format, options).then((request) => request(axios, basePath));
         },
         /**
          *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
@@ -216,7 +221,7 @@ export class SQLApi extends BaseAPI {
      * @throws {RequiredError}
      */
     sql(requestParameters, options) {
-        return SQLApiFp(this.configuration).sql(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
+        return SQLApiFp(this.configuration).sql(requestParameters.query, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
@@ -229,4 +234,8 @@ export class SQLApi extends BaseAPI {
         return SQLApiFp(this.configuration).tableSchema(requestParameters.table, options).then((request) => request(this.axios, this.basePath));
     }
 }
+export const SqlFormatEnum = {
+    Json: 'json',
+    Ndjson: 'ndjson',
+};
 //# sourceMappingURL=sqlapi.js.map

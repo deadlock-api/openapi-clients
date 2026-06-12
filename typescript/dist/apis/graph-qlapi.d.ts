@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { type RequestArgs, BaseAPI } from '../base';
+import { type RequestArgs, BaseAPI } from '../base.js';
 /**
  * GraphQLApi - axios parameter creator
  */

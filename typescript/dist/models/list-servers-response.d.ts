@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GameServerInfo } from './game-server-info';
+import type { GameServerInfo } from './game-server-info.js';
 export interface ListServersResponse {
     'servers': Array<GameServerInfo>;
 }

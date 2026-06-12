@@ -11,7 +11,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequiredError } from "./base";
+import { RequiredError } from "./base.js";
 export const DUMMY_BASE_URL = 'https://example.com';
 /**
  *

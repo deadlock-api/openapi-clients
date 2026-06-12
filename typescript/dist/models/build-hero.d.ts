@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BuildHeroDetails } from './build-hero-details';
+import type { BuildHeroDetails } from './build-hero-details.js';
 export interface BuildHero {
     'author_account_id': number;
     'description'?: string | null;
@@ -17,7 +17,7 @@ export interface BuildHero {
     'development_build'?: boolean | null;
     'hero_build_id': number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
     'language': number;

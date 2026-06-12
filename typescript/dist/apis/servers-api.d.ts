@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { type RequestArgs, BaseAPI } from '../base';
+import { type RequestArgs, BaseAPI } from '../base.js';
 import type { ListServersResponse } from '../models/index.js';
 import type { MetricIngestRequest } from '../models/index.js';
 import type { ServerStatusRequest } from '../models/index.js';

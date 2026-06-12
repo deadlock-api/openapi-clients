@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { SteamFriend } from './steam-friend';
+import type { SteamFriend } from './steam-friend.js';
 export interface SteamProfile {
     'account_id': number;
     'avatar': string;
@@ -17,7 +17,9 @@ export interface SteamProfile {
     'avatarmedium': string;
     'countrycode'?: string | null;
     'friends': Array<SteamFriend>;
+    'last_team_avg_badge'?: number | null;
     'last_updated': string;
+    'matches_played_last_30d': number;
     'personaname': string;
     'profileurl': string;
     'realname'?: string | null;

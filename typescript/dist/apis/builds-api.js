@@ -14,9 +14,9 @@
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, setSearchParams, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, setSearchParams, toPathString, createRequestFunction } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
+import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 /**
  * BuildsApi - axios parameter creator
  */
@@ -40,7 +40,7 @@ export const BuildsApiAxiosParamCreator = function (configuration) {
          * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
          * @param {number} [version] Filter builds by version.
-         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number} [tag] Filter builds by tag.
          * @param {number} [rollupCategory] Filter builds by rollup category.
          * @param {number} [authorId] The author\&#39;s &#x60;SteamID3&#x60;
@@ -150,7 +150,7 @@ export const BuildsApiFp = function (configuration) {
          * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
          * @param {number} [version] Filter builds by version.
-         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} [heroId] Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number} [tag] Filter builds by tag.
          * @param {number} [rollupCategory] Filter builds by rollup category.
          * @param {number} [authorId] The author\&#39;s &#x60;SteamID3&#x60;

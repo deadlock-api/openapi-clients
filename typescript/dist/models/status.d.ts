@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { StatusServices } from './status-services';
+import type { StatusServices } from './status-services.js';
 export interface Status {
     /**
      * Status of the services.

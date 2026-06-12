@@ -9,14 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MatchPlayer } from './match-player';
+import type { MatchPlayer } from './match-player.js';
 export interface ClickhouseMatchInfo {
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'average_badge_team0'?: number | null;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'average_badge_team1'?: number | null;
     'duration_s': number;

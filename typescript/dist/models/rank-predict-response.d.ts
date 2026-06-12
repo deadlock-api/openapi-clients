@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { RankPrediction } from './rank-prediction';
+import type { RankPrediction } from './rank-prediction.js';
 /**
  * @type RankPredictResponse
  */

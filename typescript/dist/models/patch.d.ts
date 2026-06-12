@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PatchCategory } from './patch-category';
-import type { PatchGuid } from './patch-guid';
+import type { PatchCategory } from './patch-category.js';
+import type { PatchGuid } from './patch-guid.js';
 export interface Patch {
     'author': string;
     'category': PatchCategory;

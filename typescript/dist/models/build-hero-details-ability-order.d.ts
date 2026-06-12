@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BuildHeroDetailsAbilityOrderCurrencyChange } from './build-hero-details-ability-order-currency-change';
+import type { BuildHeroDetailsAbilityOrderCurrencyChange } from './build-hero-details-ability-order-currency-change.js';
 export interface BuildHeroDetailsAbilityOrder {
     'currency_changes'?: Array<BuildHeroDetailsAbilityOrderCurrencyChange> | null;
 }

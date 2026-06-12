@@ -1,0 +1,1 @@
+{"version":3,"file":"hero-stats-ui.d.ts","sourceRoot":"","sources":["../../models/hero-stats-ui.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,2BAA2B,CAAC;AAEpE,MAAM,WAAW,WAAW;IACxB,eAAe,EAAE,KAAK,CAAC,kBAAkB,CAAC,CAAC;IAC3C,qBAAqB,EAAE,MAAM,CAAC;CACjC"}

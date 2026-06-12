@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PlayerAccountHeroStats } from './player-account-hero-stats';
+import type { PlayerAccountHeroStats } from './player-account-hero-stats.js';
 export interface PlayerAccountStats {
     'account_id': number;
     'stats': Array<PlayerAccountHeroStats>;

@@ -9,11 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { type RequestArgs, BaseAPI } from '../base';
+import { type RequestArgs, BaseAPI } from '../base.js';
 import type { ActiveMatch } from '../models/index.js';
 import type { ClickhouseMatchInfo } from '../models/index.js';
+import type { IngestLiveUrl } from '../models/index.js';
 import type { LiveUrl } from '../models/index.js';
 import type { MatchSaltsResponse } from '../models/index.js';
 import type { MatchSpectateResponse } from '../models/index.js';
@@ -48,6 +49,7 @@ export declare const MatchesApiAxiosParamCreator: (configuration?: Configuration
      * @param {boolean} [includePlayerKda] Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
      * @param {boolean} [includePlayerItems] Include player items in the response.
      * @param {boolean} [includePlayerStats] Include player stats in the response.
+     * @param {boolean} [includePlayerFinalStats] Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field.
      * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
      * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
@@ -56,15 +58,15 @@ export declare const MatchesApiAxiosParamCreator: (configuration?: Configuration
      * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
      * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
      * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
      * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
      * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
      * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
-     * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [itemFilterHeroId] Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
      * @param {string | null} [includeItemIds] Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
      * @param {string | null} [excludeItemIds] Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
@@ -73,10 +75,19 @@ export declare const MatchesApiAxiosParamCreator: (configuration?: Configuration
      * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
      * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
      * @param {number} [limit] The maximum number of matches to return.
+     * @param {BulkMetadataFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkMetadata: (includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    bulkMetadata: (includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerFinalStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, format?: BulkMetadataFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Ingest Live Broadcast URLs
+     * @param {Array<IngestLiveUrl>} ingestLiveUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestUrls: (ingestLiveUrl: Array<IngestLiveUrl>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata
@@ -108,12 +119,13 @@ export declare const MatchesApiAxiosParamCreator: (configuration?: Configuration
      *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |
      * @summary Salts
      * @param {number} matchId The match ID
+     * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    salts: (matchId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    salts: (matchId: number, disableSteam?: boolean | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
      * @summary Live Broadcast URL
      * @param {number} matchId The match ID
      * @param {*} [options] Override http request option.
@@ -159,6 +171,7 @@ export declare const MatchesApiFp: (configuration?: Configuration) => {
      * @param {boolean} [includePlayerKda] Include only K/D/A fields (&#x60;kills&#x60;, &#x60;deaths&#x60;, &#x60;assists&#x60;) for players.
      * @param {boolean} [includePlayerItems] Include player items in the response.
      * @param {boolean} [includePlayerStats] Include player stats in the response.
+     * @param {boolean} [includePlayerFinalStats] Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field.
      * @param {boolean} [includePlayerDeathDetails] Include player death details in the response.
      * @param {BulkMetadataGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter.
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
@@ -167,15 +180,15 @@ export declare const MatchesApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
      * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
      * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
-     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
-     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
      * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
      * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
      * @param {Array<number> | null} [accountIds] Filter matches by account IDs of players that participated in the match.
-     * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [itemFilterHeroId] Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
      * @param {string | null} [includeItemIds] Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items.
      * @param {string | null} [excludeItemIds] Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items.
@@ -184,10 +197,19 @@ export declare const MatchesApiFp: (configuration?: Configuration) => {
      * @param {BulkMetadataOrderByEnum} [orderBy] The field to order the results by.
      * @param {BulkMetadataOrderDirectionEnum} [orderDirection] The direction to order the results by.
      * @param {number} [limit] The maximum number of matches to return.
+     * @param {BulkMetadataFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerFinalStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, format?: BulkMetadataFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    /**
+     *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Ingest Live Broadcast URLs
+     * @param {Array<IngestLiveUrl>} ingestLiveUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestUrls(ingestLiveUrl: Array<IngestLiveUrl>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata
@@ -219,12 +241,13 @@ export declare const MatchesApiFp: (configuration?: Configuration) => {
      *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |
      * @summary Salts
      * @param {number} matchId The match ID
+     * @param {boolean | null} [disableSteam] If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    salts(matchId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MatchSaltsResponse>>;
+    salts(matchId: number, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MatchSaltsResponse>>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
      * @summary Live Broadcast URL
      * @param {number} matchId The match ID
      * @param {*} [options] Override http request option.
@@ -267,6 +290,14 @@ export declare const MatchesApiFactory: (configuration?: Configuration, basePath
      */
     bulkMetadata(requestParameters?: MatchesApiBulkMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
     /**
+     *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Ingest Live Broadcast URLs
+     * @param {MatchesApiIngestUrlsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestUrls(requestParameters: MatchesApiIngestUrlsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
      *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata
      * @param {MatchesApiMetadataRequest} requestParameters Request parameters.
@@ -298,7 +329,7 @@ export declare const MatchesApiFactory: (configuration?: Configuration, basePath
      */
     salts(requestParameters: MatchesApiSaltsRequest, options?: RawAxiosRequestConfig): AxiosPromise<MatchSaltsResponse>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
      * @summary Live Broadcast URL
      * @param {MatchesApiUrlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -363,6 +394,10 @@ export interface MatchesApiBulkMetadataRequest {
      */
     readonly includePlayerStats?: boolean;
     /**
+     * Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field.
+     */
+    readonly includePlayerFinalStats?: boolean;
+    /**
      * Include player death details in the response.
      */
     readonly includePlayerDeathDetails?: boolean;
@@ -395,11 +430,11 @@ export interface MatchesApiBulkMetadataRequest {
      */
     readonly maxDurationS?: number | null;
     /**
-     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      */
     readonly minAverageBadge?: number | null;
     /**
-     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://assets.deadlock-api.com/v2/ranks&gt;
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      */
     readonly maxAverageBadge?: number | null;
     /**
@@ -427,7 +462,7 @@ export interface MatchesApiBulkMetadataRequest {
      */
     readonly accountIds?: Array<number> | null;
     /**
-     * Filter matches based on the hero IDs. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroIds?: string | null;
     /**
@@ -462,6 +497,16 @@ export interface MatchesApiBulkMetadataRequest {
      * The maximum number of matches to return.
      */
     readonly limit?: number;
+    /**
+     * The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
+     */
+    readonly format?: BulkMetadataFormatEnum;
+}
+/**
+ * Request parameters for ingestUrls operation in MatchesApi.
+ */
+export interface MatchesApiIngestUrlsRequest {
+    readonly ingestLiveUrl: Array<IngestLiveUrl>;
 }
 /**
  * Request parameters for metadata operation in MatchesApi.
@@ -499,6 +544,10 @@ export interface MatchesApiSaltsRequest {
      * The match ID
      */
     readonly matchId: number;
+    /**
+     * If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead.
+     */
+    readonly disableSteam?: boolean | null;
 }
 /**
  * Request parameters for url operation in MatchesApi.
@@ -537,6 +586,14 @@ export declare class MatchesApi extends BaseAPI {
      */
     bulkMetadata(requestParameters?: MatchesApiBulkMetadataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}>>;
     /**
+     *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Ingest Live Broadcast URLs
+     * @param {MatchesApiIngestUrlsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestUrls(requestParameters: MatchesApiIngestUrlsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    /**
      *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata
      * @param {MatchesApiMetadataRequest} requestParameters Request parameters.
@@ -568,7 +625,7 @@ export declare class MatchesApi extends BaseAPI {
      */
     salts(requestParameters: MatchesApiSaltsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MatchSaltsResponse, any, {}>>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/30mins | | Key | 60req/min | | Global | 100req/10s |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/h | | Key | 5req/m, 100req/h | | Global | 5req/10s, 500req/h |
      * @summary Live Broadcast URL
      * @param {MatchesApiUrlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -601,4 +658,9 @@ export declare const BulkMetadataOrderDirectionEnum: {
     readonly Asc: "asc";
 };
 export type BulkMetadataOrderDirectionEnum = typeof BulkMetadataOrderDirectionEnum[keyof typeof BulkMetadataOrderDirectionEnum];
+export declare const BulkMetadataFormatEnum: {
+    readonly Json: "json";
+    readonly Ndjson: "ndjson";
+};
+export type BulkMetadataFormatEnum = typeof BulkMetadataFormatEnum[keyof typeof BulkMetadataFormatEnum];
 //# sourceMappingURL=matches-api.d.ts.map

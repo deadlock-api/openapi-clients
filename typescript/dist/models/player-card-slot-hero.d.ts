@@ -11,7 +11,7 @@
  */
 export interface PlayerCardSlotHero {
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'id'?: number | null;
     'kills'?: number | null;

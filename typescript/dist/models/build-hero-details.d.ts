@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { BuildHeroDetailsAbilityOrder } from './build-hero-details-ability-order';
-import type { BuildHeroDetailsCategory } from './build-hero-details-category';
+import type { BuildHeroDetailsAbilityOrder } from './build-hero-details-ability-order.js';
+import type { BuildHeroDetailsCategory } from './build-hero-details-category.js';
 export interface BuildHeroDetails {
     'ability_order'?: BuildHeroDetailsAbilityOrder | null;
     'mod_categories': Array<BuildHeroDetailsCategory>;

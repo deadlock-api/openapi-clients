@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { TableSize } from './table-size';
+import type { TableSize } from './table-size.js';
 export interface APIInfo {
     /**
      * The number of matches fetched in the last 24 hours.

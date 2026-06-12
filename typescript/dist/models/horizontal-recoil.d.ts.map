@@ -1,0 +1,1 @@
+{"version":3,"file":"horizontal-recoil.d.ts","sourceRoot":"","sources":["../../models/horizontal-recoil.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,mBAAmB,CAAC;AAErD,MAAM,WAAW,gBAAgB;IAC7B,gBAAgB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACjC,OAAO,CAAC,EAAE,WAAW,GAAG,IAAI,CAAC;CAChC"}

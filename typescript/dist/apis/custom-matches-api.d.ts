@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { type RequestArgs, BaseAPI } from '../base';
+import { type RequestArgs, BaseAPI } from '../base.js';
 import type { CreateCustomRequest } from '../models/index.js';
 import type { CreateCustomResponse } from '../models/index.js';
 import type { GetCustomMatchIdResponse } from '../models/index.js';
@@ -20,7 +20,7 @@ import type { GetCustomMatchIdResponse } from '../models/index.js';
  */
 export declare const CustomMatchesApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Create Match
      * @param {CreateCustomRequest} createCustomRequest
      * @param {*} [options] Override http request option.
@@ -36,7 +36,7 @@ export declare const CustomMatchesApiAxiosParamCreator: (configuration?: Configu
      */
     getCustom: (partyId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Leave Lobby
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -44,7 +44,7 @@ export declare const CustomMatchesApiAxiosParamCreator: (configuration?: Configu
      */
     leave: (lobbyId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Ready Up
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -52,7 +52,7 @@ export declare const CustomMatchesApiAxiosParamCreator: (configuration?: Configu
      */
     readyUp: (lobbyId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Start Match
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -60,7 +60,7 @@ export declare const CustomMatchesApiAxiosParamCreator: (configuration?: Configu
      */
     start: (lobbyId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Unready
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -73,7 +73,7 @@ export declare const CustomMatchesApiAxiosParamCreator: (configuration?: Configu
  */
 export declare const CustomMatchesApiFp: (configuration?: Configuration) => {
     /**
-     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Create Match
      * @param {CreateCustomRequest} createCustomRequest
      * @param {*} [options] Override http request option.
@@ -89,7 +89,7 @@ export declare const CustomMatchesApiFp: (configuration?: Configuration) => {
      */
     getCustom(partyId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCustomMatchIdResponse>>;
     /**
-     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Leave Lobby
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -97,7 +97,7 @@ export declare const CustomMatchesApiFp: (configuration?: Configuration) => {
      */
     leave(lobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Ready Up
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -105,7 +105,7 @@ export declare const CustomMatchesApiFp: (configuration?: Configuration) => {
      */
     readyUp(lobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Start Match
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -113,7 +113,7 @@ export declare const CustomMatchesApiFp: (configuration?: Configuration) => {
      */
     start(lobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Unready
      * @param {string} lobbyId
      * @param {*} [options] Override http request option.
@@ -126,7 +126,7 @@ export declare const CustomMatchesApiFp: (configuration?: Configuration) => {
  */
 export declare const CustomMatchesApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Create Match
      * @param {CustomMatchesApiCreateCustomRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -142,7 +142,7 @@ export declare const CustomMatchesApiFactory: (configuration?: Configuration, ba
      */
     getCustom(requestParameters: CustomMatchesApiGetCustomRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetCustomMatchIdResponse>;
     /**
-     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Leave Lobby
      * @param {CustomMatchesApiLeaveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -150,7 +150,7 @@ export declare const CustomMatchesApiFactory: (configuration?: Configuration, ba
      */
     leave(requestParameters: CustomMatchesApiLeaveRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
     /**
-     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Ready Up
      * @param {CustomMatchesApiReadyUpRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -158,7 +158,7 @@ export declare const CustomMatchesApiFactory: (configuration?: Configuration, ba
      */
     readyUp(requestParameters: CustomMatchesApiReadyUpRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
     /**
-     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Start Match
      * @param {CustomMatchesApiStartRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -166,7 +166,7 @@ export declare const CustomMatchesApiFactory: (configuration?: Configuration, ba
      */
     start(requestParameters: CustomMatchesApiStartRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
     /**
-     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Unready
      * @param {CustomMatchesApiUnreadyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -215,7 +215,7 @@ export interface CustomMatchesApiUnreadyRequest {
  */
 export declare class CustomMatchesApi extends BaseAPI {
     /**
-     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint creates a custom match using a bot account.  **Process:** 1. A party is created with your provided settings. 2. The system waits for the party code to be generated. 3. The party code is returned in the response. 4. The bot switches to spectator mode. 5. The bot marks itself as ready. 6. You and other players join, ready up, and start the match.  **Callbacks:** If a callback URL is provided, POST requests will be sent to it: - **settings:** When lobby settings change, a POST is sent to `{callback_url}/settings` with the `CsoCitadelParty` protobuf message as JSON. - **match start:** When the match starts, a POST is sent to `{callback_url}` with the match ID.  _Protobuf definitions: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)_  **Note:** The bot will leave the match 15 minutes after creation, regardless of match state.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Create Match
      * @param {CustomMatchesApiCreateCustomRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -231,7 +231,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      */
     getCustom(requestParameters: CustomMatchesApiGetCustomRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GetCustomMatchIdResponse, any, {}>>;
     /**
-     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Leave Lobby
      * @param {CustomMatchesApiLeaveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -239,7 +239,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      */
     leave(requestParameters: CustomMatchesApiLeaveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
     /**
-     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Ready Up
      * @param {CustomMatchesApiReadyUpRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -247,7 +247,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      */
     readyUp(requestParameters: CustomMatchesApiReadyUpRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
     /**
-     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Start Match
      * @param {CustomMatchesApiStartRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -255,7 +255,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      */
     start(requestParameters: CustomMatchesApiStartRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
     /**
-     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | API-Key ONLY | | Key | 100req/30min | | Global | 1000req/h |
+     *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Unready
      * @param {CustomMatchesApiUnreadyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

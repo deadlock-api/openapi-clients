@@ -6,12 +6,12 @@ Create a config.yaml file similar to what is below, then run the following power
 
 ```yaml
 generatorName: csharp
-inputSpec: https://api.deadlock-api.com/openapi.json
+inputSpec: openapi.json
 outputDir: out
 
 # https://openapi-generator.tech/docs/generators/csharp
 additionalProperties:
-  packageGuid: '{5457B49E-BEB6-4306-A168-868FE5FB39D5}'
+  packageGuid: '{C957455C-7BFE-4A75-A07F-9936480B5DDC}'
 
 # https://openapi-generator.tech/docs/integrations/#github-integration
 # gitHost:

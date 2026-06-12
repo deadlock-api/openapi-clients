@@ -18,7 +18,7 @@ export interface PlayerMatchHistoryEntry {
     'denies': number;
     'game_mode': number;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
     'hero_level': number;

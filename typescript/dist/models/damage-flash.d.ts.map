@@ -1,0 +1,1 @@
+{"version":3,"file":"damage-flash.d.ts","sourceRoot":"","sources":["../../models/damage-flash.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,iBAAiB,CAAC;AAEjD,MAAM,WAAW,WAAW;IACxB,eAAe,EAAE,SAAS,CAAC;IAC3B,aAAa,EAAE,SAAS,CAAC;IACzB,gBAAgB,EAAE,SAAS,CAAC;IAC5B,cAAc,EAAE,SAAS,CAAC;IAC1B,aAAa,EAAE,SAAS,CAAC;CAC5B"}

@@ -43,7 +43,7 @@ export interface HeroCounterStats {
      */
     'enemy_denies': number;
     /**
-     * The ID of the opposing hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+     * The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'enemy_hero_id': number;
     /**
@@ -63,7 +63,7 @@ export interface HeroCounterStats {
      */
     'enemy_obj_damage': number;
     /**
-     * The ID of the hero. See more: <https://assets.deadlock-api.com/v2/heroes>
+     * The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
     /**

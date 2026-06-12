@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from "./configuration";
-import type { RequestArgs } from "./base";
+import type { Configuration } from "./configuration.js";
+import type { RequestArgs } from "./base.js";
 import type { AxiosInstance, AxiosResponse } from 'axios';
 export declare const DUMMY_BASE_URL = "https://example.com";
 /**

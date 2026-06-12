@@ -14,9 +14,9 @@
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setSearchParams, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setSearchParams, toPathString, createRequestFunction } from '../common.js';
 // @ts-ignore
-import { BASE_PATH, BaseAPI, operationServerMap } from '../base';
+import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 /**
  * MMRApi - axios parameter creator
  */
@@ -26,7 +26,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
          *  Batch Player Hero MMR
          * @summary Batch Hero MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -65,7 +65,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
         /**
          *  Player Hero MMR Distribution
          * @summary Hero MMR Distribution
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -132,7 +132,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
          * Player Hero MMR History
          * @summary Hero MMR History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -302,7 +302,7 @@ export const MMRApiFp = function (configuration) {
          *  Batch Player Hero MMR
          * @summary Batch Hero MMR
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -316,7 +316,7 @@ export const MMRApiFp = function (configuration) {
         /**
          *  Player Hero MMR Distribution
          * @summary Hero MMR Distribution
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -339,7 +339,7 @@ export const MMRApiFp = function (configuration) {
          * Player Hero MMR History
          * @summary Hero MMR History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+         * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */

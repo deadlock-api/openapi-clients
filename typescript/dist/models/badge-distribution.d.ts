@@ -11,7 +11,7 @@
  */
 export interface BadgeDistribution {
     /**
-     * The badge level (tier = first digits, subtier = last digit). See more: <https://assets.deadlock-api.com/v2/ranks>
+     * The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'badge_level': number;
     /**

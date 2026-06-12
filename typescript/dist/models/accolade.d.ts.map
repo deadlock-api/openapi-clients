@@ -1,0 +1,1 @@
+{"version":3,"file":"accolade.d.ts","sourceRoot":"","sources":["../../models/accolade.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,QAAQ;IACrB,YAAY,EAAE,MAAM,CAAC;IACrB,aAAa,EAAE,MAAM,CAAC;IACtB,oBAAoB,CAAC,EAAE,KAAK,CAAC,MAAM,CAAC,GAAG,IAAI,CAAC;IAC5C,aAAa,EAAE,MAAM,CAAC;IACtB,IAAI,EAAE,MAAM,CAAC;IACb,gBAAgB,EAAE,MAAM,CAAC;IACzB,mBAAmB,EAAE,MAAM,CAAC;CAC/B"}

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PlayerCardSlotHero } from './player-card-slot-hero';
-import type { PlayerCardSlotStat } from './player-card-slot-stat';
+import type { PlayerCardSlotHero } from './player-card-slot-hero.js';
+import type { PlayerCardSlotStat } from './player-card-slot-stat.js';
 export interface PlayerCardSlot {
     'hero'?: PlayerCardSlotHero | null;
     'slot_id'?: number | null;

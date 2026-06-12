@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ActiveMatchTeam } from './active-match-team';
+import type { ActiveMatchTeam } from './active-match-team.js';
 export interface ActiveMatchPlayer {
     'abandoned'?: boolean | null;
     'account_id'?: number | null;
     /**
-     * See more: <https://assets.deadlock-api.com/v2/heroes>
+     * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id'?: number | null;
     'team'?: number | null;

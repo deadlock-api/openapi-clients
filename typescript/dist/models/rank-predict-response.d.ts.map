@@ -1,1 +1,1 @@
-{"version":3,"file":"rank-predict-response.d.ts","sourceRoot":"","sources":["../../models/rank-predict-response.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,mBAAmB,CAAC;AAExD;;GAEG;AACH,MAAM,MAAM,mBAAmB,GAAG,cAAc,CAAC"}
+{"version":3,"file":"rank-predict-response.d.ts","sourceRoot":"","sources":["../../models/rank-predict-response.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,sBAAsB,CAAC;AAE3D;;GAEG;AACH,MAAM,MAAM,mBAAmB,GAAG,cAAc,CAAC"}

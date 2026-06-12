@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { LeaderboardEntry } from './leaderboard-entry';
+import type { LeaderboardEntry } from './leaderboard-entry.js';
 export interface Leaderboard {
     /**
      * The leaderboard entries.

@@ -11,7 +11,7 @@
  */
 export interface RankPrediction {
     /**
-     * See more: <https://assets.deadlock-api.com/v2/ranks>
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'badge': number;
     /**

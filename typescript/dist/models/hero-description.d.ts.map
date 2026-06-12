@@ -1,0 +1,1 @@
+{"version":3,"file":"hero-description.d.ts","sourceRoot":"","sources":["../../models/hero-description.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,eAAe;IAC5B,MAAM,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACvB,WAAW,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC5B,MAAM,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;CAC1B"}

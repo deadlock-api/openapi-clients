@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { type RequestArgs, BaseAPI } from '../base';
+import { type RequestArgs, BaseAPI } from '../base.js';
 import type { Leaderboard } from '../models/index.js';
 /**
  * LeaderboardApi - axios parameter creator
@@ -29,7 +29,7 @@ export declare const LeaderboardApiAxiosParamCreator: (configuration?: Configura
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard
      * @param {LeaderboardHeroRegionEnum} region The region to fetch the leaderboard for.
-     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -38,7 +38,7 @@ export declare const LeaderboardApiAxiosParamCreator: (configuration?: Configura
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard as Protobuf
      * @param {LeaderboardHeroRawRegionEnum} region The region to fetch the leaderboard for.
-     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -68,7 +68,7 @@ export declare const LeaderboardApiFp: (configuration?: Configuration) => {
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard
      * @param {LeaderboardHeroRegionEnum} region The region to fetch the leaderboard for.
-     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -77,7 +77,7 @@ export declare const LeaderboardApiFp: (configuration?: Configuration) => {
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard as Protobuf
      * @param {LeaderboardHeroRawRegionEnum} region The region to fetch the leaderboard for.
-     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -146,7 +146,7 @@ export interface LeaderboardApiLeaderboardHeroRequest {
      */
     readonly region: LeaderboardHeroRegionEnum;
     /**
-     * The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId: number;
 }
@@ -159,7 +159,7 @@ export interface LeaderboardApiLeaderboardHeroRawRequest {
      */
     readonly region: LeaderboardHeroRawRegionEnum;
     /**
-     * The hero ID to fetch the leaderboard for. See more: &lt;https://assets.deadlock-api.com/v2/heroes&gt;
+     * The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId: number;
 }

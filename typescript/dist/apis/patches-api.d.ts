@@ -9,9 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from '../configuration';
+import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import { type RequestArgs, BaseAPI } from '../base';
+import { type RequestArgs, BaseAPI } from '../base.js';
+import type { FeedItem } from '../models/index.js';
 import type { Patch } from '../models/index.js';
 /**
  * PatchesApi - axios parameter creator
@@ -25,12 +26,20 @@ export declare const PatchesApiAxiosParamCreator: (configuration?: Configuration
      */
     bigPatchDays: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Notes
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    feed: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Notes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    feed_1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * PatchesApi - functional programming interface
@@ -44,12 +53,20 @@ export declare const PatchesApiFp: (configuration?: Configuration) => {
      */
     bigPatchDays(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
     /**
-     *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Notes
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    feed(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Patch>>>;
+    /**
+     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Notes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Patch>>>;
+    feed_1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeedItem>>>;
 };
 /**
  * PatchesApi - factory interface
@@ -63,12 +80,20 @@ export declare const PatchesApiFactory: (configuration?: Configuration, basePath
      */
     bigPatchDays(options?: RawAxiosRequestConfig): AxiosPromise<Array<string>>;
     /**
-     *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Notes
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    feed(options?: RawAxiosRequestConfig): AxiosPromise<Array<Patch>>;
+    /**
+     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Notes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed(options?: RawAxiosRequestConfig): AxiosPromise<Array<Patch>>;
+    feed_1(options?: RawAxiosRequestConfig): AxiosPromise<Array<FeedItem>>;
 };
 /**
  * PatchesApi - object-oriented interface
@@ -82,11 +107,19 @@ export declare class PatchesApi extends BaseAPI {
      */
     bigPatchDays(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string[], any, {}>>;
     /**
-     *  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     * @summary Notes
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    feed(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Patch[], any, {}>>;
+    /**
+     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Notes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Patch[], any, {}>>;
+    feed_1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<FeedItem[], any, {}>>;
 }
 //# sourceMappingURL=patches-api.d.ts.map
