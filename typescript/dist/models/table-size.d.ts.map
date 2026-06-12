@@ -1,0 +1,1 @@
+{"version":3,"file":"table-size.d.ts","sourceRoot":"","sources":["../../models/table-size.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,SAAS;IACtB;;OAEG;IACH,uBAAuB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACxC;;OAEG;IACH,yBAAyB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC1C;;OAEG;IACH,SAAS,EAAE,OAAO,CAAC;IACnB;;OAEG;IACH,MAAM,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;CAC1B"}

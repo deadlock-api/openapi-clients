@@ -1,0 +1,1 @@
+{"version":3,"file":"clickhouse-salts.d.ts","sourceRoot":"","sources":["../../models/clickhouse-salts.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,eAAe;IAC5B,YAAY,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC7B,UAAU,EAAE,MAAM,CAAC;IACnB,eAAe,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAChC,aAAa,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC9B,UAAU,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;CAC9B"}

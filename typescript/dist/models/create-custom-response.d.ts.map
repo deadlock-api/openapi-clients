@@ -1,0 +1,1 @@
+{"version":3,"file":"create-custom-response.d.ts","sourceRoot":"","sources":["../../models/create-custom-response.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,oBAAoB;IACjC;;OAEG;IACH,iBAAiB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAClC,YAAY,EAAE,MAAM,CAAC;IACrB,UAAU,EAAE,MAAM,CAAC;CACtB"}

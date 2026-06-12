@@ -1,0 +1,1 @@
+{"version":3,"file":"mate-stats.d.ts","sourceRoot":"","sources":["../../models/mate-stats.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,SAAS;IACtB,SAAS,EAAE,KAAK,CAAC,MAAM,CAAC,CAAC;IACzB,gBAAgB,EAAE,MAAM,CAAC;IACzB,SAAS,EAAE,MAAM,CAAC;IAClB,MAAM,EAAE,MAAM,CAAC;CAClB"}

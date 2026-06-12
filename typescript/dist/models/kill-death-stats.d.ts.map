@@ -1,0 +1,1 @@
+{"version":3,"file":"kill-death-stats.d.ts","sourceRoot":"","sources":["../../models/kill-death-stats.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,cAAc;IAC3B,QAAQ,EAAE,MAAM,CAAC;IACjB,aAAa,EAAE,MAAM,CAAC;IACtB,OAAO,EAAE,MAAM,CAAC;IAChB,YAAY,EAAE,MAAM,CAAC;IACrB,YAAY,EAAE,MAAM,CAAC;CACxB"}

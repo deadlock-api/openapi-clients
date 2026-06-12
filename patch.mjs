@@ -90,4 +90,14 @@ rmSync(tsconfigEsmPath, { force: true });
 
 addJsExtensions(dir);
 
+// Remove `dist` from the generated .gitignore so the built output is committed
+const gitignorePath = resolve(dir, ".gitignore");
+if (existsSync(gitignorePath)) {
+  const patched = readFileSync(gitignorePath, "utf8")
+    .split("\n")
+    .filter((line) => line.trim() !== "dist")
+    .join("\n");
+  writeFileSync(gitignorePath, patched);
+}
+
 console.log(`patched ${dir}`);

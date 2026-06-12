@@ -1,0 +1,1 @@
+{"version":3,"file":"build-hero-details.d.ts","sourceRoot":"","sources":["../../models/build-hero-details.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,4BAA4B,EAAE,MAAM,oCAAoC,CAAC;AAGvF,OAAO,KAAK,EAAE,wBAAwB,EAAE,MAAM,+BAA+B,CAAC;AAE9E,MAAM,WAAW,gBAAgB;IAC7B,eAAe,CAAC,EAAE,4BAA4B,GAAG,IAAI,CAAC;IACtD,gBAAgB,EAAE,KAAK,CAAC,wBAAwB,CAAC,CAAC;CACrD"}

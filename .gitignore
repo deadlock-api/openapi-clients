@@ -480,4 +480,7 @@ tags
 .history
 .ionide
 
+# Un-ignore compiled TypeScript client (must come after all `dist` rules above)
+!typescript/dist/
+
 # End of https://www.toptal.com/developers/gitignore/api/node,jetbrains+all,visualstudiocode,vim,python,venv,java

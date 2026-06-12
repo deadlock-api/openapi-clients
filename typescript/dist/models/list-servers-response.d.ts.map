@@ -1,0 +1,1 @@
+{"version":3,"file":"list-servers-response.d.ts","sourceRoot":"","sources":["../../models/list-servers-response.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,oBAAoB,CAAC;AAEzD,MAAM,WAAW,mBAAmB;IAChC,SAAS,EAAE,KAAK,CAAC,cAAc,CAAC,CAAC;CACpC"}
