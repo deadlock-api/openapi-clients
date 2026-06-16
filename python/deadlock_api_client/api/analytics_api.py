@@ -1368,6 +1368,12 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1405,6 +1411,18 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type hero_ids: List[int]
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type exclude_item_ids: List[int]
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1438,6 +1456,12 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            hero_ids=hero_ids,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
+            account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1473,6 +1497,12 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1510,6 +1540,18 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type hero_ids: List[int]
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type exclude_item_ids: List[int]
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1543,6 +1585,12 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            hero_ids=hero_ids,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
+            account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1578,6 +1626,12 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1615,6 +1669,18 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type hero_ids: List[int]
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type exclude_item_ids: List[int]
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1648,6 +1714,12 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            hero_ids=hero_ids,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
+            account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1678,6 +1750,12 @@ class AnalyticsApi:
         max_average_badge,
         min_match_id,
         max_match_id,
+        min_networth,
+        max_networth,
+        hero_ids,
+        include_item_ids,
+        exclude_item_ids,
+        account_ids,
         _request_auth,
         _content_type,
         _headers,
@@ -1687,6 +1765,10 @@ class AnalyticsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'hero_ids': 'multi',
+            'include_item_ids': 'multi',
+            'exclude_item_ids': 'multi',
+            'account_ids': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1739,6 +1821,30 @@ class AnalyticsApi:
         if max_match_id is not None:
             
             _query_params.append(('max_match_id', max_match_id))
+            
+        if min_networth is not None:
+            
+            _query_params.append(('min_networth', min_networth))
+            
+        if max_networth is not None:
+            
+            _query_params.append(('max_networth', max_networth))
+            
+        if hero_ids is not None:
+            
+            _query_params.append(('hero_ids', hero_ids))
+            
+        if include_item_ids is not None:
+            
+            _query_params.append(('include_item_ids', include_item_ids))
+            
+        if exclude_item_ids is not None:
+            
+            _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if account_ids is not None:
+            
+            _query_params.append(('account_ids', account_ids))
             
         # process the header parameters
         # process the form parameters

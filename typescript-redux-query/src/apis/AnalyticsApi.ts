@@ -123,6 +123,12 @@ export interface GameStatsRequest {
     maxAverageBadge?: number;
     minMatchId?: number;
     maxMatchId?: number;
+    minNetworth?: number;
+    maxNetworth?: number;
+    heroIds?: Array<number>;
+    includeItemIds?: Array<number>;
+    excludeItemIds?: Array<number>;
+    accountIds?: Array<number>;
 }
 
 export interface HeroBanStatsRequest {
@@ -774,6 +780,36 @@ function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: run
 
     if (requestParameters.maxMatchId !== undefined) {
         queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+
+    if (requestParameters.minNetworth !== undefined) {
+        queryParameters['min_networth'] = requestParameters.minNetworth;
+    }
+
+
+    if (requestParameters.maxNetworth !== undefined) {
+        queryParameters['max_networth'] = requestParameters.maxNetworth;
+    }
+
+
+    if (requestParameters.heroIds) {
+        queryParameters['hero_ids'] = requestParameters.heroIds;
+    }
+
+
+    if (requestParameters.includeItemIds) {
+        queryParameters['include_item_ids'] = requestParameters.includeItemIds;
+    }
+
+
+    if (requestParameters.excludeItemIds) {
+        queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
+    }
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
