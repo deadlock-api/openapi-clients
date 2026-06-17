@@ -2002,7 +2002,7 @@ export function itemPermutationStats<T>(requestParameters: ItemPermutationStatsR
 }
 
 /**
- *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Stats
  */
 function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ItemStats>> = {}): QueryConfig<T> {
@@ -2174,7 +2174,7 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 }
 
 /**
-*  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Stats
 */
 export function itemStats<T>(requestParameters: ItemStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ItemStats>>): QueryConfig<T> {

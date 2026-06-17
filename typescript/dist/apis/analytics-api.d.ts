@@ -323,7 +323,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      */
     itemPermutationStats: (itemIds?: Array<number> | null, combSize?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
      * @param {ItemStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
      * @param {ItemStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -752,7 +752,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      */
     itemPermutationStats(itemIds?: Array<number> | null, combSize?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemPermutationStats>>>;
     /**
-     *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
      * @param {ItemStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field.
      * @param {ItemStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -999,7 +999,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      */
     itemPermutationStats(requestParameters?: AnalyticsApiItemPermutationStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<ItemPermutationStats>>;
     /**
-     *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
      * @param {AnalyticsApiItemStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -2432,7 +2432,7 @@ export declare class AnalyticsApi extends BaseAPI {
      */
     itemPermutationStats(requestParameters?: AnalyticsApiItemPermutationStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ItemPermutationStats[], any, {}>>;
     /**
-     *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
      * @param {AnalyticsApiItemStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
