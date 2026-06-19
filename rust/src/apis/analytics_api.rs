@@ -529,7 +529,9 @@ pub struct ItemStatsParams {
     /// Filter items bought after this game time (seconds).
     pub min_bought_at_s: Option<u32>,
     /// Filter items bought before this game time (seconds).
-    pub max_bought_at_s: Option<u32>
+    pub max_bought_at_s: Option<u32>,
+    /// Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub item_order: Option<Vec<String>>
 }
 
 /// struct for passing parameters to the method [`kill_death_stats`]
@@ -2076,6 +2078,12 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
     }
     if let Some(ref param_value) = params.max_bought_at_s {
         req_builder = req_builder.query(&[("max_bought_at_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.item_order {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("item_order".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("item_order", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

@@ -6721,6 +6721,7 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
         max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
+        item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6792,6 +6793,8 @@ class AnalyticsApi:
         :type min_bought_at_s: int
         :param max_bought_at_s: Filter items bought before this game time (seconds).
         :type max_bought_at_s: int
+        :param item_order: Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type item_order: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6842,6 +6845,7 @@ class AnalyticsApi:
             account_ids=account_ids,
             min_bought_at_s=min_bought_at_s,
             max_bought_at_s=max_bought_at_s,
+            item_order=item_order,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6894,6 +6898,7 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
         max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
+        item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6965,6 +6970,8 @@ class AnalyticsApi:
         :type min_bought_at_s: int
         :param max_bought_at_s: Filter items bought before this game time (seconds).
         :type max_bought_at_s: int
+        :param item_order: Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type item_order: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7015,6 +7022,7 @@ class AnalyticsApi:
             account_ids=account_ids,
             min_bought_at_s=min_bought_at_s,
             max_bought_at_s=max_bought_at_s,
+            item_order=item_order,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7067,6 +7075,7 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
         max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
+        item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7138,6 +7147,8 @@ class AnalyticsApi:
         :type min_bought_at_s: int
         :param max_bought_at_s: Filter items bought before this game time (seconds).
         :type max_bought_at_s: int
+        :param item_order: Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type item_order: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7188,6 +7199,7 @@ class AnalyticsApi:
             account_ids=account_ids,
             min_bought_at_s=min_bought_at_s,
             max_bought_at_s=max_bought_at_s,
+            item_order=item_order,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7235,6 +7247,7 @@ class AnalyticsApi:
         account_ids,
         min_bought_at_s,
         max_bought_at_s,
+        item_order,
         _request_auth,
         _content_type,
         _headers,
@@ -7247,6 +7260,7 @@ class AnalyticsApi:
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
             'account_ids': 'multi',
+            'item_order': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -7367,6 +7381,10 @@ class AnalyticsApi:
         if max_bought_at_s is not None:
             
             _query_params.append(('max_bought_at_s', max_bought_at_s))
+            
+        if item_order is not None:
+            
+            _query_params.append(('item_order', item_order))
             
         # process the header parameters
         # process the form parameters

@@ -335,6 +335,7 @@ export interface ItemStatsRequest {
     accountIds?: Array<number>;
     minBoughtAtS?: number;
     maxBoughtAtS?: number;
+    itemOrder?: Array<string>;
 }
 
 export interface KillDeathStatsRequest {
@@ -2143,6 +2144,11 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 
     if (requestParameters.maxBoughtAtS !== undefined) {
         queryParameters['max_bought_at_s'] = requestParameters.maxBoughtAtS;
+    }
+
+
+    if (requestParameters.itemOrder) {
+        queryParameters['item_order'] = requestParameters.itemOrder;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
