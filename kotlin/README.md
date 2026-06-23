@@ -104,6 +104,9 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up |
 | *CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match |
 | *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready |
+| *DemoApi* | [**schema**](docs/DemoApi.md#schema) | **GET** /v1/matches/demo/schema | Demo Schema |
+| *DemoApi* | [**status**](docs/DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status |
+| *DemoApi* | [**submit**](docs/DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query |
 | *GenericDataApi* | [**getGenericData**](docs/GenericDataApi.md#getgenericdata) | **GET** /v1/assets/generic-data | Get Generic Data |
 | *GraphQLApi* | [**playground**](docs/GraphQLApi.md#playground) | **GET** /v1/graphql | GraphQL Playground |
 | *HeroesApi* | [**getHero**](docs/HeroesApi.md#gethero) | **GET** /v1/assets/heroes/{hero_id} | Get Hero |
@@ -204,11 +207,16 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ClickhouseMatchInfo](docs/ClickhouseMatchInfo.md)
  - [deadlock_api_client.models.ClickhouseSalts](docs/ClickhouseSalts.md)
  - [deadlock_api_client.models.Color](docs/Color.md)
+ - [deadlock_api_client.models.ColumnSchema](docs/ColumnSchema.md)
  - [deadlock_api_client.models.CreateCustomRequest](docs/CreateCustomRequest.md)
  - [deadlock_api_client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
  - [deadlock_api_client.models.Curve](docs/Curve.md)
  - [deadlock_api_client.models.CurveOrFloat](docs/CurveOrFloat.md)
  - [deadlock_api_client.models.DamageFlash](docs/DamageFlash.md)
+ - [deadlock_api_client.models.DemoQueryJobResponse](docs/DemoQueryJobResponse.md)
+ - [deadlock_api_client.models.DemoQueryRequest](docs/DemoQueryRequest.md)
+ - [deadlock_api_client.models.DemoQueryStatusResponse](docs/DemoQueryStatusResponse.md)
+ - [deadlock_api_client.models.DemoSchemaResponse](docs/DemoSchemaResponse.md)
  - [deadlock_api_client.models.DependantAbilities](docs/DependantAbilities.md)
  - [deadlock_api_client.models.DistributionEntry](docs/DistributionEntry.md)
  - [deadlock_api_client.models.DraftBucket](docs/DraftBucket.md)
@@ -262,6 +270,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ItemSlotType](docs/ItemSlotType.md)
  - [deadlock_api_client.models.ItemStats](docs/ItemStats.md)
  - [deadlock_api_client.models.ItemType](docs/ItemType.md)
+ - [deadlock_api_client.models.JobStatus](docs/JobStatus.md)
  - [deadlock_api_client.models.KillDeathStats](docs/KillDeathStats.md)
  - [deadlock_api_client.models.LaneInfo](docs/LaneInfo.md)
  - [deadlock_api_client.models.Leaderboard](docs/Leaderboard.md)
@@ -286,6 +295,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ObjectiveParams](docs/ObjectiveParams.md)
  - [deadlock_api_client.models.ObjectivePosition](docs/ObjectivePosition.md)
  - [deadlock_api_client.models.OutcomeToWeights](docs/OutcomeToWeights.md)
+ - [deadlock_api_client.models.OutputFormat](docs/OutputFormat.md)
  - [deadlock_api_client.models.Patch](docs/Patch.md)
  - [deadlock_api_client.models.PatchCategory](docs/PatchCategory.md)
  - [deadlock_api_client.models.PatchGuid](docs/PatchGuid.md)
@@ -354,6 +364,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.SubclassRangedArmorModifierSubclass](docs/SubclassRangedArmorModifierSubclass.md)
  - [deadlock_api_client.models.SubclassTrooperDamageReduction](docs/SubclassTrooperDamageReduction.md)
  - [deadlock_api_client.models.SubclassTrooperDamageReductionSubclass](docs/SubclassTrooperDamageReductionSubclass.md)
+ - [deadlock_api_client.models.TableSchemaResponse](docs/TableSchemaResponse.md)
  - [deadlock_api_client.models.TableSize](docs/TableSize.md)
  - [deadlock_api_client.models.TooltipDetailsBlock](docs/TooltipDetailsBlock.md)
  - [deadlock_api_client.models.TooltipDetailsBlockProperty](docs/TooltipDetailsBlockProperty.md)

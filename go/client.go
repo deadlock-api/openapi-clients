@@ -67,6 +67,8 @@ type APIClient struct {
 
 	CustomMatchesAPI *CustomMatchesAPIService
 
+	DemoAPI *DemoAPIService
+
 	GenericDataAPI *GenericDataAPIService
 
 	GraphQLAPI *GraphQLAPIService
@@ -133,6 +135,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ColorsAPI = (*ColorsAPIService)(&c.common)
 	c.CommandsAPI = (*CommandsAPIService)(&c.common)
 	c.CustomMatchesAPI = (*CustomMatchesAPIService)(&c.common)
+	c.DemoAPI = (*DemoAPIService)(&c.common)
 	c.GenericDataAPI = (*GenericDataAPIService)(&c.common)
 	c.GraphQLAPI = (*GraphQLAPIService)(&c.common)
 	c.HeroesAPI = (*HeroesAPIService)(&c.common)

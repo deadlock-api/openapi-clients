@@ -41,6 +41,7 @@ docs/ClickhouseSalts.md
 docs/ClientVersionsApi.md
 docs/Color.md
 docs/ColorsApi.md
+docs/ColumnSchema.md
 docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
@@ -48,6 +49,11 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
 docs/DamageFlash.md
+docs/DemoApi.md
+docs/DemoQueryJobResponse.md
+docs/DemoQueryRequest.md
+docs/DemoQueryStatusResponse.md
+docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
 docs/DistributionEntry.md
 docs/DraftBucket.md
@@ -107,6 +113,7 @@ docs/ItemSlotType.md
 docs/ItemStats.md
 docs/ItemType.md
 docs/ItemsApi.md
+docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
 docs/Leaderboard.md
@@ -138,6 +145,7 @@ docs/NpcUnitsApi.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
+docs/OutputFormat.md
 docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
@@ -213,6 +221,7 @@ docs/SubclassRangedArmorModifier.md
 docs/SubclassRangedArmorModifierSubclass.md
 docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
+docs/TableSchemaResponse.md
 docs/TableSize.md
 docs/TooltipDetailsBlock.md
 docs/TooltipDetailsBlockProperty.md
@@ -240,6 +249,7 @@ src/apis/colors_api.rs
 src/apis/commands_api.rs
 src/apis/configuration.rs
 src/apis/custom_matches_api.rs
+src/apis/demo_api.rs
 src/apis/generic_data_api.rs
 src/apis/graph_ql_api.rs
 src/apis/heroes_api.rs
@@ -293,11 +303,16 @@ src/models/build_tag.rs
 src/models/clickhouse_match_info.rs
 src/models/clickhouse_salts.rs
 src/models/color.rs
+src/models/column_schema.rs
 src/models/create_custom_request.rs
 src/models/create_custom_response.rs
 src/models/curve.rs
 src/models/curve_or_float.rs
 src/models/damage_flash.rs
+src/models/demo_query_job_response.rs
+src/models/demo_query_request.rs
+src/models/demo_query_status_response.rs
+src/models/demo_schema_response.rs
 src/models/dependant_abilities.rs
 src/models/distribution_entry.rs
 src/models/draft_bucket.rs
@@ -351,6 +366,7 @@ src/models/item_property.rs
 src/models/item_slot_type.rs
 src/models/item_stats.rs
 src/models/item_type.rs
+src/models/job_status.rs
 src/models/kill_death_stats.rs
 src/models/lane_info.rs
 src/models/leaderboard.rs
@@ -376,6 +392,7 @@ src/models/npc_unit.rs
 src/models/objective_params.rs
 src/models/objective_position.rs
 src/models/outcome_to_weights.rs
+src/models/output_format.rs
 src/models/patch.rs
 src/models/patch_category.rs
 src/models/patch_guid.rs
@@ -444,6 +461,7 @@ src/models/subclass_ranged_armor_modifier.rs
 src/models/subclass_ranged_armor_modifier_subclass.rs
 src/models/subclass_trooper_damage_reduction.rs
 src/models/subclass_trooper_damage_reduction_subclass.rs
+src/models/table_schema_response.rs
 src/models/table_size.rs
 src/models/tooltip_details_block.rs
 src/models/tooltip_details_block_property.rs

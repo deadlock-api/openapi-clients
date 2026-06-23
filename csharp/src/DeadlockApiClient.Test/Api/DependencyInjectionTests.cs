@@ -109,6 +109,9 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
 
+            var demoApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IDemoApi>();
+            Assert.True(demoApi.HttpClient.BaseAddress != null);
+
             var genericDataApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IGenericDataApi>();
             Assert.True(genericDataApi.HttpClient.BaseAddress != null);
 
@@ -202,6 +205,9 @@ namespace DeadlockApiClient.Test.Api
 
             var customMatchesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
+
+            var demoApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IDemoApi>();
+            Assert.True(demoApi.HttpClient.BaseAddress != null);
 
             var genericDataApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IGenericDataApi>();
             Assert.True(genericDataApi.HttpClient.BaseAddress != null);
@@ -297,6 +303,9 @@ namespace DeadlockApiClient.Test.Api
             var customMatchesApi = _hostUsingAddWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
             
+            var demoApi = _hostUsingAddWithAClient.Services.GetRequiredService<IDemoApi>();
+            Assert.True(demoApi.HttpClient.BaseAddress != null);
+            
             var genericDataApi = _hostUsingAddWithAClient.Services.GetRequiredService<IGenericDataApi>();
             Assert.True(genericDataApi.HttpClient.BaseAddress != null);
             
@@ -390,6 +399,9 @@ namespace DeadlockApiClient.Test.Api
 
             var customMatchesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
+
+            var demoApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IDemoApi>();
+            Assert.True(demoApi.HttpClient.BaseAddress != null);
 
             var genericDataApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IGenericDataApi>();
             Assert.True(genericDataApi.HttpClient.BaseAddress != null);

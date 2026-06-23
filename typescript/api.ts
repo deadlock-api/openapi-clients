@@ -23,6 +23,7 @@ export * from './apis/client-versions-api.js';
 export * from './apis/colors-api.js';
 export * from './apis/commands-api.js';
 export * from './apis/custom-matches-api.js';
+export * from './apis/demo-api.js';
 export * from './apis/generic-data-api.js';
 export * from './apis/graph-qlapi.js';
 export * from './apis/heroes-api.js';

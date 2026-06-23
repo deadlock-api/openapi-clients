@@ -1,0 +1,213 @@
+# \DemoAPI
+
+All URIs are relative to *https://api.deadlock-api.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**Schema**](DemoAPI.md#Schema) | **Get** /v1/matches/demo/schema | Demo Schema
+[**Status**](DemoAPI.md#Status) | **Get** /v1/matches/demo/query/{job_id} | Demo Query Status
+[**Submit**](DemoAPI.md#Submit) | **Post** /v1/matches/demo/query | Demo Query
+
+
+
+## Schema
+
+> DemoSchemaResponse Schema(ctx).MatchId(matchId).Execute()
+
+Demo Schema
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	matchId := int64(789) // int64 | Match to read the schema for. If omitted, the schema of the most recent match we have a demo for is returned. When set, the demo's salts are fetched (rate limited) if they are not already stored. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DemoAPI.Schema(context.Background()).MatchId(matchId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DemoAPI.Schema``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Schema`: DemoSchemaResponse
+	fmt.Fprintf(os.Stdout, "Response from `DemoAPI.Schema`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSchemaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **matchId** | **int64** | Match to read the schema for. If omitted, the schema of the most recent match we have a demo for is returned. When set, the demo&#39;s salts are fetched (rate limited) if they are not already stored. | 
+
+### Return type
+
+[**DemoSchemaResponse**](DemoSchemaResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Status
+
+> DemoQueryStatusResponse Status(ctx, jobId).Execute()
+
+Demo Query Status
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	jobId := "jobId_example" // string | Job id returned by POST /demo/query
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DemoAPI.Status(context.Background(), jobId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DemoAPI.Status``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Status`: DemoQueryStatusResponse
+	fmt.Fprintf(os.Stdout, "Response from `DemoAPI.Status`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**jobId** | **string** | Job id returned by POST /demo/query | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DemoQueryStatusResponse**](DemoQueryStatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Submit
+
+> DemoQueryJobResponse Submit(ctx).DemoQueryRequest(demoQueryRequest).Execute()
+
+Demo Query
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	demoQueryRequest := *openapiclient.NewDemoQueryRequest(int64(123), "Query_example") // DemoQueryRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DemoAPI.Submit(context.Background()).DemoQueryRequest(demoQueryRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DemoAPI.Submit``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Submit`: DemoQueryJobResponse
+	fmt.Fprintf(os.Stdout, "Response from `DemoAPI.Submit`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubmitRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **demoQueryRequest** | [**DemoQueryRequest**](DemoQueryRequest.md) |  | 
+
+### Return type
+
+[**DemoQueryJobResponse**](DemoQueryJobResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+

@@ -38,6 +38,11 @@ tags:
   name: Matches
 - description: Custom Match related endpoints
   name: Custom Matches
+- description: |2
+
+    Query and inspect match demo files: discover the queryable schema and run SQL extractions
+    over a demo's entity and event tables.
+  name: Demo
 - description: Player related endpoints
   name: Players
 - description: "\n# STOP! READ THIS FIRST!\n\nPlease be very careful when using this\
@@ -170,7 +175,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -423,7 +428,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -557,7 +562,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -634,7 +639,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -856,7 +861,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -990,7 +995,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -1179,7 +1184,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -1465,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -1723,7 +1728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -1991,7 +1996,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -2266,7 +2271,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -2562,7 +2567,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -2851,7 +2856,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -3140,7 +3145,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -3434,7 +3439,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -3659,7 +3664,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -3961,7 +3966,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -7062,6 +7067,125 @@ paths:
       summary: Get Match ID
       tags:
       - Custom Matches
+  /v1/matches/demo/query:
+    post:
+      description: |2
+
+        Submit a SQL query against a match's demo file. The work (download + decompress + parse +
+        query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via
+        `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result
+        artifact (Parquet or NDJSON).
+
+        Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 5req/h |
+        | Key | 50req/h |
+        | Global | 100req/h |
+      operationId: submit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DemoQueryRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoQueryJobResponse"
+          description: Job already exists (deduplicated)
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoQueryJobResponse"
+          description: Job queued
+        "400":
+          description: Provided parameters are invalid.
+        "404":
+          description: No demo / salts available for the match
+        "429":
+          description: Rate limit exceeded or queue full
+        "500":
+          description: Failed to queue the job
+      summary: Demo Query
+      tags:
+      - Demo
+  /v1/matches/demo/query/{job_id}:
+    get:
+      description: |2
+
+        Returns the status of a demo query job. While `queued`/`running` it includes a rough
+        `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the
+        Parquet/NDJSON artifact); when `failed` it includes `error`.
+      operationId: status
+      parameters:
+      - description: Job id returned by POST /demo/query
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoQueryStatusResponse"
+          description: ""
+        "404":
+          description: Job not found or expired
+      summary: Demo Query Status
+      tags:
+      - Demo
+  /v1/matches/demo/schema:
+    get:
+      description: "\nReturns the queryable schema of a match's demo file: every entity\
+        \ and event table with its\ncolumns and Arrow types.\n\nBy default this returns\
+        \ the schema of the most recent match we have a demo for. Optionally\npass\
+        \ `match_id` to read the schema for a specific match; if we don't already\
+        \ have its salts,\nthey are fetched from Steam (rate limited, see `/{match_id}/salts`).\n\
+        \    "
+      operationId: schema
+      parameters:
+      - description: |-
+          Match to read the schema for. If omitted, the schema of the most recent match we
+          have a demo for is returned. When set, the demo's salts are fetched (rate limited)
+          if they are not already stored.
+        explode: true
+        in: query
+        name: match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoSchemaResponse"
+          description: ""
+        "400":
+          description: Provided parameters are invalid.
+        "404":
+          description: No demo / salts available for the match
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Reading the demo schema failed
+      summary: Demo Schema
+      tags:
+      - Demo
   /v1/matches/live/urls:
     get:
       description: "\nReturns a list of all currently available live broadcast URLs.\n\
@@ -8070,7 +8194,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -8190,7 +8314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779408000
+          default: 1779494400
           format: int64
           nullable: true
           type: integer
@@ -10934,6 +11058,24 @@ components:
       - blue
       - green
       - red
+    ColumnSchema:
+      example:
+        data_type: data_type
+        name: name
+        nullable: true
+      properties:
+        data_type:
+          description: "Arrow data type, rendered as its canonical textual form (e.g.\
+            \ `Int32`, `Utf8`)."
+          type: string
+        name:
+          type: string
+        nullable:
+          type: boolean
+      required:
+      - data_type
+      - name
+      - nullable
     CreateCustomRequest:
       example:
         callback_url: callback_url
@@ -11091,6 +11233,120 @@ components:
       - healing_damage
       - melee_damage
       - tech_damage
+    DemoQueryJobResponse:
+      example:
+        job_id: job_id
+        status: queued
+      properties:
+        job_id:
+          description: "Stable id of the job; poll `/demo/query/{job_id}` for status\
+            \ and the result URL."
+          type: string
+        status:
+          $ref: "#/components/schemas/JobStatus"
+      required:
+      - job_id
+      - status
+    DemoQueryRequest:
+      example:
+        format: ""
+        match_id: 0
+        query: query
+      properties:
+        format:
+          allOf:
+          - $ref: "#/components/schemas/OutputFormat"
+          description: Output format of the result artifact.
+        match_id:
+          description: Match whose demo to query.
+          format: int64
+          minimum: 0
+          type: integer
+        query:
+          description: SQL query to run over the demo's entity/event tables (see `/demo/schema`).
+          type: string
+      required:
+      - match_id
+      - query
+    DemoQueryStatusResponse:
+      example:
+        error: error
+        estimated_wait_seconds: 0
+        format: parquet
+        job_id: job_id
+        match_id: 0
+        result_url: result_url
+        status: queued
+      properties:
+        error:
+          description: "Failure reason, once `failed`."
+          nullable: true
+          type: string
+        estimated_wait_seconds:
+          description: "Rough seconds until the result is ready, while `queued` or\
+            \ `running`."
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        format:
+          $ref: "#/components/schemas/OutputFormat"
+        job_id:
+          type: string
+        match_id:
+          format: int64
+          minimum: 0
+          type: integer
+        result_url:
+          description: "Public URL of the result artifact, once `done`."
+          nullable: true
+          type: string
+        status:
+          $ref: "#/components/schemas/JobStatus"
+      required:
+      - format
+      - job_id
+      - match_id
+      - status
+    DemoSchemaResponse:
+      example:
+        demo_url: demo_url
+        match_id: 0
+        tables:
+        - columns:
+          - data_type: data_type
+            name: name
+            nullable: true
+          - data_type: data_type
+            name: name
+            nullable: true
+          kind: kind
+          name: name
+        - columns:
+          - data_type: data_type
+            name: name
+            nullable: true
+          - data_type: data_type
+            name: name
+            nullable: true
+          kind: kind
+          name: name
+      properties:
+        demo_url:
+          type: string
+        match_id:
+          format: int64
+          minimum: 0
+          type: integer
+        tables:
+          items:
+            $ref: "#/components/schemas/TableSchemaResponse"
+          type: array
+          default: null
+      required:
+      - demo_url
+      - match_id
+      - tables
     DependantAbilities:
       example:
         flags:
@@ -13352,6 +13608,13 @@ components:
       - weapon
       - upgrade
       type: string
+    JobStatus:
+      enum:
+      - queued
+      - running
+      - done
+      - failed
+      type: string
     KillDeathStats:
       example:
         deaths: 0
@@ -14605,6 +14868,11 @@ components:
             type: number
       required:
       - outcomes_to_weights
+    OutputFormat:
+      enum:
+      - parquet
+      - ndjson
+      type: string
     Patch:
       example:
         author: author
@@ -16568,6 +16836,34 @@ components:
           $ref: "#/components/schemas/Subclass_TrooperDamageReduction_subclass"
       required:
       - subclass
+    TableSchemaResponse:
+      example:
+        columns:
+        - data_type: data_type
+          name: name
+          nullable: true
+        - data_type: data_type
+          name: name
+          nullable: true
+        kind: kind
+        name: name
+      properties:
+        columns:
+          items:
+            $ref: "#/components/schemas/ColumnSchema"
+          type: array
+          default: null
+        kind:
+          description: |-
+            `entity` for tables discovered from the demo's send-tables, `event` for the
+            event tables common to every demo.
+          type: string
+        name:
+          type: string
+      required:
+      - columns
+      - kind
+      - name
     TableSize:
       example:
         data_compressed_bytes: 0
@@ -17642,15 +17938,16 @@ x-tagGroups:
   - Steam Info
 - name: Game Data
   tags:
+  - Players
+  - Matches
+  - Custom Matches
+  - Demo
+  - Leaderboard
   - Analytics
   - Builds
-  - Custom Matches
   - Info
-  - Leaderboard
-  - Matches
   - MMR
   - Patches
-  - Players
   - Steam
 - name: Developer
   tags:

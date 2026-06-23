@@ -10,6 +10,7 @@ from deadlock_api_client.api.client_versions_api import ClientVersionsApi
 from deadlock_api_client.api.colors_api import ColorsApi
 from deadlock_api_client.api.commands_api import CommandsApi
 from deadlock_api_client.api.custom_matches_api import CustomMatchesApi
+from deadlock_api_client.api.demo_api import DemoApi
 from deadlock_api_client.api.generic_data_api import GenericDataApi
 from deadlock_api_client.api.graph_ql_api import GraphQLApi
 from deadlock_api_client.api.heroes_api import HeroesApi

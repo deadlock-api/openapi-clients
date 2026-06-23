@@ -39,6 +39,7 @@ docs/ClickhouseSalts.md
 docs/ClientVersionsApi.md
 docs/Color.md
 docs/ColorsApi.md
+docs/ColumnSchema.md
 docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
@@ -46,6 +47,11 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
 docs/DamageFlash.md
+docs/DemoApi.md
+docs/DemoQueryJobResponse.md
+docs/DemoQueryRequest.md
+docs/DemoQueryStatusResponse.md
+docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
 docs/DistributionEntry.md
 docs/DraftBucket.md
@@ -105,6 +111,7 @@ docs/ItemSlotType.md
 docs/ItemStats.md
 docs/ItemType.md
 docs/ItemsApi.md
+docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
 docs/Leaderboard.md
@@ -136,6 +143,7 @@ docs/NpcUnit.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
+docs/OutputFormat.md
 docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
@@ -211,6 +219,7 @@ docs/SubclassRangedArmorModifier.md
 docs/SubclassRangedArmorModifierSubclass.md
 docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
+docs/TableSchemaResponse.md
 docs/TableSize.md
 docs/TooltipDetailsBlock.md
 docs/TooltipDetailsBlockProperty.md
@@ -237,6 +246,7 @@ src/main/kotlin/deadlock_api_client/apis/ClientVersionsApi.kt
 src/main/kotlin/deadlock_api_client/apis/ColorsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CommandsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CustomMatchesApi.kt
+src/main/kotlin/deadlock_api_client/apis/DemoApi.kt
 src/main/kotlin/deadlock_api_client/apis/GenericDataApi.kt
 src/main/kotlin/deadlock_api_client/apis/GraphQLApi.kt
 src/main/kotlin/deadlock_api_client/apis/HeroesApi.kt
@@ -305,11 +315,16 @@ src/main/kotlin/deadlock_api_client/models/BuildTag.kt
 src/main/kotlin/deadlock_api_client/models/ClickhouseMatchInfo.kt
 src/main/kotlin/deadlock_api_client/models/ClickhouseSalts.kt
 src/main/kotlin/deadlock_api_client/models/Color.kt
+src/main/kotlin/deadlock_api_client/models/ColumnSchema.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomRequest.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomResponse.kt
 src/main/kotlin/deadlock_api_client/models/Curve.kt
 src/main/kotlin/deadlock_api_client/models/CurveOrFloat.kt
 src/main/kotlin/deadlock_api_client/models/DamageFlash.kt
+src/main/kotlin/deadlock_api_client/models/DemoQueryJobResponse.kt
+src/main/kotlin/deadlock_api_client/models/DemoQueryRequest.kt
+src/main/kotlin/deadlock_api_client/models/DemoQueryStatusResponse.kt
+src/main/kotlin/deadlock_api_client/models/DemoSchemaResponse.kt
 src/main/kotlin/deadlock_api_client/models/DependantAbilities.kt
 src/main/kotlin/deadlock_api_client/models/DistributionEntry.kt
 src/main/kotlin/deadlock_api_client/models/DraftBucket.kt
@@ -363,6 +378,7 @@ src/main/kotlin/deadlock_api_client/models/ItemProperty.kt
 src/main/kotlin/deadlock_api_client/models/ItemSlotType.kt
 src/main/kotlin/deadlock_api_client/models/ItemStats.kt
 src/main/kotlin/deadlock_api_client/models/ItemType.kt
+src/main/kotlin/deadlock_api_client/models/JobStatus.kt
 src/main/kotlin/deadlock_api_client/models/KillDeathStats.kt
 src/main/kotlin/deadlock_api_client/models/LaneInfo.kt
 src/main/kotlin/deadlock_api_client/models/Leaderboard.kt
@@ -387,6 +403,7 @@ src/main/kotlin/deadlock_api_client/models/NpcUnit.kt
 src/main/kotlin/deadlock_api_client/models/ObjectiveParams.kt
 src/main/kotlin/deadlock_api_client/models/ObjectivePosition.kt
 src/main/kotlin/deadlock_api_client/models/OutcomeToWeights.kt
+src/main/kotlin/deadlock_api_client/models/OutputFormat.kt
 src/main/kotlin/deadlock_api_client/models/Patch.kt
 src/main/kotlin/deadlock_api_client/models/PatchCategory.kt
 src/main/kotlin/deadlock_api_client/models/PatchGuid.kt
@@ -455,6 +472,7 @@ src/main/kotlin/deadlock_api_client/models/SubclassRangedArmorModifier.kt
 src/main/kotlin/deadlock_api_client/models/SubclassRangedArmorModifierSubclass.kt
 src/main/kotlin/deadlock_api_client/models/SubclassTrooperDamageReduction.kt
 src/main/kotlin/deadlock_api_client/models/SubclassTrooperDamageReductionSubclass.kt
+src/main/kotlin/deadlock_api_client/models/TableSchemaResponse.kt
 src/main/kotlin/deadlock_api_client/models/TableSize.kt
 src/main/kotlin/deadlock_api_client/models/TooltipDetailsBlock.kt
 src/main/kotlin/deadlock_api_client/models/TooltipDetailsBlockProperty.kt
@@ -480,6 +498,7 @@ src/test/kotlin/deadlock_api_client/apis/ClientVersionsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/ColorsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CommandsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CustomMatchesApiTest.kt
+src/test/kotlin/deadlock_api_client/apis/DemoApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/GenericDataApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/GraphQLApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/HeroesApiTest.kt
@@ -531,11 +550,16 @@ src/test/kotlin/deadlock_api_client/models/BuildTest.kt
 src/test/kotlin/deadlock_api_client/models/ClickhouseMatchInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/ClickhouseSaltsTest.kt
 src/test/kotlin/deadlock_api_client/models/ColorTest.kt
+src/test/kotlin/deadlock_api_client/models/ColumnSchemaTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/CurveOrFloatTest.kt
 src/test/kotlin/deadlock_api_client/models/CurveTest.kt
 src/test/kotlin/deadlock_api_client/models/DamageFlashTest.kt
+src/test/kotlin/deadlock_api_client/models/DemoQueryJobResponseTest.kt
+src/test/kotlin/deadlock_api_client/models/DemoQueryRequestTest.kt
+src/test/kotlin/deadlock_api_client/models/DemoQueryStatusResponseTest.kt
+src/test/kotlin/deadlock_api_client/models/DemoSchemaResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/DependantAbilitiesTest.kt
 src/test/kotlin/deadlock_api_client/models/DistributionEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/DraftBucketTest.kt
@@ -589,6 +613,7 @@ src/test/kotlin/deadlock_api_client/models/ItemSlotTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemTypeTest.kt
+src/test/kotlin/deadlock_api_client/models/JobStatusTest.kt
 src/test/kotlin/deadlock_api_client/models/KillDeathStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/LaneInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/LeaderboardEntryTest.kt
@@ -613,6 +638,7 @@ src/test/kotlin/deadlock_api_client/models/NpcUnitTest.kt
 src/test/kotlin/deadlock_api_client/models/ObjectiveParamsTest.kt
 src/test/kotlin/deadlock_api_client/models/ObjectivePositionTest.kt
 src/test/kotlin/deadlock_api_client/models/OutcomeToWeightsTest.kt
+src/test/kotlin/deadlock_api_client/models/OutputFormatTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchCategoryTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchGuidTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchTest.kt
@@ -681,6 +707,7 @@ src/test/kotlin/deadlock_api_client/models/SubclassRangedArmorModifierSubclassTe
 src/test/kotlin/deadlock_api_client/models/SubclassRangedArmorModifierTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassTrooperDamageReductionSubclassTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassTrooperDamageReductionTest.kt
+src/test/kotlin/deadlock_api_client/models/TableSchemaResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/TableSizeTest.kt
 src/test/kotlin/deadlock_api_client/models/TooltipDetailsBlockPropertyTest.kt
 src/test/kotlin/deadlock_api_client/models/TooltipDetailsBlockTest.kt

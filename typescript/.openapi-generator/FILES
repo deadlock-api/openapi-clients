@@ -12,6 +12,7 @@ apis/client-versions-api.ts
 apis/colors-api.ts
 apis/commands-api.ts
 apis/custom-matches-api.ts
+apis/demo-api.ts
 apis/generic-data-api.ts
 apis/graph-qlapi.ts
 apis/heroes-api.ts
@@ -73,6 +74,7 @@ docs/ClickhouseSalts.md
 docs/ClientVersionsApi.md
 docs/Color.md
 docs/ColorsApi.md
+docs/ColumnSchema.md
 docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
@@ -80,6 +82,11 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
 docs/DamageFlash.md
+docs/DemoApi.md
+docs/DemoQueryJobResponse.md
+docs/DemoQueryRequest.md
+docs/DemoQueryStatusResponse.md
+docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
 docs/DistributionEntry.md
 docs/DraftBucket.md
@@ -139,6 +146,7 @@ docs/ItemSlotType.md
 docs/ItemStats.md
 docs/ItemType.md
 docs/ItemsApi.md
+docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
 docs/Leaderboard.md
@@ -170,6 +178,7 @@ docs/NpcUnit.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
+docs/OutputFormat.md
 docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
@@ -245,6 +254,7 @@ docs/SubclassRangedArmorModifier.md
 docs/SubclassRangedArmorModifierSubclass.md
 docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
+docs/TableSchemaResponse.md
 docs/TableSize.md
 docs/TooltipDetailsBlock.md
 docs/TooltipDetailsBlockProperty.md
@@ -294,11 +304,16 @@ models/build.ts
 models/clickhouse-match-info.ts
 models/clickhouse-salts.ts
 models/color.ts
+models/column-schema.ts
 models/create-custom-request.ts
 models/create-custom-response.ts
 models/curve-or-float.ts
 models/curve.ts
 models/damage-flash.ts
+models/demo-query-job-response.ts
+models/demo-query-request.ts
+models/demo-query-status-response.ts
+models/demo-schema-response.ts
 models/dependant-abilities.ts
 models/distribution-entry.ts
 models/draft-bucket.ts
@@ -353,6 +368,7 @@ models/item-slot-type.ts
 models/item-stats.ts
 models/item-type.ts
 models/item.ts
+models/job-status.ts
 models/kill-death-stats.ts
 models/lane-info.ts
 models/leaderboard-entry.ts
@@ -377,6 +393,7 @@ models/npc-unit.ts
 models/objective-params.ts
 models/objective-position.ts
 models/outcome-to-weights.ts
+models/output-format.ts
 models/patch-category.ts
 models/patch-guid.ts
 models/patch.ts
@@ -445,6 +462,7 @@ models/subclass-ranged-armor-modifier-subclass.ts
 models/subclass-ranged-armor-modifier.ts
 models/subclass-trooper-damage-reduction-subclass.ts
 models/subclass-trooper-damage-reduction.ts
+models/table-schema-response.ts
 models/table-size.ts
 models/tooltip-details-block-property.ts
 models/tooltip-details-block.ts

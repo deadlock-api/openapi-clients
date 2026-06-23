@@ -12,6 +12,7 @@ src/apis/ClientVersionsApi.ts
 src/apis/ColorsApi.ts
 src/apis/CommandsApi.ts
 src/apis/CustomMatchesApi.ts
+src/apis/DemoApi.ts
 src/apis/GenericDataApi.ts
 src/apis/GraphQLApi.ts
 src/apis/HeroesApi.ts
@@ -65,11 +66,16 @@ src/models/BuildTag.ts
 src/models/ClickhouseMatchInfo.ts
 src/models/ClickhouseSalts.ts
 src/models/Color.ts
+src/models/ColumnSchema.ts
 src/models/CreateCustomRequest.ts
 src/models/CreateCustomResponse.ts
 src/models/Curve.ts
 src/models/CurveOrFloat.ts
 src/models/DamageFlash.ts
+src/models/DemoQueryJobResponse.ts
+src/models/DemoQueryRequest.ts
+src/models/DemoQueryStatusResponse.ts
+src/models/DemoSchemaResponse.ts
 src/models/DependantAbilities.ts
 src/models/DistributionEntry.ts
 src/models/DraftBucket.ts
@@ -123,6 +129,7 @@ src/models/ItemProperty.ts
 src/models/ItemSlotType.ts
 src/models/ItemStats.ts
 src/models/ItemType.ts
+src/models/JobStatus.ts
 src/models/KillDeathStats.ts
 src/models/LaneInfo.ts
 src/models/Leaderboard.ts
@@ -147,6 +154,7 @@ src/models/NpcUnit.ts
 src/models/ObjectiveParams.ts
 src/models/ObjectivePosition.ts
 src/models/OutcomeToWeights.ts
+src/models/OutputFormat.ts
 src/models/Patch.ts
 src/models/PatchCategory.ts
 src/models/PatchGuid.ts
@@ -215,6 +223,7 @@ src/models/SubclassRangedArmorModifier.ts
 src/models/SubclassRangedArmorModifierSubclass.ts
 src/models/SubclassTrooperDamageReduction.ts
 src/models/SubclassTrooperDamageReductionSubclass.ts
+src/models/TableSchemaResponse.ts
 src/models/TableSize.ts
 src/models/TooltipDetailsBlock.ts
 src/models/TooltipDetailsBlockProperty.ts

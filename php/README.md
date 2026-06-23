@@ -132,6 +132,9 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**readyUp**](docs/Api/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](docs/Api/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](docs/Api/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*DemoApi* | [**schema**](docs/Api/DemoApi.md#schema) | **GET** /v1/matches/demo/schema | Demo Schema
+*DemoApi* | [**status**](docs/Api/DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status
+*DemoApi* | [**submit**](docs/Api/DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query
 *GenericDataApi* | [**getGenericData**](docs/Api/GenericDataApi.md#getgenericdata) | **GET** /v1/assets/generic-data | Get Generic Data
 *GraphQLApi* | [**playground**](docs/Api/GraphQLApi.md#playground) | **GET** /v1/graphql | GraphQL Playground
 *HeroesApi* | [**getHero**](docs/Api/HeroesApi.md#gethero) | **GET** /v1/assets/heroes/{hero_id} | Get Hero
@@ -230,11 +233,16 @@ Class | Method | HTTP request | Description
 - [ClickhouseMatchInfo](docs/Model/ClickhouseMatchInfo.md)
 - [ClickhouseSalts](docs/Model/ClickhouseSalts.md)
 - [Color](docs/Model/Color.md)
+- [ColumnSchema](docs/Model/ColumnSchema.md)
 - [CreateCustomRequest](docs/Model/CreateCustomRequest.md)
 - [CreateCustomResponse](docs/Model/CreateCustomResponse.md)
 - [Curve](docs/Model/Curve.md)
 - [CurveOrFloat](docs/Model/CurveOrFloat.md)
 - [DamageFlash](docs/Model/DamageFlash.md)
+- [DemoQueryJobResponse](docs/Model/DemoQueryJobResponse.md)
+- [DemoQueryRequest](docs/Model/DemoQueryRequest.md)
+- [DemoQueryStatusResponse](docs/Model/DemoQueryStatusResponse.md)
+- [DemoSchemaResponse](docs/Model/DemoSchemaResponse.md)
 - [DependantAbilities](docs/Model/DependantAbilities.md)
 - [DistributionEntry](docs/Model/DistributionEntry.md)
 - [DraftBucket](docs/Model/DraftBucket.md)
@@ -288,6 +296,7 @@ Class | Method | HTTP request | Description
 - [ItemSlotType](docs/Model/ItemSlotType.md)
 - [ItemStats](docs/Model/ItemStats.md)
 - [ItemType](docs/Model/ItemType.md)
+- [JobStatus](docs/Model/JobStatus.md)
 - [KillDeathStats](docs/Model/KillDeathStats.md)
 - [LaneInfo](docs/Model/LaneInfo.md)
 - [Leaderboard](docs/Model/Leaderboard.md)
@@ -312,6 +321,7 @@ Class | Method | HTTP request | Description
 - [ObjectiveParams](docs/Model/ObjectiveParams.md)
 - [ObjectivePosition](docs/Model/ObjectivePosition.md)
 - [OutcomeToWeights](docs/Model/OutcomeToWeights.md)
+- [OutputFormat](docs/Model/OutputFormat.md)
 - [Patch](docs/Model/Patch.md)
 - [PatchCategory](docs/Model/PatchCategory.md)
 - [PatchGuid](docs/Model/PatchGuid.md)
@@ -380,6 +390,7 @@ Class | Method | HTTP request | Description
 - [SubclassRangedArmorModifierSubclass](docs/Model/SubclassRangedArmorModifierSubclass.md)
 - [SubclassTrooperDamageReduction](docs/Model/SubclassTrooperDamageReduction.md)
 - [SubclassTrooperDamageReductionSubclass](docs/Model/SubclassTrooperDamageReductionSubclass.md)
+- [TableSchemaResponse](docs/Model/TableSchemaResponse.md)
 - [TableSize](docs/Model/TableSize.md)
 - [TooltipDetailsBlock](docs/Model/TooltipDetailsBlock.md)
 - [TooltipDetailsBlockProperty](docs/Model/TooltipDetailsBlockProperty.md)

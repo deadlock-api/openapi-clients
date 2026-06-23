@@ -120,6 +120,7 @@ pub mod client_versions_api;
 pub mod colors_api;
 pub mod commands_api;
 pub mod custom_matches_api;
+pub mod demo_api;
 pub mod generic_data_api;
 pub mod graph_ql_api;
 pub mod heroes_api;

@@ -15,6 +15,7 @@ deadlock_api_client/api/client_versions_api.py
 deadlock_api_client/api/colors_api.py
 deadlock_api_client/api/commands_api.py
 deadlock_api_client/api/custom_matches_api.py
+deadlock_api_client/api/demo_api.py
 deadlock_api_client/api/generic_data_api.py
 deadlock_api_client/api/graph_ql_api.py
 deadlock_api_client/api/heroes_api.py
@@ -71,11 +72,16 @@ deadlock_api_client/models/build_tag.py
 deadlock_api_client/models/clickhouse_match_info.py
 deadlock_api_client/models/clickhouse_salts.py
 deadlock_api_client/models/color.py
+deadlock_api_client/models/column_schema.py
 deadlock_api_client/models/create_custom_request.py
 deadlock_api_client/models/create_custom_response.py
 deadlock_api_client/models/curve.py
 deadlock_api_client/models/curve_or_float.py
 deadlock_api_client/models/damage_flash.py
+deadlock_api_client/models/demo_query_job_response.py
+deadlock_api_client/models/demo_query_request.py
+deadlock_api_client/models/demo_query_status_response.py
+deadlock_api_client/models/demo_schema_response.py
 deadlock_api_client/models/dependant_abilities.py
 deadlock_api_client/models/distribution_entry.py
 deadlock_api_client/models/draft_bucket.py
@@ -129,6 +135,7 @@ deadlock_api_client/models/item_property.py
 deadlock_api_client/models/item_slot_type.py
 deadlock_api_client/models/item_stats.py
 deadlock_api_client/models/item_type.py
+deadlock_api_client/models/job_status.py
 deadlock_api_client/models/kill_death_stats.py
 deadlock_api_client/models/lane_info.py
 deadlock_api_client/models/leaderboard.py
@@ -153,6 +160,7 @@ deadlock_api_client/models/npc_unit.py
 deadlock_api_client/models/objective_params.py
 deadlock_api_client/models/objective_position.py
 deadlock_api_client/models/outcome_to_weights.py
+deadlock_api_client/models/output_format.py
 deadlock_api_client/models/patch.py
 deadlock_api_client/models/patch_category.py
 deadlock_api_client/models/patch_guid.py
@@ -221,6 +229,7 @@ deadlock_api_client/models/subclass_ranged_armor_modifier.py
 deadlock_api_client/models/subclass_ranged_armor_modifier_subclass.py
 deadlock_api_client/models/subclass_trooper_damage_reduction.py
 deadlock_api_client/models/subclass_trooper_damage_reduction_subclass.py
+deadlock_api_client/models/table_schema_response.py
 deadlock_api_client/models/table_size.py
 deadlock_api_client/models/tooltip_details_block.py
 deadlock_api_client/models/tooltip_details_block_property.py
@@ -277,6 +286,7 @@ docs/ClickhouseSalts.md
 docs/ClientVersionsApi.md
 docs/Color.md
 docs/ColorsApi.md
+docs/ColumnSchema.md
 docs/CommandsApi.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
@@ -284,6 +294,11 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
 docs/DamageFlash.md
+docs/DemoApi.md
+docs/DemoQueryJobResponse.md
+docs/DemoQueryRequest.md
+docs/DemoQueryStatusResponse.md
+docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
 docs/DistributionEntry.md
 docs/DraftBucket.md
@@ -343,6 +358,7 @@ docs/ItemSlotType.md
 docs/ItemStats.md
 docs/ItemType.md
 docs/ItemsApi.md
+docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
 docs/Leaderboard.md
@@ -374,6 +390,7 @@ docs/NpcUnit.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
+docs/OutputFormat.md
 docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
@@ -449,6 +466,7 @@ docs/SubclassRangedArmorModifier.md
 docs/SubclassRangedArmorModifierSubclass.md
 docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
+docs/TableSchemaResponse.md
 docs/TableSize.md
 docs/TooltipDetailsBlock.md
 docs/TooltipDetailsBlockProperty.md
@@ -510,6 +528,7 @@ test/test_clickhouse_salts.py
 test/test_client_versions_api.py
 test/test_color.py
 test/test_colors_api.py
+test/test_column_schema.py
 test/test_commands_api.py
 test/test_create_custom_request.py
 test/test_create_custom_response.py
@@ -517,6 +536,11 @@ test/test_curve.py
 test/test_curve_or_float.py
 test/test_custom_matches_api.py
 test/test_damage_flash.py
+test/test_demo_api.py
+test/test_demo_query_job_response.py
+test/test_demo_query_request.py
+test/test_demo_query_status_response.py
+test/test_demo_schema_response.py
 test/test_dependant_abilities.py
 test/test_distribution_entry.py
 test/test_draft_bucket.py
@@ -576,6 +600,7 @@ test/test_item_slot_type.py
 test/test_item_stats.py
 test/test_item_type.py
 test/test_items_api.py
+test/test_job_status.py
 test/test_kill_death_stats.py
 test/test_lane_info.py
 test/test_leaderboard.py
@@ -607,6 +632,7 @@ test/test_npc_units_api.py
 test/test_objective_params.py
 test/test_objective_position.py
 test/test_outcome_to_weights.py
+test/test_output_format.py
 test/test_patch.py
 test/test_patch_category.py
 test/test_patch_guid.py
@@ -682,6 +708,7 @@ test/test_subclass_ranged_armor_modifier.py
 test/test_subclass_ranged_armor_modifier_subclass.py
 test/test_subclass_trooper_damage_reduction.py
 test/test_subclass_trooper_damage_reduction_subclass.py
+test/test_table_schema_response.py
 test/test_table_size.py
 test/test_tooltip_details_block.py
 test/test_tooltip_details_block_property.py

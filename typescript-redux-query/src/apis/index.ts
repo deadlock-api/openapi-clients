@@ -7,6 +7,7 @@ export * from './ClientVersionsApi';
 export * from './ColorsApi';
 export * from './CommandsApi';
 export * from './CustomMatchesApi';
+export * from './DemoApi';
 export * from './GenericDataApi';
 export * from './GraphQLApi';
 export * from './HeroesApi';

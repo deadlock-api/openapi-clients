@@ -1,0 +1,24 @@
+## DemoApi
+
+### Demo Schema
+## Demo Schema
+GET https://api.deadlock-api.com/v1/matches/demo/schema?matchId={{matchId}}
+Accept: application/json
+
+### Demo Query Status
+## Demo Query Status
+GET https://api.deadlock-api.com/v1/matches/demo/query/{{job_id}}
+Accept: application/json
+
+### Demo Query
+## Demo Query
+POST https://api.deadlock-api.com/v1/matches/demo/query
+Content-Type: application/json
+Accept: application/json
+
+{
+ "format": "<string>",
+ "match_id": "<number>",
+ "query": "<string>"
+}
+

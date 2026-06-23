@@ -81,11 +81,16 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ClickhouseMatchInfoJsonConverter());
             _jsonOptions.Converters.Add(new ClickhouseSaltsJsonConverter());
             _jsonOptions.Converters.Add(new ColorJsonConverter());
+            _jsonOptions.Converters.Add(new ColumnSchemaJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomRequestJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomResponseJsonConverter());
             _jsonOptions.Converters.Add(new CurveJsonConverter());
             _jsonOptions.Converters.Add(new CurveOrFloatJsonConverter());
             _jsonOptions.Converters.Add(new DamageFlashJsonConverter());
+            _jsonOptions.Converters.Add(new DemoQueryJobResponseJsonConverter());
+            _jsonOptions.Converters.Add(new DemoQueryRequestJsonConverter());
+            _jsonOptions.Converters.Add(new DemoQueryStatusResponseJsonConverter());
+            _jsonOptions.Converters.Add(new DemoSchemaResponseJsonConverter());
             _jsonOptions.Converters.Add(new DependantAbilitiesJsonConverter());
             _jsonOptions.Converters.Add(new DistributionEntryJsonConverter());
             _jsonOptions.Converters.Add(new DraftBucketJsonConverter());
@@ -143,6 +148,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ItemStatsJsonConverter());
             _jsonOptions.Converters.Add(new ItemTypeJsonConverter());
             _jsonOptions.Converters.Add(new ItemTypeNullableJsonConverter());
+            _jsonOptions.Converters.Add(new JobStatusJsonConverter());
+            _jsonOptions.Converters.Add(new JobStatusNullableJsonConverter());
             _jsonOptions.Converters.Add(new KillDeathStatsJsonConverter());
             _jsonOptions.Converters.Add(new LaneInfoJsonConverter());
             _jsonOptions.Converters.Add(new LeaderboardJsonConverter());
@@ -167,6 +174,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ObjectiveParamsJsonConverter());
             _jsonOptions.Converters.Add(new ObjectivePositionJsonConverter());
             _jsonOptions.Converters.Add(new OutcomeToWeightsJsonConverter());
+            _jsonOptions.Converters.Add(new OutputFormatJsonConverter());
+            _jsonOptions.Converters.Add(new OutputFormatNullableJsonConverter());
             _jsonOptions.Converters.Add(new PatchJsonConverter());
             _jsonOptions.Converters.Add(new PatchCategoryJsonConverter());
             _jsonOptions.Converters.Add(new PatchGuidJsonConverter());
@@ -238,6 +247,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new SubclassRangedArmorModifierSubclassJsonConverter());
             _jsonOptions.Converters.Add(new SubclassTrooperDamageReductionJsonConverter());
             _jsonOptions.Converters.Add(new SubclassTrooperDamageReductionSubclassJsonConverter());
+            _jsonOptions.Converters.Add(new TableSchemaResponseJsonConverter());
             _jsonOptions.Converters.Add(new TableSizeJsonConverter());
             _jsonOptions.Converters.Add(new TooltipDetailsBlockJsonConverter());
             _jsonOptions.Converters.Add(new TooltipDetailsBlockPropertyJsonConverter());
@@ -267,6 +277,7 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<ColorsApiEvents>();
             _services.AddSingleton<CommandsApiEvents>();
             _services.AddSingleton<CustomMatchesApiEvents>();
+            _services.AddSingleton<DemoApiEvents>();
             _services.AddSingleton<GenericDataApiEvents>();
             _services.AddSingleton<GraphQLApiEvents>();
             _services.AddSingleton<HeroesApiEvents>();
@@ -340,6 +351,7 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IColorsApi, ColorsApi>("DeadlockApiClient.Api.IColorsApi", client));
             builders.Add(_services.AddHttpClient<ICommandsApi, CommandsApi>("DeadlockApiClient.Api.ICommandsApi", client));
             builders.Add(_services.AddHttpClient<ICustomMatchesApi, CustomMatchesApi>("DeadlockApiClient.Api.ICustomMatchesApi", client));
+            builders.Add(_services.AddHttpClient<IDemoApi, DemoApi>("DeadlockApiClient.Api.IDemoApi", client));
             builders.Add(_services.AddHttpClient<IGenericDataApi, GenericDataApi>("DeadlockApiClient.Api.IGenericDataApi", client));
             builders.Add(_services.AddHttpClient<IGraphQLApi, GraphQLApi>("DeadlockApiClient.Api.IGraphQLApi", client));
             builders.Add(_services.AddHttpClient<IHeroesApi, HeroesApi>("DeadlockApiClient.Api.IHeroesApi", client));

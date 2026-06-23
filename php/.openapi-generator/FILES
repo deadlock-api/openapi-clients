@@ -12,6 +12,7 @@ api/Api/ClientVersionsApi.php
 api/Api/ColorsApi.php
 api/Api/CommandsApi.php
 api/Api/CustomMatchesApi.php
+api/Api/DemoApi.php
 api/Api/GenericDataApi.php
 api/Api/GraphQLApi.php
 api/Api/HeroesApi.php
@@ -67,11 +68,16 @@ api/Model/BuildTag.php
 api/Model/ClickhouseMatchInfo.php
 api/Model/ClickhouseSalts.php
 api/Model/Color.php
+api/Model/ColumnSchema.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
 api/Model/Curve.php
 api/Model/CurveOrFloat.php
 api/Model/DamageFlash.php
+api/Model/DemoQueryJobResponse.php
+api/Model/DemoQueryRequest.php
+api/Model/DemoQueryStatusResponse.php
+api/Model/DemoSchemaResponse.php
 api/Model/DependantAbilities.php
 api/Model/DistributionEntry.php
 api/Model/DraftBucket.php
@@ -125,6 +131,7 @@ api/Model/ItemProperty.php
 api/Model/ItemSlotType.php
 api/Model/ItemStats.php
 api/Model/ItemType.php
+api/Model/JobStatus.php
 api/Model/KillDeathStats.php
 api/Model/LaneInfo.php
 api/Model/Leaderboard.php
@@ -150,6 +157,7 @@ api/Model/NpcUnit.php
 api/Model/ObjectiveParams.php
 api/Model/ObjectivePosition.php
 api/Model/OutcomeToWeights.php
+api/Model/OutputFormat.php
 api/Model/Patch.php
 api/Model/PatchCategory.php
 api/Model/PatchGuid.php
@@ -218,6 +226,7 @@ api/Model/SubclassRangedArmorModifier.php
 api/Model/SubclassRangedArmorModifierSubclass.php
 api/Model/SubclassTrooperDamageReduction.php
 api/Model/SubclassTrooperDamageReductionSubclass.php
+api/Model/TableSchemaResponse.php
 api/Model/TableSize.php
 api/Model/TooltipDetailsBlock.php
 api/Model/TooltipDetailsBlockProperty.php
@@ -245,6 +254,7 @@ docs/Api/ClientVersionsApi.md
 docs/Api/ColorsApi.md
 docs/Api/CommandsApi.md
 docs/Api/CustomMatchesApi.md
+docs/Api/DemoApi.md
 docs/Api/GenericDataApi.md
 docs/Api/GraphQLApi.md
 docs/Api/HeroesApi.md
@@ -296,11 +306,16 @@ docs/Model/BuildTag.md
 docs/Model/ClickhouseMatchInfo.md
 docs/Model/ClickhouseSalts.md
 docs/Model/Color.md
+docs/Model/ColumnSchema.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
 docs/Model/Curve.md
 docs/Model/CurveOrFloat.md
 docs/Model/DamageFlash.md
+docs/Model/DemoQueryJobResponse.md
+docs/Model/DemoQueryRequest.md
+docs/Model/DemoQueryStatusResponse.md
+docs/Model/DemoSchemaResponse.md
 docs/Model/DependantAbilities.md
 docs/Model/DistributionEntry.md
 docs/Model/DraftBucket.md
@@ -354,6 +369,7 @@ docs/Model/ItemProperty.md
 docs/Model/ItemSlotType.md
 docs/Model/ItemStats.md
 docs/Model/ItemType.md
+docs/Model/JobStatus.md
 docs/Model/KillDeathStats.md
 docs/Model/LaneInfo.md
 docs/Model/Leaderboard.md
@@ -378,6 +394,7 @@ docs/Model/NpcUnit.md
 docs/Model/ObjectiveParams.md
 docs/Model/ObjectivePosition.md
 docs/Model/OutcomeToWeights.md
+docs/Model/OutputFormat.md
 docs/Model/Patch.md
 docs/Model/PatchCategory.md
 docs/Model/PatchGuid.md
@@ -446,6 +463,7 @@ docs/Model/SubclassRangedArmorModifier.md
 docs/Model/SubclassRangedArmorModifierSubclass.md
 docs/Model/SubclassTrooperDamageReduction.md
 docs/Model/SubclassTrooperDamageReductionSubclass.md
+docs/Model/TableSchemaResponse.md
 docs/Model/TableSize.md
 docs/Model/TooltipDetailsBlock.md
 docs/Model/TooltipDetailsBlockProperty.md
@@ -473,6 +491,7 @@ test/Api/ClientVersionsApiTest.php
 test/Api/ColorsApiTest.php
 test/Api/CommandsApiTest.php
 test/Api/CustomMatchesApiTest.php
+test/Api/DemoApiTest.php
 test/Api/GenericDataApiTest.php
 test/Api/GraphQLApiTest.php
 test/Api/HeroesApiTest.php
@@ -524,11 +543,16 @@ test/Model/BuildTest.php
 test/Model/ClickhouseMatchInfoTest.php
 test/Model/ClickhouseSaltsTest.php
 test/Model/ColorTest.php
+test/Model/ColumnSchemaTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
 test/Model/CurveOrFloatTest.php
 test/Model/CurveTest.php
 test/Model/DamageFlashTest.php
+test/Model/DemoQueryJobResponseTest.php
+test/Model/DemoQueryRequestTest.php
+test/Model/DemoQueryStatusResponseTest.php
+test/Model/DemoSchemaResponseTest.php
 test/Model/DependantAbilitiesTest.php
 test/Model/DistributionEntryTest.php
 test/Model/DraftBucketTest.php
@@ -582,6 +606,7 @@ test/Model/ItemSlotTypeTest.php
 test/Model/ItemStatsTest.php
 test/Model/ItemTest.php
 test/Model/ItemTypeTest.php
+test/Model/JobStatusTest.php
 test/Model/KillDeathStatsTest.php
 test/Model/LaneInfoTest.php
 test/Model/LeaderboardEntryTest.php
@@ -606,6 +631,7 @@ test/Model/NpcUnitTest.php
 test/Model/ObjectiveParamsTest.php
 test/Model/ObjectivePositionTest.php
 test/Model/OutcomeToWeightsTest.php
+test/Model/OutputFormatTest.php
 test/Model/PatchCategoryTest.php
 test/Model/PatchGuidTest.php
 test/Model/PatchTest.php
@@ -674,6 +700,7 @@ test/Model/SubclassRangedArmorModifierSubclassTest.php
 test/Model/SubclassRangedArmorModifierTest.php
 test/Model/SubclassTrooperDamageReductionSubclassTest.php
 test/Model/SubclassTrooperDamageReductionTest.php
+test/Model/TableSchemaResponseTest.php
 test/Model/TableSizeTest.php
 test/Model/TooltipDetailsBlockPropertyTest.php
 test/Model/TooltipDetailsBlockTest.php

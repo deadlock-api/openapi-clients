@@ -163,30 +163,6 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
-    /// The <see cref="IStatusApiResponse"/>
-    /// </summary>
-    public interface IStatusApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.ServerStatusResponse?>
-    {
-        /// <summary>
-        /// Returns true if the response is 200 Ok
-        /// </summary>
-        /// <returns></returns>
-        bool IsOk { get; }
-
-        /// <summary>
-        /// Returns true if the response is 400 BadRequest
-        /// </summary>
-        /// <returns></returns>
-        bool IsBadRequest { get; }
-
-        /// <summary>
-        /// Returns true if the response is 401 Unauthorized
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnauthorized { get; }
-    }
-
-    /// <summary>
     /// The <see cref="ISteamListApiResponse"/>
     /// </summary>
     public interface ISteamListApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<SteamServer>?>
@@ -259,7 +235,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         public event EventHandler<ExceptionEventArgs>? OnErrorStatus;
 
-        internal void ExecuteOnStatus(ServersApi.StatusApiResponse apiResponse)
+        internal void ExecuteOnStatus(DemoApi.StatusApiResponse apiResponse)
         {
             OnStatus?.Invoke(this, new ApiResponseEventArgs(apiResponse));
         }
@@ -913,8 +889,8 @@ namespace DeadlockApiClient.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<StatusApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<StatusApiResponse>();
-                        StatusApiResponse apiResponseLocalVar;
+                        ILogger<DemoApi.StatusApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<DemoApi.StatusApiResponse>();
+                        DemoApi.StatusApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
@@ -939,111 +915,6 @@ namespace DeadlockApiClient.Api
                 Events.ExecuteOnErrorStatus(e);
                 throw;
             }
-        }
-
-        /// <summary>
-        /// The <see cref="StatusApiResponse"/>
-        /// </summary>
-        public partial class StatusApiResponse : DeadlockApiClient.Client.ApiResponse, IStatusApiResponse
-        {
-            /// <summary>
-            /// The logger
-            /// </summary>
-            public ILogger<StatusApiResponse> Logger { get; }
-
-            /// <summary>
-            /// The <see cref="StatusApiResponse"/>
-            /// </summary>
-            /// <param name="logger"></param>
-            /// <param name="httpRequestMessage"></param>
-            /// <param name="httpResponseMessage"></param>
-            /// <param name="rawContent"></param>
-            /// <param name="path"></param>
-            /// <param name="requestedAt"></param>
-            /// <param name="jsonSerializerOptions"></param>
-            public StatusApiResponse(ILogger<StatusApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
-            {
-                Logger = logger;
-                OnCreated(httpRequestMessage, httpResponseMessage);
-            }
-
-            /// <summary>
-            /// The <see cref="StatusApiResponse"/>
-            /// </summary>
-            /// <param name="logger"></param>
-            /// <param name="httpRequestMessage"></param>
-            /// <param name="httpResponseMessage"></param>
-            /// <param name="contentStream"></param>
-            /// <param name="path"></param>
-            /// <param name="requestedAt"></param>
-            /// <param name="jsonSerializerOptions"></param>
-            public StatusApiResponse(ILogger<StatusApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
-            {
-                Logger = logger;
-                OnCreated(httpRequestMessage, httpResponseMessage);
-            }
-
-            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
-
-            /// <summary>
-            /// Returns true if the response is 200 Ok
-            /// </summary>
-            /// <returns></returns>
-            public bool IsOk => 200 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 200 Ok
-            /// </summary>
-            /// <returns></returns>
-            public DeadlockApiClient.Model.ServerStatusResponse? Ok()
-            {
-                // This logic may be modified with the AsModel.mustache template
-                return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.ServerStatusResponse>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 200 Ok and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.ServerStatusResponse? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = Ok();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
-                }
-
-                return result != null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 400 BadRequest
-            /// </summary>
-            /// <returns></returns>
-            public bool IsBadRequest => 400 == (int)StatusCode;
-
-            /// <summary>
-            /// Returns true if the response is 401 Unauthorized
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnauthorized => 401 == (int)StatusCode;
-
-            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
-            {
-                bool suppressDefaultLog = false;
-                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
-                if (!suppressDefaultLog)
-                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
-            }
-
-            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
         /// <summary>

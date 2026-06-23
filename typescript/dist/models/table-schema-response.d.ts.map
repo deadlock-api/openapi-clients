@@ -1,0 +1,1 @@
+{"version":3,"file":"table-schema-response.d.ts","sourceRoot":"","sources":["../../models/table-schema-response.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,oBAAoB,CAAC;AAEvD,MAAM,WAAW,mBAAmB;IAChC,SAAS,EAAE,KAAK,CAAC,YAAY,CAAC,CAAC;IAC/B;;OAEG;IACH,MAAM,EAAE,MAAM,CAAC;IACf,MAAM,EAAE,MAAM,CAAC;CAClB"}

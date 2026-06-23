@@ -27,6 +27,7 @@ __all__ = [
     "ColorsApi",
     "CommandsApi",
     "CustomMatchesApi",
+    "DemoApi",
     "GenericDataApi",
     "GraphQLApi",
     "HeroesApi",
@@ -87,11 +88,16 @@ __all__ = [
     "ClickhouseMatchInfo",
     "ClickhouseSalts",
     "Color",
+    "ColumnSchema",
     "CreateCustomRequest",
     "CreateCustomResponse",
     "Curve",
     "CurveOrFloat",
     "DamageFlash",
+    "DemoQueryJobResponse",
+    "DemoQueryRequest",
+    "DemoQueryStatusResponse",
+    "DemoSchemaResponse",
     "DependantAbilities",
     "DistributionEntry",
     "DraftBucket",
@@ -145,6 +151,7 @@ __all__ = [
     "ItemSlotType",
     "ItemStats",
     "ItemType",
+    "JobStatus",
     "KillDeathStats",
     "LaneInfo",
     "Leaderboard",
@@ -169,6 +176,7 @@ __all__ = [
     "ObjectiveParams",
     "ObjectivePosition",
     "OutcomeToWeights",
+    "OutputFormat",
     "Patch",
     "PatchCategory",
     "PatchGuid",
@@ -237,6 +245,7 @@ __all__ = [
     "SubclassRangedArmorModifierSubclass",
     "SubclassTrooperDamageReduction",
     "SubclassTrooperDamageReductionSubclass",
+    "TableSchemaResponse",
     "TableSize",
     "TooltipDetailsBlock",
     "TooltipDetailsBlockProperty",
@@ -265,6 +274,7 @@ from deadlock_api_client.api.client_versions_api import ClientVersionsApi as Cli
 from deadlock_api_client.api.colors_api import ColorsApi as ColorsApi
 from deadlock_api_client.api.commands_api import CommandsApi as CommandsApi
 from deadlock_api_client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
+from deadlock_api_client.api.demo_api import DemoApi as DemoApi
 from deadlock_api_client.api.generic_data_api import GenericDataApi as GenericDataApi
 from deadlock_api_client.api.graph_ql_api import GraphQLApi as GraphQLApi
 from deadlock_api_client.api.heroes_api import HeroesApi as HeroesApi
@@ -329,11 +339,16 @@ from deadlock_api_client.models.build_tag import BuildTag as BuildTag
 from deadlock_api_client.models.clickhouse_match_info import ClickhouseMatchInfo as ClickhouseMatchInfo
 from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts as ClickhouseSalts
 from deadlock_api_client.models.color import Color as Color
+from deadlock_api_client.models.column_schema import ColumnSchema as ColumnSchema
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
 from deadlock_api_client.models.curve import Curve as Curve
 from deadlock_api_client.models.curve_or_float import CurveOrFloat as CurveOrFloat
 from deadlock_api_client.models.damage_flash import DamageFlash as DamageFlash
+from deadlock_api_client.models.demo_query_job_response import DemoQueryJobResponse as DemoQueryJobResponse
+from deadlock_api_client.models.demo_query_request import DemoQueryRequest as DemoQueryRequest
+from deadlock_api_client.models.demo_query_status_response import DemoQueryStatusResponse as DemoQueryStatusResponse
+from deadlock_api_client.models.demo_schema_response import DemoSchemaResponse as DemoSchemaResponse
 from deadlock_api_client.models.dependant_abilities import DependantAbilities as DependantAbilities
 from deadlock_api_client.models.distribution_entry import DistributionEntry as DistributionEntry
 from deadlock_api_client.models.draft_bucket import DraftBucket as DraftBucket
@@ -387,6 +402,7 @@ from deadlock_api_client.models.item_property import ItemProperty as ItemPropert
 from deadlock_api_client.models.item_slot_type import ItemSlotType as ItemSlotType
 from deadlock_api_client.models.item_stats import ItemStats as ItemStats
 from deadlock_api_client.models.item_type import ItemType as ItemType
+from deadlock_api_client.models.job_status import JobStatus as JobStatus
 from deadlock_api_client.models.kill_death_stats import KillDeathStats as KillDeathStats
 from deadlock_api_client.models.lane_info import LaneInfo as LaneInfo
 from deadlock_api_client.models.leaderboard import Leaderboard as Leaderboard
@@ -411,6 +427,7 @@ from deadlock_api_client.models.npc_unit import NpcUnit as NpcUnit
 from deadlock_api_client.models.objective_params import ObjectiveParams as ObjectiveParams
 from deadlock_api_client.models.objective_position import ObjectivePosition as ObjectivePosition
 from deadlock_api_client.models.outcome_to_weights import OutcomeToWeights as OutcomeToWeights
+from deadlock_api_client.models.output_format import OutputFormat as OutputFormat
 from deadlock_api_client.models.patch import Patch as Patch
 from deadlock_api_client.models.patch_category import PatchCategory as PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid as PatchGuid
@@ -479,6 +496,7 @@ from deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRa
 from deadlock_api_client.models.subclass_ranged_armor_modifier_subclass import SubclassRangedArmorModifierSubclass as SubclassRangedArmorModifierSubclass
 from deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction as SubclassTrooperDamageReduction
 from deadlock_api_client.models.subclass_trooper_damage_reduction_subclass import SubclassTrooperDamageReductionSubclass as SubclassTrooperDamageReductionSubclass
+from deadlock_api_client.models.table_schema_response import TableSchemaResponse as TableSchemaResponse
 from deadlock_api_client.models.table_size import TableSize as TableSize
 from deadlock_api_client.models.tooltip_details_block import TooltipDetailsBlock as TooltipDetailsBlock
 from deadlock_api_client.models.tooltip_details_block_property import TooltipDetailsBlockProperty as TooltipDetailsBlockProperty

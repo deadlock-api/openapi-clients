@@ -169,6 +169,10 @@ namespace DeadlockApiClient.Client
                 return ItemSlotTypeValueConverter.ToJsonValue(itemSlotType);
             if (obj is ItemType itemType)
                 return ItemTypeValueConverter.ToJsonValue(itemType);
+            if (obj is JobStatus jobStatus)
+                return JobStatusValueConverter.ToJsonValue(jobStatus);
+            if (obj is OutputFormat outputFormat)
+                return OutputFormatValueConverter.ToJsonValue(outputFormat);
             if (obj is RegionMode regionMode)
                 return RegionModeValueConverter.ToJsonValue(regionMode);
             if (obj is ServerRegion serverRegion)

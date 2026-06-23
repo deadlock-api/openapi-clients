@@ -12,6 +12,7 @@ api_client_versions.go
 api_colors.go
 api_commands.go
 api_custom_matches.go
+api_demo.go
 api_generic_data.go
 api_graph_ql.go
 api_heroes.go
@@ -72,6 +73,7 @@ docs/ClickhouseSalts.md
 docs/ClientVersionsAPI.md
 docs/Color.md
 docs/ColorsAPI.md
+docs/ColumnSchema.md
 docs/CommandsAPI.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
@@ -79,6 +81,11 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesAPI.md
 docs/DamageFlash.md
+docs/DemoAPI.md
+docs/DemoQueryJobResponse.md
+docs/DemoQueryRequest.md
+docs/DemoQueryStatusResponse.md
+docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
 docs/DistributionEntry.md
 docs/DraftBucket.md
@@ -138,6 +145,7 @@ docs/ItemSlotType.md
 docs/ItemStats.md
 docs/ItemType.md
 docs/ItemsAPI.md
+docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
 docs/Leaderboard.md
@@ -169,6 +177,7 @@ docs/NpcUnit.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
+docs/OutputFormat.md
 docs/Patch.md
 docs/PatchCategory.md
 docs/PatchGuid.md
@@ -244,6 +253,7 @@ docs/SubclassRangedArmorModifier.md
 docs/SubclassRangedArmorModifierSubclass.md
 docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
+docs/TableSchemaResponse.md
 docs/TableSize.md
 docs/TooltipDetailsBlock.md
 docs/TooltipDetailsBlockProperty.md
@@ -294,11 +304,16 @@ model_build_tag.go
 model_clickhouse_match_info.go
 model_clickhouse_salts.go
 model_color.go
+model_column_schema.go
 model_create_custom_request.go
 model_create_custom_response.go
 model_curve.go
 model_curve_or_float.go
 model_damage_flash.go
+model_demo_query_job_response.go
+model_demo_query_request.go
+model_demo_query_status_response.go
+model_demo_schema_response.go
 model_dependant_abilities.go
 model_distribution_entry.go
 model_draft_bucket.go
@@ -352,6 +367,7 @@ model_item_property.go
 model_item_slot_type.go
 model_item_stats.go
 model_item_type.go
+model_job_status.go
 model_kill_death_stats.go
 model_lane_info.go
 model_leaderboard.go
@@ -376,6 +392,7 @@ model_npc_unit.go
 model_objective_params.go
 model_objective_position.go
 model_outcome_to_weights.go
+model_output_format.go
 model_patch.go
 model_patch_category.go
 model_patch_guid.go
@@ -444,6 +461,7 @@ model_subclass_ranged_armor_modifier.go
 model_subclass_ranged_armor_modifier_subclass.go
 model_subclass_trooper_damage_reduction.go
 model_subclass_trooper_damage_reduction_subclass.go
+model_table_schema_response.go
 model_table_size.go
 model_tooltip_details_block.go
 model_tooltip_details_block_property.go
@@ -470,6 +488,7 @@ test/api_client_versions_test.go
 test/api_colors_test.go
 test/api_commands_test.go
 test/api_custom_matches_test.go
+test/api_demo_test.go
 test/api_generic_data_test.go
 test/api_graph_ql_test.go
 test/api_heroes_test.go

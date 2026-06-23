@@ -13,6 +13,7 @@ docs/apis/ClientVersionsApi.md
 docs/apis/ColorsApi.md
 docs/apis/CommandsApi.md
 docs/apis/CustomMatchesApi.md
+docs/apis/DemoApi.md
 docs/apis/GenericDataApi.md
 docs/apis/GraphQLApi.md
 docs/apis/HeroesApi.md
@@ -64,11 +65,16 @@ docs/models/BuildTag.md
 docs/models/ClickhouseMatchInfo.md
 docs/models/ClickhouseSalts.md
 docs/models/Color.md
+docs/models/ColumnSchema.md
 docs/models/CreateCustomRequest.md
 docs/models/CreateCustomResponse.md
 docs/models/Curve.md
 docs/models/CurveOrFloat.md
 docs/models/DamageFlash.md
+docs/models/DemoQueryJobResponse.md
+docs/models/DemoQueryRequest.md
+docs/models/DemoQueryStatusResponse.md
+docs/models/DemoSchemaResponse.md
 docs/models/DependantAbilities.md
 docs/models/DistributionEntry.md
 docs/models/DraftBucket.md
@@ -122,6 +128,7 @@ docs/models/ItemProperty.md
 docs/models/ItemSlotType.md
 docs/models/ItemStats.md
 docs/models/ItemType.md
+docs/models/JobStatus.md
 docs/models/KillDeathStats.md
 docs/models/LaneInfo.md
 docs/models/Leaderboard.md
@@ -146,6 +153,7 @@ docs/models/NpcUnit.md
 docs/models/ObjectiveParams.md
 docs/models/ObjectivePosition.md
 docs/models/OutcomeToWeights.md
+docs/models/OutputFormat.md
 docs/models/Patch.md
 docs/models/PatchCategory.md
 docs/models/PatchGuid.md
@@ -214,6 +222,7 @@ docs/models/SubclassRangedArmorModifier.md
 docs/models/SubclassRangedArmorModifierSubclass.md
 docs/models/SubclassTrooperDamageReduction.md
 docs/models/SubclassTrooperDamageReductionSubclass.md
+docs/models/TableSchemaResponse.md
 docs/models/TableSize.md
 docs/models/TooltipDetailsBlock.md
 docs/models/TooltipDetailsBlockProperty.md
@@ -242,6 +251,7 @@ src/DeadlockApiClient.Test/Api/ClientVersionsApiTests.cs
 src/DeadlockApiClient.Test/Api/ColorsApiTests.cs
 src/DeadlockApiClient.Test/Api/CommandsApiTests.cs
 src/DeadlockApiClient.Test/Api/CustomMatchesApiTests.cs
+src/DeadlockApiClient.Test/Api/DemoApiTests.cs
 src/DeadlockApiClient.Test/Api/DependencyInjectionTests.cs
 src/DeadlockApiClient.Test/Api/GenericDataApiTests.cs
 src/DeadlockApiClient.Test/Api/GraphQLApiTests.cs
@@ -295,11 +305,16 @@ src/DeadlockApiClient.Test/Model/BuildTests.cs
 src/DeadlockApiClient.Test/Model/ClickhouseMatchInfoTests.cs
 src/DeadlockApiClient.Test/Model/ClickhouseSaltsTests.cs
 src/DeadlockApiClient.Test/Model/ColorTests.cs
+src/DeadlockApiClient.Test/Model/ColumnSchemaTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomRequestTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomResponseTests.cs
 src/DeadlockApiClient.Test/Model/CurveOrFloatTests.cs
 src/DeadlockApiClient.Test/Model/CurveTests.cs
 src/DeadlockApiClient.Test/Model/DamageFlashTests.cs
+src/DeadlockApiClient.Test/Model/DemoQueryJobResponseTests.cs
+src/DeadlockApiClient.Test/Model/DemoQueryRequestTests.cs
+src/DeadlockApiClient.Test/Model/DemoQueryStatusResponseTests.cs
+src/DeadlockApiClient.Test/Model/DemoSchemaResponseTests.cs
 src/DeadlockApiClient.Test/Model/DependantAbilitiesTests.cs
 src/DeadlockApiClient.Test/Model/DistributionEntryTests.cs
 src/DeadlockApiClient.Test/Model/DraftBucketTests.cs
@@ -353,6 +368,7 @@ src/DeadlockApiClient.Test/Model/ItemSlotTypeTests.cs
 src/DeadlockApiClient.Test/Model/ItemStatsTests.cs
 src/DeadlockApiClient.Test/Model/ItemTests.cs
 src/DeadlockApiClient.Test/Model/ItemTypeTests.cs
+src/DeadlockApiClient.Test/Model/JobStatusTests.cs
 src/DeadlockApiClient.Test/Model/KillDeathStatsTests.cs
 src/DeadlockApiClient.Test/Model/LaneInfoTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardEntryTests.cs
@@ -377,6 +393,7 @@ src/DeadlockApiClient.Test/Model/NpcUnitTests.cs
 src/DeadlockApiClient.Test/Model/ObjectiveParamsTests.cs
 src/DeadlockApiClient.Test/Model/ObjectivePositionTests.cs
 src/DeadlockApiClient.Test/Model/OutcomeToWeightsTests.cs
+src/DeadlockApiClient.Test/Model/OutputFormatTests.cs
 src/DeadlockApiClient.Test/Model/PatchCategoryTests.cs
 src/DeadlockApiClient.Test/Model/PatchGuidTests.cs
 src/DeadlockApiClient.Test/Model/PatchTests.cs
@@ -445,6 +462,7 @@ src/DeadlockApiClient.Test/Model/SubclassRangedArmorModifierSubclassTests.cs
 src/DeadlockApiClient.Test/Model/SubclassRangedArmorModifierTests.cs
 src/DeadlockApiClient.Test/Model/SubclassTrooperDamageReductionSubclassTests.cs
 src/DeadlockApiClient.Test/Model/SubclassTrooperDamageReductionTests.cs
+src/DeadlockApiClient.Test/Model/TableSchemaResponseTests.cs
 src/DeadlockApiClient.Test/Model/TableSizeTests.cs
 src/DeadlockApiClient.Test/Model/TooltipDetailsBlockPropertyTests.cs
 src/DeadlockApiClient.Test/Model/TooltipDetailsBlockTests.cs
@@ -471,6 +489,7 @@ src/DeadlockApiClient/Api/ClientVersionsApi.cs
 src/DeadlockApiClient/Api/ColorsApi.cs
 src/DeadlockApiClient/Api/CommandsApi.cs
 src/DeadlockApiClient/Api/CustomMatchesApi.cs
+src/DeadlockApiClient/Api/DemoApi.cs
 src/DeadlockApiClient/Api/GenericDataApi.cs
 src/DeadlockApiClient/Api/GraphQLApi.cs
 src/DeadlockApiClient/Api/HeroesApi.cs
@@ -547,11 +566,16 @@ src/DeadlockApiClient/Model/BuildTag.cs
 src/DeadlockApiClient/Model/ClickhouseMatchInfo.cs
 src/DeadlockApiClient/Model/ClickhouseSalts.cs
 src/DeadlockApiClient/Model/Color.cs
+src/DeadlockApiClient/Model/ColumnSchema.cs
 src/DeadlockApiClient/Model/CreateCustomRequest.cs
 src/DeadlockApiClient/Model/CreateCustomResponse.cs
 src/DeadlockApiClient/Model/Curve.cs
 src/DeadlockApiClient/Model/CurveOrFloat.cs
 src/DeadlockApiClient/Model/DamageFlash.cs
+src/DeadlockApiClient/Model/DemoQueryJobResponse.cs
+src/DeadlockApiClient/Model/DemoQueryRequest.cs
+src/DeadlockApiClient/Model/DemoQueryStatusResponse.cs
+src/DeadlockApiClient/Model/DemoSchemaResponse.cs
 src/DeadlockApiClient/Model/DependantAbilities.cs
 src/DeadlockApiClient/Model/DistributionEntry.cs
 src/DeadlockApiClient/Model/DraftBucket.cs
@@ -605,6 +629,7 @@ src/DeadlockApiClient/Model/ItemProperty.cs
 src/DeadlockApiClient/Model/ItemSlotType.cs
 src/DeadlockApiClient/Model/ItemStats.cs
 src/DeadlockApiClient/Model/ItemType.cs
+src/DeadlockApiClient/Model/JobStatus.cs
 src/DeadlockApiClient/Model/KillDeathStats.cs
 src/DeadlockApiClient/Model/LaneInfo.cs
 src/DeadlockApiClient/Model/Leaderboard.cs
@@ -629,6 +654,7 @@ src/DeadlockApiClient/Model/NpcUnit.cs
 src/DeadlockApiClient/Model/ObjectiveParams.cs
 src/DeadlockApiClient/Model/ObjectivePosition.cs
 src/DeadlockApiClient/Model/OutcomeToWeights.cs
+src/DeadlockApiClient/Model/OutputFormat.cs
 src/DeadlockApiClient/Model/Patch.cs
 src/DeadlockApiClient/Model/PatchCategory.cs
 src/DeadlockApiClient/Model/PatchGuid.cs
@@ -697,6 +723,7 @@ src/DeadlockApiClient/Model/SubclassRangedArmorModifier.cs
 src/DeadlockApiClient/Model/SubclassRangedArmorModifierSubclass.cs
 src/DeadlockApiClient/Model/SubclassTrooperDamageReduction.cs
 src/DeadlockApiClient/Model/SubclassTrooperDamageReductionSubclass.cs
+src/DeadlockApiClient/Model/TableSchemaResponse.cs
 src/DeadlockApiClient/Model/TableSize.cs
 src/DeadlockApiClient/Model/TooltipDetailsBlock.cs
 src/DeadlockApiClient/Model/TooltipDetailsBlockProperty.cs

@@ -8,6 +8,7 @@ Apis/ClientVersionsApi.http
 Apis/ColorsApi.http
 Apis/CommandsApi.http
 Apis/CustomMatchesApi.http
+Apis/DemoApi.http
 Apis/GenericDataApi.http
 Apis/GraphQLApi.http
 Apis/HeroesApi.http

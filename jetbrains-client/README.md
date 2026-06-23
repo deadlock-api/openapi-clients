@@ -55,6 +55,9 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**readyUp**](Apis/CustomMatchesApi.http#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](Apis/CustomMatchesApi.http#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](Apis/CustomMatchesApi.http#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*DemoApi* | [**schema**](Apis/DemoApi.http#schema) | **GET** /v1/matches/demo/schema | Demo Schema
+*DemoApi* | [**status**](Apis/DemoApi.http#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status
+*DemoApi* | [**submit**](Apis/DemoApi.http#submit) | **POST** /v1/matches/demo/query | Demo Query
 *GenericDataApi* | [**getGenericData**](Apis/GenericDataApi.http#getgenericdata) | **GET** /v1/assets/generic-data | Get Generic Data
 *GraphQLApi* | [**playground**](Apis/GraphQLApi.http#playground) | **GET** /v1/graphql | GraphQL Playground
 *HeroesApi* | [**getHero**](Apis/HeroesApi.http#gethero) | **GET** /v1/assets/heroes/{hero_id} | Get Hero
