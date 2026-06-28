@@ -37,7 +37,7 @@ export declare const DemoApiAxiosParamCreator: (configuration?: Configuration) =
      */
     status: (jobId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h |
+     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h |
      * @summary Demo Query
      * @param {DemoQueryRequest} demoQueryRequest
      * @param {*} [options] Override http request option.
@@ -66,7 +66,7 @@ export declare const DemoApiFp: (configuration?: Configuration) => {
      */
     status(jobId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DemoQueryStatusResponse>>;
     /**
-     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h |
+     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h |
      * @summary Demo Query
      * @param {DemoQueryRequest} demoQueryRequest
      * @param {*} [options] Override http request option.
@@ -95,7 +95,7 @@ export declare const DemoApiFactory: (configuration?: Configuration, basePath?: 
      */
     status(requestParameters: DemoApiStatusRequest, options?: RawAxiosRequestConfig): AxiosPromise<DemoQueryStatusResponse>;
     /**
-     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h |
+     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h |
      * @summary Demo Query
      * @param {DemoApiSubmitRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -148,7 +148,7 @@ export declare class DemoApi extends BaseAPI {
      */
     status(requestParameters: DemoApiStatusRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<DemoQueryStatusResponse, any, {}>>;
     /**
-     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h |
+     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h |
      * @summary Demo Query
      * @param {DemoApiSubmitRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

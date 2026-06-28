@@ -275,9 +275,9 @@ Identical `(match_id, query, format)` submissions are deduplicated and reuse a c
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 5req/h |
-| Key | 50req/h |
-| Global | 100req/h |
+| IP | 20req/h |
+| Key | 200req/h |
+| Global | 400req/h |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

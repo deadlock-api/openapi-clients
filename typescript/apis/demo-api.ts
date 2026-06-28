@@ -104,7 +104,7 @@ export const DemoApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h | 
+         *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
          * @summary Demo Query
          * @param {DemoQueryRequest} demoQueryRequest 
          * @param {*} [options] Override http request option.
@@ -174,7 +174,7 @@ export const DemoApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h | 
+         *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
          * @summary Demo Query
          * @param {DemoQueryRequest} demoQueryRequest 
          * @param {*} [options] Override http request option.
@@ -216,7 +216,7 @@ export const DemoApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.status(requestParameters.jobId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h | 
+         *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
          * @summary Demo Query
          * @param {DemoApiSubmitRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -282,7 +282,7 @@ export class DemoApi extends BaseAPI {
     }
 
     /**
-     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/h | | Key | 50req/h | | Global | 100req/h | 
+     *  Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
      * @summary Demo Query
      * @param {DemoApiSubmitRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
