@@ -20,10 +20,14 @@ import type { StartingStat } from './starting-stat.js';
 export interface StartingStats {
     'ability_resource_max': StartingStat;
     'ability_resource_regen_per_second': StartingStat;
+    'air_dash_distance_in_meters'?: StartingStat | null;
+    'air_dash_duration'?: StartingStat | null;
     'base_health_regen': StartingStat;
     'bullet_armor_damage_reduction'?: StartingStat | null;
     'crit_damage_received_scale': StartingStat;
     'crouch_speed': StartingStat;
+    'ground_dash_distance_in_meters'?: StartingStat | null;
+    'ground_dash_duration'?: StartingStat | null;
     'heavy_melee_damage': StartingStat;
     'light_melee_damage': StartingStat;
     'max_health': StartingStat;

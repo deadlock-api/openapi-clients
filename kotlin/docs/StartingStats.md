@@ -23,7 +23,11 @@
 | **techRange** | [**StartingStat**](StartingStat.md) |  |  |
 | **weaponPower** | [**StartingStat**](StartingStat.md) |  |  |
 | **weaponPowerScale** | [**StartingStat**](StartingStat.md) |  |  |
+| **airDashDistanceInMeters** | [**StartingStat**](StartingStat.md) |  |  [optional] |
+| **airDashDuration** | [**StartingStat**](StartingStat.md) |  |  [optional] |
 | **bulletArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  |  [optional] |
+| **groundDashDistanceInMeters** | [**StartingStat**](StartingStat.md) |  |  [optional] |
+| **groundDashDuration** | [**StartingStat**](StartingStat.md) |  |  [optional] |
 | **techArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  |  [optional] |
 
 

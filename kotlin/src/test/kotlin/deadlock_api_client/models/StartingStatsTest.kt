@@ -148,10 +148,34 @@ class StartingStatsTest : ShouldSpec() {
             //modelInstance.weaponPowerScale shouldBe ("TODO")
         }
 
+        // to test the property `airDashDistanceInMeters`
+        should("test airDashDistanceInMeters") {
+            // uncomment below to test the property
+            //modelInstance.airDashDistanceInMeters shouldBe ("TODO")
+        }
+
+        // to test the property `airDashDuration`
+        should("test airDashDuration") {
+            // uncomment below to test the property
+            //modelInstance.airDashDuration shouldBe ("TODO")
+        }
+
         // to test the property `bulletArmorDamageReduction`
         should("test bulletArmorDamageReduction") {
             // uncomment below to test the property
             //modelInstance.bulletArmorDamageReduction shouldBe ("TODO")
+        }
+
+        // to test the property `groundDashDistanceInMeters`
+        should("test groundDashDistanceInMeters") {
+            // uncomment below to test the property
+            //modelInstance.groundDashDistanceInMeters shouldBe ("TODO")
+        }
+
+        // to test the property `groundDashDuration`
+        should("test groundDashDuration") {
+            // uncomment below to test the property
+            //modelInstance.groundDashDuration shouldBe ("TODO")
         }
 
         // to test the property `techArmorDamageReduction`

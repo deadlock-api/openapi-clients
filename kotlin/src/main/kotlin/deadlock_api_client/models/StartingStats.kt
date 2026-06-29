@@ -51,7 +51,11 @@ import java.io.Serializable
  * @param techRange 
  * @param weaponPower 
  * @param weaponPowerScale 
+ * @param airDashDistanceInMeters 
+ * @param airDashDuration 
  * @param bulletArmorDamageReduction 
+ * @param groundDashDistanceInMeters 
+ * @param groundDashDuration 
  * @param techArmorDamageReduction 
  */
 
@@ -115,8 +119,20 @@ data class StartingStats (
     @Json(name = "weapon_power_scale")
     val weaponPowerScale: StartingStat,
 
+    @Json(name = "air_dash_distance_in_meters")
+    val airDashDistanceInMeters: StartingStat? = null,
+
+    @Json(name = "air_dash_duration")
+    val airDashDuration: StartingStat? = null,
+
     @Json(name = "bullet_armor_damage_reduction")
     val bulletArmorDamageReduction: StartingStat? = null,
+
+    @Json(name = "ground_dash_distance_in_meters")
+    val groundDashDistanceInMeters: StartingStat? = null,
+
+    @Json(name = "ground_dash_duration")
+    val groundDashDuration: StartingStat? = null,
 
     @Json(name = "tech_armor_damage_reduction")
     val techArmorDamageReduction: StartingStat? = null

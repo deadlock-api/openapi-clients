@@ -7,10 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ability_resource_max** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **ability_resource_regen_per_second** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
+**air_dash_distance_in_meters** | [**StartingStat**](StartingStat.md) |  | [optional] [default to undefined]
+**air_dash_duration** | [**StartingStat**](StartingStat.md) |  | [optional] [default to undefined]
 **base_health_regen** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **bullet_armor_damage_reduction** | [**StartingStat**](StartingStat.md) |  | [optional] [default to undefined]
 **crit_damage_received_scale** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **crouch_speed** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
+**ground_dash_distance_in_meters** | [**StartingStat**](StartingStat.md) |  | [optional] [default to undefined]
+**ground_dash_duration** | [**StartingStat**](StartingStat.md) |  | [optional] [default to undefined]
 **heavy_melee_damage** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **light_melee_damage** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **max_health** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
@@ -35,10 +39,14 @@ import { StartingStats } from 'deadlock_api_client';
 const instance: StartingStats = {
     ability_resource_max,
     ability_resource_regen_per_second,
+    air_dash_distance_in_meters,
+    air_dash_duration,
     base_health_regen,
     bullet_armor_damage_reduction,
     crit_damage_received_scale,
     crouch_speed,
+    ground_dash_distance_in_meters,
+    ground_dash_duration,
     heavy_melee_damage,
     light_melee_damage,
     max_health,

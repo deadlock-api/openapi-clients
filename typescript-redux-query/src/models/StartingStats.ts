@@ -41,6 +41,18 @@ export interface StartingStats  {
      * @type {StartingStat}
      * @memberof StartingStats
      */
+    airDashDistanceInMeters?: StartingStat;
+    /**
+     * 
+     * @type {StartingStat}
+     * @memberof StartingStats
+     */
+    airDashDuration?: StartingStat;
+    /**
+     * 
+     * @type {StartingStat}
+     * @memberof StartingStats
+     */
     baseHealthRegen: StartingStat;
     /**
      * 
@@ -60,6 +72,18 @@ export interface StartingStats  {
      * @memberof StartingStats
      */
     crouchSpeed: StartingStat;
+    /**
+     * 
+     * @type {StartingStat}
+     * @memberof StartingStats
+     */
+    groundDashDistanceInMeters?: StartingStat;
+    /**
+     * 
+     * @type {StartingStat}
+     * @memberof StartingStats
+     */
+    groundDashDuration?: StartingStat;
     /**
      * 
      * @type {StartingStat}
@@ -156,10 +180,14 @@ export function StartingStatsFromJSON(json: any): StartingStats {
     return {
         'abilityResourceMax': StartingStatFromJSON(json['ability_resource_max']),
         'abilityResourceRegenPerSecond': StartingStatFromJSON(json['ability_resource_regen_per_second']),
+        'airDashDistanceInMeters': !exists(json, 'air_dash_distance_in_meters') ? undefined : StartingStatFromJSON(json['air_dash_distance_in_meters']),
+        'airDashDuration': !exists(json, 'air_dash_duration') ? undefined : StartingStatFromJSON(json['air_dash_duration']),
         'baseHealthRegen': StartingStatFromJSON(json['base_health_regen']),
         'bulletArmorDamageReduction': !exists(json, 'bullet_armor_damage_reduction') ? undefined : StartingStatFromJSON(json['bullet_armor_damage_reduction']),
         'critDamageReceivedScale': StartingStatFromJSON(json['crit_damage_received_scale']),
         'crouchSpeed': StartingStatFromJSON(json['crouch_speed']),
+        'groundDashDistanceInMeters': !exists(json, 'ground_dash_distance_in_meters') ? undefined : StartingStatFromJSON(json['ground_dash_distance_in_meters']),
+        'groundDashDuration': !exists(json, 'ground_dash_duration') ? undefined : StartingStatFromJSON(json['ground_dash_duration']),
         'heavyMeleeDamage': StartingStatFromJSON(json['heavy_melee_damage']),
         'lightMeleeDamage': StartingStatFromJSON(json['light_melee_damage']),
         'maxHealth': StartingStatFromJSON(json['max_health']),
@@ -185,10 +213,14 @@ export function StartingStatsToJSON(value?: StartingStats): any {
     return {
         'ability_resource_max': StartingStatToJSON(value.abilityResourceMax),
         'ability_resource_regen_per_second': StartingStatToJSON(value.abilityResourceRegenPerSecond),
+        'air_dash_distance_in_meters': StartingStatToJSON(value.airDashDistanceInMeters),
+        'air_dash_duration': StartingStatToJSON(value.airDashDuration),
         'base_health_regen': StartingStatToJSON(value.baseHealthRegen),
         'bullet_armor_damage_reduction': StartingStatToJSON(value.bulletArmorDamageReduction),
         'crit_damage_received_scale': StartingStatToJSON(value.critDamageReceivedScale),
         'crouch_speed': StartingStatToJSON(value.crouchSpeed),
+        'ground_dash_distance_in_meters': StartingStatToJSON(value.groundDashDistanceInMeters),
+        'ground_dash_duration': StartingStatToJSON(value.groundDashDuration),
         'heavy_melee_damage': StartingStatToJSON(value.heavyMeleeDamage),
         'light_melee_damage': StartingStatToJSON(value.lightMeleeDamage),
         'max_health': StartingStatToJSON(value.maxHealth),

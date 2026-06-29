@@ -175,7 +175,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -428,7 +428,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -562,7 +562,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -639,7 +639,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -861,7 +861,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -995,7 +995,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -1184,7 +1184,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -1728,7 +1728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -1996,7 +1996,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -2271,7 +2271,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -2567,7 +2567,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -2856,7 +2856,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -3145,7 +3145,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -3439,7 +3439,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -3664,7 +3664,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -3966,7 +3966,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -7072,7 +7072,7 @@ paths:
       description: |2
 
         Submit a SQL query against a match's demo file. The work (download + decompress + parse +
-        query) takes ~12s, so this is asynchronous: the endpoint returns a `job_id` you poll via
+        query) takes ~55s, so this is asynchronous: the endpoint returns a `job_id` you poll via
         `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result
         artifact (Parquet or NDJSON).
 
@@ -8194,7 +8194,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -8314,7 +8314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1779926400
+          default: 1780012800
           format: int64
           nullable: true
           type: integer
@@ -12068,6 +12068,8 @@ components:
           ability_resource_regen_per_second:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
+          air_dash_distance_in_meters: ""
+          air_dash_duration: ""
           base_health_regen:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
@@ -12078,6 +12080,8 @@ components:
           crouch_speed:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
+          ground_dash_distance_in_meters: ""
+          ground_dash_duration: ""
           heavy_melee_damage:
             display_stat_name: display_stat_name
             value: 1.1730742509559433
@@ -16123,6 +16127,8 @@ components:
         ability_resource_regen_per_second:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
+        air_dash_distance_in_meters: ""
+        air_dash_duration: ""
         base_health_regen:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
@@ -16133,6 +16139,8 @@ components:
         crouch_speed:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
+        ground_dash_distance_in_meters: ""
+        ground_dash_duration: ""
         heavy_melee_damage:
           display_stat_name: display_stat_name
           value: 1.1730742509559433
@@ -16181,6 +16189,14 @@ components:
           $ref: "#/components/schemas/StartingStat"
         ability_resource_regen_per_second:
           $ref: "#/components/schemas/StartingStat"
+        air_dash_distance_in_meters:
+          allOf:
+          - $ref: "#/components/schemas/StartingStat"
+          nullable: true
+        air_dash_duration:
+          allOf:
+          - $ref: "#/components/schemas/StartingStat"
+          nullable: true
         base_health_regen:
           $ref: "#/components/schemas/StartingStat"
         bullet_armor_damage_reduction:
@@ -16191,6 +16207,14 @@ components:
           $ref: "#/components/schemas/StartingStat"
         crouch_speed:
           $ref: "#/components/schemas/StartingStat"
+        ground_dash_distance_in_meters:
+          allOf:
+          - $ref: "#/components/schemas/StartingStat"
+          nullable: true
+        ground_dash_duration:
+          allOf:
+          - $ref: "#/components/schemas/StartingStat"
+          nullable: true
         heavy_melee_damage:
           $ref: "#/components/schemas/StartingStat"
         light_melee_damage:

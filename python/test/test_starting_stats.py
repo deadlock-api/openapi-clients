@@ -41,6 +41,12 @@ class TestStartingStats(unittest.TestCase):
                 ability_resource_regen_per_second = deadlock_api_client.models.starting_stat.StartingStat(
                     display_stat_name = '', 
                     value = 1.337, ),
+                air_dash_distance_in_meters = deadlock_api_client.models.starting_stat.StartingStat(
+                    display_stat_name = '', 
+                    value = 1.337, ),
+                air_dash_duration = deadlock_api_client.models.starting_stat.StartingStat(
+                    display_stat_name = '', 
+                    value = 1.337, ),
                 base_health_regen = deadlock_api_client.models.starting_stat.StartingStat(
                     display_stat_name = '', 
                     value = 1.337, ),
@@ -51,6 +57,12 @@ class TestStartingStats(unittest.TestCase):
                     display_stat_name = '', 
                     value = 1.337, ),
                 crouch_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                    display_stat_name = '', 
+                    value = 1.337, ),
+                ground_dash_distance_in_meters = deadlock_api_client.models.starting_stat.StartingStat(
+                    display_stat_name = '', 
+                    value = 1.337, ),
+                ground_dash_duration = deadlock_api_client.models.starting_stat.StartingStat(
                     display_stat_name = '', 
                     value = 1.337, ),
                 heavy_melee_damage = deadlock_api_client.models.starting_stat.StartingStat(

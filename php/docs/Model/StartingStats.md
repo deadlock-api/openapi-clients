@@ -6,10 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ability_resource_max** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **ability_resource_regen_per_second** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
+**air_dash_distance_in_meters** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  | [optional]
+**air_dash_duration** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  | [optional]
 **base_health_regen** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **bullet_armor_damage_reduction** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  | [optional]
 **crit_damage_received_scale** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **crouch_speed** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
+**ground_dash_distance_in_meters** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  | [optional]
+**ground_dash_duration** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  | [optional]
 **heavy_melee_damage** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **light_melee_damage** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **max_health** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |

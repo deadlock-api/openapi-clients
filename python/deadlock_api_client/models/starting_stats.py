@@ -30,10 +30,14 @@ class StartingStats(BaseModel):
     """ # noqa: E501
     ability_resource_max: StartingStat
     ability_resource_regen_per_second: StartingStat
+    air_dash_distance_in_meters: Optional[StartingStat] = None
+    air_dash_duration: Optional[StartingStat] = None
     base_health_regen: StartingStat
     bullet_armor_damage_reduction: Optional[StartingStat] = None
     crit_damage_received_scale: StartingStat
     crouch_speed: StartingStat
+    ground_dash_distance_in_meters: Optional[StartingStat] = None
+    ground_dash_duration: Optional[StartingStat] = None
     heavy_melee_damage: StartingStat
     light_melee_damage: StartingStat
     max_health: StartingStat
@@ -49,7 +53,7 @@ class StartingStats(BaseModel):
     tech_range: StartingStat
     weapon_power: StartingStat
     weapon_power_scale: StartingStat
-    __properties: ClassVar[List[str]] = ["ability_resource_max", "ability_resource_regen_per_second", "base_health_regen", "bullet_armor_damage_reduction", "crit_damage_received_scale", "crouch_speed", "heavy_melee_damage", "light_melee_damage", "max_health", "max_move_speed", "move_acceleration", "proc_build_up_rate_scale", "reload_speed", "sprint_speed", "stamina", "stamina_regen_per_second", "tech_armor_damage_reduction", "tech_duration", "tech_range", "weapon_power", "weapon_power_scale"]
+    __properties: ClassVar[List[str]] = ["ability_resource_max", "ability_resource_regen_per_second", "air_dash_distance_in_meters", "air_dash_duration", "base_health_regen", "bullet_armor_damage_reduction", "crit_damage_received_scale", "crouch_speed", "ground_dash_distance_in_meters", "ground_dash_duration", "heavy_melee_damage", "light_melee_damage", "max_health", "max_move_speed", "move_acceleration", "proc_build_up_rate_scale", "reload_speed", "sprint_speed", "stamina", "stamina_regen_per_second", "tech_armor_damage_reduction", "tech_duration", "tech_range", "weapon_power", "weapon_power_scale"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -96,6 +100,12 @@ class StartingStats(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of ability_resource_regen_per_second
         if self.ability_resource_regen_per_second:
             _dict['ability_resource_regen_per_second'] = self.ability_resource_regen_per_second.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of air_dash_distance_in_meters
+        if self.air_dash_distance_in_meters:
+            _dict['air_dash_distance_in_meters'] = self.air_dash_distance_in_meters.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of air_dash_duration
+        if self.air_dash_duration:
+            _dict['air_dash_duration'] = self.air_dash_duration.to_dict()
         # override the default output from pydantic by calling `to_dict()` of base_health_regen
         if self.base_health_regen:
             _dict['base_health_regen'] = self.base_health_regen.to_dict()
@@ -108,6 +118,12 @@ class StartingStats(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of crouch_speed
         if self.crouch_speed:
             _dict['crouch_speed'] = self.crouch_speed.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of ground_dash_distance_in_meters
+        if self.ground_dash_distance_in_meters:
+            _dict['ground_dash_distance_in_meters'] = self.ground_dash_distance_in_meters.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of ground_dash_duration
+        if self.ground_dash_duration:
+            _dict['ground_dash_duration'] = self.ground_dash_duration.to_dict()
         # override the default output from pydantic by calling `to_dict()` of heavy_melee_damage
         if self.heavy_melee_damage:
             _dict['heavy_melee_damage'] = self.heavy_melee_damage.to_dict()
@@ -153,10 +169,30 @@ class StartingStats(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of weapon_power_scale
         if self.weapon_power_scale:
             _dict['weapon_power_scale'] = self.weapon_power_scale.to_dict()
+        # set to None if air_dash_distance_in_meters (nullable) is None
+        # and model_fields_set contains the field
+        if self.air_dash_distance_in_meters is None and "air_dash_distance_in_meters" in self.model_fields_set:
+            _dict['air_dash_distance_in_meters'] = None
+
+        # set to None if air_dash_duration (nullable) is None
+        # and model_fields_set contains the field
+        if self.air_dash_duration is None and "air_dash_duration" in self.model_fields_set:
+            _dict['air_dash_duration'] = None
+
         # set to None if bullet_armor_damage_reduction (nullable) is None
         # and model_fields_set contains the field
         if self.bullet_armor_damage_reduction is None and "bullet_armor_damage_reduction" in self.model_fields_set:
             _dict['bullet_armor_damage_reduction'] = None
+
+        # set to None if ground_dash_distance_in_meters (nullable) is None
+        # and model_fields_set contains the field
+        if self.ground_dash_distance_in_meters is None and "ground_dash_distance_in_meters" in self.model_fields_set:
+            _dict['ground_dash_distance_in_meters'] = None
+
+        # set to None if ground_dash_duration (nullable) is None
+        # and model_fields_set contains the field
+        if self.ground_dash_duration is None and "ground_dash_duration" in self.model_fields_set:
+            _dict['ground_dash_duration'] = None
 
         # set to None if tech_armor_damage_reduction (nullable) is None
         # and model_fields_set contains the field
@@ -177,10 +213,14 @@ class StartingStats(BaseModel):
         _obj = cls.model_validate({
             "ability_resource_max": StartingStat.from_dict(obj["ability_resource_max"]) if obj.get("ability_resource_max") is not None else None,
             "ability_resource_regen_per_second": StartingStat.from_dict(obj["ability_resource_regen_per_second"]) if obj.get("ability_resource_regen_per_second") is not None else None,
+            "air_dash_distance_in_meters": StartingStat.from_dict(obj["air_dash_distance_in_meters"]) if obj.get("air_dash_distance_in_meters") is not None else None,
+            "air_dash_duration": StartingStat.from_dict(obj["air_dash_duration"]) if obj.get("air_dash_duration") is not None else None,
             "base_health_regen": StartingStat.from_dict(obj["base_health_regen"]) if obj.get("base_health_regen") is not None else None,
             "bullet_armor_damage_reduction": StartingStat.from_dict(obj["bullet_armor_damage_reduction"]) if obj.get("bullet_armor_damage_reduction") is not None else None,
             "crit_damage_received_scale": StartingStat.from_dict(obj["crit_damage_received_scale"]) if obj.get("crit_damage_received_scale") is not None else None,
             "crouch_speed": StartingStat.from_dict(obj["crouch_speed"]) if obj.get("crouch_speed") is not None else None,
+            "ground_dash_distance_in_meters": StartingStat.from_dict(obj["ground_dash_distance_in_meters"]) if obj.get("ground_dash_distance_in_meters") is not None else None,
+            "ground_dash_duration": StartingStat.from_dict(obj["ground_dash_duration"]) if obj.get("ground_dash_duration") is not None else None,
             "heavy_melee_damage": StartingStat.from_dict(obj["heavy_melee_damage"]) if obj.get("heavy_melee_damage") is not None else None,
             "light_melee_damage": StartingStat.from_dict(obj["light_melee_damage"]) if obj.get("light_melee_damage") is not None else None,
             "max_health": StartingStat.from_dict(obj["max_health"]) if obj.get("max_health") is not None else None,

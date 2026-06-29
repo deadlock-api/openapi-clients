@@ -17,6 +17,10 @@ pub struct StartingStats {
     pub ability_resource_max: Box<models::StartingStat>,
     #[serde(rename = "ability_resource_regen_per_second")]
     pub ability_resource_regen_per_second: Box<models::StartingStat>,
+    #[serde(rename = "air_dash_distance_in_meters", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub air_dash_distance_in_meters: Option<Option<Box<models::StartingStat>>>,
+    #[serde(rename = "air_dash_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub air_dash_duration: Option<Option<Box<models::StartingStat>>>,
     #[serde(rename = "base_health_regen")]
     pub base_health_regen: Box<models::StartingStat>,
     #[serde(rename = "bullet_armor_damage_reduction", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -25,6 +29,10 @@ pub struct StartingStats {
     pub crit_damage_received_scale: Box<models::StartingStat>,
     #[serde(rename = "crouch_speed")]
     pub crouch_speed: Box<models::StartingStat>,
+    #[serde(rename = "ground_dash_distance_in_meters", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ground_dash_distance_in_meters: Option<Option<Box<models::StartingStat>>>,
+    #[serde(rename = "ground_dash_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ground_dash_duration: Option<Option<Box<models::StartingStat>>>,
     #[serde(rename = "heavy_melee_damage")]
     pub heavy_melee_damage: Box<models::StartingStat>,
     #[serde(rename = "light_melee_damage")]
@@ -62,10 +70,14 @@ impl StartingStats {
         StartingStats {
             ability_resource_max: Box::new(ability_resource_max),
             ability_resource_regen_per_second: Box::new(ability_resource_regen_per_second),
+            air_dash_distance_in_meters: None,
+            air_dash_duration: None,
             base_health_regen: Box::new(base_health_regen),
             bullet_armor_damage_reduction: None,
             crit_damage_received_scale: Box::new(crit_damage_received_scale),
             crouch_speed: Box::new(crouch_speed),
+            ground_dash_distance_in_meters: None,
+            ground_dash_duration: None,
             heavy_melee_damage: Box::new(heavy_melee_damage),
             light_melee_damage: Box::new(light_melee_damage),
             max_health: Box::new(max_health),

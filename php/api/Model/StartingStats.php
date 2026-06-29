@@ -59,10 +59,14 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'ability_resource_max' => '\OpenAPI\Client\Model\StartingStat',
         'ability_resource_regen_per_second' => '\OpenAPI\Client\Model\StartingStat',
+        'air_dash_distance_in_meters' => '\OpenAPI\Client\Model\StartingStat',
+        'air_dash_duration' => '\OpenAPI\Client\Model\StartingStat',
         'base_health_regen' => '\OpenAPI\Client\Model\StartingStat',
         'bullet_armor_damage_reduction' => '\OpenAPI\Client\Model\StartingStat',
         'crit_damage_received_scale' => '\OpenAPI\Client\Model\StartingStat',
         'crouch_speed' => '\OpenAPI\Client\Model\StartingStat',
+        'ground_dash_distance_in_meters' => '\OpenAPI\Client\Model\StartingStat',
+        'ground_dash_duration' => '\OpenAPI\Client\Model\StartingStat',
         'heavy_melee_damage' => '\OpenAPI\Client\Model\StartingStat',
         'light_melee_damage' => '\OpenAPI\Client\Model\StartingStat',
         'max_health' => '\OpenAPI\Client\Model\StartingStat',
@@ -90,10 +94,14 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'ability_resource_max' => null,
         'ability_resource_regen_per_second' => null,
+        'air_dash_distance_in_meters' => null,
+        'air_dash_duration' => null,
         'base_health_regen' => null,
         'bullet_armor_damage_reduction' => null,
         'crit_damage_received_scale' => null,
         'crouch_speed' => null,
+        'ground_dash_distance_in_meters' => null,
+        'ground_dash_duration' => null,
         'heavy_melee_damage' => null,
         'light_melee_damage' => null,
         'max_health' => null,
@@ -119,10 +127,14 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'ability_resource_max' => false,
         'ability_resource_regen_per_second' => false,
+        'air_dash_distance_in_meters' => true,
+        'air_dash_duration' => true,
         'base_health_regen' => false,
         'bullet_armor_damage_reduction' => true,
         'crit_damage_received_scale' => false,
         'crouch_speed' => false,
+        'ground_dash_distance_in_meters' => true,
+        'ground_dash_duration' => true,
         'heavy_melee_damage' => false,
         'light_melee_damage' => false,
         'max_health' => false,
@@ -228,10 +240,14 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'ability_resource_max' => 'ability_resource_max',
         'ability_resource_regen_per_second' => 'ability_resource_regen_per_second',
+        'air_dash_distance_in_meters' => 'air_dash_distance_in_meters',
+        'air_dash_duration' => 'air_dash_duration',
         'base_health_regen' => 'base_health_regen',
         'bullet_armor_damage_reduction' => 'bullet_armor_damage_reduction',
         'crit_damage_received_scale' => 'crit_damage_received_scale',
         'crouch_speed' => 'crouch_speed',
+        'ground_dash_distance_in_meters' => 'ground_dash_distance_in_meters',
+        'ground_dash_duration' => 'ground_dash_duration',
         'heavy_melee_damage' => 'heavy_melee_damage',
         'light_melee_damage' => 'light_melee_damage',
         'max_health' => 'max_health',
@@ -257,10 +273,14 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'ability_resource_max' => 'setAbilityResourceMax',
         'ability_resource_regen_per_second' => 'setAbilityResourceRegenPerSecond',
+        'air_dash_distance_in_meters' => 'setAirDashDistanceInMeters',
+        'air_dash_duration' => 'setAirDashDuration',
         'base_health_regen' => 'setBaseHealthRegen',
         'bullet_armor_damage_reduction' => 'setBulletArmorDamageReduction',
         'crit_damage_received_scale' => 'setCritDamageReceivedScale',
         'crouch_speed' => 'setCrouchSpeed',
+        'ground_dash_distance_in_meters' => 'setGroundDashDistanceInMeters',
+        'ground_dash_duration' => 'setGroundDashDuration',
         'heavy_melee_damage' => 'setHeavyMeleeDamage',
         'light_melee_damage' => 'setLightMeleeDamage',
         'max_health' => 'setMaxHealth',
@@ -286,10 +306,14 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'ability_resource_max' => 'getAbilityResourceMax',
         'ability_resource_regen_per_second' => 'getAbilityResourceRegenPerSecond',
+        'air_dash_distance_in_meters' => 'getAirDashDistanceInMeters',
+        'air_dash_duration' => 'getAirDashDuration',
         'base_health_regen' => 'getBaseHealthRegen',
         'bullet_armor_damage_reduction' => 'getBulletArmorDamageReduction',
         'crit_damage_received_scale' => 'getCritDamageReceivedScale',
         'crouch_speed' => 'getCrouchSpeed',
+        'ground_dash_distance_in_meters' => 'getGroundDashDistanceInMeters',
+        'ground_dash_duration' => 'getGroundDashDuration',
         'heavy_melee_damage' => 'getHeavyMeleeDamage',
         'light_melee_damage' => 'getLightMeleeDamage',
         'max_health' => 'getMaxHealth',
@@ -366,10 +390,14 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('ability_resource_max', $data ?? [], null);
         $this->setIfExists('ability_resource_regen_per_second', $data ?? [], null);
+        $this->setIfExists('air_dash_distance_in_meters', $data ?? [], null);
+        $this->setIfExists('air_dash_duration', $data ?? [], null);
         $this->setIfExists('base_health_regen', $data ?? [], null);
         $this->setIfExists('bullet_armor_damage_reduction', $data ?? [], null);
         $this->setIfExists('crit_damage_received_scale', $data ?? [], null);
         $this->setIfExists('crouch_speed', $data ?? [], null);
+        $this->setIfExists('ground_dash_distance_in_meters', $data ?? [], null);
+        $this->setIfExists('ground_dash_duration', $data ?? [], null);
         $this->setIfExists('heavy_melee_damage', $data ?? [], null);
         $this->setIfExists('light_melee_damage', $data ?? [], null);
         $this->setIfExists('max_health', $data ?? [], null);
@@ -541,6 +569,74 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets air_dash_distance_in_meters
+     *
+     * @return \OpenAPI\Client\Model\StartingStat|null
+     */
+    public function getAirDashDistanceInMeters()
+    {
+        return $this->container['air_dash_distance_in_meters'];
+    }
+
+    /**
+     * Sets air_dash_distance_in_meters
+     *
+     * @param \OpenAPI\Client\Model\StartingStat|null $air_dash_distance_in_meters air_dash_distance_in_meters
+     *
+     * @return self
+     */
+    public function setAirDashDistanceInMeters($air_dash_distance_in_meters)
+    {
+        if (is_null($air_dash_distance_in_meters)) {
+            array_push($this->openAPINullablesSetToNull, 'air_dash_distance_in_meters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('air_dash_distance_in_meters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['air_dash_distance_in_meters'] = $air_dash_distance_in_meters;
+
+        return $this;
+    }
+
+    /**
+     * Gets air_dash_duration
+     *
+     * @return \OpenAPI\Client\Model\StartingStat|null
+     */
+    public function getAirDashDuration()
+    {
+        return $this->container['air_dash_duration'];
+    }
+
+    /**
+     * Sets air_dash_duration
+     *
+     * @param \OpenAPI\Client\Model\StartingStat|null $air_dash_duration air_dash_duration
+     *
+     * @return self
+     */
+    public function setAirDashDuration($air_dash_duration)
+    {
+        if (is_null($air_dash_duration)) {
+            array_push($this->openAPINullablesSetToNull, 'air_dash_duration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('air_dash_duration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['air_dash_duration'] = $air_dash_duration;
+
+        return $this;
+    }
+
+    /**
      * Gets base_health_regen
      *
      * @return \OpenAPI\Client\Model\StartingStat
@@ -651,6 +747,74 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable crouch_speed cannot be null');
         }
         $this->container['crouch_speed'] = $crouch_speed;
+
+        return $this;
+    }
+
+    /**
+     * Gets ground_dash_distance_in_meters
+     *
+     * @return \OpenAPI\Client\Model\StartingStat|null
+     */
+    public function getGroundDashDistanceInMeters()
+    {
+        return $this->container['ground_dash_distance_in_meters'];
+    }
+
+    /**
+     * Sets ground_dash_distance_in_meters
+     *
+     * @param \OpenAPI\Client\Model\StartingStat|null $ground_dash_distance_in_meters ground_dash_distance_in_meters
+     *
+     * @return self
+     */
+    public function setGroundDashDistanceInMeters($ground_dash_distance_in_meters)
+    {
+        if (is_null($ground_dash_distance_in_meters)) {
+            array_push($this->openAPINullablesSetToNull, 'ground_dash_distance_in_meters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ground_dash_distance_in_meters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ground_dash_distance_in_meters'] = $ground_dash_distance_in_meters;
+
+        return $this;
+    }
+
+    /**
+     * Gets ground_dash_duration
+     *
+     * @return \OpenAPI\Client\Model\StartingStat|null
+     */
+    public function getGroundDashDuration()
+    {
+        return $this->container['ground_dash_duration'];
+    }
+
+    /**
+     * Sets ground_dash_duration
+     *
+     * @param \OpenAPI\Client\Model\StartingStat|null $ground_dash_duration ground_dash_duration
+     *
+     * @return self
+     */
+    public function setGroundDashDuration($ground_dash_duration)
+    {
+        if (is_null($ground_dash_duration)) {
+            array_push($this->openAPINullablesSetToNull, 'ground_dash_duration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ground_dash_duration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ground_dash_duration'] = $ground_dash_duration;
 
         return $this;
     }

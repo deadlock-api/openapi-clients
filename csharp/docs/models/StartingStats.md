@@ -23,7 +23,11 @@ Name | Type | Description | Notes
 **TechRange** | [**StartingStat**](StartingStat.md) |  | 
 **WeaponPower** | [**StartingStat**](StartingStat.md) |  | 
 **WeaponPowerScale** | [**StartingStat**](StartingStat.md) |  | 
+**AirDashDistanceInMeters** | [**StartingStat**](StartingStat.md) |  | [optional] 
+**AirDashDuration** | [**StartingStat**](StartingStat.md) |  | [optional] 
 **BulletArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  | [optional] 
+**GroundDashDistanceInMeters** | [**StartingStat**](StartingStat.md) |  | [optional] 
+**GroundDashDuration** | [**StartingStat**](StartingStat.md) |  | [optional] 
 **TechArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

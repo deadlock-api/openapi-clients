@@ -225,12 +225,48 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AirDashDistanceInMeters'
+        /// </summary>
+        [Fact]
+        public void AirDashDistanceInMetersTest()
+        {
+            // TODO unit test for the property 'AirDashDistanceInMeters'
+        }
+
+        /// <summary>
+        /// Test the property 'AirDashDuration'
+        /// </summary>
+        [Fact]
+        public void AirDashDurationTest()
+        {
+            // TODO unit test for the property 'AirDashDuration'
+        }
+
+        /// <summary>
         /// Test the property 'BulletArmorDamageReduction'
         /// </summary>
         [Fact]
         public void BulletArmorDamageReductionTest()
         {
             // TODO unit test for the property 'BulletArmorDamageReduction'
+        }
+
+        /// <summary>
+        /// Test the property 'GroundDashDistanceInMeters'
+        /// </summary>
+        [Fact]
+        public void GroundDashDistanceInMetersTest()
+        {
+            // TODO unit test for the property 'GroundDashDistanceInMeters'
+        }
+
+        /// <summary>
+        /// Test the property 'GroundDashDuration'
+        /// </summary>
+        [Fact]
+        public void GroundDashDurationTest()
+        {
+            // TODO unit test for the property 'GroundDashDuration'
         }
 
         /// <summary>

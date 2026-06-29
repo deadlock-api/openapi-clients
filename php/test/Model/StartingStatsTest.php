@@ -98,6 +98,24 @@ class StartingStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "air_dash_distance_in_meters"
+     */
+    public function testPropertyAirDashDistanceInMeters()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "air_dash_duration"
+     */
+    public function testPropertyAirDashDuration()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "base_health_regen"
      */
     public function testPropertyBaseHealthRegen()
@@ -128,6 +146,24 @@ class StartingStatsTest extends TestCase
      * Test attribute "crouch_speed"
      */
     public function testPropertyCrouchSpeed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ground_dash_distance_in_meters"
+     */
+    public function testPropertyGroundDashDistanceInMeters()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ground_dash_duration"
+     */
+    public function testPropertyGroundDashDuration()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

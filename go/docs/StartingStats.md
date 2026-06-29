@@ -6,10 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AbilityResourceMax** | [**StartingStat**](StartingStat.md) |  | 
 **AbilityResourceRegenPerSecond** | [**StartingStat**](StartingStat.md) |  | 
+**AirDashDistanceInMeters** | Pointer to [**NullableStartingStat**](StartingStat.md) |  | [optional] 
+**AirDashDuration** | Pointer to [**NullableStartingStat**](StartingStat.md) |  | [optional] 
 **BaseHealthRegen** | [**StartingStat**](StartingStat.md) |  | 
 **BulletArmorDamageReduction** | Pointer to [**NullableStartingStat**](StartingStat.md) |  | [optional] 
 **CritDamageReceivedScale** | [**StartingStat**](StartingStat.md) |  | 
 **CrouchSpeed** | [**StartingStat**](StartingStat.md) |  | 
+**GroundDashDistanceInMeters** | Pointer to [**NullableStartingStat**](StartingStat.md) |  | [optional] 
+**GroundDashDuration** | Pointer to [**NullableStartingStat**](StartingStat.md) |  | [optional] 
 **HeavyMeleeDamage** | [**StartingStat**](StartingStat.md) |  | 
 **LightMeleeDamage** | [**StartingStat**](StartingStat.md) |  | 
 **MaxHealth** | [**StartingStat**](StartingStat.md) |  | 
@@ -85,6 +89,76 @@ and a boolean to check if the value has been set.
 SetAbilityResourceRegenPerSecond sets AbilityResourceRegenPerSecond field to given value.
 
 
+### GetAirDashDistanceInMeters
+
+`func (o *StartingStats) GetAirDashDistanceInMeters() StartingStat`
+
+GetAirDashDistanceInMeters returns the AirDashDistanceInMeters field if non-nil, zero value otherwise.
+
+### GetAirDashDistanceInMetersOk
+
+`func (o *StartingStats) GetAirDashDistanceInMetersOk() (*StartingStat, bool)`
+
+GetAirDashDistanceInMetersOk returns a tuple with the AirDashDistanceInMeters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAirDashDistanceInMeters
+
+`func (o *StartingStats) SetAirDashDistanceInMeters(v StartingStat)`
+
+SetAirDashDistanceInMeters sets AirDashDistanceInMeters field to given value.
+
+### HasAirDashDistanceInMeters
+
+`func (o *StartingStats) HasAirDashDistanceInMeters() bool`
+
+HasAirDashDistanceInMeters returns a boolean if a field has been set.
+
+### SetAirDashDistanceInMetersNil
+
+`func (o *StartingStats) SetAirDashDistanceInMetersNil(b bool)`
+
+ SetAirDashDistanceInMetersNil sets the value for AirDashDistanceInMeters to be an explicit nil
+
+### UnsetAirDashDistanceInMeters
+`func (o *StartingStats) UnsetAirDashDistanceInMeters()`
+
+UnsetAirDashDistanceInMeters ensures that no value is present for AirDashDistanceInMeters, not even an explicit nil
+### GetAirDashDuration
+
+`func (o *StartingStats) GetAirDashDuration() StartingStat`
+
+GetAirDashDuration returns the AirDashDuration field if non-nil, zero value otherwise.
+
+### GetAirDashDurationOk
+
+`func (o *StartingStats) GetAirDashDurationOk() (*StartingStat, bool)`
+
+GetAirDashDurationOk returns a tuple with the AirDashDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAirDashDuration
+
+`func (o *StartingStats) SetAirDashDuration(v StartingStat)`
+
+SetAirDashDuration sets AirDashDuration field to given value.
+
+### HasAirDashDuration
+
+`func (o *StartingStats) HasAirDashDuration() bool`
+
+HasAirDashDuration returns a boolean if a field has been set.
+
+### SetAirDashDurationNil
+
+`func (o *StartingStats) SetAirDashDurationNil(b bool)`
+
+ SetAirDashDurationNil sets the value for AirDashDuration to be an explicit nil
+
+### UnsetAirDashDuration
+`func (o *StartingStats) UnsetAirDashDuration()`
+
+UnsetAirDashDuration ensures that no value is present for AirDashDuration, not even an explicit nil
 ### GetBaseHealthRegen
 
 `func (o *StartingStats) GetBaseHealthRegen() StartingStat`
@@ -180,6 +254,76 @@ and a boolean to check if the value has been set.
 SetCrouchSpeed sets CrouchSpeed field to given value.
 
 
+### GetGroundDashDistanceInMeters
+
+`func (o *StartingStats) GetGroundDashDistanceInMeters() StartingStat`
+
+GetGroundDashDistanceInMeters returns the GroundDashDistanceInMeters field if non-nil, zero value otherwise.
+
+### GetGroundDashDistanceInMetersOk
+
+`func (o *StartingStats) GetGroundDashDistanceInMetersOk() (*StartingStat, bool)`
+
+GetGroundDashDistanceInMetersOk returns a tuple with the GroundDashDistanceInMeters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroundDashDistanceInMeters
+
+`func (o *StartingStats) SetGroundDashDistanceInMeters(v StartingStat)`
+
+SetGroundDashDistanceInMeters sets GroundDashDistanceInMeters field to given value.
+
+### HasGroundDashDistanceInMeters
+
+`func (o *StartingStats) HasGroundDashDistanceInMeters() bool`
+
+HasGroundDashDistanceInMeters returns a boolean if a field has been set.
+
+### SetGroundDashDistanceInMetersNil
+
+`func (o *StartingStats) SetGroundDashDistanceInMetersNil(b bool)`
+
+ SetGroundDashDistanceInMetersNil sets the value for GroundDashDistanceInMeters to be an explicit nil
+
+### UnsetGroundDashDistanceInMeters
+`func (o *StartingStats) UnsetGroundDashDistanceInMeters()`
+
+UnsetGroundDashDistanceInMeters ensures that no value is present for GroundDashDistanceInMeters, not even an explicit nil
+### GetGroundDashDuration
+
+`func (o *StartingStats) GetGroundDashDuration() StartingStat`
+
+GetGroundDashDuration returns the GroundDashDuration field if non-nil, zero value otherwise.
+
+### GetGroundDashDurationOk
+
+`func (o *StartingStats) GetGroundDashDurationOk() (*StartingStat, bool)`
+
+GetGroundDashDurationOk returns a tuple with the GroundDashDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroundDashDuration
+
+`func (o *StartingStats) SetGroundDashDuration(v StartingStat)`
+
+SetGroundDashDuration sets GroundDashDuration field to given value.
+
+### HasGroundDashDuration
+
+`func (o *StartingStats) HasGroundDashDuration() bool`
+
+HasGroundDashDuration returns a boolean if a field has been set.
+
+### SetGroundDashDurationNil
+
+`func (o *StartingStats) SetGroundDashDurationNil(b bool)`
+
+ SetGroundDashDurationNil sets the value for GroundDashDuration to be an explicit nil
+
+### UnsetGroundDashDuration
+`func (o *StartingStats) UnsetGroundDashDuration()`
+
+UnsetGroundDashDuration ensures that no value is present for GroundDashDuration, not even an explicit nil
 ### GetHeavyMeleeDamage
 
 `func (o *StartingStats) GetHeavyMeleeDamage() StartingStat`

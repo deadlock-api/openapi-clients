@@ -23,10 +23,14 @@ var _ MappedNullable = &StartingStats{}
 type StartingStats struct {
 	AbilityResourceMax StartingStat `json:"ability_resource_max"`
 	AbilityResourceRegenPerSecond StartingStat `json:"ability_resource_regen_per_second"`
+	AirDashDistanceInMeters NullableStartingStat `json:"air_dash_distance_in_meters,omitempty"`
+	AirDashDuration NullableStartingStat `json:"air_dash_duration,omitempty"`
 	BaseHealthRegen StartingStat `json:"base_health_regen"`
 	BulletArmorDamageReduction NullableStartingStat `json:"bullet_armor_damage_reduction,omitempty"`
 	CritDamageReceivedScale StartingStat `json:"crit_damage_received_scale"`
 	CrouchSpeed StartingStat `json:"crouch_speed"`
+	GroundDashDistanceInMeters NullableStartingStat `json:"ground_dash_distance_in_meters,omitempty"`
+	GroundDashDuration NullableStartingStat `json:"ground_dash_duration,omitempty"`
 	HeavyMeleeDamage StartingStat `json:"heavy_melee_damage"`
 	LightMeleeDamage StartingStat `json:"light_melee_damage"`
 	MaxHealth StartingStat `json:"max_health"`
@@ -128,6 +132,90 @@ func (o *StartingStats) GetAbilityResourceRegenPerSecondOk() (*StartingStat, boo
 // SetAbilityResourceRegenPerSecond sets field value
 func (o *StartingStats) SetAbilityResourceRegenPerSecond(v StartingStat) {
 	o.AbilityResourceRegenPerSecond = v
+}
+
+// GetAirDashDistanceInMeters returns the AirDashDistanceInMeters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StartingStats) GetAirDashDistanceInMeters() StartingStat {
+	if o == nil || IsNil(o.AirDashDistanceInMeters.Get()) {
+		var ret StartingStat
+		return ret
+	}
+	return *o.AirDashDistanceInMeters.Get()
+}
+
+// GetAirDashDistanceInMetersOk returns a tuple with the AirDashDistanceInMeters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StartingStats) GetAirDashDistanceInMetersOk() (*StartingStat, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AirDashDistanceInMeters.Get(), o.AirDashDistanceInMeters.IsSet()
+}
+
+// HasAirDashDistanceInMeters returns a boolean if a field has been set.
+func (o *StartingStats) HasAirDashDistanceInMeters() bool {
+	if o != nil && o.AirDashDistanceInMeters.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAirDashDistanceInMeters gets a reference to the given NullableStartingStat and assigns it to the AirDashDistanceInMeters field.
+func (o *StartingStats) SetAirDashDistanceInMeters(v StartingStat) {
+	o.AirDashDistanceInMeters.Set(&v)
+}
+// SetAirDashDistanceInMetersNil sets the value for AirDashDistanceInMeters to be an explicit nil
+func (o *StartingStats) SetAirDashDistanceInMetersNil() {
+	o.AirDashDistanceInMeters.Set(nil)
+}
+
+// UnsetAirDashDistanceInMeters ensures that no value is present for AirDashDistanceInMeters, not even an explicit nil
+func (o *StartingStats) UnsetAirDashDistanceInMeters() {
+	o.AirDashDistanceInMeters.Unset()
+}
+
+// GetAirDashDuration returns the AirDashDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StartingStats) GetAirDashDuration() StartingStat {
+	if o == nil || IsNil(o.AirDashDuration.Get()) {
+		var ret StartingStat
+		return ret
+	}
+	return *o.AirDashDuration.Get()
+}
+
+// GetAirDashDurationOk returns a tuple with the AirDashDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StartingStats) GetAirDashDurationOk() (*StartingStat, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AirDashDuration.Get(), o.AirDashDuration.IsSet()
+}
+
+// HasAirDashDuration returns a boolean if a field has been set.
+func (o *StartingStats) HasAirDashDuration() bool {
+	if o != nil && o.AirDashDuration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAirDashDuration gets a reference to the given NullableStartingStat and assigns it to the AirDashDuration field.
+func (o *StartingStats) SetAirDashDuration(v StartingStat) {
+	o.AirDashDuration.Set(&v)
+}
+// SetAirDashDurationNil sets the value for AirDashDuration to be an explicit nil
+func (o *StartingStats) SetAirDashDurationNil() {
+	o.AirDashDuration.Set(nil)
+}
+
+// UnsetAirDashDuration ensures that no value is present for AirDashDuration, not even an explicit nil
+func (o *StartingStats) UnsetAirDashDuration() {
+	o.AirDashDuration.Unset()
 }
 
 // GetBaseHealthRegen returns the BaseHealthRegen field value
@@ -242,6 +330,90 @@ func (o *StartingStats) GetCrouchSpeedOk() (*StartingStat, bool) {
 // SetCrouchSpeed sets field value
 func (o *StartingStats) SetCrouchSpeed(v StartingStat) {
 	o.CrouchSpeed = v
+}
+
+// GetGroundDashDistanceInMeters returns the GroundDashDistanceInMeters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StartingStats) GetGroundDashDistanceInMeters() StartingStat {
+	if o == nil || IsNil(o.GroundDashDistanceInMeters.Get()) {
+		var ret StartingStat
+		return ret
+	}
+	return *o.GroundDashDistanceInMeters.Get()
+}
+
+// GetGroundDashDistanceInMetersOk returns a tuple with the GroundDashDistanceInMeters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StartingStats) GetGroundDashDistanceInMetersOk() (*StartingStat, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GroundDashDistanceInMeters.Get(), o.GroundDashDistanceInMeters.IsSet()
+}
+
+// HasGroundDashDistanceInMeters returns a boolean if a field has been set.
+func (o *StartingStats) HasGroundDashDistanceInMeters() bool {
+	if o != nil && o.GroundDashDistanceInMeters.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGroundDashDistanceInMeters gets a reference to the given NullableStartingStat and assigns it to the GroundDashDistanceInMeters field.
+func (o *StartingStats) SetGroundDashDistanceInMeters(v StartingStat) {
+	o.GroundDashDistanceInMeters.Set(&v)
+}
+// SetGroundDashDistanceInMetersNil sets the value for GroundDashDistanceInMeters to be an explicit nil
+func (o *StartingStats) SetGroundDashDistanceInMetersNil() {
+	o.GroundDashDistanceInMeters.Set(nil)
+}
+
+// UnsetGroundDashDistanceInMeters ensures that no value is present for GroundDashDistanceInMeters, not even an explicit nil
+func (o *StartingStats) UnsetGroundDashDistanceInMeters() {
+	o.GroundDashDistanceInMeters.Unset()
+}
+
+// GetGroundDashDuration returns the GroundDashDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StartingStats) GetGroundDashDuration() StartingStat {
+	if o == nil || IsNil(o.GroundDashDuration.Get()) {
+		var ret StartingStat
+		return ret
+	}
+	return *o.GroundDashDuration.Get()
+}
+
+// GetGroundDashDurationOk returns a tuple with the GroundDashDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StartingStats) GetGroundDashDurationOk() (*StartingStat, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GroundDashDuration.Get(), o.GroundDashDuration.IsSet()
+}
+
+// HasGroundDashDuration returns a boolean if a field has been set.
+func (o *StartingStats) HasGroundDashDuration() bool {
+	if o != nil && o.GroundDashDuration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGroundDashDuration gets a reference to the given NullableStartingStat and assigns it to the GroundDashDuration field.
+func (o *StartingStats) SetGroundDashDuration(v StartingStat) {
+	o.GroundDashDuration.Set(&v)
+}
+// SetGroundDashDurationNil sets the value for GroundDashDuration to be an explicit nil
+func (o *StartingStats) SetGroundDashDurationNil() {
+	o.GroundDashDuration.Set(nil)
+}
+
+// UnsetGroundDashDuration ensures that no value is present for GroundDashDuration, not even an explicit nil
+func (o *StartingStats) UnsetGroundDashDuration() {
+	o.GroundDashDuration.Unset()
 }
 
 // GetHeavyMeleeDamage returns the HeavyMeleeDamage field value
@@ -634,12 +806,24 @@ func (o StartingStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["ability_resource_max"] = o.AbilityResourceMax
 	toSerialize["ability_resource_regen_per_second"] = o.AbilityResourceRegenPerSecond
+	if o.AirDashDistanceInMeters.IsSet() {
+		toSerialize["air_dash_distance_in_meters"] = o.AirDashDistanceInMeters.Get()
+	}
+	if o.AirDashDuration.IsSet() {
+		toSerialize["air_dash_duration"] = o.AirDashDuration.Get()
+	}
 	toSerialize["base_health_regen"] = o.BaseHealthRegen
 	if o.BulletArmorDamageReduction.IsSet() {
 		toSerialize["bullet_armor_damage_reduction"] = o.BulletArmorDamageReduction.Get()
 	}
 	toSerialize["crit_damage_received_scale"] = o.CritDamageReceivedScale
 	toSerialize["crouch_speed"] = o.CrouchSpeed
+	if o.GroundDashDistanceInMeters.IsSet() {
+		toSerialize["ground_dash_distance_in_meters"] = o.GroundDashDistanceInMeters.Get()
+	}
+	if o.GroundDashDuration.IsSet() {
+		toSerialize["ground_dash_duration"] = o.GroundDashDuration.Get()
+	}
 	toSerialize["heavy_melee_damage"] = o.HeavyMeleeDamage
 	toSerialize["light_melee_damage"] = o.LightMeleeDamage
 	toSerialize["max_health"] = o.MaxHealth

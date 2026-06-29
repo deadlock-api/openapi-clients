@@ -107,7 +107,7 @@ No authorization required
 
 Demo Query
 
- Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~12s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
+ Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
 
 ### Example
 ```kotlin

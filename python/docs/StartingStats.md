@@ -7,10 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ability_resource_max** | [**StartingStat**](StartingStat.md) |  | 
 **ability_resource_regen_per_second** | [**StartingStat**](StartingStat.md) |  | 
+**air_dash_distance_in_meters** | [**StartingStat**](StartingStat.md) |  | [optional] 
+**air_dash_duration** | [**StartingStat**](StartingStat.md) |  | [optional] 
 **base_health_regen** | [**StartingStat**](StartingStat.md) |  | 
 **bullet_armor_damage_reduction** | [**StartingStat**](StartingStat.md) |  | [optional] 
 **crit_damage_received_scale** | [**StartingStat**](StartingStat.md) |  | 
 **crouch_speed** | [**StartingStat**](StartingStat.md) |  | 
+**ground_dash_distance_in_meters** | [**StartingStat**](StartingStat.md) |  | [optional] 
+**ground_dash_duration** | [**StartingStat**](StartingStat.md) |  | [optional] 
 **heavy_melee_damage** | [**StartingStat**](StartingStat.md) |  | 
 **light_melee_damage** | [**StartingStat**](StartingStat.md) |  | 
 **max_health** | [**StartingStat**](StartingStat.md) |  | 

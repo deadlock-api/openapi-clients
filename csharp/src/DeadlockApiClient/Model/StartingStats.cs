@@ -52,10 +52,14 @@ namespace DeadlockApiClient.Model
         /// <param name="techRange">techRange</param>
         /// <param name="weaponPower">weaponPower</param>
         /// <param name="weaponPowerScale">weaponPowerScale</param>
+        /// <param name="airDashDistanceInMeters">airDashDistanceInMeters</param>
+        /// <param name="airDashDuration">airDashDuration</param>
         /// <param name="bulletArmorDamageReduction">bulletArmorDamageReduction</param>
+        /// <param name="groundDashDistanceInMeters">groundDashDistanceInMeters</param>
+        /// <param name="groundDashDuration">groundDashDuration</param>
         /// <param name="techArmorDamageReduction">techArmorDamageReduction</param>
         [JsonConstructor]
-        public StartingStats(StartingStat abilityResourceMax, StartingStat abilityResourceRegenPerSecond, StartingStat baseHealthRegen, StartingStat critDamageReceivedScale, StartingStat crouchSpeed, StartingStat heavyMeleeDamage, StartingStat lightMeleeDamage, StartingStat maxHealth, StartingStat maxMoveSpeed, StartingStat moveAcceleration, StartingStat procBuildUpRateScale, StartingStat reloadSpeed, StartingStat sprintSpeed, StartingStat stamina, StartingStat staminaRegenPerSecond, StartingStat techDuration, StartingStat techRange, StartingStat weaponPower, StartingStat weaponPowerScale, Option<StartingStat?> bulletArmorDamageReduction = default, Option<StartingStat?> techArmorDamageReduction = default)
+        public StartingStats(StartingStat abilityResourceMax, StartingStat abilityResourceRegenPerSecond, StartingStat baseHealthRegen, StartingStat critDamageReceivedScale, StartingStat crouchSpeed, StartingStat heavyMeleeDamage, StartingStat lightMeleeDamage, StartingStat maxHealth, StartingStat maxMoveSpeed, StartingStat moveAcceleration, StartingStat procBuildUpRateScale, StartingStat reloadSpeed, StartingStat sprintSpeed, StartingStat stamina, StartingStat staminaRegenPerSecond, StartingStat techDuration, StartingStat techRange, StartingStat weaponPower, StartingStat weaponPowerScale, Option<StartingStat?> airDashDistanceInMeters = default, Option<StartingStat?> airDashDuration = default, Option<StartingStat?> bulletArmorDamageReduction = default, Option<StartingStat?> groundDashDistanceInMeters = default, Option<StartingStat?> groundDashDuration = default, Option<StartingStat?> techArmorDamageReduction = default)
         {
             AbilityResourceMax = abilityResourceMax;
             AbilityResourceRegenPerSecond = abilityResourceRegenPerSecond;
@@ -76,7 +80,11 @@ namespace DeadlockApiClient.Model
             TechRange = techRange;
             WeaponPower = weaponPower;
             WeaponPowerScale = weaponPowerScale;
+            AirDashDistanceInMetersOption = airDashDistanceInMeters;
+            AirDashDurationOption = airDashDuration;
             BulletArmorDamageReductionOption = bulletArmorDamageReduction;
+            GroundDashDistanceInMetersOption = groundDashDistanceInMeters;
+            GroundDashDurationOption = groundDashDuration;
             TechArmorDamageReductionOption = techArmorDamageReduction;
             OnCreated();
         }
@@ -198,6 +206,32 @@ namespace DeadlockApiClient.Model
         public StartingStat WeaponPowerScale { get; set; }
 
         /// <summary>
+        /// Used to track the state of AirDashDistanceInMeters
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<StartingStat?> AirDashDistanceInMetersOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets AirDashDistanceInMeters
+        /// </summary>
+        [JsonPropertyName("air_dash_distance_in_meters")]
+        public StartingStat? AirDashDistanceInMeters { get { return this.AirDashDistanceInMetersOption.Value; } set { this.AirDashDistanceInMetersOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of AirDashDuration
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<StartingStat?> AirDashDurationOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets AirDashDuration
+        /// </summary>
+        [JsonPropertyName("air_dash_duration")]
+        public StartingStat? AirDashDuration { get { return this.AirDashDurationOption.Value; } set { this.AirDashDurationOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of BulletArmorDamageReduction
         /// </summary>
         [JsonIgnore]
@@ -209,6 +243,32 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("bullet_armor_damage_reduction")]
         public StartingStat? BulletArmorDamageReduction { get { return this.BulletArmorDamageReductionOption.Value; } set { this.BulletArmorDamageReductionOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of GroundDashDistanceInMeters
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<StartingStat?> GroundDashDistanceInMetersOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets GroundDashDistanceInMeters
+        /// </summary>
+        [JsonPropertyName("ground_dash_distance_in_meters")]
+        public StartingStat? GroundDashDistanceInMeters { get { return this.GroundDashDistanceInMetersOption.Value; } set { this.GroundDashDistanceInMetersOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of GroundDashDuration
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<StartingStat?> GroundDashDurationOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets GroundDashDuration
+        /// </summary>
+        [JsonPropertyName("ground_dash_duration")]
+        public StartingStat? GroundDashDuration { get { return this.GroundDashDurationOption.Value; } set { this.GroundDashDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TechArmorDamageReduction
@@ -250,7 +310,11 @@ namespace DeadlockApiClient.Model
             sb.Append("  TechRange: ").Append(TechRange).Append("\n");
             sb.Append("  WeaponPower: ").Append(WeaponPower).Append("\n");
             sb.Append("  WeaponPowerScale: ").Append(WeaponPowerScale).Append("\n");
+            sb.Append("  AirDashDistanceInMeters: ").Append(AirDashDistanceInMeters).Append("\n");
+            sb.Append("  AirDashDuration: ").Append(AirDashDuration).Append("\n");
             sb.Append("  BulletArmorDamageReduction: ").Append(BulletArmorDamageReduction).Append("\n");
+            sb.Append("  GroundDashDistanceInMeters: ").Append(GroundDashDistanceInMeters).Append("\n");
+            sb.Append("  GroundDashDuration: ").Append(GroundDashDuration).Append("\n");
             sb.Append("  TechArmorDamageReduction: ").Append(TechArmorDamageReduction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -308,7 +372,11 @@ namespace DeadlockApiClient.Model
             Option<StartingStat?> techRange = default;
             Option<StartingStat?> weaponPower = default;
             Option<StartingStat?> weaponPowerScale = default;
+            Option<StartingStat?> airDashDistanceInMeters = default;
+            Option<StartingStat?> airDashDuration = default;
             Option<StartingStat?> bulletArmorDamageReduction = default;
+            Option<StartingStat?> groundDashDistanceInMeters = default;
+            Option<StartingStat?> groundDashDuration = default;
             Option<StartingStat?> techArmorDamageReduction = default;
 
             while (utf8JsonReader.Read())
@@ -383,8 +451,20 @@ namespace DeadlockApiClient.Model
                         case "weapon_power_scale":
                             weaponPowerScale = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
+                        case "air_dash_distance_in_meters":
+                            airDashDistanceInMeters = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "air_dash_duration":
+                            airDashDuration = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "bullet_armor_damage_reduction":
                             bulletArmorDamageReduction = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "ground_dash_distance_in_meters":
+                            groundDashDistanceInMeters = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "ground_dash_duration":
+                            groundDashDuration = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "tech_armor_damage_reduction":
                             techArmorDamageReduction = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
@@ -509,7 +589,7 @@ namespace DeadlockApiClient.Model
             if (weaponPowerScale.IsSet && weaponPowerScale.Value == null)
                 throw new ArgumentNullException(nameof(weaponPowerScale), "Property is not nullable for class StartingStats.");
 
-            return new StartingStats(abilityResourceMax.Value!, abilityResourceRegenPerSecond.Value!, baseHealthRegen.Value!, critDamageReceivedScale.Value!, crouchSpeed.Value!, heavyMeleeDamage.Value!, lightMeleeDamage.Value!, maxHealth.Value!, maxMoveSpeed.Value!, moveAcceleration.Value!, procBuildUpRateScale.Value!, reloadSpeed.Value!, sprintSpeed.Value!, stamina.Value!, staminaRegenPerSecond.Value!, techDuration.Value!, techRange.Value!, weaponPower.Value!, weaponPowerScale.Value!, bulletArmorDamageReduction, techArmorDamageReduction);
+            return new StartingStats(abilityResourceMax.Value!, abilityResourceRegenPerSecond.Value!, baseHealthRegen.Value!, critDamageReceivedScale.Value!, crouchSpeed.Value!, heavyMeleeDamage.Value!, lightMeleeDamage.Value!, maxHealth.Value!, maxMoveSpeed.Value!, moveAcceleration.Value!, procBuildUpRateScale.Value!, reloadSpeed.Value!, sprintSpeed.Value!, stamina.Value!, staminaRegenPerSecond.Value!, techDuration.Value!, techRange.Value!, weaponPower.Value!, weaponPowerScale.Value!, airDashDistanceInMeters, airDashDuration, bulletArmorDamageReduction, groundDashDistanceInMeters, groundDashDuration, techArmorDamageReduction);
         }
 
         /// <summary>
@@ -631,6 +711,22 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, startingStats.WeaponPower, jsonSerializerOptions);
             writer.WritePropertyName("weapon_power_scale");
             JsonSerializer.Serialize(writer, startingStats.WeaponPowerScale, jsonSerializerOptions);
+            if (startingStats.AirDashDistanceInMetersOption.IsSet)
+                if (startingStats.AirDashDistanceInMetersOption.Value != null)
+                {
+                    writer.WritePropertyName("air_dash_distance_in_meters");
+                    JsonSerializer.Serialize(writer, startingStats.AirDashDistanceInMeters, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("air_dash_distance_in_meters");
+            if (startingStats.AirDashDurationOption.IsSet)
+                if (startingStats.AirDashDurationOption.Value != null)
+                {
+                    writer.WritePropertyName("air_dash_duration");
+                    JsonSerializer.Serialize(writer, startingStats.AirDashDuration, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("air_dash_duration");
             if (startingStats.BulletArmorDamageReductionOption.IsSet)
                 if (startingStats.BulletArmorDamageReductionOption.Value != null)
                 {
@@ -639,6 +735,22 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("bullet_armor_damage_reduction");
+            if (startingStats.GroundDashDistanceInMetersOption.IsSet)
+                if (startingStats.GroundDashDistanceInMetersOption.Value != null)
+                {
+                    writer.WritePropertyName("ground_dash_distance_in_meters");
+                    JsonSerializer.Serialize(writer, startingStats.GroundDashDistanceInMeters, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("ground_dash_distance_in_meters");
+            if (startingStats.GroundDashDurationOption.IsSet)
+                if (startingStats.GroundDashDurationOption.Value != null)
+                {
+                    writer.WritePropertyName("ground_dash_duration");
+                    JsonSerializer.Serialize(writer, startingStats.GroundDashDuration, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("ground_dash_duration");
             if (startingStats.TechArmorDamageReductionOption.IsSet)
                 if (startingStats.TechArmorDamageReductionOption.Value != null)
                 {
