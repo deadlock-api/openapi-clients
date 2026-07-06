@@ -303,6 +303,8 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @summary Item Permutation Stats
      * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {number | null} [combSize] The combination size to return.
+     * @param {number | null} [minMatches] The minimum number of matches for an item combination to be included in the response.
+     * @param {number | null} [maxMatches] The maximum number of matches for an item combination to be included in the response.
      * @param {ItemPermutationStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
      * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -321,7 +323,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemPermutationStats: (itemIds?: Array<number> | null, combSize?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    itemPermutationStats: (itemIds?: Array<number> | null, combSize?: number | null, minMatches?: number | null, maxMatches?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
@@ -733,6 +735,8 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @summary Item Permutation Stats
      * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {number | null} [combSize] The combination size to return.
+     * @param {number | null} [minMatches] The minimum number of matches for an item combination to be included in the response.
+     * @param {number | null} [maxMatches] The maximum number of matches for an item combination to be included in the response.
      * @param {ItemPermutationStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
      * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -751,7 +755,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemPermutationStats(itemIds?: Array<number> | null, combSize?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemPermutationStats>>>;
+    itemPermutationStats(itemIds?: Array<number> | null, combSize?: number | null, minMatches?: number | null, maxMatches?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemPermutationStats>>>;
     /**
      *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
@@ -1835,6 +1839,14 @@ export interface AnalyticsApiItemPermutationStatsRequest {
      * The combination size to return.
      */
     readonly combSize?: number | null;
+    /**
+     * The minimum number of matches for an item combination to be included in the response.
+     */
+    readonly minMatches?: number | null;
+    /**
+     * The maximum number of matches for an item combination to be included in the response.
+     */
+    readonly maxMatches?: number | null;
     /**
      * Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
      */

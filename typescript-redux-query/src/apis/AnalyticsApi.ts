@@ -290,6 +290,8 @@ export interface ItemFlowStatsRequest {
 export interface ItemPermutationStatsRequest {
     itemIds?: Array<number>;
     combSize?: number;
+    minMatches?: number;
+    maxMatches?: number;
     gameMode?: ItemPermutationStatsGameModeEnum;
     heroIds?: string;
     heroId?: number;
@@ -1889,6 +1891,16 @@ function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsReque
 
     if (requestParameters.combSize !== undefined) {
         queryParameters['comb_size'] = requestParameters.combSize;
+    }
+
+
+    if (requestParameters.minMatches !== undefined) {
+        queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
+    if (requestParameters.maxMatches !== undefined) {
+        queryParameters['max_matches'] = requestParameters.maxMatches;
     }
 
 

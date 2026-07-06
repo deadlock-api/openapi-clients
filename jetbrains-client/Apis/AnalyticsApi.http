@@ -62,7 +62,7 @@ Accept: application/json
 
 ### Item Permutation Stats
 ## Item Permutation Stats
-GET https://api.deadlock-api.com/v1/analytics/item-permutation-stats?itemIds={{itemIds}}&combSize={{combSize}}&gameMode={{gameMode}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&accountId={{accountId}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/item-permutation-stats?itemIds={{itemIds}}&combSize={{combSize}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&gameMode={{gameMode}}&heroIds={{heroIds}}&heroId={{heroId}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Item Stats

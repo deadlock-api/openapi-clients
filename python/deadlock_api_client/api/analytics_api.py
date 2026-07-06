@@ -6154,6 +6154,8 @@ class AnalyticsApi:
         self,
         item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches for an item combination to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches for an item combination to be included in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
@@ -6190,6 +6192,10 @@ class AnalyticsApi:
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
+        :param min_matches: The minimum number of matches for an item combination to be included in the response.
+        :type min_matches: int
+        :param max_matches: The maximum number of matches for an item combination to be included in the response.
+        :type max_matches: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -6245,6 +6251,8 @@ class AnalyticsApi:
         _param = self._item_permutation_stats_serialize(
             item_ids=item_ids,
             comb_size=comb_size,
+            min_matches=min_matches,
+            max_matches=max_matches,
             game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
@@ -6287,6 +6295,8 @@ class AnalyticsApi:
         self,
         item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches for an item combination to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches for an item combination to be included in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
@@ -6323,6 +6333,10 @@ class AnalyticsApi:
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
+        :param min_matches: The minimum number of matches for an item combination to be included in the response.
+        :type min_matches: int
+        :param max_matches: The maximum number of matches for an item combination to be included in the response.
+        :type max_matches: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -6378,6 +6392,8 @@ class AnalyticsApi:
         _param = self._item_permutation_stats_serialize(
             item_ids=item_ids,
             comb_size=comb_size,
+            min_matches=min_matches,
+            max_matches=max_matches,
             game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
@@ -6420,6 +6436,8 @@ class AnalyticsApi:
         self,
         item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         comb_size: Annotated[Optional[Annotated[int, Field(le=12, strict=True, ge=2)]], Field(description="The combination size to return.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches for an item combination to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches for an item combination to be included in the response.")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
@@ -6456,6 +6474,10 @@ class AnalyticsApi:
         :type item_ids: List[int]
         :param comb_size: The combination size to return.
         :type comb_size: int
+        :param min_matches: The minimum number of matches for an item combination to be included in the response.
+        :type min_matches: int
+        :param max_matches: The maximum number of matches for an item combination to be included in the response.
+        :type max_matches: int
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -6511,6 +6533,8 @@ class AnalyticsApi:
         _param = self._item_permutation_stats_serialize(
             item_ids=item_ids,
             comb_size=comb_size,
+            min_matches=min_matches,
+            max_matches=max_matches,
             game_mode=game_mode,
             hero_ids=hero_ids,
             hero_id=hero_id,
@@ -6548,6 +6572,8 @@ class AnalyticsApi:
         self,
         item_ids,
         comb_size,
+        min_matches,
+        max_matches,
         game_mode,
         hero_ids,
         hero_id,
@@ -6594,6 +6620,14 @@ class AnalyticsApi:
         if comb_size is not None:
             
             _query_params.append(('comb_size', comb_size))
+            
+        if min_matches is not None:
+            
+            _query_params.append(('min_matches', min_matches))
+            
+        if max_matches is not None:
+            
+            _query_params.append(('max_matches', max_matches))
             
         if game_mode is not None:
             

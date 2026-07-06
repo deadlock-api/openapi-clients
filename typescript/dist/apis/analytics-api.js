@@ -1063,6 +1063,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
          * @summary Item Permutation Stats
          * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
          * @param {number | null} [combSize] The combination size to return.
+         * @param {number | null} [minMatches] The minimum number of matches for an item combination to be included in the response.
+         * @param {number | null} [maxMatches] The maximum number of matches for an item combination to be included in the response.
          * @param {ItemPermutationStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -1081,7 +1083,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemPermutationStats: async (itemIds, combSize, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options = {}) => {
+        itemPermutationStats: async (itemIds, combSize, minMatches, maxMatches, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options = {}) => {
             const localVarPath = `/v1/analytics/item-permutation-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1097,6 +1099,12 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
             }
             if (combSize !== undefined) {
                 localVarQueryParameter['comb_size'] = combSize;
+            }
+            if (minMatches !== undefined) {
+                localVarQueryParameter['min_matches'] = minMatches;
+            }
+            if (maxMatches !== undefined) {
+                localVarQueryParameter['max_matches'] = maxMatches;
             }
             if (gameMode !== undefined) {
                 localVarQueryParameter['game_mode'] = gameMode;
@@ -2029,6 +2037,8 @@ export const AnalyticsApiFp = function (configuration) {
          * @summary Item Permutation Stats
          * @param {Array<number> | null} [itemIds] Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
          * @param {number | null} [combSize] The combination size to return.
+         * @param {number | null} [minMatches] The minimum number of matches for an item combination to be included in the response.
+         * @param {number | null} [maxMatches] The maximum number of matches for an item combination to be included in the response.
          * @param {ItemPermutationStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -2047,8 +2057,8 @@ export const AnalyticsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemPermutationStats(itemIds, combSize, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.itemPermutationStats(itemIds, combSize, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options);
+        async itemPermutationStats(itemIds, combSize, minMatches, maxMatches, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.itemPermutationStats(itemIds, combSize, minMatches, maxMatches, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.itemPermutationStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2351,7 +2361,7 @@ export const AnalyticsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         itemPermutationStats(requestParameters = {}, options) {
-            return localVarFp.itemPermutationStats(requestParameters.itemIds, requestParameters.combSize, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.itemPermutationStats(requestParameters.itemIds, requestParameters.combSize, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
@@ -2537,7 +2547,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     itemPermutationStats(requestParameters = {}, options) {
-        return AnalyticsApiFp(this.configuration).itemPermutationStats(requestParameters.itemIds, requestParameters.combSize, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).itemPermutationStats(requestParameters.itemIds, requestParameters.combSize, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.gameMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |

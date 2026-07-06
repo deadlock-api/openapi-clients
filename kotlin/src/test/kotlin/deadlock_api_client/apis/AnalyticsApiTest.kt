@@ -320,6 +320,8 @@ class AnalyticsApiTest : ShouldSpec() {
             // uncomment below to test itemPermutationStats
             //val itemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
             //val combSize : kotlin.Int = 56 // kotlin.Int | The combination size to return.
+            //val minMatches : kotlin.Int = 56 // kotlin.Int | The minimum number of matches for an item combination to be included in the response.
+            //val maxMatches : kotlin.Int = 56 // kotlin.Int | The maximum number of matches for an item combination to be included in the response.
             //val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
             //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val heroId : kotlin.Int = 56 // kotlin.Int | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -335,7 +337,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
-            //val result : kotlin.collections.List<ItemPermutationStats> = apiInstance.itemPermutationStats(itemIds, combSize, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds)
+            //val result : kotlin.collections.List<ItemPermutationStats> = apiInstance.itemPermutationStats(itemIds, combSize, minMatches, maxMatches, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds)
             //result shouldBe ("TODO")
         }
 

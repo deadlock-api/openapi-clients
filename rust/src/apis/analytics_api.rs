@@ -441,6 +441,10 @@ pub struct ItemPermutationStatsParams {
     pub item_ids: Option<Vec<u32>>,
     /// The combination size to return.
     pub comb_size: Option<u32>,
+    /// The minimum number of matches for an item combination to be included in the response.
+    pub min_matches: Option<u32>,
+    /// The maximum number of matches for an item combination to be included in the response.
+    pub max_matches: Option<u32>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
     /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -1905,6 +1909,12 @@ pub async fn item_permutation_stats(configuration: &configuration::Configuration
     }
     if let Some(ref param_value) = params.comb_size {
         req_builder = req_builder.query(&[("comb_size", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_matches {
+        req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.game_mode {
         req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);

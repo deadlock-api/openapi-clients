@@ -370,6 +370,8 @@ namespace DeadlockApiClient.Test.Api
         {
             Client.Option<List<int>?> itemIds = default!;
             Client.Option<int?> combSize = default!;
+            Client.Option<int?> minMatches = default!;
+            Client.Option<int?> maxMatches = default!;
             Client.Option<string?> gameMode = default!;
             Client.Option<string?> heroIds = default!;
             Client.Option<int?> heroId = default!;
@@ -385,7 +387,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> maxMatchId = default!;
             Client.Option<int?> accountId = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.ItemPermutationStatsAsync(itemIds, combSize, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds);
+            var response = await _instance.ItemPermutationStatsAsync(itemIds, combSize, minMatches, maxMatches, gameMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds);
             var model = response.Ok();
             Assert.IsType<List<ItemPermutationStats>>(model);
         }
