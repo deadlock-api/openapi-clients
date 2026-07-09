@@ -22,6 +22,17 @@ func Test_deadlock_api_client_DemoAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test DemoAPIService LiveQuery", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.DemoAPI.LiveQuery(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DemoAPIService Schema", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

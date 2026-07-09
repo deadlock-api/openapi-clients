@@ -1,5 +1,10 @@
 ## DemoApi
 
+### Live Demo Query (SSE)
+## Live Demo Query (SSE)
+GET https://api.deadlock-api.com/v1/matches/demo/live/query?query={{query}}&matchId={{matchId}}&broadcastUrl={{broadcastUrl}}
+Accept: text/event-stream
+
 ### Demo Schema
 ## Demo Schema
 GET https://api.deadlock-api.com/v1/matches/demo/schema?matchId={{matchId}}

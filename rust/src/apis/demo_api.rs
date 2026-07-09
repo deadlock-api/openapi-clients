@@ -14,6 +14,17 @@ use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
+/// struct for passing parameters to the method [`live_query`]
+#[derive(Clone, Debug)]
+pub struct LiveQueryParams {
+    /// SQL query to run over the broadcast's entity/event tables (see `/demo/schema`).
+    pub query: String,
+    /// Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+    pub match_id: Option<u64>,
+    /// Explicit broadcast base URL (from `/live/urls`). Provide this or `match_id`.
+    pub broadcast_url: Option<String>
+}
+
 /// struct for passing parameters to the method [`schema`]
 #[derive(Clone, Debug)]
 pub struct SchemaParams {
@@ -34,6 +45,17 @@ pub struct SubmitParams {
     pub demo_query_request: models::DemoQueryRequest
 }
 
+
+/// struct for typed errors of method [`live_query`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum LiveQueryError {
+    Status400(),
+    Status429(),
+    Status500(),
+    Status502(),
+    UnknownValue(serde_json::Value),
+}
 
 /// struct for typed errors of method [`schema`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -65,6 +87,37 @@ pub enum SubmitError {
     UnknownValue(serde_json::Value),
 }
 
+
+///  Run a SQL query over a match's **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m | 
+pub async fn live_query(configuration: &configuration::Configuration, params: LiveQueryParams) -> Result<(), Error<LiveQueryError>> {
+
+    let uri_str = format!("{}/v1/matches/demo/live/query", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("query", &params.query.to_string())]);
+    if let Some(ref param_value) = params.match_id {
+        req_builder = req_builder.query(&[("match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.broadcast_url {
+        req_builder = req_builder.query(&[("broadcast_url", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<LiveQueryError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
 
 ///  Returns the queryable schema of a match's demo file: every entity and event table with its columns and Arrow types.  By default this returns the schema of the most recent match we have a demo for. Optionally pass `match_id` to read the schema for a specific match; if we don't already have its salts, they are fetched from Steam (rate limited, see `/{match_id}/salts`).     
 pub async fn schema(configuration: &configuration::Configuration, params: SchemaParams) -> Result<models::DemoSchemaResponse, Error<SchemaError>> {

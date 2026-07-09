@@ -4,10 +4,43 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**live_query**](DemoApi.md#live_query) | **GET** /v1/matches/demo/live/query | Live Demo Query (SSE)
 [**schema**](DemoApi.md#schema) | **GET** /v1/matches/demo/schema | Demo Schema
 [**status**](DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status
 [**submit**](DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query
 
+
+
+## live_query
+
+> live_query(query, match_id, broadcast_url)
+Live Demo Query (SSE)
+
+ Run a SQL query over a match's **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m | 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**query** | **String** | SQL query to run over the broadcast's entity/event tables (see `/demo/schema`). | [required] |
+**match_id** | Option<**u64**> | Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both are given. Resolving a match spectates its lobby and is rate-limited. |  |
+**broadcast_url** | Option<**String**> | Explicit broadcast base URL (from `/live/urls`). Provide this or `match_id`. |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/event-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## schema

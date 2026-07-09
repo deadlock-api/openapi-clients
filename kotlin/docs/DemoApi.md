@@ -4,10 +4,60 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**liveQuery**](DemoApi.md#liveQuery) | **GET** /v1/matches/demo/live/query | Live Demo Query (SSE) |
 | [**schema**](DemoApi.md#schema) | **GET** /v1/matches/demo/schema | Demo Schema |
 | [**status**](DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status |
 | [**submit**](DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query |
 
+
+<a id="liveQuery"></a>
+# **liveQuery**
+> liveQuery(query, matchId, broadcastUrl)
+
+Live Demo Query (SSE)
+
+ Run a SQL query over a match&#39;s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async &#x60;/demo/query&#x60;).  Provide either &#x60;match_id&#x60; (the server spectates the lobby to obtain the broadcast URL) or an explicit &#x60;broadcast_url&#x60; from &#x60;/live/urls&#x60;.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (&#x60;GROUP BY&#x60; / &#x60;ORDER BY&#x60;) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = DemoApi()
+val query : kotlin.String = query_example // kotlin.String | SQL query to run over the broadcast's entity/event tables (see `/demo/schema`).
+val matchId : kotlin.Long = 789 // kotlin.Long | Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+val broadcastUrl : kotlin.String = broadcastUrl_example // kotlin.String | Explicit broadcast base URL (from `/live/urls`). Provide this or `match_id`.
+try {
+    apiInstance.liveQuery(query, matchId, broadcastUrl)
+} catch (e: ClientException) {
+    println("4xx response calling DemoApi#liveQuery")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DemoApi#liveQuery")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **query** | **kotlin.String**| SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). | |
+| **matchId** | **kotlin.Long**| Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **broadcastUrl** | **kotlin.String**| Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a id="schema"></a>
 # **schema**

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**call_schema**](DemoApi.md#call_schema) | **GET** /v1/matches/demo/schema | Demo Schema
+[**live_query**](DemoApi.md#live_query) | **GET** /v1/matches/demo/live/query | Live Demo Query (SSE)
 [**status**](DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status
 [**submit**](DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query
 
@@ -85,6 +86,94 @@ No authorization required
 **404** | No demo / salts available for the match |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Reading the demo schema failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **live_query**
+> live_query(query, match_id=match_id, broadcast_url=broadcast_url)
+
+Live Demo Query (SSE)
+
+
+Run a SQL query over a match's **live** broadcast and stream result rows over Server-Sent Events as
+the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).
+
+Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit
+`broadcast_url` from `/live/urls`.
+
+Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation
+(`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 20req/m |
+| Global | 100req/m |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.DemoApi(api_client)
+    query = 'query_example' # str | SQL query to run over the broadcast's entity/event tables (see `/demo/schema`).
+    match_id = 56 # int | Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+    broadcast_url = 'broadcast_url_example' # str | Explicit broadcast base URL (from `/live/urls`). Provide this or `match_id`. (optional)
+
+    try:
+        # Live Demo Query (SSE)
+        api_instance.live_query(query, match_id=match_id, broadcast_url=broadcast_url)
+    except Exception as e:
+        print("Exception when calling DemoApi->live_query: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **str**| SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). | 
+ **match_id** | **int**| Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. | [optional] 
+ **broadcast_url** | **str**| Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/event-stream
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | SSE stream of result rows. Each &#x60;message&#x60; event&#39;s &#x60;data&#x60; is one result row as a JSON object; a terminal &#x60;end&#x60; event marks the end of the broadcast, and an &#x60;error&#x60; event carries any mid-stream failure. |  -  |
+**400** | Neither match_id nor broadcast_url given, or the query is invalid. |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Failed to start the live query |  -  |
+**502** | The live broadcast could not be fetched |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

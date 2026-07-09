@@ -33,6 +33,13 @@ class TestDemoApi(unittest.TestCase):
         """
         pass
 
+    def test_live_query(self) -> None:
+        """Test case for live_query
+
+        Live Demo Query (SSE)
+        """
+        pass
+
     def test_status(self) -> None:
         """Test case for status
 

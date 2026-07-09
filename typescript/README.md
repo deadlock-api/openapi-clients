@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**readyUp**](docs/CustomMatchesApi.md#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*DemoApi* | [**liveQuery**](docs/DemoApi.md#livequery) | **GET** /v1/matches/demo/live/query | Live Demo Query (SSE)
 *DemoApi* | [**schema**](docs/DemoApi.md#schema) | **GET** /v1/matches/demo/schema | Demo Schema
 *DemoApi* | [**status**](docs/DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status
 *DemoApi* | [**submit**](docs/DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query

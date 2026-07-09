@@ -6,10 +6,70 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**liveQuery()**](DemoApi.md#liveQuery) | **GET** /v1/matches/demo/live/query | Live Demo Query (SSE) |
 | [**schema()**](DemoApi.md#schema) | **GET** /v1/matches/demo/schema | Demo Schema |
 | [**status()**](DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status |
 | [**submit()**](DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query |
 
+
+## `liveQuery()`
+
+```php
+liveQuery($query, $match_id, $broadcast_url)
+```
+
+Live Demo Query (SSE)
+
+Run a SQL query over a match's **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\DemoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$query = 'query_example'; // string | SQL query to run over the broadcast's entity/event tables (see `/demo/schema`).
+$match_id = 56; // int | Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+$broadcast_url = 'broadcast_url_example'; // string | Explicit broadcast base URL (from `/live/urls`). Provide this or `match_id`.
+
+try {
+    $apiInstance->liveQuery($query, $match_id, $broadcast_url);
+} catch (Exception $e) {
+    echo 'Exception when calling DemoApi->liveQuery: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **query** | **string**| SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). | |
+| **match_id** | **int**| Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. | [optional] |
+| **broadcast_url** | **string**| Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/event-stream`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `schema()`
 

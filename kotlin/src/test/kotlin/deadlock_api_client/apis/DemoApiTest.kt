@@ -37,6 +37,15 @@ class DemoApiTest : ShouldSpec() {
         // uncomment below to create an instance of DemoApi
         //val apiInstance = DemoApi()
 
+        // to test liveQuery
+        should("test liveQuery") {
+            // uncomment below to test liveQuery
+            //val query : kotlin.String = query_example // kotlin.String | SQL query to run over the broadcast's entity/event tables (see `/demo/schema`).
+            //val matchId : kotlin.Long = 789 // kotlin.Long | Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+            //val broadcastUrl : kotlin.String = broadcastUrl_example // kotlin.String | Explicit broadcast base URL (from `/live/urls`). Provide this or `match_id`.
+            //apiInstance.liveQuery(query, matchId, broadcastUrl)
+        }
+
         // to test schema
         should("test schema") {
             // uncomment below to test schema

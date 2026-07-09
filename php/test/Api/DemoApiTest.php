@@ -72,6 +72,18 @@ class DemoApiTest extends TestCase
     }
 
     /**
+     * Test case for liveQuery
+     *
+     * Live Demo Query (SSE).
+     *
+     */
+    public function testLiveQuery()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for schema
      *
      * Demo Schema.

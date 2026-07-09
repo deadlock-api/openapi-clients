@@ -57,6 +57,91 @@ open class DemoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     }
 
     /**
+     * GET /v1/matches/demo/live/query
+     * Live Demo Query (SSE)
+     *  Run a SQL query over a match&#39;s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async &#x60;/demo/query&#x60;).  Provide either &#x60;match_id&#x60; (the server spectates the lobby to obtain the broadcast URL) or an explicit &#x60;broadcast_url&#x60; from &#x60;/live/urls&#x60;.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (&#x60;GROUP BY&#x60; / &#x60;ORDER BY&#x60;) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m | 
+     * @param query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).
+     * @param matchId Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param broadcastUrl Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun liveQuery(query: kotlin.String, matchId: kotlin.Long? = null, broadcastUrl: kotlin.String? = null) : Unit {
+        val localVarResponse = liveQueryWithHttpInfo(query = query, matchId = matchId, broadcastUrl = broadcastUrl)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/matches/demo/live/query
+     * Live Demo Query (SSE)
+     *  Run a SQL query over a match&#39;s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async &#x60;/demo/query&#x60;).  Provide either &#x60;match_id&#x60; (the server spectates the lobby to obtain the broadcast URL) or an explicit &#x60;broadcast_url&#x60; from &#x60;/live/urls&#x60;.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (&#x60;GROUP BY&#x60; / &#x60;ORDER BY&#x60;) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m | 
+     * @param query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).
+     * @param matchId Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param broadcastUrl Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun liveQueryWithHttpInfo(query: kotlin.String, matchId: kotlin.Long?, broadcastUrl: kotlin.String?) : ApiResponse<Unit?> {
+        val localVariableConfig = liveQueryRequestConfig(query = query, matchId = matchId, broadcastUrl = broadcastUrl)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation liveQuery
+     *
+     * @param query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).
+     * @param matchId Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param broadcastUrl Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @return RequestConfig
+     */
+    fun liveQueryRequestConfig(query: kotlin.String, matchId: kotlin.Long?, broadcastUrl: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("query", listOf(query.toString()))
+                if (matchId != null) {
+                    put("match_id", listOf(matchId.toString()))
+                }
+                if (broadcastUrl != null) {
+                    put("broadcast_url", listOf(broadcastUrl.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/matches/demo/live/query",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * GET /v1/matches/demo/schema
      * Demo Schema
      *  Returns the queryable schema of a match&#39;s demo file: every entity and event table with its columns and Arrow types.  By default this returns the schema of the most recent match we have a demo for. Optionally pass &#x60;match_id&#x60; to read the schema for a specific match; if we don&#39;t already have its salts, they are fetched from Steam (rate limited, see &#x60;/{match_id}/salts&#x60;).     

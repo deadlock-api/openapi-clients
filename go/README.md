@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesAPI* | [**ReadyUp**](docs/CustomMatchesAPI.md#readyup) | **Post** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesAPI* | [**Start**](docs/CustomMatchesAPI.md#start) | **Post** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesAPI* | [**Unready**](docs/CustomMatchesAPI.md#unready) | **Post** /v1/matches/custom/{lobby_id}/unready | Unready
+*DemoAPI* | [**LiveQuery**](docs/DemoAPI.md#livequery) | **Get** /v1/matches/demo/live/query | Live Demo Query (SSE)
 *DemoAPI* | [**Schema**](docs/DemoAPI.md#schema) | **Get** /v1/matches/demo/schema | Demo Schema
 *DemoAPI* | [**Status**](docs/DemoAPI.md#status) | **Get** /v1/matches/demo/query/{job_id} | Demo Query Status
 *DemoAPI* | [**Submit**](docs/DemoAPI.md#submit) | **Post** /v1/matches/demo/query | Demo Query

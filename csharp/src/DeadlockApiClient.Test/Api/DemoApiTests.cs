@@ -51,6 +51,18 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test LiveQuery
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task LiveQueryAsyncTest()
+        {
+            string query = default!;
+            Client.Option<long?> matchId = default!;
+            Client.Option<string?> broadcastUrl = default!;
+            await _instance.LiveQueryAsync(query, matchId, broadcastUrl);
+        }
+
+        /// <summary>
         /// Test Schema
         /// </summary>
         [Fact (Skip = "not implemented")]

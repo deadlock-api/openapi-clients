@@ -55,6 +55,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**readyUp**](Apis/CustomMatchesApi.http#readyup) | **POST** /v1/matches/custom/{lobby_id}/ready | Ready Up
 *CustomMatchesApi* | [**start**](Apis/CustomMatchesApi.http#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](Apis/CustomMatchesApi.http#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
+*DemoApi* | [**liveQuery**](Apis/DemoApi.http#livequery) | **GET** /v1/matches/demo/live/query | Live Demo Query (SSE)
 *DemoApi* | [**schema**](Apis/DemoApi.http#schema) | **GET** /v1/matches/demo/schema | Demo Schema
 *DemoApi* | [**status**](Apis/DemoApi.http#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status
 *DemoApi* | [**submit**](Apis/DemoApi.http#submit) | **POST** /v1/matches/demo/query | Demo Query

@@ -23,6 +23,140 @@ import (
 // DemoAPIService DemoAPI service
 type DemoAPIService service
 
+type ApiLiveQueryRequest struct {
+	ctx context.Context
+	ApiService *DemoAPIService
+	query *string
+	matchId *int64
+	broadcastUrl *string
+}
+
+// SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).
+func (r ApiLiveQueryRequest) Query(query string) ApiLiveQueryRequest {
+	r.query = &query
+	return r
+}
+
+// Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+func (r ApiLiveQueryRequest) MatchId(matchId int64) ApiLiveQueryRequest {
+	r.matchId = &matchId
+	return r
+}
+
+// Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;.
+func (r ApiLiveQueryRequest) BroadcastUrl(broadcastUrl string) ApiLiveQueryRequest {
+	r.broadcastUrl = &broadcastUrl
+	return r
+}
+
+func (r ApiLiveQueryRequest) Execute() (*http.Response, error) {
+	return r.ApiService.LiveQueryExecute(r)
+}
+
+/*
+LiveQuery Live Demo Query (SSE)
+
+
+Run a SQL query over a match's **live** broadcast and stream result rows over Server-Sent Events as
+the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).
+
+Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit
+`broadcast_url` from `/live/urls`.
+
+Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation
+(`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 20req/m |
+| Global | 100req/m |
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiLiveQueryRequest
+*/
+func (a *DemoAPIService) LiveQuery(ctx context.Context) ApiLiveQueryRequest {
+	return ApiLiveQueryRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *DemoAPIService) LiveQueryExecute(r ApiLiveQueryRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DemoAPIService.LiveQuery")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/matches/demo/live/query"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.query == nil {
+		return nil, reportError("query is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
+	if r.matchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "match_id", r.matchId, "form", "")
+	}
+	if r.broadcastUrl != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "broadcast_url", r.broadcastUrl, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"text/event-stream"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiSchemaRequest struct {
 	ctx context.Context
 	ApiService *DemoAPIService

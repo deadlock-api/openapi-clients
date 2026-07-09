@@ -7092,6 +7092,77 @@ paths:
       summary: Get Match ID
       tags:
       - Custom Matches
+  /v1/matches/demo/live/query:
+    get:
+      description: |2
+
+        Run a SQL query over a match's **live** broadcast and stream result rows over Server-Sent Events as
+        the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).
+
+        Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit
+        `broadcast_url` from `/live/urls`.
+
+        Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation
+        (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 20req/m |
+        | Global | 100req/m |
+      operationId: live_query
+      parameters:
+      - description: SQL query to run over the broadcast's entity/event tables (see
+          `/demo/schema`).
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: |-
+          Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both
+          are given. Resolving a match spectates its lobby and is rate-limited.
+        explode: true
+        in: query
+        name: match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Explicit broadcast base URL (from `/live/urls`). Provide this
+          or `match_id`.
+        explode: true
+        in: query
+        name: broadcast_url
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/event-stream: {}
+          description: "SSE stream of result rows. Each `message` event's `data` is\
+            \ one result row as a JSON object; a terminal `end` event marks the end\
+            \ of the broadcast, and an `error` event carries any mid-stream failure."
+        "400":
+          description: "Neither match_id nor broadcast_url given, or the query is\
+            \ invalid."
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Failed to start the live query
+        "502":
+          description: The live broadcast could not be fetched
+      summary: Live Demo Query (SSE)
+      tags:
+      - Demo
   /v1/matches/demo/query:
     post:
       description: |2

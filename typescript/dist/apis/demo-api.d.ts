@@ -21,6 +21,16 @@ import type { DemoSchemaResponse } from '../models/index.js';
  */
 export declare const DemoApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     *  Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m |
+     * @summary Live Demo Query (SSE)
+     * @param {string} query SQL query to run over the broadcast\&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).
+     * @param {number | null} [matchId] Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+     * @param {string | null} [broadcastUrl] Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveQuery: (query: string, matchId?: number | null, broadcastUrl?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      *  Returns the queryable schema of a match\'s demo file: every entity and event table with its columns and Arrow types.  By default this returns the schema of the most recent match we have a demo for. Optionally pass `match_id` to read the schema for a specific match; if we don\'t already have its salts, they are fetched from Steam (rate limited, see `/{match_id}/salts`).
      * @summary Demo Schema
      * @param {number | null} [matchId] Match to read the schema for. If omitted, the schema of the most recent match we have a demo for is returned. When set, the demo\&#39;s salts are fetched (rate limited) if they are not already stored.
@@ -49,6 +59,16 @@ export declare const DemoApiAxiosParamCreator: (configuration?: Configuration) =
  * DemoApi - functional programming interface
  */
 export declare const DemoApiFp: (configuration?: Configuration) => {
+    /**
+     *  Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m |
+     * @summary Live Demo Query (SSE)
+     * @param {string} query SQL query to run over the broadcast\&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).
+     * @param {number | null} [matchId] Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+     * @param {string | null} [broadcastUrl] Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveQuery(query: string, matchId?: number | null, broadcastUrl?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      *  Returns the queryable schema of a match\'s demo file: every entity and event table with its columns and Arrow types.  By default this returns the schema of the most recent match we have a demo for. Optionally pass `match_id` to read the schema for a specific match; if we don\'t already have its salts, they are fetched from Steam (rate limited, see `/{match_id}/salts`).
      * @summary Demo Schema
@@ -79,6 +99,14 @@ export declare const DemoApiFp: (configuration?: Configuration) => {
  */
 export declare const DemoApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     *  Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m |
+     * @summary Live Demo Query (SSE)
+     * @param {DemoApiLiveQueryRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveQuery(requestParameters: DemoApiLiveQueryRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
      *  Returns the queryable schema of a match\'s demo file: every entity and event table with its columns and Arrow types.  By default this returns the schema of the most recent match we have a demo for. Optionally pass `match_id` to read the schema for a specific match; if we don\'t already have its salts, they are fetched from Steam (rate limited, see `/{match_id}/salts`).
      * @summary Demo Schema
      * @param {DemoApiSchemaRequest} requestParameters Request parameters.
@@ -103,6 +131,23 @@ export declare const DemoApiFactory: (configuration?: Configuration, basePath?: 
      */
     submit(requestParameters: DemoApiSubmitRequest, options?: RawAxiosRequestConfig): AxiosPromise<DemoQueryJobResponse>;
 };
+/**
+ * Request parameters for liveQuery operation in DemoApi.
+ */
+export interface DemoApiLiveQueryRequest {
+    /**
+     * SQL query to run over the broadcast\&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).
+     */
+    readonly query: string;
+    /**
+     * Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited.
+     */
+    readonly matchId?: number | null;
+    /**
+     * Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;.
+     */
+    readonly broadcastUrl?: string | null;
+}
 /**
  * Request parameters for schema operation in DemoApi.
  */
@@ -131,6 +176,14 @@ export interface DemoApiSubmitRequest {
  * DemoApi - object-oriented interface
  */
 export declare class DemoApi extends BaseAPI {
+    /**
+     *  Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m |
+     * @summary Live Demo Query (SSE)
+     * @param {DemoApiLiveQueryRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveQuery(requestParameters: DemoApiLiveQueryRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
     /**
      *  Returns the queryable schema of a match\'s demo file: every entity and event table with its columns and Arrow types.  By default this returns the schema of the most recent match we have a demo for. Optionally pass `match_id` to read the schema for a specific match; if we don\'t already have its salts, they are fetched from Steam (rate limited, see `/{match_id}/salts`).
      * @summary Demo Schema

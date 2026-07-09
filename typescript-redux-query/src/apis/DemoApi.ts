@@ -29,6 +29,12 @@ import {
     DemoSchemaResponseToJSON,
 } from '../models';
 
+export interface LiveQueryRequest {
+    query: string;
+    matchId?: number;
+    broadcastUrl?: string;
+}
+
 export interface SchemaRequest {
     matchId?: number;
 }
@@ -41,6 +47,69 @@ export interface SubmitRequest {
     demoQueryRequest: DemoQueryRequest;
 }
 
+
+/**
+ *  Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m | 
+ * Live Demo Query (SSE)
+ */
+function liveQueryRaw<T>(requestParameters: LiveQueryRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
+    if (requestParameters.query === null || requestParameters.query === undefined) {
+        throw new runtime.RequiredError('query','Required parameter requestParameters.query was null or undefined when calling liveQuery.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.query !== undefined) {
+        queryParameters['query'] = requestParameters.query;
+    }
+
+
+    if (requestParameters.matchId !== undefined) {
+        queryParameters['match_id'] = requestParameters.matchId;
+    }
+
+
+    if (requestParameters.broadcastUrl !== undefined) {
+        queryParameters['broadcast_url'] = requestParameters.broadcastUrl;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/matches/demo/live/query`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+*  Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/m | | Global | 100req/m | 
+* Live Demo Query (SSE)
+*/
+export function liveQuery<T>(requestParameters: LiveQueryRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
+    return liveQueryRaw(requestParameters, requestConfig);
+}
 
 /**
  *  Returns the queryable schema of a match\'s demo file: every entity and event table with its columns and Arrow types.  By default this returns the schema of the most recent match we have a demo for. Optionally pass `match_id` to read the schema for a specific match; if we don\'t already have its salts, they are fetched from Steam (rate limited, see `/{match_id}/salts`).     

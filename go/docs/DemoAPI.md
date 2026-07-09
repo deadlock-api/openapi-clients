@@ -4,10 +4,79 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**LiveQuery**](DemoAPI.md#LiveQuery) | **Get** /v1/matches/demo/live/query | Live Demo Query (SSE)
 [**Schema**](DemoAPI.md#Schema) | **Get** /v1/matches/demo/schema | Demo Schema
 [**Status**](DemoAPI.md#Status) | **Get** /v1/matches/demo/query/{job_id} | Demo Query Status
 [**Submit**](DemoAPI.md#Submit) | **Post** /v1/matches/demo/query | Demo Query
 
+
+
+## LiveQuery
+
+> LiveQuery(ctx).Query(query).MatchId(matchId).BroadcastUrl(broadcastUrl).Execute()
+
+Live Demo Query (SSE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	query := "query_example" // string | SQL query to run over the broadcast's entity/event tables (see `/demo/schema`).
+	matchId := int64(789) // int64 | Match to spectate and stream. Provide this or `broadcast_url`; `broadcast_url` wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+	broadcastUrl := "broadcastUrl_example" // string | Explicit broadcast base URL (from `/live/urls`). Provide this or `match_id`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DemoAPI.LiveQuery(context.Background()).Query(query).MatchId(matchId).BroadcastUrl(broadcastUrl).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DemoAPI.LiveQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLiveQueryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **string** | SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). | 
+ **matchId** | **int64** | Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. | 
+ **broadcastUrl** | **string** | Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/event-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## Schema

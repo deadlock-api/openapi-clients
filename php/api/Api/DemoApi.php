@@ -74,6 +74,9 @@ class DemoApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'liveQuery' => [
+            'application/json',
+        ],
         'schema' => [
             'application/json',
         ],
@@ -129,6 +132,258 @@ class DemoApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation liveQuery
+     *
+     * Live Demo Query (SSE)
+     *
+     * @param  string $query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). (required)
+     * @param  int|null $match_id Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param  string|null $broadcast_url Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liveQuery'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function liveQuery($query, $match_id = null, $broadcast_url = null, string $contentType = self::contentTypes['liveQuery'][0])
+    {
+        $this->liveQueryWithHttpInfo($query, $match_id, $broadcast_url, $contentType);
+    }
+
+    /**
+     * Operation liveQueryWithHttpInfo
+     *
+     * Live Demo Query (SSE)
+     *
+     * @param  string $query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). (required)
+     * @param  int|null $match_id Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param  string|null $broadcast_url Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liveQuery'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function liveQueryWithHttpInfo($query, $match_id = null, $broadcast_url = null, string $contentType = self::contentTypes['liveQuery'][0])
+    {
+        $request = $this->liveQueryRequest($query, $match_id, $broadcast_url, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation liveQueryAsync
+     *
+     * Live Demo Query (SSE)
+     *
+     * @param  string $query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). (required)
+     * @param  int|null $match_id Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param  string|null $broadcast_url Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liveQuery'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function liveQueryAsync($query, $match_id = null, $broadcast_url = null, string $contentType = self::contentTypes['liveQuery'][0])
+    {
+        return $this->liveQueryAsyncWithHttpInfo($query, $match_id, $broadcast_url, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation liveQueryAsyncWithHttpInfo
+     *
+     * Live Demo Query (SSE)
+     *
+     * @param  string $query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). (required)
+     * @param  int|null $match_id Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param  string|null $broadcast_url Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liveQuery'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function liveQueryAsyncWithHttpInfo($query, $match_id = null, $broadcast_url = null, string $contentType = self::contentTypes['liveQuery'][0])
+    {
+        $returnType = '';
+        $request = $this->liveQueryRequest($query, $match_id, $broadcast_url, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'liveQuery'
+     *
+     * @param  string $query SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). (required)
+     * @param  int|null $match_id Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)
+     * @param  string|null $broadcast_url Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['liveQuery'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function liveQueryRequest($query, $match_id = null, $broadcast_url = null, string $contentType = self::contentTypes['liveQuery'][0])
+    {
+
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling liveQuery'
+            );
+        }
+
+        if ($match_id !== null && $match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$match_id" when calling DemoApi.liveQuery, must be bigger than or equal to 0.');
+        }
+        
+
+
+        $resourcePath = '/v1/matches/demo/live/query';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $query,
+            'query', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $match_id,
+            'match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $broadcast_url,
+            'broadcast_url', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['text/event-stream', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**

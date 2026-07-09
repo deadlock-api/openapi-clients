@@ -147,6 +147,7 @@ Class | Method | HTTP request | Description
 *CustomMatchesApi* | [**start**](docs/CustomMatchesApi.md#start) | **POST** /v1/matches/custom/{lobby_id}/start | Start Match
 *CustomMatchesApi* | [**unready**](docs/CustomMatchesApi.md#unready) | **POST** /v1/matches/custom/{lobby_id}/unready | Unready
 *DemoApi* | [**call_schema**](docs/DemoApi.md#call_schema) | **GET** /v1/matches/demo/schema | Demo Schema
+*DemoApi* | [**live_query**](docs/DemoApi.md#live_query) | **GET** /v1/matches/demo/live/query | Live Demo Query (SSE)
 *DemoApi* | [**status**](docs/DemoApi.md#status) | **GET** /v1/matches/demo/query/{job_id} | Demo Query Status
 *DemoApi* | [**submit**](docs/DemoApi.md#submit) | **POST** /v1/matches/demo/query | Demo Query
 *GenericDataApi* | [**get_generic_data**](docs/GenericDataApi.md#get_generic_data) | **GET** /v1/assets/generic-data | Get Generic Data

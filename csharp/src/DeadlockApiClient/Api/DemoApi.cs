@@ -38,6 +38,33 @@ namespace DeadlockApiClient.Api
         DemoApiEvents Events { get; }
 
         /// <summary>
+        /// Live Demo Query (SSE)
+        /// </summary>
+        /// <remarks>
+        ///  Run a SQL query over a match&#39;s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async &#x60;/demo/query&#x60;).  Provide either &#x60;match_id&#x60; (the server spectates the lobby to obtain the broadcast URL) or an explicit &#x60;broadcast_url&#x60; from &#x60;/live/urls&#x60;.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (&#x60;GROUP BY&#x60; / &#x60;ORDER BY&#x60;) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/m | | Global | 100req/m | 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).</param>
+        /// <param name="matchId">Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)</param>
+        /// <param name="broadcastUrl">Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILiveQueryApiResponse"/>&gt;</returns>
+        Task<ILiveQueryApiResponse> LiveQueryAsync(string query, Option<long?> matchId = default, Option<string?> broadcastUrl = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Live Demo Query (SSE)
+        /// </summary>
+        /// <remarks>
+        ///  Run a SQL query over a match&#39;s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async &#x60;/demo/query&#x60;).  Provide either &#x60;match_id&#x60; (the server spectates the lobby to obtain the broadcast URL) or an explicit &#x60;broadcast_url&#x60; from &#x60;/live/urls&#x60;.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (&#x60;GROUP BY&#x60; / &#x60;ORDER BY&#x60;) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/m | | Global | 100req/m | 
+        /// </remarks>
+        /// <param name="query">SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).</param>
+        /// <param name="matchId">Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)</param>
+        /// <param name="broadcastUrl">Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILiveQueryApiResponse"/>?&gt;</returns>
+        Task<ILiveQueryApiResponse?> LiveQueryOrDefaultAsync(string query, Option<long?> matchId = default, Option<string?> broadcastUrl = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Demo Schema
         /// </summary>
         /// <remarks>
@@ -105,6 +132,42 @@ namespace DeadlockApiClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitApiResponse"/>?&gt;</returns>
         Task<ISubmitApiResponse?> SubmitOrDefaultAsync(DemoQueryRequest demoQueryRequest, System.Threading.CancellationToken cancellationToken = default);
+    }
+
+    /// <summary>
+    /// The <see cref="ILiveQueryApiResponse"/>
+    /// </summary>
+    public interface ILiveQueryApiResponse : DeadlockApiClient.Client.IApiResponse
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+
+        /// <summary>
+        /// Returns true if the response is 502 BadGateway
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadGateway { get; }
     }
 
     /// <summary>
@@ -211,6 +274,26 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// The event raised after the server response
         /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnLiveQuery;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorLiveQuery;
+
+        internal void ExecuteOnLiveQuery(DemoApi.LiveQueryApiResponse apiResponse)
+        {
+            OnLiveQuery?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorLiveQuery(Exception exception)
+        {
+            OnErrorLiveQuery?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
         public event EventHandler<ApiResponseEventArgs>? OnSchema;
 
         /// <summary>
@@ -314,6 +397,263 @@ namespace DeadlockApiClient.Api
             HttpClient = httpClient;
             Events = demoApiEvents;
             ApiKeyProvider = apiKeyProvider;
+        }
+
+        partial void FormatLiveQuery(ref string query, ref Option<long?> matchId, ref Option<string?> broadcastUrl);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        private void ValidateLiveQuery(string query)
+        {
+            if (query == null)
+                throw new ArgumentNullException(nameof(query));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="query"></param>
+        /// <param name="matchId"></param>
+        /// <param name="broadcastUrl"></param>
+        private void AfterLiveQueryDefaultImplementation(ILiveQueryApiResponse apiResponseLocalVar, string query, Option<long?> matchId, Option<string?> broadcastUrl)
+        {
+            bool suppressDefaultLog = false;
+            AfterLiveQuery(ref suppressDefaultLog, apiResponseLocalVar, query, matchId, broadcastUrl);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="query"></param>
+        /// <param name="matchId"></param>
+        /// <param name="broadcastUrl"></param>
+        partial void AfterLiveQuery(ref bool suppressDefaultLog, ILiveQueryApiResponse apiResponseLocalVar, string query, Option<long?> matchId, Option<string?> broadcastUrl);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="query"></param>
+        /// <param name="matchId"></param>
+        /// <param name="broadcastUrl"></param>
+        private void OnErrorLiveQueryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query, Option<long?> matchId, Option<string?> broadcastUrl)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorLiveQuery(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, query, matchId, broadcastUrl);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="query"></param>
+        /// <param name="matchId"></param>
+        /// <param name="broadcastUrl"></param>
+        partial void OnErrorLiveQuery(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query, Option<long?> matchId, Option<string?> broadcastUrl);
+
+        /// <summary>
+        /// Live Demo Query (SSE)  Run a SQL query over a match&#39;s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async &#x60;/demo/query&#x60;).  Provide either &#x60;match_id&#x60; (the server spectates the lobby to obtain the broadcast URL) or an explicit &#x60;broadcast_url&#x60; from &#x60;/live/urls&#x60;.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (&#x60;GROUP BY&#x60; / &#x60;ORDER BY&#x60;) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/m | | Global | 100req/m | 
+        /// </summary>
+        /// <param name="query">SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).</param>
+        /// <param name="matchId">Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)</param>
+        /// <param name="broadcastUrl">Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILiveQueryApiResponse"/>&gt;</returns>
+        public async Task<ILiveQueryApiResponse?> LiveQueryOrDefaultAsync(string query, Option<long?> matchId = default, Option<string?> broadcastUrl = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await LiveQueryAsync(query, matchId, broadcastUrl, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Live Demo Query (SSE)  Run a SQL query over a match&#39;s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async &#x60;/demo/query&#x60;).  Provide either &#x60;match_id&#x60; (the server spectates the lobby to obtain the broadcast URL) or an explicit &#x60;broadcast_url&#x60; from &#x60;/live/urls&#x60;.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (&#x60;GROUP BY&#x60; / &#x60;ORDER BY&#x60;) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/m | | Global | 100req/m | 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;).</param>
+        /// <param name="matchId">Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. (optional)</param>
+        /// <param name="broadcastUrl">Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILiveQueryApiResponse"/>&gt;</returns>
+        public async Task<ILiveQueryApiResponse> LiveQueryAsync(string query, Option<long?> matchId = default, Option<string?> broadcastUrl = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateLiveQuery(query);
+
+                FormatLiveQuery(ref query, ref matchId, ref broadcastUrl);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/matches/demo/live/query"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/matches/demo/live/query");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    parseQueryStringLocalVar["query"] = ClientUtils.ParameterToString(query);
+
+                    if (matchId.IsSet)
+                        parseQueryStringLocalVar["match_id"] = ClientUtils.ParameterToString(matchId.Value);
+
+                    if (broadcastUrl.IsSet)
+                        parseQueryStringLocalVar["broadcast_url"] = ClientUtils.ParameterToString(broadcastUrl.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "text/event-stream"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<LiveQueryApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<LiveQueryApiResponse>();
+                        LiveQueryApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/matches/demo/live/query", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterLiveQueryDefaultImplementation(apiResponseLocalVar, query, matchId, broadcastUrl);
+
+                        Events.ExecuteOnLiveQuery(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorLiveQueryDefaultImplementation(e, "/v1/matches/demo/live/query", uriBuilderLocalVar.Path, query, matchId, broadcastUrl);
+                Events.ExecuteOnErrorLiveQuery(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="LiveQueryApiResponse"/>
+        /// </summary>
+        public partial class LiveQueryApiResponse : DeadlockApiClient.Client.ApiResponse, ILiveQueryApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<LiveQueryApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="LiveQueryApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public LiveQueryApiResponse(ILogger<LiveQueryApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="LiveQueryApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public LiveQueryApiResponse(ILogger<LiveQueryApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 502 BadGateway
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadGateway => 502 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
         partial void FormatSchema(ref Option<long?> matchId);
