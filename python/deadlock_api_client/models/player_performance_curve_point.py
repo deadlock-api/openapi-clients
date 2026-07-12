@@ -33,11 +33,22 @@ class PlayerPerformanceCurvePoint(BaseModel):
     deaths_avg: Union[StrictFloat, StrictInt] = Field(description="Average deaths at this time point")
     deaths_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of deaths at this time point")
     game_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.")
+    gold_boss_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from objectives at this time point")
+    gold_boss_orb_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from secured objective orbs at this time point")
+    gold_death_loss_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls lost on death at this time point")
+    gold_denied_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls denied to enemies at this time point")
+    gold_lane_creep_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from lane creeps at this time point")
+    gold_lane_creep_orbs_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from secured lane-creep orbs at this time point")
+    gold_neutral_creep_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from neutral (jungle) creeps at this time point")
+    gold_neutral_creep_orbs_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from secured neutral-creep orbs at this time point")
+    gold_player_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from hero kills at this time point")
+    gold_player_orbs_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from secured hero-kill orbs at this time point")
+    gold_treasure_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from the urn at this time point")
     kills_avg: Union[StrictFloat, StrictInt] = Field(description="Average kills at this time point")
     kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of kills at this time point")
     net_worth_avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this time point")
     net_worth_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this time point")
-    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "game_time", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std"]
+    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "game_time", "gold_boss_avg", "gold_boss_orb_avg", "gold_death_loss_avg", "gold_denied_avg", "gold_lane_creep_avg", "gold_lane_creep_orbs_avg", "gold_neutral_creep_avg", "gold_neutral_creep_orbs_avg", "gold_player_avg", "gold_player_orbs_avg", "gold_treasure_avg", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -95,6 +106,17 @@ class PlayerPerformanceCurvePoint(BaseModel):
             "deaths_avg": obj.get("deaths_avg"),
             "deaths_std": obj.get("deaths_std"),
             "game_time": obj.get("game_time"),
+            "gold_boss_avg": obj.get("gold_boss_avg"),
+            "gold_boss_orb_avg": obj.get("gold_boss_orb_avg"),
+            "gold_death_loss_avg": obj.get("gold_death_loss_avg"),
+            "gold_denied_avg": obj.get("gold_denied_avg"),
+            "gold_lane_creep_avg": obj.get("gold_lane_creep_avg"),
+            "gold_lane_creep_orbs_avg": obj.get("gold_lane_creep_orbs_avg"),
+            "gold_neutral_creep_avg": obj.get("gold_neutral_creep_avg"),
+            "gold_neutral_creep_orbs_avg": obj.get("gold_neutral_creep_orbs_avg"),
+            "gold_player_avg": obj.get("gold_player_avg"),
+            "gold_player_orbs_avg": obj.get("gold_player_orbs_avg"),
+            "gold_treasure_avg": obj.get("gold_treasure_avg"),
             "kills_avg": obj.get("kills_avg"),
             "kills_std": obj.get("kills_std"),
             "net_worth_avg": obj.get("net_worth_avg"),

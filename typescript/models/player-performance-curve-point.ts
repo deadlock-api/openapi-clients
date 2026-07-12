@@ -36,6 +36,50 @@ export interface PlayerPerformanceCurvePoint {
      */
     'game_time': number;
     /**
+     * Average souls earned from objectives at this time point
+     */
+    'gold_boss_avg': number;
+    /**
+     * Average souls earned from secured objective orbs at this time point
+     */
+    'gold_boss_orb_avg': number;
+    /**
+     * Average souls lost on death at this time point
+     */
+    'gold_death_loss_avg': number;
+    /**
+     * Average souls denied to enemies at this time point
+     */
+    'gold_denied_avg': number;
+    /**
+     * Average souls earned from lane creeps at this time point
+     */
+    'gold_lane_creep_avg': number;
+    /**
+     * Average souls earned from secured lane-creep orbs at this time point
+     */
+    'gold_lane_creep_orbs_avg': number;
+    /**
+     * Average souls earned from neutral (jungle) creeps at this time point
+     */
+    'gold_neutral_creep_avg': number;
+    /**
+     * Average souls earned from secured neutral-creep orbs at this time point
+     */
+    'gold_neutral_creep_orbs_avg': number;
+    /**
+     * Average souls earned from hero kills at this time point
+     */
+    'gold_player_avg': number;
+    /**
+     * Average souls earned from secured hero-kill orbs at this time point
+     */
+    'gold_player_orbs_avg': number;
+    /**
+     * Average souls earned from the urn at this time point
+     */
+    'gold_treasure_avg': number;
+    /**
      * Average kills at this time point
      */
     'kills_avg': number;

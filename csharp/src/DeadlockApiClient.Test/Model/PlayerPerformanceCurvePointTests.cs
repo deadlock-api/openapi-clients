@@ -99,6 +99,105 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldBossAvg'
+        /// </summary>
+        [Fact]
+        public void GoldBossAvgTest()
+        {
+            // TODO unit test for the property 'GoldBossAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldBossOrbAvg'
+        /// </summary>
+        [Fact]
+        public void GoldBossOrbAvgTest()
+        {
+            // TODO unit test for the property 'GoldBossOrbAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldDeathLossAvg'
+        /// </summary>
+        [Fact]
+        public void GoldDeathLossAvgTest()
+        {
+            // TODO unit test for the property 'GoldDeathLossAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldDeniedAvg'
+        /// </summary>
+        [Fact]
+        public void GoldDeniedAvgTest()
+        {
+            // TODO unit test for the property 'GoldDeniedAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldLaneCreepAvg'
+        /// </summary>
+        [Fact]
+        public void GoldLaneCreepAvgTest()
+        {
+            // TODO unit test for the property 'GoldLaneCreepAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldLaneCreepOrbsAvg'
+        /// </summary>
+        [Fact]
+        public void GoldLaneCreepOrbsAvgTest()
+        {
+            // TODO unit test for the property 'GoldLaneCreepOrbsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldNeutralCreepAvg'
+        /// </summary>
+        [Fact]
+        public void GoldNeutralCreepAvgTest()
+        {
+            // TODO unit test for the property 'GoldNeutralCreepAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldNeutralCreepOrbsAvg'
+        /// </summary>
+        [Fact]
+        public void GoldNeutralCreepOrbsAvgTest()
+        {
+            // TODO unit test for the property 'GoldNeutralCreepOrbsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldPlayerAvg'
+        /// </summary>
+        [Fact]
+        public void GoldPlayerAvgTest()
+        {
+            // TODO unit test for the property 'GoldPlayerAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldPlayerOrbsAvg'
+        /// </summary>
+        [Fact]
+        public void GoldPlayerOrbsAvgTest()
+        {
+            // TODO unit test for the property 'GoldPlayerOrbsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldTreasureAvg'
+        /// </summary>
+        [Fact]
+        public void GoldTreasureAvgTest()
+        {
+            // TODO unit test for the property 'GoldTreasureAvg'
+        }
+
+        /// <summary>
         /// Test the property 'KillsAvg'
         /// </summary>
         [Fact]

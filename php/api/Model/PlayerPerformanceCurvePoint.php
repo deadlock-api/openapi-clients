@@ -62,6 +62,17 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'float',
         'deaths_std' => 'float',
         'game_time' => 'int',
+        'gold_boss_avg' => 'float',
+        'gold_boss_orb_avg' => 'float',
+        'gold_death_loss_avg' => 'float',
+        'gold_denied_avg' => 'float',
+        'gold_lane_creep_avg' => 'float',
+        'gold_lane_creep_orbs_avg' => 'float',
+        'gold_neutral_creep_avg' => 'float',
+        'gold_neutral_creep_orbs_avg' => 'float',
+        'gold_player_avg' => 'float',
+        'gold_player_orbs_avg' => 'float',
+        'gold_treasure_avg' => 'float',
         'kills_avg' => 'float',
         'kills_std' => 'float',
         'net_worth_avg' => 'float',
@@ -81,6 +92,17 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'double',
         'deaths_std' => 'double',
         'game_time' => 'int32',
+        'gold_boss_avg' => 'double',
+        'gold_boss_orb_avg' => 'double',
+        'gold_death_loss_avg' => 'double',
+        'gold_denied_avg' => 'double',
+        'gold_lane_creep_avg' => 'double',
+        'gold_lane_creep_orbs_avg' => 'double',
+        'gold_neutral_creep_avg' => 'double',
+        'gold_neutral_creep_orbs_avg' => 'double',
+        'gold_player_avg' => 'double',
+        'gold_player_orbs_avg' => 'double',
+        'gold_treasure_avg' => 'double',
         'kills_avg' => 'double',
         'kills_std' => 'double',
         'net_worth_avg' => 'double',
@@ -98,6 +120,17 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => false,
         'deaths_std' => false,
         'game_time' => false,
+        'gold_boss_avg' => false,
+        'gold_boss_orb_avg' => false,
+        'gold_death_loss_avg' => false,
+        'gold_denied_avg' => false,
+        'gold_lane_creep_avg' => false,
+        'gold_lane_creep_orbs_avg' => false,
+        'gold_neutral_creep_avg' => false,
+        'gold_neutral_creep_orbs_avg' => false,
+        'gold_player_avg' => false,
+        'gold_player_orbs_avg' => false,
+        'gold_treasure_avg' => false,
         'kills_avg' => false,
         'kills_std' => false,
         'net_worth_avg' => false,
@@ -195,6 +228,17 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'deaths_avg',
         'deaths_std' => 'deaths_std',
         'game_time' => 'game_time',
+        'gold_boss_avg' => 'gold_boss_avg',
+        'gold_boss_orb_avg' => 'gold_boss_orb_avg',
+        'gold_death_loss_avg' => 'gold_death_loss_avg',
+        'gold_denied_avg' => 'gold_denied_avg',
+        'gold_lane_creep_avg' => 'gold_lane_creep_avg',
+        'gold_lane_creep_orbs_avg' => 'gold_lane_creep_orbs_avg',
+        'gold_neutral_creep_avg' => 'gold_neutral_creep_avg',
+        'gold_neutral_creep_orbs_avg' => 'gold_neutral_creep_orbs_avg',
+        'gold_player_avg' => 'gold_player_avg',
+        'gold_player_orbs_avg' => 'gold_player_orbs_avg',
+        'gold_treasure_avg' => 'gold_treasure_avg',
         'kills_avg' => 'kills_avg',
         'kills_std' => 'kills_std',
         'net_worth_avg' => 'net_worth_avg',
@@ -212,6 +256,17 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'setDeathsAvg',
         'deaths_std' => 'setDeathsStd',
         'game_time' => 'setGameTime',
+        'gold_boss_avg' => 'setGoldBossAvg',
+        'gold_boss_orb_avg' => 'setGoldBossOrbAvg',
+        'gold_death_loss_avg' => 'setGoldDeathLossAvg',
+        'gold_denied_avg' => 'setGoldDeniedAvg',
+        'gold_lane_creep_avg' => 'setGoldLaneCreepAvg',
+        'gold_lane_creep_orbs_avg' => 'setGoldLaneCreepOrbsAvg',
+        'gold_neutral_creep_avg' => 'setGoldNeutralCreepAvg',
+        'gold_neutral_creep_orbs_avg' => 'setGoldNeutralCreepOrbsAvg',
+        'gold_player_avg' => 'setGoldPlayerAvg',
+        'gold_player_orbs_avg' => 'setGoldPlayerOrbsAvg',
+        'gold_treasure_avg' => 'setGoldTreasureAvg',
         'kills_avg' => 'setKillsAvg',
         'kills_std' => 'setKillsStd',
         'net_worth_avg' => 'setNetWorthAvg',
@@ -229,6 +284,17 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'getDeathsAvg',
         'deaths_std' => 'getDeathsStd',
         'game_time' => 'getGameTime',
+        'gold_boss_avg' => 'getGoldBossAvg',
+        'gold_boss_orb_avg' => 'getGoldBossOrbAvg',
+        'gold_death_loss_avg' => 'getGoldDeathLossAvg',
+        'gold_denied_avg' => 'getGoldDeniedAvg',
+        'gold_lane_creep_avg' => 'getGoldLaneCreepAvg',
+        'gold_lane_creep_orbs_avg' => 'getGoldLaneCreepOrbsAvg',
+        'gold_neutral_creep_avg' => 'getGoldNeutralCreepAvg',
+        'gold_neutral_creep_orbs_avg' => 'getGoldNeutralCreepOrbsAvg',
+        'gold_player_avg' => 'getGoldPlayerAvg',
+        'gold_player_orbs_avg' => 'getGoldPlayerOrbsAvg',
+        'gold_treasure_avg' => 'getGoldTreasureAvg',
         'kills_avg' => 'getKillsAvg',
         'kills_std' => 'getKillsStd',
         'net_worth_avg' => 'getNetWorthAvg',
@@ -297,6 +363,17 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('deaths_avg', $data ?? [], null);
         $this->setIfExists('deaths_std', $data ?? [], null);
         $this->setIfExists('game_time', $data ?? [], null);
+        $this->setIfExists('gold_boss_avg', $data ?? [], null);
+        $this->setIfExists('gold_boss_orb_avg', $data ?? [], null);
+        $this->setIfExists('gold_death_loss_avg', $data ?? [], null);
+        $this->setIfExists('gold_denied_avg', $data ?? [], null);
+        $this->setIfExists('gold_lane_creep_avg', $data ?? [], null);
+        $this->setIfExists('gold_lane_creep_orbs_avg', $data ?? [], null);
+        $this->setIfExists('gold_neutral_creep_avg', $data ?? [], null);
+        $this->setIfExists('gold_neutral_creep_orbs_avg', $data ?? [], null);
+        $this->setIfExists('gold_player_avg', $data ?? [], null);
+        $this->setIfExists('gold_player_orbs_avg', $data ?? [], null);
+        $this->setIfExists('gold_treasure_avg', $data ?? [], null);
         $this->setIfExists('kills_avg', $data ?? [], null);
         $this->setIfExists('kills_std', $data ?? [], null);
         $this->setIfExists('net_worth_avg', $data ?? [], null);
@@ -349,6 +426,39 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             $invalidProperties[] = "invalid value for 'game_time', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['gold_boss_avg'] === null) {
+            $invalidProperties[] = "'gold_boss_avg' can't be null";
+        }
+        if ($this->container['gold_boss_orb_avg'] === null) {
+            $invalidProperties[] = "'gold_boss_orb_avg' can't be null";
+        }
+        if ($this->container['gold_death_loss_avg'] === null) {
+            $invalidProperties[] = "'gold_death_loss_avg' can't be null";
+        }
+        if ($this->container['gold_denied_avg'] === null) {
+            $invalidProperties[] = "'gold_denied_avg' can't be null";
+        }
+        if ($this->container['gold_lane_creep_avg'] === null) {
+            $invalidProperties[] = "'gold_lane_creep_avg' can't be null";
+        }
+        if ($this->container['gold_lane_creep_orbs_avg'] === null) {
+            $invalidProperties[] = "'gold_lane_creep_orbs_avg' can't be null";
+        }
+        if ($this->container['gold_neutral_creep_avg'] === null) {
+            $invalidProperties[] = "'gold_neutral_creep_avg' can't be null";
+        }
+        if ($this->container['gold_neutral_creep_orbs_avg'] === null) {
+            $invalidProperties[] = "'gold_neutral_creep_orbs_avg' can't be null";
+        }
+        if ($this->container['gold_player_avg'] === null) {
+            $invalidProperties[] = "'gold_player_avg' can't be null";
+        }
+        if ($this->container['gold_player_orbs_avg'] === null) {
+            $invalidProperties[] = "'gold_player_orbs_avg' can't be null";
+        }
+        if ($this->container['gold_treasure_avg'] === null) {
+            $invalidProperties[] = "'gold_treasure_avg' can't be null";
+        }
         if ($this->container['kills_avg'] === null) {
             $invalidProperties[] = "'kills_avg' can't be null";
         }
@@ -512,6 +622,303 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         }
 
         $this->container['game_time'] = $game_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_boss_avg
+     *
+     * @return float
+     */
+    public function getGoldBossAvg()
+    {
+        return $this->container['gold_boss_avg'];
+    }
+
+    /**
+     * Sets gold_boss_avg
+     *
+     * @param float $gold_boss_avg Average souls earned from objectives at this time point
+     *
+     * @return self
+     */
+    public function setGoldBossAvg($gold_boss_avg)
+    {
+        if (is_null($gold_boss_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_boss_avg cannot be null');
+        }
+        $this->container['gold_boss_avg'] = $gold_boss_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_boss_orb_avg
+     *
+     * @return float
+     */
+    public function getGoldBossOrbAvg()
+    {
+        return $this->container['gold_boss_orb_avg'];
+    }
+
+    /**
+     * Sets gold_boss_orb_avg
+     *
+     * @param float $gold_boss_orb_avg Average souls earned from secured objective orbs at this time point
+     *
+     * @return self
+     */
+    public function setGoldBossOrbAvg($gold_boss_orb_avg)
+    {
+        if (is_null($gold_boss_orb_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_boss_orb_avg cannot be null');
+        }
+        $this->container['gold_boss_orb_avg'] = $gold_boss_orb_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_death_loss_avg
+     *
+     * @return float
+     */
+    public function getGoldDeathLossAvg()
+    {
+        return $this->container['gold_death_loss_avg'];
+    }
+
+    /**
+     * Sets gold_death_loss_avg
+     *
+     * @param float $gold_death_loss_avg Average souls lost on death at this time point
+     *
+     * @return self
+     */
+    public function setGoldDeathLossAvg($gold_death_loss_avg)
+    {
+        if (is_null($gold_death_loss_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_death_loss_avg cannot be null');
+        }
+        $this->container['gold_death_loss_avg'] = $gold_death_loss_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_denied_avg
+     *
+     * @return float
+     */
+    public function getGoldDeniedAvg()
+    {
+        return $this->container['gold_denied_avg'];
+    }
+
+    /**
+     * Sets gold_denied_avg
+     *
+     * @param float $gold_denied_avg Average souls denied to enemies at this time point
+     *
+     * @return self
+     */
+    public function setGoldDeniedAvg($gold_denied_avg)
+    {
+        if (is_null($gold_denied_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_denied_avg cannot be null');
+        }
+        $this->container['gold_denied_avg'] = $gold_denied_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_lane_creep_avg
+     *
+     * @return float
+     */
+    public function getGoldLaneCreepAvg()
+    {
+        return $this->container['gold_lane_creep_avg'];
+    }
+
+    /**
+     * Sets gold_lane_creep_avg
+     *
+     * @param float $gold_lane_creep_avg Average souls earned from lane creeps at this time point
+     *
+     * @return self
+     */
+    public function setGoldLaneCreepAvg($gold_lane_creep_avg)
+    {
+        if (is_null($gold_lane_creep_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_lane_creep_avg cannot be null');
+        }
+        $this->container['gold_lane_creep_avg'] = $gold_lane_creep_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_lane_creep_orbs_avg
+     *
+     * @return float
+     */
+    public function getGoldLaneCreepOrbsAvg()
+    {
+        return $this->container['gold_lane_creep_orbs_avg'];
+    }
+
+    /**
+     * Sets gold_lane_creep_orbs_avg
+     *
+     * @param float $gold_lane_creep_orbs_avg Average souls earned from secured lane-creep orbs at this time point
+     *
+     * @return self
+     */
+    public function setGoldLaneCreepOrbsAvg($gold_lane_creep_orbs_avg)
+    {
+        if (is_null($gold_lane_creep_orbs_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_lane_creep_orbs_avg cannot be null');
+        }
+        $this->container['gold_lane_creep_orbs_avg'] = $gold_lane_creep_orbs_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_neutral_creep_avg
+     *
+     * @return float
+     */
+    public function getGoldNeutralCreepAvg()
+    {
+        return $this->container['gold_neutral_creep_avg'];
+    }
+
+    /**
+     * Sets gold_neutral_creep_avg
+     *
+     * @param float $gold_neutral_creep_avg Average souls earned from neutral (jungle) creeps at this time point
+     *
+     * @return self
+     */
+    public function setGoldNeutralCreepAvg($gold_neutral_creep_avg)
+    {
+        if (is_null($gold_neutral_creep_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_neutral_creep_avg cannot be null');
+        }
+        $this->container['gold_neutral_creep_avg'] = $gold_neutral_creep_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_neutral_creep_orbs_avg
+     *
+     * @return float
+     */
+    public function getGoldNeutralCreepOrbsAvg()
+    {
+        return $this->container['gold_neutral_creep_orbs_avg'];
+    }
+
+    /**
+     * Sets gold_neutral_creep_orbs_avg
+     *
+     * @param float $gold_neutral_creep_orbs_avg Average souls earned from secured neutral-creep orbs at this time point
+     *
+     * @return self
+     */
+    public function setGoldNeutralCreepOrbsAvg($gold_neutral_creep_orbs_avg)
+    {
+        if (is_null($gold_neutral_creep_orbs_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_neutral_creep_orbs_avg cannot be null');
+        }
+        $this->container['gold_neutral_creep_orbs_avg'] = $gold_neutral_creep_orbs_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_player_avg
+     *
+     * @return float
+     */
+    public function getGoldPlayerAvg()
+    {
+        return $this->container['gold_player_avg'];
+    }
+
+    /**
+     * Sets gold_player_avg
+     *
+     * @param float $gold_player_avg Average souls earned from hero kills at this time point
+     *
+     * @return self
+     */
+    public function setGoldPlayerAvg($gold_player_avg)
+    {
+        if (is_null($gold_player_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_player_avg cannot be null');
+        }
+        $this->container['gold_player_avg'] = $gold_player_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_player_orbs_avg
+     *
+     * @return float
+     */
+    public function getGoldPlayerOrbsAvg()
+    {
+        return $this->container['gold_player_orbs_avg'];
+    }
+
+    /**
+     * Sets gold_player_orbs_avg
+     *
+     * @param float $gold_player_orbs_avg Average souls earned from secured hero-kill orbs at this time point
+     *
+     * @return self
+     */
+    public function setGoldPlayerOrbsAvg($gold_player_orbs_avg)
+    {
+        if (is_null($gold_player_orbs_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_player_orbs_avg cannot be null');
+        }
+        $this->container['gold_player_orbs_avg'] = $gold_player_orbs_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_treasure_avg
+     *
+     * @return float
+     */
+    public function getGoldTreasureAvg()
+    {
+        return $this->container['gold_treasure_avg'];
+    }
+
+    /**
+     * Sets gold_treasure_avg
+     *
+     * @param float $gold_treasure_avg Average souls earned from the urn at this time point
+     *
+     * @return self
+     */
+    public function setGoldTreasureAvg($gold_treasure_avg)
+    {
+        if (is_null($gold_treasure_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_treasure_avg cannot be null');
+        }
+        $this->container['gold_treasure_avg'] = $gold_treasure_avg;
 
         return $this;
     }

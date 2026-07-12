@@ -36,6 +36,17 @@ import java.io.Serializable
  * @param deathsAvg Average deaths at this time point
  * @param deathsStd Standard deviation of deaths at this time point
  * @param gameTime The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
+ * @param goldBossAvg Average souls earned from objectives at this time point
+ * @param goldBossOrbAvg Average souls earned from secured objective orbs at this time point
+ * @param goldDeathLossAvg Average souls lost on death at this time point
+ * @param goldDeniedAvg Average souls denied to enemies at this time point
+ * @param goldLaneCreepAvg Average souls earned from lane creeps at this time point
+ * @param goldLaneCreepOrbsAvg Average souls earned from secured lane-creep orbs at this time point
+ * @param goldNeutralCreepAvg Average souls earned from neutral (jungle) creeps at this time point
+ * @param goldNeutralCreepOrbsAvg Average souls earned from secured neutral-creep orbs at this time point
+ * @param goldPlayerAvg Average souls earned from hero kills at this time point
+ * @param goldPlayerOrbsAvg Average souls earned from secured hero-kill orbs at this time point
+ * @param goldTreasureAvg Average souls earned from the urn at this time point
  * @param killsAvg Average kills at this time point
  * @param killsStd Standard deviation of kills at this time point
  * @param netWorthAvg Average net worth at this time point
@@ -64,6 +75,50 @@ data class PlayerPerformanceCurvePoint (
     /* The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds. */
     @Json(name = "game_time")
     val gameTime: kotlin.Int,
+
+    /* Average souls earned from objectives at this time point */
+    @Json(name = "gold_boss_avg")
+    val goldBossAvg: kotlin.Double,
+
+    /* Average souls earned from secured objective orbs at this time point */
+    @Json(name = "gold_boss_orb_avg")
+    val goldBossOrbAvg: kotlin.Double,
+
+    /* Average souls lost on death at this time point */
+    @Json(name = "gold_death_loss_avg")
+    val goldDeathLossAvg: kotlin.Double,
+
+    /* Average souls denied to enemies at this time point */
+    @Json(name = "gold_denied_avg")
+    val goldDeniedAvg: kotlin.Double,
+
+    /* Average souls earned from lane creeps at this time point */
+    @Json(name = "gold_lane_creep_avg")
+    val goldLaneCreepAvg: kotlin.Double,
+
+    /* Average souls earned from secured lane-creep orbs at this time point */
+    @Json(name = "gold_lane_creep_orbs_avg")
+    val goldLaneCreepOrbsAvg: kotlin.Double,
+
+    /* Average souls earned from neutral (jungle) creeps at this time point */
+    @Json(name = "gold_neutral_creep_avg")
+    val goldNeutralCreepAvg: kotlin.Double,
+
+    /* Average souls earned from secured neutral-creep orbs at this time point */
+    @Json(name = "gold_neutral_creep_orbs_avg")
+    val goldNeutralCreepOrbsAvg: kotlin.Double,
+
+    /* Average souls earned from hero kills at this time point */
+    @Json(name = "gold_player_avg")
+    val goldPlayerAvg: kotlin.Double,
+
+    /* Average souls earned from secured hero-kill orbs at this time point */
+    @Json(name = "gold_player_orbs_avg")
+    val goldPlayerOrbsAvg: kotlin.Double,
+
+    /* Average souls earned from the urn at this time point */
+    @Json(name = "gold_treasure_avg")
+    val goldTreasureAvg: kotlin.Double,
 
     /* Average kills at this time point */
     @Json(name = "kills_avg")

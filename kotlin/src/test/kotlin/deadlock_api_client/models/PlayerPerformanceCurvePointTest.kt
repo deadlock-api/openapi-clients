@@ -63,6 +63,72 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.gameTime shouldBe ("TODO")
         }
 
+        // to test the property `goldBossAvg` - Average souls earned from objectives at this time point
+        should("test goldBossAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldBossAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldBossOrbAvg` - Average souls earned from secured objective orbs at this time point
+        should("test goldBossOrbAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldBossOrbAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldDeathLossAvg` - Average souls lost on death at this time point
+        should("test goldDeathLossAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldDeathLossAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldDeniedAvg` - Average souls denied to enemies at this time point
+        should("test goldDeniedAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldDeniedAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldLaneCreepAvg` - Average souls earned from lane creeps at this time point
+        should("test goldLaneCreepAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldLaneCreepAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldLaneCreepOrbsAvg` - Average souls earned from secured lane-creep orbs at this time point
+        should("test goldLaneCreepOrbsAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldLaneCreepOrbsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldNeutralCreepAvg` - Average souls earned from neutral (jungle) creeps at this time point
+        should("test goldNeutralCreepAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldNeutralCreepAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldNeutralCreepOrbsAvg` - Average souls earned from secured neutral-creep orbs at this time point
+        should("test goldNeutralCreepOrbsAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldNeutralCreepOrbsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldPlayerAvg` - Average souls earned from hero kills at this time point
+        should("test goldPlayerAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldPlayerAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldPlayerOrbsAvg` - Average souls earned from secured hero-kill orbs at this time point
+        should("test goldPlayerOrbsAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldPlayerOrbsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldTreasureAvg` - Average souls earned from the urn at this time point
+        should("test goldTreasureAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldTreasureAvg shouldBe ("TODO")
+        }
+
         // to test the property `killsAvg` - Average kills at this time point
         should("test killsAvg") {
             // uncomment below to test the property

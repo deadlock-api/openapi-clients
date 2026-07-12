@@ -125,6 +125,105 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_boss_avg"
+     */
+    public function testPropertyGoldBossAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_boss_orb_avg"
+     */
+    public function testPropertyGoldBossOrbAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_death_loss_avg"
+     */
+    public function testPropertyGoldDeathLossAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_denied_avg"
+     */
+    public function testPropertyGoldDeniedAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_lane_creep_avg"
+     */
+    public function testPropertyGoldLaneCreepAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_lane_creep_orbs_avg"
+     */
+    public function testPropertyGoldLaneCreepOrbsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_neutral_creep_avg"
+     */
+    public function testPropertyGoldNeutralCreepAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_neutral_creep_orbs_avg"
+     */
+    public function testPropertyGoldNeutralCreepOrbsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_player_avg"
+     */
+    public function testPropertyGoldPlayerAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_player_orbs_avg"
+     */
+    public function testPropertyGoldPlayerOrbsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_treasure_avg"
+     */
+    public function testPropertyGoldTreasureAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "kills_avg"
      */
     public function testPropertyKillsAvg()

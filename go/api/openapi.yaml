@@ -15432,10 +15432,21 @@ components:
         deaths_avg: 1.4658129805029452
         deaths_std: 5.962133916683182
         game_time: 0
-        kills_avg: 2.3021358869347655
-        kills_std: 7.061401241503109
-        net_worth_avg: 9.301444243932576
-        net_worth_std: 3.616076749251911
+        gold_boss_avg: 2.3021358869347655
+        gold_boss_orb_avg: 7.061401241503109
+        gold_death_loss_avg: 9.301444243932576
+        gold_denied_avg: 3.616076749251911
+        gold_lane_creep_avg: 2.027123023002322
+        gold_lane_creep_orbs_avg: 4.145608029883936
+        gold_neutral_creep_avg: 7.386281948385884
+        gold_neutral_creep_orbs_avg: 1.2315135367772556
+        gold_player_avg: 1.0246457001441578
+        gold_player_orbs_avg: 1.4894159098541704
+        gold_treasure_avg: 6.84685269835264
+        kills_avg: 7.457744773683766
+        kills_std: 1.1730742509559433
+        net_worth_avg: 4.965218492984954
+        net_worth_std: 5.025004791520295
       properties:
         assists_avg:
           description: Average assists at this time point
@@ -15461,6 +15472,55 @@ components:
           format: int32
           minimum: 0
           type: integer
+        gold_boss_avg:
+          description: Average souls earned from objectives at this time point
+          format: double
+          type: number
+        gold_boss_orb_avg:
+          description: Average souls earned from secured objective orbs at this time
+            point
+          format: double
+          type: number
+        gold_death_loss_avg:
+          description: Average souls lost on death at this time point
+          format: double
+          type: number
+        gold_denied_avg:
+          description: Average souls denied to enemies at this time point
+          format: double
+          type: number
+        gold_lane_creep_avg:
+          description: Average souls earned from lane creeps at this time point
+          format: double
+          type: number
+        gold_lane_creep_orbs_avg:
+          description: Average souls earned from secured lane-creep orbs at this time
+            point
+          format: double
+          type: number
+        gold_neutral_creep_avg:
+          description: Average souls earned from neutral (jungle) creeps at this time
+            point
+          format: double
+          type: number
+        gold_neutral_creep_orbs_avg:
+          description: Average souls earned from secured neutral-creep orbs at this
+            time point
+          format: double
+          type: number
+        gold_player_avg:
+          description: Average souls earned from hero kills at this time point
+          format: double
+          type: number
+        gold_player_orbs_avg:
+          description: Average souls earned from secured hero-kill orbs at this time
+            point
+          format: double
+          type: number
+        gold_treasure_avg:
+          description: Average souls earned from the urn at this time point
+          format: double
+          type: number
         kills_avg:
           description: Average kills at this time point
           format: double
@@ -15483,6 +15543,17 @@ components:
       - deaths_avg
       - deaths_std
       - game_time
+      - gold_boss_avg
+      - gold_boss_orb_avg
+      - gold_death_loss_avg
+      - gold_denied_avg
+      - gold_lane_creep_avg
+      - gold_lane_creep_orbs_avg
+      - gold_neutral_creep_avg
+      - gold_neutral_creep_orbs_avg
+      - gold_player_avg
+      - gold_player_orbs_avg
+      - gold_treasure_avg
       - kills_avg
       - kills_std
       - net_worth_avg

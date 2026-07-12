@@ -31,6 +31,28 @@ type PlayerPerformanceCurvePoint struct {
 	DeathsStd float64 `json:"deaths_std"`
 	// The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
 	GameTime int32 `json:"game_time"`
+	// Average souls earned from objectives at this time point
+	GoldBossAvg float64 `json:"gold_boss_avg"`
+	// Average souls earned from secured objective orbs at this time point
+	GoldBossOrbAvg float64 `json:"gold_boss_orb_avg"`
+	// Average souls lost on death at this time point
+	GoldDeathLossAvg float64 `json:"gold_death_loss_avg"`
+	// Average souls denied to enemies at this time point
+	GoldDeniedAvg float64 `json:"gold_denied_avg"`
+	// Average souls earned from lane creeps at this time point
+	GoldLaneCreepAvg float64 `json:"gold_lane_creep_avg"`
+	// Average souls earned from secured lane-creep orbs at this time point
+	GoldLaneCreepOrbsAvg float64 `json:"gold_lane_creep_orbs_avg"`
+	// Average souls earned from neutral (jungle) creeps at this time point
+	GoldNeutralCreepAvg float64 `json:"gold_neutral_creep_avg"`
+	// Average souls earned from secured neutral-creep orbs at this time point
+	GoldNeutralCreepOrbsAvg float64 `json:"gold_neutral_creep_orbs_avg"`
+	// Average souls earned from hero kills at this time point
+	GoldPlayerAvg float64 `json:"gold_player_avg"`
+	// Average souls earned from secured hero-kill orbs at this time point
+	GoldPlayerOrbsAvg float64 `json:"gold_player_orbs_avg"`
+	// Average souls earned from the urn at this time point
+	GoldTreasureAvg float64 `json:"gold_treasure_avg"`
 	// Average kills at this time point
 	KillsAvg float64 `json:"kills_avg"`
 	// Standard deviation of kills at this time point
@@ -47,13 +69,24 @@ type _PlayerPerformanceCurvePoint PlayerPerformanceCurvePoint
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, gameTime int32, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64) *PlayerPerformanceCurvePoint {
+func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, gameTime int32, goldBossAvg float64, goldBossOrbAvg float64, goldDeathLossAvg float64, goldDeniedAvg float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldTreasureAvg float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64) *PlayerPerformanceCurvePoint {
 	this := PlayerPerformanceCurvePoint{}
 	this.AssistsAvg = assistsAvg
 	this.AssistsStd = assistsStd
 	this.DeathsAvg = deathsAvg
 	this.DeathsStd = deathsStd
 	this.GameTime = gameTime
+	this.GoldBossAvg = goldBossAvg
+	this.GoldBossOrbAvg = goldBossOrbAvg
+	this.GoldDeathLossAvg = goldDeathLossAvg
+	this.GoldDeniedAvg = goldDeniedAvg
+	this.GoldLaneCreepAvg = goldLaneCreepAvg
+	this.GoldLaneCreepOrbsAvg = goldLaneCreepOrbsAvg
+	this.GoldNeutralCreepAvg = goldNeutralCreepAvg
+	this.GoldNeutralCreepOrbsAvg = goldNeutralCreepOrbsAvg
+	this.GoldPlayerAvg = goldPlayerAvg
+	this.GoldPlayerOrbsAvg = goldPlayerOrbsAvg
+	this.GoldTreasureAvg = goldTreasureAvg
 	this.KillsAvg = killsAvg
 	this.KillsStd = killsStd
 	this.NetWorthAvg = netWorthAvg
@@ -189,6 +222,270 @@ func (o *PlayerPerformanceCurvePoint) SetGameTime(v int32) {
 	o.GameTime = v
 }
 
+// GetGoldBossAvg returns the GoldBossAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldBossAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldBossAvg
+}
+
+// GetGoldBossAvgOk returns a tuple with the GoldBossAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldBossAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldBossAvg, true
+}
+
+// SetGoldBossAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldBossAvg(v float64) {
+	o.GoldBossAvg = v
+}
+
+// GetGoldBossOrbAvg returns the GoldBossOrbAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldBossOrbAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldBossOrbAvg
+}
+
+// GetGoldBossOrbAvgOk returns a tuple with the GoldBossOrbAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldBossOrbAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldBossOrbAvg, true
+}
+
+// SetGoldBossOrbAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldBossOrbAvg(v float64) {
+	o.GoldBossOrbAvg = v
+}
+
+// GetGoldDeathLossAvg returns the GoldDeathLossAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldDeathLossAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldDeathLossAvg
+}
+
+// GetGoldDeathLossAvgOk returns a tuple with the GoldDeathLossAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldDeathLossAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldDeathLossAvg, true
+}
+
+// SetGoldDeathLossAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldDeathLossAvg(v float64) {
+	o.GoldDeathLossAvg = v
+}
+
+// GetGoldDeniedAvg returns the GoldDeniedAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldDeniedAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldDeniedAvg
+}
+
+// GetGoldDeniedAvgOk returns a tuple with the GoldDeniedAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldDeniedAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldDeniedAvg, true
+}
+
+// SetGoldDeniedAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldDeniedAvg(v float64) {
+	o.GoldDeniedAvg = v
+}
+
+// GetGoldLaneCreepAvg returns the GoldLaneCreepAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldLaneCreepAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldLaneCreepAvg
+}
+
+// GetGoldLaneCreepAvgOk returns a tuple with the GoldLaneCreepAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldLaneCreepAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldLaneCreepAvg, true
+}
+
+// SetGoldLaneCreepAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldLaneCreepAvg(v float64) {
+	o.GoldLaneCreepAvg = v
+}
+
+// GetGoldLaneCreepOrbsAvg returns the GoldLaneCreepOrbsAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldLaneCreepOrbsAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldLaneCreepOrbsAvg
+}
+
+// GetGoldLaneCreepOrbsAvgOk returns a tuple with the GoldLaneCreepOrbsAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldLaneCreepOrbsAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldLaneCreepOrbsAvg, true
+}
+
+// SetGoldLaneCreepOrbsAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldLaneCreepOrbsAvg(v float64) {
+	o.GoldLaneCreepOrbsAvg = v
+}
+
+// GetGoldNeutralCreepAvg returns the GoldNeutralCreepAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldNeutralCreepAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldNeutralCreepAvg
+}
+
+// GetGoldNeutralCreepAvgOk returns a tuple with the GoldNeutralCreepAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldNeutralCreepAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldNeutralCreepAvg, true
+}
+
+// SetGoldNeutralCreepAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldNeutralCreepAvg(v float64) {
+	o.GoldNeutralCreepAvg = v
+}
+
+// GetGoldNeutralCreepOrbsAvg returns the GoldNeutralCreepOrbsAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldNeutralCreepOrbsAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldNeutralCreepOrbsAvg
+}
+
+// GetGoldNeutralCreepOrbsAvgOk returns a tuple with the GoldNeutralCreepOrbsAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldNeutralCreepOrbsAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldNeutralCreepOrbsAvg, true
+}
+
+// SetGoldNeutralCreepOrbsAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldNeutralCreepOrbsAvg(v float64) {
+	o.GoldNeutralCreepOrbsAvg = v
+}
+
+// GetGoldPlayerAvg returns the GoldPlayerAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldPlayerAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldPlayerAvg
+}
+
+// GetGoldPlayerAvgOk returns a tuple with the GoldPlayerAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldPlayerAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldPlayerAvg, true
+}
+
+// SetGoldPlayerAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldPlayerAvg(v float64) {
+	o.GoldPlayerAvg = v
+}
+
+// GetGoldPlayerOrbsAvg returns the GoldPlayerOrbsAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldPlayerOrbsAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldPlayerOrbsAvg
+}
+
+// GetGoldPlayerOrbsAvgOk returns a tuple with the GoldPlayerOrbsAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldPlayerOrbsAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldPlayerOrbsAvg, true
+}
+
+// SetGoldPlayerOrbsAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldPlayerOrbsAvg(v float64) {
+	o.GoldPlayerOrbsAvg = v
+}
+
+// GetGoldTreasureAvg returns the GoldTreasureAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGoldTreasureAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GoldTreasureAvg
+}
+
+// GetGoldTreasureAvgOk returns a tuple with the GoldTreasureAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGoldTreasureAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GoldTreasureAvg, true
+}
+
+// SetGoldTreasureAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGoldTreasureAvg(v float64) {
+	o.GoldTreasureAvg = v
+}
+
 // GetKillsAvg returns the KillsAvg field value
 func (o *PlayerPerformanceCurvePoint) GetKillsAvg() float64 {
 	if o == nil {
@@ -300,6 +597,17 @@ func (o PlayerPerformanceCurvePoint) ToMap() (map[string]interface{}, error) {
 	toSerialize["deaths_avg"] = o.DeathsAvg
 	toSerialize["deaths_std"] = o.DeathsStd
 	toSerialize["game_time"] = o.GameTime
+	toSerialize["gold_boss_avg"] = o.GoldBossAvg
+	toSerialize["gold_boss_orb_avg"] = o.GoldBossOrbAvg
+	toSerialize["gold_death_loss_avg"] = o.GoldDeathLossAvg
+	toSerialize["gold_denied_avg"] = o.GoldDeniedAvg
+	toSerialize["gold_lane_creep_avg"] = o.GoldLaneCreepAvg
+	toSerialize["gold_lane_creep_orbs_avg"] = o.GoldLaneCreepOrbsAvg
+	toSerialize["gold_neutral_creep_avg"] = o.GoldNeutralCreepAvg
+	toSerialize["gold_neutral_creep_orbs_avg"] = o.GoldNeutralCreepOrbsAvg
+	toSerialize["gold_player_avg"] = o.GoldPlayerAvg
+	toSerialize["gold_player_orbs_avg"] = o.GoldPlayerOrbsAvg
+	toSerialize["gold_treasure_avg"] = o.GoldTreasureAvg
 	toSerialize["kills_avg"] = o.KillsAvg
 	toSerialize["kills_std"] = o.KillsStd
 	toSerialize["net_worth_avg"] = o.NetWorthAvg
@@ -317,6 +625,17 @@ func (o *PlayerPerformanceCurvePoint) UnmarshalJSON(data []byte) (err error) {
 		"deaths_avg",
 		"deaths_std",
 		"game_time",
+		"gold_boss_avg",
+		"gold_boss_orb_avg",
+		"gold_death_loss_avg",
+		"gold_denied_avg",
+		"gold_lane_creep_avg",
+		"gold_lane_creep_orbs_avg",
+		"gold_neutral_creep_avg",
+		"gold_neutral_creep_orbs_avg",
+		"gold_player_avg",
+		"gold_player_orbs_avg",
+		"gold_treasure_avg",
 		"kills_avg",
 		"kills_std",
 		"net_worth_avg",

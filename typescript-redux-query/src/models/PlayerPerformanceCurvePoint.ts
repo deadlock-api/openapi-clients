@@ -49,6 +49,72 @@ export interface PlayerPerformanceCurvePoint  {
      */
     gameTime: number;
     /**
+     * Average souls earned from objectives at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldBossAvg: number;
+    /**
+     * Average souls earned from secured objective orbs at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldBossOrbAvg: number;
+    /**
+     * Average souls lost on death at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldDeathLossAvg: number;
+    /**
+     * Average souls denied to enemies at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldDeniedAvg: number;
+    /**
+     * Average souls earned from lane creeps at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldLaneCreepAvg: number;
+    /**
+     * Average souls earned from secured lane-creep orbs at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldLaneCreepOrbsAvg: number;
+    /**
+     * Average souls earned from neutral (jungle) creeps at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldNeutralCreepAvg: number;
+    /**
+     * Average souls earned from secured neutral-creep orbs at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldNeutralCreepOrbsAvg: number;
+    /**
+     * Average souls earned from hero kills at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldPlayerAvg: number;
+    /**
+     * Average souls earned from secured hero-kill orbs at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldPlayerOrbsAvg: number;
+    /**
+     * Average souls earned from the urn at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldTreasureAvg: number;
+    /**
      * Average kills at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -81,6 +147,17 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'deathsAvg': json['deaths_avg'],
         'deathsStd': json['deaths_std'],
         'gameTime': json['game_time'],
+        'goldBossAvg': json['gold_boss_avg'],
+        'goldBossOrbAvg': json['gold_boss_orb_avg'],
+        'goldDeathLossAvg': json['gold_death_loss_avg'],
+        'goldDeniedAvg': json['gold_denied_avg'],
+        'goldLaneCreepAvg': json['gold_lane_creep_avg'],
+        'goldLaneCreepOrbsAvg': json['gold_lane_creep_orbs_avg'],
+        'goldNeutralCreepAvg': json['gold_neutral_creep_avg'],
+        'goldNeutralCreepOrbsAvg': json['gold_neutral_creep_orbs_avg'],
+        'goldPlayerAvg': json['gold_player_avg'],
+        'goldPlayerOrbsAvg': json['gold_player_orbs_avg'],
+        'goldTreasureAvg': json['gold_treasure_avg'],
         'killsAvg': json['kills_avg'],
         'killsStd': json['kills_std'],
         'netWorthAvg': json['net_worth_avg'],
@@ -98,6 +175,17 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'deaths_avg': value.deathsAvg,
         'deaths_std': value.deathsStd,
         'game_time': value.gameTime,
+        'gold_boss_avg': value.goldBossAvg,
+        'gold_boss_orb_avg': value.goldBossOrbAvg,
+        'gold_death_loss_avg': value.goldDeathLossAvg,
+        'gold_denied_avg': value.goldDeniedAvg,
+        'gold_lane_creep_avg': value.goldLaneCreepAvg,
+        'gold_lane_creep_orbs_avg': value.goldLaneCreepOrbsAvg,
+        'gold_neutral_creep_avg': value.goldNeutralCreepAvg,
+        'gold_neutral_creep_orbs_avg': value.goldNeutralCreepOrbsAvg,
+        'gold_player_avg': value.goldPlayerAvg,
+        'gold_player_orbs_avg': value.goldPlayerOrbsAvg,
+        'gold_treasure_avg': value.goldTreasureAvg,
         'kills_avg': value.killsAvg,
         'kills_std': value.killsStd,
         'net_worth_avg': value.netWorthAvg,

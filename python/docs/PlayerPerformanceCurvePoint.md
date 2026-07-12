@@ -10,6 +10,17 @@ Name | Type | Description | Notes
 **deaths_avg** | **float** | Average deaths at this time point | 
 **deaths_std** | **float** | Standard deviation of deaths at this time point | 
 **game_time** | **int** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
+**gold_boss_avg** | **float** | Average souls earned from objectives at this time point | 
+**gold_boss_orb_avg** | **float** | Average souls earned from secured objective orbs at this time point | 
+**gold_death_loss_avg** | **float** | Average souls lost on death at this time point | 
+**gold_denied_avg** | **float** | Average souls denied to enemies at this time point | 
+**gold_lane_creep_avg** | **float** | Average souls earned from lane creeps at this time point | 
+**gold_lane_creep_orbs_avg** | **float** | Average souls earned from secured lane-creep orbs at this time point | 
+**gold_neutral_creep_avg** | **float** | Average souls earned from neutral (jungle) creeps at this time point | 
+**gold_neutral_creep_orbs_avg** | **float** | Average souls earned from secured neutral-creep orbs at this time point | 
+**gold_player_avg** | **float** | Average souls earned from hero kills at this time point | 
+**gold_player_orbs_avg** | **float** | Average souls earned from secured hero-kill orbs at this time point | 
+**gold_treasure_avg** | **float** | Average souls earned from the urn at this time point | 
 **kills_avg** | **float** | Average kills at this time point | 
 **kills_std** | **float** | Standard deviation of kills at this time point | 
 **net_worth_avg** | **float** | Average net worth at this time point | 
