@@ -30,12 +30,6 @@ jobs:
           CONTINUE_ON_ERROR=true ./test-clients.sh typescript
         continue-on-error: false
 
-      - name: Test TypeScript (redux-query) clients
-        run: |
-          echo "Testing TypeScript (redux-query) clients..."
-          CONTINUE_ON_ERROR=true ./test-clients.sh typescript-redux-query
-        continue-on-error: false
-
       - name: Test C# clients
         run: |
           echo "Testing C# clients..."

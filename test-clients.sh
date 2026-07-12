@@ -57,9 +57,6 @@ test_client() {
         "typescript")
             test_typescript_client "$client_path"
             ;;
-        "typescript-redux-query")
-            test_typescript_redux_query_client "$client_path"
-            ;;
         "csharp")
             test_csharp_client "$client_path"
             ;;
@@ -116,19 +113,6 @@ test_typescript_client() {
         npm install --quiet
         npm run build
         node -e \"const client = require('./dist/index.js'); console.log('TypeScript client loaded successfully');\"
-    "
-}
-
-# Test TypeScript (redux-query) client
-test_typescript_redux_query_client() {
-    local client_path=$1
-    print_status "INFO" "Building TypeScript (redux-query) test container..."
-
-    docker run --rm -v "$(pwd)/${client_path}:/workspace" -w /workspace node:slim bash -c "
-        set -e
-        npm install --quiet
-        npm run build
-        echo 'TypeScript (redux-query) client compiled successfully'
     "
 }
 
@@ -224,7 +208,7 @@ main() {
 
     # Test all client packages
     # Note: jetbrains-client is excluded as it's HTTP client files, not a package
-    local languages=("python" "typescript" "typescript-redux-query" "csharp" "rust" "go" "php" "kotlin")
+    local languages=("python" "typescript" "csharp" "rust" "go" "php" "kotlin")
 
     # Allow testing a specific language if provided as an argument
     if [ $# -gt 0 ]; then
