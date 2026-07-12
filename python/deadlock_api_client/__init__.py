@@ -206,8 +206,6 @@ __all__ = [
     "RecoilRange",
     "RegionMode",
     "RejuvParams",
-    "RollType",
-    "RollTypeOneOf",
     "ScriptValues",
     "ServerRegion",
     "ServerStatusRequest",
@@ -457,8 +455,6 @@ from deadlock_api_client.models.raw_weapon_info_vertical_recoil import RawWeapon
 from deadlock_api_client.models.recoil_range import RecoilRange as RecoilRange
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode
 from deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
-from deadlock_api_client.models.roll_type import RollType as RollType
-from deadlock_api_client.models.roll_type_one_of import RollTypeOneOf as RollTypeOneOf
 from deadlock_api_client.models.script_values import ScriptValues as ScriptValues
 from deadlock_api_client.models.server_region import ServerRegion as ServerRegion
 from deadlock_api_client.models.server_status_request import ServerStatusRequest as ServerStatusRequest

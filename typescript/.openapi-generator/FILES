@@ -211,8 +211,6 @@ docs/RawWeaponInfoVerticalRecoil.md
 docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
-docs/RollType.md
-docs/RollTypeOneOf.md
 docs/SQLApi.md
 docs/ScriptValues.md
 docs/ServerRegion.md
@@ -423,8 +421,6 @@ models/raw-weapon-info-vertical-recoil.ts
 models/recoil-range.ts
 models/region-mode.ts
 models/rejuv-params.ts
-models/roll-type-one-of.ts
-models/roll-type.ts
 models/script-values.ts
 models/server-region.ts
 models/server-status-request.ts

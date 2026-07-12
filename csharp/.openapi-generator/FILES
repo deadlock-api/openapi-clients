@@ -183,8 +183,6 @@ docs/models/RawWeaponInfoVerticalRecoil.md
 docs/models/RecoilRange.md
 docs/models/RegionMode.md
 docs/models/RejuvParams.md
-docs/models/RollType.md
-docs/models/RollTypeOneOf.md
 docs/models/ScriptValues.md
 docs/models/ServerRegion.md
 docs/models/ServerStatusRequest.md
@@ -423,8 +421,6 @@ src/DeadlockApiClient.Test/Model/RawWeaponInfoVerticalRecoilTests.cs
 src/DeadlockApiClient.Test/Model/RecoilRangeTests.cs
 src/DeadlockApiClient.Test/Model/RegionModeTests.cs
 src/DeadlockApiClient.Test/Model/RejuvParamsTests.cs
-src/DeadlockApiClient.Test/Model/RollTypeOneOfTests.cs
-src/DeadlockApiClient.Test/Model/RollTypeTests.cs
 src/DeadlockApiClient.Test/Model/ScriptValuesTests.cs
 src/DeadlockApiClient.Test/Model/ServerRegionTests.cs
 src/DeadlockApiClient.Test/Model/ServerStatusRequestTests.cs
@@ -684,8 +680,6 @@ src/DeadlockApiClient/Model/RawWeaponInfoVerticalRecoil.cs
 src/DeadlockApiClient/Model/RecoilRange.cs
 src/DeadlockApiClient/Model/RegionMode.cs
 src/DeadlockApiClient/Model/RejuvParams.cs
-src/DeadlockApiClient/Model/RollType.cs
-src/DeadlockApiClient/Model/RollTypeOneOf.cs
 src/DeadlockApiClient/Model/ScriptValues.cs
 src/DeadlockApiClient/Model/ServerRegion.cs
 src/DeadlockApiClient/Model/ServerStatusRequest.cs

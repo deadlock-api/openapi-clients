@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **PrimaryPickups** | Pointer to [**[]Pickup**](Pickup.md) |  | [optional] 
 **RenderAfterDeath** | Pointer to **NullableBool** |  | [optional] 
 **RespawnTime** | Pointer to **NullableFloat64** |  | [optional] 
-**RollType** | Pointer to [**NullableRollType**](RollType.md) |  | [optional] 
+**RollType** | Pointer to **NullableString** | Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;. | [optional] 
 **ShowOnMinimap** | Pointer to **NullableBool** |  | [optional] 
 **SolidAfterDeath** | Pointer to **NullableBool** |  | [optional] 
 **SpawnInterval** | Pointer to **NullableFloat64** |  | [optional] 
@@ -1081,20 +1081,20 @@ HasRespawnTime returns a boolean if a field has been set.
 UnsetRespawnTime ensures that no value is present for RespawnTime, not even an explicit nil
 ### GetRollType
 
-`func (o *MiscEntity) GetRollType() RollType`
+`func (o *MiscEntity) GetRollType() string`
 
 GetRollType returns the RollType field if non-nil, zero value otherwise.
 
 ### GetRollTypeOk
 
-`func (o *MiscEntity) GetRollTypeOk() (*RollType, bool)`
+`func (o *MiscEntity) GetRollTypeOk() (*string, bool)`
 
 GetRollTypeOk returns a tuple with the RollType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRollType
 
-`func (o *MiscEntity) SetRollType(v RollType)`
+`func (o *MiscEntity) SetRollType(v string)`
 
 SetRollType sets RollType field to given value.
 

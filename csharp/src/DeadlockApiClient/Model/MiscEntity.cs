@@ -63,13 +63,13 @@ namespace DeadlockApiClient.Model
         /// <param name="primaryPickups">primaryPickups</param>
         /// <param name="renderAfterDeath">renderAfterDeath</param>
         /// <param name="respawnTime">respawnTime</param>
-        /// <param name="rollType">rollType</param>
+        /// <param name="rollType">Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;.</param>
         /// <param name="showOnMinimap">showOnMinimap</param>
         /// <param name="solidAfterDeath">solidAfterDeath</param>
         /// <param name="spawnInterval">spawnInterval</param>
         /// <param name="spawnIntervalInSeconds">spawnIntervalInSeconds</param>
         [JsonConstructor]
-        public MiscEntity(string className, int id, Option<bool?> breakOnDodgeTouch = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<SubclassModifierDefinition?> modifier = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<RollType?> rollType = default, Option<bool?> showOnMinimap = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default)
+        public MiscEntity(string className, int id, Option<bool?> breakOnDodgeTouch = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<SubclassModifierDefinition?> modifier = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<string?> rollType = default, Option<bool?> showOnMinimap = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default)
         {
             ClassName = className;
             Id = id;
@@ -493,13 +493,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<RollType?> RollTypeOption { get; private set; }
+        public Option<string?> RollTypeOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets RollType
+        /// Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;.
         /// </summary>
+        /// <value>Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;.</value>
         [JsonPropertyName("roll_type")]
-        public RollType? RollType { get { return this.RollTypeOption.Value; } set { this.RollTypeOption = new(value); } }
+        public string? RollType { get { return this.RollTypeOption.Value; } set { this.RollTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ShowOnMinimap
@@ -669,7 +670,7 @@ namespace DeadlockApiClient.Model
             Option<List<Pickup>?> primaryPickups = default;
             Option<bool?> renderAfterDeath = default;
             Option<double?> respawnTime = default;
-            Option<RollType?> rollType = default;
+            Option<string?> rollType = default;
             Option<bool?> showOnMinimap = default;
             Option<bool?> solidAfterDeath = default;
             Option<double?> spawnInterval = default;
@@ -781,7 +782,7 @@ namespace DeadlockApiClient.Model
                             respawnTime = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "roll_type":
-                            rollType = new Option<RollType?>(JsonSerializer.Deserialize<RollType>(ref utf8JsonReader, jsonSerializerOptions));
+                            rollType = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "show_on_minimap":
                             showOnMinimap = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -1031,12 +1032,10 @@ namespace DeadlockApiClient.Model
 
             if (miscEntity.RollTypeOption.IsSet)
                 if (miscEntity.RollTypeOption.Value != null)
-                {
-                    writer.WritePropertyName("roll_type");
-                    JsonSerializer.Serialize(writer, miscEntity.RollType, jsonSerializerOptions);
-                }
+                    writer.WriteString("roll_type", miscEntity.RollType);
                 else
                     writer.WriteNull("roll_type");
+
             if (miscEntity.ShowOnMinimapOption.IsSet)
                 if (miscEntity.ShowOnMinimapOption.Value != null)
                     writer.WriteBoolean("show_on_minimap", miscEntity.ShowOnMinimapOption.Value!.Value);

@@ -23,7 +23,6 @@ from typing_extensions import Annotated
 from deadlock_api_client.models.color import Color
 from deadlock_api_client.models.curve_or_float import CurveOrFloat
 from deadlock_api_client.models.pickup import Pickup
-from deadlock_api_client.models.roll_type import RollType
 from deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition
 from typing import Optional, Set
 from typing_extensions import Self
@@ -63,7 +62,7 @@ class MiscEntity(BaseModel):
     primary_pickups: Optional[List[Pickup]] = None
     render_after_death: Optional[StrictBool] = None
     respawn_time: Optional[Union[StrictFloat, StrictInt]] = None
-    roll_type: Optional[RollType] = None
+    roll_type: Optional[StrictStr] = Field(default=None, description="Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.")
     show_on_minimap: Optional[StrictBool] = None
     solid_after_death: Optional[StrictBool] = None
     spawn_interval: Optional[Union[StrictFloat, StrictInt]] = None
@@ -142,9 +141,6 @@ class MiscEntity(BaseModel):
                 if _item_primary_pickups:
                     _items.append(_item_primary_pickups.to_dict())
             _dict['primary_pickups'] = _items
-        # override the default output from pydantic by calling `to_dict()` of roll_type
-        if self.roll_type:
-            _dict['roll_type'] = self.roll_type.to_dict()
         # set to None if break_on_dodge_touch (nullable) is None
         # and model_fields_set contains the field
         if self.break_on_dodge_touch is None and "break_on_dodge_touch" in self.model_fields_set:
@@ -352,7 +348,7 @@ class MiscEntity(BaseModel):
             "primary_pickups": [Pickup.from_dict(_item) for _item in obj["primary_pickups"]] if obj.get("primary_pickups") is not None else None,
             "render_after_death": obj.get("render_after_death"),
             "respawn_time": obj.get("respawn_time"),
-            "roll_type": RollType.from_dict(obj["roll_type"]) if obj.get("roll_type") is not None else None,
+            "roll_type": obj.get("roll_type"),
             "show_on_minimap": obj.get("show_on_minimap"),
             "solid_after_death": obj.get("solid_after_death"),
             "spawn_interval": obj.get("spawn_interval"),

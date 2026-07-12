@@ -52,7 +52,8 @@ type MiscEntity struct {
 	PrimaryPickups []Pickup `json:"primary_pickups,omitempty"`
 	RenderAfterDeath NullableBool `json:"render_after_death,omitempty"`
 	RespawnTime NullableFloat64 `json:"respawn_time,omitempty"`
-	RollType NullableRollType `json:"roll_type,omitempty"`
+	// Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
+	RollType NullableString `json:"roll_type,omitempty"`
 	ShowOnMinimap NullableBool `json:"show_on_minimap,omitempty"`
 	SolidAfterDeath NullableBool `json:"solid_after_death,omitempty"`
 	SpawnInterval NullableFloat64 `json:"spawn_interval,omitempty"`
@@ -1278,9 +1279,9 @@ func (o *MiscEntity) UnsetRespawnTime() {
 }
 
 // GetRollType returns the RollType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MiscEntity) GetRollType() RollType {
+func (o *MiscEntity) GetRollType() string {
 	if o == nil || IsNil(o.RollType.Get()) {
-		var ret RollType
+		var ret string
 		return ret
 	}
 	return *o.RollType.Get()
@@ -1289,7 +1290,7 @@ func (o *MiscEntity) GetRollType() RollType {
 // GetRollTypeOk returns a tuple with the RollType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MiscEntity) GetRollTypeOk() (*RollType, bool) {
+func (o *MiscEntity) GetRollTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1305,8 +1306,8 @@ func (o *MiscEntity) HasRollType() bool {
 	return false
 }
 
-// SetRollType gets a reference to the given NullableRollType and assigns it to the RollType field.
-func (o *MiscEntity) SetRollType(v RollType) {
+// SetRollType gets a reference to the given NullableString and assigns it to the RollType field.
+func (o *MiscEntity) SetRollType(v string) {
 	o.RollType.Set(&v)
 }
 // SetRollTypeNil sets the value for RollType to be an explicit nil

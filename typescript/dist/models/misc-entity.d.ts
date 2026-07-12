@@ -12,7 +12,6 @@
 import type { Color } from './color.js';
 import type { CurveOrFloat } from './curve-or-float.js';
 import type { Pickup } from './pickup.js';
-import type { RollType } from './roll-type.js';
 import type { SubclassModifierDefinition } from './subclass-modifier-definition.js';
 export interface MiscEntity {
     'break_on_dodge_touch'?: boolean | null;
@@ -48,7 +47,10 @@ export interface MiscEntity {
     'primary_pickups'?: Array<Pickup> | null;
     'render_after_death'?: boolean | null;
     'respawn_time'?: number | null;
-    'roll_type'?: RollType | null;
+    /**
+     * Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn\'t 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
+     */
+    'roll_type'?: string | null;
     'show_on_minimap'?: boolean | null;
     'solid_after_death'?: boolean | null;
     'spawn_interval'?: number | null;

@@ -184,8 +184,6 @@ src/models/RawWeaponInfoVerticalRecoil.ts
 src/models/RecoilRange.ts
 src/models/RegionMode.ts
 src/models/RejuvParams.ts
-src/models/RollType.ts
-src/models/RollTypeOneOf.ts
 src/models/ScriptValues.ts
 src/models/ServerRegion.ts
 src/models/ServerStatusRequest.ts

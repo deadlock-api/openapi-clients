@@ -176,8 +176,6 @@ docs/RawWeaponInfoVerticalRecoil.md
 docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
-docs/RollType.md
-docs/RollTypeOneOf.md
 docs/SQLApi.md
 docs/ScriptValues.md
 docs/ServerRegion.md
@@ -433,8 +431,6 @@ src/main/kotlin/deadlock_api_client/models/RawWeaponInfoVerticalRecoil.kt
 src/main/kotlin/deadlock_api_client/models/RecoilRange.kt
 src/main/kotlin/deadlock_api_client/models/RegionMode.kt
 src/main/kotlin/deadlock_api_client/models/RejuvParams.kt
-src/main/kotlin/deadlock_api_client/models/RollType.kt
-src/main/kotlin/deadlock_api_client/models/RollTypeOneOf.kt
 src/main/kotlin/deadlock_api_client/models/ScriptValues.kt
 src/main/kotlin/deadlock_api_client/models/ServerRegion.kt
 src/main/kotlin/deadlock_api_client/models/ServerStatusRequest.kt
@@ -668,8 +664,6 @@ src/test/kotlin/deadlock_api_client/models/RawWeaponInfoVerticalRecoilTest.kt
 src/test/kotlin/deadlock_api_client/models/RecoilRangeTest.kt
 src/test/kotlin/deadlock_api_client/models/RegionModeTest.kt
 src/test/kotlin/deadlock_api_client/models/RejuvParamsTest.kt
-src/test/kotlin/deadlock_api_client/models/RollTypeOneOfTest.kt
-src/test/kotlin/deadlock_api_client/models/RollTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/ScriptValuesTest.kt
 src/test/kotlin/deadlock_api_client/models/ServerRegionTest.kt
 src/test/kotlin/deadlock_api_client/models/ServerStatusRequestTest.kt

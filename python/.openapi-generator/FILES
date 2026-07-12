@@ -190,8 +190,6 @@ deadlock_api_client/models/raw_weapon_info_vertical_recoil.py
 deadlock_api_client/models/recoil_range.py
 deadlock_api_client/models/region_mode.py
 deadlock_api_client/models/rejuv_params.py
-deadlock_api_client/models/roll_type.py
-deadlock_api_client/models/roll_type_one_of.py
 deadlock_api_client/models/script_values.py
 deadlock_api_client/models/server_region.py
 deadlock_api_client/models/server_status_request.py
@@ -423,8 +421,6 @@ docs/RawWeaponInfoVerticalRecoil.md
 docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
-docs/RollType.md
-docs/RollTypeOneOf.md
 docs/SQLApi.md
 docs/ScriptValues.md
 docs/ServerRegion.md
@@ -665,8 +661,6 @@ test/test_raw_weapon_info_vertical_recoil.py
 test/test_recoil_range.py
 test/test_region_mode.py
 test/test_rejuv_params.py
-test/test_roll_type.py
-test/test_roll_type_one_of.py
 test/test_script_values.py
 test/test_server_region.py
 test/test_server_status_request.py

@@ -26,7 +26,6 @@ package deadlock_api_client.models
 import deadlock_api_client.models.Color
 import deadlock_api_client.models.CurveOrFloat
 import deadlock_api_client.models.Pickup
-import deadlock_api_client.models.RollType
 import deadlock_api_client.models.SubclassModifierDefinition
 
 import com.squareup.moshi.Json
@@ -66,7 +65,7 @@ import java.io.Serializable
  * @param primaryPickups 
  * @param renderAfterDeath 
  * @param respawnTime 
- * @param rollType 
+ * @param rollType Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
  * @param showOnMinimap 
  * @param solidAfterDeath 
  * @param spawnInterval 
@@ -167,8 +166,9 @@ data class MiscEntity (
     @Json(name = "respawn_time")
     val respawnTime: kotlin.Double? = null,
 
+    /* Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`. */
     @Json(name = "roll_type")
-    val rollType: RollType? = null,
+    val rollType: kotlin.String? = null,
 
     @Json(name = "show_on_minimap")
     val showOnMinimap: kotlin.Boolean? = null,

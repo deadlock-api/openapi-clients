@@ -178,8 +178,6 @@ docs/RawWeaponInfoVerticalRecoil.md
 docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
-docs/RollType.md
-docs/RollTypeOneOf.md
 docs/ScriptValues.md
 docs/ServerRegion.md
 docs/ServerStatusRequest.md
@@ -422,8 +420,6 @@ src/models/raw_weapon_info_vertical_recoil.rs
 src/models/recoil_range.rs
 src/models/region_mode.rs
 src/models/rejuv_params.rs
-src/models/roll_type.rs
-src/models/roll_type_one_of.rs
 src/models/script_values.rs
 src/models/server_region.rs
 src/models/server_status_request.rs

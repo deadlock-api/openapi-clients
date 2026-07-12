@@ -74,8 +74,9 @@ pub struct MiscEntity {
     pub render_after_death: Option<Option<bool>>,
     #[serde(rename = "respawn_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub respawn_time: Option<Option<f64>>,
+    /// Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
     #[serde(rename = "roll_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub roll_type: Option<Option<Box<models::RollType>>>,
+    pub roll_type: Option<Option<String>>,
     #[serde(rename = "show_on_minimap", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub show_on_minimap: Option<Option<bool>>,
     #[serde(rename = "solid_after_death", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

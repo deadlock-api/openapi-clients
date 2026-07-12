@@ -104,7 +104,7 @@ class TestMiscEntity(unittest.TestCase):
                     ],
                 render_after_death = True,
                 respawn_time = 1.337,
-                roll_type = None,
+                roll_type = '',
                 show_on_minimap = True,
                 solid_after_death = True,
                 spawn_interval = 1.337,

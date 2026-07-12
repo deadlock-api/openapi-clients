@@ -30,7 +30,6 @@ import deadlock_api_client.models.MiscEntity
 import deadlock_api_client.models.Color
 import deadlock_api_client.models.CurveOrFloat
 import deadlock_api_client.models.Pickup
-import deadlock_api_client.models.RollType
 import deadlock_api_client.models.SubclassModifierDefinition
 
 class MiscEntityTest : ShouldSpec() {
@@ -218,7 +217,7 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.respawnTime shouldBe ("TODO")
         }
 
-        // to test the property `rollType`
+        // to test the property `rollType` - Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
         should("test rollType") {
             // uncomment below to test the property
             //modelInstance.rollType shouldBe ("TODO")

@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **primary_pickups** | [**Array&lt;Pickup&gt;**](Pickup.md) |  | [optional] [default to undefined]
 **render_after_death** | **boolean** |  | [optional] [default to undefined]
 **respawn_time** | **number** |  | [optional] [default to undefined]
-**roll_type** | [**RollType**](RollType.md) |  | [optional] [default to undefined]
+**roll_type** | **string** | Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn\&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;. | [optional] [default to undefined]
 **show_on_minimap** | **boolean** |  | [optional] [default to undefined]
 **solid_after_death** | **boolean** |  | [optional] [default to undefined]
 **spawn_interval** | **number** |  | [optional] [default to undefined]

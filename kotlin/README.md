@@ -326,8 +326,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.RecoilRange](docs/RecoilRange.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
  - [deadlock_api_client.models.RejuvParams](docs/RejuvParams.md)
- - [deadlock_api_client.models.RollType](docs/RollType.md)
- - [deadlock_api_client.models.RollTypeOneOf](docs/RollTypeOneOf.md)
  - [deadlock_api_client.models.ScriptValues](docs/ScriptValues.md)
  - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
  - [deadlock_api_client.models.ServerStatusRequest](docs/ServerStatusRequest.md)

@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **primary_pickups** | Option<[**Vec<models::Pickup>**](Pickup.md)> |  | [optional]
 **render_after_death** | Option<**bool**> |  | [optional]
 **respawn_time** | Option<**f64**> |  | [optional]
-**roll_type** | Option<[**models::RollType**](RollType.md)> |  | [optional]
+**roll_type** | Option<**String**> | Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`. | [optional]
 **show_on_minimap** | Option<**bool**> |  | [optional]
 **solid_after_death** | Option<**bool**> |  | [optional]
 **spawn_interval** | Option<**f64**> |  | [optional]

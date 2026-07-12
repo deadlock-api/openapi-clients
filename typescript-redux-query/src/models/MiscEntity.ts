@@ -22,9 +22,6 @@ import {
     Pickup,
     PickupFromJSON,
     PickupToJSON,
-    RollType,
-    RollTypeFromJSON,
-    RollTypeToJSON,
     SubclassModifierDefinition,
     SubclassModifierDefinitionFromJSON,
     SubclassModifierDefinitionToJSON,
@@ -217,11 +214,11 @@ export interface MiscEntity  {
      */
     respawnTime?: number;
     /**
-     * 
-     * @type {RollType}
+     * Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn\'t 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
+     * @type {string}
      * @memberof MiscEntity
      */
-    rollType?: RollType;
+    rollType?: string;
     /**
      * 
      * @type {boolean}
@@ -280,7 +277,7 @@ export function MiscEntityFromJSON(json: any): MiscEntity {
         'primaryPickups': !exists(json, 'primary_pickups') ? undefined : (json['primary_pickups'] as Array<any>).map(PickupFromJSON),
         'renderAfterDeath': !exists(json, 'render_after_death') ? undefined : json['render_after_death'],
         'respawnTime': !exists(json, 'respawn_time') ? undefined : json['respawn_time'],
-        'rollType': !exists(json, 'roll_type') ? undefined : RollTypeFromJSON(json['roll_type']),
+        'rollType': !exists(json, 'roll_type') ? undefined : json['roll_type'],
         'showOnMinimap': !exists(json, 'show_on_minimap') ? undefined : json['show_on_minimap'],
         'solidAfterDeath': !exists(json, 'solid_after_death') ? undefined : json['solid_after_death'],
         'spawnInterval': !exists(json, 'spawn_interval') ? undefined : json['spawn_interval'],
@@ -323,7 +320,7 @@ export function MiscEntityToJSON(value?: MiscEntity): any {
         'primary_pickups': value.primaryPickups === undefined ? undefined : (value.primaryPickups as Array<any>).map(PickupToJSON),
         'render_after_death': value.renderAfterDeath,
         'respawn_time': value.respawnTime,
-        'roll_type': RollTypeToJSON(value.rollType),
+        'roll_type': value.rollType,
         'show_on_minimap': value.showOnMinimap,
         'solid_after_death': value.solidAfterDeath,
         'spawn_interval': value.spawnInterval,

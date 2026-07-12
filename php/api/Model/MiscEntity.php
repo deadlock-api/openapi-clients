@@ -87,7 +87,7 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'primary_pickups' => '\OpenAPI\Client\Model\Pickup[]',
         'render_after_death' => 'bool',
         'respawn_time' => 'float',
-        'roll_type' => '\OpenAPI\Client\Model\RollType',
+        'roll_type' => 'string',
         'show_on_minimap' => 'bool',
         'solid_after_death' => 'bool',
         'spawn_interval' => 'float',
@@ -1551,7 +1551,7 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets roll_type
      *
-     * @return \OpenAPI\Client\Model\RollType|null
+     * @return string|null
      */
     public function getRollType()
     {
@@ -1561,7 +1561,7 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets roll_type
      *
-     * @param \OpenAPI\Client\Model\RollType|null $roll_type roll_type
+     * @param string|null $roll_type Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
      *
      * @return self
      */

@@ -162,8 +162,6 @@ from deadlock_api_client.models.raw_weapon_info_vertical_recoil import RawWeapon
 from deadlock_api_client.models.recoil_range import RecoilRange
 from deadlock_api_client.models.region_mode import RegionMode
 from deadlock_api_client.models.rejuv_params import RejuvParams
-from deadlock_api_client.models.roll_type import RollType
-from deadlock_api_client.models.roll_type_one_of import RollTypeOneOf
 from deadlock_api_client.models.script_values import ScriptValues
 from deadlock_api_client.models.server_region import ServerRegion
 from deadlock_api_client.models.server_status_request import ServerStatusRequest

@@ -206,8 +206,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RegionModeJsonConverter());
             _jsonOptions.Converters.Add(new RegionModeNullableJsonConverter());
             _jsonOptions.Converters.Add(new RejuvParamsJsonConverter());
-            _jsonOptions.Converters.Add(new RollTypeJsonConverter());
-            _jsonOptions.Converters.Add(new RollTypeOneOfJsonConverter());
             _jsonOptions.Converters.Add(new ScriptValuesJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionNullableJsonConverter());

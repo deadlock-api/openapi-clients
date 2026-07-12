@@ -147,8 +147,6 @@ export * from './raw-weapon-info-vertical-recoil.js';
 export * from './recoil-range.js';
 export * from './region-mode.js';
 export * from './rejuv-params.js';
-export * from './roll-type.js';
-export * from './roll-type-one-of.js';
 export * from './script-values.js';
 export * from './server-region.js';
 export * from './server-status-request.js';

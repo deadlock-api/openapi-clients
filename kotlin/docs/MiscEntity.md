@@ -34,7 +34,7 @@
 | **primaryPickups** | [**kotlin.collections.List&lt;Pickup&gt;**](Pickup.md) |  |  [optional] |
 | **renderAfterDeath** | **kotlin.Boolean** |  |  [optional] |
 | **respawnTime** | **kotlin.Double** |  |  [optional] |
-| **rollType** | [**RollType**](RollType.md) |  |  [optional] |
+| **rollType** | **kotlin.String** | Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;. |  [optional] |
 | **showOnMinimap** | **kotlin.Boolean** |  |  [optional] |
 | **solidAfterDeath** | **kotlin.Boolean** |  |  [optional] |
 | **spawnInterval** | **kotlin.Double** |  |  [optional] |

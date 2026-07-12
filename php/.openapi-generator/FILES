@@ -187,8 +187,6 @@ api/Model/RawWeaponInfoVerticalRecoil.php
 api/Model/RecoilRange.php
 api/Model/RegionMode.php
 api/Model/RejuvParams.php
-api/Model/RollType.php
-api/Model/RollTypeOneOf.php
 api/Model/ScriptValues.php
 api/Model/ServerRegion.php
 api/Model/ServerStatusRequest.php
@@ -424,8 +422,6 @@ docs/Model/RawWeaponInfoVerticalRecoil.md
 docs/Model/RecoilRange.md
 docs/Model/RegionMode.md
 docs/Model/RejuvParams.md
-docs/Model/RollType.md
-docs/Model/RollTypeOneOf.md
 docs/Model/ScriptValues.md
 docs/Model/ServerRegion.md
 docs/Model/ServerStatusRequest.md
@@ -661,8 +657,6 @@ test/Model/RawWeaponInfoVerticalRecoilTest.php
 test/Model/RecoilRangeTest.php
 test/Model/RegionModeTest.php
 test/Model/RejuvParamsTest.php
-test/Model/RollTypeOneOfTest.php
-test/Model/RollTypeTest.php
 test/Model/ScriptValuesTest.php
 test/Model/ServerRegionTest.php
 test/Model/ServerStatusRequestTest.php

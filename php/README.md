@@ -352,8 +352,6 @@ Class | Method | HTTP request | Description
 - [RecoilRange](docs/Model/RecoilRange.md)
 - [RegionMode](docs/Model/RegionMode.md)
 - [RejuvParams](docs/Model/RejuvParams.md)
-- [RollType](docs/Model/RollType.md)
-- [RollTypeOneOf](docs/Model/RollTypeOneOf.md)
 - [ScriptValues](docs/Model/ScriptValues.md)
 - [ServerRegion](docs/Model/ServerRegion.md)
 - [ServerStatusRequest](docs/Model/ServerStatusRequest.md)

@@ -147,8 +147,6 @@ export * from './RawWeaponInfoVerticalRecoil';
 export * from './RecoilRange';
 export * from './RegionMode';
 export * from './RejuvParams';
-export * from './RollType';
-export * from './RollTypeOneOf';
 export * from './ScriptValues';
 export * from './ServerRegion';
 export * from './ServerStatusRequest';
