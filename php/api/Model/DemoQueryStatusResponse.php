@@ -523,7 +523,7 @@ class DemoQueryStatusResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets result_url
      *
-     * @param string|null $result_url Public URL of the result artifact, once `done`.
+     * @param string|null $result_url Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.
      *
      * @return self
      */

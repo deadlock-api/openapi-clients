@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **format** | [**models::OutputFormat**](OutputFormat.md) |  | 
 **job_id** | **String** |  | 
 **match_id** | **u64** |  | 
-**result_url** | Option<**String**> | Public URL of the result artifact, once `done`. | [optional]
+**result_url** | Option<**String**> | Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is. | [optional]
 **status** | [**models::JobStatus**](JobStatus.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

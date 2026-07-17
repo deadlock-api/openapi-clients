@@ -222,7 +222,7 @@ open class DemoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * GET /v1/matches/demo/query/{job_id}
      * Demo Query Status
-     *  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet/NDJSON artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
+     *  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet artifact, or the zstd-compressed &#x60;.ndjson.zst&#x60; artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
      * @param jobId Job id returned by POST /demo/query
      * @return DemoQueryStatusResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -254,7 +254,7 @@ open class DemoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * GET /v1/matches/demo/query/{job_id}
      * Demo Query Status
-     *  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet/NDJSON artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
+     *  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet artifact, or the zstd-compressed &#x60;.ndjson.zst&#x60; artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
      * @param jobId Job id returned by POST /demo/query
      * @return ApiResponse<DemoQueryStatusResponse?>
      * @throws IllegalStateException If the request is not correctly configured

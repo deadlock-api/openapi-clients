@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="status">status</param>
         /// <param name="error">Failure reason, once &#x60;failed&#x60;.</param>
         /// <param name="estimatedWaitSeconds">Rough seconds until the result is ready, while &#x60;queued&#x60; or &#x60;running&#x60;.</param>
-        /// <param name="resultUrl">Public URL of the result artifact, once &#x60;done&#x60;.</param>
+        /// <param name="resultUrl">Public URL of the result artifact, once &#x60;done&#x60;. NDJSON results are zstd-compressed (&#x60;.ndjson.zst&#x60;); Parquet results are served as-is.</param>
         [JsonConstructor]
         public DemoQueryStatusResponse(OutputFormat format, string jobId, long matchId, JobStatus status, Option<string?> error = default, Option<long?> estimatedWaitSeconds = default, Option<string?> resultUrl = default)
         {
@@ -115,9 +115,9 @@ namespace DeadlockApiClient.Model
         public Option<string?> ResultUrlOption { get; private set; }
 
         /// <summary>
-        /// Public URL of the result artifact, once &#x60;done&#x60;.
+        /// Public URL of the result artifact, once &#x60;done&#x60;. NDJSON results are zstd-compressed (&#x60;.ndjson.zst&#x60;); Parquet results are served as-is.
         /// </summary>
-        /// <value>Public URL of the result artifact, once &#x60;done&#x60;.</value>
+        /// <value>Public URL of the result artifact, once &#x60;done&#x60;. NDJSON results are zstd-compressed (&#x60;.ndjson.zst&#x60;); Parquet results are served as-is.</value>
         [JsonPropertyName("result_url")]
         public string? ResultUrl { get { return this.ResultUrlOption.Value; } set { this.ResultUrlOption = new(value); } }
 

@@ -33,7 +33,7 @@ export interface DemoQueryStatusResponse {
     'job_id': string;
     'match_id': number;
     /**
-     * Public URL of the result artifact, once `done`.
+     * Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.
      */
     'result_url'?: string | null;
     'status': JobStatus;

@@ -289,7 +289,8 @@ Status Demo Query Status
 
 Returns the status of a demo query job. While `queued`/`running` it includes a rough
 `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the
-Parquet/NDJSON artifact); when `failed` it includes `error`.
+Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it
+includes `error`.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

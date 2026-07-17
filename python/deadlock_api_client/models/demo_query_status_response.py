@@ -35,7 +35,7 @@ class DemoQueryStatusResponse(BaseModel):
     format: OutputFormat
     job_id: StrictStr
     match_id: Annotated[int, Field(strict=True, ge=0)]
-    result_url: Optional[StrictStr] = Field(default=None, description="Public URL of the result artifact, once `done`.")
+    result_url: Optional[StrictStr] = Field(default=None, description="Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.")
     status: JobStatus
     __properties: ClassVar[List[str]] = ["error", "estimated_wait_seconds", "format", "job_id", "match_id", "result_url", "status"]
 

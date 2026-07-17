@@ -58,7 +58,7 @@ export interface DemoQueryStatusResponse  {
      */
     matchId: number;
     /**
-     * Public URL of the result artifact, once `done`.
+     * Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.
      * @type {string}
      * @memberof DemoQueryStatusResponse
      */

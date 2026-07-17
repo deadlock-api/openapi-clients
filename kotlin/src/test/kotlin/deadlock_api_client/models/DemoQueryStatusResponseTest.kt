@@ -71,7 +71,7 @@ class DemoQueryStatusResponseTest : ShouldSpec() {
             //modelInstance.estimatedWaitSeconds shouldBe ("TODO")
         }
 
-        // to test the property `resultUrl` - Public URL of the result artifact, once `done`.
+        // to test the property `resultUrl` - Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.
         should("test resultUrl") {
             // uncomment below to test the property
             //modelInstance.resultUrl shouldBe ("TODO")

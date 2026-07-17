@@ -39,7 +39,7 @@ export declare const DemoApiAxiosParamCreator: (configuration?: Configuration) =
      */
     schema: (matchId?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
      * @summary Demo Query Status
      * @param {string} jobId Job id returned by POST /demo/query
      * @param {*} [options] Override http request option.
@@ -78,7 +78,7 @@ export declare const DemoApiFp: (configuration?: Configuration) => {
      */
     schema(matchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DemoSchemaResponse>>;
     /**
-     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
      * @summary Demo Query Status
      * @param {string} jobId Job id returned by POST /demo/query
      * @param {*} [options] Override http request option.
@@ -115,7 +115,7 @@ export declare const DemoApiFactory: (configuration?: Configuration, basePath?: 
      */
     schema(requestParameters?: DemoApiSchemaRequest, options?: RawAxiosRequestConfig): AxiosPromise<DemoSchemaResponse>;
     /**
-     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
      * @summary Demo Query Status
      * @param {DemoApiStatusRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -193,7 +193,7 @@ export declare class DemoApi extends BaseAPI {
      */
     schema(requestParameters?: DemoApiSchemaRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<DemoSchemaResponse, any, {}>>;
     /**
-     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
      * @summary Demo Query Status
      * @param {DemoApiStatusRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

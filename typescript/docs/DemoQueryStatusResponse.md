@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **format** | [**OutputFormat**](OutputFormat.md) |  | [default to undefined]
 **job_id** | **string** |  | [default to undefined]
 **match_id** | **number** |  | [default to undefined]
-**result_url** | **string** | Public URL of the result artifact, once &#x60;done&#x60;. | [optional] [default to undefined]
+**result_url** | **string** | Public URL of the result artifact, once &#x60;done&#x60;. NDJSON results are zstd-compressed (&#x60;.ndjson.zst&#x60;); Parquet results are served as-is. | [optional] [default to undefined]
 **status** | [**JobStatus**](JobStatus.md) |  | [default to undefined]
 
 ## Example

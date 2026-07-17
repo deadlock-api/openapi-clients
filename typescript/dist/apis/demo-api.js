@@ -93,7 +93,7 @@ export const DemoApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+         *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
          * @summary Demo Query Status
          * @param {string} jobId Job id returned by POST /demo/query
          * @param {*} [options] Override http request option.
@@ -190,7 +190,7 @@ export const DemoApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+         *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
          * @summary Demo Query Status
          * @param {string} jobId Job id returned by POST /demo/query
          * @param {*} [options] Override http request option.
@@ -244,7 +244,7 @@ export const DemoApiFactory = function (configuration, basePath, axios) {
             return localVarFp.schema(requestParameters.matchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+         *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
          * @summary Demo Query Status
          * @param {DemoApiStatusRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -290,7 +290,7 @@ export class DemoApi extends BaseAPI {
         return DemoApiFp(this.configuration).schema(requestParameters.matchId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`.
+     *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`.
      * @summary Demo Query Status
      * @param {DemoApiStatusRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

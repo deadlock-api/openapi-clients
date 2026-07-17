@@ -91,7 +91,7 @@ namespace DeadlockApiClient.Api
         /// Demo Query Status
         /// </summary>
         /// <remarks>
-        ///  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet/NDJSON artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
+        ///  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet artifact, or the zstd-compressed &#x60;.ndjson.zst&#x60; artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Job id returned by POST /demo/query</param>
@@ -103,7 +103,7 @@ namespace DeadlockApiClient.Api
         /// Demo Query Status
         /// </summary>
         /// <remarks>
-        ///  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet/NDJSON artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
+        ///  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet artifact, or the zstd-compressed &#x60;.ndjson.zst&#x60; artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
         /// </remarks>
         /// <param name="jobId">Job id returned by POST /demo/query</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -975,7 +975,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string jobId);
 
         /// <summary>
-        /// Demo Query Status  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet/NDJSON artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
+        /// Demo Query Status  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet artifact, or the zstd-compressed &#x60;.ndjson.zst&#x60; artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
         /// </summary>
         /// <param name="jobId">Job id returned by POST /demo/query</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -993,7 +993,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Demo Query Status  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet/NDJSON artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
+        /// Demo Query Status  Returns the status of a demo query job. While &#x60;queued&#x60;/&#x60;running&#x60; it includes a rough &#x60;estimated_wait_seconds&#x60;; when &#x60;done&#x60; it includes &#x60;result_url&#x60; (a public link to the Parquet artifact, or the zstd-compressed &#x60;.ndjson.zst&#x60; artifact); when &#x60;failed&#x60; it includes &#x60;error&#x60;. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Job id returned by POST /demo/query</param>

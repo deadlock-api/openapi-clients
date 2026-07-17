@@ -39,7 +39,7 @@ import java.io.Serializable
  * @param status 
  * @param error Failure reason, once `failed`.
  * @param estimatedWaitSeconds Rough seconds until the result is ready, while `queued` or `running`.
- * @param resultUrl Public URL of the result artifact, once `done`.
+ * @param resultUrl Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.
  */
 
 
@@ -65,7 +65,7 @@ data class DemoQueryStatusResponse (
     @Json(name = "estimated_wait_seconds")
     val estimatedWaitSeconds: kotlin.Long? = null,
 
-    /* Public URL of the result artifact, once `done`. */
+    /* Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is. */
     @Json(name = "result_url")
     val resultUrl: kotlin.String? = null
 

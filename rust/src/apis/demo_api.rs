@@ -157,7 +157,7 @@ pub async fn schema(configuration: &configuration::Configuration, params: Schema
     }
 }
 
-///  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`. 
+///  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`. 
 pub async fn status(configuration: &configuration::Configuration, params: StatusParams) -> Result<models::DemoQueryStatusResponse, Error<StatusError>> {
 
     let uri_str = format!("{}/v1/matches/demo/query/{job_id}", configuration.base_path, job_id=crate::apis::urlencode(params.job_id));

@@ -25,7 +25,7 @@ pub struct DemoQueryStatusResponse {
     pub job_id: String,
     #[serde(rename = "match_id")]
     pub match_id: u64,
-    /// Public URL of the result artifact, once `done`.
+    /// Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.
     #[serde(rename = "result_url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub result_url: Option<Option<String>>,
     #[serde(rename = "status")]

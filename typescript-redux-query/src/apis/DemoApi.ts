@@ -162,7 +162,7 @@ export function schema<T>(requestParameters: SchemaRequest, requestConfig?: runt
 }
 
 /**
- *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`. 
+ *  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`. 
  * Demo Query Status
  */
 function statusRaw<T>(requestParameters: StatusRequest, requestConfig: runtime.TypedQueryConfig<T, DemoQueryStatusResponse> = {}): QueryConfig<T> {
@@ -202,7 +202,7 @@ function statusRaw<T>(requestParameters: StatusRequest, requestConfig: runtime.T
 }
 
 /**
-*  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet/NDJSON artifact); when `failed` it includes `error`. 
+*  Returns the status of a demo query job. While `queued`/`running` it includes a rough `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it includes `error`. 
 * Demo Query Status
 */
 export function status<T>(requestParameters: StatusRequest, requestConfig?: runtime.TypedQueryConfig<T, DemoQueryStatusResponse>): QueryConfig<T> {

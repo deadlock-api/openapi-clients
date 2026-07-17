@@ -175,7 +175,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -428,7 +428,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -562,7 +562,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -639,7 +639,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -861,7 +861,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -995,7 +995,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -1184,7 +1184,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -1728,7 +1728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -1996,7 +1996,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -2271,7 +2271,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -2592,7 +2592,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -2881,7 +2881,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -3170,7 +3170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -3464,7 +3464,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -3689,7 +3689,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -3991,7 +3991,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -7217,7 +7217,8 @@ paths:
 
         Returns the status of a demo query job. While `queued`/`running` it includes a rough
         `estimated_wait_seconds`; when `done` it includes `result_url` (a public link to the
-        Parquet/NDJSON artifact); when `failed` it includes `error`.
+        Parquet artifact, or the zstd-compressed `.ndjson.zst` artifact); when `failed` it
+        includes `error`.
       operationId: status
       parameters:
       - description: Job id returned by POST /demo/query
@@ -8290,7 +8291,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -8410,7 +8411,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781222400
+          default: 1781568000
           format: int64
           nullable: true
           type: integer
@@ -11394,7 +11395,9 @@ components:
           minimum: 0
           type: integer
         result_url:
-          description: "Public URL of the result artifact, once `done`."
+          description: |-
+            Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed
+            (`.ndjson.zst`); Parquet results are served as-is.
           nullable: true
           type: string
         status:

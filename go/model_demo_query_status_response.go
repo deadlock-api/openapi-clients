@@ -28,7 +28,7 @@ type DemoQueryStatusResponse struct {
 	Format OutputFormat `json:"format"`
 	JobId string `json:"job_id"`
 	MatchId int64 `json:"match_id"`
-	// Public URL of the result artifact, once `done`.
+	// Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.
 	ResultUrl NullableString `json:"result_url,omitempty"`
 	Status JobStatus `json:"status"`
 }

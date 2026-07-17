@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Format** | [**OutputFormat**](OutputFormat.md) |  | 
 **JobId** | **string** |  | 
 **MatchId** | **int64** |  | 
-**ResultUrl** | Pointer to **NullableString** | Public URL of the result artifact, once &#x60;done&#x60;. | [optional] 
+**ResultUrl** | Pointer to **NullableString** | Public URL of the result artifact, once &#x60;done&#x60;. NDJSON results are zstd-compressed (&#x60;.ndjson.zst&#x60;); Parquet results are served as-is. | [optional] 
 **Status** | [**JobStatus**](JobStatus.md) |  | 
 
 ## Methods
