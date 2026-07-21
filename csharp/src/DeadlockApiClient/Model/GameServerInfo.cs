@@ -158,8 +158,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="GameServerInfo" />
     /// </summary>
-    public class GameServerInfoJsonConverter : JsonConverter<GameServerInfo>
+    public partial class GameServerInfoJsonConverter : JsonConverter<GameServerInfo>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameServerInfoJsonConverter" /> class.
+        /// </summary>
+        public GameServerInfoJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GameServerInfo" />
         /// </summary>

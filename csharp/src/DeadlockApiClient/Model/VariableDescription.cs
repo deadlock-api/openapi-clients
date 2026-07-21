@@ -124,8 +124,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="VariableDescription" />
     /// </summary>
-    public class VariableDescriptionJsonConverter : JsonConverter<VariableDescription>
+    public partial class VariableDescriptionJsonConverter : JsonConverter<VariableDescription>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VariableDescriptionJsonConverter" /> class.
+        /// </summary>
+        public VariableDescriptionJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="VariableDescription" />
         /// </summary>
@@ -165,9 +175,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "category":
-                            string? categoryRawValue = utf8JsonReader.GetString();
-                            if (categoryRawValue != null)
-                                category = new Option<VariableCategory?>(VariableCategoryValueConverter.FromStringOrDefault(categoryRawValue));
+                            category = new Option<VariableCategory?>(JsonSerializer.Deserialize<VariableCategory?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "description":
                             description = new Option<string?>(utf8JsonReader.GetString()!);

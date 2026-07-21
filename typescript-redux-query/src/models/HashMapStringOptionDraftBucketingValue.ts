@@ -11,16 +11,42 @@
  * Do not edit the class manually.
  */
 
-import {
-    HashMapStringOptionDraftBucketingValueOneOf,
-    HashMapStringOptionDraftBucketingValueOneOfFromJSON,
-    HashMapStringOptionDraftBucketingValueOneOfToJSON,
-} from './';
-
+import { exists, mapValues } from '../runtime';
 /**
- * @type HashMapStringOptionDraftBucketingValue
+ * 
  * @export
+ * @interface HashMapStringOptionDraftBucketingValue
  */
-export type HashMapStringOptionDraftBucketingValue = HashMapStringOptionDraftBucketingValueOneOf;
+export interface HashMapStringOptionDraftBucketingValue  {
+    /**
+     * 
+     * @type {string}
+     * @memberof HashMapStringOptionDraftBucketingValue
+     */
+    bucket?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof HashMapStringOptionDraftBucketingValue
+     */
+    weight?: number;
+}
+
+export function HashMapStringOptionDraftBucketingValueFromJSON(json: any): HashMapStringOptionDraftBucketingValue {
+    return {
+        'bucket': !exists(json, 'bucket') ? undefined : json['bucket'],
+        'weight': !exists(json, 'weight') ? undefined : json['weight'],
+    };
+}
+
+export function HashMapStringOptionDraftBucketingValueToJSON(value?: HashMapStringOptionDraftBucketingValue): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    return {
+        'bucket': value.bucket,
+        'weight': value.weight,
+    };
+}
 
 

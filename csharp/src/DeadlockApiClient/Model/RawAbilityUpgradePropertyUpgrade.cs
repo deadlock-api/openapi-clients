@@ -117,8 +117,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="RawAbilityUpgradePropertyUpgrade" />
     /// </summary>
-    public class RawAbilityUpgradePropertyUpgradeJsonConverter : JsonConverter<RawAbilityUpgradePropertyUpgrade>
+    public partial class RawAbilityUpgradePropertyUpgradeJsonConverter : JsonConverter<RawAbilityUpgradePropertyUpgrade>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RawAbilityUpgradePropertyUpgradeJsonConverter" /> class.
+        /// </summary>
+        public RawAbilityUpgradePropertyUpgradeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RawAbilityUpgradePropertyUpgrade" />
         /// </summary>

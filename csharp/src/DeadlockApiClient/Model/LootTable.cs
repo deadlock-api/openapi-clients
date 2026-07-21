@@ -76,8 +76,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="LootTable" />
     /// </summary>
-    public class LootTableJsonConverter : JsonConverter<LootTable>
+    public partial class LootTableJsonConverter : JsonConverter<LootTable>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LootTableJsonConverter" /> class.
+        /// </summary>
+        public LootTableJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LootTable" />
         /// </summary>

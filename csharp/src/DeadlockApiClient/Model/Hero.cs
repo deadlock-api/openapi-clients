@@ -420,8 +420,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Hero" />
     /// </summary>
-    public class HeroJsonConverter : JsonConverter<Hero>
+    public partial class HeroJsonConverter : JsonConverter<Hero>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeroJsonConverter" /> class.
+        /// </summary>
+        public HeroJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Hero" />
         /// </summary>
@@ -573,8 +583,7 @@ namespace DeadlockApiClient.Model
                             gunTag = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "hero_type":
-                            string? heroTypeRawValue = utf8JsonReader.GetString();
-                            heroType = new Option<HeroType?>(heroTypeRawValue == null ? null : HeroTypeValueConverter.FromStringOrDefault(heroTypeRawValue));
+                            heroType = new Option<HeroType?>(JsonSerializer.Deserialize<HeroType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "hideout_rich_presence":
                             hideoutRichPresence = new Option<string?>(utf8JsonReader.GetString());

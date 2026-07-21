@@ -94,8 +94,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemDraftRoundPerGameRound" />
     /// </summary>
-    public class ItemDraftRoundPerGameRoundJsonConverter : JsonConverter<ItemDraftRoundPerGameRound>
+    public partial class ItemDraftRoundPerGameRoundJsonConverter : JsonConverter<ItemDraftRoundPerGameRound>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemDraftRoundPerGameRoundJsonConverter" /> class.
+        /// </summary>
+        public ItemDraftRoundPerGameRoundJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemDraftRoundPerGameRound" />
         /// </summary>

@@ -95,8 +95,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="TableSchemaResponse" />
     /// </summary>
-    public class TableSchemaResponseJsonConverter : JsonConverter<TableSchemaResponse>
+    public partial class TableSchemaResponseJsonConverter : JsonConverter<TableSchemaResponse>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TableSchemaResponseJsonConverter" /> class.
+        /// </summary>
+        public TableSchemaResponseJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="TableSchemaResponse" />
         /// </summary>

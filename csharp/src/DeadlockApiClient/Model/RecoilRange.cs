@@ -88,8 +88,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="RecoilRange" />
     /// </summary>
-    public class RecoilRangeJsonConverter : JsonConverter<RecoilRange>
+    public partial class RecoilRangeJsonConverter : JsonConverter<RecoilRange>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecoilRangeJsonConverter" /> class.
+        /// </summary>
+        public RecoilRangeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RecoilRange" />
         /// </summary>

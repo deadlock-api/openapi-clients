@@ -195,8 +195,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SubclassModifierDefinitionSubclass" />
     /// </summary>
-    public class SubclassModifierDefinitionSubclassJsonConverter : JsonConverter<SubclassModifierDefinitionSubclass>
+    public partial class SubclassModifierDefinitionSubclassJsonConverter : JsonConverter<SubclassModifierDefinitionSubclass>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubclassModifierDefinitionSubclassJsonConverter" /> class.
+        /// </summary>
+        public SubclassModifierDefinitionSubclassJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SubclassModifierDefinitionSubclass" />
         /// </summary>

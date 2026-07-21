@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SubclassBulletResistModifierSubclass" />
     /// </summary>
-    public class SubclassBulletResistModifierSubclassJsonConverter : JsonConverter<SubclassBulletResistModifierSubclass>
+    public partial class SubclassBulletResistModifierSubclassJsonConverter : JsonConverter<SubclassBulletResistModifierSubclass>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubclassBulletResistModifierSubclassJsonConverter" /> class.
+        /// </summary>
+        public SubclassBulletResistModifierSubclassJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SubclassBulletResistModifierSubclass" />
         /// </summary>

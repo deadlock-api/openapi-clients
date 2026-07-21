@@ -167,8 +167,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="GlitchSettings" />
     /// </summary>
-    public class GlitchSettingsJsonConverter : JsonConverter<GlitchSettings>
+    public partial class GlitchSettingsJsonConverter : JsonConverter<GlitchSettings>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GlitchSettingsJsonConverter" /> class.
+        /// </summary>
+        public GlitchSettingsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="GlitchSettings" />
         /// </summary>

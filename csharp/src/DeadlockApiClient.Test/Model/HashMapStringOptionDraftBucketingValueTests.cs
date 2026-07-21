@@ -52,5 +52,23 @@ namespace DeadlockApiClient.Test.Model
             // TODO uncomment below to test "IsType" HashMapStringOptionDraftBucketingValue
             //Assert.IsType<HashMapStringOptionDraftBucketingValue>(instance);
         }
+
+        /// <summary>
+        /// Test the property 'Bucket'
+        /// </summary>
+        [Fact]
+        public void BucketTest()
+        {
+            // TODO unit test for the property 'Bucket'
+        }
+
+        /// <summary>
+        /// Test the property 'Weight'
+        /// </summary>
+        [Fact]
+        public void WeightTest()
+        {
+            // TODO unit test for the property 'Weight'
+        }
     }
 }

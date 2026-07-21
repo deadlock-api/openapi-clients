@@ -23,7 +23,6 @@
 
 package deadlock_api_client.models
 
-import deadlock_api_client.models.HashMapStringOptionDraftBucketingValueOneOf
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

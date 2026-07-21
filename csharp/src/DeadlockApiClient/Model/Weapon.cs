@@ -291,8 +291,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Weapon" />
     /// </summary>
-    public class WeaponJsonConverter : JsonConverter<Weapon>
+    public partial class WeaponJsonConverter : JsonConverter<Weapon>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WeaponJsonConverter" /> class.
+        /// </summary>
+        public WeaponJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Weapon" />
         /// </summary>
@@ -351,9 +361,7 @@ namespace DeadlockApiClient.Model
                             name = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                                type = new Option<ItemType?>(ItemTypeValueConverter.FromStringOrDefault(typeRawValue));
+                            type = new Option<ItemType?>(JsonSerializer.Deserialize<ItemType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "crosshair_css_class":
                             crosshairCssClass = new Option<string?>(utf8JsonReader.GetString());

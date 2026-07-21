@@ -273,8 +273,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="PlayerPerformanceCurvePoint" />
     /// </summary>
-    public class PlayerPerformanceCurvePointJsonConverter : JsonConverter<PlayerPerformanceCurvePoint>
+    public partial class PlayerPerformanceCurvePointJsonConverter : JsonConverter<PlayerPerformanceCurvePoint>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerPerformanceCurvePointJsonConverter" /> class.
+        /// </summary>
+        public PlayerPerformanceCurvePointJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PlayerPerformanceCurvePoint" />
         /// </summary>

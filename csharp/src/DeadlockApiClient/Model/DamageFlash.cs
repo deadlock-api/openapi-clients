@@ -112,8 +112,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="DamageFlash" />
     /// </summary>
-    public class DamageFlashJsonConverter : JsonConverter<DamageFlash>
+    public partial class DamageFlashJsonConverter : JsonConverter<DamageFlash>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DamageFlashJsonConverter" /> class.
+        /// </summary>
+        public DamageFlashJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="DamageFlash" />
         /// </summary>

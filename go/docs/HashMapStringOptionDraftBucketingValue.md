@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bucket** | Pointer to **string** |  | [optional] 
-**Weight** | Pointer to **float64** |  | [optional] 
+**Bucket** | Pointer to **NullableString** |  | [optional] 
+**Weight** | Pointer to **NullableFloat64** |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetBucket sets Bucket field to given value.
 
 HasBucket returns a boolean if a field has been set.
 
+### SetBucketNil
+
+`func (o *HashMapStringOptionDraftBucketingValue) SetBucketNil(b bool)`
+
+ SetBucketNil sets the value for Bucket to be an explicit nil
+
+### UnsetBucket
+`func (o *HashMapStringOptionDraftBucketingValue) UnsetBucket()`
+
+UnsetBucket ensures that no value is present for Bucket, not even an explicit nil
 ### GetWeight
 
 `func (o *HashMapStringOptionDraftBucketingValue) GetWeight() float64`
@@ -76,6 +86,16 @@ SetWeight sets Weight field to given value.
 
 HasWeight returns a boolean if a field has been set.
 
+### SetWeightNil
+
+`func (o *HashMapStringOptionDraftBucketingValue) SetWeightNil(b bool)`
+
+ SetWeightNil sets the value for Weight to be an explicit nil
+
+### UnsetWeight
+`func (o *HashMapStringOptionDraftBucketingValue) UnsetWeight()`
+
+UnsetWeight ensures that no value is present for Weight, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

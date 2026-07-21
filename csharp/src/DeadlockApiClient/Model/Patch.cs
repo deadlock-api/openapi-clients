@@ -148,12 +148,22 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Patch" />
     /// </summary>
-    public class PatchJsonConverter : JsonConverter<Patch>
+    public partial class PatchJsonConverter : JsonConverter<Patch>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PatchJsonConverter" /> class.
+        /// </summary>
+        public PatchJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// The format to use to serialize PubDate
         /// </summary>
-        public static string PubDateFormat { get; set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
+        public string PubDateFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="Patch" />

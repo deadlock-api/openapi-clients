@@ -115,8 +115,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemFlowStats" />
     /// </summary>
-    public class ItemFlowStatsJsonConverter : JsonConverter<ItemFlowStats>
+    public partial class ItemFlowStatsJsonConverter : JsonConverter<ItemFlowStats>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemFlowStatsJsonConverter" /> class.
+        /// </summary>
+        public ItemFlowStatsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemFlowStats" />
         /// </summary>

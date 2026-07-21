@@ -160,8 +160,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ActiveMatchPlayer" />
     /// </summary>
-    public class ActiveMatchPlayerJsonConverter : JsonConverter<ActiveMatchPlayer>
+    public partial class ActiveMatchPlayerJsonConverter : JsonConverter<ActiveMatchPlayer>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveMatchPlayerJsonConverter" /> class.
+        /// </summary>
+        public ActiveMatchPlayerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ActiveMatchPlayer" />
         /// </summary>
@@ -213,8 +223,7 @@ namespace DeadlockApiClient.Model
                             team = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "team_parsed":
-                            string? teamParsedRawValue = utf8JsonReader.GetString();
-                            teamParsed = new Option<ActiveMatchTeam?>(teamParsedRawValue == null ? null : ActiveMatchTeamValueConverter.FromStringOrDefault(teamParsedRawValue));
+                            teamParsed = new Option<ActiveMatchTeam?>(JsonSerializer.Deserialize<ActiveMatchTeam?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

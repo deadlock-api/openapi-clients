@@ -171,8 +171,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="MMRHistory" />
     /// </summary>
-    public class MMRHistoryJsonConverter : JsonConverter<MMRHistory>
+    public partial class MMRHistoryJsonConverter : JsonConverter<MMRHistory>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MMRHistoryJsonConverter" /> class.
+        /// </summary>
+        public MMRHistoryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MMRHistory" />
         /// </summary>

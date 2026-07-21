@@ -319,8 +319,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="StreetBrawl" />
     /// </summary>
-    public class StreetBrawlJsonConverter : JsonConverter<StreetBrawl>
+    public partial class StreetBrawlJsonConverter : JsonConverter<StreetBrawl>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StreetBrawlJsonConverter" /> class.
+        /// </summary>
+        public StreetBrawlJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="StreetBrawl" />
         /// </summary>

@@ -88,8 +88,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="FeedItem" />
     /// </summary>
-    public class FeedItemJsonConverter : JsonConverter<FeedItem>
+    public partial class FeedItemJsonConverter : JsonConverter<FeedItem>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeedItemJsonConverter" /> class.
+        /// </summary>
+        public FeedItemJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="FeedItem" />
         /// </summary>

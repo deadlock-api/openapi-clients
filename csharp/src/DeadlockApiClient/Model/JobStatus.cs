@@ -177,6 +177,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override JobStatus? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             JobStatus? result = rawValue == null
@@ -197,7 +200,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, JobStatus? jobStatus, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(jobStatus.HasValue ? JobStatusValueConverter.ToJsonValue(jobStatus.Value).ToString() : "null");
+            if (jobStatus.HasValue)
+                writer.WriteStringValue(JobStatusValueConverter.ToJsonValue(jobStatus.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

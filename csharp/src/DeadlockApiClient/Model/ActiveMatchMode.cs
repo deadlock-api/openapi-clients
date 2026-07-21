@@ -247,6 +247,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override ActiveMatchMode? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             ActiveMatchMode? result = rawValue == null
@@ -267,7 +270,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, ActiveMatchMode? activeMatchMode, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(activeMatchMode.HasValue ? ActiveMatchModeValueConverter.ToJsonValue(activeMatchMode.Value).ToString() : "null");
+            if (activeMatchMode.HasValue)
+                writer.WriteStringValue(ActiveMatchModeValueConverter.ToJsonValue(activeMatchMode.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

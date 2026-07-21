@@ -219,8 +219,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="CreateCustomRequest" />
     /// </summary>
-    public class CreateCustomRequestJsonConverter : JsonConverter<CreateCustomRequest>
+    public partial class CreateCustomRequestJsonConverter : JsonConverter<CreateCustomRequest>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateCustomRequestJsonConverter" /> class.
+        /// </summary>
+        public CreateCustomRequestJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="CreateCustomRequest" />
         /// </summary>
@@ -276,8 +286,7 @@ namespace DeadlockApiClient.Model
                             duplicateHeroesEnabled = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "game_mode":
-                            string? gameModeRawValue = utf8JsonReader.GetString();
-                            gameMode = new Option<GameMode?>(gameModeRawValue == null ? null : GameModeValueConverter.FromStringOrDefault(gameModeRawValue));
+                            gameMode = new Option<GameMode?>(JsonSerializer.Deserialize<GameMode?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "is_publicly_visible":
                             isPubliclyVisible = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -289,8 +298,7 @@ namespace DeadlockApiClient.Model
                             randomizeLanes = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "server_region":
-                            string? serverRegionRawValue = utf8JsonReader.GetString();
-                            serverRegion = new Option<ServerRegion?>(serverRegionRawValue == null ? null : ServerRegionValueConverter.FromStringOrDefault(serverRegionRawValue));
+                            serverRegion = new Option<ServerRegion?>(JsonSerializer.Deserialize<ServerRegion?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

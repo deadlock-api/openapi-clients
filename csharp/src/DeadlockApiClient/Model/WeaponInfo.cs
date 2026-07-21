@@ -1221,8 +1221,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="WeaponInfo" />
     /// </summary>
-    public class WeaponInfoJsonConverter : JsonConverter<WeaponInfo>
+    public partial class WeaponInfoJsonConverter : JsonConverter<WeaponInfo>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WeaponInfoJsonConverter" /> class.
+        /// </summary>
+        public WeaponInfoJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="WeaponInfo" />
         /// </summary>

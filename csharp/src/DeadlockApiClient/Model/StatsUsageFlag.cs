@@ -177,6 +177,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override StatsUsageFlag? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             StatsUsageFlag? result = rawValue == null
@@ -197,7 +200,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, StatsUsageFlag? statsUsageFlag, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(statsUsageFlag.HasValue ? StatsUsageFlagValueConverter.ToJsonValue(statsUsageFlag.Value).ToString() : "null");
+            if (statsUsageFlag.HasValue)
+                writer.WriteStringValue(StatsUsageFlagValueConverter.ToJsonValue(statsUsageFlag.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

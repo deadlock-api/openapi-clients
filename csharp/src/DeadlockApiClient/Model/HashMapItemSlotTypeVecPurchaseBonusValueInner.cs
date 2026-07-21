@@ -94,8 +94,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="HashMapItemSlotTypeVecPurchaseBonusValueInner" />
     /// </summary>
-    public class HashMapItemSlotTypeVecPurchaseBonusValueInnerJsonConverter : JsonConverter<HashMapItemSlotTypeVecPurchaseBonusValueInner>
+    public partial class HashMapItemSlotTypeVecPurchaseBonusValueInnerJsonConverter : JsonConverter<HashMapItemSlotTypeVecPurchaseBonusValueInner>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HashMapItemSlotTypeVecPurchaseBonusValueInnerJsonConverter" /> class.
+        /// </summary>
+        public HashMapItemSlotTypeVecPurchaseBonusValueInnerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="HashMapItemSlotTypeVecPurchaseBonusValueInner" />
         /// </summary>

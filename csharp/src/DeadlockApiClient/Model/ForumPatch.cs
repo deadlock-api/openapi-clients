@@ -121,12 +121,22 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ForumPatch" />
     /// </summary>
-    public class ForumPatchJsonConverter : JsonConverter<ForumPatch>
+    public partial class ForumPatchJsonConverter : JsonConverter<ForumPatch>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ForumPatchJsonConverter" /> class.
+        /// </summary>
+        public ForumPatchJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// The format to use to serialize PubDate
         /// </summary>
-        public static string PubDateFormat { get; set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
+        public string PubDateFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="ForumPatch" />

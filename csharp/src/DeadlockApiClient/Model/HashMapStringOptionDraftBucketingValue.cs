@@ -33,19 +33,43 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HashMapStringOptionDraftBucketingValue" /> class.
         /// </summary>
-        /// <param name="hashMapStringOptionDraftBucketingValueOneOf"></param>
-        public HashMapStringOptionDraftBucketingValue(HashMapStringOptionDraftBucketingValueOneOf hashMapStringOptionDraftBucketingValueOneOf)
+        /// <param name="bucket">bucket</param>
+        /// <param name="weight">weight</param>
+        [JsonConstructor]
+        public HashMapStringOptionDraftBucketingValue(Option<string?> bucket = default, Option<double?> weight = default)
         {
-            HashMapStringOptionDraftBucketingValueOneOf = hashMapStringOptionDraftBucketingValueOneOf;
+            BucketOption = bucket;
+            WeightOption = weight;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets HashMapStringOptionDraftBucketingValueOneOf
+        /// Used to track the state of Bucket
         /// </summary>
-        public HashMapStringOptionDraftBucketingValueOneOf? HashMapStringOptionDraftBucketingValueOneOf { get; set; }
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> BucketOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Bucket
+        /// </summary>
+        [JsonPropertyName("bucket")]
+        public string? Bucket { get { return this.BucketOption.Value; } set { this.BucketOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of Weight
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> WeightOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Weight
+        /// </summary>
+        [JsonPropertyName("weight")]
+        public double? Weight { get { return this.WeightOption.Value; } set { this.WeightOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +79,8 @@ namespace DeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class HashMapStringOptionDraftBucketingValue {\n");
+            sb.Append("  Bucket: ").Append(Bucket).Append("\n");
+            sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="HashMapStringOptionDraftBucketingValue" />
     /// </summary>
-    public class HashMapStringOptionDraftBucketingValueJsonConverter : JsonConverter<HashMapStringOptionDraftBucketingValue>
+    public partial class HashMapStringOptionDraftBucketingValueJsonConverter : JsonConverter<HashMapStringOptionDraftBucketingValue>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HashMapStringOptionDraftBucketingValueJsonConverter" /> class.
+        /// </summary>
+        public HashMapStringOptionDraftBucketingValueJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="HashMapStringOptionDraftBucketingValue" />
         /// </summary>
@@ -92,23 +128,8 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            HashMapStringOptionDraftBucketingValueOneOf? hashMapStringOptionDraftBucketingValueOneOf = default;
-
-            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
-            while (utf8JsonReaderOneOf.Read())
-            {
-                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
-                {
-                    Utf8JsonReader utf8JsonReaderHashMapStringOptionDraftBucketingValueOneOf = utf8JsonReader;
-                    ClientUtils.TryDeserialize<HashMapStringOptionDraftBucketingValueOneOf?>(ref utf8JsonReaderHashMapStringOptionDraftBucketingValueOneOf, jsonSerializerOptions, out hashMapStringOptionDraftBucketingValueOneOf);
-                }
-            }
+            Option<string?> bucket = default;
+            Option<double?> weight = default;
 
             while (utf8JsonReader.Read())
             {
@@ -125,16 +146,19 @@ namespace DeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
+                        case "bucket":
+                            bucket = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "weight":
+                            weight = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         default:
                             break;
                     }
                 }
             }
 
-            if (hashMapStringOptionDraftBucketingValueOneOf != null)
-                return new HashMapStringOptionDraftBucketingValue(hashMapStringOptionDraftBucketingValueOneOf);
-
-            throw new JsonException();
+            return new HashMapStringOptionDraftBucketingValue(bucket, weight);
         }
 
         /// <summary>
@@ -161,7 +185,17 @@ namespace DeadlockApiClient.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HashMapStringOptionDraftBucketingValue hashMapStringOptionDraftBucketingValue, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (hashMapStringOptionDraftBucketingValue.BucketOption.IsSet)
+                if (hashMapStringOptionDraftBucketingValue.BucketOption.Value != null)
+                    writer.WriteString("bucket", hashMapStringOptionDraftBucketingValue.Bucket);
+                else
+                    writer.WriteNull("bucket");
 
+            if (hashMapStringOptionDraftBucketingValue.WeightOption.IsSet)
+                if (hashMapStringOptionDraftBucketingValue.WeightOption.Value != null)
+                    writer.WriteNumber("weight", hashMapStringOptionDraftBucketingValue.WeightOption.Value!.Value);
+                else
+                    writer.WriteNull("weight");
         }
     }
 }

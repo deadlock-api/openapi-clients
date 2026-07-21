@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="DraftBucket" />
     /// </summary>
-    public class DraftBucketJsonConverter : JsonConverter<DraftBucket>
+    public partial class DraftBucketJsonConverter : JsonConverter<DraftBucket>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DraftBucketJsonConverter" /> class.
+        /// </summary>
+        public DraftBucketJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="DraftBucket" />
         /// </summary>

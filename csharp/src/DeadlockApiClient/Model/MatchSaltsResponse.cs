@@ -180,8 +180,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="MatchSaltsResponse" />
     /// </summary>
-    public class MatchSaltsResponseJsonConverter : JsonConverter<MatchSaltsResponse>
+    public partial class MatchSaltsResponseJsonConverter : JsonConverter<MatchSaltsResponse>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MatchSaltsResponseJsonConverter" /> class.
+        /// </summary>
+        public MatchSaltsResponseJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MatchSaltsResponse" />
         /// </summary>

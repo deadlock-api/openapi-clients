@@ -9,9 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { HashMapStringOptionDraftBucketingValueOneOf } from './hash-map-string-option-draft-bucketing-value-one-of.js';
-/**
- * @type HashMapStringOptionDraftBucketingValue
- */
-export type HashMapStringOptionDraftBucketingValue = HashMapStringOptionDraftBucketingValueOneOf;
+export interface HashMapStringOptionDraftBucketingValue {
+    'bucket'?: string | null;
+    'weight'?: number | null;
+}
 //# sourceMappingURL=hash-map-string-option-draft-bucketing-value.d.ts.map

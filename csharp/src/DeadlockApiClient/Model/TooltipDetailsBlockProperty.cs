@@ -163,8 +163,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="TooltipDetailsBlockProperty" />
     /// </summary>
-    public class TooltipDetailsBlockPropertyJsonConverter : JsonConverter<TooltipDetailsBlockProperty>
+    public partial class TooltipDetailsBlockPropertyJsonConverter : JsonConverter<TooltipDetailsBlockProperty>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TooltipDetailsBlockPropertyJsonConverter" /> class.
+        /// </summary>
+        public TooltipDetailsBlockPropertyJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="TooltipDetailsBlockProperty" />
         /// </summary>

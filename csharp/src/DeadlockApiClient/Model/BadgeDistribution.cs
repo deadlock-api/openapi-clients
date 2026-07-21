@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="BadgeDistribution" />
     /// </summary>
-    public class BadgeDistributionJsonConverter : JsonConverter<BadgeDistribution>
+    public partial class BadgeDistributionJsonConverter : JsonConverter<BadgeDistribution>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BadgeDistributionJsonConverter" /> class.
+        /// </summary>
+        public BadgeDistributionJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BadgeDistribution" />
         /// </summary>

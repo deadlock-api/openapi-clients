@@ -133,8 +133,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="LaneInfo" />
     /// </summary>
-    public class LaneInfoJsonConverter : JsonConverter<LaneInfo>
+    public partial class LaneInfoJsonConverter : JsonConverter<LaneInfo>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LaneInfoJsonConverter" /> class.
+        /// </summary>
+        public LaneInfoJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LaneInfo" />
         /// </summary>

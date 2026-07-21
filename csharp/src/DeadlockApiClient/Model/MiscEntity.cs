@@ -621,8 +621,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="MiscEntity" />
     /// </summary>
-    public class MiscEntityJsonConverter : JsonConverter<MiscEntity>
+    public partial class MiscEntityJsonConverter : JsonConverter<MiscEntity>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MiscEntityJsonConverter" /> class.
+        /// </summary>
+        public MiscEntityJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MiscEntity" />
         /// </summary>

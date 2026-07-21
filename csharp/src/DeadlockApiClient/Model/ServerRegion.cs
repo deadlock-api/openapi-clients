@@ -485,6 +485,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override ServerRegion? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             ServerRegion? result = rawValue == null
@@ -505,7 +508,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, ServerRegion? serverRegion, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(serverRegion.HasValue ? ServerRegionValueConverter.ToJsonValue(serverRegion.Value).ToString() : "null");
+            if (serverRegion.HasValue)
+                writer.WriteStringValue(ServerRegionValueConverter.ToJsonValue(serverRegion.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

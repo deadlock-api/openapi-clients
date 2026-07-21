@@ -163,6 +163,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override ActiveMatchTeam? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             ActiveMatchTeam? result = rawValue == null
@@ -183,7 +186,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, ActiveMatchTeam? activeMatchTeam, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(activeMatchTeam.HasValue ? ActiveMatchTeamValueConverter.ToJsonValue(activeMatchTeam.Value).ToString() : "null");
+            if (activeMatchTeam.HasValue)
+                writer.WriteStringValue(ActiveMatchTeamValueConverter.ToJsonValue(activeMatchTeam.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

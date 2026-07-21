@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="AbilityTooltipDetails" />
     /// </summary>
-    public class AbilityTooltipDetailsJsonConverter : JsonConverter<AbilityTooltipDetails>
+    public partial class AbilityTooltipDetailsJsonConverter : JsonConverter<AbilityTooltipDetails>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbilityTooltipDetailsJsonConverter" /> class.
+        /// </summary>
+        public AbilityTooltipDetailsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="AbilityTooltipDetails" />
         /// </summary>

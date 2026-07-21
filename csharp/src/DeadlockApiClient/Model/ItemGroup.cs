@@ -85,8 +85,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemGroup" />
     /// </summary>
-    public class ItemGroupJsonConverter : JsonConverter<ItemGroup>
+    public partial class ItemGroupJsonConverter : JsonConverter<ItemGroup>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemGroupJsonConverter" /> class.
+        /// </summary>
+        public ItemGroupJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemGroup" />
         /// </summary>

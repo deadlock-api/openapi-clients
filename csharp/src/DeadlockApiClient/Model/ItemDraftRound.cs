@@ -97,8 +97,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemDraftRound" />
     /// </summary>
-    public class ItemDraftRoundJsonConverter : JsonConverter<ItemDraftRound>
+    public partial class ItemDraftRoundJsonConverter : JsonConverter<ItemDraftRound>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemDraftRoundJsonConverter" /> class.
+        /// </summary>
+        public ItemDraftRoundJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemDraftRound" />
         /// </summary>

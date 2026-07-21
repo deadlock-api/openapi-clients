@@ -158,8 +158,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ItemFlowEdge" />
     /// </summary>
-    public class ItemFlowEdgeJsonConverter : JsonConverter<ItemFlowEdge>
+    public partial class ItemFlowEdgeJsonConverter : JsonConverter<ItemFlowEdge>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemFlowEdgeJsonConverter" /> class.
+        /// </summary>
+        public ItemFlowEdgeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ItemFlowEdge" />
         /// </summary>

@@ -175,8 +175,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ObjectiveParams" />
     /// </summary>
-    public class ObjectiveParamsJsonConverter : JsonConverter<ObjectiveParams>
+    public partial class ObjectiveParamsJsonConverter : JsonConverter<ObjectiveParams>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectiveParamsJsonConverter" /> class.
+        /// </summary>
+        public ObjectiveParamsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ObjectiveParams" />
         /// </summary>

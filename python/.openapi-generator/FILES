@@ -102,7 +102,6 @@ deadlock_api_client/models/hash_map_item_slot_type_vec_map_mod_cost_bonus_value_
 deadlock_api_client/models/hash_map_item_slot_type_vec_purchase_bonus_value_inner.py
 deadlock_api_client/models/hash_map_string_level_info_value.py
 deadlock_api_client/models/hash_map_string_option_draft_bucketing_value.py
-deadlock_api_client/models/hash_map_string_option_draft_bucketing_value_one_of.py
 deadlock_api_client/models/hash_map_string_scaling_stat_value.py
 deadlock_api_client/models/hash_map_value.py
 deadlock_api_client/models/hero.py
@@ -319,7 +318,6 @@ docs/HashMapItemSlotTypeVecMapModCostBonusValueInner.md
 docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/HashMapStringLevelInfoValue.md
 docs/HashMapStringOptionDraftBucketingValue.md
-docs/HashMapStringOptionDraftBucketingValueOneOf.md
 docs/HashMapStringScalingStatValue.md
 docs/HashMapValue.md
 docs/Hero.md
@@ -559,7 +557,6 @@ test/test_hash_map_item_slot_type_vec_map_mod_cost_bonus_value_inner.py
 test/test_hash_map_item_slot_type_vec_purchase_bonus_value_inner.py
 test/test_hash_map_string_level_info_value.py
 test/test_hash_map_string_option_draft_bucketing_value.py
-test/test_hash_map_string_option_draft_bucketing_value_one_of.py
 test/test_hash_map_string_scaling_stat_value.py
 test/test_hash_map_value.py
 test/test_hero.py

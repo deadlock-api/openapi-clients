@@ -147,8 +147,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="UpgradeTooltipSectionAttribute" />
     /// </summary>
-    public class UpgradeTooltipSectionAttributeJsonConverter : JsonConverter<UpgradeTooltipSectionAttribute>
+    public partial class UpgradeTooltipSectionAttributeJsonConverter : JsonConverter<UpgradeTooltipSectionAttribute>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpgradeTooltipSectionAttributeJsonConverter" /> class.
+        /// </summary>
+        public UpgradeTooltipSectionAttributeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="UpgradeTooltipSectionAttribute" />
         /// </summary>

@@ -177,6 +177,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override GameMode? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             GameMode? result = rawValue == null
@@ -197,7 +200,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, GameMode? gameMode, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(gameMode.HasValue ? GameModeValueConverter.ToJsonValue(gameMode.Value).ToString() : "null");
+            if (gameMode.HasValue)
+                writer.WriteStringValue(GameModeValueConverter.ToJsonValue(gameMode.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

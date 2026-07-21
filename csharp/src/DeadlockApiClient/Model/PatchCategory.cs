@@ -85,8 +85,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="PatchCategory" />
     /// </summary>
-    public class PatchCategoryJsonConverter : JsonConverter<PatchCategory>
+    public partial class PatchCategoryJsonConverter : JsonConverter<PatchCategory>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PatchCategoryJsonConverter" /> class.
+        /// </summary>
+        public PatchCategoryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PatchCategory" />
         /// </summary>

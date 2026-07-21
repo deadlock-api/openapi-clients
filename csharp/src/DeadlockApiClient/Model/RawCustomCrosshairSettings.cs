@@ -339,8 +339,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="RawCustomCrosshairSettings" />
     /// </summary>
-    public class RawCustomCrosshairSettingsJsonConverter : JsonConverter<RawCustomCrosshairSettings>
+    public partial class RawCustomCrosshairSettingsJsonConverter : JsonConverter<RawCustomCrosshairSettings>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RawCustomCrosshairSettingsJsonConverter" /> class.
+        /// </summary>
+        public RawCustomCrosshairSettingsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RawCustomCrosshairSettings" />
         /// </summary>

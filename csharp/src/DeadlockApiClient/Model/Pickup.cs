@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Pickup" />
     /// </summary>
-    public class PickupJsonConverter : JsonConverter<Pickup>
+    public partial class PickupJsonConverter : JsonConverter<Pickup>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PickupJsonConverter" /> class.
+        /// </summary>
+        public PickupJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Pickup" />
         /// </summary>

@@ -83,8 +83,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="DependantAbilities" />
     /// </summary>
-    public class DependantAbilitiesJsonConverter : JsonConverter<DependantAbilities>
+    public partial class DependantAbilitiesJsonConverter : JsonConverter<DependantAbilities>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DependantAbilitiesJsonConverter" /> class.
+        /// </summary>
+        public DependantAbilitiesJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="DependantAbilities" />
         /// </summary>

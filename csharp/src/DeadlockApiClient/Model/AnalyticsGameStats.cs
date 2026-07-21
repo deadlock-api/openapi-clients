@@ -520,8 +520,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="AnalyticsGameStats" />
     /// </summary>
-    public class AnalyticsGameStatsJsonConverter : JsonConverter<AnalyticsGameStats>
+    public partial class AnalyticsGameStatsJsonConverter : JsonConverter<AnalyticsGameStats>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AnalyticsGameStatsJsonConverter" /> class.
+        /// </summary>
+        public AnalyticsGameStatsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="AnalyticsGameStats" />
         /// </summary>

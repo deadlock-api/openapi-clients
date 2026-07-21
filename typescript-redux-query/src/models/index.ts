@@ -59,7 +59,6 @@ export * from './HashMapItemSlotTypeVecMapModCostBonusValueInner';
 export * from './HashMapItemSlotTypeVecPurchaseBonusValueInner';
 export * from './HashMapStringLevelInfoValue';
 export * from './HashMapStringOptionDraftBucketingValue';
-export * from './HashMapStringOptionDraftBucketingValueOneOf';
 export * from './HashMapStringScalingStatValue';
 export * from './HashMapValue';
 export * from './Hero';

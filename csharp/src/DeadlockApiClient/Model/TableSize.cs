@@ -146,8 +146,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="TableSize" />
     /// </summary>
-    public class TableSizeJsonConverter : JsonConverter<TableSize>
+    public partial class TableSizeJsonConverter : JsonConverter<TableSize>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TableSizeJsonConverter" /> class.
+        /// </summary>
+        public TableSizeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="TableSize" />
         /// </summary>

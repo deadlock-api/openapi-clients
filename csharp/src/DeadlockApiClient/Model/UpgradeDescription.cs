@@ -131,8 +131,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="UpgradeDescription" />
     /// </summary>
-    public class UpgradeDescriptionJsonConverter : JsonConverter<UpgradeDescription>
+    public partial class UpgradeDescriptionJsonConverter : JsonConverter<UpgradeDescription>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpgradeDescriptionJsonConverter" /> class.
+        /// </summary>
+        public UpgradeDescriptionJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="UpgradeDescription" />
         /// </summary>

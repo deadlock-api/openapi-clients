@@ -166,8 +166,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="DemoQueryStatusResponse" />
     /// </summary>
-    public class DemoQueryStatusResponseJsonConverter : JsonConverter<DemoQueryStatusResponse>
+    public partial class DemoQueryStatusResponseJsonConverter : JsonConverter<DemoQueryStatusResponse>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoQueryStatusResponseJsonConverter" /> class.
+        /// </summary>
+        public DemoQueryStatusResponseJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="DemoQueryStatusResponse" />
         /// </summary>
@@ -209,9 +219,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "format":
-                            string? formatRawValue = utf8JsonReader.GetString();
-                            if (formatRawValue != null)
-                                format = new Option<OutputFormat?>(OutputFormatValueConverter.FromStringOrDefault(formatRawValue));
+                            format = new Option<OutputFormat?>(JsonSerializer.Deserialize<OutputFormat?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "job_id":
                             jobId = new Option<string?>(utf8JsonReader.GetString()!);
@@ -220,9 +228,7 @@ namespace DeadlockApiClient.Model
                             matchId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "status":
-                            string? statusRawValue = utf8JsonReader.GetString();
-                            if (statusRawValue != null)
-                                status = new Option<JobStatus?>(JobStatusValueConverter.FromStringOrDefault(statusRawValue));
+                            status = new Option<JobStatus?>(JsonSerializer.Deserialize<JobStatus?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "error":
                             error = new Option<string?>(utf8JsonReader.GetString());

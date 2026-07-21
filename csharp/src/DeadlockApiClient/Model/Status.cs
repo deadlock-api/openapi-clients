@@ -77,8 +77,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Status" />
     /// </summary>
-    public class StatusJsonConverter : JsonConverter<Status>
+    public partial class StatusJsonConverter : JsonConverter<Status>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatusJsonConverter" /> class.
+        /// </summary>
+        public StatusJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Status" />
         /// </summary>

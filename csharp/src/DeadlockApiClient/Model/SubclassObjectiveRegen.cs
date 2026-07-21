@@ -76,8 +76,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SubclassObjectiveRegen" />
     /// </summary>
-    public class SubclassObjectiveRegenJsonConverter : JsonConverter<SubclassObjectiveRegen>
+    public partial class SubclassObjectiveRegenJsonConverter : JsonConverter<SubclassObjectiveRegen>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubclassObjectiveRegenJsonConverter" /> class.
+        /// </summary>
+        public SubclassObjectiveRegenJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SubclassObjectiveRegen" />
         /// </summary>

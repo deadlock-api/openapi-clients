@@ -388,8 +388,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="UpgradeProperty" />
     /// </summary>
-    public class UpgradePropertyJsonConverter : JsonConverter<UpgradeProperty>
+    public partial class UpgradePropertyJsonConverter : JsonConverter<UpgradeProperty>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpgradePropertyJsonConverter" /> class.
+        /// </summary>
+        public UpgradePropertyJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="UpgradeProperty" />
         /// </summary>
@@ -501,8 +511,7 @@ namespace DeadlockApiClient.Model
                             tooltipIsImportant = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "tooltip_section":
-                            string? tooltipSectionRawValue = utf8JsonReader.GetString();
-                            tooltipSection = new Option<AbilitySectionType?>(tooltipSectionRawValue == null ? null : AbilitySectionTypeValueConverter.FromStringOrDefault(tooltipSectionRawValue));
+                            tooltipSection = new Option<AbilitySectionType?>(JsonSerializer.Deserialize<AbilitySectionType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

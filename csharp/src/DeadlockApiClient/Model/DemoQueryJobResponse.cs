@@ -86,8 +86,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="DemoQueryJobResponse" />
     /// </summary>
-    public class DemoQueryJobResponseJsonConverter : JsonConverter<DemoQueryJobResponse>
+    public partial class DemoQueryJobResponseJsonConverter : JsonConverter<DemoQueryJobResponse>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoQueryJobResponseJsonConverter" /> class.
+        /// </summary>
+        public DemoQueryJobResponseJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="DemoQueryJobResponse" />
         /// </summary>
@@ -127,9 +137,7 @@ namespace DeadlockApiClient.Model
                             jobId = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "status":
-                            string? statusRawValue = utf8JsonReader.GetString();
-                            if (statusRawValue != null)
-                                status = new Option<JobStatus?>(JobStatusValueConverter.FromStringOrDefault(statusRawValue));
+                            status = new Option<JobStatus?>(JsonSerializer.Deserialize<JobStatus?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

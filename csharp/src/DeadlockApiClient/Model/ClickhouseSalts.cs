@@ -164,8 +164,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ClickhouseSalts" />
     /// </summary>
-    public class ClickhouseSaltsJsonConverter : JsonConverter<ClickhouseSalts>
+    public partial class ClickhouseSaltsJsonConverter : JsonConverter<ClickhouseSalts>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClickhouseSaltsJsonConverter" /> class.
+        /// </summary>
+        public ClickhouseSaltsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ClickhouseSalts" />
         /// </summary>

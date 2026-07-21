@@ -76,8 +76,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SubclassObjectiveHealthGrowthPhase" />
     /// </summary>
-    public class SubclassObjectiveHealthGrowthPhaseJsonConverter : JsonConverter<SubclassObjectiveHealthGrowthPhase>
+    public partial class SubclassObjectiveHealthGrowthPhaseJsonConverter : JsonConverter<SubclassObjectiveHealthGrowthPhase>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubclassObjectiveHealthGrowthPhaseJsonConverter" /> class.
+        /// </summary>
+        public SubclassObjectiveHealthGrowthPhaseJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SubclassObjectiveHealthGrowthPhase" />
         /// </summary>

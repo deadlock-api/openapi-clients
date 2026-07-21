@@ -12,91 +12,135 @@ package deadlock_api_client
 
 import (
 	"encoding/json"
-	"fmt"
-	"gopkg.in/validator.v2"
 )
 
-// HashMapStringOptionDraftBucketingValue - struct for HashMapStringOptionDraftBucketingValue
+// checks if the HashMapStringOptionDraftBucketingValue type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &HashMapStringOptionDraftBucketingValue{}
+
+// HashMapStringOptionDraftBucketingValue struct for HashMapStringOptionDraftBucketingValue
 type HashMapStringOptionDraftBucketingValue struct {
-	HashMapStringOptionDraftBucketingValueOneOf *HashMapStringOptionDraftBucketingValueOneOf
+	Bucket NullableString `json:"bucket,omitempty"`
+	Weight NullableFloat64 `json:"weight,omitempty"`
 }
 
-// HashMapStringOptionDraftBucketingValueOneOfAsHashMapStringOptionDraftBucketingValue is a convenience function that returns HashMapStringOptionDraftBucketingValueOneOf wrapped in HashMapStringOptionDraftBucketingValue
-func HashMapStringOptionDraftBucketingValueOneOfAsHashMapStringOptionDraftBucketingValue(v *HashMapStringOptionDraftBucketingValueOneOf) HashMapStringOptionDraftBucketingValue {
-	return HashMapStringOptionDraftBucketingValue{
-		HashMapStringOptionDraftBucketingValueOneOf: v,
-	}
+// NewHashMapStringOptionDraftBucketingValue instantiates a new HashMapStringOptionDraftBucketingValue object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewHashMapStringOptionDraftBucketingValue() *HashMapStringOptionDraftBucketingValue {
+	this := HashMapStringOptionDraftBucketingValue{}
+	return &this
 }
 
-
-// Unmarshal JSON data into one of the pointers in the struct
-func (dst *HashMapStringOptionDraftBucketingValue) UnmarshalJSON(data []byte) error {
-	var err error
-	// this object is nullable so check if the payload is null or empty string
-	if string(data) == "" || string(data) == "{}" {
-		return nil
-	}
-
-	match := 0
-	// try to unmarshal data into HashMapStringOptionDraftBucketingValueOneOf
-	err = newStrictDecoder(data).Decode(&dst.HashMapStringOptionDraftBucketingValueOneOf)
-	if err == nil {
-		jsonHashMapStringOptionDraftBucketingValueOneOf, _ := json.Marshal(dst.HashMapStringOptionDraftBucketingValueOneOf)
-		if string(jsonHashMapStringOptionDraftBucketingValueOneOf) == "{}" { // empty struct
-			dst.HashMapStringOptionDraftBucketingValueOneOf = nil
-		} else {
-			if err = validator.Validate(dst.HashMapStringOptionDraftBucketingValueOneOf); err != nil {
-				dst.HashMapStringOptionDraftBucketingValueOneOf = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.HashMapStringOptionDraftBucketingValueOneOf = nil
-	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.HashMapStringOptionDraftBucketingValueOneOf = nil
-
-		return fmt.Errorf("data matches more than one schema in oneOf(HashMapStringOptionDraftBucketingValue)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(HashMapStringOptionDraftBucketingValue)")
-	}
+// NewHashMapStringOptionDraftBucketingValueWithDefaults instantiates a new HashMapStringOptionDraftBucketingValue object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewHashMapStringOptionDraftBucketingValueWithDefaults() *HashMapStringOptionDraftBucketingValue {
+	this := HashMapStringOptionDraftBucketingValue{}
+	return &this
 }
 
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src HashMapStringOptionDraftBucketingValue) MarshalJSON() ([]byte, error) {
-	if src.HashMapStringOptionDraftBucketingValueOneOf != nil {
-		return json.Marshal(&src.HashMapStringOptionDraftBucketingValueOneOf)
+// GetBucket returns the Bucket field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HashMapStringOptionDraftBucketingValue) GetBucket() string {
+	if o == nil || IsNil(o.Bucket.Get()) {
+		var ret string
+		return ret
 	}
-
-	return nil, nil // no data in oneOf schemas
+	return *o.Bucket.Get()
 }
 
-// Get the actual instance
-func (obj *HashMapStringOptionDraftBucketingValue) GetActualInstance() (interface{}) {
-	if obj == nil {
-		return nil
+// GetBucketOk returns a tuple with the Bucket field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HashMapStringOptionDraftBucketingValue) GetBucketOk() (*string, bool) {
+	if o == nil {
+		return nil, false
 	}
-	if obj.HashMapStringOptionDraftBucketingValueOneOf != nil {
-		return obj.HashMapStringOptionDraftBucketingValueOneOf
-	}
-
-	// all schemas are nil
-	return nil
+	return o.Bucket.Get(), o.Bucket.IsSet()
 }
 
-// Get the actual instance value
-func (obj HashMapStringOptionDraftBucketingValue) GetActualInstanceValue() (interface{}) {
-	if obj.HashMapStringOptionDraftBucketingValueOneOf != nil {
-		return *obj.HashMapStringOptionDraftBucketingValueOneOf
+// HasBucket returns a boolean if a field has been set.
+func (o *HashMapStringOptionDraftBucketingValue) HasBucket() bool {
+	if o != nil && o.Bucket.IsSet() {
+		return true
 	}
 
-	// all schemas are nil
-	return nil
+	return false
+}
+
+// SetBucket gets a reference to the given NullableString and assigns it to the Bucket field.
+func (o *HashMapStringOptionDraftBucketingValue) SetBucket(v string) {
+	o.Bucket.Set(&v)
+}
+// SetBucketNil sets the value for Bucket to be an explicit nil
+func (o *HashMapStringOptionDraftBucketingValue) SetBucketNil() {
+	o.Bucket.Set(nil)
+}
+
+// UnsetBucket ensures that no value is present for Bucket, not even an explicit nil
+func (o *HashMapStringOptionDraftBucketingValue) UnsetBucket() {
+	o.Bucket.Unset()
+}
+
+// GetWeight returns the Weight field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HashMapStringOptionDraftBucketingValue) GetWeight() float64 {
+	if o == nil || IsNil(o.Weight.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.Weight.Get()
+}
+
+// GetWeightOk returns a tuple with the Weight field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HashMapStringOptionDraftBucketingValue) GetWeightOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Weight.Get(), o.Weight.IsSet()
+}
+
+// HasWeight returns a boolean if a field has been set.
+func (o *HashMapStringOptionDraftBucketingValue) HasWeight() bool {
+	if o != nil && o.Weight.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWeight gets a reference to the given NullableFloat64 and assigns it to the Weight field.
+func (o *HashMapStringOptionDraftBucketingValue) SetWeight(v float64) {
+	o.Weight.Set(&v)
+}
+// SetWeightNil sets the value for Weight to be an explicit nil
+func (o *HashMapStringOptionDraftBucketingValue) SetWeightNil() {
+	o.Weight.Set(nil)
+}
+
+// UnsetWeight ensures that no value is present for Weight, not even an explicit nil
+func (o *HashMapStringOptionDraftBucketingValue) UnsetWeight() {
+	o.Weight.Unset()
+}
+
+func (o HashMapStringOptionDraftBucketingValue) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o HashMapStringOptionDraftBucketingValue) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if o.Bucket.IsSet() {
+		toSerialize["bucket"] = o.Bucket.Get()
+	}
+	if o.Weight.IsSet() {
+		toSerialize["weight"] = o.Weight.Get()
+	}
+	return toSerialize, nil
 }
 
 type NullableHashMapStringOptionDraftBucketingValue struct {

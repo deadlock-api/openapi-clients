@@ -101,8 +101,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="RawItemWeaponInfoBulletSpeedCurve" />
     /// </summary>
-    public class RawItemWeaponInfoBulletSpeedCurveJsonConverter : JsonConverter<RawItemWeaponInfoBulletSpeedCurve>
+    public partial class RawItemWeaponInfoBulletSpeedCurveJsonConverter : JsonConverter<RawItemWeaponInfoBulletSpeedCurve>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RawItemWeaponInfoBulletSpeedCurveJsonConverter" /> class.
+        /// </summary>
+        public RawItemWeaponInfoBulletSpeedCurveJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RawItemWeaponInfoBulletSpeedCurve" />
         /// </summary>

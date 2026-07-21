@@ -109,8 +109,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="MapData" />
     /// </summary>
-    public class MapDataJsonConverter : JsonConverter<MapData>
+    public partial class MapDataJsonConverter : JsonConverter<MapData>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MapDataJsonConverter" /> class.
+        /// </summary>
+        public MapDataJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MapData" />
         /// </summary>

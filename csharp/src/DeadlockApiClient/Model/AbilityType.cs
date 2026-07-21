@@ -219,6 +219,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override AbilityType? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             AbilityType? result = rawValue == null
@@ -239,7 +242,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, AbilityType? abilityType, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(abilityType.HasValue ? AbilityTypeValueConverter.ToJsonValue(abilityType.Value).ToString() : "null");
+            if (abilityType.HasValue)
+                writer.WriteStringValue(AbilityTypeValueConverter.ToJsonValue(abilityType.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

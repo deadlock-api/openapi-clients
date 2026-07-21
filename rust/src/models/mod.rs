@@ -120,8 +120,6 @@ pub mod hash_map_string_level_info_value;
 pub use self::hash_map_string_level_info_value::HashMapStringLevelInfoValue;
 pub mod hash_map_string_option_draft_bucketing_value;
 pub use self::hash_map_string_option_draft_bucketing_value::HashMapStringOptionDraftBucketingValue;
-pub mod hash_map_string_option_draft_bucketing_value_one_of;
-pub use self::hash_map_string_option_draft_bucketing_value_one_of::HashMapStringOptionDraftBucketingValueOneOf;
 pub mod hash_map_string_scaling_stat_value;
 pub use self::hash_map_string_scaling_stat_value::HashMapStringScalingStatValue;
 pub mod hash_map_value;

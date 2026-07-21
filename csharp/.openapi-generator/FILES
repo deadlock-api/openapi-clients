@@ -95,7 +95,6 @@ docs/models/HashMapItemSlotTypeVecMapModCostBonusValueInner.md
 docs/models/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/models/HashMapStringLevelInfoValue.md
 docs/models/HashMapStringOptionDraftBucketingValue.md
-docs/models/HashMapStringOptionDraftBucketingValueOneOf.md
 docs/models/HashMapStringScalingStatValue.md
 docs/models/HashMapValue.md
 docs/models/Hero.md
@@ -332,7 +331,6 @@ src/DeadlockApiClient.Test/Model/HashMapItemSlotTypeItemSlotInfoValueTests.cs
 src/DeadlockApiClient.Test/Model/HashMapItemSlotTypeVecMapModCostBonusValueInnerTests.cs
 src/DeadlockApiClient.Test/Model/HashMapItemSlotTypeVecPurchaseBonusValueInnerTests.cs
 src/DeadlockApiClient.Test/Model/HashMapStringLevelInfoValueTests.cs
-src/DeadlockApiClient.Test/Model/HashMapStringOptionDraftBucketingValueOneOfTests.cs
 src/DeadlockApiClient.Test/Model/HashMapStringOptionDraftBucketingValueTests.cs
 src/DeadlockApiClient.Test/Model/HashMapStringScalingStatValueTests.cs
 src/DeadlockApiClient.Test/Model/HashMapValueTests.cs
@@ -531,6 +529,7 @@ src/DeadlockApiClient/DeadlockApiClient.csproj
 src/DeadlockApiClient/Extensions/IHostBuilderExtensions.cs
 src/DeadlockApiClient/Extensions/IHttpClientBuilderExtensions.cs
 src/DeadlockApiClient/Extensions/IServiceCollectionExtensions.cs
+src/DeadlockApiClient/Logging/RestLogEvents.cs
 src/DeadlockApiClient/Model/APIInfo.cs
 src/DeadlockApiClient/Model/Ability.cs
 src/DeadlockApiClient/Model/AbilityActivation.cs
@@ -592,7 +591,6 @@ src/DeadlockApiClient/Model/HashMapItemSlotTypeVecMapModCostBonusValueInner.cs
 src/DeadlockApiClient/Model/HashMapItemSlotTypeVecPurchaseBonusValueInner.cs
 src/DeadlockApiClient/Model/HashMapStringLevelInfoValue.cs
 src/DeadlockApiClient/Model/HashMapStringOptionDraftBucketingValue.cs
-src/DeadlockApiClient/Model/HashMapStringOptionDraftBucketingValueOneOf.cs
 src/DeadlockApiClient/Model/HashMapStringScalingStatValue.cs
 src/DeadlockApiClient/Model/HashMapValue.cs
 src/DeadlockApiClient/Model/Hero.cs

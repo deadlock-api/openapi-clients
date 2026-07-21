@@ -267,8 +267,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SteamServer" />
     /// </summary>
-    public class SteamServerJsonConverter : JsonConverter<SteamServer>
+    public partial class SteamServerJsonConverter : JsonConverter<SteamServer>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteamServerJsonConverter" /> class.
+        /// </summary>
+        public SteamServerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SteamServer" />
         /// </summary>

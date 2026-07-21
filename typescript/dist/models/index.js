@@ -59,7 +59,6 @@ export * from './hash-map-item-slot-type-vec-map-mod-cost-bonus-value-inner.js';
 export * from './hash-map-item-slot-type-vec-purchase-bonus-value-inner.js';
 export * from './hash-map-string-level-info-value.js';
 export * from './hash-map-string-option-draft-bucketing-value.js';
-export * from './hash-map-string-option-draft-bucketing-value-one-of.js';
 export * from './hash-map-string-scaling-stat-value.js';
 export * from './hash-map-value.js';
 export * from './hero.js';

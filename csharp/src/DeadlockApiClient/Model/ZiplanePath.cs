@@ -121,8 +121,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ZiplanePath" />
     /// </summary>
-    public class ZiplanePathJsonConverter : JsonConverter<ZiplanePath>
+    public partial class ZiplanePathJsonConverter : JsonConverter<ZiplanePath>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ZiplanePathJsonConverter" /> class.
+        /// </summary>
+        public ZiplanePathJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ZiplanePath" />
         /// </summary>

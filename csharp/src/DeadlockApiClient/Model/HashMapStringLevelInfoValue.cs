@@ -108,8 +108,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="HashMapStringLevelInfoValue" />
     /// </summary>
-    public class HashMapStringLevelInfoValueJsonConverter : JsonConverter<HashMapStringLevelInfoValue>
+    public partial class HashMapStringLevelInfoValueJsonConverter : JsonConverter<HashMapStringLevelInfoValue>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HashMapStringLevelInfoValueJsonConverter" /> class.
+        /// </summary>
+        public HashMapStringLevelInfoValueJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="HashMapStringLevelInfoValue" />
         /// </summary>

@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Curve" />
     /// </summary>
-    public class CurveJsonConverter : JsonConverter<Curve>
+    public partial class CurveJsonConverter : JsonConverter<Curve>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurveJsonConverter" /> class.
+        /// </summary>
+        public CurveJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Curve" />
         /// </summary>

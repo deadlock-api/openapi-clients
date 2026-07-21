@@ -76,8 +76,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="OutcomeToWeights" />
     /// </summary>
-    public class OutcomeToWeightsJsonConverter : JsonConverter<OutcomeToWeights>
+    public partial class OutcomeToWeightsJsonConverter : JsonConverter<OutcomeToWeights>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OutcomeToWeightsJsonConverter" /> class.
+        /// </summary>
+        public OutcomeToWeightsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="OutcomeToWeights" />
         /// </summary>

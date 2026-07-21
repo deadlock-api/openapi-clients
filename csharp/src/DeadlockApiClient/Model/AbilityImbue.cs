@@ -163,6 +163,9 @@ namespace DeadlockApiClient.Model
         /// <returns></returns>
         public override AbilityImbue? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
+            if (reader.TokenType == JsonTokenType.Null)
+                return null;
+
             string? rawValue = reader.GetString();
 
             AbilityImbue? result = rawValue == null
@@ -183,7 +186,10 @@ namespace DeadlockApiClient.Model
         /// <param name="options"></param>
         public override void Write(Utf8JsonWriter writer, AbilityImbue? abilityImbue, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(abilityImbue.HasValue ? AbilityImbueValueConverter.ToJsonValue(abilityImbue.Value).ToString() : "null");
+            if (abilityImbue.HasValue)
+                writer.WriteStringValue(AbilityImbueValueConverter.ToJsonValue(abilityImbue.Value).ToString());
+            else
+                writer.WriteNullValue();
         }
     }
 }

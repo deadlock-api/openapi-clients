@@ -515,8 +515,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="RankImages" />
     /// </summary>
-    public class RankImagesJsonConverter : JsonConverter<RankImages>
+    public partial class RankImagesJsonConverter : JsonConverter<RankImages>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RankImagesJsonConverter" /> class.
+        /// </summary>
+        public RankImagesJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RankImages" />
         /// </summary>

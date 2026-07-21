@@ -130,8 +130,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="KillDeathStats" />
     /// </summary>
-    public class KillDeathStatsJsonConverter : JsonConverter<KillDeathStats>
+    public partial class KillDeathStatsJsonConverter : JsonConverter<KillDeathStats>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KillDeathStatsJsonConverter" /> class.
+        /// </summary>
+        public KillDeathStatsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="KillDeathStats" />
         /// </summary>

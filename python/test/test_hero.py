@@ -90,7 +90,9 @@ class TestHero(unittest.TestCase):
                     weapon_image_webp = '', ),
                 in_development = True,
                 item_draft_bucketing = {
-                    'key' : null
+                    'key' : deadlock_api_client.models.hash_map_string_option_draft_bucketing_value.HashMap_String_Option_DraftBucketing_value(
+                        bucket = '', 
+                        weight = 1.337, )
                     },
                 item_draft_weights = {
                     'key' : 1.337

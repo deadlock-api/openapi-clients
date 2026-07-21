@@ -85,8 +85,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ObjectivePosition" />
     /// </summary>
-    public class ObjectivePositionJsonConverter : JsonConverter<ObjectivePosition>
+    public partial class ObjectivePositionJsonConverter : JsonConverter<ObjectivePosition>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectivePositionJsonConverter" /> class.
+        /// </summary>
+        public ObjectivePositionJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ObjectivePosition" />
         /// </summary>

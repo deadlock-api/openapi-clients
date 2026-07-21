@@ -128,8 +128,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="FlashData" />
     /// </summary>
-    public class FlashDataJsonConverter : JsonConverter<FlashData>
+    public partial class FlashDataJsonConverter : JsonConverter<FlashData>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FlashDataJsonConverter" /> class.
+        /// </summary>
+        public FlashDataJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="FlashData" />
         /// </summary>

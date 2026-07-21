@@ -214,12 +214,22 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SteamProfile" />
     /// </summary>
-    public class SteamProfileJsonConverter : JsonConverter<SteamProfile>
+    public partial class SteamProfileJsonConverter : JsonConverter<SteamProfile>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteamProfileJsonConverter" /> class.
+        /// </summary>
+        public SteamProfileJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// The format to use to serialize LastUpdated
         /// </summary>
-        public static string LastUpdatedFormat { get; set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
+        public string LastUpdatedFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="SteamProfile" />

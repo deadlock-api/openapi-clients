@@ -109,8 +109,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Rank" />
     /// </summary>
-    public class RankJsonConverter : JsonConverter<Rank>
+    public partial class RankJsonConverter : JsonConverter<Rank>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RankJsonConverter" /> class.
+        /// </summary>
+        public RankJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Rank" />
         /// </summary>

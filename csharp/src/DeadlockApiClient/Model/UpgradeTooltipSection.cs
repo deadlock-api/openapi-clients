@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="UpgradeTooltipSection" />
     /// </summary>
-    public class UpgradeTooltipSectionJsonConverter : JsonConverter<UpgradeTooltipSection>
+    public partial class UpgradeTooltipSectionJsonConverter : JsonConverter<UpgradeTooltipSection>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpgradeTooltipSectionJsonConverter" /> class.
+        /// </summary>
+        public UpgradeTooltipSectionJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="UpgradeTooltipSection" />
         /// </summary>
@@ -140,8 +150,7 @@ namespace DeadlockApiClient.Model
                             sectionAttributes = new Option<List<UpgradeTooltipSectionAttribute>?>(JsonSerializer.Deserialize<List<UpgradeTooltipSectionAttribute>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "section_type":
-                            string? sectionTypeRawValue = utf8JsonReader.GetString();
-                            sectionType = new Option<AbilitySectionType?>(sectionTypeRawValue == null ? null : AbilitySectionTypeValueConverter.FromStringOrDefault(sectionTypeRawValue));
+                            sectionType = new Option<AbilitySectionType?>(JsonSerializer.Deserialize<AbilitySectionType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

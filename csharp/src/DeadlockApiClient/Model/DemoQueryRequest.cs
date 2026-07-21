@@ -110,8 +110,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="DemoQueryRequest" />
     /// </summary>
-    public class DemoQueryRequestJsonConverter : JsonConverter<DemoQueryRequest>
+    public partial class DemoQueryRequestJsonConverter : JsonConverter<DemoQueryRequest>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoQueryRequestJsonConverter" /> class.
+        /// </summary>
+        public DemoQueryRequestJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="DemoQueryRequest" />
         /// </summary>
@@ -155,9 +165,7 @@ namespace DeadlockApiClient.Model
                             query = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "format":
-                            string? formatRawValue = utf8JsonReader.GetString();
-                            if (formatRawValue != null)
-                                format = new Option<OutputFormat?>(OutputFormatValueConverter.FromStringOrDefault(formatRawValue));
+                            format = new Option<OutputFormat?>(JsonSerializer.Deserialize<OutputFormat?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

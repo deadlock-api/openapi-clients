@@ -98,7 +98,6 @@ api/Model/HashMapItemSlotTypeVecMapModCostBonusValueInner.php
 api/Model/HashMapItemSlotTypeVecPurchaseBonusValueInner.php
 api/Model/HashMapStringLevelInfoValue.php
 api/Model/HashMapStringOptionDraftBucketingValue.php
-api/Model/HashMapStringOptionDraftBucketingValueOneOf.php
 api/Model/HashMapStringScalingStatValue.php
 api/Model/HashMapValue.php
 api/Model/Hero.php
@@ -334,7 +333,6 @@ docs/Model/HashMapItemSlotTypeVecMapModCostBonusValueInner.md
 docs/Model/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/Model/HashMapStringLevelInfoValue.md
 docs/Model/HashMapStringOptionDraftBucketingValue.md
-docs/Model/HashMapStringOptionDraftBucketingValueOneOf.md
 docs/Model/HashMapStringScalingStatValue.md
 docs/Model/HashMapValue.md
 docs/Model/Hero.md
@@ -568,7 +566,6 @@ test/Model/HashMapItemSlotTypeItemSlotInfoValueTest.php
 test/Model/HashMapItemSlotTypeVecMapModCostBonusValueInnerTest.php
 test/Model/HashMapItemSlotTypeVecPurchaseBonusValueInnerTest.php
 test/Model/HashMapStringLevelInfoValueTest.php
-test/Model/HashMapStringOptionDraftBucketingValueOneOfTest.php
 test/Model/HashMapStringOptionDraftBucketingValueTest.php
 test/Model/HashMapStringScalingStatValueTest.php
 test/Model/HashMapValueTest.php

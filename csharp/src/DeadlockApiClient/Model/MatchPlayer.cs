@@ -82,8 +82,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="MatchPlayer" />
     /// </summary>
-    public class MatchPlayerJsonConverter : JsonConverter<MatchPlayer>
+    public partial class MatchPlayerJsonConverter : JsonConverter<MatchPlayer>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MatchPlayerJsonConverter" /> class.
+        /// </summary>
+        public MatchPlayerJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MatchPlayer" />
         /// </summary>

@@ -112,12 +112,22 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SteamNews" />
     /// </summary>
-    public class SteamNewsJsonConverter : JsonConverter<SteamNews>
+    public partial class SteamNewsJsonConverter : JsonConverter<SteamNews>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteamNewsJsonConverter" /> class.
+        /// </summary>
+        public SteamNewsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// The format to use to serialize PubDate
         /// </summary>
-        public static string PubDateFormat { get; set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
+        public string PubDateFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="SteamNews" />

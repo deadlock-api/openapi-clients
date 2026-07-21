@@ -163,8 +163,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="RawItemPropertyScaleFunctionSubclass" />
     /// </summary>
-    public class RawItemPropertyScaleFunctionSubclassJsonConverter : JsonConverter<RawItemPropertyScaleFunctionSubclass>
+    public partial class RawItemPropertyScaleFunctionSubclassJsonConverter : JsonConverter<RawItemPropertyScaleFunctionSubclass>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RawItemPropertyScaleFunctionSubclassJsonConverter" /> class.
+        /// </summary>
+        public RawItemPropertyScaleFunctionSubclassJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RawItemPropertyScaleFunctionSubclass" />
         /// </summary>

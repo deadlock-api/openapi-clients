@@ -76,8 +76,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SubclassTrooperDamageReduction" />
     /// </summary>
-    public class SubclassTrooperDamageReductionJsonConverter : JsonConverter<SubclassTrooperDamageReduction>
+    public partial class SubclassTrooperDamageReductionJsonConverter : JsonConverter<SubclassTrooperDamageReduction>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubclassTrooperDamageReductionJsonConverter" /> class.
+        /// </summary>
+        public SubclassTrooperDamageReductionJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SubclassTrooperDamageReduction" />
         /// </summary>

@@ -102,8 +102,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="CreateCustomResponse" />
     /// </summary>
-    public class CreateCustomResponseJsonConverter : JsonConverter<CreateCustomResponse>
+    public partial class CreateCustomResponseJsonConverter : JsonConverter<CreateCustomResponse>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateCustomResponseJsonConverter" /> class.
+        /// </summary>
+        public CreateCustomResponseJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="CreateCustomResponse" />
         /// </summary>

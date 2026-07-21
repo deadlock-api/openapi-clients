@@ -13,13 +13,9 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { HashMapStringOptionDraftBucketingValueOneOf } from './hash-map-string-option-draft-bucketing-value-one-of.js';
 
-/**
- * @type HashMapStringOptionDraftBucketingValue
- */
-export type HashMapStringOptionDraftBucketingValue = HashMapStringOptionDraftBucketingValueOneOf;
-
+export interface HashMapStringOptionDraftBucketingValue {
+    'bucket'?: string | null;
+    'weight'?: number | null;
+}
 

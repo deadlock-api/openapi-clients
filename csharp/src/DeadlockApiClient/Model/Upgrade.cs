@@ -476,8 +476,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Upgrade" />
     /// </summary>
-    public class UpgradeJsonConverter : JsonConverter<Upgrade>
+    public partial class UpgradeJsonConverter : JsonConverter<Upgrade>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpgradeJsonConverter" /> class.
+        /// </summary>
+        public UpgradeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Upgrade" />
         /// </summary>
@@ -540,9 +550,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "activation":
-                            string? activationRawValue = utf8JsonReader.GetString();
-                            if (activationRawValue != null)
-                                activation = new Option<AbilityActivation?>(AbilityActivationValueConverter.FromStringOrDefault(activationRawValue));
+                            activation = new Option<AbilityActivation?>(JsonSerializer.Deserialize<AbilityActivation?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "class_name":
                             className = new Option<string?>(utf8JsonReader.GetString()!);
@@ -554,9 +562,7 @@ namespace DeadlockApiClient.Model
                             isActiveItem = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "item_slot_type":
-                            string? itemSlotTypeRawValue = utf8JsonReader.GetString();
-                            if (itemSlotTypeRawValue != null)
-                                itemSlotType = new Option<ItemSlotType?>(ItemSlotTypeValueConverter.FromStringOrDefault(itemSlotTypeRawValue));
+                            itemSlotType = new Option<ItemSlotType?>(JsonSerializer.Deserialize<ItemSlotType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "item_tier":
                             itemTier = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -568,9 +574,7 @@ namespace DeadlockApiClient.Model
                             shopable = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                                type = new Option<ItemType?>(ItemTypeValueConverter.FromStringOrDefault(typeRawValue));
+                            type = new Option<ItemType?>(JsonSerializer.Deserialize<ItemType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "component_items":
                             componentItems = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
@@ -597,8 +601,7 @@ namespace DeadlockApiClient.Model
                             imageWebp = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "imbue":
-                            string? imbueRawValue = utf8JsonReader.GetString();
-                            imbue = new Option<AbilityImbue?>(imbueRawValue == null ? null : AbilityImbueValueConverter.FromStringOrDefault(imbueRawValue));
+                            imbue = new Option<AbilityImbue?>(JsonSerializer.Deserialize<AbilityImbue?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "properties":
                             properties = new Option<Dictionary<string, UpgradeProperty>?>(JsonSerializer.Deserialize<Dictionary<string, UpgradeProperty>>(ref utf8JsonReader, jsonSerializerOptions)!);

@@ -184,8 +184,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="MetricIngestRequest" />
     /// </summary>
-    public class MetricIngestRequestJsonConverter : JsonConverter<MetricIngestRequest>
+    public partial class MetricIngestRequestJsonConverter : JsonConverter<MetricIngestRequest>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetricIngestRequestJsonConverter" /> class.
+        /// </summary>
+        public MetricIngestRequestJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MetricIngestRequest" />
         /// </summary>

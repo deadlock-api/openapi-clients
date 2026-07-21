@@ -210,8 +210,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="LeaderboardEntry" />
     /// </summary>
-    public class LeaderboardEntryJsonConverter : JsonConverter<LeaderboardEntry>
+    public partial class LeaderboardEntryJsonConverter : JsonConverter<LeaderboardEntry>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LeaderboardEntryJsonConverter" /> class.
+        /// </summary>
+        public LeaderboardEntryJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="LeaderboardEntry" />
         /// </summary>

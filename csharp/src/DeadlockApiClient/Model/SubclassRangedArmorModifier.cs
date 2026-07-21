@@ -76,8 +76,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SubclassRangedArmorModifier" />
     /// </summary>
-    public class SubclassRangedArmorModifierJsonConverter : JsonConverter<SubclassRangedArmorModifier>
+    public partial class SubclassRangedArmorModifierJsonConverter : JsonConverter<SubclassRangedArmorModifier>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubclassRangedArmorModifierJsonConverter" /> class.
+        /// </summary>
+        public SubclassRangedArmorModifierJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="SubclassRangedArmorModifier" />
         /// </summary>

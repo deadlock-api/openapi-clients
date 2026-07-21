@@ -160,8 +160,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="PlayerCard" />
     /// </summary>
-    public class PlayerCardJsonConverter : JsonConverter<PlayerCard>
+    public partial class PlayerCardJsonConverter : JsonConverter<PlayerCard>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerCardJsonConverter" /> class.
+        /// </summary>
+        public PlayerCardJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="PlayerCard" />
         /// </summary>

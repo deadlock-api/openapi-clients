@@ -131,8 +131,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="APIInfo" />
     /// </summary>
-    public class APIInfoJsonConverter : JsonConverter<APIInfo>
+    public partial class APIInfoJsonConverter : JsonConverter<APIInfo>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="APIInfoJsonConverter" /> class.
+        /// </summary>
+        public APIInfoJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="APIInfo" />
         /// </summary>

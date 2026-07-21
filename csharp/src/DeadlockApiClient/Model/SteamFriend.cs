@@ -91,12 +91,22 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="SteamFriend" />
     /// </summary>
-    public class SteamFriendJsonConverter : JsonConverter<SteamFriend>
+    public partial class SteamFriendJsonConverter : JsonConverter<SteamFriend>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteamFriendJsonConverter" /> class.
+        /// </summary>
+        public SteamFriendJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// The format to use to serialize FriendSince
         /// </summary>
-        public static string FriendSinceFormat { get; set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
+        public string FriendSinceFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="SteamFriend" />

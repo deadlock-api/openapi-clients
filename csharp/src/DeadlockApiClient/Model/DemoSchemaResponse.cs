@@ -100,8 +100,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="DemoSchemaResponse" />
     /// </summary>
-    public class DemoSchemaResponseJsonConverter : JsonConverter<DemoSchemaResponse>
+    public partial class DemoSchemaResponseJsonConverter : JsonConverter<DemoSchemaResponse>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoSchemaResponseJsonConverter" /> class.
+        /// </summary>
+        public DemoSchemaResponseJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="DemoSchemaResponse" />
         /// </summary>

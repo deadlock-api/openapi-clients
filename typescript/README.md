@@ -225,7 +225,6 @@ Class | Method | HTTP request | Description
  - [HashMapItemSlotTypeVecPurchaseBonusValueInner](docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md)
  - [HashMapStringLevelInfoValue](docs/HashMapStringLevelInfoValue.md)
  - [HashMapStringOptionDraftBucketingValue](docs/HashMapStringOptionDraftBucketingValue.md)
- - [HashMapStringOptionDraftBucketingValueOneOf](docs/HashMapStringOptionDraftBucketingValueOneOf.md)
  - [HashMapStringScalingStatValue](docs/HashMapStringScalingStatValue.md)
  - [HashMapValue](docs/HashMapValue.md)
  - [Hero](docs/Hero.md)

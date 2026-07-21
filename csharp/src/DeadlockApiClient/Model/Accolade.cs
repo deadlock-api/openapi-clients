@@ -143,8 +143,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Accolade" />
     /// </summary>
-    public class AccoladeJsonConverter : JsonConverter<Accolade>
+    public partial class AccoladeJsonConverter : JsonConverter<Accolade>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccoladeJsonConverter" /> class.
+        /// </summary>
+        public AccoladeJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Accolade" />
         /// </summary>

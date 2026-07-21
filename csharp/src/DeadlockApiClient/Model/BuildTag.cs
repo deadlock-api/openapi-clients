@@ -109,8 +109,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="BuildTag" />
     /// </summary>
-    public class BuildTagJsonConverter : JsonConverter<BuildTag>
+    public partial class BuildTagJsonConverter : JsonConverter<BuildTag>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BuildTagJsonConverter" /> class.
+        /// </summary>
+        public BuildTagJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BuildTag" />
         /// </summary>

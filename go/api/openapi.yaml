@@ -175,7 +175,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -428,7 +428,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -562,7 +562,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -639,7 +639,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -861,7 +861,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -995,7 +995,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -1184,7 +1184,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -1470,7 +1470,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -1728,7 +1728,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -1996,7 +1996,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -2271,7 +2271,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -2592,7 +2592,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -2881,7 +2881,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -3170,7 +3170,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -3464,7 +3464,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -3689,7 +3689,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -3991,7 +3991,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -8291,7 +8291,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -8411,7 +8411,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1781568000
+          default: 1781913600
           format: int64
           nullable: true
           type: integer
@@ -12026,10 +12026,14 @@ components:
       additionalProperties:
         items:
           $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_MapModCostBonus_value_inner"
+        type: array
+        default: null
     HashMap_ItemSlotType_Vec_PurchaseBonus:
       additionalProperties:
         items:
           $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner"
+        type: array
+        default: null
     HashMap_String_LevelInfo:
       additionalProperties:
         $ref: "#/components/schemas/HashMap_String_LevelInfo_value"
@@ -12318,6 +12322,8 @@ components:
           additionalProperties:
             items:
               $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner"
+            type: array
+            default: null
         scaling_stats:
           additionalProperties:
             $ref: "#/components/schemas/HashMap_String_ScalingStat_value"
@@ -17944,7 +17950,7 @@ components:
           type: boolean
       required:
       - required_gold
-    HashMap_String_Option_DraftBucketing_value_oneOf:
+    HashMap_String_Option_DraftBucketing_value:
       nullable: true
       properties:
         bucket:
@@ -17954,10 +17960,6 @@ components:
           format: double
           nullable: true
           type: number
-    HashMap_String_Option_DraftBucketing_value:
-      nullable: true
-      oneOf:
-      - $ref: "#/components/schemas/HashMap_String_Option_DraftBucketing_value_oneOf"
     HashMap_String_ScalingStat_value:
       example:
         scale: 1.4894159098541704

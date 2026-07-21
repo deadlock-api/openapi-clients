@@ -490,8 +490,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ActiveMatch" />
     /// </summary>
-    public class ActiveMatchJsonConverter : JsonConverter<ActiveMatch>
+    public partial class ActiveMatchJsonConverter : JsonConverter<ActiveMatch>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveMatchJsonConverter" /> class.
+        /// </summary>
+        public ActiveMatchJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ActiveMatch" />
         /// </summary>
@@ -560,8 +570,7 @@ namespace DeadlockApiClient.Model
                             gameMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "game_mode_parsed":
-                            string? gameModeParsedRawValue = utf8JsonReader.GetString();
-                            gameModeParsed = new Option<ActiveMatchGameMode?>(gameModeParsedRawValue == null ? null : ActiveMatchGameModeValueConverter.FromStringOrDefault(gameModeParsedRawValue));
+                            gameModeParsed = new Option<ActiveMatchGameMode?>(JsonSerializer.Deserialize<ActiveMatchGameMode?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "game_mode_version":
                             gameModeVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -576,8 +585,7 @@ namespace DeadlockApiClient.Model
                             matchMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "match_mode_parsed":
-                            string? matchModeParsedRawValue = utf8JsonReader.GetString();
-                            matchModeParsed = new Option<ActiveMatchMode?>(matchModeParsedRawValue == null ? null : ActiveMatchModeValueConverter.FromStringOrDefault(matchModeParsedRawValue));
+                            matchModeParsed = new Option<ActiveMatchMode?>(JsonSerializer.Deserialize<ActiveMatchMode?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "match_score":
                             matchScore = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -601,8 +609,7 @@ namespace DeadlockApiClient.Model
                             regionMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "region_mode_parsed":
-                            string? regionModeParsedRawValue = utf8JsonReader.GetString();
-                            regionModeParsed = new Option<RegionMode?>(regionModeParsedRawValue == null ? null : RegionModeValueConverter.FromStringOrDefault(regionModeParsedRawValue));
+                            regionModeParsed = new Option<RegionMode?>(JsonSerializer.Deserialize<RegionMode?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "spectators":
                             spectators = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -614,8 +621,7 @@ namespace DeadlockApiClient.Model
                             winningTeam = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "winning_team_parsed":
-                            string? winningTeamParsedRawValue = utf8JsonReader.GetString();
-                            winningTeamParsed = new Option<ActiveMatchTeam?>(winningTeamParsedRawValue == null ? null : ActiveMatchTeamValueConverter.FromStringOrDefault(winningTeamParsedRawValue));
+                            winningTeamParsed = new Option<ActiveMatchTeam?>(JsonSerializer.Deserialize<ActiveMatchTeam?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

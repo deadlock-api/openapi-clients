@@ -109,7 +109,6 @@ docs/HashMapItemSlotTypeVecMapModCostBonusValueInner.md
 docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/HashMapStringLevelInfoValue.md
 docs/HashMapStringOptionDraftBucketingValue.md
-docs/HashMapStringOptionDraftBucketingValueOneOf.md
 docs/HashMapStringScalingStatValue.md
 docs/HashMapValue.md
 docs/Hero.md
@@ -331,7 +330,6 @@ models/hash-map-item-slot-type-item-slot-info-value.ts
 models/hash-map-item-slot-type-vec-map-mod-cost-bonus-value-inner.ts
 models/hash-map-item-slot-type-vec-purchase-bonus-value-inner.ts
 models/hash-map-string-level-info-value.ts
-models/hash-map-string-option-draft-bucketing-value-one-of.ts
 models/hash-map-string-option-draft-bucketing-value.ts
 models/hash-map-string-scaling-stat-value.ts
 models/hash-map-value.ts

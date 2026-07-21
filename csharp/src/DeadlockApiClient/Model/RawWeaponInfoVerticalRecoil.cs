@@ -131,8 +131,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="RawWeaponInfoVerticalRecoil" />
     /// </summary>
-    public class RawWeaponInfoVerticalRecoilJsonConverter : JsonConverter<RawWeaponInfoVerticalRecoil>
+    public partial class RawWeaponInfoVerticalRecoilJsonConverter : JsonConverter<RawWeaponInfoVerticalRecoil>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RawWeaponInfoVerticalRecoilJsonConverter" /> class.
+        /// </summary>
+        public RawWeaponInfoVerticalRecoilJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="RawWeaponInfoVerticalRecoil" />
         /// </summary>

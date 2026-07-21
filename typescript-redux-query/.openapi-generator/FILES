@@ -96,7 +96,6 @@ src/models/HashMapItemSlotTypeVecMapModCostBonusValueInner.ts
 src/models/HashMapItemSlotTypeVecPurchaseBonusValueInner.ts
 src/models/HashMapStringLevelInfoValue.ts
 src/models/HashMapStringOptionDraftBucketingValue.ts
-src/models/HashMapStringOptionDraftBucketingValueOneOf.ts
 src/models/HashMapStringScalingStatValue.ts
 src/models/HashMapValue.ts
 src/models/Hero.ts

@@ -92,8 +92,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="BuildHeroDetails" />
     /// </summary>
-    public class BuildHeroDetailsJsonConverter : JsonConverter<BuildHeroDetails>
+    public partial class BuildHeroDetailsJsonConverter : JsonConverter<BuildHeroDetails>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BuildHeroDetailsJsonConverter" /> class.
+        /// </summary>
+        public BuildHeroDetailsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="BuildHeroDetails" />
         /// </summary>

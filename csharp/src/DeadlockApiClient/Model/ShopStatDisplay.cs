@@ -94,8 +94,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ShopStatDisplay" />
     /// </summary>
-    public class ShopStatDisplayJsonConverter : JsonConverter<ShopStatDisplay>
+    public partial class ShopStatDisplayJsonConverter : JsonConverter<ShopStatDisplay>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ShopStatDisplayJsonConverter" /> class.
+        /// </summary>
+        public ShopStatDisplayJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ShopStatDisplay" />
         /// </summary>

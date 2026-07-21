@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ScriptValues" />
     /// </summary>
-    public class ScriptValuesJsonConverter : JsonConverter<ScriptValues>
+    public partial class ScriptValuesJsonConverter : JsonConverter<ScriptValues>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScriptValuesJsonConverter" /> class.
+        /// </summary>
+        public ScriptValuesJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ScriptValues" />
         /// </summary>

@@ -74,7 +74,6 @@ docs/HashMapItemSlotTypeVecMapModCostBonusValueInner.md
 docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/HashMapStringLevelInfoValue.md
 docs/HashMapStringOptionDraftBucketingValue.md
-docs/HashMapStringOptionDraftBucketingValueOneOf.md
 docs/HashMapStringScalingStatValue.md
 docs/HashMapValue.md
 docs/Hero.md
@@ -343,7 +342,6 @@ src/main/kotlin/deadlock_api_client/models/HashMapItemSlotTypeVecMapModCostBonus
 src/main/kotlin/deadlock_api_client/models/HashMapItemSlotTypeVecPurchaseBonusValueInner.kt
 src/main/kotlin/deadlock_api_client/models/HashMapStringLevelInfoValue.kt
 src/main/kotlin/deadlock_api_client/models/HashMapStringOptionDraftBucketingValue.kt
-src/main/kotlin/deadlock_api_client/models/HashMapStringOptionDraftBucketingValueOneOf.kt
 src/main/kotlin/deadlock_api_client/models/HashMapStringScalingStatValue.kt
 src/main/kotlin/deadlock_api_client/models/HashMapValue.kt
 src/main/kotlin/deadlock_api_client/models/Hero.kt
@@ -575,7 +573,6 @@ src/test/kotlin/deadlock_api_client/models/HashMapItemSlotTypeItemSlotInfoValueT
 src/test/kotlin/deadlock_api_client/models/HashMapItemSlotTypeVecMapModCostBonusValueInnerTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapItemSlotTypeVecPurchaseBonusValueInnerTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapStringLevelInfoValueTest.kt
-src/test/kotlin/deadlock_api_client/models/HashMapStringOptionDraftBucketingValueOneOfTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapStringOptionDraftBucketingValueTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapStringScalingStatValueTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapValueTest.kt

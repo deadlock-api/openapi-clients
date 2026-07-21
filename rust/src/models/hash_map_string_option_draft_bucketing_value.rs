@@ -11,15 +11,20 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum HashMapStringOptionDraftBucketingValue {
-    HashMapStringOptionDraftBucketingValueOneOf(Box<models::HashMapStringOptionDraftBucketingValueOneOf>),
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
+pub struct HashMapStringOptionDraftBucketingValue {
+    #[serde(rename = "bucket", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub bucket: Option<Option<String>>,
+    #[serde(rename = "weight", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub weight: Option<Option<f64>>,
 }
 
-impl Default for HashMapStringOptionDraftBucketingValue {
-    fn default() -> Self {
-        Self::HashMapStringOptionDraftBucketingValueOneOf(Default::default())
+impl HashMapStringOptionDraftBucketingValue {
+    pub fn new() -> HashMapStringOptionDraftBucketingValue {
+        HashMapStringOptionDraftBucketingValue {
+            bucket: None,
+            weight: None,
+        }
     }
 }
 

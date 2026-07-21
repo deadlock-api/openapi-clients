@@ -95,8 +95,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="ColumnSchema" />
     /// </summary>
-    public class ColumnSchemaJsonConverter : JsonConverter<ColumnSchema>
+    public partial class ColumnSchemaJsonConverter : JsonConverter<ColumnSchema>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColumnSchemaJsonConverter" /> class.
+        /// </summary>
+        public ColumnSchemaJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="ColumnSchema" />
         /// </summary>

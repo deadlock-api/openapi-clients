@@ -27,7 +27,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.HashMapStringOptionDraftBucketingValue
-import deadlock_api_client.models.HashMapStringOptionDraftBucketingValueOneOf
 
 class HashMapStringOptionDraftBucketingValueTest : ShouldSpec() {
     init {

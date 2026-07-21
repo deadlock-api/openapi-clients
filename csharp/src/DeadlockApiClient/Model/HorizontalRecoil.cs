@@ -99,8 +99,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="HorizontalRecoil" />
     /// </summary>
-    public class HorizontalRecoilJsonConverter : JsonConverter<HorizontalRecoil>
+    public partial class HorizontalRecoilJsonConverter : JsonConverter<HorizontalRecoil>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HorizontalRecoilJsonConverter" /> class.
+        /// </summary>
+        public HorizontalRecoilJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="HorizontalRecoil" />
         /// </summary>

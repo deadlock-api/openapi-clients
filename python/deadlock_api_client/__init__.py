@@ -118,7 +118,6 @@ __all__ = [
     "HashMapItemSlotTypeVecPurchaseBonusValueInner",
     "HashMapStringLevelInfoValue",
     "HashMapStringOptionDraftBucketingValue",
-    "HashMapStringOptionDraftBucketingValueOneOf",
     "HashMapStringScalingStatValue",
     "HashMapValue",
     "Hero",
@@ -367,7 +366,6 @@ from deadlock_api_client.models.hash_map_item_slot_type_vec_map_mod_cost_bonus_v
 from deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value_inner import HashMapItemSlotTypeVecPurchaseBonusValueInner as HashMapItemSlotTypeVecPurchaseBonusValueInner
 from deadlock_api_client.models.hash_map_string_level_info_value import HashMapStringLevelInfoValue as HashMapStringLevelInfoValue
 from deadlock_api_client.models.hash_map_string_option_draft_bucketing_value import HashMapStringOptionDraftBucketingValue as HashMapStringOptionDraftBucketingValue
-from deadlock_api_client.models.hash_map_string_option_draft_bucketing_value_one_of import HashMapStringOptionDraftBucketingValueOneOf as HashMapStringOptionDraftBucketingValueOneOf
 from deadlock_api_client.models.hash_map_string_scaling_stat_value import HashMapStringScalingStatValue as HashMapStringScalingStatValue
 from deadlock_api_client.models.hash_map_value import HashMapValue as HashMapValue
 from deadlock_api_client.models.hero import Hero as Hero

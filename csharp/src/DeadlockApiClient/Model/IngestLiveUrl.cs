@@ -129,8 +129,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="IngestLiveUrl" />
     /// </summary>
-    public class IngestLiveUrlJsonConverter : JsonConverter<IngestLiveUrl>
+    public partial class IngestLiveUrlJsonConverter : JsonConverter<IngestLiveUrl>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IngestLiveUrlJsonConverter" /> class.
+        /// </summary>
+        public IngestLiveUrlJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="IngestLiveUrl" />
         /// </summary>

@@ -396,8 +396,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="Ability" />
     /// </summary>
-    public class AbilityJsonConverter : JsonConverter<Ability>
+    public partial class AbilityJsonConverter : JsonConverter<Ability>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbilityJsonConverter" /> class.
+        /// </summary>
+        public AbilityJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="Ability" />
         /// </summary>
@@ -466,13 +476,10 @@ namespace DeadlockApiClient.Model
                             name = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                                type = new Option<ItemType?>(ItemTypeValueConverter.FromStringOrDefault(typeRawValue));
+                            type = new Option<ItemType?>(JsonSerializer.Deserialize<ItemType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "ability_type":
-                            string? abilityTypeRawValue = utf8JsonReader.GetString();
-                            abilityType = new Option<AbilityType?>(abilityTypeRawValue == null ? null : AbilityTypeValueConverter.FromStringOrDefault(abilityTypeRawValue));
+                            abilityType = new Option<AbilityType?>(JsonSerializer.Deserialize<AbilityType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "behaviours":
                             behaviours = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));

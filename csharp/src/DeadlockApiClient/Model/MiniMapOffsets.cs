@@ -101,8 +101,18 @@ namespace DeadlockApiClient.Model
     /// <summary>
     /// A Json converter for type <see cref="MiniMapOffsets" />
     /// </summary>
-    public class MiniMapOffsetsJsonConverter : JsonConverter<MiniMapOffsets>
+    public partial class MiniMapOffsetsJsonConverter : JsonConverter<MiniMapOffsets>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MiniMapOffsetsJsonConverter" /> class.
+        /// </summary>
+        public MiniMapOffsetsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="MiniMapOffsets" />
         /// </summary>
