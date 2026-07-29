@@ -169,7 +169,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | SSE stream of result rows. Each &#x60;message&#x60; event&#39;s &#x60;data&#x60; is one result row as a JSON object; a terminal &#x60;end&#x60; event marks the end of the broadcast, and an &#x60;error&#x60; event carries any mid-stream failure. |  -  |
+**200** | SSE stream of result rows. Each &#x60;message&#x60; event&#39;s &#x60;data&#x60; is one result row as a JSON object; a terminal &#x60;end&#x60; event marks the end of the broadcast, and an &#x60;error&#x60; event carries any mid-stream failure. While the broadcast relay is still spinning up (common right after spectating a fresh match), &#x60;status&#x60; events report retry progress instead of the stream going quiet. |  -  |
 **400** | Neither match_id nor broadcast_url given, or the query is invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Failed to start the live query |  -  |
