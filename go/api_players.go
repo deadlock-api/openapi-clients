@@ -1247,7 +1247,6 @@ type ApiRankPredictAvgImageRequest struct {
 	ApiService *PlayersAPIService
 	accountIds *[]int32
 	format *string
-	size *string
 }
 
 // Comma-separated list of account IDs (max 12).
@@ -1262,12 +1261,6 @@ func (r ApiRankPredictAvgImageRequest) Format(format string) ApiRankPredictAvgIm
 	return r
 }
 
-// Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
-func (r ApiRankPredictAvgImageRequest) Size(size string) ApiRankPredictAvgImageRequest {
-	r.size = &size
-	return r
-}
-
 func (r ApiRankPredictAvgImageRequest) Execute() ([]int32, *http.Response, error) {
 	return r.ApiService.RankPredictAvgImageExecute(r)
 }
@@ -1275,7 +1268,7 @@ func (r ApiRankPredictAvgImageRequest) Execute() ([]int32, *http.Response, error
 /*
 RankPredictAvgImage Rank Predict Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRankPredictAvgImageRequest
@@ -1324,9 +1317,6 @@ func (a *PlayersAPIService) RankPredictAvgImageExecute(r ApiRankPredictAvgImageR
 	}
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
-	}
-	if r.size != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "size", r.size, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1387,18 +1377,11 @@ type ApiRankPredictImageRequest struct {
 	ApiService *PlayersAPIService
 	accountId int32
 	format *string
-	size *string
 }
 
 // Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
 func (r ApiRankPredictImageRequest) Format(format string) ApiRankPredictImageRequest {
 	r.format = &format
-	return r
-}
-
-// Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;.
-func (r ApiRankPredictImageRequest) Size(size string) ApiRankPredictImageRequest {
-	r.size = &size
 	return r
 }
 
@@ -1409,7 +1392,7 @@ func (r ApiRankPredictImageRequest) Execute() ([]int32, *http.Response, error) {
 /*
 RankPredictImage Rank Predict Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
@@ -1450,9 +1433,6 @@ func (a *PlayersAPIService) RankPredictImageExecute(r ApiRankPredictImageRequest
 
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
-	}
-	if r.size != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "size", r.size, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Chalk** | Pointer to **NullableString** |  | [optional] 
+**ChalkWebp** | Pointer to **NullableString** |  | [optional] 
 **Large** | Pointer to **NullableString** |  | [optional] 
 **LargeSubrank1** | Pointer to **NullableString** |  | [optional] 
 **LargeSubrank1Webp** | Pointer to **NullableString** |  | [optional] 
@@ -52,6 +54,76 @@ NewRankImagesWithDefaults instantiates a new RankImages object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetChalk
+
+`func (o *RankImages) GetChalk() string`
+
+GetChalk returns the Chalk field if non-nil, zero value otherwise.
+
+### GetChalkOk
+
+`func (o *RankImages) GetChalkOk() (*string, bool)`
+
+GetChalkOk returns a tuple with the Chalk field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChalk
+
+`func (o *RankImages) SetChalk(v string)`
+
+SetChalk sets Chalk field to given value.
+
+### HasChalk
+
+`func (o *RankImages) HasChalk() bool`
+
+HasChalk returns a boolean if a field has been set.
+
+### SetChalkNil
+
+`func (o *RankImages) SetChalkNil(b bool)`
+
+ SetChalkNil sets the value for Chalk to be an explicit nil
+
+### UnsetChalk
+`func (o *RankImages) UnsetChalk()`
+
+UnsetChalk ensures that no value is present for Chalk, not even an explicit nil
+### GetChalkWebp
+
+`func (o *RankImages) GetChalkWebp() string`
+
+GetChalkWebp returns the ChalkWebp field if non-nil, zero value otherwise.
+
+### GetChalkWebpOk
+
+`func (o *RankImages) GetChalkWebpOk() (*string, bool)`
+
+GetChalkWebpOk returns a tuple with the ChalkWebp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChalkWebp
+
+`func (o *RankImages) SetChalkWebp(v string)`
+
+SetChalkWebp sets ChalkWebp field to given value.
+
+### HasChalkWebp
+
+`func (o *RankImages) HasChalkWebp() bool`
+
+HasChalkWebp returns a boolean if a field has been set.
+
+### SetChalkWebpNil
+
+`func (o *RankImages) SetChalkWebpNil(b bool)`
+
+ SetChalkWebpNil sets the value for ChalkWebp to be an explicit nil
+
+### UnsetChalkWebp
+`func (o *RankImages) UnsetChalkWebp()`
+
+UnsetChalkWebp ensures that no value is present for ChalkWebp, not even an explicit nil
 ### GetLarge
 
 `func (o *RankImages) GetLarge() string`

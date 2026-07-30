@@ -101,13 +101,11 @@ export interface RankPredictRequest {
 export interface RankPredictAvgImageRequest {
     accountIds: Array<number>;
     format?: RankPredictAvgImageFormatEnum;
-    size?: RankPredictAvgImageSizeEnum;
 }
 
 export interface RankPredictImageRequest {
     accountId: number;
     format?: RankPredictImageFormatEnum;
-    size?: RankPredictImageSizeEnum;
 }
 
 
@@ -617,7 +615,7 @@ export function rankPredict<T>(requestParameters: RankPredictRequest, requestCon
 }
 
 /**
- * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+ * Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
  * Rank Predict Avg Image
  */
 function rankPredictAvgImageRaw<T>(requestParameters: RankPredictAvgImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -637,11 +635,6 @@ function rankPredictAvgImageRaw<T>(requestParameters: RankPredictAvgImageRequest
 
     if (requestParameters.format !== undefined) {
         queryParameters['format'] = requestParameters.format;
-    }
-
-
-    if (requestParameters.size !== undefined) {
-        queryParameters['size'] = requestParameters.size;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -672,7 +665,7 @@ function rankPredictAvgImageRaw<T>(requestParameters: RankPredictAvgImageRequest
 }
 
 /**
-* Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+* Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
 * Rank Predict Avg Image
 */
 export function rankPredictAvgImage<T>(requestParameters: RankPredictAvgImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -680,7 +673,7 @@ export function rankPredictAvgImage<T>(requestParameters: RankPredictAvgImageReq
 }
 
 /**
- * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+ * Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
  * Rank Predict Image
  */
 function rankPredictImageRaw<T>(requestParameters: RankPredictImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -695,11 +688,6 @@ function rankPredictImageRaw<T>(requestParameters: RankPredictImageRequest, requ
 
     if (requestParameters.format !== undefined) {
         queryParameters['format'] = requestParameters.format;
-    }
-
-
-    if (requestParameters.size !== undefined) {
-        queryParameters['size'] = requestParameters.size;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -730,7 +718,7 @@ function rankPredictImageRaw<T>(requestParameters: RankPredictImageRequest, requ
 }
 
 /**
-* Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+* Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
 * Rank Predict Image
 */
 export function rankPredictImage<T>(requestParameters: RankPredictImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -780,23 +768,7 @@ export enum RankPredictAvgImageFormatEnum {
     * @export
     * @enum {string}
     */
-export enum RankPredictAvgImageSizeEnum {
-    Large = 'large',
-    Small = 'small'
-}
-/**
-    * @export
-    * @enum {string}
-    */
 export enum RankPredictImageFormatEnum {
     Png = 'png',
     Webp = 'webp'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum RankPredictImageSizeEnum {
-    Large = 'large',
-    Small = 'small'
 }

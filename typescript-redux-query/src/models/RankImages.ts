@@ -23,6 +23,18 @@ export interface RankImages  {
      * @type {string}
      * @memberof RankImages
      */
+    chalk?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    chalkWebp?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
     large?: string;
     /**
      * 
@@ -190,6 +202,8 @@ export interface RankImages  {
 
 export function RankImagesFromJSON(json: any): RankImages {
     return {
+        'chalk': !exists(json, 'chalk') ? undefined : json['chalk'],
+        'chalkWebp': !exists(json, 'chalk_webp') ? undefined : json['chalk_webp'],
         'large': !exists(json, 'large') ? undefined : json['large'],
         'largeSubrank1': !exists(json, 'large_subrank1') ? undefined : json['large_subrank1'],
         'largeSubrank1Webp': !exists(json, 'large_subrank1_webp') ? undefined : json['large_subrank1_webp'],
@@ -226,6 +240,8 @@ export function RankImagesToJSON(value?: RankImages): any {
         return undefined;
     }
     return {
+        'chalk': value.chalk,
+        'chalk_webp': value.chalkWebp,
         'large': value.large,
         'large_subrank1': value.largeSubrank1,
         'large_subrank1_webp': value.largeSubrank1Webp,

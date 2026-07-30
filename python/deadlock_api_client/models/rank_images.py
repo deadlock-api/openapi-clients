@@ -27,6 +27,8 @@ class RankImages(BaseModel):
     """
     Image URLs for a single rank tier. Field declaration order is load-bearing: it sets the JSON key order, which is stable across versions of this API.
     """ # noqa: E501
+    chalk: Optional[StrictStr] = None
+    chalk_webp: Optional[StrictStr] = None
     large: Optional[StrictStr] = None
     large_subrank1: Optional[StrictStr] = None
     large_subrank1_webp: Optional[StrictStr] = None
@@ -55,7 +57,7 @@ class RankImages(BaseModel):
     small_subrank6: Optional[StrictStr] = None
     small_subrank6_webp: Optional[StrictStr] = None
     small_webp: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["large", "large_subrank1", "large_subrank1_webp", "large_subrank2", "large_subrank2_webp", "large_subrank3", "large_subrank3_webp", "large_subrank4", "large_subrank4_webp", "large_subrank5", "large_subrank5_webp", "large_subrank6", "large_subrank6_webp", "large_webp", "small", "small_subrank1", "small_subrank1_webp", "small_subrank2", "small_subrank2_webp", "small_subrank3", "small_subrank3_webp", "small_subrank4", "small_subrank4_webp", "small_subrank5", "small_subrank5_webp", "small_subrank6", "small_subrank6_webp", "small_webp"]
+    __properties: ClassVar[List[str]] = ["chalk", "chalk_webp", "large", "large_subrank1", "large_subrank1_webp", "large_subrank2", "large_subrank2_webp", "large_subrank3", "large_subrank3_webp", "large_subrank4", "large_subrank4_webp", "large_subrank5", "large_subrank5_webp", "large_subrank6", "large_subrank6_webp", "large_webp", "small", "small_subrank1", "small_subrank1_webp", "small_subrank2", "small_subrank2_webp", "small_subrank3", "small_subrank3_webp", "small_subrank4", "small_subrank4_webp", "small_subrank5", "small_subrank5_webp", "small_subrank6", "small_subrank6_webp", "small_webp"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -96,6 +98,16 @@ class RankImages(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if chalk (nullable) is None
+        # and model_fields_set contains the field
+        if self.chalk is None and "chalk" in self.model_fields_set:
+            _dict['chalk'] = None
+
+        # set to None if chalk_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.chalk_webp is None and "chalk_webp" in self.model_fields_set:
+            _dict['chalk_webp'] = None
+
         # set to None if large (nullable) is None
         # and model_fields_set contains the field
         if self.large is None and "large" in self.model_fields_set:
@@ -248,6 +260,8 @@ class RankImages(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "chalk": obj.get("chalk"),
+            "chalk_webp": obj.get("chalk_webp"),
             "large": obj.get("large"),
             "large_subrank1": obj.get("large_subrank1"),
             "large_subrank1_webp": obj.get("large_subrank1_webp"),

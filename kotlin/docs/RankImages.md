@@ -4,6 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **chalk** | **kotlin.String** |  |  [optional] |
+| **chalkWebp** | **kotlin.String** |  |  [optional] |
 | **large** | **kotlin.String** |  |  [optional] |
 | **largeSubrank1** | **kotlin.String** |  |  [optional] |
 | **largeSubrank1Webp** | **kotlin.String** |  |  [optional] |

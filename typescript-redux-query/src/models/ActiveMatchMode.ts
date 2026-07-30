@@ -25,7 +25,7 @@ export enum ActiveMatchMode {
     ServerTest = 'ServerTest',
     Tutorial = 'Tutorial',
     HeroLabs = 'HeroLabs',
-    Calibration = 'Calibration'
+    NewPlayerPlacement = 'NewPlayerPlacement'
 }
 
 export function ActiveMatchModeFromJSON(json: any): ActiveMatchMode {

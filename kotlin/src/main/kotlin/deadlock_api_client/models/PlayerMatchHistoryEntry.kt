@@ -47,12 +47,17 @@ import java.io.Serializable
  * @param playerAssists 
  * @param playerDeaths 
  * @param playerKills 
+ * @param playerMatchOutcome How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
  * @param playerTeam 
  * @param startTime 
  * @param abandonedTimeS 
  * @param brawlAvgRoundTimeS 
  * @param brawlScoreTeam0 
  * @param brawlScoreTeam1 
+ * @param rankedCalibrationMatch Non-zero if this match counted towards the player's ranked calibration.
+ * @param rankedDelta The ranked progress change the player got from this match.
+ * @param rankedDisplayBadge The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rankedUsedDemotionProtection Whether the player's demotion protection absorbed a loss in this match.
  * @param teamAbandoned 
  */
 
@@ -108,6 +113,10 @@ data class PlayerMatchHistoryEntry (
     @Json(name = "player_kills")
     val playerKills: kotlin.Int,
 
+    /* How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored. */
+    @Json(name = "player_match_outcome")
+    val playerMatchOutcome: kotlin.Int,
+
     @Json(name = "player_team")
     val playerTeam: kotlin.Int,
 
@@ -125,6 +134,22 @@ data class PlayerMatchHistoryEntry (
 
     @Json(name = "brawl_score_team1")
     val brawlScoreTeam1: kotlin.Int? = null,
+
+    /* Non-zero if this match counted towards the player's ranked calibration. */
+    @Json(name = "ranked_calibration_match")
+    val rankedCalibrationMatch: kotlin.Int? = null,
+
+    /* The ranked progress change the player got from this match. */
+    @Json(name = "ranked_delta")
+    val rankedDelta: kotlin.Int? = null,
+
+    /* The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> */
+    @Json(name = "ranked_display_badge")
+    val rankedDisplayBadge: kotlin.Int? = null,
+
+    /* Whether the player's demotion protection absorbed a loss in this match. */
+    @Json(name = "ranked_used_demotion_protection")
+    val rankedUsedDemotionProtection: kotlin.Boolean? = null,
 
     @Json(name = "team_abandoned")
     val teamAbandoned: kotlin.Boolean? = null

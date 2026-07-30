@@ -30,8 +30,8 @@ pub enum ActiveMatchMode {
     Tutorial,
     #[serde(rename = "HeroLabs")]
     HeroLabs,
-    #[serde(rename = "Calibration")]
-    Calibration,
+    #[serde(rename = "NewPlayerPlacement")]
+    NewPlayerPlacement,
 
 }
 
@@ -46,7 +46,7 @@ impl std::fmt::Display for ActiveMatchMode {
             Self::ServerTest => write!(f, "ServerTest"),
             Self::Tutorial => write!(f, "Tutorial"),
             Self::HeroLabs => write!(f, "HeroLabs"),
-            Self::Calibration => write!(f, "Calibration"),
+            Self::NewPlayerPlacement => write!(f, "NewPlayerPlacement"),
         }
     }
 }

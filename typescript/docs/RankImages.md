@@ -6,6 +6,8 @@ Image URLs for a single rank tier. Field declaration order is load-bearing: it s
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**chalk** | **string** |  | [optional] [default to undefined]
+**chalk_webp** | **string** |  | [optional] [default to undefined]
 **large** | **string** |  | [optional] [default to undefined]
 **large_subrank1** | **string** |  | [optional] [default to undefined]
 **large_subrank1_webp** | **string** |  | [optional] [default to undefined]
@@ -41,6 +43,8 @@ Name | Type | Description | Notes
 import { RankImages } from 'deadlock_api_client';
 
 const instance: RankImages = {
+    chalk,
+    chalk_webp,
     large,
     large_subrank1,
     large_subrank1_webp,

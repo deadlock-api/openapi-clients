@@ -72,6 +72,6 @@ export declare class GenericDataApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGenericData(requestParameters?: GenericDataApiGetGenericDataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GenericData, any, {}>>;
+    getGenericData(requestParameters?: GenericDataApiGetGenericDataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GenericData, any, {}, any>>;
 }
 //# sourceMappingURL=generic-data-api.d.ts.map

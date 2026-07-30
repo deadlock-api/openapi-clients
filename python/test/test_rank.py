@@ -37,6 +37,8 @@ class TestRank(unittest.TestCase):
             return Rank(
                 color = '',
                 images = deadlock_api_client.models.rank_images.RankImages(
+                    chalk = '', 
+                    chalk_webp = '', 
                     large = '', 
                     large_subrank1 = '', 
                     large_subrank1_webp = '', 
@@ -72,6 +74,8 @@ class TestRank(unittest.TestCase):
             return Rank(
                 color = '',
                 images = deadlock_api_client.models.rank_images.RankImages(
+                    chalk = '', 
+                    chalk_webp = '', 
                     large = '', 
                     large_subrank1 = '', 
                     large_subrank1_webp = '', 

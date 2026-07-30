@@ -33,6 +33,18 @@ class RankImagesTest : ShouldSpec() {
         // uncomment below to create an instance of RankImages
         //val modelInstance = RankImages()
 
+        // to test the property `chalk`
+        should("test chalk") {
+            // uncomment below to test the property
+            //modelInstance.chalk shouldBe ("TODO")
+        }
+
+        // to test the property `chalkWebp`
+        should("test chalkWebp") {
+            // uncomment below to test the property
+            //modelInstance.chalkWebp shouldBe ("TODO")
+        }
+
         // to test the property `large`
         should("test large") {
             // uncomment below to test the property

@@ -54,8 +54,23 @@ pub struct PlayerMatchHistoryEntry {
     pub player_deaths: u32,
     #[serde(rename = "player_kills")]
     pub player_kills: u32,
+    /// How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
+    #[serde(rename = "player_match_outcome")]
+    pub player_match_outcome: i32,
     #[serde(rename = "player_team")]
     pub player_team: i32,
+    /// Non-zero if this match counted towards the player's ranked calibration.
+    #[serde(rename = "ranked_calibration_match", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ranked_calibration_match: Option<Option<u32>>,
+    /// The ranked progress change the player got from this match.
+    #[serde(rename = "ranked_delta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ranked_delta: Option<Option<i32>>,
+    /// The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    #[serde(rename = "ranked_display_badge", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ranked_display_badge: Option<Option<u32>>,
+    /// Whether the player's demotion protection absorbed a loss in this match.
+    #[serde(rename = "ranked_used_demotion_protection", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ranked_used_demotion_protection: Option<Option<bool>>,
     #[serde(rename = "start_time")]
     pub start_time: u32,
     #[serde(rename = "team_abandoned", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -63,7 +78,7 @@ pub struct PlayerMatchHistoryEntry {
 }
 
 impl PlayerMatchHistoryEntry {
-    pub fn new(account_id: u32, denies: u32, game_mode: i32, hero_id: u32, hero_level: u32, last_hits: u32, match_duration_s: u32, match_id: u64, match_mode: i32, match_result: u32, net_worth: u32, objectives_mask_team0: u32, objectives_mask_team1: u32, player_assists: u32, player_deaths: u32, player_kills: u32, player_team: i32, start_time: u32) -> PlayerMatchHistoryEntry {
+    pub fn new(account_id: u32, denies: u32, game_mode: i32, hero_id: u32, hero_level: u32, last_hits: u32, match_duration_s: u32, match_id: u64, match_mode: i32, match_result: u32, net_worth: u32, objectives_mask_team0: u32, objectives_mask_team1: u32, player_assists: u32, player_deaths: u32, player_kills: u32, player_match_outcome: i32, player_team: i32, start_time: u32) -> PlayerMatchHistoryEntry {
         PlayerMatchHistoryEntry {
             abandoned_time_s: None,
             account_id,
@@ -85,7 +100,12 @@ impl PlayerMatchHistoryEntry {
             player_assists,
             player_deaths,
             player_kills,
+            player_match_outcome,
             player_team,
+            ranked_calibration_match: None,
+            ranked_delta: None,
+            ranked_display_badge: None,
+            ranked_used_demotion_protection: None,
             start_time,
             team_abandoned: None,
         }

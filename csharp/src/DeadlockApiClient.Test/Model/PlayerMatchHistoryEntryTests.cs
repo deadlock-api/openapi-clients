@@ -198,6 +198,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'PlayerMatchOutcome'
+        /// </summary>
+        [Fact]
+        public void PlayerMatchOutcomeTest()
+        {
+            // TODO unit test for the property 'PlayerMatchOutcome'
+        }
+
+        /// <summary>
         /// Test the property 'PlayerTeam'
         /// </summary>
         [Fact]
@@ -249,6 +258,42 @@ namespace DeadlockApiClient.Test.Model
         public void BrawlScoreTeam1Test()
         {
             // TODO unit test for the property 'BrawlScoreTeam1'
+        }
+
+        /// <summary>
+        /// Test the property 'RankedCalibrationMatch'
+        /// </summary>
+        [Fact]
+        public void RankedCalibrationMatchTest()
+        {
+            // TODO unit test for the property 'RankedCalibrationMatch'
+        }
+
+        /// <summary>
+        /// Test the property 'RankedDelta'
+        /// </summary>
+        [Fact]
+        public void RankedDeltaTest()
+        {
+            // TODO unit test for the property 'RankedDelta'
+        }
+
+        /// <summary>
+        /// Test the property 'RankedDisplayBadge'
+        /// </summary>
+        [Fact]
+        public void RankedDisplayBadgeTest()
+        {
+            // TODO unit test for the property 'RankedDisplayBadge'
+        }
+
+        /// <summary>
+        /// Test the property 'RankedUsedDemotionProtection'
+        /// </summary>
+        [Fact]
+        public void RankedUsedDemotionProtectionTest()
+        {
+            // TODO unit test for the property 'RankedUsedDemotionProtection'
         }
 
         /// <summary>

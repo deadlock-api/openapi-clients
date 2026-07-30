@@ -34,21 +34,15 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="LeaderboardEntry" /> class.
         /// </summary>
         /// <param name="accountName">The account name of the player.</param>
-        /// <param name="badgeLevel">The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="possibleAccountIds">The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</param>
         /// <param name="rank">The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
-        /// <param name="rankedRank">The ranked rank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
-        /// <param name="rankedSubrank">The ranked subrank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="topHeroIds">The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         [JsonConstructor]
-        public LeaderboardEntry(Option<string?> accountName = default, Option<int?> badgeLevel = default, Option<List<int>?> possibleAccountIds = default, Option<int?> rank = default, Option<int?> rankedRank = default, Option<int?> rankedSubrank = default, Option<List<int>?> topHeroIds = default)
+        public LeaderboardEntry(Option<string?> accountName = default, Option<List<int>?> possibleAccountIds = default, Option<int?> rank = default, Option<List<int>?> topHeroIds = default)
         {
             AccountNameOption = accountName;
-            BadgeLevelOption = badgeLevel;
             PossibleAccountIdsOption = possibleAccountIds;
             RankOption = rank;
-            RankedRankOption = rankedRank;
-            RankedSubrankOption = rankedSubrank;
             TopHeroIdsOption = topHeroIds;
             OnCreated();
         }
@@ -68,20 +62,6 @@ namespace DeadlockApiClient.Model
         /// <value>The account name of the player.</value>
         [JsonPropertyName("account_name")]
         public string? AccountName { get { return this.AccountNameOption.Value; } set { this.AccountNameOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of BadgeLevel
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BadgeLevelOption { get; private set; }
-
-        /// <summary>
-        /// The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
-        /// </summary>
-        /// <value>The badge level of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
-        [JsonPropertyName("badge_level")]
-        public int? BadgeLevel { get { return this.BadgeLevelOption.Value; } set { this.BadgeLevelOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PossibleAccountIds
@@ -112,34 +92,6 @@ namespace DeadlockApiClient.Model
         public int? Rank { get { return this.RankOption.Value; } set { this.RankOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of RankedRank
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RankedRankOption { get; private set; }
-
-        /// <summary>
-        /// The ranked rank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
-        /// </summary>
-        /// <value>The ranked rank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
-        [JsonPropertyName("ranked_rank")]
-        public int? RankedRank { get { return this.RankedRankOption.Value; } set { this.RankedRankOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of RankedSubrank
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RankedSubrankOption { get; private set; }
-
-        /// <summary>
-        /// The ranked subrank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
-        /// </summary>
-        /// <value>The ranked subrank of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
-        [JsonPropertyName("ranked_subrank")]
-        public int? RankedSubrank { get { return this.RankedSubrankOption.Value; } set { this.RankedSubrankOption = new(value); } }
-
-        /// <summary>
         /// Used to track the state of TopHeroIds
         /// </summary>
         [JsonIgnore]
@@ -162,11 +114,8 @@ namespace DeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class LeaderboardEntry {\n");
             sb.Append("  AccountName: ").Append(AccountName).Append("\n");
-            sb.Append("  BadgeLevel: ").Append(BadgeLevel).Append("\n");
             sb.Append("  PossibleAccountIds: ").Append(PossibleAccountIds).Append("\n");
             sb.Append("  Rank: ").Append(Rank).Append("\n");
-            sb.Append("  RankedRank: ").Append(RankedRank).Append("\n");
-            sb.Append("  RankedSubrank: ").Append(RankedSubrank).Append("\n");
             sb.Append("  TopHeroIds: ").Append(TopHeroIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -179,28 +128,10 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // BadgeLevel (int) minimum
-            if (this.BadgeLevelOption.IsSet && this.BadgeLevelOption.Value < (int)0)
-            {
-                yield return new ValidationResult("Invalid value for BadgeLevel, must be a value greater than or equal to 0.", new [] { "BadgeLevel" });
-            }
-
             // Rank (int) minimum
             if (this.RankOption.IsSet && this.RankOption.Value < (int)0)
             {
                 yield return new ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
-            }
-
-            // RankedRank (int) minimum
-            if (this.RankedRankOption.IsSet && this.RankedRankOption.Value < (int)0)
-            {
-                yield return new ValidationResult("Invalid value for RankedRank, must be a value greater than or equal to 0.", new [] { "RankedRank" });
-            }
-
-            // RankedSubrank (int) minimum
-            if (this.RankedSubrankOption.IsSet && this.RankedSubrankOption.Value < (int)0)
-            {
-                yield return new ValidationResult("Invalid value for RankedSubrank, must be a value greater than or equal to 0.", new [] { "RankedSubrank" });
             }
 
             yield break;
@@ -240,11 +171,8 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<string?> accountName = default;
-            Option<int?> badgeLevel = default;
             Option<List<int>?> possibleAccountIds = default;
             Option<int?> rank = default;
-            Option<int?> rankedRank = default;
-            Option<int?> rankedSubrank = default;
             Option<List<int>?> topHeroIds = default;
 
             while (utf8JsonReader.Read())
@@ -265,20 +193,11 @@ namespace DeadlockApiClient.Model
                         case "account_name":
                             accountName = new Option<string?>(utf8JsonReader.GetString());
                             break;
-                        case "badge_level":
-                            badgeLevel = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
-                            break;
                         case "possible_account_ids":
                             possibleAccountIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "rank":
                             rank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
-                            break;
-                        case "ranked_rank":
-                            rankedRank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
-                            break;
-                        case "ranked_subrank":
-                            rankedSubrank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "top_hero_ids":
                             topHeroIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -295,7 +214,7 @@ namespace DeadlockApiClient.Model
             if (topHeroIds.IsSet && topHeroIds.Value == null)
                 throw new ArgumentNullException(nameof(topHeroIds), "Property is not nullable for class LeaderboardEntry.");
 
-            return new LeaderboardEntry(accountName, badgeLevel, possibleAccountIds, rank, rankedRank, rankedSubrank, topHeroIds);
+            return new LeaderboardEntry(accountName, possibleAccountIds, rank, topHeroIds);
         }
 
         /// <summary>
@@ -334,12 +253,6 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("account_name");
 
-            if (leaderboardEntry.BadgeLevelOption.IsSet)
-                if (leaderboardEntry.BadgeLevelOption.Value != null)
-                    writer.WriteNumber("badge_level", leaderboardEntry.BadgeLevelOption.Value!.Value);
-                else
-                    writer.WriteNull("badge_level");
-
             if (leaderboardEntry.PossibleAccountIdsOption.IsSet)
             {
                 writer.WritePropertyName("possible_account_ids");
@@ -350,18 +263,6 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("rank", leaderboardEntry.RankOption.Value!.Value);
                 else
                     writer.WriteNull("rank");
-
-            if (leaderboardEntry.RankedRankOption.IsSet)
-                if (leaderboardEntry.RankedRankOption.Value != null)
-                    writer.WriteNumber("ranked_rank", leaderboardEntry.RankedRankOption.Value!.Value);
-                else
-                    writer.WriteNull("ranked_rank");
-
-            if (leaderboardEntry.RankedSubrankOption.IsSet)
-                if (leaderboardEntry.RankedSubrankOption.Value != null)
-                    writer.WriteNumber("ranked_subrank", leaderboardEntry.RankedSubrankOption.Value!.Value);
-                else
-                    writer.WriteNull("ranked_subrank");
 
             if (leaderboardEntry.TopHeroIdsOption.IsSet)
             {

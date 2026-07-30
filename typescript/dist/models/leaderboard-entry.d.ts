@@ -15,10 +15,6 @@ export interface LeaderboardEntry {
      */
     'account_name'?: string | null;
     /**
-     * The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     */
-    'badge_level'?: number | null;
-    /**
      * The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
      */
     'possible_account_ids'?: Array<number>;
@@ -26,14 +22,6 @@ export interface LeaderboardEntry {
      * The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'rank'?: number | null;
-    /**
-     * The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     */
-    'ranked_rank'?: number | null;
-    /**
-     * The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     */
-    'ranked_subrank'?: number | null;
     /**
      * The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */

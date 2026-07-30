@@ -54,6 +54,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Chalk'
+        /// </summary>
+        [Fact]
+        public void ChalkTest()
+        {
+            // TODO unit test for the property 'Chalk'
+        }
+
+        /// <summary>
+        /// Test the property 'ChalkWebp'
+        /// </summary>
+        [Fact]
+        public void ChalkWebpTest()
+        {
+            // TODO unit test for the property 'ChalkWebp'
+        }
+
+        /// <summary>
         /// Test the property 'Large'
         /// </summary>
         [Fact]

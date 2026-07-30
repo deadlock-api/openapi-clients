@@ -77,7 +77,12 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_assists' => 'int',
         'player_deaths' => 'int',
         'player_kills' => 'int',
+        'player_match_outcome' => 'int',
         'player_team' => 'int',
+        'ranked_calibration_match' => 'int',
+        'ranked_delta' => 'int',
+        'ranked_display_badge' => 'int',
+        'ranked_used_demotion_protection' => 'bool',
         'start_time' => 'int',
         'team_abandoned' => 'bool'
     ];
@@ -110,7 +115,12 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_assists' => 'int32',
         'player_deaths' => 'int32',
         'player_kills' => 'int32',
+        'player_match_outcome' => 'int32',
         'player_team' => 'int32',
+        'ranked_calibration_match' => 'int32',
+        'ranked_delta' => 'int32',
+        'ranked_display_badge' => 'int32',
+        'ranked_used_demotion_protection' => null,
         'start_time' => 'int32',
         'team_abandoned' => null
     ];
@@ -141,7 +151,12 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_assists' => false,
         'player_deaths' => false,
         'player_kills' => false,
+        'player_match_outcome' => false,
         'player_team' => false,
+        'ranked_calibration_match' => true,
+        'ranked_delta' => true,
+        'ranked_display_badge' => true,
+        'ranked_used_demotion_protection' => true,
         'start_time' => false,
         'team_abandoned' => true
     ];
@@ -252,7 +267,12 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_assists' => 'player_assists',
         'player_deaths' => 'player_deaths',
         'player_kills' => 'player_kills',
+        'player_match_outcome' => 'player_match_outcome',
         'player_team' => 'player_team',
+        'ranked_calibration_match' => 'ranked_calibration_match',
+        'ranked_delta' => 'ranked_delta',
+        'ranked_display_badge' => 'ranked_display_badge',
+        'ranked_used_demotion_protection' => 'ranked_used_demotion_protection',
         'start_time' => 'start_time',
         'team_abandoned' => 'team_abandoned'
     ];
@@ -283,7 +303,12 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_assists' => 'setPlayerAssists',
         'player_deaths' => 'setPlayerDeaths',
         'player_kills' => 'setPlayerKills',
+        'player_match_outcome' => 'setPlayerMatchOutcome',
         'player_team' => 'setPlayerTeam',
+        'ranked_calibration_match' => 'setRankedCalibrationMatch',
+        'ranked_delta' => 'setRankedDelta',
+        'ranked_display_badge' => 'setRankedDisplayBadge',
+        'ranked_used_demotion_protection' => 'setRankedUsedDemotionProtection',
         'start_time' => 'setStartTime',
         'team_abandoned' => 'setTeamAbandoned'
     ];
@@ -314,7 +339,12 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'player_assists' => 'getPlayerAssists',
         'player_deaths' => 'getPlayerDeaths',
         'player_kills' => 'getPlayerKills',
+        'player_match_outcome' => 'getPlayerMatchOutcome',
         'player_team' => 'getPlayerTeam',
+        'ranked_calibration_match' => 'getRankedCalibrationMatch',
+        'ranked_delta' => 'getRankedDelta',
+        'ranked_display_badge' => 'getRankedDisplayBadge',
+        'ranked_used_demotion_protection' => 'getRankedUsedDemotionProtection',
         'start_time' => 'getStartTime',
         'team_abandoned' => 'getTeamAbandoned'
     ];
@@ -396,7 +426,12 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('player_assists', $data ?? [], null);
         $this->setIfExists('player_deaths', $data ?? [], null);
         $this->setIfExists('player_kills', $data ?? [], null);
+        $this->setIfExists('player_match_outcome', $data ?? [], null);
         $this->setIfExists('player_team', $data ?? [], null);
+        $this->setIfExists('ranked_calibration_match', $data ?? [], null);
+        $this->setIfExists('ranked_delta', $data ?? [], null);
+        $this->setIfExists('ranked_display_badge', $data ?? [], null);
+        $this->setIfExists('ranked_used_demotion_protection', $data ?? [], null);
         $this->setIfExists('start_time', $data ?? [], null);
         $this->setIfExists('team_abandoned', $data ?? [], null);
     }
@@ -548,9 +583,20 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
             $invalidProperties[] = "invalid value for 'player_kills', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['player_match_outcome'] === null) {
+            $invalidProperties[] = "'player_match_outcome' can't be null";
+        }
         if ($this->container['player_team'] === null) {
             $invalidProperties[] = "'player_team' can't be null";
         }
+        if (!is_null($this->container['ranked_calibration_match']) && ($this->container['ranked_calibration_match'] < 0)) {
+            $invalidProperties[] = "invalid value for 'ranked_calibration_match', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['ranked_display_badge']) && ($this->container['ranked_display_badge'] < 0)) {
+            $invalidProperties[] = "invalid value for 'ranked_display_badge', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['start_time'] === null) {
             $invalidProperties[] = "'start_time' can't be null";
         }
@@ -1214,6 +1260,33 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+     * Gets player_match_outcome
+     *
+     * @return int
+     */
+    public function getPlayerMatchOutcome()
+    {
+        return $this->container['player_match_outcome'];
+    }
+
+    /**
+     * Sets player_match_outcome
+     *
+     * @param int $player_match_outcome How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
+     *
+     * @return self
+     */
+    public function setPlayerMatchOutcome($player_match_outcome)
+    {
+        if (is_null($player_match_outcome)) {
+            throw new \InvalidArgumentException('non-nullable player_match_outcome cannot be null');
+        }
+        $this->container['player_match_outcome'] = $player_match_outcome;
+
+        return $this;
+    }
+
+    /**
      * Gets player_team
      *
      * @return int
@@ -1236,6 +1309,150 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable player_team cannot be null');
         }
         $this->container['player_team'] = $player_team;
+
+        return $this;
+    }
+
+    /**
+     * Gets ranked_calibration_match
+     *
+     * @return int|null
+     */
+    public function getRankedCalibrationMatch()
+    {
+        return $this->container['ranked_calibration_match'];
+    }
+
+    /**
+     * Sets ranked_calibration_match
+     *
+     * @param int|null $ranked_calibration_match Non-zero if this match counted towards the player's ranked calibration.
+     *
+     * @return self
+     */
+    public function setRankedCalibrationMatch($ranked_calibration_match)
+    {
+        if (is_null($ranked_calibration_match)) {
+            array_push($this->openAPINullablesSetToNull, 'ranked_calibration_match');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ranked_calibration_match', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($ranked_calibration_match) && ($ranked_calibration_match < 0)) {
+            throw new \InvalidArgumentException('invalid value for $ranked_calibration_match when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['ranked_calibration_match'] = $ranked_calibration_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets ranked_delta
+     *
+     * @return int|null
+     */
+    public function getRankedDelta()
+    {
+        return $this->container['ranked_delta'];
+    }
+
+    /**
+     * Sets ranked_delta
+     *
+     * @param int|null $ranked_delta The ranked progress change the player got from this match.
+     *
+     * @return self
+     */
+    public function setRankedDelta($ranked_delta)
+    {
+        if (is_null($ranked_delta)) {
+            array_push($this->openAPINullablesSetToNull, 'ranked_delta');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ranked_delta', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ranked_delta'] = $ranked_delta;
+
+        return $this;
+    }
+
+    /**
+     * Gets ranked_display_badge
+     *
+     * @return int|null
+     */
+    public function getRankedDisplayBadge()
+    {
+        return $this->container['ranked_display_badge'];
+    }
+
+    /**
+     * Sets ranked_display_badge
+     *
+     * @param int|null $ranked_display_badge The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     *
+     * @return self
+     */
+    public function setRankedDisplayBadge($ranked_display_badge)
+    {
+        if (is_null($ranked_display_badge)) {
+            array_push($this->openAPINullablesSetToNull, 'ranked_display_badge');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ranked_display_badge', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($ranked_display_badge) && ($ranked_display_badge < 0)) {
+            throw new \InvalidArgumentException('invalid value for $ranked_display_badge when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['ranked_display_badge'] = $ranked_display_badge;
+
+        return $this;
+    }
+
+    /**
+     * Gets ranked_used_demotion_protection
+     *
+     * @return bool|null
+     */
+    public function getRankedUsedDemotionProtection()
+    {
+        return $this->container['ranked_used_demotion_protection'];
+    }
+
+    /**
+     * Sets ranked_used_demotion_protection
+     *
+     * @param bool|null $ranked_used_demotion_protection Whether the player's demotion protection absorbed a loss in this match.
+     *
+     * @return self
+     */
+    public function setRankedUsedDemotionProtection($ranked_used_demotion_protection)
+    {
+        if (is_null($ranked_used_demotion_protection)) {
+            array_push($this->openAPINullablesSetToNull, 'ranked_used_demotion_protection');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ranked_used_demotion_protection', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ranked_used_demotion_protection'] = $ranked_used_demotion_protection;
 
         return $this;
     }

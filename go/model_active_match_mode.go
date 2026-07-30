@@ -28,7 +28,7 @@ const (
 	ACTIVEMATCHMODE_SERVER_TEST ActiveMatchMode = "ServerTest"
 	ACTIVEMATCHMODE_TUTORIAL ActiveMatchMode = "Tutorial"
 	ACTIVEMATCHMODE_HERO_LABS ActiveMatchMode = "HeroLabs"
-	ACTIVEMATCHMODE_CALIBRATION ActiveMatchMode = "Calibration"
+	ACTIVEMATCHMODE_NEW_PLAYER_PLACEMENT ActiveMatchMode = "NewPlayerPlacement"
 )
 
 // All allowed values of ActiveMatchMode enum
@@ -41,7 +41,7 @@ var AllowedActiveMatchModeEnumValues = []ActiveMatchMode{
 	"ServerTest",
 	"Tutorial",
 	"HeroLabs",
-	"Calibration",
+	"NewPlayerPlacement",
 }
 
 func (v *ActiveMatchMode) UnmarshalJSON(src []byte) error {

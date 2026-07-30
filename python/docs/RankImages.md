@@ -6,6 +6,8 @@ Image URLs for a single rank tier. Field declaration order is load-bearing: it s
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**chalk** | **str** |  | [optional] 
+**chalk_webp** | **str** |  | [optional] 
 **large** | **str** |  | [optional] 
 **large_subrank1** | **str** |  | [optional] 
 **large_subrank1_webp** | **str** |  | [optional] 

@@ -25,12 +25,6 @@ export interface LeaderboardEntry  {
      */
     accountName?: string;
     /**
-     * The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     * @type {number}
-     * @memberof LeaderboardEntry
-     */
-    badgeLevel?: number;
-    /**
      * The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
      * @type {Array<number>}
      * @memberof LeaderboardEntry
@@ -43,18 +37,6 @@ export interface LeaderboardEntry  {
      */
     rank?: number;
     /**
-     * The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     * @type {number}
-     * @memberof LeaderboardEntry
-     */
-    rankedRank?: number;
-    /**
-     * The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     * @type {number}
-     * @memberof LeaderboardEntry
-     */
-    rankedSubrank?: number;
-    /**
      * The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      * @type {Array<number>}
      * @memberof LeaderboardEntry
@@ -65,11 +47,8 @@ export interface LeaderboardEntry  {
 export function LeaderboardEntryFromJSON(json: any): LeaderboardEntry {
     return {
         'accountName': !exists(json, 'account_name') ? undefined : json['account_name'],
-        'badgeLevel': !exists(json, 'badge_level') ? undefined : json['badge_level'],
         'possibleAccountIds': !exists(json, 'possible_account_ids') ? undefined : json['possible_account_ids'],
         'rank': !exists(json, 'rank') ? undefined : json['rank'],
-        'rankedRank': !exists(json, 'ranked_rank') ? undefined : json['ranked_rank'],
-        'rankedSubrank': !exists(json, 'ranked_subrank') ? undefined : json['ranked_subrank'],
         'topHeroIds': !exists(json, 'top_hero_ids') ? undefined : json['top_hero_ids'],
     };
 }
@@ -80,11 +59,8 @@ export function LeaderboardEntryToJSON(value?: LeaderboardEntry): any {
     }
     return {
         'account_name': value.accountName,
-        'badge_level': value.badgeLevel,
         'possible_account_ids': value.possibleAccountIds,
         'rank': value.rank,
-        'ranked_rank': value.rankedRank,
-        'ranked_subrank': value.rankedSubrank,
         'top_hero_ids': value.topHeroIds,
     };
 }

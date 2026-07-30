@@ -78,6 +78,6 @@ export declare class LootTablesApi extends BaseAPI {
      */
     listLootTables(requestParameters?: LootTablesApiListLootTablesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: LootTable;
-    }, any, {}>>;
+    }, any, {}, any>>;
 }
 //# sourceMappingURL=loot-tables-api.d.ts.map

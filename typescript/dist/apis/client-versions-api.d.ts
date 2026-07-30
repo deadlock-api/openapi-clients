@@ -58,6 +58,6 @@ export declare class ClientVersionsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listClientVersions(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}>>;
+    listClientVersions(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
 }
 //# sourceMappingURL=client-versions-api.d.ts.map

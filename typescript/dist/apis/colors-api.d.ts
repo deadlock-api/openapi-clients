@@ -78,6 +78,6 @@ export declare class ColorsApi extends BaseAPI {
      */
     listColors(requestParameters?: ColorsApiListColorsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: Color;
-    }, any, {}>>;
+    }, any, {}, any>>;
 }
 //# sourceMappingURL=colors-api.d.ts.map

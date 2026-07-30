@@ -58,7 +58,7 @@ class ActiveMatchMode
 
     public const HERO_LABS = 'HeroLabs';
 
-    public const CALIBRATION = 'Calibration';
+    public const NEW_PLAYER_PLACEMENT = 'NewPlayerPlacement';
 
     /**
      * Gets allowable values of the enum
@@ -75,7 +75,7 @@ class ActiveMatchMode
             self::SERVER_TEST,
             self::TUTORIAL,
             self::HERO_LABS,
-            self::CALIBRATION
+            self::NEW_PLAYER_PLACEMENT
         ];
     }
 }

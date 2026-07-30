@@ -260,9 +260,54 @@ class PlayerMatchHistoryEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "player_match_outcome"
+     */
+    public function testPropertyPlayerMatchOutcome()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "player_team"
      */
     public function testPropertyPlayerTeam()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ranked_calibration_match"
+     */
+    public function testPropertyRankedCalibrationMatch()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ranked_delta"
+     */
+    public function testPropertyRankedDelta()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ranked_display_badge"
+     */
+    public function testPropertyRankedDisplayBadge()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ranked_used_demotion_protection"
+     */
+    public function testPropertyRankedUsedDemotionProtection()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

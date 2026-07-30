@@ -184,7 +184,7 @@ export declare class CommandsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    availableVariables(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VariableDescription[], any, {}>>;
+    availableVariables(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VariableDescription[], any, {}, any>>;
     /**
      *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
      * @summary Resolve Command
@@ -192,7 +192,7 @@ export declare class CommandsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    commandResolve(requestParameters: CommandsApiCommandResolveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any, {}>>;
+    commandResolve(requestParameters: CommandsApiCommandResolveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any, {}, any>>;
     /**
      *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
      * @summary Resolve Variables
@@ -202,7 +202,7 @@ export declare class CommandsApi extends BaseAPI {
      */
     variablesResolve(requestParameters: CommandsApiVariablesResolveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: string;
-    }, any, {}>>;
+    }, any, {}, any>>;
     /**
      *  Returns a map of str->int of widget versions.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Widget Versions
@@ -211,7 +211,7 @@ export declare class CommandsApi extends BaseAPI {
      */
     widgetVersions(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: number;
-    }, any, {}>>;
+    }, any, {}, any>>;
 }
 export declare const CommandResolveRegionEnum: {
     readonly Europe: "Europe";

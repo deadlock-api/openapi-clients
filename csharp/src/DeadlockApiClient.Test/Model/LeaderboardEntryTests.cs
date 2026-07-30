@@ -63,15 +63,6 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'BadgeLevel'
-        /// </summary>
-        [Fact]
-        public void BadgeLevelTest()
-        {
-            // TODO unit test for the property 'BadgeLevel'
-        }
-
-        /// <summary>
         /// Test the property 'PossibleAccountIds'
         /// </summary>
         [Fact]
@@ -87,24 +78,6 @@ namespace DeadlockApiClient.Test.Model
         public void RankTest()
         {
             // TODO unit test for the property 'Rank'
-        }
-
-        /// <summary>
-        /// Test the property 'RankedRank'
-        /// </summary>
-        [Fact]
-        public void RankedRankTest()
-        {
-            // TODO unit test for the property 'RankedRank'
-        }
-
-        /// <summary>
-        /// Test the property 'RankedSubrank'
-        /// </summary>
-        [Fact]
-        public void RankedSubrankTest()
-        {
-            // TODO unit test for the property 'RankedSubrank'
         }
 
         /// <summary>

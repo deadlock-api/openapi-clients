@@ -92,7 +92,7 @@ export declare class SteamInfoApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAllSteamInfo(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamInfo[], any, {}>>;
+    getAllSteamInfo(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamInfo[], any, {}, any>>;
     /**
      * Returns the `steam.inf` manifest published with the patch (client/server version, app IDs, source revision, build timestamp).
      * @summary Get Steam Info
@@ -100,6 +100,6 @@ export declare class SteamInfoApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSteamInfo(requestParameters?: SteamInfoApiGetSteamInfoRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamInfo, any, {}>>;
+    getSteamInfo(requestParameters?: SteamInfoApiGetSteamInfoRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamInfo, any, {}, any>>;
 }
 //# sourceMappingURL=steam-info-api.d.ts.map

@@ -2352,7 +2352,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    abilityOrderStats(requestParameters: AnalyticsApiAbilityOrderStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsAbilityOrderStats[], any, {}>>;
+    abilityOrderStats(requestParameters: AnalyticsApiAbilityOrderStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsAbilityOrderStats[], any, {}, any>>;
     /**
      *  This endpoint returns the player badge distribution.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Badge Distribution
@@ -2360,7 +2360,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    badgeDistribution(requestParameters?: AnalyticsApiBadgeDistributionRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BadgeDistribution[], any, {}>>;
+    badgeDistribution(requestParameters?: AnalyticsApiBadgeDistributionRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BadgeDistribution[], any, {}, any>>;
     /**
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Build Item Stats
@@ -2368,7 +2368,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    buildItemStats(requestParameters?: AnalyticsApiBuildItemStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildItemStats[], any, {}>>;
+    buildItemStats(requestParameters?: AnalyticsApiBuildItemStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildItemStats[], any, {}, any>>;
     /**
      *  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Game Stats
@@ -2376,7 +2376,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    gameStats(requestParameters?: AnalyticsApiGameStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsGameStats[], any, {}>>;
+    gameStats(requestParameters?: AnalyticsApiGameStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsGameStats[], any, {}, any>>;
     /**
      *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Ban Stats
@@ -2384,7 +2384,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBanStats(requestParameters?: AnalyticsApiHeroBanStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroBanStats[], any, {}>>;
+    heroBanStats(requestParameters?: AnalyticsApiHeroBanStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroBanStats[], any, {}, any>>;
     /**
      *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Build Stats
@@ -2392,7 +2392,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroBuildStats[], any, {}>>;
+    heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroBuildStats[], any, {}, any>>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -2400,7 +2400,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroCombStats(requestParameters?: AnalyticsApiHeroCombStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroCombStats[], any, {}>>;
+    heroCombStats(requestParameters?: AnalyticsApiHeroCombStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroCombStats[], any, {}, any>>;
     /**
      *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Counter Stats
@@ -2408,7 +2408,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroCountersStats(requestParameters?: AnalyticsApiHeroCountersStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroCounterStats[], any, {}>>;
+    heroCountersStats(requestParameters?: AnalyticsApiHeroCountersStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroCounterStats[], any, {}, any>>;
     /**
      *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Scoreboard
@@ -2416,7 +2416,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroScoreboard(requestParameters: AnalyticsApiHeroScoreboardRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroEntry[], any, {}>>;
+    heroScoreboard(requestParameters: AnalyticsApiHeroScoreboardRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroEntry[], any, {}, any>>;
     /**
      *  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Stats
@@ -2424,7 +2424,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroStats(requestParameters?: AnalyticsApiHeroStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsHeroStats[], any, {}>>;
+    heroStats(requestParameters?: AnalyticsApiHeroStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsHeroStats[], any, {}, any>>;
     /**
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Synergy Stats
@@ -2432,7 +2432,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroSynergiesStats(requestParameters?: AnalyticsApiHeroSynergiesStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroSynergyStats[], any, {}>>;
+    heroSynergiesStats(requestParameters?: AnalyticsApiHeroSynergiesStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroSynergyStats[], any, {}, any>>;
     /**
      *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Flow Stats
@@ -2440,7 +2440,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemFlowStats(requestParameters?: AnalyticsApiItemFlowStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ItemFlowStats, any, {}>>;
+    itemFlowStats(requestParameters?: AnalyticsApiItemFlowStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ItemFlowStats, any, {}, any>>;
     /**
      *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Permutation Stats
@@ -2448,7 +2448,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemPermutationStats(requestParameters?: AnalyticsApiItemPermutationStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ItemPermutationStats[], any, {}>>;
+    itemPermutationStats(requestParameters?: AnalyticsApiItemPermutationStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ItemPermutationStats[], any, {}, any>>;
     /**
      *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
@@ -2456,7 +2456,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemStats(requestParameters?: AnalyticsApiItemStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ItemStats[], any, {}>>;
+    itemStats(requestParameters?: AnalyticsApiItemStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ItemStats[], any, {}, any>>;
     /**
      *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Kill Death Stats
@@ -2464,7 +2464,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    killDeathStats(requestParameters?: AnalyticsApiKillDeathStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<KillDeathStats[], any, {}>>;
+    killDeathStats(requestParameters?: AnalyticsApiKillDeathStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<KillDeathStats[], any, {}, any>>;
     /**
      *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Performance Curve
@@ -2472,7 +2472,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerPerformanceCurve(requestParameters?: AnalyticsApiPlayerPerformanceCurveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerPerformanceCurvePoint[], any, {}>>;
+    playerPerformanceCurve(requestParameters?: AnalyticsApiPlayerPerformanceCurveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerPerformanceCurvePoint[], any, {}, any>>;
     /**
      *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Scoreboard
@@ -2480,7 +2480,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerEntry[], any, {}>>;
+    playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerEntry[], any, {}, any>>;
     /**
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Stats Metrics
@@ -2490,7 +2490,7 @@ export declare class AnalyticsApi extends BaseAPI {
      */
     playerStatsMetrics(requestParameters?: AnalyticsApiPlayerStatsMetricsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: HashMapValue;
-    }, any, {}>>;
+    }, any, {}, any>>;
 }
 export declare const AbilityOrderStatsGameModeEnum: {
     readonly Normal: "normal";

@@ -39,12 +39,6 @@ class LeaderboardEntryTest : ShouldSpec() {
             //modelInstance.accountName shouldBe ("TODO")
         }
 
-        // to test the property `badgeLevel` - The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
-        should("test badgeLevel") {
-            // uncomment below to test the property
-            //modelInstance.badgeLevel shouldBe ("TODO")
-        }
-
         // to test the property `possibleAccountIds` - The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
         should("test possibleAccountIds") {
             // uncomment below to test the property
@@ -55,18 +49,6 @@ class LeaderboardEntryTest : ShouldSpec() {
         should("test rank") {
             // uncomment below to test the property
             //modelInstance.rank shouldBe ("TODO")
-        }
-
-        // to test the property `rankedRank` - The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-        should("test rankedRank") {
-            // uncomment below to test the property
-            //modelInstance.rankedRank shouldBe ("TODO")
-        }
-
-        // to test the property `rankedSubrank` - The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-        should("test rankedSubrank") {
-            // uncomment below to test the property
-            //modelInstance.rankedSubrank shouldBe ("TODO")
         }
 
         // to test the property `topHeroIds` - The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>

@@ -58,6 +58,8 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'chalk' => 'string',
+        'chalk_webp' => 'string',
         'large' => 'string',
         'large_subrank1' => 'string',
         'large_subrank1_webp' => 'string',
@@ -96,6 +98,8 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'chalk' => null,
+        'chalk_webp' => null,
         'large' => null,
         'large_subrank1' => null,
         'large_subrank1_webp' => null,
@@ -132,6 +136,8 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'chalk' => true,
+        'chalk_webp' => true,
         'large' => true,
         'large_subrank1' => true,
         'large_subrank1_webp' => true,
@@ -248,6 +254,8 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'chalk' => 'chalk',
+        'chalk_webp' => 'chalk_webp',
         'large' => 'large',
         'large_subrank1' => 'large_subrank1',
         'large_subrank1_webp' => 'large_subrank1_webp',
@@ -284,6 +292,8 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'chalk' => 'setChalk',
+        'chalk_webp' => 'setChalkWebp',
         'large' => 'setLarge',
         'large_subrank1' => 'setLargeSubrank1',
         'large_subrank1_webp' => 'setLargeSubrank1Webp',
@@ -320,6 +330,8 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'chalk' => 'getChalk',
+        'chalk_webp' => 'getChalkWebp',
         'large' => 'getLarge',
         'large_subrank1' => 'getLargeSubrank1',
         'large_subrank1_webp' => 'getLargeSubrank1Webp',
@@ -407,6 +419,8 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('chalk', $data ?? [], null);
+        $this->setIfExists('chalk_webp', $data ?? [], null);
         $this->setIfExists('large', $data ?? [], null);
         $this->setIfExists('large_subrank1', $data ?? [], null);
         $this->setIfExists('large_subrank1_webp', $data ?? [], null);
@@ -480,6 +494,74 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets chalk
+     *
+     * @return string|null
+     */
+    public function getChalk()
+    {
+        return $this->container['chalk'];
+    }
+
+    /**
+     * Sets chalk
+     *
+     * @param string|null $chalk chalk
+     *
+     * @return self
+     */
+    public function setChalk($chalk)
+    {
+        if (is_null($chalk)) {
+            array_push($this->openAPINullablesSetToNull, 'chalk');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('chalk', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['chalk'] = $chalk;
+
+        return $this;
+    }
+
+    /**
+     * Gets chalk_webp
+     *
+     * @return string|null
+     */
+    public function getChalkWebp()
+    {
+        return $this->container['chalk_webp'];
+    }
+
+    /**
+     * Sets chalk_webp
+     *
+     * @param string|null $chalk_webp chalk_webp
+     *
+     * @return self
+     */
+    public function setChalkWebp($chalk_webp)
+    {
+        if (is_null($chalk_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'chalk_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('chalk_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['chalk_webp'] = $chalk_webp;
+
+        return $this;
+    }
+
+    /**
      * Gets large
      *
      * @return string|null
@@ -517,6 +599,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank1
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank1()
     {
@@ -529,6 +612,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank1 large_subrank1
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank1($large_subrank1)
     {
@@ -551,6 +635,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank1_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank1Webp()
     {
@@ -563,6 +648,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank1_webp large_subrank1_webp
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank1Webp($large_subrank1_webp)
     {
@@ -585,6 +671,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank2
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank2()
     {
@@ -597,6 +684,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank2 large_subrank2
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank2($large_subrank2)
     {
@@ -619,6 +707,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank2_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank2Webp()
     {
@@ -631,6 +720,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank2_webp large_subrank2_webp
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank2Webp($large_subrank2_webp)
     {
@@ -653,6 +743,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank3
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank3()
     {
@@ -665,6 +756,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank3 large_subrank3
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank3($large_subrank3)
     {
@@ -687,6 +779,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank3_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank3Webp()
     {
@@ -699,6 +792,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank3_webp large_subrank3_webp
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank3Webp($large_subrank3_webp)
     {
@@ -721,6 +815,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank4
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank4()
     {
@@ -733,6 +828,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank4 large_subrank4
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank4($large_subrank4)
     {
@@ -755,6 +851,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank4_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank4Webp()
     {
@@ -767,6 +864,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank4_webp large_subrank4_webp
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank4Webp($large_subrank4_webp)
     {
@@ -789,6 +887,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank5
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank5()
     {
@@ -801,6 +900,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank5 large_subrank5
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank5($large_subrank5)
     {
@@ -823,6 +923,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank5_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank5Webp()
     {
@@ -835,6 +936,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank5_webp large_subrank5_webp
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank5Webp($large_subrank5_webp)
     {
@@ -857,6 +959,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank6
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank6()
     {
@@ -869,6 +972,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank6 large_subrank6
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank6($large_subrank6)
     {
@@ -891,6 +995,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets large_subrank6_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getLargeSubrank6Webp()
     {
@@ -903,6 +1008,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $large_subrank6_webp large_subrank6_webp
      *
      * @return self
+     * @deprecated
      */
     public function setLargeSubrank6Webp($large_subrank6_webp)
     {
@@ -959,6 +1065,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmall()
     {
@@ -971,6 +1078,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small small
      *
      * @return self
+     * @deprecated
      */
     public function setSmall($small)
     {
@@ -993,6 +1101,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank1
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank1()
     {
@@ -1005,6 +1114,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank1 small_subrank1
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank1($small_subrank1)
     {
@@ -1027,6 +1137,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank1_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank1Webp()
     {
@@ -1039,6 +1150,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank1_webp small_subrank1_webp
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank1Webp($small_subrank1_webp)
     {
@@ -1061,6 +1173,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank2
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank2()
     {
@@ -1073,6 +1186,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank2 small_subrank2
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank2($small_subrank2)
     {
@@ -1095,6 +1209,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank2_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank2Webp()
     {
@@ -1107,6 +1222,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank2_webp small_subrank2_webp
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank2Webp($small_subrank2_webp)
     {
@@ -1129,6 +1245,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank3
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank3()
     {
@@ -1141,6 +1258,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank3 small_subrank3
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank3($small_subrank3)
     {
@@ -1163,6 +1281,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank3_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank3Webp()
     {
@@ -1175,6 +1294,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank3_webp small_subrank3_webp
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank3Webp($small_subrank3_webp)
     {
@@ -1197,6 +1317,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank4
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank4()
     {
@@ -1209,6 +1330,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank4 small_subrank4
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank4($small_subrank4)
     {
@@ -1231,6 +1353,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank4_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank4Webp()
     {
@@ -1243,6 +1366,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank4_webp small_subrank4_webp
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank4Webp($small_subrank4_webp)
     {
@@ -1265,6 +1389,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank5
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank5()
     {
@@ -1277,6 +1402,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank5 small_subrank5
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank5($small_subrank5)
     {
@@ -1299,6 +1425,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank5_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank5Webp()
     {
@@ -1311,6 +1438,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank5_webp small_subrank5_webp
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank5Webp($small_subrank5_webp)
     {
@@ -1333,6 +1461,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank6
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank6()
     {
@@ -1345,6 +1474,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank6 small_subrank6
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank6($small_subrank6)
     {
@@ -1367,6 +1497,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_subrank6_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallSubrank6Webp()
     {
@@ -1379,6 +1510,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_subrank6_webp small_subrank6_webp
      *
      * @return self
+     * @deprecated
      */
     public function setSmallSubrank6Webp($small_subrank6_webp)
     {
@@ -1401,6 +1533,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets small_webp
      *
      * @return string|null
+     * @deprecated
      */
     public function getSmallWebp()
     {
@@ -1413,6 +1546,7 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param string|null $small_webp small_webp
      *
      * @return self
+     * @deprecated
      */
     public function setSmallWebp($small_webp)
     {

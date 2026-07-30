@@ -145,14 +145,14 @@ export declare class ServersApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    ingest(requestParameters: ServersApiIngestRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    ingest(requestParameters: ServersApiIngestRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
     /**
      * Returns all currently active game servers.
      * @summary List Game Servers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    list(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ListServersResponse, any, {}>>;
+    list(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ListServersResponse, any, {}, any>>;
     /**
      *  Reports the current status of a game server. Game servers must call this endpoint at least once every 30 seconds to remain active. Requires a valid game server secret as a Bearer token.
      * @summary Game Server Status
@@ -160,13 +160,13 @@ export declare class ServersApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    status(requestParameters: ServersApiStatusRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ServerStatusResponse, any, {}>>;
+    status(requestParameters: ServersApiStatusRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ServerStatusResponse, any, {}, any>>;
     /**
      *  Returns the list of Deadlock game servers registered with the Steam master server (`IGameServersService/GetServerList`), filtered to Deadlock\'s appid.
      * @summary List Steam Game Servers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    steamList(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamServer[], any, {}>>;
+    steamList(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamServer[], any, {}, any>>;
 }
 //# sourceMappingURL=servers-api.d.ts.map

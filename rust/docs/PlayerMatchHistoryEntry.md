@@ -24,7 +24,12 @@ Name | Type | Description | Notes
 **player_assists** | **u32** |  | 
 **player_deaths** | **u32** |  | 
 **player_kills** | **u32** |  | 
+**player_match_outcome** | **i32** | How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored. | 
 **player_team** | **i32** |  | 
+**ranked_calibration_match** | Option<**u32**> | Non-zero if this match counted towards the player's ranked calibration. | [optional]
+**ranked_delta** | Option<**i32**> | The ranked progress change the player got from this match. | [optional]
+**ranked_display_badge** | Option<**u32**> | The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> | [optional]
+**ranked_used_demotion_protection** | Option<**bool**> | Whether the player's demotion protection absorbed a loss in this match. | [optional]
 **start_time** | **u32** |  | 
 **team_abandoned** | Option<**bool**> |  | [optional]
 

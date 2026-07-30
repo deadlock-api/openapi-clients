@@ -121,27 +121,27 @@ export declare class AssetsBucketApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fonts(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}>>;
+    fonts(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}, any>>;
     /**
      * Nested file-tree of all hosted icons, mapping each name to its public CDN URL.
      * @summary Icons Index
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    icons(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}>>;
+    icons(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}, any>>;
     /**
      * Nested file-tree of all hosted images, mapping each name to its public CDN URL.
      * @summary Images Index
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    images(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}>>;
+    images(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}, any>>;
     /**
      * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
      * @summary Sounds Index
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sounds(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}>>;
+    sounds(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}, any>>;
 }
 //# sourceMappingURL=assets-bucket-api.d.ts.map

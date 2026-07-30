@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**chalk** | **string** |  | [optional]
+**chalk_webp** | **string** |  | [optional]
 **large** | **string** |  | [optional]
 **large_subrank1** | **string** |  | [optional]
 **large_subrank1_webp** | **string** |  | [optional]

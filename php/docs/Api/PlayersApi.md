@@ -476,12 +476,12 @@ No authorization required
 ## `rankPredictAvgImage()`
 
 ```php
-rankPredictAvgImage($account_ids, $format, $size): int[]
+rankPredictAvgImage($account_ids, $format): int[]
 ```
 
 Rank Predict Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
 
 ### Example
 
@@ -498,10 +498,9 @@ $apiInstance = new OpenAPI\Client\Api\PlayersApi(
 );
 $account_ids = array(56); // int[] | Comma-separated list of account IDs (max 12).
 $format = 'format_example'; // string | Image format. Defaults to `png`. Supported: `png`, `webp`.
-$size = 'size_example'; // string | Image size. Defaults to `large`. Supported: `large`, `small`.
 
 try {
-    $result = $apiInstance->rankPredictAvgImage($account_ids, $format, $size);
+    $result = $apiInstance->rankPredictAvgImage($account_ids, $format);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlayersApi->rankPredictAvgImage: ', $e->getMessage(), PHP_EOL;
@@ -514,7 +513,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma-separated list of account IDs (max 12). | |
 | **format** | **string**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
-| **size** | **string**| Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional] |
 
 ### Return type
 
@@ -536,12 +534,12 @@ No authorization required
 ## `rankPredictImage()`
 
 ```php
-rankPredictImage($account_id, $format, $size): int[]
+rankPredictImage($account_id, $format): int[]
 ```
 
 Rank Predict Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
 
 ### Example
 
@@ -558,10 +556,9 @@ $apiInstance = new OpenAPI\Client\Api\PlayersApi(
 );
 $account_id = 56; // int | The players `SteamID3`
 $format = 'format_example'; // string | Image format. Defaults to `png`. Supported: `png`, `webp`.
-$size = 'size_example'; // string | Image size. Defaults to `large`. Supported: `large`, `small`.
 
 try {
-    $result = $apiInstance->rankPredictImage($account_id, $format, $size);
+    $result = $apiInstance->rankPredictImage($account_id, $format);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlayersApi->rankPredictImage: ', $e->getMessage(), PHP_EOL;
@@ -574,7 +571,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
 | **format** | **string**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
-| **size** | **string**| Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | [optional] |
 
 ### Return type
 

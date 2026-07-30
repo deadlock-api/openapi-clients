@@ -35,6 +35,8 @@ class TestRankImages(unittest.TestCase):
         model = RankImages()
         if include_optional:
             return RankImages(
+                chalk = '',
+                chalk_webp = '',
                 large = '',
                 large_subrank1 = '',
                 large_subrank1_webp = '',

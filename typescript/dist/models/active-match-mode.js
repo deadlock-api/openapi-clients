@@ -20,6 +20,6 @@ export const ActiveMatchMode = {
     ServerTest: 'ServerTest',
     Tutorial: 'Tutorial',
     HeroLabs: 'HeroLabs',
-    Calibration: 'Calibration',
+    NewPlayerPlacement: 'NewPlayerPlacement',
 };
 //# sourceMappingURL=active-match-mode.js.map

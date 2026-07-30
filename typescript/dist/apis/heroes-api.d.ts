@@ -174,7 +174,7 @@ export declare class HeroesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHero(requestParameters: HeroesApiGetHeroRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hero, any, {}>>;
+    getHero(requestParameters: HeroesApiGetHeroRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hero, any, {}, any>>;
     /**
      * Returns a single hero by `class_name` or display `name`. Matches the bare value as well as the `hero_`-prefixed form.
      * @summary Get Hero By Name
@@ -182,7 +182,7 @@ export declare class HeroesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHeroByName(requestParameters: HeroesApiGetHeroByNameRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hero, any, {}>>;
+    getHeroByName(requestParameters: HeroesApiGetHeroByNameRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hero, any, {}, any>>;
     /**
      * Returns the per-hero metadata used by the game client, parsed from the patch\'s KV3 source files.
      * @summary List Heroes
@@ -190,7 +190,7 @@ export declare class HeroesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHeroes(requestParameters?: HeroesApiListHeroesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hero[], any, {}>>;
+    listHeroes(requestParameters?: HeroesApiListHeroesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hero[], any, {}, any>>;
 }
 export declare const GetHeroLanguageEnum: {
     readonly Brazilian: "brazilian";

@@ -183,7 +183,7 @@ export declare class LeaderboardApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboard(requestParameters: LeaderboardApiLeaderboardRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Leaderboard, any, {}>>;
+    leaderboard(requestParameters: LeaderboardApiLeaderboardRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Leaderboard, any, {}, any>>;
     /**
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard
@@ -191,7 +191,7 @@ export declare class LeaderboardApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardHero(requestParameters: LeaderboardApiLeaderboardHeroRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Leaderboard, any, {}>>;
+    leaderboardHero(requestParameters: LeaderboardApiLeaderboardHeroRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Leaderboard, any, {}, any>>;
     /**
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard as Protobuf
@@ -199,7 +199,7 @@ export declare class LeaderboardApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardHeroRaw(requestParameters: LeaderboardApiLeaderboardHeroRawRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}>>;
+    leaderboardHeroRaw(requestParameters: LeaderboardApiLeaderboardHeroRawRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
     /**
      *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Leaderboard as Protobuf
@@ -207,7 +207,7 @@ export declare class LeaderboardApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardRaw(requestParameters: LeaderboardApiLeaderboardRawRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}>>;
+    leaderboardRaw(requestParameters: LeaderboardApiLeaderboardRawRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
 }
 export declare const LeaderboardRegionEnum: {
     readonly Europe: "Europe";

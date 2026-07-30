@@ -48,10 +48,15 @@ class PlayerMatchHistoryEntry(BaseModel):
     player_assists: Annotated[int, Field(strict=True, ge=0)]
     player_deaths: Annotated[int, Field(strict=True, ge=0)]
     player_kills: Annotated[int, Field(strict=True, ge=0)]
+    player_match_outcome: StrictInt = Field(description="How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.")
     player_team: StrictInt
+    ranked_calibration_match: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Non-zero if this match counted towards the player's ranked calibration.")
+    ranked_delta: Optional[StrictInt] = Field(default=None, description="The ranked progress change the player got from this match.")
+    ranked_display_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    ranked_used_demotion_protection: Optional[StrictBool] = Field(default=None, description="Whether the player's demotion protection absorbed a loss in this match.")
     start_time: Annotated[int, Field(strict=True, ge=0)]
     team_abandoned: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_team", "start_time", "team_abandoned"]
+    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_match_outcome", "player_team", "ranked_calibration_match", "ranked_delta", "ranked_display_badge", "ranked_used_demotion_protection", "start_time", "team_abandoned"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -112,6 +117,26 @@ class PlayerMatchHistoryEntry(BaseModel):
         if self.brawl_score_team1 is None and "brawl_score_team1" in self.model_fields_set:
             _dict['brawl_score_team1'] = None
 
+        # set to None if ranked_calibration_match (nullable) is None
+        # and model_fields_set contains the field
+        if self.ranked_calibration_match is None and "ranked_calibration_match" in self.model_fields_set:
+            _dict['ranked_calibration_match'] = None
+
+        # set to None if ranked_delta (nullable) is None
+        # and model_fields_set contains the field
+        if self.ranked_delta is None and "ranked_delta" in self.model_fields_set:
+            _dict['ranked_delta'] = None
+
+        # set to None if ranked_display_badge (nullable) is None
+        # and model_fields_set contains the field
+        if self.ranked_display_badge is None and "ranked_display_badge" in self.model_fields_set:
+            _dict['ranked_display_badge'] = None
+
+        # set to None if ranked_used_demotion_protection (nullable) is None
+        # and model_fields_set contains the field
+        if self.ranked_used_demotion_protection is None and "ranked_used_demotion_protection" in self.model_fields_set:
+            _dict['ranked_used_demotion_protection'] = None
+
         # set to None if team_abandoned (nullable) is None
         # and model_fields_set contains the field
         if self.team_abandoned is None and "team_abandoned" in self.model_fields_set:
@@ -149,7 +174,12 @@ class PlayerMatchHistoryEntry(BaseModel):
             "player_assists": obj.get("player_assists"),
             "player_deaths": obj.get("player_deaths"),
             "player_kills": obj.get("player_kills"),
+            "player_match_outcome": obj.get("player_match_outcome"),
             "player_team": obj.get("player_team"),
+            "ranked_calibration_match": obj.get("ranked_calibration_match"),
+            "ranked_delta": obj.get("ranked_delta"),
+            "ranked_display_badge": obj.get("ranked_display_badge"),
+            "ranked_used_demotion_protection": obj.get("ranked_used_demotion_protection"),
             "start_time": obj.get("start_time"),
             "team_abandoned": obj.get("team_abandoned")
         })

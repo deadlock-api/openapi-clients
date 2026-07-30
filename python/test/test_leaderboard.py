@@ -38,13 +38,10 @@ class TestLeaderboard(unittest.TestCase):
                 entries = [
                     deadlock_api_client.models.leaderboard_entry.LeaderboardEntry(
                         account_name = '', 
-                        badge_level = 0, 
                         possible_account_ids = [
                             0
                             ], 
                         rank = 0, 
-                        ranked_rank = 0, 
-                        ranked_subrank = 0, 
                         top_hero_ids = [
                             0
                             ], )
@@ -55,13 +52,10 @@ class TestLeaderboard(unittest.TestCase):
                 entries = [
                     deadlock_api_client.models.leaderboard_entry.LeaderboardEntry(
                         account_name = '', 
-                        badge_level = 0, 
                         possible_account_ids = [
                             0
                             ], 
                         rank = 0, 
-                        ranked_rank = 0, 
-                        ranked_subrank = 0, 
                         top_hero_ids = [
                             0
                             ], )

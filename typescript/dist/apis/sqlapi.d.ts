@@ -134,7 +134,7 @@ export declare class SQLApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTables(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string[], any, {}>>;
+    listTables(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string[], any, {}, any>>;
     /**
      *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
      * @summary Query
@@ -142,7 +142,7 @@ export declare class SQLApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sql(requestParameters: SQLApiSqlRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any, {}>>;
+    sql(requestParameters: SQLApiSqlRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any, {}, any>>;
     /**
      *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
      * @summary Table Schema
@@ -152,7 +152,7 @@ export declare class SQLApi extends BaseAPI {
      */
     tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: string;
-    }, any, {}>>;
+    }, any, {}, any>>;
 }
 export declare const SqlFormatEnum: {
     readonly Json: "json";

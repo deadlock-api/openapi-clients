@@ -72,6 +72,6 @@ export declare class MapApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMap(requestParameters?: MapApiGetMapRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapData, any, {}>>;
+    getMap(requestParameters?: MapApiGetMapRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapData, any, {}, any>>;
 }
 //# sourceMappingURL=map-api.d.ts.map

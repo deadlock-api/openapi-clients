@@ -81,13 +81,13 @@ export declare class InfoApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    healthCheck(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Status, any, {}>>;
+    healthCheck(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Status, any, {}, any>>;
     /**
      *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary API Info
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    info(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<APIInfo, any, {}>>;
+    info(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<APIInfo, any, {}, any>>;
 }
 //# sourceMappingURL=info-api.d.ts.map

@@ -69,6 +69,6 @@ export declare class InternalApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
 }
 //# sourceMappingURL=internal-api.d.ts.map

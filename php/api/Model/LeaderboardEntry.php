@@ -58,11 +58,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'account_name' => 'string',
-        'badge_level' => 'int',
         'possible_account_ids' => 'int[]',
         'rank' => 'int',
-        'ranked_rank' => 'int',
-        'ranked_subrank' => 'int',
         'top_hero_ids' => 'int[]'
     ];
 
@@ -75,11 +72,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'account_name' => null,
-        'badge_level' => 'int32',
         'possible_account_ids' => 'int32',
         'rank' => 'int32',
-        'ranked_rank' => 'int32',
-        'ranked_subrank' => 'int32',
         'top_hero_ids' => 'int32'
     ];
 
@@ -90,11 +84,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'account_name' => true,
-        'badge_level' => true,
         'possible_account_ids' => false,
         'rank' => true,
-        'ranked_rank' => true,
-        'ranked_subrank' => true,
         'top_hero_ids' => false
     ];
 
@@ -185,11 +176,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'account_name' => 'account_name',
-        'badge_level' => 'badge_level',
         'possible_account_ids' => 'possible_account_ids',
         'rank' => 'rank',
-        'ranked_rank' => 'ranked_rank',
-        'ranked_subrank' => 'ranked_subrank',
         'top_hero_ids' => 'top_hero_ids'
     ];
 
@@ -200,11 +188,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'account_name' => 'setAccountName',
-        'badge_level' => 'setBadgeLevel',
         'possible_account_ids' => 'setPossibleAccountIds',
         'rank' => 'setRank',
-        'ranked_rank' => 'setRankedRank',
-        'ranked_subrank' => 'setRankedSubrank',
         'top_hero_ids' => 'setTopHeroIds'
     ];
 
@@ -215,11 +200,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'account_name' => 'getAccountName',
-        'badge_level' => 'getBadgeLevel',
         'possible_account_ids' => 'getPossibleAccountIds',
         'rank' => 'getRank',
-        'ranked_rank' => 'getRankedRank',
-        'ranked_subrank' => 'getRankedSubrank',
         'top_hero_ids' => 'getTopHeroIds'
     ];
 
@@ -281,11 +263,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('account_name', $data ?? [], null);
-        $this->setIfExists('badge_level', $data ?? [], null);
         $this->setIfExists('possible_account_ids', $data ?? [], null);
         $this->setIfExists('rank', $data ?? [], null);
-        $this->setIfExists('ranked_rank', $data ?? [], null);
-        $this->setIfExists('ranked_subrank', $data ?? [], null);
         $this->setIfExists('top_hero_ids', $data ?? [], null);
     }
 
@@ -316,20 +295,8 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['badge_level']) && ($this->container['badge_level'] < 0)) {
-            $invalidProperties[] = "invalid value for 'badge_level', must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['rank']) && ($this->container['rank'] < 0)) {
             $invalidProperties[] = "invalid value for 'rank', must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['ranked_rank']) && ($this->container['ranked_rank'] < 0)) {
-            $invalidProperties[] = "invalid value for 'ranked_rank', must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['ranked_subrank']) && ($this->container['ranked_subrank'] < 0)) {
-            $invalidProperties[] = "invalid value for 'ranked_subrank', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -377,44 +344,6 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['account_name'] = $account_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets badge_level
-     *
-     * @return int|null
-     */
-    public function getBadgeLevel()
-    {
-        return $this->container['badge_level'];
-    }
-
-    /**
-     * Sets badge_level
-     *
-     * @param int|null $badge_level The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     *
-     * @return self
-     */
-    public function setBadgeLevel($badge_level)
-    {
-        if (is_null($badge_level)) {
-            array_push($this->openAPINullablesSetToNull, 'badge_level');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('badge_level', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($badge_level) && ($badge_level < 0)) {
-            throw new \InvalidArgumentException('invalid value for $badge_level when calling LeaderboardEntry., must be bigger than or equal to 0.');
-        }
-
-        $this->container['badge_level'] = $badge_level;
 
         return $this;
     }
@@ -480,82 +409,6 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['rank'] = $rank;
-
-        return $this;
-    }
-
-    /**
-     * Gets ranked_rank
-     *
-     * @return int|null
-     */
-    public function getRankedRank()
-    {
-        return $this->container['ranked_rank'];
-    }
-
-    /**
-     * Sets ranked_rank
-     *
-     * @param int|null $ranked_rank The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     *
-     * @return self
-     */
-    public function setRankedRank($ranked_rank)
-    {
-        if (is_null($ranked_rank)) {
-            array_push($this->openAPINullablesSetToNull, 'ranked_rank');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ranked_rank', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($ranked_rank) && ($ranked_rank < 0)) {
-            throw new \InvalidArgumentException('invalid value for $ranked_rank when calling LeaderboardEntry., must be bigger than or equal to 0.');
-        }
-
-        $this->container['ranked_rank'] = $ranked_rank;
-
-        return $this;
-    }
-
-    /**
-     * Gets ranked_subrank
-     *
-     * @return int|null
-     */
-    public function getRankedSubrank()
-    {
-        return $this->container['ranked_subrank'];
-    }
-
-    /**
-     * Sets ranked_subrank
-     *
-     * @param int|null $ranked_subrank The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-     *
-     * @return self
-     */
-    public function setRankedSubrank($ranked_subrank)
-    {
-        if (is_null($ranked_subrank)) {
-            array_push($this->openAPINullablesSetToNull, 'ranked_subrank');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ranked_subrank', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($ranked_subrank) && ($ranked_subrank < 0)) {
-            throw new \InvalidArgumentException('invalid value for $ranked_subrank when calling LeaderboardEntry., must be bigger than or equal to 0.');
-        }
-
-        $this->container['ranked_subrank'] = $ranked_subrank;
 
         return $this;
     }

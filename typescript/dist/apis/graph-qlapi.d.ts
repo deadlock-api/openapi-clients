@@ -58,6 +58,6 @@ export declare class GraphQLApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playground(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    playground(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
 }
 //# sourceMappingURL=graph-qlapi.d.ts.map

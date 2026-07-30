@@ -29,13 +29,10 @@ class LeaderboardEntry(BaseModel):
     LeaderboardEntry
     """ # noqa: E501
     account_name: Optional[StrictStr] = Field(default=None, description="The account name of the player.")
-    badge_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     possible_account_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**")
     rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    ranked_rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    ranked_subrank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     top_hero_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
-    __properties: ClassVar[List[str]] = ["account_name", "badge_level", "possible_account_ids", "rank", "ranked_rank", "ranked_subrank", "top_hero_ids"]
+    __properties: ClassVar[List[str]] = ["account_name", "possible_account_ids", "rank", "top_hero_ids"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -81,25 +78,10 @@ class LeaderboardEntry(BaseModel):
         if self.account_name is None and "account_name" in self.model_fields_set:
             _dict['account_name'] = None
 
-        # set to None if badge_level (nullable) is None
-        # and model_fields_set contains the field
-        if self.badge_level is None and "badge_level" in self.model_fields_set:
-            _dict['badge_level'] = None
-
         # set to None if rank (nullable) is None
         # and model_fields_set contains the field
         if self.rank is None and "rank" in self.model_fields_set:
             _dict['rank'] = None
-
-        # set to None if ranked_rank (nullable) is None
-        # and model_fields_set contains the field
-        if self.ranked_rank is None and "ranked_rank" in self.model_fields_set:
-            _dict['ranked_rank'] = None
-
-        # set to None if ranked_subrank (nullable) is None
-        # and model_fields_set contains the field
-        if self.ranked_subrank is None and "ranked_subrank" in self.model_fields_set:
-            _dict['ranked_subrank'] = None
 
         return _dict
 
@@ -114,11 +96,8 @@ class LeaderboardEntry(BaseModel):
 
         _obj = cls.model_validate({
             "account_name": obj.get("account_name"),
-            "badge_level": obj.get("badge_level"),
             "possible_account_ids": obj.get("possible_account_ids"),
             "rank": obj.get("rank"),
-            "ranked_rank": obj.get("ranked_rank"),
-            "ranked_subrank": obj.get("ranked_subrank"),
             "top_hero_ids": obj.get("top_hero_ids")
         })
         return _obj

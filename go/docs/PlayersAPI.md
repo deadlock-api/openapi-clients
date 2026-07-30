@@ -568,7 +568,7 @@ No authorization required
 
 ## RankPredictAvgImage
 
-> []int32 RankPredictAvgImage(ctx).AccountIds(accountIds).Format(format).Size(size).Execute()
+> []int32 RankPredictAvgImage(ctx).AccountIds(accountIds).Format(format).Execute()
 
 Rank Predict Avg Image
 
@@ -589,11 +589,10 @@ import (
 func main() {
 	accountIds := []int32{int32(123)} // []int32 | Comma-separated list of account IDs (max 12).
 	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
-	size := "size_example" // string | Image size. Defaults to `large`. Supported: `large`, `small`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.RankPredictAvgImage(context.Background()).AccountIds(accountIds).Format(format).Size(size).Execute()
+	resp, r, err := apiClient.PlayersAPI.RankPredictAvgImage(context.Background()).AccountIds(accountIds).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredictAvgImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -616,7 +615,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountIds** | **[]int32** | Comma-separated list of account IDs (max 12). | 
  **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
- **size** | **string** | Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | 
 
 ### Return type
 
@@ -638,7 +636,7 @@ No authorization required
 
 ## RankPredictImage
 
-> []int32 RankPredictImage(ctx, accountId).Format(format).Size(size).Execute()
+> []int32 RankPredictImage(ctx, accountId).Format(format).Execute()
 
 Rank Predict Image
 
@@ -659,11 +657,10 @@ import (
 func main() {
 	accountId := int32(56) // int32 | The players `SteamID3`
 	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
-	size := "size_example" // string | Image size. Defaults to `large`. Supported: `large`, `small`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.RankPredictImage(context.Background(), accountId).Format(format).Size(size).Execute()
+	resp, r, err := apiClient.PlayersAPI.RankPredictImage(context.Background(), accountId).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredictImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -690,7 +687,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
- **size** | **string** | Image size. Defaults to &#x60;large&#x60;. Supported: &#x60;large&#x60;, &#x60;small&#x60;. | 
 
 ### Return type
 

@@ -111,7 +111,7 @@ export declare class NPCUnitsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getNpcUnit(requestParameters: NPCUnitsApiGetNpcUnitRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<NpcUnit, any, {}>>;
+    getNpcUnit(requestParameters: NPCUnitsApiGetNpcUnitRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<NpcUnit, any, {}, any>>;
     /**
      * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
      * @summary List NPC Units
@@ -119,6 +119,6 @@ export declare class NPCUnitsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listNpcUnits(requestParameters?: NPCUnitsApiListNpcUnitsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<NpcUnit[], any, {}>>;
+    listNpcUnits(requestParameters?: NPCUnitsApiListNpcUnitsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<NpcUnit[], any, {}, any>>;
 }
 //# sourceMappingURL=npcunits-api.d.ts.map

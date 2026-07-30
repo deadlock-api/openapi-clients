@@ -21,16 +21,10 @@ var _ MappedNullable = &LeaderboardEntry{}
 type LeaderboardEntry struct {
 	// The account name of the player.
 	AccountName NullableString `json:"account_name,omitempty"`
-	// The badge level of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	BadgeLevel NullableInt32 `json:"badge_level,omitempty"`
 	// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
 	PossibleAccountIds []int32 `json:"possible_account_ids,omitempty"`
 	// The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	Rank NullableInt32 `json:"rank,omitempty"`
-	// The ranked rank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	RankedRank NullableInt32 `json:"ranked_rank,omitempty"`
-	// The ranked subrank of the player. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	RankedSubrank NullableInt32 `json:"ranked_subrank,omitempty"`
 	// The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	TopHeroIds []int32 `json:"top_hero_ids,omitempty"`
 }
@@ -92,48 +86,6 @@ func (o *LeaderboardEntry) SetAccountNameNil() {
 // UnsetAccountName ensures that no value is present for AccountName, not even an explicit nil
 func (o *LeaderboardEntry) UnsetAccountName() {
 	o.AccountName.Unset()
-}
-
-// GetBadgeLevel returns the BadgeLevel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LeaderboardEntry) GetBadgeLevel() int32 {
-	if o == nil || IsNil(o.BadgeLevel.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.BadgeLevel.Get()
-}
-
-// GetBadgeLevelOk returns a tuple with the BadgeLevel field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LeaderboardEntry) GetBadgeLevelOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BadgeLevel.Get(), o.BadgeLevel.IsSet()
-}
-
-// HasBadgeLevel returns a boolean if a field has been set.
-func (o *LeaderboardEntry) HasBadgeLevel() bool {
-	if o != nil && o.BadgeLevel.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBadgeLevel gets a reference to the given NullableInt32 and assigns it to the BadgeLevel field.
-func (o *LeaderboardEntry) SetBadgeLevel(v int32) {
-	o.BadgeLevel.Set(&v)
-}
-// SetBadgeLevelNil sets the value for BadgeLevel to be an explicit nil
-func (o *LeaderboardEntry) SetBadgeLevelNil() {
-	o.BadgeLevel.Set(nil)
-}
-
-// UnsetBadgeLevel ensures that no value is present for BadgeLevel, not even an explicit nil
-func (o *LeaderboardEntry) UnsetBadgeLevel() {
-	o.BadgeLevel.Unset()
 }
 
 // GetPossibleAccountIds returns the PossibleAccountIds field value if set, zero value otherwise.
@@ -210,90 +162,6 @@ func (o *LeaderboardEntry) UnsetRank() {
 	o.Rank.Unset()
 }
 
-// GetRankedRank returns the RankedRank field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LeaderboardEntry) GetRankedRank() int32 {
-	if o == nil || IsNil(o.RankedRank.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.RankedRank.Get()
-}
-
-// GetRankedRankOk returns a tuple with the RankedRank field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LeaderboardEntry) GetRankedRankOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.RankedRank.Get(), o.RankedRank.IsSet()
-}
-
-// HasRankedRank returns a boolean if a field has been set.
-func (o *LeaderboardEntry) HasRankedRank() bool {
-	if o != nil && o.RankedRank.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRankedRank gets a reference to the given NullableInt32 and assigns it to the RankedRank field.
-func (o *LeaderboardEntry) SetRankedRank(v int32) {
-	o.RankedRank.Set(&v)
-}
-// SetRankedRankNil sets the value for RankedRank to be an explicit nil
-func (o *LeaderboardEntry) SetRankedRankNil() {
-	o.RankedRank.Set(nil)
-}
-
-// UnsetRankedRank ensures that no value is present for RankedRank, not even an explicit nil
-func (o *LeaderboardEntry) UnsetRankedRank() {
-	o.RankedRank.Unset()
-}
-
-// GetRankedSubrank returns the RankedSubrank field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LeaderboardEntry) GetRankedSubrank() int32 {
-	if o == nil || IsNil(o.RankedSubrank.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.RankedSubrank.Get()
-}
-
-// GetRankedSubrankOk returns a tuple with the RankedSubrank field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LeaderboardEntry) GetRankedSubrankOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.RankedSubrank.Get(), o.RankedSubrank.IsSet()
-}
-
-// HasRankedSubrank returns a boolean if a field has been set.
-func (o *LeaderboardEntry) HasRankedSubrank() bool {
-	if o != nil && o.RankedSubrank.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRankedSubrank gets a reference to the given NullableInt32 and assigns it to the RankedSubrank field.
-func (o *LeaderboardEntry) SetRankedSubrank(v int32) {
-	o.RankedSubrank.Set(&v)
-}
-// SetRankedSubrankNil sets the value for RankedSubrank to be an explicit nil
-func (o *LeaderboardEntry) SetRankedSubrankNil() {
-	o.RankedSubrank.Set(nil)
-}
-
-// UnsetRankedSubrank ensures that no value is present for RankedSubrank, not even an explicit nil
-func (o *LeaderboardEntry) UnsetRankedSubrank() {
-	o.RankedSubrank.Unset()
-}
-
 // GetTopHeroIds returns the TopHeroIds field value if set, zero value otherwise.
 func (o *LeaderboardEntry) GetTopHeroIds() []int32 {
 	if o == nil || IsNil(o.TopHeroIds) {
@@ -339,20 +207,11 @@ func (o LeaderboardEntry) ToMap() (map[string]interface{}, error) {
 	if o.AccountName.IsSet() {
 		toSerialize["account_name"] = o.AccountName.Get()
 	}
-	if o.BadgeLevel.IsSet() {
-		toSerialize["badge_level"] = o.BadgeLevel.Get()
-	}
 	if !IsNil(o.PossibleAccountIds) {
 		toSerialize["possible_account_ids"] = o.PossibleAccountIds
 	}
 	if o.Rank.IsSet() {
 		toSerialize["rank"] = o.Rank.Get()
-	}
-	if o.RankedRank.IsSet() {
-		toSerialize["ranked_rank"] = o.RankedRank.Get()
-	}
-	if o.RankedSubrank.IsSet() {
-		toSerialize["ranked_subrank"] = o.RankedSubrank.Get()
 	}
 	if !IsNil(o.TopHeroIds) {
 		toSerialize["top_hero_ids"] = o.TopHeroIds

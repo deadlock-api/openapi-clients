@@ -129,6 +129,12 @@ class PlayerMatchHistoryEntryTest : ShouldSpec() {
             //modelInstance.playerKills shouldBe ("TODO")
         }
 
+        // to test the property `playerMatchOutcome` - How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
+        should("test playerMatchOutcome") {
+            // uncomment below to test the property
+            //modelInstance.playerMatchOutcome shouldBe ("TODO")
+        }
+
         // to test the property `playerTeam`
         should("test playerTeam") {
             // uncomment below to test the property
@@ -163,6 +169,30 @@ class PlayerMatchHistoryEntryTest : ShouldSpec() {
         should("test brawlScoreTeam1") {
             // uncomment below to test the property
             //modelInstance.brawlScoreTeam1 shouldBe ("TODO")
+        }
+
+        // to test the property `rankedCalibrationMatch` - Non-zero if this match counted towards the player's ranked calibration.
+        should("test rankedCalibrationMatch") {
+            // uncomment below to test the property
+            //modelInstance.rankedCalibrationMatch shouldBe ("TODO")
+        }
+
+        // to test the property `rankedDelta` - The ranked progress change the player got from this match.
+        should("test rankedDelta") {
+            // uncomment below to test the property
+            //modelInstance.rankedDelta shouldBe ("TODO")
+        }
+
+        // to test the property `rankedDisplayBadge` - The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        should("test rankedDisplayBadge") {
+            // uncomment below to test the property
+            //modelInstance.rankedDisplayBadge shouldBe ("TODO")
+        }
+
+        // to test the property `rankedUsedDemotionProtection` - Whether the player's demotion protection absorbed a loss in this match.
+        should("test rankedUsedDemotionProtection") {
+            // uncomment below to test the property
+            //modelInstance.rankedUsedDemotionProtection shouldBe ("TODO")
         }
 
         // to test the property `teamAbandoned`

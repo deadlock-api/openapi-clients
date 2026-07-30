@@ -139,11 +139,41 @@ export interface PlayerMatchHistoryEntry  {
      */
     playerKills: number;
     /**
+     * How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
+     * @type {number}
+     * @memberof PlayerMatchHistoryEntry
+     */
+    playerMatchOutcome: number;
+    /**
      * 
      * @type {number}
      * @memberof PlayerMatchHistoryEntry
      */
     playerTeam: number;
+    /**
+     * Non-zero if this match counted towards the player\'s ranked calibration.
+     * @type {number}
+     * @memberof PlayerMatchHistoryEntry
+     */
+    rankedCalibrationMatch?: number;
+    /**
+     * The ranked progress change the player got from this match.
+     * @type {number}
+     * @memberof PlayerMatchHistoryEntry
+     */
+    rankedDelta?: number;
+    /**
+     * The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @type {number}
+     * @memberof PlayerMatchHistoryEntry
+     */
+    rankedDisplayBadge?: number;
+    /**
+     * Whether the player\'s demotion protection absorbed a loss in this match.
+     * @type {boolean}
+     * @memberof PlayerMatchHistoryEntry
+     */
+    rankedUsedDemotionProtection?: boolean;
     /**
      * 
      * @type {number}
@@ -180,7 +210,12 @@ export function PlayerMatchHistoryEntryFromJSON(json: any): PlayerMatchHistoryEn
         'playerAssists': json['player_assists'],
         'playerDeaths': json['player_deaths'],
         'playerKills': json['player_kills'],
+        'playerMatchOutcome': json['player_match_outcome'],
         'playerTeam': json['player_team'],
+        'rankedCalibrationMatch': !exists(json, 'ranked_calibration_match') ? undefined : json['ranked_calibration_match'],
+        'rankedDelta': !exists(json, 'ranked_delta') ? undefined : json['ranked_delta'],
+        'rankedDisplayBadge': !exists(json, 'ranked_display_badge') ? undefined : json['ranked_display_badge'],
+        'rankedUsedDemotionProtection': !exists(json, 'ranked_used_demotion_protection') ? undefined : json['ranked_used_demotion_protection'],
         'startTime': json['start_time'],
         'teamAbandoned': !exists(json, 'team_abandoned') ? undefined : json['team_abandoned'],
     };
@@ -211,7 +246,12 @@ export function PlayerMatchHistoryEntryToJSON(value?: PlayerMatchHistoryEntry): 
         'player_assists': value.playerAssists,
         'player_deaths': value.playerDeaths,
         'player_kills': value.playerKills,
+        'player_match_outcome': value.playerMatchOutcome,
         'player_team': value.playerTeam,
+        'ranked_calibration_match': value.rankedCalibrationMatch,
+        'ranked_delta': value.rankedDelta,
+        'ranked_display_badge': value.rankedDisplayBadge,
+        'ranked_used_demotion_protection': value.rankedUsedDemotionProtection,
         'start_time': value.startTime,
         'team_abandoned': value.teamAbandoned,
     };

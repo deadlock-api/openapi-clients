@@ -111,7 +111,7 @@ export declare class MiscEntitiesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMiscEntity(requestParameters: MiscEntitiesApiGetMiscEntityRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MiscEntity, any, {}>>;
+    getMiscEntity(requestParameters: MiscEntitiesApiGetMiscEntityRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MiscEntity, any, {}, any>>;
     /**
      * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files.
      * @summary List Misc Entities
@@ -119,6 +119,6 @@ export declare class MiscEntitiesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMiscEntities(requestParameters?: MiscEntitiesApiListMiscEntitiesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MiscEntity[], any, {}>>;
+    listMiscEntities(requestParameters?: MiscEntitiesApiListMiscEntitiesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MiscEntity[], any, {}, any>>;
 }
 //# sourceMappingURL=misc-entities-api.d.ts.map

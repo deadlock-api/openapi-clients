@@ -20,7 +20,7 @@
 
     * `HeroLabs` (value: `"HeroLabs"`)
 
-    * `Calibration` (value: `"Calibration"`)
+    * `NewPlayerPlacement` (value: `"NewPlayerPlacement"`)
 
 
 

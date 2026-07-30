@@ -135,7 +135,7 @@ export declare class SteamApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    steam(requestParameters: SteamApiSteamRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamProfile[], any, {}>>;
+    steam(requestParameters: SteamApiSteamRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamProfile[], any, {}, any>>;
     /**
      *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Steam Profile Search
@@ -143,6 +143,6 @@ export declare class SteamApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    steamSearch(requestParameters: SteamApiSteamSearchRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamProfile[], any, {}>>;
+    steamSearch(requestParameters: SteamApiSteamSearchRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamProfile[], any, {}, any>>;
 }
 //# sourceMappingURL=steam-api.d.ts.map

@@ -24,7 +24,12 @@ Name | Type | Description | Notes
 **PlayerAssists** | **int32** |  | 
 **PlayerDeaths** | **int32** |  | 
 **PlayerKills** | **int32** |  | 
+**PlayerMatchOutcome** | **int32** | How the match was scored for the player: 0 &#x3D; invalid, 1 &#x3D; win, 2 &#x3D; loss, 3 &#x3D; penalized, 4 &#x3D; penalized party, 5 &#x3D; not scored. | 
 **PlayerTeam** | **int32** |  | 
+**RankedCalibrationMatch** | Pointer to **NullableInt32** | Non-zero if this match counted towards the player&#39;s ranked calibration. | [optional] 
+**RankedDelta** | Pointer to **NullableInt32** | The ranked progress change the player got from this match. | [optional] 
+**RankedDisplayBadge** | Pointer to **NullableInt32** | The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**RankedUsedDemotionProtection** | Pointer to **NullableBool** | Whether the player&#39;s demotion protection absorbed a loss in this match. | [optional] 
 **StartTime** | **int32** |  | 
 **TeamAbandoned** | Pointer to **NullableBool** |  | [optional] 
 
@@ -32,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewPlayerMatchHistoryEntry
 
-`func NewPlayerMatchHistoryEntry(accountId int32, denies int32, gameMode int32, heroId int32, heroLevel int32, lastHits int32, matchDurationS int32, matchId int64, matchMode int32, matchResult int32, netWorth int32, objectivesMaskTeam0 int32, objectivesMaskTeam1 int32, playerAssists int32, playerDeaths int32, playerKills int32, playerTeam int32, startTime int32, ) *PlayerMatchHistoryEntry`
+`func NewPlayerMatchHistoryEntry(accountId int32, denies int32, gameMode int32, heroId int32, heroLevel int32, lastHits int32, matchDurationS int32, matchId int64, matchMode int32, matchResult int32, netWorth int32, objectivesMaskTeam0 int32, objectivesMaskTeam1 int32, playerAssists int32, playerDeaths int32, playerKills int32, playerMatchOutcome int32, playerTeam int32, startTime int32, ) *PlayerMatchHistoryEntry`
 
 NewPlayerMatchHistoryEntry instantiates a new PlayerMatchHistoryEntry object
 This constructor will assign default values to properties that have it defined,
@@ -507,6 +512,26 @@ and a boolean to check if the value has been set.
 SetPlayerKills sets PlayerKills field to given value.
 
 
+### GetPlayerMatchOutcome
+
+`func (o *PlayerMatchHistoryEntry) GetPlayerMatchOutcome() int32`
+
+GetPlayerMatchOutcome returns the PlayerMatchOutcome field if non-nil, zero value otherwise.
+
+### GetPlayerMatchOutcomeOk
+
+`func (o *PlayerMatchHistoryEntry) GetPlayerMatchOutcomeOk() (*int32, bool)`
+
+GetPlayerMatchOutcomeOk returns a tuple with the PlayerMatchOutcome field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlayerMatchOutcome
+
+`func (o *PlayerMatchHistoryEntry) SetPlayerMatchOutcome(v int32)`
+
+SetPlayerMatchOutcome sets PlayerMatchOutcome field to given value.
+
+
 ### GetPlayerTeam
 
 `func (o *PlayerMatchHistoryEntry) GetPlayerTeam() int32`
@@ -527,6 +552,146 @@ and a boolean to check if the value has been set.
 SetPlayerTeam sets PlayerTeam field to given value.
 
 
+### GetRankedCalibrationMatch
+
+`func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatch() int32`
+
+GetRankedCalibrationMatch returns the RankedCalibrationMatch field if non-nil, zero value otherwise.
+
+### GetRankedCalibrationMatchOk
+
+`func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatchOk() (*int32, bool)`
+
+GetRankedCalibrationMatchOk returns a tuple with the RankedCalibrationMatch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRankedCalibrationMatch
+
+`func (o *PlayerMatchHistoryEntry) SetRankedCalibrationMatch(v int32)`
+
+SetRankedCalibrationMatch sets RankedCalibrationMatch field to given value.
+
+### HasRankedCalibrationMatch
+
+`func (o *PlayerMatchHistoryEntry) HasRankedCalibrationMatch() bool`
+
+HasRankedCalibrationMatch returns a boolean if a field has been set.
+
+### SetRankedCalibrationMatchNil
+
+`func (o *PlayerMatchHistoryEntry) SetRankedCalibrationMatchNil(b bool)`
+
+ SetRankedCalibrationMatchNil sets the value for RankedCalibrationMatch to be an explicit nil
+
+### UnsetRankedCalibrationMatch
+`func (o *PlayerMatchHistoryEntry) UnsetRankedCalibrationMatch()`
+
+UnsetRankedCalibrationMatch ensures that no value is present for RankedCalibrationMatch, not even an explicit nil
+### GetRankedDelta
+
+`func (o *PlayerMatchHistoryEntry) GetRankedDelta() int32`
+
+GetRankedDelta returns the RankedDelta field if non-nil, zero value otherwise.
+
+### GetRankedDeltaOk
+
+`func (o *PlayerMatchHistoryEntry) GetRankedDeltaOk() (*int32, bool)`
+
+GetRankedDeltaOk returns a tuple with the RankedDelta field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRankedDelta
+
+`func (o *PlayerMatchHistoryEntry) SetRankedDelta(v int32)`
+
+SetRankedDelta sets RankedDelta field to given value.
+
+### HasRankedDelta
+
+`func (o *PlayerMatchHistoryEntry) HasRankedDelta() bool`
+
+HasRankedDelta returns a boolean if a field has been set.
+
+### SetRankedDeltaNil
+
+`func (o *PlayerMatchHistoryEntry) SetRankedDeltaNil(b bool)`
+
+ SetRankedDeltaNil sets the value for RankedDelta to be an explicit nil
+
+### UnsetRankedDelta
+`func (o *PlayerMatchHistoryEntry) UnsetRankedDelta()`
+
+UnsetRankedDelta ensures that no value is present for RankedDelta, not even an explicit nil
+### GetRankedDisplayBadge
+
+`func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadge() int32`
+
+GetRankedDisplayBadge returns the RankedDisplayBadge field if non-nil, zero value otherwise.
+
+### GetRankedDisplayBadgeOk
+
+`func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadgeOk() (*int32, bool)`
+
+GetRankedDisplayBadgeOk returns a tuple with the RankedDisplayBadge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRankedDisplayBadge
+
+`func (o *PlayerMatchHistoryEntry) SetRankedDisplayBadge(v int32)`
+
+SetRankedDisplayBadge sets RankedDisplayBadge field to given value.
+
+### HasRankedDisplayBadge
+
+`func (o *PlayerMatchHistoryEntry) HasRankedDisplayBadge() bool`
+
+HasRankedDisplayBadge returns a boolean if a field has been set.
+
+### SetRankedDisplayBadgeNil
+
+`func (o *PlayerMatchHistoryEntry) SetRankedDisplayBadgeNil(b bool)`
+
+ SetRankedDisplayBadgeNil sets the value for RankedDisplayBadge to be an explicit nil
+
+### UnsetRankedDisplayBadge
+`func (o *PlayerMatchHistoryEntry) UnsetRankedDisplayBadge()`
+
+UnsetRankedDisplayBadge ensures that no value is present for RankedDisplayBadge, not even an explicit nil
+### GetRankedUsedDemotionProtection
+
+`func (o *PlayerMatchHistoryEntry) GetRankedUsedDemotionProtection() bool`
+
+GetRankedUsedDemotionProtection returns the RankedUsedDemotionProtection field if non-nil, zero value otherwise.
+
+### GetRankedUsedDemotionProtectionOk
+
+`func (o *PlayerMatchHistoryEntry) GetRankedUsedDemotionProtectionOk() (*bool, bool)`
+
+GetRankedUsedDemotionProtectionOk returns a tuple with the RankedUsedDemotionProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRankedUsedDemotionProtection
+
+`func (o *PlayerMatchHistoryEntry) SetRankedUsedDemotionProtection(v bool)`
+
+SetRankedUsedDemotionProtection sets RankedUsedDemotionProtection field to given value.
+
+### HasRankedUsedDemotionProtection
+
+`func (o *PlayerMatchHistoryEntry) HasRankedUsedDemotionProtection() bool`
+
+HasRankedUsedDemotionProtection returns a boolean if a field has been set.
+
+### SetRankedUsedDemotionProtectionNil
+
+`func (o *PlayerMatchHistoryEntry) SetRankedUsedDemotionProtectionNil(b bool)`
+
+ SetRankedUsedDemotionProtectionNil sets the value for RankedUsedDemotionProtection to be an explicit nil
+
+### UnsetRankedUsedDemotionProtection
+`func (o *PlayerMatchHistoryEntry) UnsetRankedUsedDemotionProtection()`
+
+UnsetRankedUsedDemotionProtection ensures that no value is present for RankedUsedDemotionProtection, not even an explicit nil
 ### GetStartTime
 
 `func (o *PlayerMatchHistoryEntry) GetStartTime() int32`

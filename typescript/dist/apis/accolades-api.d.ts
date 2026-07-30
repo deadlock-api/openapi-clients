@@ -168,7 +168,7 @@ export declare class AccoladesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAccolade(requestParameters: AccoladesApiGetAccoladeRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Accolade, any, {}>>;
+    getAccolade(requestParameters: AccoladesApiGetAccoladeRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Accolade, any, {}, any>>;
     /**
      * Returns a single accolade by `class_name` or `tracked_stat_name` (case-insensitive).
      * @summary Get Accolade By Name
@@ -176,7 +176,7 @@ export declare class AccoladesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAccoladeByName(requestParameters: AccoladesApiGetAccoladeByNameRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Accolade, any, {}>>;
+    getAccoladeByName(requestParameters: AccoladesApiGetAccoladeByNameRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Accolade, any, {}, any>>;
     /**
      * Returns the per-accolade metadata used by the game client, parsed from the patch\'s KV3 source files.
      * @summary List Accolades
@@ -184,7 +184,7 @@ export declare class AccoladesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAccolades(requestParameters?: AccoladesApiListAccoladesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Accolade[], any, {}>>;
+    listAccolades(requestParameters?: AccoladesApiListAccoladesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Accolade[], any, {}, any>>;
 }
 export declare const GetAccoladeLanguageEnum: {
     readonly Brazilian: "brazilian";

@@ -180,7 +180,7 @@ export declare class BuildsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchBuilds(requestParameters?: BuildsApiSearchBuildsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Build[], any, {}>>;
+    searchBuilds(requestParameters?: BuildsApiSearchBuildsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Build[], any, {}, any>>;
 }
 export declare const SearchBuildsSortByEnum: {
     readonly WeeklyFavorites: "weekly_favorites";

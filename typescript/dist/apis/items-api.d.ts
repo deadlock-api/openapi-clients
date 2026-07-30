@@ -260,7 +260,7 @@ export declare class ItemsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getItem(requestParameters: ItemsApiGetItemRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item, any, {}>>;
+    getItem(requestParameters: ItemsApiGetItemRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item, any, {}, any>>;
     /**
      * Hero-bound abilities, excluding the generic movement abilities.
      * @summary List Items By Hero
@@ -268,7 +268,7 @@ export declare class ItemsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getItemsByHeroId(requestParameters: ItemsApiGetItemsByHeroIdRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}>>;
+    getItemsByHeroId(requestParameters: ItemsApiGetItemsByHeroIdRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}, any>>;
     /**
      *
      * @summary List Items By Slot Type
@@ -276,7 +276,7 @@ export declare class ItemsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getItemsBySlotType(requestParameters: ItemsApiGetItemsBySlotTypeRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}>>;
+    getItemsBySlotType(requestParameters: ItemsApiGetItemsBySlotTypeRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}, any>>;
     /**
      *
      * @summary List Items By Type
@@ -284,7 +284,7 @@ export declare class ItemsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getItemsByType(requestParameters: ItemsApiGetItemsByTypeRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}>>;
+    getItemsByType(requestParameters: ItemsApiGetItemsByTypeRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}, any>>;
     /**
      * Returns the full per-patch item list — abilities, weapons, and upgrades.
      * @summary List Items
@@ -292,7 +292,7 @@ export declare class ItemsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listItems(requestParameters?: ItemsApiListItemsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}>>;
+    listItems(requestParameters?: ItemsApiListItemsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Item[], any, {}, any>>;
 }
 export declare const GetItemLanguageEnum: {
     readonly Brazilian: "brazilian";

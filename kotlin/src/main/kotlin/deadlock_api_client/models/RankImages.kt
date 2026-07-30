@@ -31,6 +31,8 @@ import java.io.Serializable
 /**
  * Image URLs for a single rank tier. Field declaration order is load-bearing: it sets the JSON key order, which is stable across versions of this API.
  *
+ * @param chalk 
+ * @param chalkWebp 
  * @param large 
  * @param largeSubrank1 
  * @param largeSubrank1Webp 
@@ -64,88 +66,120 @@ import java.io.Serializable
 
 data class RankImages (
 
+    @Json(name = "chalk")
+    val chalk: kotlin.String? = null,
+
+    @Json(name = "chalk_webp")
+    val chalkWebp: kotlin.String? = null,
+
     @Json(name = "large")
     val large: kotlin.String? = null,
 
     @Json(name = "large_subrank1")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank1: kotlin.String? = null,
 
     @Json(name = "large_subrank1_webp")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank1Webp: kotlin.String? = null,
 
     @Json(name = "large_subrank2")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank2: kotlin.String? = null,
 
     @Json(name = "large_subrank2_webp")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank2Webp: kotlin.String? = null,
 
     @Json(name = "large_subrank3")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank3: kotlin.String? = null,
 
     @Json(name = "large_subrank3_webp")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank3Webp: kotlin.String? = null,
 
     @Json(name = "large_subrank4")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank4: kotlin.String? = null,
 
     @Json(name = "large_subrank4_webp")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank4Webp: kotlin.String? = null,
 
     @Json(name = "large_subrank5")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank5: kotlin.String? = null,
 
     @Json(name = "large_subrank5_webp")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank5Webp: kotlin.String? = null,
 
     @Json(name = "large_subrank6")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank6: kotlin.String? = null,
 
     @Json(name = "large_subrank6_webp")
+    @Deprecated(message = "This property is deprecated.")
     val largeSubrank6Webp: kotlin.String? = null,
 
     @Json(name = "large_webp")
     val largeWebp: kotlin.String? = null,
 
     @Json(name = "small")
+    @Deprecated(message = "This property is deprecated.")
     val small: kotlin.String? = null,
 
     @Json(name = "small_subrank1")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank1: kotlin.String? = null,
 
     @Json(name = "small_subrank1_webp")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank1Webp: kotlin.String? = null,
 
     @Json(name = "small_subrank2")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank2: kotlin.String? = null,
 
     @Json(name = "small_subrank2_webp")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank2Webp: kotlin.String? = null,
 
     @Json(name = "small_subrank3")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank3: kotlin.String? = null,
 
     @Json(name = "small_subrank3_webp")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank3Webp: kotlin.String? = null,
 
     @Json(name = "small_subrank4")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank4: kotlin.String? = null,
 
     @Json(name = "small_subrank4_webp")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank4Webp: kotlin.String? = null,
 
     @Json(name = "small_subrank5")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank5: kotlin.String? = null,
 
     @Json(name = "small_subrank5_webp")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank5Webp: kotlin.String? = null,
 
     @Json(name = "small_subrank6")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank6: kotlin.String? = null,
 
     @Json(name = "small_subrank6_webp")
+    @Deprecated(message = "This property is deprecated.")
     val smallSubrank6Webp: kotlin.String? = null,
 
     @Json(name = "small_webp")
+    @Deprecated(message = "This property is deprecated.")
     val smallWebp: kotlin.String? = null
 
 ) : Serializable {

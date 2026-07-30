@@ -38,7 +38,27 @@ export interface PlayerMatchHistoryEntry {
     'player_assists': number;
     'player_deaths': number;
     'player_kills': number;
+    /**
+     * How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
+     */
+    'player_match_outcome': number;
     'player_team': number;
+    /**
+     * Non-zero if this match counted towards the player\'s ranked calibration.
+     */
+    'ranked_calibration_match'?: number | null;
+    /**
+     * The ranked progress change the player got from this match.
+     */
+    'ranked_delta'?: number | null;
+    /**
+     * The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     */
+    'ranked_display_badge'?: number | null;
+    /**
+     * Whether the player\'s demotion protection absorbed a loss in this match.
+     */
+    'ranked_used_demotion_protection'?: boolean | null;
     'start_time': number;
     'team_abandoned'?: boolean | null;
 }

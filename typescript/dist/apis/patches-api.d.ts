@@ -105,7 +105,7 @@ export declare class PatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bigPatchDays(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string[], any, {}>>;
+    bigPatchDays(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string[], any, {}, any>>;
     /**
      *  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Notes
@@ -113,13 +113,13 @@ export declare class PatchesApi extends BaseAPI {
      * @deprecated
      * @throws {RequiredError}
      */
-    feed(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Patch[], any, {}>>;
+    feed(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Patch[], any, {}, any>>;
     /**
      *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Notes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed_1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<FeedItem[], any, {}>>;
+    feed_1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<FeedItem[], any, {}, any>>;
 }
 //# sourceMappingURL=patches-api.d.ts.map

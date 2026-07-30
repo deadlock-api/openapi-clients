@@ -14,6 +14,10 @@ use serde::{Deserialize, Serialize};
 /// RankImages : Image URLs for a single rank tier. Field declaration order is load-bearing: it sets the JSON key order, which is stable across versions of this API.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RankImages {
+    #[serde(rename = "chalk", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub chalk: Option<Option<String>>,
+    #[serde(rename = "chalk_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub chalk_webp: Option<Option<String>>,
     #[serde(rename = "large", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub large: Option<Option<String>>,
     #[serde(rename = "large_subrank1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -76,6 +80,8 @@ impl RankImages {
     /// Image URLs for a single rank tier. Field declaration order is load-bearing: it sets the JSON key order, which is stable across versions of this API.
     pub fn new() -> RankImages {
         RankImages {
+            chalk: None,
+            chalk_webp: None,
             large: None,
             large_subrank1: None,
             large_subrank1_webp: None,

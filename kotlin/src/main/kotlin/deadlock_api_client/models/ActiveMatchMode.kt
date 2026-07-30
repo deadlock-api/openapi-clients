@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: Invalid,Unranked,PrivateLobby,CoopBot,Ranked,ServerTest,Tutorial,HeroLabs,Calibration
+ * Values: Invalid,Unranked,PrivateLobby,CoopBot,Ranked,ServerTest,Tutorial,HeroLabs,NewPlayerPlacement
  */
 
 @JsonClass(generateAdapter = false)
@@ -60,8 +60,8 @@ enum class ActiveMatchMode(val value: kotlin.String) {
     @Json(name = "HeroLabs")
     HeroLabs("HeroLabs"),
 
-    @Json(name = "Calibration")
-    Calibration("Calibration");
+    @Json(name = "NewPlayerPlacement")
+    NewPlayerPlacement("NewPlayerPlacement");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

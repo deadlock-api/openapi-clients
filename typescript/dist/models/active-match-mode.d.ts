@@ -18,7 +18,7 @@ export declare const ActiveMatchMode: {
     readonly ServerTest: "ServerTest";
     readonly Tutorial: "Tutorial";
     readonly HeroLabs: "HeroLabs";
-    readonly Calibration: "Calibration";
+    readonly NewPlayerPlacement: "NewPlayerPlacement";
 };
 export type ActiveMatchMode = typeof ActiveMatchMode[keyof typeof ActiveMatchMode];
 //# sourceMappingURL=active-match-mode.d.ts.map

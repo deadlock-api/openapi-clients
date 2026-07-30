@@ -123,7 +123,7 @@ export declare class RanksApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRank(requestParameters: RanksApiGetRankRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Rank, any, {}>>;
+    getRank(requestParameters: RanksApiGetRankRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Rank, any, {}, any>>;
     /**
      * Returns the 12 player ranks (tier, localized name, badge image URLs, hex color).
      * @summary List Ranks
@@ -131,7 +131,7 @@ export declare class RanksApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listRanks(requestParameters?: RanksApiListRanksRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Rank[], any, {}>>;
+    listRanks(requestParameters?: RanksApiListRanksRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Rank[], any, {}, any>>;
 }
 export declare const GetRankLanguageEnum: {
     readonly Brazilian: "brazilian";

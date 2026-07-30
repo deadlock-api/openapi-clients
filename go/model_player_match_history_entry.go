@@ -42,7 +42,17 @@ type PlayerMatchHistoryEntry struct {
 	PlayerAssists int32 `json:"player_assists"`
 	PlayerDeaths int32 `json:"player_deaths"`
 	PlayerKills int32 `json:"player_kills"`
+	// How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
+	PlayerMatchOutcome int32 `json:"player_match_outcome"`
 	PlayerTeam int32 `json:"player_team"`
+	// Non-zero if this match counted towards the player's ranked calibration.
+	RankedCalibrationMatch NullableInt32 `json:"ranked_calibration_match,omitempty"`
+	// The ranked progress change the player got from this match.
+	RankedDelta NullableInt32 `json:"ranked_delta,omitempty"`
+	// The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	RankedDisplayBadge NullableInt32 `json:"ranked_display_badge,omitempty"`
+	// Whether the player's demotion protection absorbed a loss in this match.
+	RankedUsedDemotionProtection NullableBool `json:"ranked_used_demotion_protection,omitempty"`
 	StartTime int32 `json:"start_time"`
 	TeamAbandoned NullableBool `json:"team_abandoned,omitempty"`
 }
@@ -53,7 +63,7 @@ type _PlayerMatchHistoryEntry PlayerMatchHistoryEntry
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerMatchHistoryEntry(accountId int32, denies int32, gameMode int32, heroId int32, heroLevel int32, lastHits int32, matchDurationS int32, matchId int64, matchMode int32, matchResult int32, netWorth int32, objectivesMaskTeam0 int32, objectivesMaskTeam1 int32, playerAssists int32, playerDeaths int32, playerKills int32, playerTeam int32, startTime int32) *PlayerMatchHistoryEntry {
+func NewPlayerMatchHistoryEntry(accountId int32, denies int32, gameMode int32, heroId int32, heroLevel int32, lastHits int32, matchDurationS int32, matchId int64, matchMode int32, matchResult int32, netWorth int32, objectivesMaskTeam0 int32, objectivesMaskTeam1 int32, playerAssists int32, playerDeaths int32, playerKills int32, playerMatchOutcome int32, playerTeam int32, startTime int32) *PlayerMatchHistoryEntry {
 	this := PlayerMatchHistoryEntry{}
 	this.AccountId = accountId
 	this.Denies = denies
@@ -71,6 +81,7 @@ func NewPlayerMatchHistoryEntry(accountId int32, denies int32, gameMode int32, h
 	this.PlayerAssists = playerAssists
 	this.PlayerDeaths = playerDeaths
 	this.PlayerKills = playerKills
+	this.PlayerMatchOutcome = playerMatchOutcome
 	this.PlayerTeam = playerTeam
 	this.StartTime = startTime
 	return &this
@@ -636,6 +647,30 @@ func (o *PlayerMatchHistoryEntry) SetPlayerKills(v int32) {
 	o.PlayerKills = v
 }
 
+// GetPlayerMatchOutcome returns the PlayerMatchOutcome field value
+func (o *PlayerMatchHistoryEntry) GetPlayerMatchOutcome() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PlayerMatchOutcome
+}
+
+// GetPlayerMatchOutcomeOk returns a tuple with the PlayerMatchOutcome field value
+// and a boolean to check if the value has been set.
+func (o *PlayerMatchHistoryEntry) GetPlayerMatchOutcomeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PlayerMatchOutcome, true
+}
+
+// SetPlayerMatchOutcome sets field value
+func (o *PlayerMatchHistoryEntry) SetPlayerMatchOutcome(v int32) {
+	o.PlayerMatchOutcome = v
+}
+
 // GetPlayerTeam returns the PlayerTeam field value
 func (o *PlayerMatchHistoryEntry) GetPlayerTeam() int32 {
 	if o == nil {
@@ -658,6 +693,174 @@ func (o *PlayerMatchHistoryEntry) GetPlayerTeamOk() (*int32, bool) {
 // SetPlayerTeam sets field value
 func (o *PlayerMatchHistoryEntry) SetPlayerTeam(v int32) {
 	o.PlayerTeam = v
+}
+
+// GetRankedCalibrationMatch returns the RankedCalibrationMatch field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatch() int32 {
+	if o == nil || IsNil(o.RankedCalibrationMatch.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.RankedCalibrationMatch.Get()
+}
+
+// GetRankedCalibrationMatchOk returns a tuple with the RankedCalibrationMatch field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatchOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RankedCalibrationMatch.Get(), o.RankedCalibrationMatch.IsSet()
+}
+
+// HasRankedCalibrationMatch returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasRankedCalibrationMatch() bool {
+	if o != nil && o.RankedCalibrationMatch.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRankedCalibrationMatch gets a reference to the given NullableInt32 and assigns it to the RankedCalibrationMatch field.
+func (o *PlayerMatchHistoryEntry) SetRankedCalibrationMatch(v int32) {
+	o.RankedCalibrationMatch.Set(&v)
+}
+// SetRankedCalibrationMatchNil sets the value for RankedCalibrationMatch to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetRankedCalibrationMatchNil() {
+	o.RankedCalibrationMatch.Set(nil)
+}
+
+// UnsetRankedCalibrationMatch ensures that no value is present for RankedCalibrationMatch, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetRankedCalibrationMatch() {
+	o.RankedCalibrationMatch.Unset()
+}
+
+// GetRankedDelta returns the RankedDelta field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetRankedDelta() int32 {
+	if o == nil || IsNil(o.RankedDelta.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.RankedDelta.Get()
+}
+
+// GetRankedDeltaOk returns a tuple with the RankedDelta field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetRankedDeltaOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RankedDelta.Get(), o.RankedDelta.IsSet()
+}
+
+// HasRankedDelta returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasRankedDelta() bool {
+	if o != nil && o.RankedDelta.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRankedDelta gets a reference to the given NullableInt32 and assigns it to the RankedDelta field.
+func (o *PlayerMatchHistoryEntry) SetRankedDelta(v int32) {
+	o.RankedDelta.Set(&v)
+}
+// SetRankedDeltaNil sets the value for RankedDelta to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetRankedDeltaNil() {
+	o.RankedDelta.Set(nil)
+}
+
+// UnsetRankedDelta ensures that no value is present for RankedDelta, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetRankedDelta() {
+	o.RankedDelta.Unset()
+}
+
+// GetRankedDisplayBadge returns the RankedDisplayBadge field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadge() int32 {
+	if o == nil || IsNil(o.RankedDisplayBadge.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.RankedDisplayBadge.Get()
+}
+
+// GetRankedDisplayBadgeOk returns a tuple with the RankedDisplayBadge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadgeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RankedDisplayBadge.Get(), o.RankedDisplayBadge.IsSet()
+}
+
+// HasRankedDisplayBadge returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasRankedDisplayBadge() bool {
+	if o != nil && o.RankedDisplayBadge.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRankedDisplayBadge gets a reference to the given NullableInt32 and assigns it to the RankedDisplayBadge field.
+func (o *PlayerMatchHistoryEntry) SetRankedDisplayBadge(v int32) {
+	o.RankedDisplayBadge.Set(&v)
+}
+// SetRankedDisplayBadgeNil sets the value for RankedDisplayBadge to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetRankedDisplayBadgeNil() {
+	o.RankedDisplayBadge.Set(nil)
+}
+
+// UnsetRankedDisplayBadge ensures that no value is present for RankedDisplayBadge, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetRankedDisplayBadge() {
+	o.RankedDisplayBadge.Unset()
+}
+
+// GetRankedUsedDemotionProtection returns the RankedUsedDemotionProtection field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetRankedUsedDemotionProtection() bool {
+	if o == nil || IsNil(o.RankedUsedDemotionProtection.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.RankedUsedDemotionProtection.Get()
+}
+
+// GetRankedUsedDemotionProtectionOk returns a tuple with the RankedUsedDemotionProtection field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetRankedUsedDemotionProtectionOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RankedUsedDemotionProtection.Get(), o.RankedUsedDemotionProtection.IsSet()
+}
+
+// HasRankedUsedDemotionProtection returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasRankedUsedDemotionProtection() bool {
+	if o != nil && o.RankedUsedDemotionProtection.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRankedUsedDemotionProtection gets a reference to the given NullableBool and assigns it to the RankedUsedDemotionProtection field.
+func (o *PlayerMatchHistoryEntry) SetRankedUsedDemotionProtection(v bool) {
+	o.RankedUsedDemotionProtection.Set(&v)
+}
+// SetRankedUsedDemotionProtectionNil sets the value for RankedUsedDemotionProtection to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetRankedUsedDemotionProtectionNil() {
+	o.RankedUsedDemotionProtection.Set(nil)
+}
+
+// UnsetRankedUsedDemotionProtection ensures that no value is present for RankedUsedDemotionProtection, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetRankedUsedDemotionProtection() {
+	o.RankedUsedDemotionProtection.Unset()
 }
 
 // GetStartTime returns the StartTime field value
@@ -764,7 +967,20 @@ func (o PlayerMatchHistoryEntry) ToMap() (map[string]interface{}, error) {
 	toSerialize["player_assists"] = o.PlayerAssists
 	toSerialize["player_deaths"] = o.PlayerDeaths
 	toSerialize["player_kills"] = o.PlayerKills
+	toSerialize["player_match_outcome"] = o.PlayerMatchOutcome
 	toSerialize["player_team"] = o.PlayerTeam
+	if o.RankedCalibrationMatch.IsSet() {
+		toSerialize["ranked_calibration_match"] = o.RankedCalibrationMatch.Get()
+	}
+	if o.RankedDelta.IsSet() {
+		toSerialize["ranked_delta"] = o.RankedDelta.Get()
+	}
+	if o.RankedDisplayBadge.IsSet() {
+		toSerialize["ranked_display_badge"] = o.RankedDisplayBadge.Get()
+	}
+	if o.RankedUsedDemotionProtection.IsSet() {
+		toSerialize["ranked_used_demotion_protection"] = o.RankedUsedDemotionProtection.Get()
+	}
 	toSerialize["start_time"] = o.StartTime
 	if o.TeamAbandoned.IsSet() {
 		toSerialize["team_abandoned"] = o.TeamAbandoned.Get()
@@ -793,6 +1009,7 @@ func (o *PlayerMatchHistoryEntry) UnmarshalJSON(data []byte) (err error) {
 		"player_assists",
 		"player_deaths",
 		"player_kills",
+		"player_match_outcome",
 		"player_team",
 		"start_time",
 	}

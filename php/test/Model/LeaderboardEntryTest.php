@@ -89,15 +89,6 @@ class LeaderboardEntryTest extends TestCase
     }
 
     /**
-     * Test attribute "badge_level"
-     */
-    public function testPropertyBadgeLevel()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "possible_account_ids"
      */
     public function testPropertyPossibleAccountIds()
@@ -110,24 +101,6 @@ class LeaderboardEntryTest extends TestCase
      * Test attribute "rank"
      */
     public function testPropertyRank()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "ranked_rank"
-     */
-    public function testPropertyRankedRank()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "ranked_subrank"
-     */
-    public function testPropertyRankedSubrank()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

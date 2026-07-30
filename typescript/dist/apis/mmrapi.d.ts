@@ -364,7 +364,7 @@ export declare class MMRApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}>>;
+    heroMmr(requestParameters: MMRApiHeroMmrRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}, any>>;
     /**
      *  Player Hero MMR Distribution
      * @summary Hero MMR Distribution
@@ -372,7 +372,7 @@ export declare class MMRApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroMmrDistribution(requestParameters: MMRApiHeroMmrDistributionRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<DistributionEntry[], any, {}>>;
+    heroMmrDistribution(requestParameters: MMRApiHeroMmrDistributionRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<DistributionEntry[], any, {}, any>>;
     /**
      * Player Hero MMR History
      * @summary Hero MMR History
@@ -380,7 +380,7 @@ export declare class MMRApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroMmrHistory(requestParameters: MMRApiHeroMmrHistoryRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}>>;
+    heroMmrHistory(requestParameters: MMRApiHeroMmrHistoryRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}, any>>;
     /**
      *  Batch Player MMR
      * @summary Batch MMR
@@ -388,7 +388,7 @@ export declare class MMRApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    mmr(requestParameters: MMRApiMmrRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}>>;
+    mmr(requestParameters: MMRApiMmrRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}, any>>;
     /**
      *  Player MMR Distribution
      * @summary MMR Distribution
@@ -396,7 +396,7 @@ export declare class MMRApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    mmrDistribution(requestParameters?: MMRApiMmrDistributionRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<DistributionEntry[], any, {}>>;
+    mmrDistribution(requestParameters?: MMRApiMmrDistributionRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<DistributionEntry[], any, {}, any>>;
     /**
      * Player MMR History
      * @summary MMR History
@@ -404,6 +404,6 @@ export declare class MMRApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}>>;
+    mmrHistory(requestParameters: MMRApiMmrHistoryRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MMRHistory[], any, {}, any>>;
 }
 //# sourceMappingURL=mmrapi.d.ts.map

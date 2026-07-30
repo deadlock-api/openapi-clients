@@ -49,15 +49,20 @@ namespace DeadlockApiClient.Model
         /// <param name="playerAssists">playerAssists</param>
         /// <param name="playerDeaths">playerDeaths</param>
         /// <param name="playerKills">playerKills</param>
+        /// <param name="playerMatchOutcome">How the match was scored for the player: 0 &#x3D; invalid, 1 &#x3D; win, 2 &#x3D; loss, 3 &#x3D; penalized, 4 &#x3D; penalized party, 5 &#x3D; not scored.</param>
         /// <param name="playerTeam">playerTeam</param>
         /// <param name="startTime">startTime</param>
         /// <param name="abandonedTimeS">abandonedTimeS</param>
         /// <param name="brawlAvgRoundTimeS">brawlAvgRoundTimeS</param>
         /// <param name="brawlScoreTeam0">brawlScoreTeam0</param>
         /// <param name="brawlScoreTeam1">brawlScoreTeam1</param>
+        /// <param name="rankedCalibrationMatch">Non-zero if this match counted towards the player&#39;s ranked calibration.</param>
+        /// <param name="rankedDelta">The ranked progress change the player got from this match.</param>
+        /// <param name="rankedDisplayBadge">The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rankedUsedDemotionProtection">Whether the player&#39;s demotion protection absorbed a loss in this match.</param>
         /// <param name="teamAbandoned">teamAbandoned</param>
         [JsonConstructor]
-        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<bool?> teamAbandoned = default)
+        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerMatchOutcome, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<int?> rankedCalibrationMatch = default, Option<int?> rankedDelta = default, Option<int?> rankedDisplayBadge = default, Option<bool?> rankedUsedDemotionProtection = default, Option<bool?> teamAbandoned = default)
         {
             AccountId = accountId;
             Denies = denies;
@@ -75,12 +80,17 @@ namespace DeadlockApiClient.Model
             PlayerAssists = playerAssists;
             PlayerDeaths = playerDeaths;
             PlayerKills = playerKills;
+            PlayerMatchOutcome = playerMatchOutcome;
             PlayerTeam = playerTeam;
             StartTime = startTime;
             AbandonedTimeSOption = abandonedTimeS;
             BrawlAvgRoundTimeSOption = brawlAvgRoundTimeS;
             BrawlScoreTeam0Option = brawlScoreTeam0;
             BrawlScoreTeam1Option = brawlScoreTeam1;
+            RankedCalibrationMatchOption = rankedCalibrationMatch;
+            RankedDeltaOption = rankedDelta;
+            RankedDisplayBadgeOption = rankedDisplayBadge;
+            RankedUsedDemotionProtectionOption = rankedUsedDemotionProtection;
             TeamAbandonedOption = teamAbandoned;
             OnCreated();
         }
@@ -185,6 +195,13 @@ namespace DeadlockApiClient.Model
         public int PlayerKills { get; set; }
 
         /// <summary>
+        /// How the match was scored for the player: 0 &#x3D; invalid, 1 &#x3D; win, 2 &#x3D; loss, 3 &#x3D; penalized, 4 &#x3D; penalized party, 5 &#x3D; not scored.
+        /// </summary>
+        /// <value>How the match was scored for the player: 0 &#x3D; invalid, 1 &#x3D; win, 2 &#x3D; loss, 3 &#x3D; penalized, 4 &#x3D; penalized party, 5 &#x3D; not scored.</value>
+        [JsonPropertyName("player_match_outcome")]
+        public int PlayerMatchOutcome { get; set; }
+
+        /// <summary>
         /// Gets or Sets PlayerTeam
         /// </summary>
         [JsonPropertyName("player_team")]
@@ -249,6 +266,62 @@ namespace DeadlockApiClient.Model
         public int? BrawlScoreTeam1 { get { return this.BrawlScoreTeam1Option.Value; } set { this.BrawlScoreTeam1Option = new(value); } }
 
         /// <summary>
+        /// Used to track the state of RankedCalibrationMatch
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> RankedCalibrationMatchOption { get; private set; }
+
+        /// <summary>
+        /// Non-zero if this match counted towards the player&#39;s ranked calibration.
+        /// </summary>
+        /// <value>Non-zero if this match counted towards the player&#39;s ranked calibration.</value>
+        [JsonPropertyName("ranked_calibration_match")]
+        public int? RankedCalibrationMatch { get { return this.RankedCalibrationMatchOption.Value; } set { this.RankedCalibrationMatchOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RankedDelta
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> RankedDeltaOption { get; private set; }
+
+        /// <summary>
+        /// The ranked progress change the player got from this match.
+        /// </summary>
+        /// <value>The ranked progress change the player got from this match.</value>
+        [JsonPropertyName("ranked_delta")]
+        public int? RankedDelta { get { return this.RankedDeltaOption.Value; } set { this.RankedDeltaOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RankedDisplayBadge
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> RankedDisplayBadgeOption { get; private set; }
+
+        /// <summary>
+        /// The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// </summary>
+        /// <value>The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        [JsonPropertyName("ranked_display_badge")]
+        public int? RankedDisplayBadge { get { return this.RankedDisplayBadgeOption.Value; } set { this.RankedDisplayBadgeOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RankedUsedDemotionProtection
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> RankedUsedDemotionProtectionOption { get; private set; }
+
+        /// <summary>
+        /// Whether the player&#39;s demotion protection absorbed a loss in this match.
+        /// </summary>
+        /// <value>Whether the player&#39;s demotion protection absorbed a loss in this match.</value>
+        [JsonPropertyName("ranked_used_demotion_protection")]
+        public bool? RankedUsedDemotionProtection { get { return this.RankedUsedDemotionProtectionOption.Value; } set { this.RankedUsedDemotionProtectionOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of TeamAbandoned
         /// </summary>
         [JsonIgnore]
@@ -285,12 +358,17 @@ namespace DeadlockApiClient.Model
             sb.Append("  PlayerAssists: ").Append(PlayerAssists).Append("\n");
             sb.Append("  PlayerDeaths: ").Append(PlayerDeaths).Append("\n");
             sb.Append("  PlayerKills: ").Append(PlayerKills).Append("\n");
+            sb.Append("  PlayerMatchOutcome: ").Append(PlayerMatchOutcome).Append("\n");
             sb.Append("  PlayerTeam: ").Append(PlayerTeam).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
             sb.Append("  AbandonedTimeS: ").Append(AbandonedTimeS).Append("\n");
             sb.Append("  BrawlAvgRoundTimeS: ").Append(BrawlAvgRoundTimeS).Append("\n");
             sb.Append("  BrawlScoreTeam0: ").Append(BrawlScoreTeam0).Append("\n");
             sb.Append("  BrawlScoreTeam1: ").Append(BrawlScoreTeam1).Append("\n");
+            sb.Append("  RankedCalibrationMatch: ").Append(RankedCalibrationMatch).Append("\n");
+            sb.Append("  RankedDelta: ").Append(RankedDelta).Append("\n");
+            sb.Append("  RankedDisplayBadge: ").Append(RankedDisplayBadge).Append("\n");
+            sb.Append("  RankedUsedDemotionProtection: ").Append(RankedUsedDemotionProtection).Append("\n");
             sb.Append("  TeamAbandoned: ").Append(TeamAbandoned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -417,6 +495,18 @@ namespace DeadlockApiClient.Model
                 yield return new ValidationResult("Invalid value for BrawlScoreTeam1, must be a value greater than or equal to 0.", new [] { "BrawlScoreTeam1" });
             }
 
+            // RankedCalibrationMatch (int) minimum
+            if (this.RankedCalibrationMatchOption.IsSet && this.RankedCalibrationMatchOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for RankedCalibrationMatch, must be a value greater than or equal to 0.", new [] { "RankedCalibrationMatch" });
+            }
+
+            // RankedDisplayBadge (int) minimum
+            if (this.RankedDisplayBadgeOption.IsSet && this.RankedDisplayBadgeOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for RankedDisplayBadge, must be a value greater than or equal to 0.", new [] { "RankedDisplayBadge" });
+            }
+
             yield break;
         }
     }
@@ -469,12 +559,17 @@ namespace DeadlockApiClient.Model
             Option<int?> playerAssists = default;
             Option<int?> playerDeaths = default;
             Option<int?> playerKills = default;
+            Option<int?> playerMatchOutcome = default;
             Option<int?> playerTeam = default;
             Option<int?> startTime = default;
             Option<int?> abandonedTimeS = default;
             Option<int?> brawlAvgRoundTimeS = default;
             Option<int?> brawlScoreTeam0 = default;
             Option<int?> brawlScoreTeam1 = default;
+            Option<int?> rankedCalibrationMatch = default;
+            Option<int?> rankedDelta = default;
+            Option<int?> rankedDisplayBadge = default;
+            Option<bool?> rankedUsedDemotionProtection = default;
             Option<bool?> teamAbandoned = default;
 
             while (utf8JsonReader.Read())
@@ -540,6 +635,9 @@ namespace DeadlockApiClient.Model
                         case "player_kills":
                             playerKills = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
+                        case "player_match_outcome":
+                            playerMatchOutcome = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
                         case "player_team":
                             playerTeam = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
@@ -557,6 +655,18 @@ namespace DeadlockApiClient.Model
                             break;
                         case "brawl_score_team1":
                             brawlScoreTeam1 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "ranked_calibration_match":
+                            rankedCalibrationMatch = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "ranked_delta":
+                            rankedDelta = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "ranked_display_badge":
+                            rankedDisplayBadge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "ranked_used_demotion_protection":
+                            rankedUsedDemotionProtection = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "team_abandoned":
                             teamAbandoned = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -615,6 +725,9 @@ namespace DeadlockApiClient.Model
             if (!playerKills.IsSet)
                 throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerKills));
 
+            if (!playerMatchOutcome.IsSet)
+                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerMatchOutcome));
+
             if (!playerTeam.IsSet)
                 throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerTeam));
 
@@ -669,13 +782,16 @@ namespace DeadlockApiClient.Model
             if (playerKills.IsSet && playerKills.Value == null)
                 throw new ArgumentNullException(nameof(playerKills), "Property is not nullable for class PlayerMatchHistoryEntry.");
 
+            if (playerMatchOutcome.IsSet && playerMatchOutcome.Value == null)
+                throw new ArgumentNullException(nameof(playerMatchOutcome), "Property is not nullable for class PlayerMatchHistoryEntry.");
+
             if (playerTeam.IsSet && playerTeam.Value == null)
                 throw new ArgumentNullException(nameof(playerTeam), "Property is not nullable for class PlayerMatchHistoryEntry.");
 
             if (startTime.IsSet && startTime.Value == null)
                 throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class PlayerMatchHistoryEntry.");
 
-            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, teamAbandoned);
+            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerMatchOutcome.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, rankedCalibrationMatch, rankedDelta, rankedDisplayBadge, rankedUsedDemotionProtection, teamAbandoned);
         }
 
         /// <summary>
@@ -734,6 +850,8 @@ namespace DeadlockApiClient.Model
 
             writer.WriteNumber("player_kills", playerMatchHistoryEntry.PlayerKills);
 
+            writer.WriteNumber("player_match_outcome", playerMatchHistoryEntry.PlayerMatchOutcome);
+
             writer.WriteNumber("player_team", playerMatchHistoryEntry.PlayerTeam);
 
             writer.WriteNumber("start_time", playerMatchHistoryEntry.StartTime);
@@ -761,6 +879,30 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("brawl_score_team1", playerMatchHistoryEntry.BrawlScoreTeam1Option.Value!.Value);
                 else
                     writer.WriteNull("brawl_score_team1");
+
+            if (playerMatchHistoryEntry.RankedCalibrationMatchOption.IsSet)
+                if (playerMatchHistoryEntry.RankedCalibrationMatchOption.Value != null)
+                    writer.WriteNumber("ranked_calibration_match", playerMatchHistoryEntry.RankedCalibrationMatchOption.Value!.Value);
+                else
+                    writer.WriteNull("ranked_calibration_match");
+
+            if (playerMatchHistoryEntry.RankedDeltaOption.IsSet)
+                if (playerMatchHistoryEntry.RankedDeltaOption.Value != null)
+                    writer.WriteNumber("ranked_delta", playerMatchHistoryEntry.RankedDeltaOption.Value!.Value);
+                else
+                    writer.WriteNull("ranked_delta");
+
+            if (playerMatchHistoryEntry.RankedDisplayBadgeOption.IsSet)
+                if (playerMatchHistoryEntry.RankedDisplayBadgeOption.Value != null)
+                    writer.WriteNumber("ranked_display_badge", playerMatchHistoryEntry.RankedDisplayBadgeOption.Value!.Value);
+                else
+                    writer.WriteNull("ranked_display_badge");
+
+            if (playerMatchHistoryEntry.RankedUsedDemotionProtectionOption.IsSet)
+                if (playerMatchHistoryEntry.RankedUsedDemotionProtectionOption.Value != null)
+                    writer.WriteBoolean("ranked_used_demotion_protection", playerMatchHistoryEntry.RankedUsedDemotionProtectionOption.Value!.Value);
+                else
+                    writer.WriteNull("ranked_used_demotion_protection");
 
             if (playerMatchHistoryEntry.TeamAbandonedOption.IsSet)
                 if (playerMatchHistoryEntry.TeamAbandonedOption.Value != null)

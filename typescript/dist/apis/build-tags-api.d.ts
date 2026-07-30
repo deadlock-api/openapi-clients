@@ -168,7 +168,7 @@ export declare class BuildTagsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getBuildTag(requestParameters: BuildTagsApiGetBuildTagRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildTag, any, {}>>;
+    getBuildTag(requestParameters: BuildTagsApiGetBuildTagRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildTag, any, {}, any>>;
     /**
      * Returns a single build tag by `class_name` (case-insensitive).
      * @summary Get Build Tag By Name
@@ -176,7 +176,7 @@ export declare class BuildTagsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getBuildTagByName(requestParameters: BuildTagsApiGetBuildTagByNameRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildTag, any, {}>>;
+    getBuildTagByName(requestParameters: BuildTagsApiGetBuildTagByNameRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildTag, any, {}, any>>;
     /**
      * Returns the build tag taxonomy used by the game client, derived from per-version localization keys.
      * @summary List Build Tags
@@ -184,7 +184,7 @@ export declare class BuildTagsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listBuildTags(requestParameters?: BuildTagsApiListBuildTagsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildTag[], any, {}>>;
+    listBuildTags(requestParameters?: BuildTagsApiListBuildTagsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BuildTag[], any, {}, any>>;
 }
 export declare const GetBuildTagLanguageEnum: {
     readonly Brazilian: "brazilian";

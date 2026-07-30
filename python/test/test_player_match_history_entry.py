@@ -55,7 +55,12 @@ class TestPlayerMatchHistoryEntry(unittest.TestCase):
                 player_assists = 0,
                 player_deaths = 0,
                 player_kills = 0,
+                player_match_outcome = 56,
                 player_team = 56,
+                ranked_calibration_match = 0,
+                ranked_delta = 56,
+                ranked_display_badge = 0,
+                ranked_used_demotion_protection = True,
                 start_time = 0,
                 team_abandoned = True
             )
@@ -77,6 +82,7 @@ class TestPlayerMatchHistoryEntry(unittest.TestCase):
                 player_assists = 0,
                 player_deaths = 0,
                 player_kills = 0,
+                player_match_outcome = 56,
                 player_team = 56,
                 start_time = 0,
         )

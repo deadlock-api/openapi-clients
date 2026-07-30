@@ -80,6 +80,24 @@ class RankImagesTest extends TestCase
     }
 
     /**
+     * Test attribute "chalk"
+     */
+    public function testPropertyChalk()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "chalk_webp"
+     */
+    public function testPropertyChalkWebp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "large"
      */
     public function testPropertyLarge()

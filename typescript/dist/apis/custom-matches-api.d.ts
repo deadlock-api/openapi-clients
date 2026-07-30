@@ -221,7 +221,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustom(requestParameters: CustomMatchesApiCreateCustomRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CreateCustomResponse, any, {}>>;
+    createCustom(requestParameters: CustomMatchesApiCreateCustomRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CreateCustomResponse, any, {}, any>>;
     /**
      *  This endpoint allows you to get the match id of a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Get Match ID
@@ -229,7 +229,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustom(requestParameters: CustomMatchesApiGetCustomRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GetCustomMatchIdResponse, any, {}>>;
+    getCustom(requestParameters: CustomMatchesApiGetCustomRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GetCustomMatchIdResponse, any, {}, any>>;
     /**
      *  This endpoint makes the bot leave the custom match lobby early. By default the bot leaves automatically after 15 minutes, but this endpoint allows you to trigger it sooner.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Leave Lobby
@@ -237,7 +237,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leave(requestParameters: CustomMatchesApiLeaveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    leave(requestParameters: CustomMatchesApiLeaveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
     /**
      *  This endpoint allows you to ready up for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Ready Up
@@ -245,7 +245,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readyUp(requestParameters: CustomMatchesApiReadyUpRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    readyUp(requestParameters: CustomMatchesApiReadyUpRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
     /**
      *  This endpoint starts a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Start Match
@@ -253,7 +253,7 @@ export declare class CustomMatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    start(requestParameters: CustomMatchesApiStartRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    start(requestParameters: CustomMatchesApiStartRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
     /**
      *  This endpoint allows you to unready for a custom match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/h | | Key | 100req/30min | | Global | 1000req/h |
      * @summary Unready
@@ -261,6 +261,6 @@ export declare class CustomMatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unready(requestParameters: CustomMatchesApiUnreadyRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}>>;
+    unready(requestParameters: CustomMatchesApiUnreadyRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
 }
 //# sourceMappingURL=custom-matches-api.d.ts.map

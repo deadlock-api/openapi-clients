@@ -2485,7 +2485,6 @@ class PlayersApi:
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
-        size: Annotated[Optional[StrictStr], Field(description="Image size. Defaults to `large`. Supported: `large`, `small`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2501,14 +2500,12 @@ class PlayersApi:
     ) -> List[int]:
         """Rank Predict Avg Image
 
-        Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+        Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
 
         :param account_ids: Comma-separated list of account IDs (max 12). (required)
         :type account_ids: List[int]
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
         :type format: str
-        :param size: Image size. Defaults to `large`. Supported: `large`, `small`.
-        :type size: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2534,7 +2531,6 @@ class PlayersApi:
         _param = self._rank_predict_avg_image_serialize(
             account_ids=account_ids,
             format=format,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2567,7 +2563,6 @@ class PlayersApi:
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
-        size: Annotated[Optional[StrictStr], Field(description="Image size. Defaults to `large`. Supported: `large`, `small`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2583,14 +2578,12 @@ class PlayersApi:
     ) -> ApiResponse[List[int]]:
         """Rank Predict Avg Image
 
-        Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+        Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
 
         :param account_ids: Comma-separated list of account IDs (max 12). (required)
         :type account_ids: List[int]
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
         :type format: str
-        :param size: Image size. Defaults to `large`. Supported: `large`, `small`.
-        :type size: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2616,7 +2609,6 @@ class PlayersApi:
         _param = self._rank_predict_avg_image_serialize(
             account_ids=account_ids,
             format=format,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2649,7 +2641,6 @@ class PlayersApi:
         self,
         account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
-        size: Annotated[Optional[StrictStr], Field(description="Image size. Defaults to `large`. Supported: `large`, `small`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2665,14 +2656,12 @@ class PlayersApi:
     ) -> RESTResponseType:
         """Rank Predict Avg Image
 
-        Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+        Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
 
         :param account_ids: Comma-separated list of account IDs (max 12). (required)
         :type account_ids: List[int]
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
         :type format: str
-        :param size: Image size. Defaults to `large`. Supported: `large`, `small`.
-        :type size: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2698,7 +2687,6 @@ class PlayersApi:
         _param = self._rank_predict_avg_image_serialize(
             account_ids=account_ids,
             format=format,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2726,7 +2714,6 @@ class PlayersApi:
         self,
         account_ids,
         format,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -2757,10 +2744,6 @@ class PlayersApi:
         if format is not None:
             
             _query_params.append(('format', format))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters
@@ -2804,7 +2787,6 @@ class PlayersApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
-        size: Annotated[Optional[StrictStr], Field(description="Image size. Defaults to `large`. Supported: `large`, `small`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2820,14 +2802,12 @@ class PlayersApi:
     ) -> List[int]:
         """Rank Predict Image
 
-        Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+        Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
         :type format: str
-        :param size: Image size. Defaults to `large`. Supported: `large`, `small`.
-        :type size: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2853,7 +2833,6 @@ class PlayersApi:
         _param = self._rank_predict_image_serialize(
             account_id=account_id,
             format=format,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2886,7 +2865,6 @@ class PlayersApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
-        size: Annotated[Optional[StrictStr], Field(description="Image size. Defaults to `large`. Supported: `large`, `small`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2902,14 +2880,12 @@ class PlayersApi:
     ) -> ApiResponse[List[int]]:
         """Rank Predict Image
 
-        Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+        Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
         :type format: str
-        :param size: Image size. Defaults to `large`. Supported: `large`, `small`.
-        :type size: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2935,7 +2911,6 @@ class PlayersApi:
         _param = self._rank_predict_image_serialize(
             account_id=account_id,
             format=format,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2968,7 +2943,6 @@ class PlayersApi:
         self,
         account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
-        size: Annotated[Optional[StrictStr], Field(description="Image size. Defaults to `large`. Supported: `large`, `small`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2984,14 +2958,12 @@ class PlayersApi:
     ) -> RESTResponseType:
         """Rank Predict Image
 
-        Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP and `?size=small` for the small badge (defaults to large).
+        Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
         :param format: Image format. Defaults to `png`. Supported: `png`, `webp`.
         :type format: str
-        :param size: Image size. Defaults to `large`. Supported: `large`, `small`.
-        :type size: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3017,7 +2989,6 @@ class PlayersApi:
         _param = self._rank_predict_image_serialize(
             account_id=account_id,
             format=format,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3045,7 +3016,6 @@ class PlayersApi:
         self,
         account_id,
         format,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -3073,10 +3043,6 @@ class PlayersApi:
         if format is not None:
             
             _query_params.append(('format', format))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters
