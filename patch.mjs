@@ -90,6 +90,23 @@ rmSync(tsconfigEsmPath, { force: true });
 
 addJsExtensions(dir);
 
+// axios >= 1.19 types `request<T, R>` as returning `Promise<AxiosResponseResult<T, R, D, P>>`,
+// a conditional type over an unexported `unique symbol`. Without the cast, `createRequestFunction`'s
+// inferred type references that symbol and declaration emit fails with TS2527.
+const commonPath = resolve(dir, "common.ts");
+if (existsSync(commonPath)) {
+  const common = readFileSync(commonPath, "utf8");
+  const patched = common.replace(
+    "return axios.request<T, R>(axiosRequestArgs);",
+    "return axios.request<T, R>(axiosRequestArgs) as Promise<R>;",
+  );
+  if (patched === common) {
+    console.error("patch.mjs: could not patch axios.request call in common.ts");
+    process.exit(1);
+  }
+  writeFileSync(commonPath, patched);
+}
+
 // Remove `dist` from the generated .gitignore so the built output is committed
 const gitignorePath = resolve(dir, ".gitignore");
 if (existsSync(gitignorePath)) {
