@@ -2360,7 +2360,7 @@ class PlayersApi
     /**
      * Operation rankPredict
      *
-     * Rank Predict
+     * Rank
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
@@ -2378,7 +2378,7 @@ class PlayersApi
     /**
      * Operation rankPredictWithHttpInfo
      *
-     * Rank Predict
+     * Rank
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
@@ -2463,7 +2463,7 @@ class PlayersApi
     /**
      * Operation rankPredictAsync
      *
-     * Rank Predict
+     * Rank
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
@@ -2484,7 +2484,7 @@ class PlayersApi
     /**
      * Operation rankPredictAsyncWithHttpInfo
      *
-     * Rank Predict
+     * Rank
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
@@ -2631,7 +2631,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImage
      *
-     * Rank Predict Avg Image
+     * Rank Avg Image
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2650,7 +2650,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImageWithHttpInfo
      *
-     * Rank Predict Avg Image
+     * Rank Avg Image
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2736,7 +2736,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImageAsync
      *
-     * Rank Predict Avg Image
+     * Rank Avg Image
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2758,7 +2758,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImageAsyncWithHttpInfo
      *
-     * Rank Predict Avg Image
+     * Rank Avg Image
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2915,7 +2915,7 @@ class PlayersApi
     /**
      * Operation rankPredictImage
      *
-     * Rank Predict Image
+     * Rank Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2934,7 +2934,7 @@ class PlayersApi
     /**
      * Operation rankPredictImageWithHttpInfo
      *
-     * Rank Predict Image
+     * Rank Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -3020,7 +3020,7 @@ class PlayersApi
     /**
      * Operation rankPredictImageAsync
      *
-     * Rank Predict Image
+     * Rank Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -3042,7 +3042,7 @@ class PlayersApi
     /**
      * Operation rankPredictImageAsyncWithHttpInfo
      *
-     * Rank Predict Image
+     * Rank Image
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)

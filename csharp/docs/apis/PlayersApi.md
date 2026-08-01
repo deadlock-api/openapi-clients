@@ -10,9 +10,9 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**MatchHistory**](PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**MateStats**](PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**PlayerHeroStats**](PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
-| [**RankPredict**](PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict |
-| [**RankPredictAvgImage**](PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image |
-| [**RankPredictImage**](PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image |
+| [**RankPredict**](PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank |
+| [**RankPredictAvgImage**](PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Avg Image |
+| [**RankPredictImage**](PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image |
 
 <a id="accountstats"></a>
 # **AccountStats**
@@ -283,9 +283,9 @@ No authorization required
 # **RankPredict**
 > RankPredictResponse RankPredict (int accountId)
 
-Rank Predict
+Rank
 
- Predicts a player's current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  > **This is an ML prediction and may be inaccurate.** The model has no access to the player's > actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.949 | | MAE    | 1.08 sub-ranks | | RMSE   | 1.89 sub-ranks | | Within ±1 sub-rank | 77.6% | | Within ±3 sub-rank | 93.9% | | Within ±5 sub-rank | 97.7% | | Within ±6 sub-rank | 98.6% | | Within ±10 sub-rank | 99.6% |  Accuracy by tier:  | Tier range | n | MAE | |- -- -- -- -- -- -|- --|- -- --| | Low (1-4)  | 404 | 3.68 sub-ranks | | Mid (5-7)  | 777 | 2.91 sub-ranks | | High (8-11)| 25,556 | 0.98 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+ Returns the player's rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
 
 
 ### Parameters
@@ -314,10 +314,8 @@ No authorization required
 | **200** |  |  -  |
 | **400** | Invalid account ID |  -  |
 | **403** | User is protected or endpoint unavailable |  -  |
-| **422** | Not enough recent ranked matches (need 30) |  -  |
 | **429** | Rate limit exceeded |  -  |
-| **500** | Prediction failed |  -  |
-| **503** | Rank prediction model not loaded |  -  |
+| **500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -325,9 +323,9 @@ No authorization required
 # **RankPredictAvgImage**
 > List&lt;int&gt; RankPredictAvgImage (List<int> accountIds, string format = null)
 
-Rank Predict Avg Image
+Rank Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
 
 
 ### Parameters
@@ -354,14 +352,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Average predicted rank badge image |  -  |
+| **200** | Average rank badge image |  -  |
 | **400** | Invalid or missing account IDs |  -  |
 | **403** | One of the users is protected |  -  |
-| **404** | No image available for the predicted rank |  -  |
-| **422** | Not enough recent ranked matches for one or more accounts |  -  |
+| **404** | No image available for the rank |  -  |
 | **429** | Rate limit exceeded |  -  |
-| **500** | Prediction failed |  -  |
-| **503** | Rank prediction model not loaded |  -  |
+| **500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -369,9 +365,9 @@ No authorization required
 # **RankPredictImage**
 > List&lt;int&gt; RankPredictImage (int accountId, string format = null)
 
-Rank Predict Image
+Rank Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
 
 
 ### Parameters
@@ -398,14 +394,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Predicted rank badge image |  -  |
+| **200** | Rank badge image |  -  |
 | **400** | Invalid account ID |  -  |
 | **403** | User is protected or endpoint unavailable |  -  |
-| **404** | No image available for the predicted rank |  -  |
-| **422** | Not enough recent ranked matches (need 30) |  -  |
+| **404** | No image available for the rank |  -  |
 | **429** | Rate limit exceeded |  -  |
-| **500** | Prediction failed |  -  |
-| **503** | Rank prediction model not loaded |  -  |
+| **500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

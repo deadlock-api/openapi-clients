@@ -173,7 +173,6 @@ api/Model/PlayerPerformanceCurvePoint.php
 api/Model/Rank.php
 api/Model/RankImages.php
 api/Model/RankPredictResponse.php
-api/Model/RankPrediction.php
 api/Model/RawAbilityUpgrade.php
 api/Model/RawAbilityUpgradePropertyUpgrade.php
 api/Model/RawCustomCrosshairSettings.php
@@ -407,7 +406,6 @@ docs/Model/PlayerPerformanceCurvePoint.md
 docs/Model/Rank.md
 docs/Model/RankImages.md
 docs/Model/RankPredictResponse.md
-docs/Model/RankPrediction.md
 docs/Model/RawAbilityUpgrade.md
 docs/Model/RawAbilityUpgradePropertyUpgrade.md
 docs/Model/RawCustomCrosshairSettings.md
@@ -640,7 +638,6 @@ test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
 test/Model/RankImagesTest.php
 test/Model/RankPredictResponseTest.php
-test/Model/RankPredictionTest.php
 test/Model/RankTest.php
 test/Model/RawAbilityUpgradePropertyUpgradeTest.php
 test/Model/RawAbilityUpgradeTest.php

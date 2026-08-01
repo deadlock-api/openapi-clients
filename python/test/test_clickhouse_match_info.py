@@ -35,6 +35,7 @@ class TestClickhouseMatchInfo(unittest.TestCase):
         model = ClickhouseMatchInfo()
         if include_optional:
             return ClickhouseMatchInfo(
+                average_badge = 0,
                 average_badge_team0 = 0,
                 average_badge_team1 = 0,
                 duration_s = 0,

@@ -89,18 +89,18 @@ class RankPredictResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "raw_score"
+     * Test attribute "rank"
      */
-    public function testPropertyRawScore()
+    public function testPropertyRank()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "matches_used"
+     * Test attribute "subrank"
      */
-    public function testPropertyMatchesUsed()
+    public function testPropertySubrank()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

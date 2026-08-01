@@ -169,7 +169,6 @@ docs/models/PlayerPerformanceCurvePoint.md
 docs/models/Rank.md
 docs/models/RankImages.md
 docs/models/RankPredictResponse.md
-docs/models/RankPrediction.md
 docs/models/RawAbilityUpgrade.md
 docs/models/RawAbilityUpgradePropertyUpgrade.md
 docs/models/RawCustomCrosshairSettings.md
@@ -405,7 +404,6 @@ src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
 src/DeadlockApiClient.Test/Model/RankImagesTests.cs
 src/DeadlockApiClient.Test/Model/RankPredictResponseTests.cs
-src/DeadlockApiClient.Test/Model/RankPredictionTests.cs
 src/DeadlockApiClient.Test/Model/RankTests.cs
 src/DeadlockApiClient.Test/Model/RawAbilityUpgradePropertyUpgradeTests.cs
 src/DeadlockApiClient.Test/Model/RawAbilityUpgradeTests.cs
@@ -665,7 +663,6 @@ src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
 src/DeadlockApiClient/Model/Rank.cs
 src/DeadlockApiClient/Model/RankImages.cs
 src/DeadlockApiClient/Model/RankPredictResponse.cs
-src/DeadlockApiClient/Model/RankPrediction.cs
 src/DeadlockApiClient/Model/RawAbilityUpgrade.cs
 src/DeadlockApiClient/Model/RawAbilityUpgradePropertyUpgrade.cs
 src/DeadlockApiClient/Model/RawCustomCrosshairSettings.cs

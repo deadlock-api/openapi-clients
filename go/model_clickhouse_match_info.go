@@ -22,6 +22,8 @@ var _ MappedNullable = &ClickhouseMatchInfo{}
 // ClickhouseMatchInfo struct for ClickhouseMatchInfo
 type ClickhouseMatchInfo struct {
 	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	AverageBadge NullableInt32 `json:"average_badge,omitempty"`
+	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	AverageBadgeTeam0 NullableInt32 `json:"average_badge_team0,omitempty"`
 	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	AverageBadgeTeam1 NullableInt32 `json:"average_badge_team1,omitempty"`
@@ -56,6 +58,48 @@ func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matc
 func NewClickhouseMatchInfoWithDefaults() *ClickhouseMatchInfo {
 	this := ClickhouseMatchInfo{}
 	return &this
+}
+
+// GetAverageBadge returns the AverageBadge field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ClickhouseMatchInfo) GetAverageBadge() int32 {
+	if o == nil || IsNil(o.AverageBadge.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.AverageBadge.Get()
+}
+
+// GetAverageBadgeOk returns a tuple with the AverageBadge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ClickhouseMatchInfo) GetAverageBadgeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AverageBadge.Get(), o.AverageBadge.IsSet()
+}
+
+// HasAverageBadge returns a boolean if a field has been set.
+func (o *ClickhouseMatchInfo) HasAverageBadge() bool {
+	if o != nil && o.AverageBadge.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAverageBadge gets a reference to the given NullableInt32 and assigns it to the AverageBadge field.
+func (o *ClickhouseMatchInfo) SetAverageBadge(v int32) {
+	o.AverageBadge.Set(&v)
+}
+// SetAverageBadgeNil sets the value for AverageBadge to be an explicit nil
+func (o *ClickhouseMatchInfo) SetAverageBadgeNil() {
+	o.AverageBadge.Set(nil)
+}
+
+// UnsetAverageBadge ensures that no value is present for AverageBadge, not even an explicit nil
+func (o *ClickhouseMatchInfo) UnsetAverageBadge() {
+	o.AverageBadge.Unset()
 }
 
 // GetAverageBadgeTeam0 returns the AverageBadgeTeam0 field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -296,6 +340,9 @@ func (o ClickhouseMatchInfo) MarshalJSON() ([]byte, error) {
 
 func (o ClickhouseMatchInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.AverageBadge.IsSet() {
+		toSerialize["average_badge"] = o.AverageBadge.Get()
+	}
 	if o.AverageBadgeTeam0.IsSet() {
 		toSerialize["average_badge_team0"] = o.AverageBadgeTeam0.Get()
 	}

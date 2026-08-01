@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**badge** | **i32** | See more: <https://api.deadlock-api.com/v1/assets/ranks> | 
-**raw_score** | **f32** | Calibrated model output (float index into badge space) | 
-**matches_used** | **u32** | Number of recent matches used for the prediction | 
+**badge** | **u32** | Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks> | 
+**rank** | **u32** | Rank tier, `0` when unknown. | 
+**subrank** | **u32** | Sub-rank within the tier, `0` when unknown. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

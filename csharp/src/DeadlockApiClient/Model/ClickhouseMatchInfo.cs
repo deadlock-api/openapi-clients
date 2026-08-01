@@ -39,10 +39,11 @@ namespace DeadlockApiClient.Model
         /// <param name="matchMode">matchMode</param>
         /// <param name="players">players</param>
         /// <param name="startTime">startTime</param>
+        /// <param name="averageBadge">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="averageBadgeTeam0">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="averageBadgeTeam1">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         [JsonConstructor]
-        public ClickhouseMatchInfo(int durationS, int gameMode, long matchId, int matchMode, List<MatchPlayer> players, int startTime, Option<int?> averageBadgeTeam0 = default, Option<int?> averageBadgeTeam1 = default)
+        public ClickhouseMatchInfo(int durationS, int gameMode, long matchId, int matchMode, List<MatchPlayer> players, int startTime, Option<int?> averageBadge = default, Option<int?> averageBadgeTeam0 = default, Option<int?> averageBadgeTeam1 = default)
         {
             DurationS = durationS;
             GameMode = gameMode;
@@ -50,6 +51,7 @@ namespace DeadlockApiClient.Model
             MatchMode = matchMode;
             Players = players;
             StartTime = startTime;
+            AverageBadgeOption = averageBadge;
             AverageBadgeTeam0Option = averageBadgeTeam0;
             AverageBadgeTeam1Option = averageBadgeTeam1;
             OnCreated();
@@ -94,6 +96,20 @@ namespace DeadlockApiClient.Model
         public int StartTime { get; set; }
 
         /// <summary>
+        /// Used to track the state of AverageBadge
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> AverageBadgeOption { get; private set; }
+
+        /// <summary>
+        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// </summary>
+        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        [JsonPropertyName("average_badge")]
+        public int? AverageBadge { get { return this.AverageBadgeOption.Value; } set { this.AverageBadgeOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of AverageBadgeTeam0
         /// </summary>
         [JsonIgnore]
@@ -135,6 +151,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  MatchMode: ").Append(MatchMode).Append("\n");
             sb.Append("  Players: ").Append(Players).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            sb.Append("  AverageBadge: ").Append(AverageBadge).Append("\n");
             sb.Append("  AverageBadgeTeam0: ").Append(AverageBadgeTeam0).Append("\n");
             sb.Append("  AverageBadgeTeam1: ").Append(AverageBadgeTeam1).Append("\n");
             sb.Append("}\n");
@@ -164,6 +181,12 @@ namespace DeadlockApiClient.Model
             if (this.StartTime < (int)0)
             {
                 yield return new ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
+            }
+
+            // AverageBadge (int) minimum
+            if (this.AverageBadgeOption.IsSet && this.AverageBadgeOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageBadge, must be a value greater than or equal to 0.", new [] { "AverageBadge" });
             }
 
             // AverageBadgeTeam0 (int) minimum
@@ -220,6 +243,7 @@ namespace DeadlockApiClient.Model
             Option<int?> matchMode = default;
             Option<List<MatchPlayer>?> players = default;
             Option<int?> startTime = default;
+            Option<int?> averageBadge = default;
             Option<int?> averageBadgeTeam0 = default;
             Option<int?> averageBadgeTeam1 = default;
 
@@ -255,6 +279,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "start_time":
                             startTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "average_badge":
+                            averageBadge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "average_badge_team0":
                             averageBadgeTeam0 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -304,7 +331,7 @@ namespace DeadlockApiClient.Model
             if (startTime.IsSet && startTime.Value == null)
                 throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class ClickhouseMatchInfo.");
 
-            return new ClickhouseMatchInfo(durationS.Value!.Value!, gameMode.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, players.Value!, startTime.Value!.Value!, averageBadgeTeam0, averageBadgeTeam1);
+            return new ClickhouseMatchInfo(durationS.Value!.Value!, gameMode.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, players.Value!, startTime.Value!.Value!, averageBadge, averageBadgeTeam0, averageBadgeTeam1);
         }
 
         /// <summary>
@@ -345,6 +372,12 @@ namespace DeadlockApiClient.Model
             writer.WritePropertyName("players");
             JsonSerializer.Serialize(writer, clickhouseMatchInfo.Players, jsonSerializerOptions);
             writer.WriteNumber("start_time", clickhouseMatchInfo.StartTime);
+
+            if (clickhouseMatchInfo.AverageBadgeOption.IsSet)
+                if (clickhouseMatchInfo.AverageBadgeOption.Value != null)
+                    writer.WriteNumber("average_badge", clickhouseMatchInfo.AverageBadgeOption.Value!.Value);
+                else
+                    writer.WriteNull("average_badge");
 
             if (clickhouseMatchInfo.AverageBadgeTeam0Option.IsSet)
                 if (clickhouseMatchInfo.AverageBadgeTeam0Option.Value != null)

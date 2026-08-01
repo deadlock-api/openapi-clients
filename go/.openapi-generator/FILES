@@ -195,7 +195,6 @@ docs/PlayersAPI.md
 docs/Rank.md
 docs/RankImages.md
 docs/RankPredictResponse.md
-docs/RankPrediction.md
 docs/RanksAPI.md
 docs/RawAbilityUpgrade.md
 docs/RawAbilityUpgradePropertyUpgrade.md
@@ -405,7 +404,6 @@ model_player_performance_curve_point.go
 model_rank.go
 model_rank_images.go
 model_rank_predict_response.go
-model_rank_prediction.go
 model_raw_ability_upgrade.go
 model_raw_ability_upgrade_property_upgrade.go
 model_raw_custom_crosshair_settings.go

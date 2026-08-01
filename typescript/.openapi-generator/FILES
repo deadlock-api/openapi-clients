@@ -196,7 +196,6 @@ docs/PlayersApi.md
 docs/Rank.md
 docs/RankImages.md
 docs/RankPredictResponse.md
-docs/RankPrediction.md
 docs/RanksApi.md
 docs/RawAbilityUpgrade.md
 docs/RawAbilityUpgradePropertyUpgrade.md
@@ -405,7 +404,6 @@ models/player-match-history-entry.ts
 models/player-performance-curve-point.ts
 models/rank-images.ts
 models/rank-predict-response.ts
-models/rank-prediction.ts
 models/rank.ts
 models/raw-ability-upgrade-property-upgrade.ts
 models/raw-ability-upgrade.ts

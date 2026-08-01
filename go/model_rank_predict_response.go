@@ -21,12 +21,12 @@ var _ MappedNullable = &RankPredictResponse{}
 
 // RankPredictResponse struct for RankPredictResponse
 type RankPredictResponse struct {
-	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	// Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	Badge int32 `json:"badge"`
-	// Calibrated model output (float index into badge space)
-	RawScore float32 `json:"raw_score"`
-	// Number of recent matches used for the prediction
-	MatchesUsed int32 `json:"matches_used"`
+	// Rank tier, `0` when unknown.
+	Rank int32 `json:"rank"`
+	// Sub-rank within the tier, `0` when unknown.
+	Subrank int32 `json:"subrank"`
 }
 
 type _RankPredictResponse RankPredictResponse
@@ -35,11 +35,11 @@ type _RankPredictResponse RankPredictResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRankPredictResponse(badge int32, rawScore float32, matchesUsed int32) *RankPredictResponse {
+func NewRankPredictResponse(badge int32, rank int32, subrank int32) *RankPredictResponse {
 	this := RankPredictResponse{}
 	this.Badge = badge
-	this.RawScore = rawScore
-	this.MatchesUsed = matchesUsed
+	this.Rank = rank
+	this.Subrank = subrank
 	return &this
 }
 
@@ -75,52 +75,52 @@ func (o *RankPredictResponse) SetBadge(v int32) {
 	o.Badge = v
 }
 
-// GetRawScore returns the RawScore field value
-func (o *RankPredictResponse) GetRawScore() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.RawScore
-}
-
-// GetRawScoreOk returns a tuple with the RawScore field value
-// and a boolean to check if the value has been set.
-func (o *RankPredictResponse) GetRawScoreOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.RawScore, true
-}
-
-// SetRawScore sets field value
-func (o *RankPredictResponse) SetRawScore(v float32) {
-	o.RawScore = v
-}
-
-// GetMatchesUsed returns the MatchesUsed field value
-func (o *RankPredictResponse) GetMatchesUsed() int32 {
+// GetRank returns the Rank field value
+func (o *RankPredictResponse) GetRank() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.MatchesUsed
+	return o.Rank
 }
 
-// GetMatchesUsedOk returns a tuple with the MatchesUsed field value
+// GetRankOk returns a tuple with the Rank field value
 // and a boolean to check if the value has been set.
-func (o *RankPredictResponse) GetMatchesUsedOk() (*int32, bool) {
+func (o *RankPredictResponse) GetRankOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MatchesUsed, true
+	return &o.Rank, true
 }
 
-// SetMatchesUsed sets field value
-func (o *RankPredictResponse) SetMatchesUsed(v int32) {
-	o.MatchesUsed = v
+// SetRank sets field value
+func (o *RankPredictResponse) SetRank(v int32) {
+	o.Rank = v
+}
+
+// GetSubrank returns the Subrank field value
+func (o *RankPredictResponse) GetSubrank() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Subrank
+}
+
+// GetSubrankOk returns a tuple with the Subrank field value
+// and a boolean to check if the value has been set.
+func (o *RankPredictResponse) GetSubrankOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Subrank, true
+}
+
+// SetSubrank sets field value
+func (o *RankPredictResponse) SetSubrank(v int32) {
+	o.Subrank = v
 }
 
 func (o RankPredictResponse) MarshalJSON() ([]byte, error) {
@@ -134,8 +134,8 @@ func (o RankPredictResponse) MarshalJSON() ([]byte, error) {
 func (o RankPredictResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["badge"] = o.Badge
-	toSerialize["raw_score"] = o.RawScore
-	toSerialize["matches_used"] = o.MatchesUsed
+	toSerialize["rank"] = o.Rank
+	toSerialize["subrank"] = o.Subrank
 	return toSerialize, nil
 }
 
@@ -145,8 +145,8 @@ func (o *RankPredictResponse) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"badge",
-		"raw_score",
-		"matches_used",
+		"rank",
+		"subrank",
 	}
 
 	allProperties := make(map[string]interface{})

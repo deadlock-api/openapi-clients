@@ -14,6 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ClickhouseMatchInfo {
     /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    #[serde(rename = "average_badge", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub average_badge: Option<Option<u32>>,
+    /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "average_badge_team0", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub average_badge_team0: Option<Option<u32>>,
     /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -36,6 +39,7 @@ pub struct ClickhouseMatchInfo {
 impl ClickhouseMatchInfo {
     pub fn new(duration_s: u32, game_mode: i32, match_id: u64, match_mode: i32, players: Vec<models::MatchPlayer>, start_time: u32) -> ClickhouseMatchInfo {
         ClickhouseMatchInfo {
+            average_badge: None,
             average_badge_team0: None,
             average_badge_team1: None,
             duration_s,

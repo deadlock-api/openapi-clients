@@ -11,16 +11,38 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
- * @type RankPredictResponse
+ * 
  * @export
+ * @interface RankPredictResponse
  */
-export interface RankPredictResponse extends RankPrediction {
+export interface RankPredictResponse  {
+    /**
+     * Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @type {number}
+     * @memberof RankPredictResponse
+     */
+    badge: number;
+    /**
+     * Rank tier, `0` when unknown.
+     * @type {number}
+     * @memberof RankPredictResponse
+     */
+    rank: number;
+    /**
+     * Sub-rank within the tier, `0` when unknown.
+     * @type {number}
+     * @memberof RankPredictResponse
+     */
+    subrank: number;
 }
 
 export function RankPredictResponseFromJSON(json: any): RankPredictResponse {
     return {
-        ...RankPredictionFromJSON(json),
+        'badge': json['badge'],
+        'rank': json['rank'],
+        'subrank': json['subrank'],
     };
 }
 
@@ -29,6 +51,10 @@ export function RankPredictResponseToJSON(value?: RankPredictResponse): any {
         return undefined;
     }
     return {
-        ...RankPredictionToJSON(value),
+        'badge': value.badge,
+        'rank': value.rank,
+        'subrank': value.subrank,
     };
 }
+
+

@@ -31,25 +31,25 @@ import java.io.Serializable
 /**
  * 
  *
- * @param badge See more: <https://api.deadlock-api.com/v1/assets/ranks>
- * @param rawScore Calibrated model output (float index into badge space)
- * @param matchesUsed Number of recent matches used for the prediction
+ * @param badge Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rank Rank tier, `0` when unknown.
+ * @param subrank Sub-rank within the tier, `0` when unknown.
  */
 
 
 data class RankPredictResponse (
 
-    /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
+    /* Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge")
     val badge: kotlin.Int,
 
-    /* Calibrated model output (float index into badge space) */
-    @Json(name = "raw_score")
-    val rawScore: kotlin.Float,
+    /* Rank tier, `0` when unknown. */
+    @Json(name = "rank")
+    val rank: kotlin.Int,
 
-    /* Number of recent matches used for the prediction */
-    @Json(name = "matches_used")
-    val matchesUsed: kotlin.Int
+    /* Sub-rank within the tier, `0` when unknown. */
+    @Json(name = "subrank")
+    val subrank: kotlin.Int
 
 ) : Serializable {
     companion object {

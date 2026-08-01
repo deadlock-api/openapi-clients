@@ -268,8 +268,6 @@ pub mod rank_images;
 pub use self::rank_images::RankImages;
 pub mod rank_predict_response;
 pub use self::rank_predict_response::RankPredictResponse;
-pub mod rank_prediction;
-pub use self::rank_prediction::RankPrediction;
 pub mod raw_ability_upgrade;
 pub use self::raw_ability_upgrade::RawAbilityUpgrade;
 pub mod raw_ability_upgrade_property_upgrade;

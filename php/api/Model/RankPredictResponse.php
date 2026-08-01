@@ -58,8 +58,8 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $openAPITypes = [
         'badge' => 'int',
-        'raw_score' => 'float',
-        'matches_used' => 'int'
+        'rank' => 'int',
+        'subrank' => 'int'
     ];
 
     /**
@@ -71,8 +71,8 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $openAPIFormats = [
         'badge' => 'int32',
-        'raw_score' => 'float',
-        'matches_used' => null
+        'rank' => 'int32',
+        'subrank' => 'int32'
     ];
 
     /**
@@ -82,8 +82,8 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static array $openAPINullables = [
         'badge' => false,
-        'raw_score' => false,
-        'matches_used' => false
+        'rank' => false,
+        'subrank' => false
     ];
 
     /**
@@ -173,8 +173,8 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'badge' => 'badge',
-        'raw_score' => 'raw_score',
-        'matches_used' => 'matches_used'
+        'rank' => 'rank',
+        'subrank' => 'subrank'
     ];
 
     /**
@@ -184,8 +184,8 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'badge' => 'setBadge',
-        'raw_score' => 'setRawScore',
-        'matches_used' => 'setMatchesUsed'
+        'rank' => 'setRank',
+        'subrank' => 'setSubrank'
     ];
 
     /**
@@ -195,8 +195,8 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'badge' => 'getBadge',
-        'raw_score' => 'getRawScore',
-        'matches_used' => 'getMatchesUsed'
+        'rank' => 'getRank',
+        'subrank' => 'getSubrank'
     ];
 
     /**
@@ -257,8 +257,8 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(?array $data = null)
     {
         $this->setIfExists('badge', $data ?? [], null);
-        $this->setIfExists('raw_score', $data ?? [], null);
-        $this->setIfExists('matches_used', $data ?? [], null);
+        $this->setIfExists('rank', $data ?? [], null);
+        $this->setIfExists('subrank', $data ?? [], null);
     }
 
     /**
@@ -291,14 +291,22 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['badge'] === null) {
             $invalidProperties[] = "'badge' can't be null";
         }
-        if ($this->container['raw_score'] === null) {
-            $invalidProperties[] = "'raw_score' can't be null";
+        if (($this->container['badge'] < 0)) {
+            $invalidProperties[] = "invalid value for 'badge', must be bigger than or equal to 0.";
         }
-        if ($this->container['matches_used'] === null) {
-            $invalidProperties[] = "'matches_used' can't be null";
+
+        if ($this->container['rank'] === null) {
+            $invalidProperties[] = "'rank' can't be null";
         }
-        if (($this->container['matches_used'] < 0)) {
-            $invalidProperties[] = "invalid value for 'matches_used', must be bigger than or equal to 0.";
+        if (($this->container['rank'] < 0)) {
+            $invalidProperties[] = "invalid value for 'rank', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['subrank'] === null) {
+            $invalidProperties[] = "'subrank' can't be null";
+        }
+        if (($this->container['subrank'] < 0)) {
+            $invalidProperties[] = "invalid value for 'subrank', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -329,7 +337,7 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets badge
      *
-     * @param int $badge See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @param int $badge Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */
@@ -338,65 +346,73 @@ class RankPredictResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($badge)) {
             throw new \InvalidArgumentException('non-nullable badge cannot be null');
         }
+        if (($badge < 0)) {
+            throw new \InvalidArgumentException('invalid value for $badge when calling RankPredictResponse., must be bigger than or equal to 0.');
+        }
+
         $this->container['badge'] = $badge;
 
         return $this;
     }
 
     /**
-     * Gets raw_score
+     * Gets rank
      *
-     * @return float
+     * @return int
      */
-    public function getRawScore()
+    public function getRank()
     {
-        return $this->container['raw_score'];
+        return $this->container['rank'];
     }
 
     /**
-     * Sets raw_score
+     * Sets rank
      *
-     * @param float $raw_score Calibrated model output (float index into badge space)
+     * @param int $rank Rank tier, `0` when unknown.
      *
      * @return self
      */
-    public function setRawScore($raw_score)
+    public function setRank($rank)
     {
-        if (is_null($raw_score)) {
-            throw new \InvalidArgumentException('non-nullable raw_score cannot be null');
+        if (is_null($rank)) {
+            throw new \InvalidArgumentException('non-nullable rank cannot be null');
         }
-        $this->container['raw_score'] = $raw_score;
+        if (($rank < 0)) {
+            throw new \InvalidArgumentException('invalid value for $rank when calling RankPredictResponse., must be bigger than or equal to 0.');
+        }
+
+        $this->container['rank'] = $rank;
 
         return $this;
     }
 
     /**
-     * Gets matches_used
+     * Gets subrank
      *
      * @return int
      */
-    public function getMatchesUsed()
+    public function getSubrank()
     {
-        return $this->container['matches_used'];
+        return $this->container['subrank'];
     }
 
     /**
-     * Sets matches_used
+     * Sets subrank
      *
-     * @param int $matches_used Number of recent matches used for the prediction
+     * @param int $subrank Sub-rank within the tier, `0` when unknown.
      *
      * @return self
      */
-    public function setMatchesUsed($matches_used)
+    public function setSubrank($subrank)
     {
-        if (is_null($matches_used)) {
-            throw new \InvalidArgumentException('non-nullable matches_used cannot be null');
+        if (is_null($subrank)) {
+            throw new \InvalidArgumentException('non-nullable subrank cannot be null');
         }
-        if (($matches_used < 0)) {
-            throw new \InvalidArgumentException('invalid value for $matches_used when calling RankPredictResponse., must be bigger than or equal to 0.');
+        if (($subrank < 0)) {
+            throw new \InvalidArgumentException('invalid value for $subrank when calling RankPredictResponse., must be bigger than or equal to 0.');
         }
 
-        $this->container['matches_used'] = $matches_used;
+        $this->container['subrank'] = $subrank;
 
         return $this;
     }

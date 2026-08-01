@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**badge** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
-**raw_score** | **float** | Calibrated model output (float index into badge space) | 
-**matches_used** | **int** | Number of recent matches used for the prediction | 
+**badge** | **int** | Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
+**rank** | **int** | Rank tier, &#x60;0&#x60; when unknown. | 
+**subrank** | **int** | Sub-rank within the tier, &#x60;0&#x60; when unknown. | 
 
 ## Example
 

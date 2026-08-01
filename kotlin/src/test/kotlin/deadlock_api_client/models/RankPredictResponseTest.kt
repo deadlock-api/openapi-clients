@@ -33,22 +33,22 @@ class RankPredictResponseTest : ShouldSpec() {
         // uncomment below to create an instance of RankPredictResponse
         //val modelInstance = RankPredictResponse()
 
-        // to test the property `badge` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        // to test the property `badge` - Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test badge") {
             // uncomment below to test the property
             //modelInstance.badge shouldBe ("TODO")
         }
 
-        // to test the property `rawScore` - Calibrated model output (float index into badge space)
-        should("test rawScore") {
+        // to test the property `rank` - Rank tier, `0` when unknown.
+        should("test rank") {
             // uncomment below to test the property
-            //modelInstance.rawScore shouldBe ("TODO")
+            //modelInstance.rank shouldBe ("TODO")
         }
 
-        // to test the property `matchesUsed` - Number of recent matches used for the prediction
-        should("test matchesUsed") {
+        // to test the property `subrank` - Sub-rank within the tier, `0` when unknown.
+        should("test subrank") {
             // uncomment below to test the property
-            //modelInstance.matchesUsed shouldBe ("TODO")
+            //modelInstance.subrank shouldBe ("TODO")
         }
 
     }

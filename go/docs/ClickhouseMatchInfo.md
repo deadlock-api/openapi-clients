@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AverageBadge** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **AverageBadgeTeam0** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **AverageBadgeTeam1** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **DurationS** | **int32** |  | 
@@ -32,6 +33,41 @@ NewClickhouseMatchInfoWithDefaults instantiates a new ClickhouseMatchInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetAverageBadge
+
+`func (o *ClickhouseMatchInfo) GetAverageBadge() int32`
+
+GetAverageBadge returns the AverageBadge field if non-nil, zero value otherwise.
+
+### GetAverageBadgeOk
+
+`func (o *ClickhouseMatchInfo) GetAverageBadgeOk() (*int32, bool)`
+
+GetAverageBadgeOk returns a tuple with the AverageBadge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAverageBadge
+
+`func (o *ClickhouseMatchInfo) SetAverageBadge(v int32)`
+
+SetAverageBadge sets AverageBadge field to given value.
+
+### HasAverageBadge
+
+`func (o *ClickhouseMatchInfo) HasAverageBadge() bool`
+
+HasAverageBadge returns a boolean if a field has been set.
+
+### SetAverageBadgeNil
+
+`func (o *ClickhouseMatchInfo) SetAverageBadgeNil(b bool)`
+
+ SetAverageBadgeNil sets the value for AverageBadge to be an explicit nil
+
+### UnsetAverageBadge
+`func (o *ClickhouseMatchInfo) UnsetAverageBadge()`
+
+UnsetAverageBadge ensures that no value is present for AverageBadge, not even an explicit nil
 ### GetAverageBadgeTeam0
 
 `func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0() int32`

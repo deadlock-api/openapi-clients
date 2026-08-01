@@ -29,6 +29,12 @@ export interface ClickhouseMatchInfo  {
      * @type {number}
      * @memberof ClickhouseMatchInfo
      */
+    averageBadge?: number;
+    /**
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @type {number}
+     * @memberof ClickhouseMatchInfo
+     */
     averageBadgeTeam0?: number;
     /**
      * See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -76,6 +82,7 @@ export interface ClickhouseMatchInfo  {
 
 export function ClickhouseMatchInfoFromJSON(json: any): ClickhouseMatchInfo {
     return {
+        'averageBadge': !exists(json, 'average_badge') ? undefined : json['average_badge'],
         'averageBadgeTeam0': !exists(json, 'average_badge_team0') ? undefined : json['average_badge_team0'],
         'averageBadgeTeam1': !exists(json, 'average_badge_team1') ? undefined : json['average_badge_team1'],
         'durationS': json['duration_s'],
@@ -92,6 +99,7 @@ export function ClickhouseMatchInfoToJSON(value?: ClickhouseMatchInfo): any {
         return undefined;
     }
     return {
+        'average_badge': value.averageBadge,
         'average_badge_team0': value.averageBadgeTeam0,
         'average_badge_team1': value.averageBadgeTeam1,
         'duration_s': value.durationS,

@@ -10,9 +10,9 @@ Method | HTTP request | Description
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
-[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
-[**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image
-[**rank_predict_image**](PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
+[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank
+[**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Avg Image
+[**rank_predict_image**](PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image
 
 
 # **account_stats**
@@ -594,35 +594,14 @@ No authorization required
 # **rank_predict**
 > RankPredictResponse rank_predict(account_id)
 
-Rank Predict
+Rank
 
 
-Predicts a player's current rank badge from their last 30 ranked/unranked matches.
-Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.
+Returns the player's rank as Valve reported it on their latest ranked match.
 
-> **This is an ML prediction and may be inaccurate.** The model has no access to the player's
-> actual hidden MMR — it infers rank from match context signals only.
-
-### Model Accuracy (5-fold cross-validation)
-
-| Metric | Value |
-|--------|-------|
-| R²     | 0.949 |
-| MAE    | 1.08 sub-ranks |
-| RMSE   | 1.89 sub-ranks |
-| Within ±1 sub-rank | 77.6% |
-| Within ±3 sub-rank | 93.9% |
-| Within ±5 sub-rank | 97.7% |
-| Within ±6 sub-rank | 98.6% |
-| Within ±10 sub-rank | 99.6% |
-
-Accuracy by tier:
-
-| Tier range | n | MAE |
-|------------|---|-----|
-| Low (1-4)  | 404 | 3.68 sub-ranks |
-| Mid (5-7)  | 777 | 2.91 sub-ranks |
-| High (8-11)| 25,556 | 0.98 sub-ranks |
+Only ranked matches carry a rank, and it stays unset while the player is in placement games.
+When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are
+all `0`, which is the `Obscurus` (unranked) tier.
 
 ### Rate Limits:
 | Type | Limit |
@@ -655,7 +634,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     account_id = 56 # int | The players `SteamID3`
 
     try:
-        # Rank Predict
+        # Rank
         api_response = api_instance.rank_predict(account_id)
         print("The response of PlayersApi->rank_predict:\n")
         pprint(api_response)
@@ -692,19 +671,17 @@ No authorization required
 **200** |  |  -  |
 **400** | Invalid account ID |  -  |
 **403** | User is protected or endpoint unavailable |  -  |
-**422** | Not enough recent ranked matches (need 30) |  -  |
 **429** | Rate limit exceeded |  -  |
-**500** | Prediction failed |  -  |
-**503** | Rank prediction model not loaded |  -  |
+**500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rank_predict_avg_image**
 > List[int] rank_predict_avg_image(account_ids, format=format)
 
-Rank Predict Avg Image
+Rank Avg Image
 
-Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use `?format=webp` for WebP.
+Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
 
 ### Example
 
@@ -729,7 +706,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
     try:
-        # Rank Predict Avg Image
+        # Rank Avg Image
         api_response = api_instance.rank_predict_avg_image(account_ids, format=format)
         print("The response of PlayersApi->rank_predict_avg_image:\n")
         pprint(api_response)
@@ -764,23 +741,21 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Average predicted rank badge image |  -  |
+**200** | Average rank badge image |  -  |
 **400** | Invalid or missing account IDs |  -  |
 **403** | One of the users is protected |  -  |
-**404** | No image available for the predicted rank |  -  |
-**422** | Not enough recent ranked matches for one or more accounts |  -  |
+**404** | No image available for the rank |  -  |
 **429** | Rate limit exceeded |  -  |
-**500** | Prediction failed |  -  |
-**503** | Rank prediction model not loaded |  -  |
+**500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rank_predict_image**
 > List[int] rank_predict_image(account_id, format=format)
 
-Rank Predict Image
+Rank Image
 
-Returns the predicted rank badge image directly (binary), not a URL. Use `?format=webp` for WebP.
+Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
 
 ### Example
 
@@ -805,7 +780,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
     try:
-        # Rank Predict Image
+        # Rank Image
         api_response = api_instance.rank_predict_image(account_id, format=format)
         print("The response of PlayersApi->rank_predict_image:\n")
         pprint(api_response)
@@ -840,14 +815,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Predicted rank badge image |  -  |
+**200** | Rank badge image |  -  |
 **400** | Invalid account ID |  -  |
 **403** | User is protected or endpoint unavailable |  -  |
-**404** | No image available for the predicted rank |  -  |
-**422** | Not enough recent ranked matches (need 30) |  -  |
+**404** | No image available for the rank |  -  |
 **429** | Rate limit exceeded |  -  |
-**500** | Prediction failed |  -  |
-**503** | Rank prediction model not loaded |  -  |
+**500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

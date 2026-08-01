@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **MatchMode** | **int** |  | 
 **Players** | [**List&lt;MatchPlayer&gt;**](MatchPlayer.md) |  | 
 **StartTime** | **int** |  | 
+**AverageBadge** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **AverageBadgeTeam0** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **AverageBadgeTeam1** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 

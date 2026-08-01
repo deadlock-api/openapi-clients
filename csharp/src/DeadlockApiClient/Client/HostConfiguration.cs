@@ -191,7 +191,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RankJsonConverter());
             _jsonOptions.Converters.Add(new RankImagesJsonConverter());
             _jsonOptions.Converters.Add(new RankPredictResponseJsonConverter());
-            _jsonOptions.Converters.Add(new RankPredictionJsonConverter());
             _jsonOptions.Converters.Add(new RawAbilityUpgradeJsonConverter());
             _jsonOptions.Converters.Add(new RawAbilityUpgradePropertyUpgradeJsonConverter());
             _jsonOptions.Converters.Add(new RawCustomCrosshairSettingsJsonConverter());

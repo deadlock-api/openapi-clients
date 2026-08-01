@@ -148,7 +148,6 @@ from deadlock_api_client.models.player_performance_curve_point import PlayerPerf
 from deadlock_api_client.models.rank import Rank
 from deadlock_api_client.models.rank_images import RankImages
 from deadlock_api_client.models.rank_predict_response import RankPredictResponse
-from deadlock_api_client.models.rank_prediction import RankPrediction
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade
 from deadlock_api_client.models.raw_ability_upgrade_property_upgrade import RawAbilityUpgradePropertyUpgrade
 from deadlock_api_client.models.raw_custom_crosshair_settings import RawCustomCrosshairSettings

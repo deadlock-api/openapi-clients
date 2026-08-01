@@ -69,8 +69,9 @@ Projection/filter queries emit rows continuously as they are decoded. A whole-ma
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 20req/m |
-| Global | 100req/m |
+| IP | With broadcast_url: 20req/m<br>With match_id: 20req/m + 2req/h |
+| Key | With broadcast_url: -<br>With match_id: 5req/m, 100req/h |
+| Global | With broadcast_url: 100req/m<br>With match_id: 100req/m + 5req/10s, 500req/h |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

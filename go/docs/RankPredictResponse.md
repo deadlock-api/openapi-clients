@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Badge** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
-**RawScore** | **float32** | Calibrated model output (float index into badge space) | 
-**MatchesUsed** | **int32** | Number of recent matches used for the prediction | 
+**Badge** | **int32** | Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
+**Rank** | **int32** | Rank tier, &#x60;0&#x60; when unknown. | 
+**Subrank** | **int32** | Sub-rank within the tier, &#x60;0&#x60; when unknown. | 
 
 ## Methods
 
 ### NewRankPredictResponse
 
-`func NewRankPredictResponse(badge int32, rawScore float32, matchesUsed int32, ) *RankPredictResponse`
+`func NewRankPredictResponse(badge int32, rank int32, subrank int32, ) *RankPredictResponse`
 
 NewRankPredictResponse instantiates a new RankPredictResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,44 +47,44 @@ and a boolean to check if the value has been set.
 SetBadge sets Badge field to given value.
 
 
-### GetRawScore
+### GetRank
 
-`func (o *RankPredictResponse) GetRawScore() float32`
+`func (o *RankPredictResponse) GetRank() int32`
 
-GetRawScore returns the RawScore field if non-nil, zero value otherwise.
+GetRank returns the Rank field if non-nil, zero value otherwise.
 
-### GetRawScoreOk
+### GetRankOk
 
-`func (o *RankPredictResponse) GetRawScoreOk() (*float32, bool)`
+`func (o *RankPredictResponse) GetRankOk() (*int32, bool)`
 
-GetRawScoreOk returns a tuple with the RawScore field if it's non-nil, zero value otherwise
+GetRankOk returns a tuple with the Rank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRawScore
+### SetRank
 
-`func (o *RankPredictResponse) SetRawScore(v float32)`
+`func (o *RankPredictResponse) SetRank(v int32)`
 
-SetRawScore sets RawScore field to given value.
+SetRank sets Rank field to given value.
 
 
-### GetMatchesUsed
+### GetSubrank
 
-`func (o *RankPredictResponse) GetMatchesUsed() int32`
+`func (o *RankPredictResponse) GetSubrank() int32`
 
-GetMatchesUsed returns the MatchesUsed field if non-nil, zero value otherwise.
+GetSubrank returns the Subrank field if non-nil, zero value otherwise.
 
-### GetMatchesUsedOk
+### GetSubrankOk
 
-`func (o *RankPredictResponse) GetMatchesUsedOk() (*int32, bool)`
+`func (o *RankPredictResponse) GetSubrankOk() (*int32, bool)`
 
-GetMatchesUsedOk returns a tuple with the MatchesUsed field if it's non-nil, zero value otherwise
+GetSubrankOk returns a tuple with the Subrank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMatchesUsed
+### SetSubrank
 
-`func (o *RankPredictResponse) SetMatchesUsed(v int32)`
+`func (o *RankPredictResponse) SetSubrank(v int32)`
 
-SetMatchesUsed sets MatchesUsed field to given value.
+SetSubrank sets Subrank field to given value.
 
 
 

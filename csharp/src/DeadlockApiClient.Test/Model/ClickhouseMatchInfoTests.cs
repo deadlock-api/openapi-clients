@@ -108,6 +108,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AverageBadge'
+        /// </summary>
+        [Fact]
+        public void AverageBadgeTest()
+        {
+            // TODO unit test for the property 'AverageBadge'
+        }
+
+        /// <summary>
         /// Test the property 'AverageBadgeTeam0'
         /// </summary>
         [Fact]

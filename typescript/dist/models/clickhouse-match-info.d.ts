@@ -14,6 +14,10 @@ export interface ClickhouseMatchInfo {
     /**
      * See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
+    'average_badge'?: number | null;
+    /**
+     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     */
     'average_badge_team0'?: number | null;
     /**
      * See more: <https://api.deadlock-api.com/v1/assets/ranks>

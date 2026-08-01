@@ -182,9 +182,9 @@ Class | Method | HTTP request | Description
 *PlayersAPI* | [**MatchHistory**](docs/PlayersAPI.md#matchhistory) | **Get** /v1/players/{account_id}/match-history | Match History
 *PlayersAPI* | [**MateStats**](docs/PlayersAPI.md#matestats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersAPI* | [**PlayerHeroStats**](docs/PlayersAPI.md#playerherostats) | **Get** /v1/players/hero-stats | Hero Stats
-*PlayersAPI* | [**RankPredict**](docs/PlayersAPI.md#rankpredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict
-*PlayersAPI* | [**RankPredictAvgImage**](docs/PlayersAPI.md#rankpredictavgimage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image
-*PlayersAPI* | [**RankPredictImage**](docs/PlayersAPI.md#rankpredictimage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
+*PlayersAPI* | [**RankPredict**](docs/PlayersAPI.md#rankpredict) | **Get** /v1/players/{account_id}/rank-predict | Rank
+*PlayersAPI* | [**RankPredictAvgImage**](docs/PlayersAPI.md#rankpredictavgimage) | **Get** /v1/players/rank-predict/image | Rank Avg Image
+*PlayersAPI* | [**RankPredictImage**](docs/PlayersAPI.md#rankpredictimage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Image
 *RanksAPI* | [**GetRank**](docs/RanksAPI.md#getrank) | **Get** /v1/assets/ranks/{tier} | Get Rank
 *RanksAPI* | [**ListRanks**](docs/RanksAPI.md#listranks) | **Get** /v1/assets/ranks | List Ranks
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
@@ -337,7 +337,6 @@ Class | Method | HTTP request | Description
  - [Rank](docs/Rank.md)
  - [RankImages](docs/RankImages.md)
  - [RankPredictResponse](docs/RankPredictResponse.md)
- - [RankPrediction](docs/RankPrediction.md)
  - [RawAbilityUpgrade](docs/RawAbilityUpgrade.md)
  - [RawAbilityUpgradePropertyUpgrade](docs/RawAbilityUpgradePropertyUpgrade.md)
  - [RawCustomCrosshairSettings](docs/RawCustomCrosshairSettings.md)

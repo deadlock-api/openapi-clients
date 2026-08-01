@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**average_badge** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
 **average_badge_team0** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
 **average_badge_team1** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
 **duration_s** | **number** |  | [default to undefined]
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 import { ClickhouseMatchInfo } from 'deadlock_api_client';
 
 const instance: ClickhouseMatchInfo = {
+    average_badge,
     average_badge_team0,
     average_badge_team1,
     duration_s,

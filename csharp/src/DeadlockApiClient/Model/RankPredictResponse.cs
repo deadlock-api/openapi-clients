@@ -33,40 +33,40 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RankPredictResponse" /> class.
         /// </summary>
-        /// <param name="badge">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
-        /// <param name="rawScore">Calibrated model output (float index into badge space)</param>
-        /// <param name="matchesUsed">Number of recent matches used for the prediction</param>
+        /// <param name="badge">Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rank">Rank tier, &#x60;0&#x60; when unknown.</param>
+        /// <param name="subrank">Sub-rank within the tier, &#x60;0&#x60; when unknown.</param>
         [JsonConstructor]
-        public RankPredictResponse(int badge, float rawScore, int matchesUsed)
+        public RankPredictResponse(int badge, int rank, int subrank)
         {
             Badge = badge;
-            RawScore = rawScore;
-            MatchesUsed = matchesUsed;
+            Rank = rank;
+            Subrank = subrank;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        /// <value>Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("badge")]
         public int Badge { get; set; }
 
         /// <summary>
-        /// Calibrated model output (float index into badge space)
+        /// Rank tier, &#x60;0&#x60; when unknown.
         /// </summary>
-        /// <value>Calibrated model output (float index into badge space)</value>
-        [JsonPropertyName("raw_score")]
-        public float RawScore { get; set; }
+        /// <value>Rank tier, &#x60;0&#x60; when unknown.</value>
+        [JsonPropertyName("rank")]
+        public int Rank { get; set; }
 
         /// <summary>
-        /// Number of recent matches used for the prediction
+        /// Sub-rank within the tier, &#x60;0&#x60; when unknown.
         /// </summary>
-        /// <value>Number of recent matches used for the prediction</value>
-        [JsonPropertyName("matches_used")]
-        public int MatchesUsed { get; set; }
+        /// <value>Sub-rank within the tier, &#x60;0&#x60; when unknown.</value>
+        [JsonPropertyName("subrank")]
+        public int Subrank { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,8 +77,8 @@ namespace DeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RankPredictResponse {\n");
             sb.Append("  Badge: ").Append(Badge).Append("\n");
-            sb.Append("  RawScore: ").Append(RawScore).Append("\n");
-            sb.Append("  MatchesUsed: ").Append(MatchesUsed).Append("\n");
+            sb.Append("  Rank: ").Append(Rank).Append("\n");
+            sb.Append("  Subrank: ").Append(Subrank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,10 +90,22 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MatchesUsed (int) minimum
-            if (this.MatchesUsed < (int)0)
+            // Badge (int) minimum
+            if (this.Badge < (int)0)
             {
-                yield return new ValidationResult("Invalid value for MatchesUsed, must be a value greater than or equal to 0.", new [] { "MatchesUsed" });
+                yield return new ValidationResult("Invalid value for Badge, must be a value greater than or equal to 0.", new [] { "Badge" });
+            }
+
+            // Rank (int) minimum
+            if (this.Rank < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
+            }
+
+            // Subrank (int) minimum
+            if (this.Subrank < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Subrank, must be a value greater than or equal to 0.", new [] { "Subrank" });
             }
 
             yield break;
@@ -133,8 +145,8 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<int?> badge = default;
-            Option<float?> rawScore = default;
-            Option<int?> matchesUsed = default;
+            Option<int?> rank = default;
+            Option<int?> subrank = default;
 
             while (utf8JsonReader.Read())
             {
@@ -154,11 +166,11 @@ namespace DeadlockApiClient.Model
                         case "badge":
                             badge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
-                        case "raw_score":
-                            rawScore = new Option<float?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (float?)null : (float)utf8JsonReader.GetDouble());
+                        case "rank":
+                            rank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
-                        case "matches_used":
-                            matchesUsed = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                        case "subrank":
+                            subrank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;
@@ -169,22 +181,22 @@ namespace DeadlockApiClient.Model
             if (!badge.IsSet)
                 throw new ArgumentException("Property is required for class RankPredictResponse.", nameof(badge));
 
-            if (!rawScore.IsSet)
-                throw new ArgumentException("Property is required for class RankPredictResponse.", nameof(rawScore));
+            if (!rank.IsSet)
+                throw new ArgumentException("Property is required for class RankPredictResponse.", nameof(rank));
 
-            if (!matchesUsed.IsSet)
-                throw new ArgumentException("Property is required for class RankPredictResponse.", nameof(matchesUsed));
+            if (!subrank.IsSet)
+                throw new ArgumentException("Property is required for class RankPredictResponse.", nameof(subrank));
 
             if (badge.IsSet && badge.Value == null)
                 throw new ArgumentNullException(nameof(badge), "Property is not nullable for class RankPredictResponse.");
 
-            if (rawScore.IsSet && rawScore.Value == null)
-                throw new ArgumentNullException(nameof(rawScore), "Property is not nullable for class RankPredictResponse.");
+            if (rank.IsSet && rank.Value == null)
+                throw new ArgumentNullException(nameof(rank), "Property is not nullable for class RankPredictResponse.");
 
-            if (matchesUsed.IsSet && matchesUsed.Value == null)
-                throw new ArgumentNullException(nameof(matchesUsed), "Property is not nullable for class RankPredictResponse.");
+            if (subrank.IsSet && subrank.Value == null)
+                throw new ArgumentNullException(nameof(subrank), "Property is not nullable for class RankPredictResponse.");
 
-            return new RankPredictResponse(badge.Value!.Value!, rawScore.Value!.Value!, matchesUsed.Value!.Value!);
+            return new RankPredictResponse(badge.Value!.Value!, rank.Value!.Value!, subrank.Value!.Value!);
         }
 
         /// <summary>
@@ -213,9 +225,9 @@ namespace DeadlockApiClient.Model
         {
             writer.WriteNumber("badge", rankPredictResponse.Badge);
 
-            writer.WriteNumber("raw_score", rankPredictResponse.RawScore);
+            writer.WriteNumber("rank", rankPredictResponse.Rank);
 
-            writer.WriteNumber("matches_used", rankPredictResponse.MatchesUsed);
+            writer.WriteNumber("subrank", rankPredictResponse.Subrank);
         }
     }
 }

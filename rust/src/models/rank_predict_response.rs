@@ -13,23 +13,23 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RankPredictResponse {
-    /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    /// Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "badge")]
-    pub badge: i32,
-    /// Calibrated model output (float index into badge space)
-    #[serde(rename = "raw_score")]
-    pub raw_score: f32,
-    /// Number of recent matches used for the prediction
-    #[serde(rename = "matches_used")]
-    pub matches_used: u32,
+    pub badge: u32,
+    /// Rank tier, `0` when unknown.
+    #[serde(rename = "rank")]
+    pub rank: u32,
+    /// Sub-rank within the tier, `0` when unknown.
+    #[serde(rename = "subrank")]
+    pub subrank: u32,
 }
 
 impl RankPredictResponse {
-    pub fn new(badge: i32, raw_score: f32, matches_used: u32) -> RankPredictResponse {
+    pub fn new(badge: u32, rank: u32, subrank: u32) -> RankPredictResponse {
         RankPredictResponse {
             badge,
-            raw_score,
-            matches_used,
+            rank,
+            subrank,
         }
     }
 }

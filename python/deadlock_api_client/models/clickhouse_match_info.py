@@ -29,6 +29,7 @@ class ClickhouseMatchInfo(BaseModel):
     """
     ClickhouseMatchInfo
     """ # noqa: E501
+    average_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     average_badge_team0: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     average_badge_team1: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     duration_s: Annotated[int, Field(strict=True, ge=0)]
@@ -37,7 +38,7 @@ class ClickhouseMatchInfo(BaseModel):
     match_mode: StrictInt
     players: List[MatchPlayer]
     start_time: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["average_badge_team0", "average_badge_team1", "duration_s", "game_mode", "match_id", "match_mode", "players", "start_time"]
+    __properties: ClassVar[List[str]] = ["average_badge", "average_badge_team0", "average_badge_team1", "duration_s", "game_mode", "match_id", "match_mode", "players", "start_time"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,6 +86,11 @@ class ClickhouseMatchInfo(BaseModel):
                 if _item_players:
                     _items.append(_item_players.to_dict())
             _dict['players'] = _items
+        # set to None if average_badge (nullable) is None
+        # and model_fields_set contains the field
+        if self.average_badge is None and "average_badge" in self.model_fields_set:
+            _dict['average_badge'] = None
+
         # set to None if average_badge_team0 (nullable) is None
         # and model_fields_set contains the field
         if self.average_badge_team0 is None and "average_badge_team0" in self.model_fields_set:
@@ -107,6 +113,7 @@ class ClickhouseMatchInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "average_badge": obj.get("average_badge"),
             "average_badge_team0": obj.get("average_badge_team0"),
             "average_badge_team1": obj.get("average_badge_team1"),
             "duration_s": obj.get("duration_s"),

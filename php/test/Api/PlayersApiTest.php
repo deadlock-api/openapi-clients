@@ -146,7 +146,7 @@ class PlayersApiTest extends TestCase
     /**
      * Test case for rankPredict
      *
-     * Rank Predict.
+     * Rank.
      *
      */
     public function testRankPredict()
@@ -158,7 +158,7 @@ class PlayersApiTest extends TestCase
     /**
      * Test case for rankPredictAvgImage
      *
-     * Rank Predict Avg Image.
+     * Rank Avg Image.
      *
      */
     public function testRankPredictAvgImage()
@@ -170,7 +170,7 @@ class PlayersApiTest extends TestCase
     /**
      * Test case for rankPredictImage
      *
-     * Rank Predict Image.
+     * Rank Image.
      *
      */
     public function testRankPredictImage()

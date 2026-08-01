@@ -170,7 +170,6 @@ src/models/PlayerPerformanceCurvePoint.ts
 src/models/Rank.ts
 src/models/RankImages.ts
 src/models/RankPredictResponse.ts
-src/models/RankPrediction.ts
 src/models/RawAbilityUpgrade.ts
 src/models/RawAbilityUpgradePropertyUpgrade.ts
 src/models/RawCustomCrosshairSettings.ts

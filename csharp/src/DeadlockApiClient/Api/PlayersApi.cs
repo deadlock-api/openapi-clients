@@ -241,10 +241,10 @@ namespace DeadlockApiClient.Api
         Task<IPlayerHeroStatsApiResponse?> PlayerHeroStatsOrDefaultAsync(List<int> accountIds, Option<string?> gameMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Predict
+        /// Rank
         /// </summary>
         /// <remarks>
-        ///  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.949 | | MAE    | 1.08 sub-ranks | | RMSE   | 1.89 sub-ranks | | Within ±1 sub-rank | 77.6% | | Within ±3 sub-rank | 93.9% | | Within ±5 sub-rank | 97.7% | | Within ±6 sub-rank | 98.6% | | Within ±10 sub-rank | 99.6% |  Accuracy by tier:  | Tier range | n | MAE | |- -- -- -- -- -- -|- --|- -- --| | Low (1-4)  | 404 | 3.68 sub-ranks | | Mid (5-7)  | 777 | 2.91 sub-ranks | | High (8-11)| 25,556 | 0.98 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -253,10 +253,10 @@ namespace DeadlockApiClient.Api
         Task<IRankPredictApiResponse> RankPredictAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Predict
+        /// Rank
         /// </summary>
         /// <remarks>
-        ///  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.949 | | MAE    | 1.08 sub-ranks | | RMSE   | 1.89 sub-ranks | | Within ±1 sub-rank | 77.6% | | Within ±3 sub-rank | 93.9% | | Within ±5 sub-rank | 97.7% | | Within ±6 sub-rank | 98.6% | | Within ±10 sub-rank | 99.6% |  Accuracy by tier:  | Tier range | n | MAE | |- -- -- -- -- -- -|- --|- -- --| | Low (1-4)  | 404 | 3.68 sub-ranks | | Mid (5-7)  | 777 | 2.91 sub-ranks | | High (8-11)| 25,556 | 0.98 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -264,10 +264,10 @@ namespace DeadlockApiClient.Api
         Task<IRankPredictApiResponse?> RankPredictOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Predict Avg Image
+        /// Rank Avg Image
         /// </summary>
         /// <remarks>
-        /// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
@@ -277,10 +277,10 @@ namespace DeadlockApiClient.Api
         Task<IRankPredictAvgImageApiResponse> RankPredictAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Predict Avg Image
+        /// Rank Avg Image
         /// </summary>
         /// <remarks>
-        /// Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </remarks>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -289,10 +289,10 @@ namespace DeadlockApiClient.Api
         Task<IRankPredictAvgImageApiResponse?> RankPredictAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Predict Image
+        /// Rank Image
         /// </summary>
         /// <remarks>
-        /// Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -302,10 +302,10 @@ namespace DeadlockApiClient.Api
         Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Predict Image
+        /// Rank Image
         /// </summary>
         /// <remarks>
-        /// Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -512,12 +512,6 @@ namespace DeadlockApiClient.Api
         bool IsForbidden { get; }
 
         /// <summary>
-        /// Returns true if the response is 422 UnprocessableContent
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnprocessableContent { get; }
-
-        /// <summary>
         /// Returns true if the response is 429 TooManyRequests
         /// </summary>
         /// <returns></returns>
@@ -528,12 +522,6 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsInternalServerError { get; }
-
-        /// <summary>
-        /// Returns true if the response is 503 ServiceUnavailable
-        /// </summary>
-        /// <returns></returns>
-        bool IsServiceUnavailable { get; }
     }
 
     /// <summary>
@@ -566,12 +554,6 @@ namespace DeadlockApiClient.Api
         bool IsNotFound { get; }
 
         /// <summary>
-        /// Returns true if the response is 422 UnprocessableContent
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnprocessableContent { get; }
-
-        /// <summary>
         /// Returns true if the response is 429 TooManyRequests
         /// </summary>
         /// <returns></returns>
@@ -582,12 +564,6 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsInternalServerError { get; }
-
-        /// <summary>
-        /// Returns true if the response is 503 ServiceUnavailable
-        /// </summary>
-        /// <returns></returns>
-        bool IsServiceUnavailable { get; }
     }
 
     /// <summary>
@@ -620,12 +596,6 @@ namespace DeadlockApiClient.Api
         bool IsNotFound { get; }
 
         /// <summary>
-        /// Returns true if the response is 422 UnprocessableContent
-        /// </summary>
-        /// <returns></returns>
-        bool IsUnprocessableContent { get; }
-
-        /// <summary>
         /// Returns true if the response is 429 TooManyRequests
         /// </summary>
         /// <returns></returns>
@@ -636,12 +606,6 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsInternalServerError { get; }
-
-        /// <summary>
-        /// Returns true if the response is 503 ServiceUnavailable
-        /// </summary>
-        /// <returns></returns>
-        bool IsServiceUnavailable { get; }
     }
 
     /// <summary>
@@ -2740,7 +2704,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankPredict(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
 
         /// <summary>
-        /// Rank Predict  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.949 | | MAE    | 1.08 sub-ranks | | RMSE   | 1.89 sub-ranks | | Within ±1 sub-rank | 77.6% | | Within ±3 sub-rank | 93.9% | | Within ±5 sub-rank | 97.7% | | Within ±6 sub-rank | 98.6% | | Within ±10 sub-rank | 99.6% |  Accuracy by tier:  | Tier range | n | MAE | |- -- -- -- -- -- -|- --|- -- --| | Low (1-4)  | 404 | 3.68 sub-ranks | | Mid (5-7)  | 777 | 2.91 sub-ranks | | High (8-11)| 25,556 | 0.98 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2758,7 +2722,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Predict  Predicts a player&#39;s current rank badge from their last 30 ranked/unranked matches. Requires at least 30 eligible matches (Ranked or Unranked, Normal game mode) with valid badge data.  &gt; **This is an ML prediction and may be inaccurate.** The model has no access to the player&#39;s &gt; actual hidden MMR — it infers rank from match context signals only.  ### Model Accuracy (5-fold cross-validation)  | Metric | Value | |- -- -- -- -|- -- -- --| | R²     | 0.949 | | MAE    | 1.08 sub-ranks | | RMSE   | 1.89 sub-ranks | | Within ±1 sub-rank | 77.6% | | Within ±3 sub-rank | 93.9% | | Within ±5 sub-rank | 97.7% | | Within ±6 sub-rank | 98.6% | | Within ±10 sub-rank | 99.6% |  Accuracy by tier:  | Tier range | n | MAE | |- -- -- -- -- -- -|- --|- -- --| | Low (1-4)  | 404 | 3.68 sub-ranks | | Mid (5-7)  | 777 | 2.91 sub-ranks | | High (8-11)| 25,556 | 0.98 sub-ranks |  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -2921,12 +2885,6 @@ namespace DeadlockApiClient.Api
             public bool IsForbidden => 403 == (int)StatusCode;
 
             /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnprocessableContent => 422 == (int)StatusCode;
-
-            /// <summary>
             /// Returns true if the response is 429 TooManyRequests
             /// </summary>
             /// <returns></returns>
@@ -2937,12 +2895,6 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
-
-            /// <summary>
-            /// Returns true if the response is 503 ServiceUnavailable
-            /// </summary>
-            /// <returns></returns>
-            public bool IsServiceUnavailable => 503 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {
@@ -3023,7 +2975,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankPredictAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format);
 
         /// <summary>
-        /// Rank Predict Avg Image Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </summary>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -3042,7 +2994,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Predict Avg Image Returns the average predicted rank badge image (binary) for a comma-separated list of account IDs. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
@@ -3223,12 +3175,6 @@ namespace DeadlockApiClient.Api
             public bool IsNotFound => 404 == (int)StatusCode;
 
             /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnprocessableContent => 422 == (int)StatusCode;
-
-            /// <summary>
             /// Returns true if the response is 429 TooManyRequests
             /// </summary>
             /// <returns></returns>
@@ -3239,12 +3185,6 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
-
-            /// <summary>
-            /// Returns true if the response is 503 ServiceUnavailable
-            /// </summary>
-            /// <returns></returns>
-            public bool IsServiceUnavailable => 503 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {
@@ -3321,7 +3261,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankPredictImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format);
 
         /// <summary>
-        /// Rank Predict Image Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Image Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -3340,7 +3280,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Predict Image Returns the predicted rank badge image directly (binary), not a URL. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Image Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -3520,12 +3460,6 @@ namespace DeadlockApiClient.Api
             public bool IsNotFound => 404 == (int)StatusCode;
 
             /// <summary>
-            /// Returns true if the response is 422 UnprocessableContent
-            /// </summary>
-            /// <returns></returns>
-            public bool IsUnprocessableContent => 422 == (int)StatusCode;
-
-            /// <summary>
             /// Returns true if the response is 429 TooManyRequests
             /// </summary>
             /// <returns></returns>
@@ -3536,12 +3470,6 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
-
-            /// <summary>
-            /// Returns true if the response is 503 ServiceUnavailable
-            /// </summary>
-            /// <returns></returns>
-            public bool IsServiceUnavailable => 503 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {

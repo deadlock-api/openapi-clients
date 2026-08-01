@@ -63,21 +63,21 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'RawScore'
+        /// Test the property 'Rank'
         /// </summary>
         [Fact]
-        public void RawScoreTest()
+        public void RankTest()
         {
-            // TODO unit test for the property 'RawScore'
+            // TODO unit test for the property 'Rank'
         }
 
         /// <summary>
-        /// Test the property 'MatchesUsed'
+        /// Test the property 'Subrank'
         /// </summary>
         [Fact]
-        public void MatchesUsedTest()
+        public void SubrankTest()
         {
-            // TODO unit test for the property 'MatchesUsed'
+            // TODO unit test for the property 'Subrank'
         }
     }
 }

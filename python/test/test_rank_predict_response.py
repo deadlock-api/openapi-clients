@@ -35,15 +35,15 @@ class TestRankPredictResponse(unittest.TestCase):
         model = RankPredictResponse()
         if include_optional:
             return RankPredictResponse(
-                badge = 56,
-                raw_score = 1.337,
-                matches_used = 0
+                badge = 0,
+                rank = 0,
+                subrank = 0
             )
         else:
             return RankPredictResponse(
-                badge = 56,
-                raw_score = 1.337,
-                matches_used = 0,
+                badge = 0,
+                rank = 0,
+                subrank = 0,
         )
         """
 

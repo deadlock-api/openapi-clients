@@ -38,6 +38,7 @@ import java.io.Serializable
  * @param matchMode 
  * @param players 
  * @param startTime 
+ * @param averageBadge See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param averageBadgeTeam0 See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param averageBadgeTeam1 See more: <https://api.deadlock-api.com/v1/assets/ranks>
  */
@@ -62,6 +63,10 @@ data class ClickhouseMatchInfo (
 
     @Json(name = "start_time")
     val startTime: kotlin.Int,
+
+    /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
+    @Json(name = "average_badge")
+    val averageBadge: kotlin.Int? = null,
 
     /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "average_badge_team0")

@@ -10,9 +10,9 @@ Method | HTTP request | Description
 [**MatchHistory**](PlayersAPI.md#MatchHistory) | **Get** /v1/players/{account_id}/match-history | Match History
 [**MateStats**](PlayersAPI.md#MateStats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 [**PlayerHeroStats**](PlayersAPI.md#PlayerHeroStats) | **Get** /v1/players/hero-stats | Hero Stats
-[**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict
-[**RankPredictAvgImage**](PlayersAPI.md#RankPredictAvgImage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image
-[**RankPredictImage**](PlayersAPI.md#RankPredictImage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
+[**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank
+[**RankPredictAvgImage**](PlayersAPI.md#RankPredictAvgImage) | **Get** /v1/players/rank-predict/image | Rank Avg Image
+[**RankPredictImage**](PlayersAPI.md#RankPredictImage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Image
 
 
 
@@ -500,7 +500,7 @@ No authorization required
 
 > RankPredictResponse RankPredict(ctx, accountId).Execute()
 
-Rank Predict
+Rank
 
 
 
@@ -570,7 +570,7 @@ No authorization required
 
 > []int32 RankPredictAvgImage(ctx).AccountIds(accountIds).Format(format).Execute()
 
-Rank Predict Avg Image
+Rank Avg Image
 
 
 
@@ -638,7 +638,7 @@ No authorization required
 
 > []int32 RankPredictImage(ctx, accountId).Format(format).Execute()
 
-Rank Predict Image
+Rank Image
 
 
 

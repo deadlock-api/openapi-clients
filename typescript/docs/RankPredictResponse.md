@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**badge** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [default to undefined]
-**raw_score** | **number** | Calibrated model output (float index into badge space) | [default to undefined]
-**matches_used** | **number** | Number of recent matches used for the prediction | [default to undefined]
+**badge** | **number** | Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [default to undefined]
+**rank** | **number** | Rank tier, &#x60;0&#x60; when unknown. | [default to undefined]
+**subrank** | **number** | Sub-rank within the tier, &#x60;0&#x60; when unknown. | [default to undefined]
 
 ## Example
 
@@ -16,8 +16,8 @@ import { RankPredictResponse } from 'deadlock_api_client';
 
 const instance: RankPredictResponse = {
     badge,
-    raw_score,
-    matches_used,
+    rank,
+    subrank,
 };
 ```
 

@@ -80,6 +80,15 @@ class ClickhouseMatchInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "average_badge"
+     */
+    public function testPropertyAverageBadge()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "average_badge_team0"
      */
     public function testPropertyAverageBadgeTeam0()

@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,10 +28,10 @@ class RankPredictResponse(BaseModel):
     """
     RankPredictResponse
     """ # noqa: E501
-    badge: StrictInt = Field(description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    raw_score: Union[StrictFloat, StrictInt] = Field(description="Calibrated model output (float index into badge space)")
-    matches_used: Annotated[int, Field(strict=True, ge=0)] = Field(description="Number of recent matches used for the prediction")
-    __properties: ClassVar[List[str]] = ["badge", "raw_score", "matches_used"]
+    badge: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank tier, `0` when unknown.")
+    subrank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sub-rank within the tier, `0` when unknown.")
+    __properties: ClassVar[List[str]] = ["badge", "rank", "subrank"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,8 +85,8 @@ class RankPredictResponse(BaseModel):
 
         _obj = cls.model_validate({
             "badge": obj.get("badge"),
-            "raw_score": obj.get("raw_score"),
-            "matches_used": obj.get("matches_used")
+            "rank": obj.get("rank"),
+            "subrank": obj.get("subrank")
         })
         return _obj
 

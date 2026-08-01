@@ -57,6 +57,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
+        'average_badge' => 'int',
         'average_badge_team0' => 'int',
         'average_badge_team1' => 'int',
         'duration_s' => 'int',
@@ -75,6 +76,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'average_badge' => 'int32',
         'average_badge_team0' => 'int32',
         'average_badge_team1' => 'int32',
         'duration_s' => 'int32',
@@ -91,6 +93,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'average_badge' => true,
         'average_badge_team0' => true,
         'average_badge_team1' => true,
         'duration_s' => false,
@@ -187,6 +190,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'average_badge' => 'average_badge',
         'average_badge_team0' => 'average_badge_team0',
         'average_badge_team1' => 'average_badge_team1',
         'duration_s' => 'duration_s',
@@ -203,6 +207,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'average_badge' => 'setAverageBadge',
         'average_badge_team0' => 'setAverageBadgeTeam0',
         'average_badge_team1' => 'setAverageBadgeTeam1',
         'duration_s' => 'setDurationS',
@@ -219,6 +224,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'average_badge' => 'getAverageBadge',
         'average_badge_team0' => 'getAverageBadgeTeam0',
         'average_badge_team1' => 'getAverageBadgeTeam1',
         'duration_s' => 'getDurationS',
@@ -286,6 +292,7 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('average_badge', $data ?? [], null);
         $this->setIfExists('average_badge_team0', $data ?? [], null);
         $this->setIfExists('average_badge_team1', $data ?? [], null);
         $this->setIfExists('duration_s', $data ?? [], null);
@@ -322,6 +329,10 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['average_badge']) && ($this->container['average_badge'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_badge', must be bigger than or equal to 0.";
+        }
 
         if (!is_null($this->container['average_badge_team0']) && ($this->container['average_badge_team0'] < 0)) {
             $invalidProperties[] = "invalid value for 'average_badge_team0', must be bigger than or equal to 0.";
@@ -375,6 +386,44 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets average_badge
+     *
+     * @return int|null
+     */
+    public function getAverageBadge()
+    {
+        return $this->container['average_badge'];
+    }
+
+    /**
+     * Sets average_badge
+     *
+     * @param int|null $average_badge See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     *
+     * @return self
+     */
+    public function setAverageBadge($average_badge)
+    {
+        if (is_null($average_badge)) {
+            array_push($this->openAPINullablesSetToNull, 'average_badge');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('average_badge', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($average_badge) && ($average_badge < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_badge when calling ClickhouseMatchInfo., must be bigger than or equal to 0.');
+        }
+
+        $this->container['average_badge'] = $average_badge;
+
+        return $this;
+    }
 
     /**
      * Gets average_badge_team0

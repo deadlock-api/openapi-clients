@@ -133,7 +133,6 @@ export * from './PlayerPerformanceCurvePoint';
 export * from './Rank';
 export * from './RankImages';
 export * from './RankPredictResponse';
-export * from './RankPrediction';
 export * from './RawAbilityUpgrade';
 export * from './RawAbilityUpgradePropertyUpgrade';
 export * from './RawCustomCrosshairSettings';

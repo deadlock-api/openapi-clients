@@ -184,9 +184,9 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**matchHistory**](docs/Api/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](docs/Api/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**playerHeroStats**](docs/Api/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
-*PlayersApi* | [**rankPredict**](docs/Api/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict
-*PlayersApi* | [**rankPredictAvgImage**](docs/Api/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image
-*PlayersApi* | [**rankPredictImage**](docs/Api/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image
+*PlayersApi* | [**rankPredict**](docs/Api/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank
+*PlayersApi* | [**rankPredictAvgImage**](docs/Api/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Avg Image
+*PlayersApi* | [**rankPredictImage**](docs/Api/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image
 *RanksApi* | [**getRank**](docs/Api/RanksApi.md#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 *RanksApi* | [**listRanks**](docs/Api/RanksApi.md#listranks) | **GET** /v1/assets/ranks | List Ranks
 *SQLApi* | [**listTables**](docs/Api/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables
@@ -338,7 +338,6 @@ Class | Method | HTTP request | Description
 - [Rank](docs/Model/Rank.md)
 - [RankImages](docs/Model/RankImages.md)
 - [RankPredictResponse](docs/Model/RankPredictResponse.md)
-- [RankPrediction](docs/Model/RankPrediction.md)
 - [RawAbilityUpgrade](docs/Model/RawAbilityUpgrade.md)
 - [RawAbilityUpgradePropertyUpgrade](docs/Model/RawAbilityUpgradePropertyUpgrade.md)
 - [RawCustomCrosshairSettings](docs/Model/RawCustomCrosshairSettings.md)

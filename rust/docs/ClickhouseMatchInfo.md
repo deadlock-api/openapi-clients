@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**average_badge** | Option<**u32**> | See more: <https://api.deadlock-api.com/v1/assets/ranks> | [optional]
 **average_badge_team0** | Option<**u32**> | See more: <https://api.deadlock-api.com/v1/assets/ranks> | [optional]
 **average_badge_team1** | Option<**u32**> | See more: <https://api.deadlock-api.com/v1/assets/ranks> | [optional]
 **duration_s** | **u32** |  | 

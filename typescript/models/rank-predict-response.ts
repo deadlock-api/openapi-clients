@@ -13,13 +13,19 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { RankPrediction } from './rank-prediction.js';
 
-/**
- * @type RankPredictResponse
- */
-export type RankPredictResponse = RankPrediction;
-
+export interface RankPredictResponse {
+    /**
+     * Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     */
+    'badge': number;
+    /**
+     * Rank tier, `0` when unknown.
+     */
+    'rank': number;
+    /**
+     * Sub-rank within the tier, `0` when unknown.
+     */
+    'subrank': number;
+}
 

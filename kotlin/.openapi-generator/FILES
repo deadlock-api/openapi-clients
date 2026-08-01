@@ -161,7 +161,6 @@ docs/PlayersApi.md
 docs/Rank.md
 docs/RankImages.md
 docs/RankPredictResponse.md
-docs/RankPrediction.md
 docs/RanksApi.md
 docs/RawAbilityUpgrade.md
 docs/RawAbilityUpgradePropertyUpgrade.md
@@ -416,7 +415,6 @@ src/main/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePoint.kt
 src/main/kotlin/deadlock_api_client/models/Rank.kt
 src/main/kotlin/deadlock_api_client/models/RankImages.kt
 src/main/kotlin/deadlock_api_client/models/RankPredictResponse.kt
-src/main/kotlin/deadlock_api_client/models/RankPrediction.kt
 src/main/kotlin/deadlock_api_client/models/RawAbilityUpgrade.kt
 src/main/kotlin/deadlock_api_client/models/RawAbilityUpgradePropertyUpgrade.kt
 src/main/kotlin/deadlock_api_client/models/RawCustomCrosshairSettings.kt
@@ -647,7 +645,6 @@ src/test/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePointTest.kt
 src/test/kotlin/deadlock_api_client/models/RankImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/RankPredictResponseTest.kt
-src/test/kotlin/deadlock_api_client/models/RankPredictionTest.kt
 src/test/kotlin/deadlock_api_client/models/RankTest.kt
 src/test/kotlin/deadlock_api_client/models/RawAbilityUpgradePropertyUpgradeTest.kt
 src/test/kotlin/deadlock_api_client/models/RawAbilityUpgradeTest.kt

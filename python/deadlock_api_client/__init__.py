@@ -192,7 +192,6 @@ __all__ = [
     "Rank",
     "RankImages",
     "RankPredictResponse",
-    "RankPrediction",
     "RawAbilityUpgrade",
     "RawAbilityUpgradePropertyUpgrade",
     "RawCustomCrosshairSettings",
@@ -440,7 +439,6 @@ from deadlock_api_client.models.player_performance_curve_point import PlayerPerf
 from deadlock_api_client.models.rank import Rank as Rank
 from deadlock_api_client.models.rank_images import RankImages as RankImages
 from deadlock_api_client.models.rank_predict_response import RankPredictResponse as RankPredictResponse
-from deadlock_api_client.models.rank_prediction import RankPrediction as RankPrediction
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade as RawAbilityUpgrade
 from deadlock_api_client.models.raw_ability_upgrade_property_upgrade import RawAbilityUpgradePropertyUpgrade as RawAbilityUpgradePropertyUpgrade
 from deadlock_api_client.models.raw_custom_crosshair_settings import RawCustomCrosshairSettings as RawCustomCrosshairSettings
