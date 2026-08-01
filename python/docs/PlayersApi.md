@@ -10,9 +10,12 @@ Method | HTTP request | Description
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
-[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank
-[**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Avg Image
-[**rank_predict_image**](PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image
+[**rank**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank
+[**rank_avg_image**](PlayersApi.md#rank_avg_image) | **GET** /v1/players/rank/image | Rank Avg Image
+[**rank_image**](PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
+[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
+[**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
+[**rank_predict_image**](PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)
 
 
 # **account_stats**
@@ -591,8 +594,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rank_predict**
-> RankPredictResponse rank_predict(account_id)
+# **rank**
+> RankResponse rank(account_id)
 
 Rank
 
@@ -603,20 +606,13 @@ Only ranked matches carry a rank, and it stays unset while the player is in plac
 When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are
 all `0`, which is the `Obscurus` (unranked) tier.
 
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
-
 
 ### Example
 
 
 ```python
 import deadlock_api_client
-from deadlock_api_client.models.rank_predict_response import RankPredictResponse
+from deadlock_api_client.models.rank_response import RankResponse
 from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -635,11 +631,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Rank
-        api_response = api_instance.rank_predict(account_id)
-        print("The response of PlayersApi->rank_predict:\n")
+        api_response = api_instance.rank(account_id)
+        print("The response of PlayersApi->rank:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PlayersApi->rank_predict: %s\n" % e)
+        print("Exception when calling PlayersApi->rank: %s\n" % e)
 ```
 
 
@@ -653,7 +649,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RankPredictResponse**](RankPredictResponse.md)
+[**RankResponse**](RankResponse.md)
 
 ### Authorization
 
@@ -671,13 +667,12 @@ No authorization required
 **200** |  |  -  |
 **400** | Invalid account ID |  -  |
 **403** | User is protected or endpoint unavailable |  -  |
-**429** | Rate limit exceeded |  -  |
 **500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rank_predict_avg_image**
-> List[int] rank_predict_avg_image(account_ids, format=format)
+# **rank_avg_image**
+> List[int] rank_avg_image(account_ids, format=format)
 
 Rank Avg Image
 
@@ -707,6 +702,223 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Rank Avg Image
+        api_response = api_instance.rank_avg_image(account_ids, format=format)
+        print("The response of PlayersApi->rank_avg_image:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->rank_avg_image: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_ids** | [**List[int]**](int.md)| Comma-separated list of account IDs (max 12). | 
+ **format** | **str**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
+
+### Return type
+
+**List[int]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: image/png, image/webp
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Average rank badge image |  -  |
+**400** | Invalid or missing account IDs |  -  |
+**403** | One of the users is protected |  -  |
+**404** | No image available for the rank |  -  |
+**500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rank_image**
+> List[int] rank_image(account_id, format=format)
+
+Rank Image
+
+Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_id = 56 # int | The players `SteamID3`
+    format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+    try:
+        # Rank Image
+        api_response = api_instance.rank_image(account_id, format=format)
+        print("The response of PlayersApi->rank_image:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->rank_image: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
+ **format** | **str**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
+
+### Return type
+
+**List[int]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: image/png, image/webp
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Rank badge image |  -  |
+**400** | Invalid account ID |  -  |
+**403** | User is protected or endpoint unavailable |  -  |
+**404** | No image available for the rank |  -  |
+**500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rank_predict**
+> RankResponse rank_predict(account_id)
+
+Rank Predict (Deprecated)
+
+Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player's latest ranked match.
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.rank_response import RankResponse
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_id = 56 # int | The players `SteamID3`
+
+    try:
+        # Rank Predict (Deprecated)
+        api_response = api_instance.rank_predict(account_id)
+        print("The response of PlayersApi->rank_predict:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->rank_predict: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
+
+### Return type
+
+[**RankResponse**](RankResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**400** | Invalid account ID |  -  |
+**403** | User is protected or endpoint unavailable |  -  |
+**500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rank_predict_avg_image**
+> List[int] rank_predict_avg_image(account_ids, format=format)
+
+Rank Predict Avg Image (Deprecated)
+
+Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player's latest ranked match.
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_ids = [56] # List[int] | Comma-separated list of account IDs (max 12).
+    format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+    try:
+        # Rank Predict Avg Image (Deprecated)
         api_response = api_instance.rank_predict_avg_image(account_ids, format=format)
         print("The response of PlayersApi->rank_predict_avg_image:\n")
         pprint(api_response)
@@ -745,7 +957,6 @@ No authorization required
 **400** | Invalid or missing account IDs |  -  |
 **403** | One of the users is protected |  -  |
 **404** | No image available for the rank |  -  |
-**429** | Rate limit exceeded |  -  |
 **500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -753,9 +964,9 @@ No authorization required
 # **rank_predict_image**
 > List[int] rank_predict_image(account_id, format=format)
 
-Rank Image
+Rank Predict Image (Deprecated)
 
-Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player's latest ranked match.
 
 ### Example
 
@@ -780,7 +991,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
     try:
-        # Rank Image
+        # Rank Predict Image (Deprecated)
         api_response = api_instance.rank_predict_image(account_id, format=format)
         print("The response of PlayersApi->rank_predict_image:\n")
         pprint(api_response)
@@ -819,7 +1030,6 @@ No authorization required
 **400** | Invalid account ID |  -  |
 **403** | User is protected or endpoint unavailable |  -  |
 **404** | No image available for the rank |  -  |
-**429** | Rate limit exceeded |  -  |
 **500** | Rank lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

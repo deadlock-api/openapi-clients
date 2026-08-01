@@ -28,6 +28,7 @@ api_mmr.go
 api_npc_units.go
 api_patches.go
 api_players.go
+api_ranked_seasons.go
 api_ranks.go
 api_servers.go
 api_sql.go
@@ -194,7 +195,9 @@ docs/PlayerPerformanceCurvePoint.md
 docs/PlayersAPI.md
 docs/Rank.md
 docs/RankImages.md
-docs/RankPredictResponse.md
+docs/RankResponse.md
+docs/RankedSeason.md
+docs/RankedSeasonsAPI.md
 docs/RanksAPI.md
 docs/RawAbilityUpgrade.md
 docs/RawAbilityUpgradePropertyUpgrade.md
@@ -210,6 +213,7 @@ docs/RegionMode.md
 docs/RejuvParams.md
 docs/SQLAPI.md
 docs/ScriptValues.md
+docs/SeasonInterval.md
 docs/ServerRegion.md
 docs/ServerStatusRequest.md
 docs/ServerStatusResponse.md
@@ -403,7 +407,8 @@ model_player_match_history_entry.go
 model_player_performance_curve_point.go
 model_rank.go
 model_rank_images.go
-model_rank_predict_response.go
+model_rank_response.go
+model_ranked_season.go
 model_raw_ability_upgrade.go
 model_raw_ability_upgrade_property_upgrade.go
 model_raw_custom_crosshair_settings.go
@@ -417,6 +422,7 @@ model_recoil_range.go
 model_region_mode.go
 model_rejuv_params.go
 model_script_values.go
+model_season_interval.go
 model_server_region.go
 model_server_status_request.go
 model_server_status_response.go
@@ -496,6 +502,7 @@ test/api_mmr_test.go
 test/api_npc_units_test.go
 test/api_patches_test.go
 test/api_players_test.go
+test/api_ranked_seasons_test.go
 test/api_ranks_test.go
 test/api_servers_test.go
 test/api_sql_test.go

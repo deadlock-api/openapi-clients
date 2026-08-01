@@ -10,9 +10,12 @@ Method | HTTP request | Description
 [**MatchHistory**](PlayersAPI.md#MatchHistory) | **Get** /v1/players/{account_id}/match-history | Match History
 [**MateStats**](PlayersAPI.md#MateStats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
 [**PlayerHeroStats**](PlayersAPI.md#PlayerHeroStats) | **Get** /v1/players/hero-stats | Hero Stats
-[**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank
-[**RankPredictAvgImage**](PlayersAPI.md#RankPredictAvgImage) | **Get** /v1/players/rank-predict/image | Rank Avg Image
-[**RankPredictImage**](PlayersAPI.md#RankPredictImage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Image
+[**Rank**](PlayersAPI.md#Rank) | **Get** /v1/players/{account_id}/rank | Rank
+[**RankAvgImage**](PlayersAPI.md#RankAvgImage) | **Get** /v1/players/rank/image | Rank Avg Image
+[**RankImage**](PlayersAPI.md#RankImage) | **Get** /v1/players/{account_id}/rank/image | Rank Image
+[**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
+[**RankPredictAvgImage**](PlayersAPI.md#RankPredictAvgImage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
+[**RankPredictImage**](PlayersAPI.md#RankPredictImage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)
 
 
 
@@ -496,11 +499,221 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## RankPredict
+## Rank
 
-> RankPredictResponse RankPredict(ctx, accountId).Execute()
+> RankResponse Rank(ctx, accountId).Execute()
 
 Rank
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountId := int32(56) // int32 | The players `SteamID3`
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.Rank(context.Background(), accountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.Rank``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Rank`: RankResponse
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.Rank`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRankRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**RankResponse**](RankResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RankAvgImage
+
+> []int32 RankAvgImage(ctx).AccountIds(accountIds).Format(format).Execute()
+
+Rank Avg Image
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountIds := []int32{int32(123)} // []int32 | Comma-separated list of account IDs (max 12).
+	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.RankAvgImage(context.Background()).AccountIds(accountIds).Format(format).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankAvgImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RankAvgImage`: []int32
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankAvgImage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRankAvgImageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountIds** | **[]int32** | Comma-separated list of account IDs (max 12). | 
+ **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
+
+### Return type
+
+**[]int32**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: image/png, image/webp
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RankImage
+
+> []int32 RankImage(ctx, accountId).Format(format).Execute()
+
+Rank Image
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountId := int32(56) // int32 | The players `SteamID3`
+	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.RankImage(context.Background(), accountId).Format(format).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RankImage`: []int32
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankImage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRankImageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
+
+### Return type
+
+**[]int32**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: image/png, image/webp
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RankPredict
+
+> RankResponse RankPredict(ctx, accountId).Execute()
+
+Rank Predict (Deprecated)
 
 
 
@@ -526,7 +739,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredict``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RankPredict`: RankPredictResponse
+	// response from `RankPredict`: RankResponse
 	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankPredict`: %v\n", resp)
 }
 ```
@@ -550,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RankPredictResponse**](RankPredictResponse.md)
+[**RankResponse**](RankResponse.md)
 
 ### Authorization
 
@@ -570,7 +783,7 @@ No authorization required
 
 > []int32 RankPredictAvgImage(ctx).AccountIds(accountIds).Format(format).Execute()
 
-Rank Avg Image
+Rank Predict Avg Image (Deprecated)
 
 
 
@@ -638,7 +851,7 @@ No authorization required
 
 > []int32 RankPredictImage(ctx, accountId).Format(format).Execute()
 
-Rank Image
+Rank Predict Image (Deprecated)
 
 
 

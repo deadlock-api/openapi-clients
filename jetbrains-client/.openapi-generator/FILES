@@ -24,6 +24,7 @@ Apis/MiscEntitiesApi.http
 Apis/NPCUnitsApi.http
 Apis/PatchesApi.http
 Apis/PlayersApi.http
+Apis/RankedSeasonsApi.http
 Apis/RanksApi.http
 Apis/SQLApi.http
 Apis/ServersApi.http

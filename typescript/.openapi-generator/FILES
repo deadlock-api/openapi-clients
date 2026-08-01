@@ -28,6 +28,7 @@ apis/mmrapi.ts
 apis/npcunits-api.ts
 apis/patches-api.ts
 apis/players-api.ts
+apis/ranked-seasons-api.ts
 apis/ranks-api.ts
 apis/servers-api.ts
 apis/sqlapi.ts
@@ -195,7 +196,9 @@ docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/Rank.md
 docs/RankImages.md
-docs/RankPredictResponse.md
+docs/RankResponse.md
+docs/RankedSeason.md
+docs/RankedSeasonsApi.md
 docs/RanksApi.md
 docs/RawAbilityUpgrade.md
 docs/RawAbilityUpgradePropertyUpgrade.md
@@ -211,6 +214,7 @@ docs/RegionMode.md
 docs/RejuvParams.md
 docs/SQLApi.md
 docs/ScriptValues.md
+docs/SeasonInterval.md
 docs/ServerRegion.md
 docs/ServerStatusRequest.md
 docs/ServerStatusResponse.md
@@ -403,8 +407,9 @@ models/player-entry.ts
 models/player-match-history-entry.ts
 models/player-performance-curve-point.ts
 models/rank-images.ts
-models/rank-predict-response.ts
+models/rank-response.ts
 models/rank.ts
+models/ranked-season.ts
 models/raw-ability-upgrade-property-upgrade.ts
 models/raw-ability-upgrade.ts
 models/raw-custom-crosshair-settings.ts
@@ -418,6 +423,7 @@ models/recoil-range.ts
 models/region-mode.ts
 models/rejuv-params.ts
 models/script-values.ts
+models/season-interval.ts
 models/server-region.ts
 models/server-status-request.ts
 models/server-status-response.ts

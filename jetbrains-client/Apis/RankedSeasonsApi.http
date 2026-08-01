@@ -1,0 +1,6 @@
+## RankedSeasonsApi
+
+### List Ranked Seasons
+## List Ranked Seasons
+GET https://api.deadlock-api.com/v1/assets/ranked-seasons?language={{language}}&clientVersion={{clientVersion}}
+Accept: application/json

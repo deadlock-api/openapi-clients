@@ -33,9 +33,9 @@ import {
     PlayerMatchHistoryEntry,
     PlayerMatchHistoryEntryFromJSON,
     PlayerMatchHistoryEntryToJSON,
-    RankPredictResponse,
-    RankPredictResponseFromJSON,
-    RankPredictResponseToJSON,
+    RankResponse,
+    RankResponseFromJSON,
+    RankResponseToJSON,
 } from '../models';
 
 export interface AccountStatsRequest {
@@ -92,6 +92,20 @@ export interface PlayerHeroStatsRequest {
     maxAverageBadge?: number;
     minMatchId?: number;
     maxMatchId?: number;
+}
+
+export interface RankRequest {
+    accountId: number;
+}
+
+export interface RankAvgImageRequest {
+    accountIds: Array<number>;
+    format?: RankAvgImageFormatEnum;
+}
+
+export interface RankImageRequest {
+    accountId: number;
+    format?: RankImageFormatEnum;
 }
 
 export interface RankPredictRequest {
@@ -567,10 +581,169 @@ export function playerHeroStats<T>(requestParameters: PlayerHeroStatsRequest, re
 }
 
 /**
- *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+ *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier. 
  * Rank
  */
-function rankPredictRaw<T>(requestParameters: RankPredictRequest, requestConfig: runtime.TypedQueryConfig<T, RankPredictResponse> = {}): QueryConfig<T> {
+function rankRaw<T>(requestParameters: RankRequest, requestConfig: runtime.TypedQueryConfig<T, RankResponse> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling rank.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(RankResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier. 
+* Rank
+*/
+export function rank<T>(requestParameters: RankRequest, requestConfig?: runtime.TypedQueryConfig<T, RankResponse>): QueryConfig<T> {
+    return rankRaw(requestParameters, requestConfig);
+}
+
+/**
+ * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+ * Rank Avg Image
+ */
+function rankAvgImageRaw<T>(requestParameters: RankAvgImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
+    if (requestParameters.accountIds === null || requestParameters.accountIds === undefined) {
+        throw new runtime.RequiredError('accountIds','Required parameter requestParameters.accountIds was null or undefined when calling rankAvgImage.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.format !== undefined) {
+        queryParameters['format'] = requestParameters.format;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/rank/image`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+* Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+* Rank Avg Image
+*/
+export function rankAvgImage<T>(requestParameters: RankAvgImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
+    return rankAvgImageRaw(requestParameters, requestConfig);
+}
+
+/**
+ * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+ * Rank Image
+ */
+function rankImageRaw<T>(requestParameters: RankImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling rankImage.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.format !== undefined) {
+        queryParameters['format'] = requestParameters.format;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank/image`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+* Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+* Rank Image
+*/
+export function rankImage<T>(requestParameters: RankImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
+    return rankImageRaw(requestParameters, requestConfig);
+}
+
+/**
+ * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+ * Rank Predict (Deprecated)
+ */
+function rankPredictRaw<T>(requestParameters: RankPredictRequest, requestConfig: runtime.TypedQueryConfig<T, RankResponse> = {}): QueryConfig<T> {
     if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
         throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling rankPredict.');
     }
@@ -600,23 +773,23 @@ function rankPredictRaw<T>(requestParameters: RankPredictRequest, requestConfig:
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(RankPredictResponseFromJSON(body), text);
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(RankResponseFromJSON(body), text);
     }
 
     return config;
 }
 
 /**
-*  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
-* Rank
+* Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+* Rank Predict (Deprecated)
 */
-export function rankPredict<T>(requestParameters: RankPredictRequest, requestConfig?: runtime.TypedQueryConfig<T, RankPredictResponse>): QueryConfig<T> {
+export function rankPredict<T>(requestParameters: RankPredictRequest, requestConfig?: runtime.TypedQueryConfig<T, RankResponse>): QueryConfig<T> {
     return rankPredictRaw(requestParameters, requestConfig);
 }
 
 /**
- * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
- * Rank Avg Image
+ * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
+ * Rank Predict Avg Image (Deprecated)
  */
 function rankPredictAvgImageRaw<T>(requestParameters: RankPredictAvgImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
     if (requestParameters.accountIds === null || requestParameters.accountIds === undefined) {
@@ -665,16 +838,16 @@ function rankPredictAvgImageRaw<T>(requestParameters: RankPredictAvgImageRequest
 }
 
 /**
-* Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
-* Rank Avg Image
+* Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
+* Rank Predict Avg Image (Deprecated)
 */
 export function rankPredictAvgImage<T>(requestParameters: RankPredictAvgImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
     return rankPredictAvgImageRaw(requestParameters, requestConfig);
 }
 
 /**
- * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
- * Rank Image
+ * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+ * Rank Predict Image (Deprecated)
  */
 function rankPredictImageRaw<T>(requestParameters: RankPredictImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
     if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
@@ -718,8 +891,8 @@ function rankPredictImageRaw<T>(requestParameters: RankPredictImageRequest, requ
 }
 
 /**
-* Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
-* Rank Image
+* Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+* Rank Predict Image (Deprecated)
 */
 export function rankPredictImage<T>(requestParameters: RankPredictImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
     return rankPredictImageRaw(requestParameters, requestConfig);
@@ -755,6 +928,22 @@ export enum PlayerHeroStatsGameModeEnum {
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
     Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RankAvgImageFormatEnum {
+    Png = 'png',
+    Webp = 'webp'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RankImageFormatEnum {
+    Png = 'png',
+    Webp = 'webp'
 }
 /**
     * @export

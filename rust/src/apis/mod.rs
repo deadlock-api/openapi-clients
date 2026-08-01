@@ -136,6 +136,7 @@ pub mod misc_entities_api;
 pub mod npc_units_api;
 pub mod patches_api;
 pub mod players_api;
+pub mod ranked_seasons_api;
 pub mod ranks_api;
 pub mod sql_api;
 pub mod servers_api;

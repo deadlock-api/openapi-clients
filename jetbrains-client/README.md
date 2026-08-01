@@ -107,9 +107,13 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**matchHistory**](Apis/PlayersApi.http#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](Apis/PlayersApi.http#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**playerHeroStats**](Apis/PlayersApi.http#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
-*PlayersApi* | [**rankPredict**](Apis/PlayersApi.http#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank
-*PlayersApi* | [**rankPredictAvgImage**](Apis/PlayersApi.http#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Avg Image
-*PlayersApi* | [**rankPredictImage**](Apis/PlayersApi.http#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image
+*PlayersApi* | [**rank**](Apis/PlayersApi.http#rank) | **GET** /v1/players/{account_id}/rank | Rank
+*PlayersApi* | [**rankAvgImage**](Apis/PlayersApi.http#rankavgimage) | **GET** /v1/players/rank/image | Rank Avg Image
+*PlayersApi* | [**rankImage**](Apis/PlayersApi.http#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image
+*PlayersApi* | [**rankPredict**](Apis/PlayersApi.http#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
+*PlayersApi* | [**rankPredictAvgImage**](Apis/PlayersApi.http#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
+*PlayersApi* | [**rankPredictImage**](Apis/PlayersApi.http#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)
+*RankedSeasonsApi* | [**listRankedSeasons**](Apis/RankedSeasonsApi.http#listrankedseasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons
 *RanksApi* | [**getRank**](Apis/RanksApi.http#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 *RanksApi* | [**listRanks**](Apis/RanksApi.http#listranks) | **GET** /v1/assets/ranks | List Ranks
 *SQLApi* | [**listTables**](Apis/SQLApi.http#listtables) | **GET** /v1/sql/tables | List Tables

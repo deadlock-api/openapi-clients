@@ -157,6 +157,9 @@ namespace DeadlockApiClient.Test.Api
             var playersApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
 
+            var rankedSeasonsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IRankedSeasonsApi>();
+            Assert.True(rankedSeasonsApi.HttpClient.BaseAddress != null);
+
             var ranksApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IRanksApi>();
             Assert.True(ranksApi.HttpClient.BaseAddress != null);
 
@@ -253,6 +256,9 @@ namespace DeadlockApiClient.Test.Api
 
             var playersApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
+
+            var rankedSeasonsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IRankedSeasonsApi>();
+            Assert.True(rankedSeasonsApi.HttpClient.BaseAddress != null);
 
             var ranksApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IRanksApi>();
             Assert.True(ranksApi.HttpClient.BaseAddress != null);
@@ -351,6 +357,9 @@ namespace DeadlockApiClient.Test.Api
             var playersApi = _hostUsingAddWithAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
             
+            var rankedSeasonsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IRankedSeasonsApi>();
+            Assert.True(rankedSeasonsApi.HttpClient.BaseAddress != null);
+            
             var ranksApi = _hostUsingAddWithAClient.Services.GetRequiredService<IRanksApi>();
             Assert.True(ranksApi.HttpClient.BaseAddress != null);
             
@@ -447,6 +456,9 @@ namespace DeadlockApiClient.Test.Api
 
             var playersApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IPlayersApi>();
             Assert.True(playersApi.HttpClient.BaseAddress != null);
+
+            var rankedSeasonsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IRankedSeasonsApi>();
+            Assert.True(rankedSeasonsApi.HttpClient.BaseAddress != null);
 
             var ranksApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IRanksApi>();
             Assert.True(ranksApi.HttpClient.BaseAddress != null);

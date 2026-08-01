@@ -31,6 +31,7 @@ deadlock_api_client/api/mmr_api.py
 deadlock_api_client/api/npc_units_api.py
 deadlock_api_client/api/patches_api.py
 deadlock_api_client/api/players_api.py
+deadlock_api_client/api/ranked_seasons_api.py
 deadlock_api_client/api/ranks_api.py
 deadlock_api_client/api/servers_api.py
 deadlock_api_client/api/sql_api.py
@@ -175,7 +176,8 @@ deadlock_api_client/models/player_match_history_entry.py
 deadlock_api_client/models/player_performance_curve_point.py
 deadlock_api_client/models/rank.py
 deadlock_api_client/models/rank_images.py
-deadlock_api_client/models/rank_predict_response.py
+deadlock_api_client/models/rank_response.py
+deadlock_api_client/models/ranked_season.py
 deadlock_api_client/models/raw_ability_upgrade.py
 deadlock_api_client/models/raw_ability_upgrade_property_upgrade.py
 deadlock_api_client/models/raw_custom_crosshair_settings.py
@@ -189,6 +191,7 @@ deadlock_api_client/models/recoil_range.py
 deadlock_api_client/models/region_mode.py
 deadlock_api_client/models/rejuv_params.py
 deadlock_api_client/models/script_values.py
+deadlock_api_client/models/season_interval.py
 deadlock_api_client/models/server_region.py
 deadlock_api_client/models/server_status_request.py
 deadlock_api_client/models/server_status_response.py
@@ -403,7 +406,9 @@ docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/Rank.md
 docs/RankImages.md
-docs/RankPredictResponse.md
+docs/RankResponse.md
+docs/RankedSeason.md
+docs/RankedSeasonsApi.md
 docs/RanksApi.md
 docs/RawAbilityUpgrade.md
 docs/RawAbilityUpgradePropertyUpgrade.md
@@ -419,6 +424,7 @@ docs/RegionMode.md
 docs/RejuvParams.md
 docs/SQLApi.md
 docs/ScriptValues.md
+docs/SeasonInterval.md
 docs/ServerRegion.md
 docs/ServerStatusRequest.md
 docs/ServerStatusResponse.md
@@ -641,7 +647,9 @@ test/test_player_performance_curve_point.py
 test/test_players_api.py
 test/test_rank.py
 test/test_rank_images.py
-test/test_rank_predict_response.py
+test/test_rank_response.py
+test/test_ranked_season.py
+test/test_ranked_seasons_api.py
 test/test_ranks_api.py
 test/test_raw_ability_upgrade.py
 test/test_raw_ability_upgrade_property_upgrade.py
@@ -656,6 +664,7 @@ test/test_recoil_range.py
 test/test_region_mode.py
 test/test_rejuv_params.py
 test/test_script_values.py
+test/test_season_interval.py
 test/test_server_region.py
 test/test_server_status_request.py
 test/test_server_status_response.py

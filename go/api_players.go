@@ -1102,18 +1102,18 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRankPredictRequest struct {
+type ApiRankRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
 	accountId int32
 }
 
-func (r ApiRankPredictRequest) Execute() (*RankPredictResponse, *http.Response, error) {
-	return r.ApiService.RankPredictExecute(r)
+func (r ApiRankRequest) Execute() (*RankResponse, *http.Response, error) {
+	return r.ApiService.RankExecute(r)
 }
 
 /*
-RankPredict Rank
+Rank Rank
 
 
 Returns the player's rank as Valve reported it on their latest ranked match.
@@ -1122,17 +1122,364 @@ Only ranked matches carry a rank, and it stays unset while the player is in plac
 When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are
 all `0`, which is the `Obscurus` (unranked) tier.
 
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | 100req/s |
-| Key | - |
-| Global | - |
 
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param accountId The players `SteamID3`
+ @return ApiRankRequest
+*/
+func (a *PlayersAPIService) Rank(ctx context.Context, accountId int32) ApiRankRequest {
+	return ApiRankRequest{
+		ApiService: a,
+		ctx: ctx,
+		accountId: accountId,
+	}
+}
+
+// Execute executes the request
+//  @return RankResponse
+func (a *PlayersAPIService) RankExecute(r ApiRankRequest) (*RankResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RankResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.Rank")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/{account_id}/rank"
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountId < 0 {
+		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRankAvgImageRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	accountIds *[]int32
+	format *string
+}
+
+// Comma-separated list of account IDs (max 12).
+func (r ApiRankAvgImageRequest) AccountIds(accountIds []int32) ApiRankAvgImageRequest {
+	r.accountIds = &accountIds
+	return r
+}
+
+// Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+func (r ApiRankAvgImageRequest) Format(format string) ApiRankAvgImageRequest {
+	r.format = &format
+	return r
+}
+
+func (r ApiRankAvgImageRequest) Execute() ([]int32, *http.Response, error) {
+	return r.ApiService.RankAvgImageExecute(r)
+}
+
+/*
+RankAvgImage Rank Avg Image
+
+Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRankAvgImageRequest
+*/
+func (a *PlayersAPIService) RankAvgImage(ctx context.Context) ApiRankAvgImageRequest {
+	return ApiRankAvgImageRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []int32
+func (a *PlayersAPIService) RankAvgImageExecute(r ApiRankAvgImageRequest) ([]int32, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []int32
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.RankAvgImage")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/rank/image"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountIds == nil {
+		return localVarReturnValue, nil, reportError("accountIds is required and must be specified")
+	}
+
+	{
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	if r.format != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"image/png", "image/webp"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRankImageRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	accountId int32
+	format *string
+}
+
+// Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+func (r ApiRankImageRequest) Format(format string) ApiRankImageRequest {
+	r.format = &format
+	return r
+}
+
+func (r ApiRankImageRequest) Execute() ([]int32, *http.Response, error) {
+	return r.ApiService.RankImageExecute(r)
+}
+
+/*
+RankImage Rank Image
+
+Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param accountId The players `SteamID3`
+ @return ApiRankImageRequest
+*/
+func (a *PlayersAPIService) RankImage(ctx context.Context, accountId int32) ApiRankImageRequest {
+	return ApiRankImageRequest{
+		ApiService: a,
+		ctx: ctx,
+		accountId: accountId,
+	}
+}
+
+// Execute executes the request
+//  @return []int32
+func (a *PlayersAPIService) RankImageExecute(r ApiRankImageRequest) ([]int32, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []int32
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.RankImage")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/{account_id}/rank/image"
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountId < 0 {
+		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+
+	if r.format != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"image/png", "image/webp"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRankPredictRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	accountId int32
+}
+
+func (r ApiRankPredictRequest) Execute() (*RankResponse, *http.Response, error) {
+	return r.ApiService.RankPredictExecute(r)
+}
+
+/*
+RankPredict Rank Predict (Deprecated)
+
+Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player's latest ranked match.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
  @return ApiRankPredictRequest
+
+Deprecated
 */
 func (a *PlayersAPIService) RankPredict(ctx context.Context, accountId int32) ApiRankPredictRequest {
 	return ApiRankPredictRequest{
@@ -1143,13 +1490,14 @@ func (a *PlayersAPIService) RankPredict(ctx context.Context, accountId int32) Ap
 }
 
 // Execute executes the request
-//  @return RankPredictResponse
-func (a *PlayersAPIService) RankPredictExecute(r ApiRankPredictRequest) (*RankPredictResponse, *http.Response, error) {
+//  @return RankResponse
+// Deprecated
+func (a *PlayersAPIService) RankPredictExecute(r ApiRankPredictRequest) (*RankResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RankPredictResponse
+		localVarReturnValue  *RankResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.RankPredict")
@@ -1245,12 +1593,14 @@ func (r ApiRankPredictAvgImageRequest) Execute() ([]int32, *http.Response, error
 }
 
 /*
-RankPredictAvgImage Rank Avg Image
+RankPredictAvgImage Rank Predict Avg Image (Deprecated)
 
-Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player's latest ranked match.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRankPredictAvgImageRequest
+
+Deprecated
 */
 func (a *PlayersAPIService) RankPredictAvgImage(ctx context.Context) ApiRankPredictAvgImageRequest {
 	return ApiRankPredictAvgImageRequest{
@@ -1261,6 +1611,7 @@ func (a *PlayersAPIService) RankPredictAvgImage(ctx context.Context) ApiRankPred
 
 // Execute executes the request
 //  @return []int32
+// Deprecated
 func (a *PlayersAPIService) RankPredictAvgImageExecute(r ApiRankPredictAvgImageRequest) ([]int32, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -1369,13 +1720,15 @@ func (r ApiRankPredictImageRequest) Execute() ([]int32, *http.Response, error) {
 }
 
 /*
-RankPredictImage Rank Image
+RankPredictImage Rank Predict Image (Deprecated)
 
-Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player's latest ranked match.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
  @return ApiRankPredictImageRequest
+
+Deprecated
 */
 func (a *PlayersAPIService) RankPredictImage(ctx context.Context, accountId int32) ApiRankPredictImageRequest {
 	return ApiRankPredictImageRequest{
@@ -1387,6 +1740,7 @@ func (a *PlayersAPIService) RankPredictImage(ctx context.Context, accountId int3
 
 // Execute executes the request
 //  @return []int32
+// Deprecated
 func (a *PlayersAPIService) RankPredictImageExecute(r ApiRankPredictImageRequest) ([]int32, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

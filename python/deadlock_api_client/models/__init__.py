@@ -147,7 +147,8 @@ from deadlock_api_client.models.player_match_history_entry import PlayerMatchHis
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
 from deadlock_api_client.models.rank import Rank
 from deadlock_api_client.models.rank_images import RankImages
-from deadlock_api_client.models.rank_predict_response import RankPredictResponse
+from deadlock_api_client.models.rank_response import RankResponse
+from deadlock_api_client.models.ranked_season import RankedSeason
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade
 from deadlock_api_client.models.raw_ability_upgrade_property_upgrade import RawAbilityUpgradePropertyUpgrade
 from deadlock_api_client.models.raw_custom_crosshair_settings import RawCustomCrosshairSettings
@@ -161,6 +162,7 @@ from deadlock_api_client.models.recoil_range import RecoilRange
 from deadlock_api_client.models.region_mode import RegionMode
 from deadlock_api_client.models.rejuv_params import RejuvParams
 from deadlock_api_client.models.script_values import ScriptValues
+from deadlock_api_client.models.season_interval import SeasonInterval
 from deadlock_api_client.models.server_region import ServerRegion
 from deadlock_api_client.models.server_status_request import ServerStatusRequest
 from deadlock_api_client.models.server_status_response import ServerStatusResponse

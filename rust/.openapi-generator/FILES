@@ -162,7 +162,9 @@ docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/Rank.md
 docs/RankImages.md
-docs/RankPredictResponse.md
+docs/RankResponse.md
+docs/RankedSeason.md
+docs/RankedSeasonsApi.md
 docs/RanksApi.md
 docs/RawAbilityUpgrade.md
 docs/RawAbilityUpgradePropertyUpgrade.md
@@ -177,6 +179,7 @@ docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
 docs/ScriptValues.md
+docs/SeasonInterval.md
 docs/ServerRegion.md
 docs/ServerStatusRequest.md
 docs/ServerStatusResponse.md
@@ -262,6 +265,7 @@ src/apis/mod.rs
 src/apis/npc_units_api.rs
 src/apis/patches_api.rs
 src/apis/players_api.rs
+src/apis/ranked_seasons_api.rs
 src/apis/ranks_api.rs
 src/apis/servers_api.rs
 src/apis/sql_api.rs
@@ -403,7 +407,8 @@ src/models/player_match_history_entry.rs
 src/models/player_performance_curve_point.rs
 src/models/rank.rs
 src/models/rank_images.rs
-src/models/rank_predict_response.rs
+src/models/rank_response.rs
+src/models/ranked_season.rs
 src/models/raw_ability_upgrade.rs
 src/models/raw_ability_upgrade_property_upgrade.rs
 src/models/raw_custom_crosshair_settings.rs
@@ -417,6 +422,7 @@ src/models/recoil_range.rs
 src/models/region_mode.rs
 src/models/rejuv_params.rs
 src/models/script_values.rs
+src/models/season_interval.rs
 src/models/server_region.rs
 src/models/server_status_request.rs
 src/models/server_status_response.rs

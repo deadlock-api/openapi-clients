@@ -28,6 +28,7 @@ src/apis/MiscEntitiesApi.ts
 src/apis/NPCUnitsApi.ts
 src/apis/PatchesApi.ts
 src/apis/PlayersApi.ts
+src/apis/RankedSeasonsApi.ts
 src/apis/RanksApi.ts
 src/apis/SQLApi.ts
 src/apis/ServersApi.ts
@@ -169,7 +170,8 @@ src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
 src/models/Rank.ts
 src/models/RankImages.ts
-src/models/RankPredictResponse.ts
+src/models/RankResponse.ts
+src/models/RankedSeason.ts
 src/models/RawAbilityUpgrade.ts
 src/models/RawAbilityUpgradePropertyUpgrade.ts
 src/models/RawCustomCrosshairSettings.ts
@@ -183,6 +185,7 @@ src/models/RecoilRange.ts
 src/models/RegionMode.ts
 src/models/RejuvParams.ts
 src/models/ScriptValues.ts
+src/models/SeasonInterval.ts
 src/models/ServerRegion.ts
 src/models/ServerStatusRequest.ts
 src/models/ServerStatusResponse.ts

@@ -137,9 +137,13 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**match_history**](docs/PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mate_stats**](docs/PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 *PlayersApi* | [**player_hero_stats**](docs/PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
-*PlayersApi* | [**rank_predict**](docs/PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank
-*PlayersApi* | [**rank_predict_avg_image**](docs/PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Avg Image
-*PlayersApi* | [**rank_predict_image**](docs/PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image
+*PlayersApi* | [**rank**](docs/PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank
+*PlayersApi* | [**rank_avg_image**](docs/PlayersApi.md#rank_avg_image) | **GET** /v1/players/rank/image | Rank Avg Image
+*PlayersApi* | [**rank_image**](docs/PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
+*PlayersApi* | [**rank_predict**](docs/PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
+*PlayersApi* | [**rank_predict_avg_image**](docs/PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
+*PlayersApi* | [**rank_predict_image**](docs/PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)
+*RankedSeasonsApi* | [**list_ranked_seasons**](docs/RankedSeasonsApi.md#list_ranked_seasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons
 *RanksApi* | [**get_rank**](docs/RanksApi.md#get_rank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 *RanksApi* | [**list_ranks**](docs/RanksApi.md#list_ranks) | **GET** /v1/assets/ranks | List Ranks
 *SqlApi* | [**list_tables**](docs/SqlApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
@@ -291,7 +295,8 @@ Class | Method | HTTP request | Description
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [Rank](docs/Rank.md)
  - [RankImages](docs/RankImages.md)
- - [RankPredictResponse](docs/RankPredictResponse.md)
+ - [RankResponse](docs/RankResponse.md)
+ - [RankedSeason](docs/RankedSeason.md)
  - [RawAbilityUpgrade](docs/RawAbilityUpgrade.md)
  - [RawAbilityUpgradePropertyUpgrade](docs/RawAbilityUpgradePropertyUpgrade.md)
  - [RawCustomCrosshairSettings](docs/RawCustomCrosshairSettings.md)
@@ -305,6 +310,7 @@ Class | Method | HTTP request | Description
  - [RegionMode](docs/RegionMode.md)
  - [RejuvParams](docs/RejuvParams.md)
  - [ScriptValues](docs/ScriptValues.md)
+ - [SeasonInterval](docs/SeasonInterval.md)
  - [ServerRegion](docs/ServerRegion.md)
  - [ServerStatusRequest](docs/ServerStatusRequest.md)
  - [ServerStatusResponse](docs/ServerStatusResponse.md)

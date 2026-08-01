@@ -28,6 +28,7 @@ api/Api/MiscEntitiesApi.php
 api/Api/NPCUnitsApi.php
 api/Api/PatchesApi.php
 api/Api/PlayersApi.php
+api/Api/RankedSeasonsApi.php
 api/Api/RanksApi.php
 api/Api/SQLApi.php
 api/Api/ServersApi.php
@@ -172,7 +173,8 @@ api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
 api/Model/Rank.php
 api/Model/RankImages.php
-api/Model/RankPredictResponse.php
+api/Model/RankResponse.php
+api/Model/RankedSeason.php
 api/Model/RawAbilityUpgrade.php
 api/Model/RawAbilityUpgradePropertyUpgrade.php
 api/Model/RawCustomCrosshairSettings.php
@@ -186,6 +188,7 @@ api/Model/RecoilRange.php
 api/Model/RegionMode.php
 api/Model/RejuvParams.php
 api/Model/ScriptValues.php
+api/Model/SeasonInterval.php
 api/Model/ServerRegion.php
 api/Model/ServerStatusRequest.php
 api/Model/ServerStatusResponse.php
@@ -266,6 +269,7 @@ docs/Api/MiscEntitiesApi.md
 docs/Api/NPCUnitsApi.md
 docs/Api/PatchesApi.md
 docs/Api/PlayersApi.md
+docs/Api/RankedSeasonsApi.md
 docs/Api/RanksApi.md
 docs/Api/SQLApi.md
 docs/Api/ServersApi.md
@@ -405,7 +409,8 @@ docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
 docs/Model/Rank.md
 docs/Model/RankImages.md
-docs/Model/RankPredictResponse.md
+docs/Model/RankResponse.md
+docs/Model/RankedSeason.md
 docs/Model/RawAbilityUpgrade.md
 docs/Model/RawAbilityUpgradePropertyUpgrade.md
 docs/Model/RawCustomCrosshairSettings.md
@@ -419,6 +424,7 @@ docs/Model/RecoilRange.md
 docs/Model/RegionMode.md
 docs/Model/RejuvParams.md
 docs/Model/ScriptValues.md
+docs/Model/SeasonInterval.md
 docs/Model/ServerRegion.md
 docs/Model/ServerStatusRequest.md
 docs/Model/ServerStatusResponse.md
@@ -499,6 +505,7 @@ test/Api/MiscEntitiesApiTest.php
 test/Api/NPCUnitsApiTest.php
 test/Api/PatchesApiTest.php
 test/Api/PlayersApiTest.php
+test/Api/RankedSeasonsApiTest.php
 test/Api/RanksApiTest.php
 test/Api/SQLApiTest.php
 test/Api/ServersApiTest.php
@@ -637,8 +644,9 @@ test/Model/PlayerEntryTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
 test/Model/RankImagesTest.php
-test/Model/RankPredictResponseTest.php
+test/Model/RankResponseTest.php
 test/Model/RankTest.php
+test/Model/RankedSeasonTest.php
 test/Model/RawAbilityUpgradePropertyUpgradeTest.php
 test/Model/RawAbilityUpgradeTest.php
 test/Model/RawCustomCrosshairSettingsTest.php
@@ -652,6 +660,7 @@ test/Model/RecoilRangeTest.php
 test/Model/RegionModeTest.php
 test/Model/RejuvParamsTest.php
 test/Model/ScriptValuesTest.php
+test/Model/SeasonIntervalTest.php
 test/Model/ServerRegionTest.php
 test/Model/ServerStatusRequestTest.php
 test/Model/ServerStatusResponseTest.php

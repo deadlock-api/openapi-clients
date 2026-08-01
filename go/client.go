@@ -99,6 +99,8 @@ type APIClient struct {
 
 	PlayersAPI *PlayersAPIService
 
+	RankedSeasonsAPI *RankedSeasonsAPIService
+
 	RanksAPI *RanksAPIService
 
 	SQLAPI *SQLAPIService
@@ -151,6 +153,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.NPCUnitsAPI = (*NPCUnitsAPIService)(&c.common)
 	c.PatchesAPI = (*PatchesAPIService)(&c.common)
 	c.PlayersAPI = (*PlayersAPIService)(&c.common)
+	c.RankedSeasonsAPI = (*RankedSeasonsAPIService)(&c.common)
 	c.RanksAPI = (*RanksAPIService)(&c.common)
 	c.SQLAPI = (*SQLAPIService)(&c.common)
 	c.ServersAPI = (*ServersAPIService)(&c.common)

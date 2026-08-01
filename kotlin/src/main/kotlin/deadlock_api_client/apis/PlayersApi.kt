@@ -33,7 +33,7 @@ import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
-import deadlock_api_client.models.RankPredictResponse
+import deadlock_api_client.models.RankResponse
 
 import com.squareup.moshi.Json
 
@@ -756,11 +756,11 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * GET /v1/players/{account_id}/rank-predict
+     * GET /v1/players/{account_id}/rank
      * Rank
-     *  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+     *  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier. 
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @return RankPredictResponse
+     * @return RankResponse
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -769,11 +769,281 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankPredict(accountId: kotlin.Int) : RankPredictResponse {
+    fun rank(accountId: kotlin.Int) : RankResponse {
+        val localVarResponse = rankWithHttpInfo(accountId = accountId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RankResponse
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/rank
+     * Rank
+     *  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier. 
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return ApiResponse<RankResponse?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun rankWithHttpInfo(accountId: kotlin.Int) : ApiResponse<RankResponse?> {
+        val localVariableConfig = rankRequestConfig(accountId = accountId)
+
+        return request<Unit, RankResponse>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation rank
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RequestConfig
+     */
+    fun rankRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/rank".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * enum for parameter format
+     */
+     enum class FormatRankAvgImage(val value: kotlin.String) {
+         @Json(name = "png") png("png"),
+         @Json(name = "webp") webp("webp");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * GET /v1/players/rank/image
+     * Rank Avg Image
+     * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * @param accountIds Comma-separated list of account IDs (max 12).
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return kotlin.collections.List<kotlin.Int>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun rankAvgImage(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankAvgImage? = null) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = rankAvgImageWithHttpInfo(accountIds = accountIds, format = format)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/rank/image
+     * Rank Avg Image
+     * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * @param accountIds Comma-separated list of account IDs (max 12).
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun rankAvgImageWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankAvgImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = rankAvgImageRequestConfig(accountIds = accountIds, format = format)
+
+        return request<Unit, kotlin.collections.List<kotlin.Int>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation rankAvgImage
+     *
+     * @param accountIds Comma-separated list of account IDs (max 12).
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return RequestConfig
+     */
+    fun rankAvgImageRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankAvgImage?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                if (format != null) {
+                    put("format", listOf(format.value))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/rank/image",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * enum for parameter format
+     */
+     enum class FormatRankImage(val value: kotlin.String) {
+         @Json(name = "png") png("png"),
+         @Json(name = "webp") webp("webp");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * GET /v1/players/{account_id}/rank/image
+     * Rank Image
+     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return kotlin.collections.List<kotlin.Int>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun rankImage(accountId: kotlin.Int, format: FormatRankImage? = null) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = rankImageWithHttpInfo(accountId = accountId, format = format)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/rank/image
+     * Rank Image
+     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun rankImageWithHttpInfo(accountId: kotlin.Int, format: FormatRankImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = rankImageRequestConfig(accountId = accountId, format = format)
+
+        return request<Unit, kotlin.collections.List<kotlin.Int>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation rankImage
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @return RequestConfig
+     */
+    fun rankImageRequestConfig(accountId: kotlin.Int, format: FormatRankImage?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (format != null) {
+                    put("format", listOf(format.value))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/rank/image".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/rank-predict
+     * Rank Predict (Deprecated)
+     * Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RankResponse
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
+    fun rankPredict(accountId: kotlin.Int) : RankResponse {
+        @Suppress("DEPRECATION")
         val localVarResponse = rankPredictWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as RankPredictResponse
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RankResponse
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -789,19 +1059,21 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /v1/players/{account_id}/rank-predict
-     * Rank
-     *  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+     * Rank Predict (Deprecated)
+     * Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
      * @param accountId The players &#x60;SteamID3&#x60;
-     * @return ApiResponse<RankPredictResponse?>
+     * @return ApiResponse<RankResponse?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rankPredictWithHttpInfo(accountId: kotlin.Int) : ApiResponse<RankPredictResponse?> {
+    @Deprecated(message = "This operation is deprecated.")
+    fun rankPredictWithHttpInfo(accountId: kotlin.Int) : ApiResponse<RankResponse?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = rankPredictRequestConfig(accountId = accountId)
 
-        return request<Unit, RankPredictResponse>(
+        return request<Unit, RankResponse>(
             localVariableConfig
         )
     }
@@ -812,6 +1084,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun rankPredictRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
@@ -847,8 +1120,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /v1/players/rank-predict/image
-     * Rank Avg Image
-     * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * Rank Predict Avg Image (Deprecated)
+     * Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
      * @param accountIds Comma-separated list of account IDs (max 12).
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return kotlin.collections.List<kotlin.Int>
@@ -860,7 +1133,9 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun rankPredictAvgImage(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankPredictAvgImage? = null) : kotlin.collections.List<kotlin.Int> {
+        @Suppress("DEPRECATION")
         val localVarResponse = rankPredictAvgImageWithHttpInfo(accountIds = accountIds, format = format)
 
         return when (localVarResponse.responseType) {
@@ -880,8 +1155,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /v1/players/rank-predict/image
-     * Rank Avg Image
-     * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * Rank Predict Avg Image (Deprecated)
+     * Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
      * @param accountIds Comma-separated list of account IDs (max 12).
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
@@ -890,7 +1165,9 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun rankPredictAvgImageWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankPredictAvgImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = rankPredictAvgImageRequestConfig(accountIds = accountIds, format = format)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -905,6 +1182,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun rankPredictAvgImageRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankPredictAvgImage?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -945,8 +1223,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /v1/players/{account_id}/rank-predict/image
-     * Rank Image
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * Rank Predict Image (Deprecated)
+     * Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return kotlin.collections.List<kotlin.Int>
@@ -958,7 +1236,9 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun rankPredictImage(accountId: kotlin.Int, format: FormatRankPredictImage? = null) : kotlin.collections.List<kotlin.Int> {
+        @Suppress("DEPRECATION")
         val localVarResponse = rankPredictImageWithHttpInfo(accountId = accountId, format = format)
 
         return when (localVarResponse.responseType) {
@@ -978,8 +1258,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /v1/players/{account_id}/rank-predict/image
-     * Rank Image
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * Rank Predict Image (Deprecated)
+     * Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
@@ -988,7 +1268,9 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun rankPredictImageWithHttpInfo(accountId: kotlin.Int, format: FormatRankPredictImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = rankPredictImageRequestConfig(accountId = accountId, format = format)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -1003,6 +1285,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun rankPredictImageRequestConfig(accountId: kotlin.Int, format: FormatRankPredictImage?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()

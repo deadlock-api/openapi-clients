@@ -18,7 +18,7 @@ import type { MateStats } from '../models/index.js';
 import type { PlayerAccountStats } from '../models/index.js';
 import type { PlayerCard } from '../models/index.js';
 import type { PlayerMatchHistoryEntry } from '../models/index.js';
-import type { RankPredictResponse } from '../models/index.js';
+import type { RankResponse } from '../models/index.js';
 /**
  * PlayersApi - axios parameter creator
  */
@@ -104,28 +104,57 @@ export declare const PlayersApiAxiosParamCreator: (configuration?: Configuration
      */
     playerHeroStats: (accountIds: Array<number>, gameMode?: PlayerHeroStatsGameModeEnum, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.
      * @summary Rank
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rankPredict: (accountId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    rank: (accountId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
      * @summary Rank Avg Image
      * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
-     * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {RankAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rankPredictAvgImage: (accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    rankAvgImage: (accountIds: Array<number>, format?: RankAvgImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
      * @summary Rank Image
      * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {RankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rankImage: (accountId: number, format?: RankImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict (Deprecated)
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    rankPredict: (accountId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
+     * @summary Rank Predict Avg Image (Deprecated)
+     * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
+     * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    rankPredictAvgImage: (accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict Image (Deprecated)
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rankPredictImage: (accountId: number, format?: RankPredictImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -215,28 +244,57 @@ export declare const PlayersApiFp: (configuration?: Configuration) => {
      */
     playerHeroStats(accountIds: Array<number>, gameMode?: PlayerHeroStatsGameModeEnum, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroStats>>>;
     /**
-     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.
      * @summary Rank
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rankPredict(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RankPredictResponse>>;
+    rank(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RankResponse>>;
     /**
      * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
      * @summary Rank Avg Image
      * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
-     * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {RankAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rankPredictAvgImage(accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    rankAvgImage(accountIds: Array<number>, format?: RankAvgImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
     /**
      * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
      * @summary Rank Image
      * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {RankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rankImage(accountId: number, format?: RankImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    /**
+     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict (Deprecated)
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    rankPredict(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RankResponse>>;
+    /**
+     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
+     * @summary Rank Predict Avg Image (Deprecated)
+     * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
+     * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    rankPredictAvgImage(accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    /**
+     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict Image (Deprecated)
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rankPredictImage(accountId: number, format?: RankPredictImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
@@ -294,26 +352,53 @@ export declare const PlayersApiFactory: (configuration?: Configuration, basePath
      */
     playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroStats>>;
     /**
-     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.
      * @summary Rank
-     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
+     * @param {PlayersApiRankRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): AxiosPromise<RankPredictResponse>;
+    rank(requestParameters: PlayersApiRankRequest, options?: RawAxiosRequestConfig): AxiosPromise<RankResponse>;
     /**
      * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
      * @summary Rank Avg Image
+     * @param {PlayersApiRankAvgImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rankAvgImage(requestParameters: PlayersApiRankAvgImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
+    /**
+     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+     * @summary Rank Image
+     * @param {PlayersApiRankImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rankImage(requestParameters: PlayersApiRankImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
+    /**
+     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict (Deprecated)
+     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): AxiosPromise<RankResponse>;
+    /**
+     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
+     * @summary Rank Predict Avg Image (Deprecated)
      * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rankPredictAvgImage(requestParameters: PlayersApiRankPredictAvgImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
     /**
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
-     * @summary Rank Image
+     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict Image (Deprecated)
      * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
@@ -501,6 +586,41 @@ export interface PlayersApiPlayerHeroStatsRequest {
     readonly maxMatchId?: number | null;
 }
 /**
+ * Request parameters for rank operation in PlayersApi.
+ */
+export interface PlayersApiRankRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number;
+}
+/**
+ * Request parameters for rankAvgImage operation in PlayersApi.
+ */
+export interface PlayersApiRankAvgImageRequest {
+    /**
+     * Comma-separated list of account IDs (max 12).
+     */
+    readonly accountIds: Array<number>;
+    /**
+     * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     */
+    readonly format?: RankAvgImageFormatEnum;
+}
+/**
+ * Request parameters for rankImage operation in PlayersApi.
+ */
+export interface PlayersApiRankImageRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number;
+    /**
+     * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     */
+    readonly format?: RankImageFormatEnum;
+}
+/**
  * Request parameters for rankPredict operation in PlayersApi.
  */
 export interface PlayersApiRankPredictRequest {
@@ -588,26 +708,53 @@ export declare class PlayersApi extends BaseAPI {
      */
     playerHeroStats(requestParameters: PlayersApiPlayerHeroStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroStats[], any, {}, any>>;
     /**
-     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.
      * @summary Rank
-     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
+     * @param {PlayersApiRankRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<RankPredictResponse, any, {}, any>>;
+    rank(requestParameters: PlayersApiRankRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<RankResponse, any, {}, any>>;
     /**
      * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
      * @summary Rank Avg Image
+     * @param {PlayersApiRankAvgImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rankAvgImage(requestParameters: PlayersApiRankAvgImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
+    /**
+     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+     * @summary Rank Image
+     * @param {PlayersApiRankImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rankImage(requestParameters: PlayersApiRankImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
+    /**
+     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict (Deprecated)
+     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<RankResponse, any, {}, any>>;
+    /**
+     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
+     * @summary Rank Predict Avg Image (Deprecated)
      * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rankPredictAvgImage(requestParameters: PlayersApiRankPredictAvgImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
     /**
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
-     * @summary Rank Image
+     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
+     * @summary Rank Predict Image (Deprecated)
      * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
@@ -633,6 +780,16 @@ export declare const PlayerHeroStatsGameModeEnum: {
     readonly Internal: "internal";
 };
 export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
+export declare const RankAvgImageFormatEnum: {
+    readonly Png: "png";
+    readonly Webp: "webp";
+};
+export type RankAvgImageFormatEnum = typeof RankAvgImageFormatEnum[keyof typeof RankAvgImageFormatEnum];
+export declare const RankImageFormatEnum: {
+    readonly Png: "png";
+    readonly Webp: "webp";
+};
+export type RankImageFormatEnum = typeof RankImageFormatEnum[keyof typeof RankImageFormatEnum];
 export declare const RankPredictAvgImageFormatEnum: {
     readonly Png: "png";
     readonly Webp: "webp";

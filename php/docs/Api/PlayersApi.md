@@ -12,9 +12,12 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**matchHistory()**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats()**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**playerHeroStats()**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
-| [**rankPredict()**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank |
-| [**rankPredictAvgImage()**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Avg Image |
-| [**rankPredictImage()**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image |
+| [**rank()**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank |
+| [**rankAvgImage()**](PlayersApi.md#rankAvgImage) | **GET** /v1/players/rank/image | Rank Avg Image |
+| [**rankImage()**](PlayersApi.md#rankImage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
+| [**rankPredict()**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
+| [**rankPredictAvgImage()**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
+| [**rankPredictImage()**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated) |
 
 
 ## `accountStats()`
@@ -417,15 +420,187 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `rankPredict()`
+## `rank()`
 
 ```php
-rankPredict($account_id): \OpenAPI\Client\Model\RankPredictResponse
+rank($account_id): \OpenAPI\Client\Model\RankResponse
 ```
 
 Rank
 
-Returns the player's rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+Returns the player's rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_id = 56; // int | The players `SteamID3`
+
+try {
+    $result = $apiInstance->rank($account_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->rank: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\RankResponse**](../Model/RankResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `rankAvgImage()`
+
+```php
+rankAvgImage($account_ids, $format): int[]
+```
+
+Rank Avg Image
+
+Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_ids = array(56); // int[] | Comma-separated list of account IDs (max 12).
+$format = 'format_example'; // string | Image format. Defaults to `png`. Supported: `png`, `webp`.
+
+try {
+    $result = $apiInstance->rankAvgImage($account_ids, $format);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->rankAvgImage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_ids** | [**int[]**](../Model/int.md)| Comma-separated list of account IDs (max 12). | |
+| **format** | **string**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
+
+### Return type
+
+**int[]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `image/png`, `image/webp`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `rankImage()`
+
+```php
+rankImage($account_id, $format): int[]
+```
+
+Rank Image
+
+Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_id = 56; // int | The players `SteamID3`
+$format = 'format_example'; // string | Image format. Defaults to `png`. Supported: `png`, `webp`.
+
+try {
+    $result = $apiInstance->rankImage($account_id, $format);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->rankImage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
+| **format** | **string**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
+
+### Return type
+
+**int[]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `image/png`, `image/webp`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `rankPredict()`
+
+```php
+rankPredict($account_id): \OpenAPI\Client\Model\RankResponse
+```
+
+Rank Predict (Deprecated)
+
+Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player's latest ranked match.
 
 ### Example
 
@@ -458,7 +633,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RankPredictResponse**](../Model/RankPredictResponse.md)
+[**\OpenAPI\Client\Model\RankResponse**](../Model/RankResponse.md)
 
 ### Authorization
 
@@ -479,9 +654,9 @@ No authorization required
 rankPredictAvgImage($account_ids, $format): int[]
 ```
 
-Rank Avg Image
+Rank Predict Avg Image (Deprecated)
 
-Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player's latest ranked match.
 
 ### Example
 
@@ -537,9 +712,9 @@ No authorization required
 rankPredictImage($account_id, $format): int[]
 ```
 
-Rank Image
+Rank Predict Image (Deprecated)
 
-Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player's latest ranked match.
 
 ### Example
 

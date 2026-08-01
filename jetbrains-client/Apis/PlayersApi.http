@@ -32,17 +32,34 @@ Accept: application/json
 
 ### Rank
 ## Rank
-GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank
 Accept: application/json
 
 ### Rank Avg Image
 ## Rank Avg Image
-GET https://api.deadlock-api.com/v1/players/rank-predict/image?accountIds={{accountIds}}&format={{format}}
+GET https://api.deadlock-api.com/v1/players/rank/image?accountIds={{accountIds}}&format={{format}}
 Accept: image/png
 Accept: image/webp
 
 ### Rank Image
 ## Rank Image
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank/image?format={{format}}
+Accept: image/png
+Accept: image/webp
+
+### Rank Predict (Deprecated)
+## Rank Predict (Deprecated)
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict
+Accept: application/json
+
+### Rank Predict Avg Image (Deprecated)
+## Rank Predict Avg Image (Deprecated)
+GET https://api.deadlock-api.com/v1/players/rank-predict/image?accountIds={{accountIds}}&format={{format}}
+Accept: image/png
+Accept: image/webp
+
+### Rank Predict Image (Deprecated)
+## Rank Predict Image (Deprecated)
 GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank-predict/image?format={{format}}
 Accept: image/png
 Accept: image/webp

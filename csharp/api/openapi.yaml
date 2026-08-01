@@ -122,6 +122,8 @@ tags:
 - description: "File-tree indexes of static assets (images, icons, sounds, fonts)\
     \ hosted on the CDN, mapping each asset's name to its public URL."
   name: Assets
+- description: Ranked season definitions derived from per-version game data files.
+  name: Ranked Seasons
 - description: "Per-rank metadata (name, tier color, badge image URLs) derived from\
     \ per-version game data files."
   name: Ranks
@@ -5922,6 +5924,83 @@ paths:
       summary: Get NPC Unit
       tags:
       - NPC Units
+  /v1/assets/ranked-seasons:
+    get:
+      description: "Returns the ranked season definitions used by the game client,\
+        \ parsed from the patch's KV3 source files. Each season carries its eligibility\
+        \ requirements and the intervals it runs for, as unix timestamps in seconds."
+      operationId: list_ranked_seasons
+      parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/RankedSeason"
+                type: array
+                default: null
+          description: ""
+        "404":
+          description: Requested client_version is not available
+        "500":
+          description: Failed to load source assets
+      summary: List Ranked Seasons
+      tags:
+      - Ranked Seasons
   /v1/assets/ranks:
     get:
       description: "Returns the 12 player ranks (tier, localized name, badge image\
@@ -8594,10 +8673,9 @@ paths:
       - MMR
   /v1/players/rank-predict/image:
     get:
-      description: "Returns the average rank badge image (binary) for a comma-separated\
-        \ list of account IDs. Accounts without a rank are left out of the average;\
-        \ if none of them has one, the `Obscurus` image is returned. Use `?format=webp`\
-        \ for WebP."
+      deprecated: true
+      description: "Deprecated alias of `/v1/players/rank/image`. The rank is no longer\
+        \ predicted, it is read from each player's latest ranked match."
       operationId: rank_predict_avg_image
       parameters:
       - description: Comma-separated list of account IDs (max 12).
@@ -8650,8 +8728,69 @@ paths:
           description: One of the users is protected
         "404":
           description: No image available for the rank
-        "429":
-          description: Rate limit exceeded
+        "500":
+          description: Rank lookup failed
+      summary: Rank Predict Avg Image (Deprecated)
+      tags:
+      - Players
+  /v1/players/rank/image:
+    get:
+      description: "Returns the average rank badge image (binary) for a comma-separated\
+        \ list of account IDs. Accounts without a rank are left out of the average;\
+        \ if none of them has one, the `Obscurus` image is returned. Use `?format=webp`\
+        \ for WebP."
+      operationId: rank_avg_image
+      parameters:
+      - description: Comma-separated list of account IDs (max 12).
+        explode: true
+        in: query
+        name: account_ids
+        required: true
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        style: form
+      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - png
+          - webp
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+            image/webp:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+          description: Average rank badge image
+        "400":
+          description: Invalid or missing account IDs
+        "403":
+          description: One of the users is protected
+        "404":
+          description: No image available for the rank
         "500":
           description: Rank lookup failed
       summary: Rank Avg Image
@@ -9319,7 +9458,7 @@ paths:
       summary: Hero MMR History
       tags:
       - MMR
-  /v1/players/{account_id}/rank-predict:
+  /v1/players/{account_id}/rank:
     get:
       description: |2
 
@@ -9328,13 +9467,39 @@ paths:
         Only ranked matches carry a rank, and it stays unset while the player is in placement games.
         When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are
         all `0`, which is the `Obscurus` (unranked) tier.
-
-        ### Rate Limits:
-        | Type | Limit |
-        | ---- | ----- |
-        | IP | 100req/s |
-        | Key | - |
-        | Global | - |
+      operationId: rank
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RankResponse"
+          description: ""
+        "400":
+          description: Invalid account ID
+        "403":
+          description: User is protected or endpoint unavailable
+        "500":
+          description: Rank lookup failed
+      summary: Rank
+      tags:
+      - Players
+  /v1/players/{account_id}/rank-predict:
+    get:
+      deprecated: true
+      description: "Deprecated alias of `/v1/players/{account_id}/rank`. The rank\
+        \ is no longer predicted, it is read from the player's latest ranked match."
       operationId: rank_predict
       parameters:
       - description: The players `SteamID3`
@@ -9352,24 +9517,23 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RankPredictResponse"
+                $ref: "#/components/schemas/RankResponse"
           description: ""
         "400":
           description: Invalid account ID
         "403":
           description: User is protected or endpoint unavailable
-        "429":
-          description: Rate limit exceeded
         "500":
           description: Rank lookup failed
-      summary: Rank
+      summary: Rank Predict (Deprecated)
       tags:
       - Players
   /v1/players/{account_id}/rank-predict/image:
     get:
-      description: "Returns the rank badge image directly (binary), not a URL. Players\
-        \ whose recent ranked matches carry no rank get the `Obscurus` image. Use\
-        \ `?format=webp` for WebP."
+      deprecated: true
+      description: "Deprecated alias of `/v1/players/{account_id}/rank/image`. The\
+        \ rank is no longer predicted, it is read from the player's latest ranked\
+        \ match."
       operationId: rank_predict_image
       parameters:
       - description: The players `SteamID3`
@@ -9419,8 +9583,65 @@ paths:
           description: User is protected or endpoint unavailable
         "404":
           description: No image available for the rank
-        "429":
-          description: Rate limit exceeded
+        "500":
+          description: Rank lookup failed
+      summary: Rank Predict Image (Deprecated)
+      tags:
+      - Players
+  /v1/players/{account_id}/rank/image:
+    get:
+      description: "Returns the rank badge image directly (binary), not a URL. Players\
+        \ whose recent ranked matches carry no rank get the `Obscurus` image. Use\
+        \ `?format=webp` for WebP."
+      operationId: rank_image
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - png
+          - webp
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+            image/webp:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+          description: Rank badge image
+        "400":
+          description: Invalid account ID
+        "403":
+          description: User is protected or endpoint unavailable
+        "404":
+          description: No image available for the rank
         "500":
           description: Rank lookup failed
       summary: Rank Image
@@ -15735,7 +15956,7 @@ components:
           deprecated: true
           nullable: true
           type: string
-    RankPredictResponse:
+    RankResponse:
       example:
         badge: 0
         rank: 0
@@ -15762,6 +15983,70 @@ components:
       - badge
       - rank
       - subrank
+    RankedSeason:
+      example:
+        calibration_matches: 0
+        class_name: class_name
+        intervals:
+        - end_timestamp: 6
+          interval: 0
+          start_timestamp: 5
+        - end_timestamp: 6
+          interval: 0
+          start_timestamp: 5
+        min_hero_unlocks: 0
+        min_hero_wins: 0
+        min_wins: 0
+        name: name
+        ranked_type: ranked_type
+        valid_party_sizes:
+        - 0
+        - 0
+      properties:
+        calibration_matches:
+          format: int32
+          minimum: 0
+          type: integer
+        class_name:
+          type: string
+        intervals:
+          items:
+            $ref: "#/components/schemas/SeasonInterval"
+          type: array
+          default: null
+        min_hero_unlocks:
+          format: int32
+          minimum: 0
+          type: integer
+        min_hero_wins:
+          format: int32
+          minimum: 0
+          type: integer
+        min_wins:
+          format: int32
+          minimum: 0
+          type: integer
+        name:
+          type: string
+        ranked_type:
+          type: string
+        valid_party_sizes:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+      required:
+      - calibration_matches
+      - class_name
+      - intervals
+      - min_hero_unlocks
+      - min_hero_wins
+      - min_wins
+      - name
+      - ranked_type
+      - valid_party_sizes
     RawAbilityUpgrade:
       example:
         property_upgrades:
@@ -16065,6 +16350,28 @@ components:
           format: double
           nullable: true
           type: number
+    SeasonInterval:
+      example:
+        end_timestamp: 6
+        interval: 0
+        start_timestamp: 5
+      properties:
+        end_timestamp:
+          description: Unix timestamp (seconds) at which the interval ends.
+          format: int64
+          type: integer
+        interval:
+          format: int32
+          minimum: 0
+          type: integer
+        start_timestamp:
+          description: Unix timestamp (seconds) at which the interval starts.
+          format: int64
+          type: integer
+      required:
+      - end_timestamp
+      - interval
+      - start_timestamp
     ServerRegion:
       enum:
       - europe
@@ -18130,6 +18437,7 @@ x-tagGroups:
   - Accolades
   - Steam Info
   - Colors
+  - Ranked Seasons
 - name: Game Info
   tags:
   - Info

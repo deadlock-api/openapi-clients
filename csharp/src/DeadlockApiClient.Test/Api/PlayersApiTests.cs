@@ -155,6 +155,44 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test Rank
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RankAsyncTest()
+        {
+            int accountId = default!;
+            var response = await _instance.RankAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<RankResponse>(model);
+        }
+
+        /// <summary>
+        /// Test RankAvgImage
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RankAvgImageAsyncTest()
+        {
+            List<int> accountIds = default!;
+            Client.Option<string> format = default!;
+            var response = await _instance.RankAvgImageAsync(accountIds, format);
+            var model = response.Ok();
+            Assert.IsType<List<int>>(model);
+        }
+
+        /// <summary>
+        /// Test RankImage
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RankImageAsyncTest()
+        {
+            int accountId = default!;
+            Client.Option<string> format = default!;
+            var response = await _instance.RankImageAsync(accountId, format);
+            var model = response.Ok();
+            Assert.IsType<List<int>>(model);
+        }
+
+        /// <summary>
         /// Test RankPredict
         /// </summary>
         [Fact (Skip = "not implemented")]
@@ -163,7 +201,7 @@ namespace DeadlockApiClient.Test.Api
             int accountId = default!;
             var response = await _instance.RankPredictAsync(accountId);
             var model = response.Ok();
-            Assert.IsType<RankPredictResponse>(model);
+            Assert.IsType<RankResponse>(model);
         }
 
         /// <summary>

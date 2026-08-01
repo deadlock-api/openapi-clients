@@ -43,6 +43,7 @@ __all__ = [
     "NPCUnitsApi",
     "PatchesApi",
     "PlayersApi",
+    "RankedSeasonsApi",
     "RanksApi",
     "SQLApi",
     "ServersApi",
@@ -191,7 +192,8 @@ __all__ = [
     "PlayerPerformanceCurvePoint",
     "Rank",
     "RankImages",
-    "RankPredictResponse",
+    "RankResponse",
+    "RankedSeason",
     "RawAbilityUpgrade",
     "RawAbilityUpgradePropertyUpgrade",
     "RawCustomCrosshairSettings",
@@ -205,6 +207,7 @@ __all__ = [
     "RegionMode",
     "RejuvParams",
     "ScriptValues",
+    "SeasonInterval",
     "ServerRegion",
     "ServerStatusRequest",
     "ServerStatusResponse",
@@ -286,6 +289,7 @@ from deadlock_api_client.api.misc_entities_api import MiscEntitiesApi as MiscEnt
 from deadlock_api_client.api.npc_units_api import NPCUnitsApi as NPCUnitsApi
 from deadlock_api_client.api.patches_api import PatchesApi as PatchesApi
 from deadlock_api_client.api.players_api import PlayersApi as PlayersApi
+from deadlock_api_client.api.ranked_seasons_api import RankedSeasonsApi as RankedSeasonsApi
 from deadlock_api_client.api.ranks_api import RanksApi as RanksApi
 from deadlock_api_client.api.sql_api import SQLApi as SQLApi
 from deadlock_api_client.api.servers_api import ServersApi as ServersApi
@@ -438,7 +442,8 @@ from deadlock_api_client.models.player_match_history_entry import PlayerMatchHis
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
 from deadlock_api_client.models.rank import Rank as Rank
 from deadlock_api_client.models.rank_images import RankImages as RankImages
-from deadlock_api_client.models.rank_predict_response import RankPredictResponse as RankPredictResponse
+from deadlock_api_client.models.rank_response import RankResponse as RankResponse
+from deadlock_api_client.models.ranked_season import RankedSeason as RankedSeason
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade as RawAbilityUpgrade
 from deadlock_api_client.models.raw_ability_upgrade_property_upgrade import RawAbilityUpgradePropertyUpgrade as RawAbilityUpgradePropertyUpgrade
 from deadlock_api_client.models.raw_custom_crosshair_settings import RawCustomCrosshairSettings as RawCustomCrosshairSettings
@@ -452,6 +457,7 @@ from deadlock_api_client.models.recoil_range import RecoilRange as RecoilRange
 from deadlock_api_client.models.region_mode import RegionMode as RegionMode
 from deadlock_api_client.models.rejuv_params import RejuvParams as RejuvParams
 from deadlock_api_client.models.script_values import ScriptValues as ScriptValues
+from deadlock_api_client.models.season_interval import SeasonInterval as SeasonInterval
 from deadlock_api_client.models.server_region import ServerRegion as ServerRegion
 from deadlock_api_client.models.server_status_request import ServerStatusRequest as ServerStatusRequest
 from deadlock_api_client.models.server_status_response import ServerStatusResponse as ServerStatusResponse

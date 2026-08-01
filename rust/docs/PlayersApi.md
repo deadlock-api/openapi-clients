@@ -10,9 +10,12 @@ Method | HTTP request | Description
 [**match_history**](PlayersApi.md#match_history) | **GET** /v1/players/{account_id}/match-history | Match History
 [**mate_stats**](PlayersApi.md#mate_stats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
-[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank
-[**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Avg Image
-[**rank_predict_image**](PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image
+[**rank**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank
+[**rank_avg_image**](PlayersApi.md#rank_avg_image) | **GET** /v1/players/rank/image | Rank Avg Image
+[**rank_image**](PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
+[**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
+[**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
+[**rank_predict_image**](PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)
 
 
 
@@ -228,12 +231,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## rank_predict
+## rank
 
-> models::RankPredictResponse rank_predict(account_id)
+> models::RankResponse rank(account_id)
 Rank
 
- Returns the player's rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+ Returns the player's rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier. 
 
 ### Parameters
 
@@ -244,7 +247,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::RankPredictResponse**](RankPredictResponse.md)
+[**models::RankResponse**](RankResponse.md)
 
 ### Authorization
 
@@ -258,9 +261,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## rank_predict_avg_image
+## rank_avg_image
 
-> Vec<u32> rank_predict_avg_image(account_ids, format)
+> Vec<u32> rank_avg_image(account_ids, format)
 Rank Avg Image
 
 Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
@@ -289,12 +292,104 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## rank_predict_image
+## rank_image
 
-> Vec<u32> rank_predict_image(account_id, format)
+> Vec<u32> rank_image(account_id, format)
 Rank Image
 
 Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**account_id** | **u32** | The players `SteamID3` | [required] |
+**format** | Option<**String**> | Image format. Defaults to `png`. Supported: `png`, `webp`. |  |
+
+### Return type
+
+**Vec<u32>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: image/png, image/webp
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## rank_predict
+
+> models::RankResponse rank_predict(account_id)
+Rank Predict (Deprecated)
+
+Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player's latest ranked match.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**account_id** | **u32** | The players `SteamID3` | [required] |
+
+### Return type
+
+[**models::RankResponse**](RankResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## rank_predict_avg_image
+
+> Vec<u32> rank_predict_avg_image(account_ids, format)
+Rank Predict Avg Image (Deprecated)
+
+Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player's latest ranked match.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**account_ids** | [**Vec<u32>**](U32.md) | Comma-separated list of account IDs (max 12). | [required] |
+**format** | Option<**String**> | Image format. Defaults to `png`. Supported: `png`, `webp`. |  |
+
+### Return type
+
+**Vec<u32>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: image/png, image/webp
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## rank_predict_image
+
+> Vec<u32> rank_predict_image(account_id, format)
+Rank Predict Image (Deprecated)
+
+Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player's latest ranked match.
 
 ### Parameters
 

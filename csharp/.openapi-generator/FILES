@@ -29,6 +29,7 @@ docs/apis/MiscEntitiesApi.md
 docs/apis/NPCUnitsApi.md
 docs/apis/PatchesApi.md
 docs/apis/PlayersApi.md
+docs/apis/RankedSeasonsApi.md
 docs/apis/RanksApi.md
 docs/apis/SQLApi.md
 docs/apis/ServersApi.md
@@ -168,7 +169,8 @@ docs/models/PlayerMatchHistoryEntry.md
 docs/models/PlayerPerformanceCurvePoint.md
 docs/models/Rank.md
 docs/models/RankImages.md
-docs/models/RankPredictResponse.md
+docs/models/RankResponse.md
+docs/models/RankedSeason.md
 docs/models/RawAbilityUpgrade.md
 docs/models/RawAbilityUpgradePropertyUpgrade.md
 docs/models/RawCustomCrosshairSettings.md
@@ -182,6 +184,7 @@ docs/models/RecoilRange.md
 docs/models/RegionMode.md
 docs/models/RejuvParams.md
 docs/models/ScriptValues.md
+docs/models/SeasonInterval.md
 docs/models/ServerRegion.md
 docs/models/ServerStatusRequest.md
 docs/models/ServerStatusResponse.md
@@ -264,6 +267,7 @@ src/DeadlockApiClient.Test/Api/MiscEntitiesApiTests.cs
 src/DeadlockApiClient.Test/Api/NPCUnitsApiTests.cs
 src/DeadlockApiClient.Test/Api/PatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/PlayersApiTests.cs
+src/DeadlockApiClient.Test/Api/RankedSeasonsApiTests.cs
 src/DeadlockApiClient.Test/Api/RanksApiTests.cs
 src/DeadlockApiClient.Test/Api/SQLApiTests.cs
 src/DeadlockApiClient.Test/Api/ServersApiTests.cs
@@ -403,8 +407,9 @@ src/DeadlockApiClient.Test/Model/PlayerEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
 src/DeadlockApiClient.Test/Model/RankImagesTests.cs
-src/DeadlockApiClient.Test/Model/RankPredictResponseTests.cs
+src/DeadlockApiClient.Test/Model/RankResponseTests.cs
 src/DeadlockApiClient.Test/Model/RankTests.cs
+src/DeadlockApiClient.Test/Model/RankedSeasonTests.cs
 src/DeadlockApiClient.Test/Model/RawAbilityUpgradePropertyUpgradeTests.cs
 src/DeadlockApiClient.Test/Model/RawAbilityUpgradeTests.cs
 src/DeadlockApiClient.Test/Model/RawCustomCrosshairSettingsTests.cs
@@ -418,6 +423,7 @@ src/DeadlockApiClient.Test/Model/RecoilRangeTests.cs
 src/DeadlockApiClient.Test/Model/RegionModeTests.cs
 src/DeadlockApiClient.Test/Model/RejuvParamsTests.cs
 src/DeadlockApiClient.Test/Model/ScriptValuesTests.cs
+src/DeadlockApiClient.Test/Model/SeasonIntervalTests.cs
 src/DeadlockApiClient.Test/Model/ServerRegionTests.cs
 src/DeadlockApiClient.Test/Model/ServerStatusRequestTests.cs
 src/DeadlockApiClient.Test/Model/ServerStatusResponseTests.cs
@@ -498,6 +504,7 @@ src/DeadlockApiClient/Api/MiscEntitiesApi.cs
 src/DeadlockApiClient/Api/NPCUnitsApi.cs
 src/DeadlockApiClient/Api/PatchesApi.cs
 src/DeadlockApiClient/Api/PlayersApi.cs
+src/DeadlockApiClient/Api/RankedSeasonsApi.cs
 src/DeadlockApiClient/Api/RanksApi.cs
 src/DeadlockApiClient/Api/SQLApi.cs
 src/DeadlockApiClient/Api/ServersApi.cs
@@ -662,7 +669,8 @@ src/DeadlockApiClient/Model/PlayerMatchHistoryEntry.cs
 src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
 src/DeadlockApiClient/Model/Rank.cs
 src/DeadlockApiClient/Model/RankImages.cs
-src/DeadlockApiClient/Model/RankPredictResponse.cs
+src/DeadlockApiClient/Model/RankResponse.cs
+src/DeadlockApiClient/Model/RankedSeason.cs
 src/DeadlockApiClient/Model/RawAbilityUpgrade.cs
 src/DeadlockApiClient/Model/RawAbilityUpgradePropertyUpgrade.cs
 src/DeadlockApiClient/Model/RawCustomCrosshairSettings.cs
@@ -676,6 +684,7 @@ src/DeadlockApiClient/Model/RecoilRange.cs
 src/DeadlockApiClient/Model/RegionMode.cs
 src/DeadlockApiClient/Model/RejuvParams.cs
 src/DeadlockApiClient/Model/ScriptValues.cs
+src/DeadlockApiClient/Model/SeasonInterval.cs
 src/DeadlockApiClient/Model/ServerRegion.cs
 src/DeadlockApiClient/Model/ServerStatusRequest.cs
 src/DeadlockApiClient/Model/ServerStatusResponse.cs

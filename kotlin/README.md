@@ -156,9 +156,13 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**matchHistory**](docs/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
-| *PlayersApi* | [**rankPredict**](docs/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank |
-| *PlayersApi* | [**rankPredictAvgImage**](docs/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Avg Image |
-| *PlayersApi* | [**rankPredictImage**](docs/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image |
+| *PlayersApi* | [**rank**](docs/PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank |
+| *PlayersApi* | [**rankAvgImage**](docs/PlayersApi.md#rankavgimage) | **GET** /v1/players/rank/image | Rank Avg Image |
+| *PlayersApi* | [**rankImage**](docs/PlayersApi.md#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
+| *PlayersApi* | [**rankPredict**](docs/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
+| *PlayersApi* | [**rankPredictAvgImage**](docs/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
+| *PlayersApi* | [**rankPredictImage**](docs/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated) |
+| *RankedSeasonsApi* | [**listRankedSeasons**](docs/RankedSeasonsApi.md#listrankedseasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons |
 | *RanksApi* | [**getRank**](docs/RanksApi.md#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank |
 | *RanksApi* | [**listRanks**](docs/RanksApi.md#listranks) | **GET** /v1/assets/ranks | List Ranks |
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
@@ -311,7 +315,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [deadlock_api_client.models.Rank](docs/Rank.md)
  - [deadlock_api_client.models.RankImages](docs/RankImages.md)
- - [deadlock_api_client.models.RankPredictResponse](docs/RankPredictResponse.md)
+ - [deadlock_api_client.models.RankResponse](docs/RankResponse.md)
+ - [deadlock_api_client.models.RankedSeason](docs/RankedSeason.md)
  - [deadlock_api_client.models.RawAbilityUpgrade](docs/RawAbilityUpgrade.md)
  - [deadlock_api_client.models.RawAbilityUpgradePropertyUpgrade](docs/RawAbilityUpgradePropertyUpgrade.md)
  - [deadlock_api_client.models.RawCustomCrosshairSettings](docs/RawCustomCrosshairSettings.md)
@@ -325,6 +330,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
  - [deadlock_api_client.models.RejuvParams](docs/RejuvParams.md)
  - [deadlock_api_client.models.ScriptValues](docs/ScriptValues.md)
+ - [deadlock_api_client.models.SeasonInterval](docs/SeasonInterval.md)
  - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
  - [deadlock_api_client.models.ServerStatusRequest](docs/ServerStatusRequest.md)
  - [deadlock_api_client.models.ServerStatusResponse](docs/ServerStatusResponse.md)

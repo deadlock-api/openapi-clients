@@ -36,6 +36,7 @@ export * from './apis/misc-entities-api.js';
 export * from './apis/npcunits-api.js';
 export * from './apis/patches-api.js';
 export * from './apis/players-api.js';
+export * from './apis/ranked-seasons-api.js';
 export * from './apis/ranks-api.js';
 export * from './apis/sqlapi.js';
 export * from './apis/servers-api.js';

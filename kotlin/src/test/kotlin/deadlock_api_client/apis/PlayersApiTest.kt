@@ -33,7 +33,7 @@ import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
-import deadlock_api_client.models.RankPredictResponse
+import deadlock_api_client.models.RankResponse
 
 class PlayersApiTest : ShouldSpec() {
     init {
@@ -120,11 +120,37 @@ class PlayersApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test rank
+        should("test rank") {
+            // uncomment below to test rank
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val result : RankResponse = apiInstance.rank(accountId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test rankAvgImage
+        should("test rankAvgImage") {
+            // uncomment below to test rankAvgImage
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
+            //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankAvgImage(accountIds, format)
+            //result shouldBe ("TODO")
+        }
+
+        // to test rankImage
+        should("test rankImage") {
+            // uncomment below to test rankImage
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankImage(accountId, format)
+            //result shouldBe ("TODO")
+        }
+
         // to test rankPredict
         should("test rankPredict") {
             // uncomment below to test rankPredict
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-            //val result : RankPredictResponse = apiInstance.rankPredict(accountId)
+            //val result : RankResponse = apiInstance.rankPredict(accountId)
             //result shouldBe ("TODO")
         }
 

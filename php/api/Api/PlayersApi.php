@@ -92,6 +92,15 @@ class PlayersApi
         'playerHeroStats' => [
             'application/json',
         ],
+        'rank' => [
+            'application/json',
+        ],
+        'rankAvgImage' => [
+            'application/json',
+        ],
+        'rankImage' => [
+            'application/json',
+        ],
         'rankPredict' => [
             'application/json',
         ],
@@ -2358,16 +2367,858 @@ class PlayersApi
     }
 
     /**
-     * Operation rankPredict
+     * Operation rank
      *
      * Rank
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rank'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\RankResponse
+     */
+    public function rank($account_id, string $contentType = self::contentTypes['rank'][0])
+    {
+        list($response) = $this->rankWithHttpInfo($account_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation rankWithHttpInfo
+     *
+     * Rank
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rank'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\RankResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rankWithHttpInfo($account_id, string $contentType = self::contentTypes['rank'][0])
+    {
+        $request = $this->rankRequest($account_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\RankResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\RankResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\RankResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rankAsync
+     *
+     * Rank
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rank'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankAsync($account_id, string $contentType = self::contentTypes['rank'][0])
+    {
+        return $this->rankAsyncWithHttpInfo($account_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rankAsyncWithHttpInfo
+     *
+     * Rank
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rank'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['rank'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\RankResponse';
+        $request = $this->rankRequest($account_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rank'
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rank'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rankRequest($account_id, string $contentType = self::contentTypes['rank'][0])
+    {
+
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling rank'
+            );
+        }
+        if ($account_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.rank, must be bigger than or equal to 0.');
+        }
+        
+
+        $resourcePath = '/v1/players/{account_id}/rank';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{account_id}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rankAvgImage
+     *
+     * Rank Avg Image
+     *
+     * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankAvgImage'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return int[]
+     */
+    public function rankAvgImage($account_ids, $format = null, string $contentType = self::contentTypes['rankAvgImage'][0])
+    {
+        list($response) = $this->rankAvgImageWithHttpInfo($account_ids, $format, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation rankAvgImageWithHttpInfo
+     *
+     * Rank Avg Image
+     *
+     * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankAvgImage'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of int[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rankAvgImageWithHttpInfo($account_ids, $format = null, string $contentType = self::contentTypes['rankAvgImage'][0])
+    {
+        $request = $this->rankAvgImageRequest($account_ids, $format, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'int[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'int[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'int[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rankAvgImageAsync
+     *
+     * Rank Avg Image
+     *
+     * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankAvgImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankAvgImageAsync($account_ids, $format = null, string $contentType = self::contentTypes['rankAvgImage'][0])
+    {
+        return $this->rankAvgImageAsyncWithHttpInfo($account_ids, $format, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rankAvgImageAsyncWithHttpInfo
+     *
+     * Rank Avg Image
+     *
+     * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankAvgImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankAvgImageAsyncWithHttpInfo($account_ids, $format = null, string $contentType = self::contentTypes['rankAvgImage'][0])
+    {
+        $returnType = 'int[]';
+        $request = $this->rankAvgImageRequest($account_ids, $format, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rankAvgImage'
+     *
+     * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankAvgImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rankAvgImageRequest($account_ids, $format = null, string $contentType = self::contentTypes['rankAvgImage'][0])
+    {
+
+        // verify the required parameter 'account_ids' is set
+        if ($account_ids === null || (is_array($account_ids) && count($account_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_ids when calling rankAvgImage'
+            );
+        }
+
+
+
+        $resourcePath = '/v1/players/rank/image';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_ids,
+            'account_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $format,
+            'format', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['image/png', 'image/webp', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rankImage
+     *
+     * Rank Image
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankImage'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return int[]
+     */
+    public function rankImage($account_id, $format = null, string $contentType = self::contentTypes['rankImage'][0])
+    {
+        list($response) = $this->rankImageWithHttpInfo($account_id, $format, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation rankImageWithHttpInfo
+     *
+     * Rank Image
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankImage'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of int[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rankImageWithHttpInfo($account_id, $format = null, string $contentType = self::contentTypes['rankImage'][0])
+    {
+        $request = $this->rankImageRequest($account_id, $format, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'int[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'int[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'int[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rankImageAsync
+     *
+     * Rank Image
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankImageAsync($account_id, $format = null, string $contentType = self::contentTypes['rankImage'][0])
+    {
+        return $this->rankImageAsyncWithHttpInfo($account_id, $format, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rankImageAsyncWithHttpInfo
+     *
+     * Rank Image
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankImageAsyncWithHttpInfo($account_id, $format = null, string $contentType = self::contentTypes['rankImage'][0])
+    {
+        $returnType = 'int[]';
+        $request = $this->rankImageRequest($account_id, $format, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rankImage'
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rankImageRequest($account_id, $format = null, string $contentType = self::contentTypes['rankImage'][0])
+    {
+
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling rankImage'
+            );
+        }
+        if ($account_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.rankImage, must be bigger than or equal to 0.');
+        }
+        
+
+
+        $resourcePath = '/v1/players/{account_id}/rank/image';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $format,
+            'format', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{account_id}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['image/png', 'image/webp', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rankPredict
+     *
+     * Rank Predict (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RankPredictResponse
+     * @return \OpenAPI\Client\Model\RankResponse
+     * @deprecated
      */
     public function rankPredict($account_id, string $contentType = self::contentTypes['rankPredict'][0])
     {
@@ -2378,14 +3229,15 @@ class PlayersApi
     /**
      * Operation rankPredictWithHttpInfo
      *
-     * Rank
+     * Rank Predict (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RankPredictResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RankResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function rankPredictWithHttpInfo($account_id, string $contentType = self::contentTypes['rankPredict'][0])
     {
@@ -2417,7 +3269,7 @@ class PlayersApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\OpenAPI\Client\Model\RankPredictResponse',
+                        '\OpenAPI\Client\Model\RankResponse',
                         $request,
                         $response,
                     );
@@ -2439,7 +3291,7 @@ class PlayersApi
             }
 
             return $this->handleResponseWithDataType(
-                '\OpenAPI\Client\Model\RankPredictResponse',
+                '\OpenAPI\Client\Model\RankResponse',
                 $request,
                 $response,
             );
@@ -2448,7 +3300,7 @@ class PlayersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RankPredictResponse',
+                        '\OpenAPI\Client\Model\RankResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2463,13 +3315,14 @@ class PlayersApi
     /**
      * Operation rankPredictAsync
      *
-     * Rank
+     * Rank Predict (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function rankPredictAsync($account_id, string $contentType = self::contentTypes['rankPredict'][0])
     {
@@ -2484,17 +3337,18 @@ class PlayersApi
     /**
      * Operation rankPredictAsyncWithHttpInfo
      *
-     * Rank
+     * Rank Predict (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankPredict'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function rankPredictAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['rankPredict'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RankPredictResponse';
+        $returnType = '\OpenAPI\Client\Model\RankResponse';
         $request = $this->rankPredictRequest($account_id, $contentType);
 
         return $this->client
@@ -2541,6 +3395,7 @@ class PlayersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function rankPredictRequest($account_id, string $contentType = self::contentTypes['rankPredict'][0])
     {
@@ -2631,7 +3486,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImage
      *
-     * Rank Avg Image
+     * Rank Predict Avg Image (Deprecated)
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2640,6 +3495,7 @@ class PlayersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
+     * @deprecated
      */
     public function rankPredictAvgImage($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
@@ -2650,7 +3506,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImageWithHttpInfo
      *
-     * Rank Avg Image
+     * Rank Predict Avg Image (Deprecated)
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2659,6 +3515,7 @@ class PlayersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function rankPredictAvgImageWithHttpInfo($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
@@ -2736,7 +3593,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImageAsync
      *
-     * Rank Avg Image
+     * Rank Predict Avg Image (Deprecated)
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2744,6 +3601,7 @@ class PlayersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function rankPredictAvgImageAsync($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
@@ -2758,7 +3616,7 @@ class PlayersApi
     /**
      * Operation rankPredictAvgImageAsyncWithHttpInfo
      *
-     * Rank Avg Image
+     * Rank Predict Avg Image (Deprecated)
      *
      * @param  int[] $account_ids Comma-separated list of account IDs (max 12). (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2766,6 +3624,7 @@ class PlayersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function rankPredictAvgImageAsyncWithHttpInfo($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
@@ -2817,6 +3676,7 @@ class PlayersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function rankPredictAvgImageRequest($account_ids, $format = null, string $contentType = self::contentTypes['rankPredictAvgImage'][0])
     {
@@ -2915,7 +3775,7 @@ class PlayersApi
     /**
      * Operation rankPredictImage
      *
-     * Rank Image
+     * Rank Predict Image (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2924,6 +3784,7 @@ class PlayersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
+     * @deprecated
      */
     public function rankPredictImage($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
@@ -2934,7 +3795,7 @@ class PlayersApi
     /**
      * Operation rankPredictImageWithHttpInfo
      *
-     * Rank Image
+     * Rank Predict Image (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -2943,6 +3804,7 @@ class PlayersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function rankPredictImageWithHttpInfo($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
@@ -3020,7 +3882,7 @@ class PlayersApi
     /**
      * Operation rankPredictImageAsync
      *
-     * Rank Image
+     * Rank Predict Image (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -3028,6 +3890,7 @@ class PlayersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function rankPredictImageAsync($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
@@ -3042,7 +3905,7 @@ class PlayersApi
     /**
      * Operation rankPredictImageAsyncWithHttpInfo
      *
-     * Rank Image
+     * Rank Predict Image (Deprecated)
      *
      * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
      * @param  string|null $format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
@@ -3050,6 +3913,7 @@ class PlayersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function rankPredictImageAsyncWithHttpInfo($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {
@@ -3101,6 +3965,7 @@ class PlayersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function rankPredictImageRequest($account_id, $format = null, string $contentType = self::contentTypes['rankPredictImage'][0])
     {

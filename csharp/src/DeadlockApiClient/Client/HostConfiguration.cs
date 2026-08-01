@@ -190,7 +190,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new PlayerPerformanceCurvePointJsonConverter());
             _jsonOptions.Converters.Add(new RankJsonConverter());
             _jsonOptions.Converters.Add(new RankImagesJsonConverter());
-            _jsonOptions.Converters.Add(new RankPredictResponseJsonConverter());
+            _jsonOptions.Converters.Add(new RankResponseJsonConverter());
+            _jsonOptions.Converters.Add(new RankedSeasonJsonConverter());
             _jsonOptions.Converters.Add(new RawAbilityUpgradeJsonConverter());
             _jsonOptions.Converters.Add(new RawAbilityUpgradePropertyUpgradeJsonConverter());
             _jsonOptions.Converters.Add(new RawCustomCrosshairSettingsJsonConverter());
@@ -205,6 +206,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RegionModeNullableJsonConverter());
             _jsonOptions.Converters.Add(new RejuvParamsJsonConverter());
             _jsonOptions.Converters.Add(new ScriptValuesJsonConverter());
+            _jsonOptions.Converters.Add(new SeasonIntervalJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionNullableJsonConverter());
             _jsonOptions.Converters.Add(new ServerStatusRequestJsonConverter());
@@ -289,6 +291,7 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<NPCUnitsApiEvents>();
             _services.AddSingleton<PatchesApiEvents>();
             _services.AddSingleton<PlayersApiEvents>();
+            _services.AddSingleton<RankedSeasonsApiEvents>();
             _services.AddSingleton<RanksApiEvents>();
             _services.AddSingleton<SQLApiEvents>();
             _services.AddSingleton<ServersApiEvents>();
@@ -364,6 +367,7 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<INPCUnitsApi, NPCUnitsApi>("DeadlockApiClient.Api.INPCUnitsApi", client));
             builders.Add(_services.AddHttpClient<IPatchesApi, PatchesApi>("DeadlockApiClient.Api.IPatchesApi", client));
             builders.Add(_services.AddHttpClient<IPlayersApi, PlayersApi>("DeadlockApiClient.Api.IPlayersApi", client));
+            builders.Add(_services.AddHttpClient<IRankedSeasonsApi, RankedSeasonsApi>("DeadlockApiClient.Api.IRankedSeasonsApi", client));
             builders.Add(_services.AddHttpClient<IRanksApi, RanksApi>("DeadlockApiClient.Api.IRanksApi", client));
             builders.Add(_services.AddHttpClient<ISQLApi, SQLApi>("DeadlockApiClient.Api.ISQLApi", client));
             builders.Add(_services.AddHttpClient<IServersApi, ServersApi>("DeadlockApiClient.Api.IServersApi", client));

@@ -144,9 +144,45 @@ class PlayersApiTest extends TestCase
     }
 
     /**
-     * Test case for rankPredict
+     * Test case for rank
      *
      * Rank.
+     *
+     */
+    public function testRank()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for rankAvgImage
+     *
+     * Rank Avg Image.
+     *
+     */
+    public function testRankAvgImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for rankImage
+     *
+     * Rank Image.
+     *
+     */
+    public function testRankImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for rankPredict
+     *
+     * Rank Predict (Deprecated).
      *
      */
     public function testRankPredict()
@@ -158,7 +194,7 @@ class PlayersApiTest extends TestCase
     /**
      * Test case for rankPredictAvgImage
      *
-     * Rank Avg Image.
+     * Rank Predict Avg Image (Deprecated).
      *
      */
     public function testRankPredictAvgImage()
@@ -170,7 +206,7 @@ class PlayersApiTest extends TestCase
     /**
      * Test case for rankPredictImage
      *
-     * Rank Image.
+     * Rank Predict Image (Deprecated).
      *
      */
     public function testRankPredictImage()

@@ -26,6 +26,7 @@ from deadlock_api_client.api.misc_entities_api import MiscEntitiesApi
 from deadlock_api_client.api.npc_units_api import NPCUnitsApi
 from deadlock_api_client.api.patches_api import PatchesApi
 from deadlock_api_client.api.players_api import PlayersApi
+from deadlock_api_client.api.ranked_seasons_api import RankedSeasonsApi
 from deadlock_api_client.api.ranks_api import RanksApi
 from deadlock_api_client.api.sql_api import SQLApi
 from deadlock_api_client.api.servers_api import ServersApi

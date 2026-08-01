@@ -10,9 +10,12 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**matchHistory**](PlayersApi.md#matchHistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | [**mateStats**](PlayersApi.md#mateStats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
 | [**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
-| [**rankPredict**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank |
-| [**rankPredictAvgImage**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Avg Image |
-| [**rankPredictImage**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Image |
+| [**rank**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank |
+| [**rankAvgImage**](PlayersApi.md#rankAvgImage) | **GET** /v1/players/rank/image | Rank Avg Image |
+| [**rankImage**](PlayersApi.md#rankImage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
+| [**rankPredict**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
+| [**rankPredictAvgImage**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
+| [**rankPredictImage**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated) |
 
 
 <a id="accountStats"></a>
@@ -355,13 +358,13 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="rankPredict"></a>
-# **rankPredict**
-> RankPredictResponse rankPredict(accountId)
+<a id="rank"></a>
+# **rank**
+> RankResponse rank(accountId)
 
 Rank
 
- Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
+ Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier. 
 
 ### Example
 ```kotlin
@@ -372,7 +375,149 @@ Rank
 val apiInstance = PlayersApi()
 val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
 try {
-    val result : RankPredictResponse = apiInstance.rankPredict(accountId)
+    val result : RankResponse = apiInstance.rank(accountId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rank")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rank")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**RankResponse**](RankResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="rankAvgImage"></a>
+# **rankAvgImage**
+> kotlin.collections.List&lt;kotlin.Int&gt; rankAvgImage(accountIds, format)
+
+Rank Avg Image
+
+Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
+val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+try {
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankAvgImage(accountIds, format)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rankAvgImage")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rankAvgImage")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
+
+### Return type
+
+**kotlin.collections.List&lt;kotlin.Int&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a id="rankImage"></a>
+# **rankImage**
+> kotlin.collections.List&lt;kotlin.Int&gt; rankImage(accountId, format)
+
+Rank Image
+
+Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+try {
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankImage(accountId, format)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rankImage")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rankImage")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
+
+### Return type
+
+**kotlin.collections.List&lt;kotlin.Int&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a id="rankPredict"></a>
+# **rankPredict**
+> RankResponse rankPredict(accountId)
+
+Rank Predict (Deprecated)
+
+Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+try {
+    val result : RankResponse = apiInstance.rankPredict(accountId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PlayersApi#rankPredict")
@@ -390,7 +535,7 @@ try {
 
 ### Return type
 
-[**RankPredictResponse**](RankPredictResponse.md)
+[**RankResponse**](RankResponse.md)
 
 ### Authorization
 
@@ -405,9 +550,9 @@ No authorization required
 # **rankPredictAvgImage**
 > kotlin.collections.List&lt;kotlin.Int&gt; rankPredictAvgImage(accountIds, format)
 
-Rank Avg Image
+Rank Predict Avg Image (Deprecated)
 
-Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
 
 ### Example
 ```kotlin
@@ -453,9 +598,9 @@ No authorization required
 # **rankPredictImage**
 > kotlin.collections.List&lt;kotlin.Int&gt; rankPredictImage(accountId, format)
 
-Rank Image
+Rank Predict Image (Deprecated)
 
-Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
 
 ### Example
 ```kotlin

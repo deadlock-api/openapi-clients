@@ -244,73 +244,152 @@ namespace DeadlockApiClient.Api
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>&gt;</returns>
-        Task<IRankPredictApiResponse> RankPredictAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>&gt;</returns>
+        Task<IRankApiResponse> RankAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier. 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>?&gt;</returns>
-        Task<IRankPredictApiResponse?> RankPredictOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>?&gt;</returns>
+        Task<IRankApiResponse?> RankOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Avg Image
         /// </summary>
         /// <remarks>
         /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>&gt;</returns>
+        Task<IRankAvgImageApiResponse> RankAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Avg Image
+        /// </summary>
+        /// <remarks>
+        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </remarks>
+        /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>?&gt;</returns>
+        Task<IRankAvgImageApiResponse?> RankAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Image
+        /// </summary>
+        /// <remarks>
+        /// Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>&gt;</returns>
+        Task<IRankImageApiResponse> RankImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Image
+        /// </summary>
+        /// <remarks>
+        /// Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </remarks>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>?&gt;</returns>
+        Task<IRankImageApiResponse?> RankImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Predict (Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>&gt;</returns>
+        [Obsolete]
+        Task<IRankPredictApiResponse> RankPredictAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Predict (Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
+        /// </remarks>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictApiResponse"/>?&gt;</returns>
+        [Obsolete]
+        Task<IRankPredictApiResponse?> RankPredictOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Predict Avg Image (Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictAvgImageApiResponse"/>&gt;</returns>
+        [Obsolete]
         Task<IRankPredictAvgImageApiResponse> RankPredictAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Avg Image
+        /// Rank Predict Avg Image (Deprecated)
         /// </summary>
         /// <remarks>
-        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
         /// </remarks>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictAvgImageApiResponse"/>?&gt;</returns>
+        [Obsolete]
         Task<IRankPredictAvgImageApiResponse?> RankPredictAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Image
+        /// Rank Predict Image (Deprecated)
         /// </summary>
         /// <remarks>
-        /// Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>&gt;</returns>
+        [Obsolete]
         Task<IRankPredictImageApiResponse> RankPredictImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Rank Image
+        /// Rank Predict Image (Deprecated)
         /// </summary>
         /// <remarks>
-        /// Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankPredictImageApiResponse"/>?&gt;</returns>
+        [Obsolete]
         Task<IRankPredictImageApiResponse?> RankPredictImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
@@ -489,9 +568,9 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
-    /// The <see cref="IRankPredictApiResponse"/>
+    /// The <see cref="IRankApiResponse"/>
     /// </summary>
-    public interface IRankPredictApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.RankPredictResponse?>
+    public interface IRankApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.RankResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -512,10 +591,106 @@ namespace DeadlockApiClient.Api
         bool IsForbidden { get; }
 
         /// <summary>
-        /// Returns true if the response is 429 TooManyRequests
+        /// Returns true if the response is 500 InternalServerError
         /// </summary>
         /// <returns></returns>
-        bool IsTooManyRequests { get; }
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IRankAvgImageApiResponse"/>
+    /// </summary>
+    public interface IRankAvgImageApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<int>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 403 Forbidden
+        /// </summary>
+        /// <returns></returns>
+        bool IsForbidden { get; }
+
+        /// <summary>
+        /// Returns true if the response is 404 NotFound
+        /// </summary>
+        /// <returns></returns>
+        bool IsNotFound { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IRankImageApiResponse"/>
+    /// </summary>
+    public interface IRankImageApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<int>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 403 Forbidden
+        /// </summary>
+        /// <returns></returns>
+        bool IsForbidden { get; }
+
+        /// <summary>
+        /// Returns true if the response is 404 NotFound
+        /// </summary>
+        /// <returns></returns>
+        bool IsNotFound { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IRankPredictApiResponse"/>
+    /// </summary>
+    public interface IRankPredictApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.RankResponse?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 403 Forbidden
+        /// </summary>
+        /// <returns></returns>
+        bool IsForbidden { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -554,12 +729,6 @@ namespace DeadlockApiClient.Api
         bool IsNotFound { get; }
 
         /// <summary>
-        /// Returns true if the response is 429 TooManyRequests
-        /// </summary>
-        /// <returns></returns>
-        bool IsTooManyRequests { get; }
-
-        /// <summary>
         /// Returns true if the response is 500 InternalServerError
         /// </summary>
         /// <returns></returns>
@@ -594,12 +763,6 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsNotFound { get; }
-
-        /// <summary>
-        /// Returns true if the response is 429 TooManyRequests
-        /// </summary>
-        /// <returns></returns>
-        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -731,6 +894,66 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorPlayerHeroStats(Exception exception)
         {
             OnErrorPlayerHeroStats?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnRank;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorRank;
+
+        internal void ExecuteOnRank(PlayersApi.RankApiResponse apiResponse)
+        {
+            OnRank?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorRank(Exception exception)
+        {
+            OnErrorRank?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnRankAvgImage;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorRankAvgImage;
+
+        internal void ExecuteOnRankAvgImage(PlayersApi.RankAvgImageApiResponse apiResponse)
+        {
+            OnRankAvgImage?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorRankAvgImage(Exception exception)
+        {
+            OnErrorRankAvgImage?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnRankImage;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorRankImage;
+
+        internal void ExecuteOnRankImage(PlayersApi.RankImageApiResponse apiResponse)
+        {
+            OnRankImage?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorRankImage(Exception exception)
+        {
+            OnErrorRankImage?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -2655,6 +2878,815 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
+        partial void FormatRank(ref int accountId);
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        private void AfterRankDefaultImplementation(IRankApiResponse apiResponseLocalVar, int accountId)
+        {
+            bool suppressDefaultLog = false;
+            AfterRank(ref suppressDefaultLog, apiResponseLocalVar, accountId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        partial void AfterRank(ref bool suppressDefaultLog, IRankApiResponse apiResponseLocalVar, int accountId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        private void OnErrorRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorRank(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        partial void OnErrorRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
+
+        /// <summary>
+        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier. 
+        /// </summary>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>&gt;</returns>
+        public async Task<IRankApiResponse?> RankOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await RankAsync(accountId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>&gt;</returns>
+        public async Task<IRankApiResponse> RankAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                FormatRank(ref accountId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/players/{account_id}/rank"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/rank");
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        RankApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/{account_id}/rank", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterRankDefaultImplementation(apiResponseLocalVar, accountId);
+
+                        Events.ExecuteOnRank(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorRankDefaultImplementation(e, "/v1/players/{account_id}/rank", uriBuilderLocalVar.Path, accountId);
+                Events.ExecuteOnErrorRank(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="RankApiResponse"/>
+        /// </summary>
+        public partial class RankApiResponse : DeadlockApiClient.Client.ApiResponse, IRankApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<PlayersApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="RankApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="RankApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public DeadlockApiClient.Model.RankResponse? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.RankResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.RankResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 403 Forbidden
+            /// </summary>
+            /// <returns></returns>
+            public bool IsForbidden => 403 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatRankAvgImage(List<int> accountIds, ref Option<string> format);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="accountIds"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        private void ValidateRankAvgImage(List<int> accountIds, Option<string> format)
+        {
+            if (accountIds == null)
+                throw new ArgumentNullException(nameof(accountIds));
+
+            if (format.IsSet && format.Value == null)
+                throw new ArgumentNullException(nameof(format));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="format"></param>
+        private void AfterRankAvgImageDefaultImplementation(IRankAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format)
+        {
+            bool suppressDefaultLog = false;
+            AfterRankAvgImage(ref suppressDefaultLog, apiResponseLocalVar, accountIds, format);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="format"></param>
+        partial void AfterRankAvgImage(ref bool suppressDefaultLog, IRankAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="format"></param>
+        private void OnErrorRankAvgImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorRankAvgImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds, format);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="format"></param>
+        partial void OnErrorRankAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format);
+
+        /// <summary>
+        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </summary>
+        /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>&gt;</returns>
+        public async Task<IRankAvgImageApiResponse?> RankAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await RankAvgImageAsync(accountIds, format, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>&gt;</returns>
+        public async Task<IRankAvgImageApiResponse> RankAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateRankAvgImage(accountIds, format);
+
+                FormatRankAvgImage(accountIds, ref format);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/players/rank/image"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/rank/image");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    parseQueryStringLocalVar["account_ids"] = ClientUtils.ParameterToString(accountIds);
+
+                    if (format.IsSet)
+                        parseQueryStringLocalVar["format"] = ClientUtils.ParameterToString(format.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "image/png",
+                        "image/webp"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        RankAvgImageApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/rank/image", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterRankAvgImageDefaultImplementation(apiResponseLocalVar, accountIds, format);
+
+                        Events.ExecuteOnRankAvgImage(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorRankAvgImageDefaultImplementation(e, "/v1/players/rank/image", uriBuilderLocalVar.Path, accountIds, format);
+                Events.ExecuteOnErrorRankAvgImage(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="RankAvgImageApiResponse"/>
+        /// </summary>
+        public partial class RankAvgImageApiResponse : DeadlockApiClient.Client.ApiResponse, IRankAvgImageApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<PlayersApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="RankAvgImageApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankAvgImageApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="RankAvgImageApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankAvgImageApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<int>? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<int>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 403 Forbidden
+            /// </summary>
+            /// <returns></returns>
+            public bool IsForbidden => 403 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 404 NotFound
+            /// </summary>
+            /// <returns></returns>
+            public bool IsNotFound => 404 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatRankImage(ref int accountId, ref Option<string> format);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        private void ValidateRankImage(Option<string> format)
+        {
+            if (format.IsSet && format.Value == null)
+                throw new ArgumentNullException(nameof(format));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        /// <param name="format"></param>
+        private void AfterRankImageDefaultImplementation(IRankImageApiResponse apiResponseLocalVar, int accountId, Option<string> format)
+        {
+            bool suppressDefaultLog = false;
+            AfterRankImage(ref suppressDefaultLog, apiResponseLocalVar, accountId, format);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        /// <param name="format"></param>
+        partial void AfterRankImage(ref bool suppressDefaultLog, IRankImageApiResponse apiResponseLocalVar, int accountId, Option<string> format);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        /// <param name="format"></param>
+        private void OnErrorRankImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorRankImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, format);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        /// <param name="format"></param>
+        partial void OnErrorRankImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format);
+
+        /// <summary>
+        /// Rank Image Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </summary>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>&gt;</returns>
+        public async Task<IRankImageApiResponse?> RankImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await RankImageAsync(accountId, format, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Rank Image Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>&gt;</returns>
+        public async Task<IRankImageApiResponse> RankImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateRankImage(format);
+
+                FormatRankImage(ref accountId, ref format);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/players/{account_id}/rank/image"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/rank/image");
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (format.IsSet)
+                        parseQueryStringLocalVar["format"] = ClientUtils.ParameterToString(format.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "image/png",
+                        "image/webp"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        RankImageApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/{account_id}/rank/image", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterRankImageDefaultImplementation(apiResponseLocalVar, accountId, format);
+
+                        Events.ExecuteOnRankImage(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorRankImageDefaultImplementation(e, "/v1/players/{account_id}/rank/image", uriBuilderLocalVar.Path, accountId, format);
+                Events.ExecuteOnErrorRankImage(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="RankImageApiResponse"/>
+        /// </summary>
+        public partial class RankImageApiResponse : DeadlockApiClient.Client.ApiResponse, IRankImageApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<PlayersApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="RankImageApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankImageApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="RankImageApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankImageApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<int>? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<int>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 403 Forbidden
+            /// </summary>
+            /// <returns></returns>
+            public bool IsForbidden => 403 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 404 NotFound
+            /// </summary>
+            /// <returns></returns>
+            public bool IsNotFound => 404 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
         partial void FormatRankPredict(ref int accountId);
 
         /// <summary>
@@ -2704,7 +3736,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankPredict(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// Rank Predict (Deprecated) Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2722,7 +3754,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
+        /// Rank Predict (Deprecated) Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -2844,11 +3876,11 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public DeadlockApiClient.Model.RankPredictResponse? Ok()
+            public DeadlockApiClient.Model.RankResponse? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.RankPredictResponse>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.RankResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -2857,7 +3889,7 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.RankPredictResponse? result)
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.RankResponse? result)
             {
                 result = null;
 
@@ -2883,12 +3915,6 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsForbidden => 403 == (int)StatusCode;
-
-            /// <summary>
-            /// Returns true if the response is 429 TooManyRequests
-            /// </summary>
-            /// <returns></returns>
-            public bool IsTooManyRequests => 429 == (int)StatusCode;
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError
@@ -2975,7 +4001,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankPredictAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format);
 
         /// <summary>
-        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Avg Image (Deprecated) Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
         /// </summary>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -2994,7 +4020,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Avg Image (Deprecated) Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
@@ -3175,12 +4201,6 @@ namespace DeadlockApiClient.Api
             public bool IsNotFound => 404 == (int)StatusCode;
 
             /// <summary>
-            /// Returns true if the response is 429 TooManyRequests
-            /// </summary>
-            /// <returns></returns>
-            public bool IsTooManyRequests => 429 == (int)StatusCode;
-
-            /// <summary>
             /// Returns true if the response is 500 InternalServerError
             /// </summary>
             /// <returns></returns>
@@ -3261,7 +4281,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankPredictImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format);
 
         /// <summary>
-        /// Rank Image Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Image (Deprecated) Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -3280,7 +4300,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Image Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Predict Image (Deprecated) Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -3458,12 +4478,6 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsNotFound => 404 == (int)StatusCode;
-
-            /// <summary>
-            /// Returns true if the response is 429 TooManyRequests
-            /// </summary>
-            /// <returns></returns>
-            public bool IsTooManyRequests => 429 == (int)StatusCode;
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError
