@@ -4,12 +4,12 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HeroMmr**](MMRAPI.md#HeroMmr) | **Get** /v1/players/mmr/{hero_id} | Batch Hero MMR
-[**HeroMmrDistribution**](MMRAPI.md#HeroMmrDistribution) | **Get** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
-[**HeroMmrHistory**](MMRAPI.md#HeroMmrHistory) | **Get** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
-[**Mmr**](MMRAPI.md#Mmr) | **Get** /v1/players/mmr | Batch MMR
-[**MmrDistribution**](MMRAPI.md#MmrDistribution) | **Get** /v1/players/mmr/distribution | MMR Distribution
-[**MmrHistory**](MMRAPI.md#MmrHistory) | **Get** /v1/players/{account_id}/mmr-history | MMR History
+[**HeroMmr**](MMRAPI.md#HeroMmr) | **Get** /v1/players/mmr/{hero_id} | Batch Hero MMR (Deprecated)
+[**HeroMmrDistribution**](MMRAPI.md#HeroMmrDistribution) | **Get** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution (Deprecated)
+[**HeroMmrHistory**](MMRAPI.md#HeroMmrHistory) | **Get** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History (Deprecated)
+[**Mmr**](MMRAPI.md#Mmr) | **Get** /v1/players/mmr | Batch MMR (Deprecated)
+[**MmrDistribution**](MMRAPI.md#MmrDistribution) | **Get** /v1/players/mmr/distribution | MMR Distribution (Deprecated)
+[**MmrHistory**](MMRAPI.md#MmrHistory) | **Get** /v1/players/{account_id}/mmr-history | MMR History (Deprecated)
 
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > []MMRHistory HeroMmr(ctx, heroId).AccountIds(accountIds).MaxMatchId(maxMatchId).Execute()
 
-Batch Hero MMR
+Batch Hero MMR (Deprecated)
 
 
 
@@ -91,7 +91,7 @@ No authorization required
 
 > []DistributionEntry HeroMmrDistribution(ctx, heroId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
 
-Hero MMR Distribution
+Hero MMR Distribution (Deprecated)
 
 
 
@@ -109,7 +109,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1782950400)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1783036800)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -147,7 +147,7 @@ Other parameters are passed through a pointer to a apiHeroMmrDistributionRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1782950400]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1783036800]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -179,7 +179,7 @@ No authorization required
 
 > []MMRHistory HeroMmrHistory(ctx, accountId, heroId).Execute()
 
-Hero MMR History
+Hero MMR History (Deprecated)
 
 
 
@@ -252,7 +252,7 @@ No authorization required
 
 > []MMRHistory Mmr(ctx).AccountIds(accountIds).MaxMatchId(maxMatchId).Execute()
 
-Batch MMR
+Batch MMR (Deprecated)
 
 
 
@@ -320,7 +320,7 @@ No authorization required
 
 > []DistributionEntry MmrDistribution(ctx).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
 
-MMR Distribution
+MMR Distribution (Deprecated)
 
 
 
@@ -337,7 +337,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1782950400)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1783036800)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -370,7 +370,7 @@ Other parameters are passed through a pointer to a apiMmrDistributionRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1782950400]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1783036800]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -402,7 +402,7 @@ No authorization required
 
 > []MMRHistory MmrHistory(ctx, accountId).Execute()
 
-MMR History
+MMR History (Deprecated)
 
 
 

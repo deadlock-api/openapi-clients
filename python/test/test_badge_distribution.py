@@ -36,12 +36,14 @@ class TestBadgeDistribution(unittest.TestCase):
         if include_optional:
             return BadgeDistribution(
                 badge_level = 0,
-                total_matches = 0
+                total_matches = 0,
+                unique_players = 0
             )
         else:
             return BadgeDistribution(
                 badge_level = 0,
                 total_matches = 0,
+                unique_players = 0,
         )
         """
 

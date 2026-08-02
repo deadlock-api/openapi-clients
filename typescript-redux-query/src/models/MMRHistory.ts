@@ -43,7 +43,7 @@ export interface MMRHistory  {
      */
     matchId: number;
     /**
-     * Player Score is the index for the rank array (internally used for the rank regression)
+     * Contiguous index of the rank (1-66), derived from `rank`
      * @type {number}
      * @memberof MMRHistory
      */

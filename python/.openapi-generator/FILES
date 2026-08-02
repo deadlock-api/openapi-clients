@@ -138,6 +138,7 @@ deadlock_api_client/models/item_type.py
 deadlock_api_client/models/job_status.py
 deadlock_api_client/models/kill_death_stats.py
 deadlock_api_client/models/lane_info.py
+deadlock_api_client/models/last_ranked_match.py
 deadlock_api_client/models/leaderboard.py
 deadlock_api_client/models/leaderboard_entry.py
 deadlock_api_client/models/list_servers_response.py
@@ -359,6 +360,7 @@ docs/ItemsApi.md
 docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
+docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
@@ -600,6 +602,7 @@ test/test_items_api.py
 test/test_job_status.py
 test/test_kill_death_stats.py
 test/test_lane_info.py
+test/test_last_ranked_match.py
 test/test_leaderboard.py
 test/test_leaderboard_api.py
 test/test_leaderboard_entry.py

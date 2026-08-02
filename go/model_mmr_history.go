@@ -27,7 +27,7 @@ type MMRHistory struct {
 	// Extracted from the rank the division tier (rank % 10)
 	DivisionTier int32 `json:"division_tier"`
 	MatchId int64 `json:"match_id"`
-	// Player Score is the index for the rank array (internally used for the rank regression)
+	// Contiguous index of the rank (1-66), derived from `rank`
 	PlayerScore float64 `json:"player_score"`
 	// The Player Rank (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	Rank int32 `json:"rank"`

@@ -36,12 +36,14 @@ namespace DeadlockApiClient.Model
         /// <param name="badge">Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="rank">Rank tier, &#x60;0&#x60; when unknown.</param>
         /// <param name="subrank">Sub-rank within the tier, &#x60;0&#x60; when unknown.</param>
+        /// <param name="lastMatch">Rank metadata of the ranked match the badge was read from. &#x60;null&#x60; when none of the player&#39;s recent ranked matches reports a rank.</param>
         [JsonConstructor]
-        public RankResponse(int badge, int rank, int subrank)
+        public RankResponse(int badge, int rank, int subrank, Option<LastRankedMatch?> lastMatch = default)
         {
             Badge = badge;
             Rank = rank;
             Subrank = subrank;
+            LastMatchOption = lastMatch;
             OnCreated();
         }
 
@@ -69,6 +71,20 @@ namespace DeadlockApiClient.Model
         public int Subrank { get; set; }
 
         /// <summary>
+        /// Used to track the state of LastMatch
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<LastRankedMatch?> LastMatchOption { get; private set; }
+
+        /// <summary>
+        /// Rank metadata of the ranked match the badge was read from. &#x60;null&#x60; when none of the player&#39;s recent ranked matches reports a rank.
+        /// </summary>
+        /// <value>Rank metadata of the ranked match the badge was read from. &#x60;null&#x60; when none of the player&#39;s recent ranked matches reports a rank.</value>
+        [JsonPropertyName("last_match")]
+        public LastRankedMatch? LastMatch { get { return this.LastMatchOption.Value; } set { this.LastMatchOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,6 +95,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Badge: ").Append(Badge).Append("\n");
             sb.Append("  Rank: ").Append(Rank).Append("\n");
             sb.Append("  Subrank: ").Append(Subrank).Append("\n");
+            sb.Append("  LastMatch: ").Append(LastMatch).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,6 +164,7 @@ namespace DeadlockApiClient.Model
             Option<int?> badge = default;
             Option<int?> rank = default;
             Option<int?> subrank = default;
+            Option<LastRankedMatch?> lastMatch = default;
 
             while (utf8JsonReader.Read())
             {
@@ -172,6 +190,9 @@ namespace DeadlockApiClient.Model
                         case "subrank":
                             subrank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
+                        case "last_match":
+                            lastMatch = new Option<LastRankedMatch?>(JsonSerializer.Deserialize<LastRankedMatch>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         default:
                             break;
                     }
@@ -196,7 +217,7 @@ namespace DeadlockApiClient.Model
             if (subrank.IsSet && subrank.Value == null)
                 throw new ArgumentNullException(nameof(subrank), "Property is not nullable for class RankResponse.");
 
-            return new RankResponse(badge.Value!.Value!, rank.Value!.Value!, subrank.Value!.Value!);
+            return new RankResponse(badge.Value!.Value!, rank.Value!.Value!, subrank.Value!.Value!, lastMatch);
         }
 
         /// <summary>
@@ -228,6 +249,15 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("rank", rankResponse.Rank);
 
             writer.WriteNumber("subrank", rankResponse.Subrank);
+
+            if (rankResponse.LastMatchOption.IsSet)
+                if (rankResponse.LastMatchOption.Value != null)
+                {
+                    writer.WritePropertyName("last_match");
+                    JsonSerializer.Serialize(writer, rankResponse.LastMatch, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("last_match");
         }
     }
 }

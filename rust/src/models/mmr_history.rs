@@ -23,7 +23,7 @@ pub struct MmrHistory {
     pub division_tier: u32,
     #[serde(rename = "match_id")]
     pub match_id: u64,
-    /// Player Score is the index for the rank array (internally used for the rank regression)
+    /// Contiguous index of the rank (1-66), derived from `rank`
     #[serde(rename = "player_score")]
     pub player_score: f64,
     /// The Player Rank (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>

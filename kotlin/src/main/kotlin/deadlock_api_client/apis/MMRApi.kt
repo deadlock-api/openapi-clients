@@ -56,8 +56,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr/{hero_id}
-     * Batch Hero MMR
-     *  Batch Player Hero MMR 
+     * Batch Hero MMR (Deprecated)
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
@@ -70,7 +70,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmr(heroId: kotlin.Int, accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<MMRHistory> {
+        @Suppress("DEPRECATION")
         val localVarResponse = heroMmrWithHttpInfo(heroId = heroId, accountIds = accountIds, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -90,8 +92,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr/{hero_id}
-     * Batch Hero MMR
-     *  Batch Player Hero MMR 
+     * Batch Hero MMR (Deprecated)
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
@@ -101,7 +103,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmrWithHttpInfo(heroId: kotlin.Int, accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = heroMmrRequestConfig(heroId = heroId, accountIds = accountIds, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<MMRHistory>>(
@@ -117,6 +121,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmrRequestConfig(heroId: kotlin.Int, accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -141,10 +146,10 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr/distribution/{hero_id}
-     * Hero MMR Distribution
-     *  Player Hero MMR Distribution 
+     * Hero MMR Distribution (Deprecated)
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1782950400L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -162,7 +167,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroMmrDistribution(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1782950400L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+    @Deprecated(message = "This operation is deprecated.")
+    fun heroMmrDistribution(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long? = 1783036800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+        @Suppress("DEPRECATION")
         val localVarResponse = heroMmrDistributionWithHttpInfo(heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -182,10 +189,10 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr/distribution/{hero_id}
-     * Hero MMR Distribution
-     *  Player Hero MMR Distribution 
+     * Hero MMR Distribution (Deprecated)
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1782950400L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -200,7 +207,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmrDistributionWithHttpInfo(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<DistributionEntry>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = heroMmrDistributionRequestConfig(heroId = heroId, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<DistributionEntry>>(
@@ -212,7 +221,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation heroMmrDistribution
      *
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1782950400L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -223,6 +232,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmrDistributionRequestConfig(heroId: kotlin.Int, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -270,8 +280,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/{account_id}/mmr-history/{hero_id}
-     * Hero MMR History
-     * Player Hero MMR History
+     * Hero MMR History (Deprecated)
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player&#39;s rank at the start of each ranked match they played on that hero.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return kotlin.collections.List<MMRHistory>
@@ -283,7 +293,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmrHistory(accountId: kotlin.Int, heroId: kotlin.Int) : kotlin.collections.List<MMRHistory> {
+        @Suppress("DEPRECATION")
         val localVarResponse = heroMmrHistoryWithHttpInfo(accountId = accountId, heroId = heroId)
 
         return when (localVarResponse.responseType) {
@@ -303,8 +315,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/{account_id}/mmr-history/{hero_id}
-     * Hero MMR History
-     * Player Hero MMR History
+     * Hero MMR History (Deprecated)
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player&#39;s rank at the start of each ranked match they played on that hero.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
@@ -313,7 +325,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmrHistoryWithHttpInfo(accountId: kotlin.Int, heroId: kotlin.Int) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = heroMmrHistoryRequestConfig(accountId = accountId, heroId = heroId)
 
         return request<Unit, kotlin.collections.List<MMRHistory>>(
@@ -328,6 +342,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun heroMmrHistoryRequestConfig(accountId: kotlin.Int, heroId: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
@@ -346,8 +361,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr
-     * Batch MMR
-     *  Batch Player MMR 
+     * Batch MMR (Deprecated)
+     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return kotlin.collections.List<MMRHistory>
@@ -359,7 +374,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun mmr(accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<MMRHistory> {
+        @Suppress("DEPRECATION")
         val localVarResponse = mmrWithHttpInfo(accountIds = accountIds, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -379,8 +396,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr
-     * Batch MMR
-     *  Batch Player MMR 
+     * Batch MMR (Deprecated)
+     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
@@ -389,7 +406,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun mmrWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = mmrRequestConfig(accountIds = accountIds, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<MMRHistory>>(
@@ -404,6 +423,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun mmrRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -428,9 +448,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr/distribution
-     * MMR Distribution
-     *  Player MMR Distribution 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1782950400L)
+     * MMR Distribution (Deprecated)
+     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -448,7 +468,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun mmrDistribution(minUnixTimestamp: kotlin.Long? = 1782950400L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+    @Deprecated(message = "This operation is deprecated.")
+    fun mmrDistribution(minUnixTimestamp: kotlin.Long? = 1783036800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<DistributionEntry> {
+        @Suppress("DEPRECATION")
         val localVarResponse = mmrDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -468,9 +490,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/mmr/distribution
-     * MMR Distribution
-     *  Player MMR Distribution 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1782950400L)
+     * MMR Distribution (Deprecated)
+     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -485,7 +507,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun mmrDistributionWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<DistributionEntry>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = mmrDistributionRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<DistributionEntry>>(
@@ -496,7 +520,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation mmrDistribution
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1782950400L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -507,6 +531,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun mmrDistributionRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -554,8 +579,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/{account_id}/mmr-history
-     * MMR History
-     * Player MMR History
+     * MMR History (Deprecated)
+     *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return kotlin.collections.List<MMRHistory>
      * @throws IllegalStateException If the request is not correctly configured
@@ -566,7 +591,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun mmrHistory(accountId: kotlin.Int) : kotlin.collections.List<MMRHistory> {
+        @Suppress("DEPRECATION")
         val localVarResponse = mmrHistoryWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
@@ -586,8 +613,8 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
 
     /**
      * GET /v1/players/{account_id}/mmr-history
-     * MMR History
-     * Player MMR History
+     * MMR History (Deprecated)
+     *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -595,7 +622,9 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun mmrHistoryWithHttpInfo(accountId: kotlin.Int) : ApiResponse<kotlin.collections.List<MMRHistory>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = mmrHistoryRequestConfig(accountId = accountId)
 
         return request<Unit, kotlin.collections.List<MMRHistory>>(
@@ -609,6 +638,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun mmrHistoryRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()

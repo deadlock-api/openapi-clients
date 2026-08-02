@@ -36,6 +36,17 @@ class TestRankResponse(unittest.TestCase):
         if include_optional:
             return RankResponse(
                 badge = 0,
+                last_match = deadlock_api_client.models.last_ranked_match.LastRankedMatch(
+                    match_id = 0, 
+                    player_rank_consumed_demotion_protection = True, 
+                    player_rank_desired_progress_change = 56, 
+                    player_rank_final_flat_progress = 0, 
+                    player_rank_initial_calibration_games = 0, 
+                    player_rank_initial_demotion_protection_games = 0, 
+                    player_rank_initial_display_rank = 0, 
+                    player_rank_initial_flat_progress = 0, 
+                    player_rank_initial_win_streak = 0, 
+                    start_time = 0, ),
                 rank = 0,
                 subrank = 0
             )

@@ -58,6 +58,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'badge' => 'int',
+        'last_match' => '\OpenAPI\Client\Model\LastRankedMatch',
         'rank' => 'int',
         'subrank' => 'int'
     ];
@@ -71,6 +72,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'badge' => 'int32',
+        'last_match' => null,
         'rank' => 'int32',
         'subrank' => 'int32'
     ];
@@ -82,6 +84,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'badge' => false,
+        'last_match' => true,
         'rank' => false,
         'subrank' => false
     ];
@@ -173,6 +176,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'badge' => 'badge',
+        'last_match' => 'last_match',
         'rank' => 'rank',
         'subrank' => 'subrank'
     ];
@@ -184,6 +188,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'badge' => 'setBadge',
+        'last_match' => 'setLastMatch',
         'rank' => 'setRank',
         'subrank' => 'setSubrank'
     ];
@@ -195,6 +200,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'badge' => 'getBadge',
+        'last_match' => 'getLastMatch',
         'rank' => 'getRank',
         'subrank' => 'getSubrank'
     ];
@@ -257,6 +263,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('badge', $data ?? [], null);
+        $this->setIfExists('last_match', $data ?? [], null);
         $this->setIfExists('rank', $data ?? [], null);
         $this->setIfExists('subrank', $data ?? [], null);
     }
@@ -351,6 +358,40 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['badge'] = $badge;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_match
+     *
+     * @return \OpenAPI\Client\Model\LastRankedMatch|null
+     */
+    public function getLastMatch()
+    {
+        return $this->container['last_match'];
+    }
+
+    /**
+     * Sets last_match
+     *
+     * @param \OpenAPI\Client\Model\LastRankedMatch|null $last_match Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.
+     *
+     * @return self
+     */
+    public function setLastMatch($last_match)
+    {
+        if (is_null($last_match)) {
+            array_push($this->openAPINullablesSetToNull, 'last_match');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_match', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['last_match'] = $last_match;
 
         return $this;
     }

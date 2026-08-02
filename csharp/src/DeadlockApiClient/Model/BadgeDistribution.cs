@@ -35,11 +35,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="badgeLevel">The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="totalMatches">The total number of matches.</param>
+        /// <param name="uniquePlayers">The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.</param>
         [JsonConstructor]
-        public BadgeDistribution(int badgeLevel, long totalMatches)
+        public BadgeDistribution(int badgeLevel, long totalMatches, long uniquePlayers)
         {
             BadgeLevel = badgeLevel;
             TotalMatches = totalMatches;
+            UniquePlayers = uniquePlayers;
             OnCreated();
         }
 
@@ -60,6 +62,13 @@ namespace DeadlockApiClient.Model
         public long TotalMatches { get; set; }
 
         /// <summary>
+        /// The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
+        /// </summary>
+        /// <value>The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.</value>
+        [JsonPropertyName("unique_players")]
+        public long UniquePlayers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -69,6 +78,7 @@ namespace DeadlockApiClient.Model
             sb.Append("class BadgeDistribution {\n");
             sb.Append("  BadgeLevel: ").Append(BadgeLevel).Append("\n");
             sb.Append("  TotalMatches: ").Append(TotalMatches).Append("\n");
+            sb.Append("  UniquePlayers: ").Append(UniquePlayers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,6 +100,12 @@ namespace DeadlockApiClient.Model
             if (this.TotalMatches < (long)0)
             {
                 yield return new ValidationResult("Invalid value for TotalMatches, must be a value greater than or equal to 0.", new [] { "TotalMatches" });
+            }
+
+            // UniquePlayers (long) minimum
+            if (this.UniquePlayers < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for UniquePlayers, must be a value greater than or equal to 0.", new [] { "UniquePlayers" });
             }
 
             yield break;
@@ -130,6 +146,7 @@ namespace DeadlockApiClient.Model
 
             Option<int?> badgeLevel = default;
             Option<long?> totalMatches = default;
+            Option<long?> uniquePlayers = default;
 
             while (utf8JsonReader.Read())
             {
@@ -152,6 +169,9 @@ namespace DeadlockApiClient.Model
                         case "total_matches":
                             totalMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
+                        case "unique_players":
+                            uniquePlayers = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
                         default:
                             break;
                     }
@@ -164,13 +184,19 @@ namespace DeadlockApiClient.Model
             if (!totalMatches.IsSet)
                 throw new ArgumentException("Property is required for class BadgeDistribution.", nameof(totalMatches));
 
+            if (!uniquePlayers.IsSet)
+                throw new ArgumentException("Property is required for class BadgeDistribution.", nameof(uniquePlayers));
+
             if (badgeLevel.IsSet && badgeLevel.Value == null)
                 throw new ArgumentNullException(nameof(badgeLevel), "Property is not nullable for class BadgeDistribution.");
 
             if (totalMatches.IsSet && totalMatches.Value == null)
                 throw new ArgumentNullException(nameof(totalMatches), "Property is not nullable for class BadgeDistribution.");
 
-            return new BadgeDistribution(badgeLevel.Value!.Value!, totalMatches.Value!.Value!);
+            if (uniquePlayers.IsSet && uniquePlayers.Value == null)
+                throw new ArgumentNullException(nameof(uniquePlayers), "Property is not nullable for class BadgeDistribution.");
+
+            return new BadgeDistribution(badgeLevel.Value!.Value!, totalMatches.Value!.Value!, uniquePlayers.Value!.Value!);
         }
 
         /// <summary>
@@ -200,6 +226,8 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("badge_level", badgeDistribution.BadgeLevel);
 
             writer.WriteNumber("total_matches", badgeDistribution.TotalMatches);
+
+            writer.WriteNumber("unique_players", badgeDistribution.UniquePlayers);
         }
     }
 }

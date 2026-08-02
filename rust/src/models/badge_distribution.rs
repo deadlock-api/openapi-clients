@@ -19,13 +19,17 @@ pub struct BadgeDistribution {
     /// The total number of matches.
     #[serde(rename = "total_matches")]
     pub total_matches: u64,
+    /// The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
+    #[serde(rename = "unique_players")]
+    pub unique_players: u64,
 }
 
 impl BadgeDistribution {
-    pub fn new(badge_level: u32, total_matches: u64) -> BadgeDistribution {
+    pub fn new(badge_level: u32, total_matches: u64, unique_players: u64) -> BadgeDistribution {
         BadgeDistribution {
             badge_level,
             total_matches,
+            unique_players,
         }
     }
 }

@@ -513,7 +513,7 @@ class MMRHistory implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets player_score
      *
-     * @param float $player_score Player Score is the index for the rank array (internally used for the rank regression)
+     * @param float $player_score Contiguous index of the rank (1-66), derived from `rank`
      *
      * @return self
      */

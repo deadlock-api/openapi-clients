@@ -606,7 +606,10 @@ Returns the player's rank as Valve reported it on their latest ranked match.
 
 Only ranked matches carry a rank, and it stays unset while the player is in placement games.
 When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are
-all `0`, which is the `Obscurus` (unranked) tier.
+all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.
+
+`last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining
+placement games and demotion protection.
 
 
 ### Example

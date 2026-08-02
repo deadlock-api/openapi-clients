@@ -109,6 +109,7 @@ from deadlock_api_client.models.item_type import ItemType
 from deadlock_api_client.models.job_status import JobStatus
 from deadlock_api_client.models.kill_death_stats import KillDeathStats
 from deadlock_api_client.models.lane_info import LaneInfo
+from deadlock_api_client.models.last_ranked_match import LastRankedMatch
 from deadlock_api_client.models.leaderboard import Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry
 from deadlock_api_client.models.list_servers_response import ListServersResponse

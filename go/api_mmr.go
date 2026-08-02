@@ -49,15 +49,20 @@ func (r ApiHeroMmrRequest) Execute() ([]MMRHistory, *http.Response, error) {
 }
 
 /*
-HeroMmr Batch Hero MMR
+HeroMmr Batch Hero MMR (Deprecated)
 
 
-Batch Player Hero MMR
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each
+player's rank on their latest ranked match played on that hero.
+
+Use `/v1/players/{account_id}/rank` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param heroId The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiHeroMmrRequest
+
+Deprecated
 */
 func (a *MMRAPIService) HeroMmr(ctx context.Context, heroId int32) ApiHeroMmrRequest {
 	return ApiHeroMmrRequest{
@@ -69,6 +74,7 @@ func (a *MMRAPIService) HeroMmr(ctx context.Context, heroId int32) ApiHeroMmrReq
 
 // Execute executes the request
 //  @return []MMRHistory
+// Deprecated
 func (a *MMRAPIService) HeroMmrExecute(r ApiHeroMmrRequest) ([]MMRHistory, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -243,15 +249,20 @@ func (r ApiHeroMmrDistributionRequest) Execute() ([]DistributionEntry, *http.Res
 }
 
 /*
-HeroMmrDistribution Hero MMR Distribution
+HeroMmrDistribution Hero MMR Distribution (Deprecated)
 
 
-Player Hero MMR Distribution
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by
+the rank they had on their latest ranked match played on that hero.
+
+Use `/v1/analytics/badge-distribution` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param heroId The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiHeroMmrDistributionRequest
+
+Deprecated
 */
 func (a *MMRAPIService) HeroMmrDistribution(ctx context.Context, heroId int32) ApiHeroMmrDistributionRequest {
 	return ApiHeroMmrDistributionRequest{
@@ -263,6 +274,7 @@ func (a *MMRAPIService) HeroMmrDistribution(ctx context.Context, heroId int32) A
 
 // Execute executes the request
 //  @return []DistributionEntry
+// Deprecated
 func (a *MMRAPIService) HeroMmrDistributionExecute(r ApiHeroMmrDistributionRequest) ([]DistributionEntry, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -289,7 +301,7 @@ func (a *MMRAPIService) HeroMmrDistributionExecute(r ApiHeroMmrDistributionReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1782950400
+		var defaultValue int64 = 1783036800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -383,14 +395,22 @@ func (r ApiHeroMmrHistoryRequest) Execute() ([]MMRHistory, *http.Response, error
 }
 
 /*
-HeroMmrHistory Hero MMR History
+HeroMmrHistory Hero MMR History (Deprecated)
 
-Player Hero MMR History
+
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the
+player's rank at the start of each ranked match they played on that hero.
+
+Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
+instead.
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
  @param heroId The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiHeroMmrHistoryRequest
+
+Deprecated
 */
 func (a *MMRAPIService) HeroMmrHistory(ctx context.Context, accountId int32, heroId int32) ApiHeroMmrHistoryRequest {
 	return ApiHeroMmrHistoryRequest{
@@ -403,6 +423,7 @@ func (a *MMRAPIService) HeroMmrHistory(ctx context.Context, accountId int32, her
 
 // Execute executes the request
 //  @return []MMRHistory
+// Deprecated
 func (a *MMRAPIService) HeroMmrHistoryExecute(r ApiHeroMmrHistoryRequest) ([]MMRHistory, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -508,14 +529,19 @@ func (r ApiMmrRequest) Execute() ([]MMRHistory, *http.Response, error) {
 }
 
 /*
-Mmr Batch MMR
+Mmr Batch MMR (Deprecated)
 
 
-Batch Player MMR
+Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on
+their latest ranked match. Players without a ranked match carrying a rank are left out.
+
+Use `/v1/players/{account_id}/rank` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMmrRequest
+
+Deprecated
 */
 func (a *MMRAPIService) Mmr(ctx context.Context) ApiMmrRequest {
 	return ApiMmrRequest{
@@ -526,6 +552,7 @@ func (a *MMRAPIService) Mmr(ctx context.Context) ApiMmrRequest {
 
 // Execute executes the request
 //  @return []MMRHistory
+// Deprecated
 func (a *MMRAPIService) MmrExecute(r ApiMmrRequest) ([]MMRHistory, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -695,14 +722,19 @@ func (r ApiMmrDistributionRequest) Execute() ([]DistributionEntry, *http.Respons
 }
 
 /*
-MmrDistribution MMR Distribution
+MmrDistribution MMR Distribution (Deprecated)
 
 
-Player MMR Distribution
+Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their
+latest ranked match within the filtered range.
+
+Use `/v1/analytics/badge-distribution` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMmrDistributionRequest
+
+Deprecated
 */
 func (a *MMRAPIService) MmrDistribution(ctx context.Context) ApiMmrDistributionRequest {
 	return ApiMmrDistributionRequest{
@@ -713,6 +745,7 @@ func (a *MMRAPIService) MmrDistribution(ctx context.Context) ApiMmrDistributionR
 
 // Execute executes the request
 //  @return []DistributionEntry
+// Deprecated
 func (a *MMRAPIService) MmrDistributionExecute(r ApiMmrDistributionRequest) ([]DistributionEntry, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -735,7 +768,7 @@ func (a *MMRAPIService) MmrDistributionExecute(r ApiMmrDistributionRequest) ([]D
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1782950400
+		var defaultValue int64 = 1783036800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -828,13 +861,21 @@ func (r ApiMmrHistoryRequest) Execute() ([]MMRHistory, *http.Response, error) {
 }
 
 /*
-MmrHistory MMR History
+MmrHistory MMR History (Deprecated)
 
-Player MMR History
+
+Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank
+Valve reported for the player at the start of that match.
+
+Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
+instead.
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
  @return ApiMmrHistoryRequest
+
+Deprecated
 */
 func (a *MMRAPIService) MmrHistory(ctx context.Context, accountId int32) ApiMmrHistoryRequest {
 	return ApiMmrHistoryRequest{
@@ -846,6 +887,7 @@ func (a *MMRAPIService) MmrHistory(ctx context.Context, accountId int32) ApiMmrH
 
 // Execute executes the request
 //  @return []MMRHistory
+// Deprecated
 func (a *MMRAPIService) MmrHistoryExecute(r ApiMmrHistoryRequest) ([]MMRHistory, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

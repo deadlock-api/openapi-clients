@@ -58,7 +58,8 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $openAPITypes = [
         'badge_level' => 'int',
-        'total_matches' => 'int'
+        'total_matches' => 'int',
+        'unique_players' => 'int'
     ];
 
     /**
@@ -70,7 +71,8 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $openAPIFormats = [
         'badge_level' => 'int32',
-        'total_matches' => 'int64'
+        'total_matches' => 'int64',
+        'unique_players' => 'int64'
     ];
 
     /**
@@ -80,7 +82,8 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static array $openAPINullables = [
         'badge_level' => false,
-        'total_matches' => false
+        'total_matches' => false,
+        'unique_players' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'badge_level' => 'badge_level',
-        'total_matches' => 'total_matches'
+        'total_matches' => 'total_matches',
+        'unique_players' => 'unique_players'
     ];
 
     /**
@@ -180,7 +184,8 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'badge_level' => 'setBadgeLevel',
-        'total_matches' => 'setTotalMatches'
+        'total_matches' => 'setTotalMatches',
+        'unique_players' => 'setUniquePlayers'
     ];
 
     /**
@@ -190,7 +195,8 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'badge_level' => 'getBadgeLevel',
-        'total_matches' => 'getTotalMatches'
+        'total_matches' => 'getTotalMatches',
+        'unique_players' => 'getUniquePlayers'
     ];
 
     /**
@@ -252,6 +258,7 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $this->setIfExists('badge_level', $data ?? [], null);
         $this->setIfExists('total_matches', $data ?? [], null);
+        $this->setIfExists('unique_players', $data ?? [], null);
     }
 
     /**
@@ -293,6 +300,13 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
         if (($this->container['total_matches'] < 0)) {
             $invalidProperties[] = "invalid value for 'total_matches', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['unique_players'] === null) {
+            $invalidProperties[] = "'unique_players' can't be null";
+        }
+        if (($this->container['unique_players'] < 0)) {
+            $invalidProperties[] = "invalid value for 'unique_players', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -368,6 +382,37 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
 
         $this->container['total_matches'] = $total_matches;
+
+        return $this;
+    }
+
+    /**
+     * Gets unique_players
+     *
+     * @return int
+     */
+    public function getUniquePlayers()
+    {
+        return $this->container['unique_players'];
+    }
+
+    /**
+     * Sets unique_players
+     *
+     * @param int $unique_players The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
+     *
+     * @return self
+     */
+    public function setUniquePlayers($unique_players)
+    {
+        if (is_null($unique_players)) {
+            throw new \InvalidArgumentException('non-nullable unique_players cannot be null');
+        }
+        if (($unique_players < 0)) {
+            throw new \InvalidArgumentException('invalid value for $unique_players when calling BadgeDistribution., must be bigger than or equal to 0.');
+        }
+
+        $this->container['unique_players'] = $unique_players;
 
         return $this;
     }

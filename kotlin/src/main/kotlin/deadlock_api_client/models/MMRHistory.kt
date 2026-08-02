@@ -35,7 +35,7 @@ import java.io.Serializable
  * @param division Extracted from the rank the division (rank // 10)
  * @param divisionTier Extracted from the rank the division tier (rank % 10)
  * @param matchId 
- * @param playerScore Player Score is the index for the rank array (internally used for the rank regression)
+ * @param playerScore Contiguous index of the rank (1-66), derived from `rank`
  * @param rank The Player Rank (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param startTime Start time of the match
  */
@@ -57,7 +57,7 @@ data class MMRHistory (
     @Json(name = "match_id")
     val matchId: kotlin.Long,
 
-    /* Player Score is the index for the rank array (internally used for the rank regression) */
+    /* Contiguous index of the rank (1-66), derived from `rank` */
     @Json(name = "player_score")
     val playerScore: kotlin.Double,
 

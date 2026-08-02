@@ -58,9 +58,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[MMRHistory]:
-        """Batch Hero MMR
+        """(Deprecated) Batch Hero MMR (Deprecated)
 
-         Batch Player Hero MMR 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -89,6 +89,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_serialize(
             account_ids=account_ids,
@@ -135,9 +136,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[MMRHistory]]:
-        """Batch Hero MMR
+        """(Deprecated) Batch Hero MMR (Deprecated)
 
-         Batch Player Hero MMR 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -166,6 +167,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_serialize(
             account_ids=account_ids,
@@ -212,9 +214,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Batch Hero MMR
+        """(Deprecated) Batch Hero MMR (Deprecated)
 
-         Batch Player Hero MMR 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -243,6 +245,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_serialize(
             account_ids=account_ids,
@@ -366,9 +369,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[DistributionEntry]:
-        """Hero MMR Distribution
+        """(Deprecated) Hero MMR Distribution (Deprecated)
 
-         Player Hero MMR Distribution 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
 
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -411,6 +414,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/distribution/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_distribution_serialize(
             hero_id=hero_id,
@@ -471,9 +475,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[DistributionEntry]]:
-        """Hero MMR Distribution
+        """(Deprecated) Hero MMR Distribution (Deprecated)
 
-         Player Hero MMR Distribution 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
 
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -516,6 +520,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/distribution/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_distribution_serialize(
             hero_id=hero_id,
@@ -576,9 +581,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Hero MMR Distribution
+        """(Deprecated) Hero MMR Distribution (Deprecated)
 
-         Player Hero MMR Distribution 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
 
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -621,6 +626,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/distribution/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_distribution_serialize(
             hero_id=hero_id,
@@ -777,9 +783,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[MMRHistory]:
-        """Hero MMR History
+        """(Deprecated) Hero MMR History (Deprecated)
 
-        Player Hero MMR History
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player's rank at the start of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -806,6 +812,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/{account_id}/mmr-history/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_history_serialize(
             account_id=account_id,
@@ -850,9 +857,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[MMRHistory]]:
-        """Hero MMR History
+        """(Deprecated) Hero MMR History (Deprecated)
 
-        Player Hero MMR History
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player's rank at the start of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -879,6 +886,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/{account_id}/mmr-history/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_history_serialize(
             account_id=account_id,
@@ -923,9 +931,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Hero MMR History
+        """(Deprecated) Hero MMR History (Deprecated)
 
-        Player Hero MMR History
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player's rank at the start of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -952,6 +960,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/{account_id}/mmr-history/{hero_id} is deprecated.", DeprecationWarning)
 
         _param = self._hero_mmr_history_serialize(
             account_id=account_id,
@@ -1058,9 +1067,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[MMRHistory]:
-        """Batch MMR
+        """(Deprecated) Batch MMR (Deprecated)
 
-         Batch Player MMR 
+         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1087,6 +1096,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr is deprecated.", DeprecationWarning)
 
         _param = self._mmr_serialize(
             account_ids=account_ids,
@@ -1131,9 +1141,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[MMRHistory]]:
-        """Batch MMR
+        """(Deprecated) Batch MMR (Deprecated)
 
-         Batch Player MMR 
+         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1160,6 +1170,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr is deprecated.", DeprecationWarning)
 
         _param = self._mmr_serialize(
             account_ids=account_ids,
@@ -1204,9 +1215,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Batch MMR
+        """(Deprecated) Batch MMR (Deprecated)
 
-         Batch Player MMR 
+         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1233,6 +1244,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr is deprecated.", DeprecationWarning)
 
         _param = self._mmr_serialize(
             account_ids=account_ids,
@@ -1351,9 +1363,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[DistributionEntry]:
-        """MMR Distribution
+        """(Deprecated) MMR Distribution (Deprecated)
 
-         Player MMR Distribution 
+         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -1394,6 +1406,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/distribution is deprecated.", DeprecationWarning)
 
         _param = self._mmr_distribution_serialize(
             min_unix_timestamp=min_unix_timestamp,
@@ -1452,9 +1465,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[DistributionEntry]]:
-        """MMR Distribution
+        """(Deprecated) MMR Distribution (Deprecated)
 
-         Player MMR Distribution 
+         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -1495,6 +1508,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/distribution is deprecated.", DeprecationWarning)
 
         _param = self._mmr_distribution_serialize(
             min_unix_timestamp=min_unix_timestamp,
@@ -1553,9 +1567,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """MMR Distribution
+        """(Deprecated) MMR Distribution (Deprecated)
 
-         Player MMR Distribution 
+         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -1596,6 +1610,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/mmr/distribution is deprecated.", DeprecationWarning)
 
         _param = self._mmr_distribution_serialize(
             min_unix_timestamp=min_unix_timestamp,
@@ -1747,9 +1762,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[MMRHistory]:
-        """MMR History
+        """(Deprecated) MMR History (Deprecated)
 
-        Player MMR History
+         Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -1774,6 +1789,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/{account_id}/mmr-history is deprecated.", DeprecationWarning)
 
         _param = self._mmr_history_serialize(
             account_id=account_id,
@@ -1816,9 +1832,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[MMRHistory]]:
-        """MMR History
+        """(Deprecated) MMR History (Deprecated)
 
-        Player MMR History
+         Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -1843,6 +1859,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/{account_id}/mmr-history is deprecated.", DeprecationWarning)
 
         _param = self._mmr_history_serialize(
             account_id=account_id,
@@ -1885,9 +1902,9 @@ class MMRApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """MMR History
+        """(Deprecated) MMR History (Deprecated)
 
-        Player MMR History
+         Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -1912,6 +1929,7 @@ class MMRApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/players/{account_id}/mmr-history is deprecated.", DeprecationWarning)
 
         _param = self._mmr_history_serialize(
             account_id=account_id,

@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BadgeLevel** | **int32** | The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
 **TotalMatches** | **int64** | The total number of matches. | 
+**UniquePlayers** | **int64** | The number of unique players whose rank on their latest ranked match in the filtered range is this badge level. | 
 
 ## Methods
 
 ### NewBadgeDistribution
 
-`func NewBadgeDistribution(badgeLevel int32, totalMatches int64, ) *BadgeDistribution`
+`func NewBadgeDistribution(badgeLevel int32, totalMatches int64, uniquePlayers int64, ) *BadgeDistribution`
 
 NewBadgeDistribution instantiates a new BadgeDistribution object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *BadgeDistribution) SetTotalMatches(v int64)`
 
 SetTotalMatches sets TotalMatches field to given value.
+
+
+### GetUniquePlayers
+
+`func (o *BadgeDistribution) GetUniquePlayers() int64`
+
+GetUniquePlayers returns the UniquePlayers field if non-nil, zero value otherwise.
+
+### GetUniquePlayersOk
+
+`func (o *BadgeDistribution) GetUniquePlayersOk() (*int64, bool)`
+
+GetUniquePlayersOk returns a tuple with the UniquePlayers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUniquePlayers
+
+`func (o *BadgeDistribution) SetUniquePlayers(v int64)`
+
+SetUniquePlayers sets UniquePlayers field to given value.
 
 
 

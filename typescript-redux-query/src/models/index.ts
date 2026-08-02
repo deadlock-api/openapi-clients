@@ -94,6 +94,7 @@ export * from './ItemType';
 export * from './JobStatus';
 export * from './KillDeathStats';
 export * from './LaneInfo';
+export * from './LastRankedMatch';
 export * from './Leaderboard';
 export * from './LeaderboardEntry';
 export * from './ListServersResponse';

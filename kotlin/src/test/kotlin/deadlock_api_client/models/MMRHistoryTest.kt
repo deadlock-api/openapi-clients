@@ -57,7 +57,7 @@ class MMRHistoryTest : ShouldSpec() {
             //modelInstance.matchId shouldBe ("TODO")
         }
 
-        // to test the property `playerScore` - Player Score is the index for the rank array (internally used for the rank regression)
+        // to test the property `playerScore` - Contiguous index of the rank (1-66), derived from `rank`
         should("test playerScore") {
             // uncomment below to test the property
             //modelInstance.playerScore shouldBe ("TODO")

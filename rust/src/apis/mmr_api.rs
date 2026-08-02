@@ -154,7 +154,8 @@ pub enum MmrHistoryError {
 }
 
 
-///  Batch Player Hero MMR 
+///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
+#[deprecated]
 pub async fn hero_mmr(configuration: &configuration::Configuration, params: HeroMmrParams) -> Result<Vec<models::MmrHistory>, Error<HeroMmrError>> {
 
     let uri_str = format!("{}/v1/players/mmr/{hero_id}", configuration.base_path, hero_id=params.hero_id);
@@ -196,7 +197,8 @@ pub async fn hero_mmr(configuration: &configuration::Configuration, params: Hero
     }
 }
 
-///  Player Hero MMR Distribution 
+///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
+#[deprecated]
 pub async fn hero_mmr_distribution(configuration: &configuration::Configuration, params: HeroMmrDistributionParams) -> Result<Vec<models::DistributionEntry>, Error<HeroMmrDistributionError>> {
 
     let uri_str = format!("{}/v1/players/mmr/distribution/{hero_id}", configuration.base_path, hero_id=params.hero_id);
@@ -258,7 +260,8 @@ pub async fn hero_mmr_distribution(configuration: &configuration::Configuration,
     }
 }
 
-/// Player Hero MMR History
+///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player's rank at the start of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+#[deprecated]
 pub async fn hero_mmr_history(configuration: &configuration::Configuration, params: HeroMmrHistoryParams) -> Result<Vec<models::MmrHistory>, Error<HeroMmrHistoryError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/mmr-history/{hero_id}", configuration.base_path, account_id=params.account_id, hero_id=params.hero_id);
@@ -293,7 +296,8 @@ pub async fn hero_mmr_history(configuration: &configuration::Configuration, para
     }
 }
 
-///  Batch Player MMR 
+///  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+#[deprecated]
 pub async fn mmr(configuration: &configuration::Configuration, params: MmrParams) -> Result<Vec<models::MmrHistory>, Error<MmrError>> {
 
     let uri_str = format!("{}/v1/players/mmr", configuration.base_path);
@@ -335,7 +339,8 @@ pub async fn mmr(configuration: &configuration::Configuration, params: MmrParams
     }
 }
 
-///  Player MMR Distribution 
+///  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+#[deprecated]
 pub async fn mmr_distribution(configuration: &configuration::Configuration, params: MmrDistributionParams) -> Result<Vec<models::DistributionEntry>, Error<MmrDistributionError>> {
 
     let uri_str = format!("{}/v1/players/mmr/distribution", configuration.base_path);
@@ -397,7 +402,8 @@ pub async fn mmr_distribution(configuration: &configuration::Configuration, para
     }
 }
 
-/// Player MMR History
+///  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+#[deprecated]
 pub async fn mmr_history(configuration: &configuration::Configuration, params: MmrHistoryParams) -> Result<Vec<models::MmrHistory>, Error<MmrHistoryError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/mmr-history", configuration.base_path, account_id=params.account_id);

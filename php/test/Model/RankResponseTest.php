@@ -89,6 +89,15 @@ class RankResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "last_match"
+     */
+    public function testPropertyLastMatch()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "rank"
      */
     public function testPropertyRank()

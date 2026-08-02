@@ -4,21 +4,21 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**heroMmr**](MMRApi.md#heroMmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR |
-| [**heroMmrDistribution**](MMRApi.md#heroMmrDistribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution |
-| [**heroMmrHistory**](MMRApi.md#heroMmrHistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History |
-| [**mmr**](MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR |
-| [**mmrDistribution**](MMRApi.md#mmrDistribution) | **GET** /v1/players/mmr/distribution | MMR Distribution |
-| [**mmrHistory**](MMRApi.md#mmrHistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History |
+| [**heroMmr**](MMRApi.md#heroMmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR (Deprecated) |
+| [**heroMmrDistribution**](MMRApi.md#heroMmrDistribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution (Deprecated) |
+| [**heroMmrHistory**](MMRApi.md#heroMmrHistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History (Deprecated) |
+| [**mmr**](MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR (Deprecated) |
+| [**mmrDistribution**](MMRApi.md#mmrDistribution) | **GET** /v1/players/mmr/distribution | MMR Distribution (Deprecated) |
+| [**mmrHistory**](MMRApi.md#mmrHistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History (Deprecated) |
 
 
 <a id="heroMmr"></a>
 # **heroMmr**
 > kotlin.collections.List&lt;MMRHistory&gt; heroMmr(heroId, accountIds, maxMatchId)
 
-Batch Hero MMR
+Batch Hero MMR (Deprecated)
 
- Batch Player Hero MMR 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -66,9 +66,9 @@ No authorization required
 # **heroMmrDistribution**
 > kotlin.collections.List&lt;DistributionEntry&gt; heroMmrDistribution(heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
 
-Hero MMR Distribution
+Hero MMR Distribution (Deprecated)
 
- Player Hero MMR Distribution 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -101,7 +101,7 @@ try {
 
 ### Parameters
 | **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1782950400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1783036800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -130,9 +130,9 @@ No authorization required
 # **heroMmrHistory**
 > kotlin.collections.List&lt;MMRHistory&gt; heroMmrHistory(accountId, heroId)
 
-Hero MMR History
+Hero MMR History (Deprecated)
 
-Player Hero MMR History
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player&#39;s rank at the start of each ranked match they played on that hero.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -178,9 +178,9 @@ No authorization required
 # **mmr**
 > kotlin.collections.List&lt;MMRHistory&gt; mmr(accountIds, maxMatchId)
 
-Batch MMR
+Batch MMR (Deprecated)
 
- Batch Player MMR 
+ Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -226,9 +226,9 @@ No authorization required
 # **mmrDistribution**
 > kotlin.collections.List&lt;DistributionEntry&gt; mmrDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
 
-MMR Distribution
+MMR Distribution (Deprecated)
 
- Player MMR Distribution 
+ Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -259,7 +259,7 @@ try {
 ```
 
 ### Parameters
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1782950400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1783036800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -288,9 +288,9 @@ No authorization required
 # **mmrHistory**
 > kotlin.collections.List&lt;MMRHistory&gt; mmrHistory(accountId)
 
-MMR History
+MMR History (Deprecated)
 
-Player MMR History
+ Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
 
 ### Example
 ```kotlin

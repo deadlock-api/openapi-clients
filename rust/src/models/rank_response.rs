@@ -16,6 +16,9 @@ pub struct RankResponse {
     /// Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "badge")]
     pub badge: u32,
+    /// Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.
+    #[serde(rename = "last_match", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub last_match: Option<Option<Box<models::LastRankedMatch>>>,
     /// Rank tier, `0` when unknown.
     #[serde(rename = "rank")]
     pub rank: u32,
@@ -28,6 +31,7 @@ impl RankResponse {
     pub fn new(badge: u32, rank: u32, subrank: u32) -> RankResponse {
         RankResponse {
             badge,
+            last_match: None,
             rank,
             subrank,
         }

@@ -45,5 +45,11 @@ class BadgeDistributionTest : ShouldSpec() {
             //modelInstance.totalMatches shouldBe ("TODO")
         }
 
+        // to test the property `uniquePlayers` - The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
+        should("test uniquePlayers") {
+            // uncomment below to test the property
+            //modelInstance.uniquePlayers shouldBe ("TODO")
+        }
+
     }
 }

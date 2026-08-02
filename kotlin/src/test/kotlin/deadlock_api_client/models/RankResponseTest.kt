@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.RankResponse
+import deadlock_api_client.models.LastRankedMatch
 
 class RankResponseTest : ShouldSpec() {
     init {
@@ -49,6 +50,12 @@ class RankResponseTest : ShouldSpec() {
         should("test subrank") {
             // uncomment below to test the property
             //modelInstance.subrank shouldBe ("TODO")
+        }
+
+        // to test the property `lastMatch` - Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.
+        should("test lastMatch") {
+            // uncomment below to test the property
+            //modelInstance.lastMatch shouldBe ("TODO")
         }
 
     }

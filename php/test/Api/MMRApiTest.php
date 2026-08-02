@@ -74,7 +74,7 @@ class MMRApiTest extends TestCase
     /**
      * Test case for heroMmr
      *
-     * Batch Hero MMR.
+     * Batch Hero MMR (Deprecated).
      *
      */
     public function testHeroMmr()
@@ -86,7 +86,7 @@ class MMRApiTest extends TestCase
     /**
      * Test case for heroMmrDistribution
      *
-     * Hero MMR Distribution.
+     * Hero MMR Distribution (Deprecated).
      *
      */
     public function testHeroMmrDistribution()
@@ -98,7 +98,7 @@ class MMRApiTest extends TestCase
     /**
      * Test case for heroMmrHistory
      *
-     * Hero MMR History.
+     * Hero MMR History (Deprecated).
      *
      */
     public function testHeroMmrHistory()
@@ -110,7 +110,7 @@ class MMRApiTest extends TestCase
     /**
      * Test case for mmr
      *
-     * Batch MMR.
+     * Batch MMR (Deprecated).
      *
      */
     public function testMmr()
@@ -122,7 +122,7 @@ class MMRApiTest extends TestCase
     /**
      * Test case for mmrDistribution
      *
-     * MMR Distribution.
+     * MMR Distribution (Deprecated).
      *
      */
     public function testMmrDistribution()
@@ -134,7 +134,7 @@ class MMRApiTest extends TestCase
     /**
      * Test case for mmrHistory
      *
-     * MMR History.
+     * MMR History (Deprecated).
      *
      */
     public function testMmrHistory()

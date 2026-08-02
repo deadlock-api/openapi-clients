@@ -25,6 +25,8 @@ type BadgeDistribution struct {
 	BadgeLevel int32 `json:"badge_level"`
 	// The total number of matches.
 	TotalMatches int64 `json:"total_matches"`
+	// The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
+	UniquePlayers int64 `json:"unique_players"`
 }
 
 type _BadgeDistribution BadgeDistribution
@@ -33,10 +35,11 @@ type _BadgeDistribution BadgeDistribution
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBadgeDistribution(badgeLevel int32, totalMatches int64) *BadgeDistribution {
+func NewBadgeDistribution(badgeLevel int32, totalMatches int64, uniquePlayers int64) *BadgeDistribution {
 	this := BadgeDistribution{}
 	this.BadgeLevel = badgeLevel
 	this.TotalMatches = totalMatches
+	this.UniquePlayers = uniquePlayers
 	return &this
 }
 
@@ -96,6 +99,30 @@ func (o *BadgeDistribution) SetTotalMatches(v int64) {
 	o.TotalMatches = v
 }
 
+// GetUniquePlayers returns the UniquePlayers field value
+func (o *BadgeDistribution) GetUniquePlayers() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.UniquePlayers
+}
+
+// GetUniquePlayersOk returns a tuple with the UniquePlayers field value
+// and a boolean to check if the value has been set.
+func (o *BadgeDistribution) GetUniquePlayersOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UniquePlayers, true
+}
+
+// SetUniquePlayers sets field value
+func (o *BadgeDistribution) SetUniquePlayers(v int64) {
+	o.UniquePlayers = v
+}
+
 func (o BadgeDistribution) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +135,7 @@ func (o BadgeDistribution) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["badge_level"] = o.BadgeLevel
 	toSerialize["total_matches"] = o.TotalMatches
+	toSerialize["unique_players"] = o.UniquePlayers
 	return toSerialize, nil
 }
 
@@ -118,6 +146,7 @@ func (o *BadgeDistribution) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"badge_level",
 		"total_matches",
+		"unique_players",
 	}
 
 	allProperties := make(map[string]interface{})

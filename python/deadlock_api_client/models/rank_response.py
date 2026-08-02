@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.last_ranked_match import LastRankedMatch
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +30,10 @@ class RankResponse(BaseModel):
     RankResponse
     """ # noqa: E501
     badge: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    last_match: Optional[LastRankedMatch] = Field(default=None, description="Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.")
     rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank tier, `0` when unknown.")
     subrank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sub-rank within the tier, `0` when unknown.")
-    __properties: ClassVar[List[str]] = ["badge", "rank", "subrank"]
+    __properties: ClassVar[List[str]] = ["badge", "last_match", "rank", "subrank"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -72,6 +74,14 @@ class RankResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of last_match
+        if self.last_match:
+            _dict['last_match'] = self.last_match.to_dict()
+        # set to None if last_match (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_match is None and "last_match" in self.model_fields_set:
+            _dict['last_match'] = None
+
         return _dict
 
     @classmethod
@@ -85,6 +95,7 @@ class RankResponse(BaseModel):
 
         _obj = cls.model_validate({
             "badge": obj.get("badge"),
+            "last_match": LastRankedMatch.from_dict(obj["last_match"]) if obj.get("last_match") is not None else None,
             "rank": obj.get("rank"),
             "subrank": obj.get("subrank")
         })

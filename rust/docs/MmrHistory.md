@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **division** | **u32** | Extracted from the rank the division (rank // 10) | 
 **division_tier** | **u32** | Extracted from the rank the division tier (rank % 10) | 
 **match_id** | **u64** |  | 
-**player_score** | **f64** | Player Score is the index for the rank array (internally used for the rank regression) | 
+**player_score** | **f64** | Contiguous index of the rank (1-66), derived from `rank` | 
 **rank** | **u32** | The Player Rank (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> | 
 **start_time** | **u32** | Start time of the match | 
 

@@ -23,6 +23,8 @@ var _ MappedNullable = &RankResponse{}
 type RankResponse struct {
 	// Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	Badge int32 `json:"badge"`
+	// Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.
+	LastMatch NullableLastRankedMatch `json:"last_match,omitempty"`
 	// Rank tier, `0` when unknown.
 	Rank int32 `json:"rank"`
 	// Sub-rank within the tier, `0` when unknown.
@@ -73,6 +75,48 @@ func (o *RankResponse) GetBadgeOk() (*int32, bool) {
 // SetBadge sets field value
 func (o *RankResponse) SetBadge(v int32) {
 	o.Badge = v
+}
+
+// GetLastMatch returns the LastMatch field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankResponse) GetLastMatch() LastRankedMatch {
+	if o == nil || IsNil(o.LastMatch.Get()) {
+		var ret LastRankedMatch
+		return ret
+	}
+	return *o.LastMatch.Get()
+}
+
+// GetLastMatchOk returns a tuple with the LastMatch field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankResponse) GetLastMatchOk() (*LastRankedMatch, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LastMatch.Get(), o.LastMatch.IsSet()
+}
+
+// HasLastMatch returns a boolean if a field has been set.
+func (o *RankResponse) HasLastMatch() bool {
+	if o != nil && o.LastMatch.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastMatch gets a reference to the given NullableLastRankedMatch and assigns it to the LastMatch field.
+func (o *RankResponse) SetLastMatch(v LastRankedMatch) {
+	o.LastMatch.Set(&v)
+}
+// SetLastMatchNil sets the value for LastMatch to be an explicit nil
+func (o *RankResponse) SetLastMatchNil() {
+	o.LastMatch.Set(nil)
+}
+
+// UnsetLastMatch ensures that no value is present for LastMatch, not even an explicit nil
+func (o *RankResponse) UnsetLastMatch() {
+	o.LastMatch.Unset()
 }
 
 // GetRank returns the Rank field value
@@ -134,6 +178,9 @@ func (o RankResponse) MarshalJSON() ([]byte, error) {
 func (o RankResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["badge"] = o.Badge
+	if o.LastMatch.IsSet() {
+		toSerialize["last_match"] = o.LastMatch.Get()
+	}
 	toSerialize["rank"] = o.Rank
 	toSerialize["subrank"] = o.Subrank
 	return toSerialize, nil

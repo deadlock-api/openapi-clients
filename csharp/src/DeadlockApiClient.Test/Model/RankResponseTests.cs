@@ -79,5 +79,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Subrank'
         }
+
+        /// <summary>
+        /// Test the property 'LastMatch'
+        /// </summary>
+        [Fact]
+        public void LastMatchTest()
+        {
+            // TODO unit test for the property 'LastMatch'
+        }
     }
 }

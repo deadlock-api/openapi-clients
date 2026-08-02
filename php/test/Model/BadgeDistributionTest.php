@@ -96,4 +96,13 @@ class BadgeDistributionTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "unique_players"
+     */
+    public function testPropertyUniquePlayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

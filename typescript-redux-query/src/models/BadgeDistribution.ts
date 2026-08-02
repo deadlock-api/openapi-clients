@@ -30,12 +30,19 @@ export interface BadgeDistribution  {
      * @memberof BadgeDistribution
      */
     totalMatches: number;
+    /**
+     * The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
+     * @type {number}
+     * @memberof BadgeDistribution
+     */
+    uniquePlayers: number;
 }
 
 export function BadgeDistributionFromJSON(json: any): BadgeDistribution {
     return {
         'badgeLevel': json['badge_level'],
         'totalMatches': json['total_matches'],
+        'uniquePlayers': json['unique_players'],
     };
 }
 
@@ -46,6 +53,7 @@ export function BadgeDistributionToJSON(value?: BadgeDistribution): any {
     return {
         'badge_level': value.badgeLevel,
         'total_matches': value.totalMatches,
+        'unique_players': value.uniquePlayers,
     };
 }
 

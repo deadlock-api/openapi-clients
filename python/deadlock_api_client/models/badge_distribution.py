@@ -30,7 +30,8 @@ class BadgeDistribution(BaseModel):
     """ # noqa: E501
     badge_level: Annotated[int, Field(strict=True, ge=0)] = Field(description="The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     total_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of matches.")
-    __properties: ClassVar[List[str]] = ["badge_level", "total_matches"]
+    unique_players: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.")
+    __properties: ClassVar[List[str]] = ["badge_level", "total_matches", "unique_players"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -84,7 +85,8 @@ class BadgeDistribution(BaseModel):
 
         _obj = cls.model_validate({
             "badge_level": obj.get("badge_level"),
-            "total_matches": obj.get("total_matches")
+            "total_matches": obj.get("total_matches"),
+            "unique_players": obj.get("unique_players")
         })
         return _obj
 

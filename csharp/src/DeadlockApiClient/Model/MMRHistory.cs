@@ -37,7 +37,7 @@ namespace DeadlockApiClient.Model
         /// <param name="division">Extracted from the rank the division (rank // 10)</param>
         /// <param name="divisionTier">Extracted from the rank the division tier (rank % 10)</param>
         /// <param name="matchId">matchId</param>
-        /// <param name="playerScore">Player Score is the index for the rank array (internally used for the rank regression)</param>
+        /// <param name="playerScore">Contiguous index of the rank (1-66), derived from &#x60;rank&#x60;</param>
         /// <param name="rank">The Player Rank (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="startTime">Start time of the match</param>
         [JsonConstructor]
@@ -82,9 +82,9 @@ namespace DeadlockApiClient.Model
         public long MatchId { get; set; }
 
         /// <summary>
-        /// Player Score is the index for the rank array (internally used for the rank regression)
+        /// Contiguous index of the rank (1-66), derived from &#x60;rank&#x60;
         /// </summary>
-        /// <value>Player Score is the index for the rank array (internally used for the rank regression)</value>
+        /// <value>Contiguous index of the rank (1-66), derived from &#x60;rank&#x60;</value>
         [JsonPropertyName("player_score")]
         public double PlayerScore { get; set; }
 

@@ -94,6 +94,7 @@ export * from './item-type.js';
 export * from './job-status.js';
 export * from './kill-death-stats.js';
 export * from './lane-info.js';
+export * from './last-ranked-match.js';
 export * from './leaderboard.js';
 export * from './leaderboard-entry.js';
 export * from './list-servers-response.js';

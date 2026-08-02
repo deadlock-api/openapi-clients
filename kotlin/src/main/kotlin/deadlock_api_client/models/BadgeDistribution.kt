@@ -33,6 +33,7 @@ import java.io.Serializable
  *
  * @param badgeLevel The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param totalMatches The total number of matches.
+ * @param uniquePlayers The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
  */
 
 
@@ -44,7 +45,11 @@ data class BadgeDistribution (
 
     /* The total number of matches. */
     @Json(name = "total_matches")
-    val totalMatches: kotlin.Long
+    val totalMatches: kotlin.Long,
+
+    /* The number of unique players whose rank on their latest ranked match in the filtered range is this badge level. */
+    @Json(name = "unique_players")
+    val uniquePlayers: kotlin.Long
 
 ) : Serializable {
     companion object {

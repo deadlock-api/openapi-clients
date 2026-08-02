@@ -4,21 +4,24 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**hero_mmr**](MMRApi.md#hero_mmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
-[**hero_mmr_distribution**](MMRApi.md#hero_mmr_distribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
-[**hero_mmr_history**](MMRApi.md#hero_mmr_history) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
-[**mmr**](MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR
-[**mmr_distribution**](MMRApi.md#mmr_distribution) | **GET** /v1/players/mmr/distribution | MMR Distribution
-[**mmr_history**](MMRApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History
+[**hero_mmr**](MMRApi.md#hero_mmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR (Deprecated)
+[**hero_mmr_distribution**](MMRApi.md#hero_mmr_distribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution (Deprecated)
+[**hero_mmr_history**](MMRApi.md#hero_mmr_history) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History (Deprecated)
+[**mmr**](MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR (Deprecated)
+[**mmr_distribution**](MMRApi.md#mmr_distribution) | **GET** /v1/players/mmr/distribution | MMR Distribution (Deprecated)
+[**mmr_history**](MMRApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History (Deprecated)
 
 
 # **hero_mmr**
 > List[MMRHistory] hero_mmr(account_ids, hero_id, max_match_id=max_match_id)
 
-Batch Hero MMR
+Batch Hero MMR (Deprecated)
 
 
-Batch Player Hero MMR
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each
+player's rank on their latest ranked match played on that hero.
+
+Use `/v1/players/{account_id}/rank` instead.
 
 
 ### Example
@@ -46,7 +49,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
 
     try:
-        # Batch Hero MMR
+        # Batch Hero MMR (Deprecated)
         api_response = api_instance.hero_mmr(account_ids, hero_id, max_match_id=max_match_id)
         print("The response of MMRApi->hero_mmr:\n")
         pprint(api_response)
@@ -91,10 +94,13 @@ No authorization required
 # **hero_mmr_distribution**
 > List[DistributionEntry] hero_mmr_distribution(hero_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
 
-Hero MMR Distribution
+Hero MMR Distribution (Deprecated)
 
 
-Player Hero MMR Distribution
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by
+the rank they had on their latest ranked match played on that hero.
+
+Use `/v1/analytics/badge-distribution` instead.
 
 
 ### Example
@@ -118,7 +124,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.MMRApi(api_client)
     hero_id = 56 # int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-    min_unix_timestamp = 1782950400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1782950400)
+    min_unix_timestamp = 1783036800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1783036800)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -129,7 +135,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
 
     try:
-        # Hero MMR Distribution
+        # Hero MMR Distribution (Deprecated)
         api_response = api_instance.hero_mmr_distribution(hero_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
         print("The response of MMRApi->hero_mmr_distribution:\n")
         pprint(api_response)
@@ -145,7 +151,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hero_id** | **int**| The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1782950400]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1783036800]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -181,9 +187,15 @@ No authorization required
 # **hero_mmr_history**
 > List[MMRHistory] hero_mmr_history(account_id, hero_id)
 
-Hero MMR History
+Hero MMR History (Deprecated)
 
-Player Hero MMR History
+
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the
+player's rank at the start of each ranked match they played on that hero.
+
+Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
+instead.
+
 
 ### Example
 
@@ -209,7 +221,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     hero_id = 56 # int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
     try:
-        # Hero MMR History
+        # Hero MMR History (Deprecated)
         api_response = api_instance.hero_mmr_history(account_id, hero_id)
         print("The response of MMRApi->hero_mmr_history:\n")
         pprint(api_response)
@@ -253,10 +265,13 @@ No authorization required
 # **mmr**
 > List[MMRHistory] mmr(account_ids, max_match_id=max_match_id)
 
-Batch MMR
+Batch MMR (Deprecated)
 
 
-Batch Player MMR
+Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on
+their latest ranked match. Players without a ranked match carrying a rank are left out.
+
+Use `/v1/players/{account_id}/rank` instead.
 
 
 ### Example
@@ -283,7 +298,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
 
     try:
-        # Batch MMR
+        # Batch MMR (Deprecated)
         api_response = api_instance.mmr(account_ids, max_match_id=max_match_id)
         print("The response of MMRApi->mmr:\n")
         pprint(api_response)
@@ -327,10 +342,13 @@ No authorization required
 # **mmr_distribution**
 > List[DistributionEntry] mmr_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
 
-MMR Distribution
+MMR Distribution (Deprecated)
 
 
-Player MMR Distribution
+Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their
+latest ranked match within the filtered range.
+
+Use `/v1/analytics/badge-distribution` instead.
 
 
 ### Example
@@ -353,7 +371,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.MMRApi(api_client)
-    min_unix_timestamp = 1782950400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1782950400)
+    min_unix_timestamp = 1783036800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1783036800)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -364,7 +382,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
 
     try:
-        # MMR Distribution
+        # MMR Distribution (Deprecated)
         api_response = api_instance.mmr_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
         print("The response of MMRApi->mmr_distribution:\n")
         pprint(api_response)
@@ -379,7 +397,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1782950400]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1783036800]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -415,9 +433,15 @@ No authorization required
 # **mmr_history**
 > List[MMRHistory] mmr_history(account_id)
 
-MMR History
+MMR History (Deprecated)
 
-Player MMR History
+
+Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank
+Valve reported for the player at the start of that match.
+
+Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
+instead.
+
 
 ### Example
 
@@ -442,7 +466,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     account_id = 56 # int | The players `SteamID3`
 
     try:
-        # MMR History
+        # MMR History (Deprecated)
         api_response = api_instance.mmr_history(account_id)
         print("The response of MMRApi->mmr_history:\n")
         pprint(api_response)

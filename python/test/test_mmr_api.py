@@ -29,42 +29,42 @@ class TestMMRApi(unittest.TestCase):
     def test_hero_mmr(self) -> None:
         """Test case for hero_mmr
 
-        Batch Hero MMR
+        Batch Hero MMR (Deprecated)
         """
         pass
 
     def test_hero_mmr_distribution(self) -> None:
         """Test case for hero_mmr_distribution
 
-        Hero MMR Distribution
+        Hero MMR Distribution (Deprecated)
         """
         pass
 
     def test_hero_mmr_history(self) -> None:
         """Test case for hero_mmr_history
 
-        Hero MMR History
+        Hero MMR History (Deprecated)
         """
         pass
 
     def test_mmr(self) -> None:
         """Test case for mmr
 
-        Batch MMR
+        Batch MMR (Deprecated)
         """
         pass
 
     def test_mmr_distribution(self) -> None:
         """Test case for mmr_distribution
 
-        MMR Distribution
+        MMR Distribution (Deprecated)
         """
         pass
 
     def test_mmr_history(self) -> None:
         """Test case for mmr_history
 
-        MMR History
+        MMR History (Deprecated)
         """
         pass
 

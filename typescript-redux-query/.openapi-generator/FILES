@@ -132,6 +132,7 @@ src/models/ItemType.ts
 src/models/JobStatus.ts
 src/models/KillDeathStats.ts
 src/models/LaneInfo.ts
+src/models/LastRankedMatch.ts
 src/models/Leaderboard.ts
 src/models/LeaderboardEntry.ts
 src/models/ListServersResponse.ts

@@ -9,11 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { LastRankedMatch } from './last-ranked-match.js';
 export interface RankResponse {
     /**
      * Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'badge': number;
+    /**
+     * Rank metadata of the ranked match the badge was read from. `null` when none of the player\'s recent ranked matches reports a rank.
+     */
+    'last_match'?: LastRankedMatch | null;
     /**
      * Rank tier, `0` when unknown.
      */

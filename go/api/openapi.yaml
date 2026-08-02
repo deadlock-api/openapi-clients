@@ -45,16 +45,21 @@ tags:
   name: Demo
 - description: Player related endpoints
   name: Players
-- description: "\n# STOP! READ THIS FIRST!\n\nPlease be very careful when using this\
-    \ endpoint and make yourself familiar with the way we calculate the MMR.\n\nThis\
-    \ is how we calculate a player MMR.\n\n1. We take the average badge of the team\
-    \ the player was on in a match.\n2. We convert the badge to a MMR score using\
-    \ the formula: `(intDiv(badge, 10) - 1) * 6 + (badge % 10)`\n3. We do a exponential\
-    \ moving average (EMA) of the last 50 matches to get the player's MMR score.\n\
-    4. We convert the MMR score back to a badge using the formula: `10 * intDiv(mmr_score,\
-    \ 6) + 1 + mmr_score % 6`\n\n### Rate Limits:\n| Type | Limit |\n| ---- | -----\
-    \ |\n| IP | 5req/min |\n| Key | 25req/min |\n| Global | 50req/min |\n\nRate limits\
-    \ are shared across all MMR endpoints (single bucket).\n    "
+- description: "\n# DEPRECATED! READ THIS FIRST!\n\nAll MMR endpoints are deprecated\
+    \ and will be removed. We no longer estimate a MMR: Valve reports the\nactual\
+    \ rank on ranked matches, and these endpoints now serve that rank instead of the\
+    \ old exponential\nmoving average over team average badges.\n\nMigrate to:\n\n\
+    | Deprecated | Replacement |\n| ---------- | ----------- |\n| `/v1/players/mmr`,\
+    \ `/v1/players/mmr/{hero_id}` | `/v1/players/{account_id}/rank` |\n| `/v1/players/mmr/distribution`,\
+    \ `/v1/players/mmr/distribution/{hero_id}` | `/v1/analytics/badge-distribution`\
+    \ |\n| `/v1/players/{account_id}/mmr-history`, `/v1/players/{account_id}/mmr-history/{hero_id}`\
+    \ | `ranked_display_badge` / `ranked_delta` in `/v1/players/{account_id}/match-history`\
+    \ |\n\nSince ranks only exist on ranked matches, players without one are missing\
+    \ from the responses, and the\nhero-scoped variants no longer differ per hero:\
+    \ they report the account-wide rank restricted to\nmatches played on that hero.\n\
+    \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n| Key\
+    \ | 25req/min |\n| Global | 50req/min |\n\nRate limits are shared across all MMR\
+    \ endpoints (single bucket).\n    "
   name: MMR
 - description: Steam related endpoints
   name: Steam
@@ -188,7 +193,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -413,10 +418,15 @@ paths:
       - Analytics
   /v1/analytics/badge-distribution:
     get:
-      description: "\nThis endpoint returns the player badge distribution.\n\n###\
-        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: "\nThis endpoint returns the player badge distribution.\n\n`total_matches`\
+        \ counts matches by their average badge, while `unique_players` counts players\
+        \ by the\nrank Valve reported on their latest ranked match within the filtered\
+        \ range. Since only ranked matches\ncarry a rank, `unique_players` ignores\
+        \ the `match_mode` filter and always looks at ranked matches.\n\nRanks exist\
+        \ only from the first ranked season on, so `min_unix_timestamp` is clamped\
+        \ to its start.\n\n### Rate Limits:\n> The rate limits below are **shared\
+        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
+        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: badge_distribution
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -445,14 +455,15 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Filter matches based on their start time (Unix timestamp). **Default:**
-          30 days ago.
+      - description: |-
+          Filter matches based on their start time (Unix timestamp). Values below the start of the
+          first ranked season (1785430800) are clamped to it. **Default:** 30 days ago.
         explode: true
         in: query
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -586,7 +597,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -674,7 +685,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -907,7 +918,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -1052,7 +1063,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -1252,7 +1263,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -1549,7 +1560,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -1818,7 +1829,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -2097,7 +2108,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -2383,7 +2394,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -2715,7 +2726,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -3015,7 +3026,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -3315,7 +3326,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -3620,7 +3631,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -3856,7 +3867,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -4169,7 +4180,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -8509,9 +8520,13 @@ paths:
       - Players
   /v1/players/mmr:
     get:
+      deprecated: true
       description: |2
 
-        Batch Player MMR
+        Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on
+        their latest ranked match. Players without a ranked match carrying a rank are left out.
+
+        Use `/v1/players/{account_id}/rank` instead.
       operationId: mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -8555,14 +8570,18 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch mmr
-      summary: Batch MMR
+      summary: Batch MMR (Deprecated)
       tags:
       - MMR
   /v1/players/mmr/distribution:
     get:
+      deprecated: true
       description: |2
 
-        Player MMR Distribution
+        Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their
+        latest ranked match within the filtered range.
+
+        Use `/v1/analytics/badge-distribution` instead.
       operationId: mmr_distribution
       parameters:
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
@@ -8572,7 +8591,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -8675,14 +8694,18 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch mmr
-      summary: MMR Distribution
+      summary: MMR Distribution (Deprecated)
       tags:
       - MMR
   /v1/players/mmr/distribution/{hero_id}:
     get:
+      deprecated: true
       description: |2
 
-        Player Hero MMR Distribution
+        Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by
+        the rank they had on their latest ranked match played on that hero.
+
+        Use `/v1/analytics/badge-distribution` instead.
       operationId: hero_mmr_distribution
       parameters:
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
@@ -8692,7 +8715,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1782950400
+          default: 1783036800
           format: int64
           nullable: true
           type: integer
@@ -8805,14 +8828,18 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch hero mmr
-      summary: Hero MMR Distribution
+      summary: Hero MMR Distribution (Deprecated)
       tags:
       - MMR
   /v1/players/mmr/{hero_id}:
     get:
+      deprecated: true
       description: |2
 
-        Batch Player Hero MMR
+        Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each
+        player's rank on their latest ranked match played on that hero.
+
+        Use `/v1/players/{account_id}/rank` instead.
       operationId: hero_mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -8866,7 +8893,7 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch hero mmr
-      summary: Batch Hero MMR
+      summary: Batch Hero MMR (Deprecated)
       tags:
       - MMR
   /v1/players/rank-predict/image:
@@ -9584,7 +9611,14 @@ paths:
       - Players
   /v1/players/{account_id}/mmr-history:
     get:
-      description: Player MMR History
+      deprecated: true
+      description: |2
+
+        Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank
+        Valve reported for the player at the start of that match.
+
+        Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
+        instead.
       operationId: mmr_history
       parameters:
       - description: The players `SteamID3`
@@ -9611,12 +9645,19 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch mmr history
-      summary: MMR History
+      summary: MMR History (Deprecated)
       tags:
       - MMR
   /v1/players/{account_id}/mmr-history/{hero_id}:
     get:
-      description: Player Hero MMR History
+      deprecated: true
+      description: |2
+
+        Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the
+        player's rank at the start of each ranked match they played on that hero.
+
+        Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
+        instead.
       operationId: hero_mmr_history
       parameters:
       - description: The players `SteamID3`
@@ -9653,7 +9694,7 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch hero mmr history
-      summary: Hero MMR History
+      summary: Hero MMR History (Deprecated)
       tags:
       - MMR
   /v1/players/{account_id}/rank:
@@ -9664,7 +9705,10 @@ paths:
 
         Only ranked matches carry a rank, and it stays unset while the player is in placement games.
         When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are
-        all `0`, which is the `Obscurus` (unranked) tier.
+        all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.
+
+        `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining
+        placement games and demotion protection.
       operationId: rank
       parameters:
       - description: The players `SteamID3`
@@ -11006,6 +11050,7 @@ components:
       example:
         badge_level: 0
         total_matches: 0
+        unique_players: 0
       properties:
         badge_level:
           description: "The badge level (tier = first digits, subtier = last digit).\
@@ -11018,9 +11063,16 @@ components:
           format: int64
           minimum: 0
           type: integer
+        unique_players:
+          description: The number of unique players whose rank on their latest ranked
+            match in the filtered range is this badge level.
+          format: int64
+          minimum: 0
+          type: integer
       required:
       - badge_level
       - total_matches
+      - unique_players
     Build:
       example:
         hero_build:
@@ -14162,6 +14214,68 @@ components:
       required:
       - color
       - lane_name
+    LastRankedMatch:
+      properties:
+        match_id:
+          format: int64
+          minimum: 0
+          type: integer
+        player_rank_consumed_demotion_protection:
+          description: Whether the match used up one of the player's demotion protection
+            games.
+          nullable: true
+          type: boolean
+        player_rank_desired_progress_change:
+          description: "Progress change the match was supposed to award, before demotion\
+            \ protection is applied."
+          format: int32
+          nullable: true
+          type: integer
+        player_rank_final_flat_progress:
+          description: Rank progress the player ended the match with.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        player_rank_initial_calibration_games:
+          description: Remaining placement games at the start of the match.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        player_rank_initial_demotion_protection_games:
+          description: Remaining demotion protection games at the start of the match.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        player_rank_initial_display_rank:
+          description: "Rank badge the player entered the match with, `tier * 10 +\
+            \ subrank`."
+          format: int32
+          minimum: 0
+          type: integer
+        player_rank_initial_flat_progress:
+          description: Rank progress the player entered the match with.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        player_rank_initial_win_streak:
+          description: Win streak the player entered the match with.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        start_time:
+          description: Match start time as a unix timestamp.
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - match_id
+      - player_rank_initial_display_rank
+      - start_time
     Leaderboard:
       example:
         entries:
@@ -14330,8 +14444,7 @@ components:
           minimum: 0
           type: integer
         player_score:
-          description: Player Score is the index for the rank array (internally used
-            for the rank regression)
+          description: "Contiguous index of the rank (1-66), derived from `rank`"
           format: double
           type: number
         rank:
@@ -16157,6 +16270,7 @@ components:
     RankResponse:
       example:
         badge: 0
+        last_match: ""
         rank: 0
         subrank: 0
       properties:
@@ -16167,6 +16281,13 @@ components:
           format: int32
           minimum: 0
           type: integer
+        last_match:
+          allOf:
+          - $ref: "#/components/schemas/LastRankedMatch"
+          description: |-
+            Rank metadata of the ranked match the badge was read from. `null` when none of the player's
+            recent ranked matches reports a rank.
+          nullable: true
         rank:
           description: "Rank tier, `0` when unknown."
           format: int32

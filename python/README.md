@@ -168,12 +168,12 @@ Class | Method | HTTP request | Description
 *LeaderboardApi* | [**leaderboard_hero_raw**](docs/LeaderboardApi.md#leaderboard_hero_raw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
 *LeaderboardApi* | [**leaderboard_raw**](docs/LeaderboardApi.md#leaderboard_raw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
 *LootTablesApi* | [**list_loot_tables**](docs/LootTablesApi.md#list_loot_tables) | **GET** /v1/assets/loot-tables | List Loot Tables
-*MMRApi* | [**hero_mmr**](docs/MMRApi.md#hero_mmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR
-*MMRApi* | [**hero_mmr_distribution**](docs/MMRApi.md#hero_mmr_distribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution
-*MMRApi* | [**hero_mmr_history**](docs/MMRApi.md#hero_mmr_history) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History
-*MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR
-*MMRApi* | [**mmr_distribution**](docs/MMRApi.md#mmr_distribution) | **GET** /v1/players/mmr/distribution | MMR Distribution
-*MMRApi* | [**mmr_history**](docs/MMRApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History
+*MMRApi* | [**hero_mmr**](docs/MMRApi.md#hero_mmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR (Deprecated)
+*MMRApi* | [**hero_mmr_distribution**](docs/MMRApi.md#hero_mmr_distribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution (Deprecated)
+*MMRApi* | [**hero_mmr_history**](docs/MMRApi.md#hero_mmr_history) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History (Deprecated)
+*MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR (Deprecated)
+*MMRApi* | [**mmr_distribution**](docs/MMRApi.md#mmr_distribution) | **GET** /v1/players/mmr/distribution | MMR Distribution (Deprecated)
+*MMRApi* | [**mmr_history**](docs/MMRApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History (Deprecated)
 *MapApi* | [**get_map**](docs/MapApi.md#get_map) | **GET** /v1/assets/map | Map
 *MatchesApi* | [**active_matches**](docs/MatchesApi.md#active_matches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**active_matches_raw**](docs/MatchesApi.md#active_matches_raw) | **GET** /v1/matches/active/raw | Active as Protobuf
@@ -318,6 +318,7 @@ Class | Method | HTTP request | Description
  - [JobStatus](docs/JobStatus.md)
  - [KillDeathStats](docs/KillDeathStats.md)
  - [LaneInfo](docs/LaneInfo.md)
+ - [LastRankedMatch](docs/LastRankedMatch.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
  - [ListServersResponse](docs/ListServersResponse.md)

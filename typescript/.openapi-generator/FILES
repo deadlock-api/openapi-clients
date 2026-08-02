@@ -149,6 +149,7 @@ docs/ItemsApi.md
 docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
+docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
@@ -370,6 +371,7 @@ models/item.ts
 models/job-status.ts
 models/kill-death-stats.ts
 models/lane-info.ts
+models/last-ranked-match.ts
 models/leaderboard-entry.ts
 models/leaderboard.ts
 models/list-servers-response.ts

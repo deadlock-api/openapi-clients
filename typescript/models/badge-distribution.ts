@@ -23,5 +23,9 @@ export interface BadgeDistribution {
      * The total number of matches.
      */
     'total_matches': number;
+    /**
+     * The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
+     */
+    'unique_players': number;
 }
 

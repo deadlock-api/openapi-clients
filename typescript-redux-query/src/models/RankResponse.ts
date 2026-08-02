@@ -12,6 +12,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    LastRankedMatch,
+    LastRankedMatchFromJSON,
+    LastRankedMatchToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -24,6 +30,12 @@ export interface RankResponse  {
      * @memberof RankResponse
      */
     badge: number;
+    /**
+     * Rank metadata of the ranked match the badge was read from. `null` when none of the player\'s recent ranked matches reports a rank.
+     * @type {LastRankedMatch}
+     * @memberof RankResponse
+     */
+    lastMatch?: LastRankedMatch;
     /**
      * Rank tier, `0` when unknown.
      * @type {number}
@@ -41,6 +53,7 @@ export interface RankResponse  {
 export function RankResponseFromJSON(json: any): RankResponse {
     return {
         'badge': json['badge'],
+        'lastMatch': !exists(json, 'last_match') ? undefined : LastRankedMatchFromJSON(json['last_match']),
         'rank': json['rank'],
         'subrank': json['subrank'],
     };
@@ -52,6 +65,7 @@ export function RankResponseToJSON(value?: RankResponse): any {
     }
     return {
         'badge': value.badge,
+        'last_match': LastRankedMatchToJSON(value.lastMatch),
         'rank': value.rank,
         'subrank': value.subrank,
     };
