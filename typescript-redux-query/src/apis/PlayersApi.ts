@@ -81,6 +81,7 @@ export interface MateStatsRequest {
 export interface PlayerHeroStatsRequest {
     accountIds: Array<number>;
     gameMode?: PlayerHeroStatsGameModeEnum;
+    matchMode?: string;
     heroIds?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
@@ -487,6 +488,11 @@ function playerHeroStatsRaw<T>(requestParameters: PlayerHeroStatsRequest, reques
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 

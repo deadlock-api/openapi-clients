@@ -852,6 +852,7 @@ type ApiPlayerHeroStatsRequest struct {
 	ApiService *PlayersAPIService
 	accountIds *[]int32
 	gameMode *string
+	matchMode *string
 	heroIds *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
@@ -874,6 +875,12 @@ func (r ApiPlayerHeroStatsRequest) AccountIds(accountIds []int32) ApiPlayerHeroS
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
 func (r ApiPlayerHeroStatsRequest) GameMode(gameMode string) ApiPlayerHeroStatsRequest {
 	r.gameMode = &gameMode
+	return r
+}
+
+// Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+func (r ApiPlayerHeroStatsRequest) MatchMode(matchMode string) ApiPlayerHeroStatsRequest {
+	r.matchMode = &matchMode
 	return r
 }
 
@@ -1014,6 +1021,9 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 	}
 	if r.gameMode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
+	if r.matchMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "match_mode", r.matchMode, "form", "")
 	}
 	if r.heroIds != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")

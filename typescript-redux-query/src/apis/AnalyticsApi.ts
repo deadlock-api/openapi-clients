@@ -74,6 +74,7 @@ import {
 export interface AbilityOrderStatsRequest {
     heroId: number;
     gameMode?: AbilityOrderStatsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -95,6 +96,7 @@ export interface AbilityOrderStatsRequest {
 
 export interface BadgeDistributionRequest {
     gameMode?: BadgeDistributionGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -115,6 +117,7 @@ export interface BuildItemStatsRequest {
 export interface GameStatsRequest {
     bucket?: GameStatsBucketEnum;
     gameMode?: GameStatsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -132,6 +135,7 @@ export interface GameStatsRequest {
 }
 
 export interface HeroBanStatsRequest {
+    matchMode?: string;
     bucket?: HeroBanStatsBucketEnum;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
@@ -145,6 +149,7 @@ export interface HeroBanStatsRequest {
 
 export interface HeroBuildStatsRequest {
     heroId: number;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -161,6 +166,7 @@ export interface HeroBuildStatsRequest {
 
 export interface HeroCombStatsRequest {
     gameMode?: HeroCombStatsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -184,6 +190,7 @@ export interface HeroCombStatsRequest {
 
 export interface HeroCountersStatsRequest {
     gameMode?: HeroCountersStatsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -207,6 +214,7 @@ export interface HeroScoreboardRequest {
     sortBy: HeroScoreboardSortByEnum;
     sortDirection?: HeroScoreboardSortDirectionEnum;
     gameMode?: HeroScoreboardGameModeEnum;
+    matchMode?: string;
     minMatches?: number;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
@@ -225,6 +233,7 @@ export interface HeroScoreboardRequest {
 export interface HeroStatsRequest {
     bucket?: HeroStatsBucketEnum;
     gameMode?: HeroStatsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -247,6 +256,7 @@ export interface HeroStatsRequest {
 
 export interface HeroSynergiesStatsRequest {
     gameMode?: HeroSynergiesStatsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -268,6 +278,7 @@ export interface ItemFlowStatsRequest {
     phaseIntervalS?: number;
     phaseCount?: number;
     gameMode?: ItemFlowStatsGameModeEnum;
+    matchMode?: string;
     heroIds?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
@@ -293,6 +304,7 @@ export interface ItemPermutationStatsRequest {
     minMatches?: number;
     maxMatches?: number;
     gameMode?: ItemPermutationStatsGameModeEnum;
+    matchMode?: string;
     heroIds?: string;
     heroId?: number;
     minUnixTimestamp?: number;
@@ -312,6 +324,7 @@ export interface ItemPermutationStatsRequest {
 export interface ItemStatsRequest {
     bucket?: ItemStatsBucketEnum;
     gameMode?: ItemStatsGameModeEnum;
+    matchMode?: string;
     heroIds?: string;
     heroId?: number;
     enemyHeroIds?: string;
@@ -343,6 +356,7 @@ export interface ItemStatsRequest {
 export interface KillDeathStatsRequest {
     team?: number;
     gameMode?: KillDeathStatsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -369,6 +383,7 @@ export interface KillDeathStatsRequest {
 export interface PlayerPerformanceCurveRequest {
     resolution?: number;
     gameMode?: PlayerPerformanceCurveGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -389,6 +404,7 @@ export interface PlayerScoreboardRequest {
     sortBy: PlayerScoreboardSortByEnum;
     sortDirection?: PlayerScoreboardSortDirectionEnum;
     gameMode?: PlayerScoreboardGameModeEnum;
+    matchMode?: string;
     heroId?: number;
     minMatches?: number;
     maxMatches?: number;
@@ -410,6 +426,7 @@ export interface PlayerScoreboardRequest {
 export interface PlayerStatsMetricsRequest {
     heroIds?: string;
     gameMode?: PlayerStatsMetricsGameModeEnum;
+    matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -448,6 +465,11 @@ function abilityOrderStatsRaw<T>(requestParameters: AbilityOrderStatsRequest, re
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -583,6 +605,11 @@ function badgeDistributionRaw<T>(requestParameters: BadgeDistributionRequest, re
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -746,6 +773,11 @@ function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: run
     }
 
 
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
     if (requestParameters.minUnixTimestamp !== undefined) {
         queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
     }
@@ -861,6 +893,11 @@ function heroBanStatsRaw<T>(requestParameters: HeroBanStatsRequest, requestConfi
     queryParameters = {};
 
 
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
     if (requestParameters.bucket !== undefined) {
         queryParameters['bucket'] = requestParameters.bucket;
     }
@@ -953,6 +990,11 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
     let queryParameters = null;
 
     queryParameters = {};
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
 
 
     if (requestParameters.minUnixTimestamp !== undefined) {
@@ -1062,6 +1104,11 @@ function heroCombStatsRaw<T>(requestParameters: HeroCombStatsRequest, requestCon
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -1207,6 +1254,11 @@ function heroCountersStatsRaw<T>(requestParameters: HeroCountersStatsRequest, re
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -1359,6 +1411,11 @@ function heroScoreboardRaw<T>(requestParameters: HeroScoreboardRequest, requestC
     }
 
 
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
     if (requestParameters.minMatches !== undefined) {
         queryParameters['min_matches'] = requestParameters.minMatches;
     }
@@ -1476,6 +1533,11 @@ function heroStatsRaw<T>(requestParameters: HeroStatsRequest, requestConfig: run
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -1619,6 +1681,11 @@ function heroSynergiesStatsRaw<T>(requestParameters: HeroSynergiesStatsRequest, 
     }
 
 
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
     if (requestParameters.minUnixTimestamp !== undefined) {
         queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
     }
@@ -1751,6 +1818,11 @@ function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestCon
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -1909,6 +1981,11 @@ function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsReque
     }
 
 
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
     if (requestParameters.heroIds !== undefined) {
         queryParameters['hero_ids'] = requestParameters.heroIds;
     }
@@ -2031,6 +2108,11 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -2219,6 +2301,11 @@ function killDeathStatsRaw<T>(requestParameters: KillDeathStatsRequest, requestC
     }
 
 
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
     if (requestParameters.minUnixTimestamp !== undefined) {
         queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
     }
@@ -2379,6 +2466,11 @@ function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveR
     }
 
 
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
     if (requestParameters.minUnixTimestamp !== undefined) {
         queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
     }
@@ -2510,6 +2602,11 @@ function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requ
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
@@ -2645,6 +2742,11 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
 
     if (requestParameters.gameMode !== undefined) {
         queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
     }
 
 
