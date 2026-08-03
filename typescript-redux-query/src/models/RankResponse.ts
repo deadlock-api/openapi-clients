@@ -25,7 +25,7 @@ import {
  */
 export interface RankResponse  {
     /**
-     * Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof RankResponse
      */

@@ -420,13 +420,14 @@ paths:
     get:
       description: "\nThis endpoint returns the player badge distribution.\n\n`total_matches`\
         \ counts matches by their average badge, while `unique_players` counts players\
-        \ by the\nrank Valve reported on their latest ranked match within the filtered\
-        \ range. Since only ranked matches\ncarry a rank, `unique_players` ignores\
-        \ the `match_mode` filter and always looks at ranked matches.\n\nRanks exist\
-        \ only from the first ranked season on, so `min_unix_timestamp` is clamped\
-        \ to its start.\n\n### Rate Limits:\n> The rate limits below are **shared\
-        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+        \ by the\nrank Valve reported at the end of their latest ranked match within\
+        \ the filtered range. Since only\nranked matches carry a rank, `unique_players`\
+        \ ignores the `match_mode` filter and always looks at\nranked matches.\n\n\
+        Ranks exist only from the first ranked season on, so `min_unix_timestamp`\
+        \ is clamped to its start.\n\n### Rate Limits:\n> The rate limits below are\
+        \ **shared across all analytics endpoints**.\n\n| Type | Limit |\n| ---- |\
+        \ ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
+        \ |\n    "
       operationId: badge_distribution
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -8523,8 +8524,8 @@ paths:
       deprecated: true
       description: |2
 
-        Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on
-        their latest ranked match. Players without a ranked match carrying a rank are left out.
+        Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at
+        the end of their latest ranked match. Players without a ranked match carrying a rank are left out.
 
         Use `/v1/players/{account_id}/rank` instead.
       operationId: mmr
@@ -8578,8 +8579,8 @@ paths:
       deprecated: true
       description: |2
 
-        Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their
-        latest ranked match within the filtered range.
+        Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end
+        of their latest ranked match within the filtered range.
 
         Use `/v1/analytics/badge-distribution` instead.
       operationId: mmr_distribution
@@ -9615,7 +9616,7 @@ paths:
       description: |2
 
         Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank
-        Valve reported for the player at the start of that match.
+        Valve reported for the player at the end of that match.
 
         Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
         instead.
@@ -9654,7 +9655,7 @@ paths:
       description: |2
 
         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the
-        player's rank at the start of each ranked match they played on that hero.
+        player's rank at the end of each ranked match they played on that hero.
 
         Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
         instead.
@@ -9701,7 +9702,9 @@ paths:
     get:
       description: |2
 
-        Returns the player's rank as Valve reported it on their latest ranked match.
+        Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that
+        match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single
+        match can move the badge.
 
         Only ranked matches carry a rank, and it stays unset while the player is in placement games.
         When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are
@@ -16276,7 +16279,8 @@ components:
       properties:
         badge:
           description: |-
-            Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank.
+            Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded.
+            `0` when no recent ranked match reports a rank.
             See more: <https://api.deadlock-api.com/v1/assets/ranks>
           format: int32
           minimum: 0

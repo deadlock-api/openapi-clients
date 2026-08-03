@@ -114,7 +114,7 @@ No authorization required
 
 Badge Distribution
 
- This endpoint returns the player badge distribution.  &#x60;total_matches&#x60; counts matches by their average badge, while &#x60;unique_players&#x60; counts players by the rank Valve reported on their latest ranked match within the filtered range. Since only ranked matches carry a rank, &#x60;unique_players&#x60; ignores the &#x60;match_mode&#x60; filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so &#x60;min_unix_timestamp&#x60; is clamped to its start.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the player badge distribution.  &#x60;total_matches&#x60; counts matches by their average badge, while &#x60;unique_players&#x60; counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, &#x60;unique_players&#x60; ignores the &#x60;match_mode&#x60; filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so &#x60;min_unix_timestamp&#x60; is clamped to its start.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 ```kotlin

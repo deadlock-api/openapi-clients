@@ -610,7 +610,7 @@ pub async fn player_hero_stats(configuration: &configuration::Configuration, par
     }
 }
 
-///  Returns the player's rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+///  Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
 pub async fn rank(configuration: &configuration::Configuration, params: RankParams) -> Result<models::RankResponse, Error<RankError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/rank", configuration.base_path, account_id=params.account_id);

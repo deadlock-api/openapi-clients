@@ -89,7 +89,7 @@ No authorization required
 > Vec<models::MmrHistory> hero_mmr_history(account_id, hero_id)
 Hero MMR History (Deprecated)
 
- Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player's rank at the start of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player's rank at the end of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
 ### Parameters
 
@@ -120,7 +120,7 @@ No authorization required
 > Vec<models::MmrHistory> mmr(account_ids, max_match_id)
 Batch MMR (Deprecated)
 
- Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+ Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
 
 ### Parameters
 
@@ -151,7 +151,7 @@ No authorization required
 > Vec<models::DistributionEntry> mmr_distribution(min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id)
 MMR Distribution (Deprecated)
 
- Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+ Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
 
 ### Parameters
 
@@ -189,7 +189,7 @@ No authorization required
 > Vec<models::MmrHistory> mmr_history(account_id)
 MMR History (Deprecated)
 
- Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+ Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the end of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 
 ### Parameters
 

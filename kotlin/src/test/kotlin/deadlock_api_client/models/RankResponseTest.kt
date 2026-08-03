@@ -34,7 +34,7 @@ class RankResponseTest : ShouldSpec() {
         // uncomment below to create an instance of RankResponse
         //val modelInstance = RankResponse()
 
-        // to test the property `badge` - Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        // to test the property `badge` - Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test badge") {
             // uncomment below to test the property
             //modelInstance.badge shouldBe ("TODO")

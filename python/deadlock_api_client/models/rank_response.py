@@ -29,7 +29,7 @@ class RankResponse(BaseModel):
     """
     RankResponse
     """ # noqa: E501
-    badge: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    badge: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     last_match: Optional[LastRankedMatch] = Field(default=None, description="Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.")
     rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank tier, `0` when unknown.")
     subrank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sub-rank within the tier, `0` when unknown.")

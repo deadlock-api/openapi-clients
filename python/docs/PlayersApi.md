@@ -602,7 +602,9 @@ No authorization required
 Rank
 
 
-Returns the player's rank as Valve reported it on their latest ranked match.
+Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that
+match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single
+match can move the badge.
 
 Only ranked matches carry a rank, and it stays unset while the player is in placement games.
 When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are

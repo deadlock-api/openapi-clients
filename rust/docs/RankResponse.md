@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**badge** | **u32** | Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks> | 
+**badge** | **u32** | Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks> | 
 **last_match** | Option<[**models::LastRankedMatch**](LastRankedMatch.md)> | Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank. | [optional]
 **rank** | **u32** | Rank tier, `0` when unknown. | 
 **subrank** | **u32** | Sub-rank within the tier, `0` when unknown. | 

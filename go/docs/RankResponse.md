@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Badge** | **int32** | Rank badge, &#x60;tier * 10 + subrank&#x60;. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
+**Badge** | **int32** | Rank badge, &#x60;tier * 10 + subrank&#x60;, including the progress the last ranked match awarded. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
 **LastMatch** | Pointer to [**NullableLastRankedMatch**](LastRankedMatch.md) | Rank metadata of the ranked match the badge was read from. &#x60;null&#x60; when none of the player&#39;s recent ranked matches reports a rank. | [optional] 
 **Rank** | **int32** | Rank tier, &#x60;0&#x60; when unknown. | 
 **Subrank** | **int32** | Sub-rank within the tier, &#x60;0&#x60; when unknown. | 

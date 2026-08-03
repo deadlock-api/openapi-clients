@@ -281,7 +281,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/{account_id}/mmr-history/{hero_id}
      * Hero MMR History (Deprecated)
-     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player&#39;s rank at the start of each ranked match they played on that hero.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player&#39;s rank at the end of each ranked match they played on that hero.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return kotlin.collections.List<MMRHistory>
@@ -316,7 +316,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/{account_id}/mmr-history/{hero_id}
      * Hero MMR History (Deprecated)
-     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player&#39;s rank at the start of each ranked match they played on that hero.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player&#39;s rank at the end of each ranked match they played on that hero.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
@@ -362,7 +362,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/mmr
      * Batch MMR (Deprecated)
-     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return kotlin.collections.List<MMRHistory>
@@ -397,7 +397,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/mmr
      * Batch MMR (Deprecated)
-     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
      * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
@@ -449,7 +449,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/mmr/distribution
      * MMR Distribution (Deprecated)
-     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -491,7 +491,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/mmr/distribution
      * MMR Distribution (Deprecated)
-     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783036800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -580,7 +580,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/{account_id}/mmr-history
      * MMR History (Deprecated)
-     *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
+     *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the end of that match.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return kotlin.collections.List<MMRHistory>
      * @throws IllegalStateException If the request is not correctly configured
@@ -614,7 +614,7 @@ open class MMRApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/players/{account_id}/mmr-history
      * MMR History (Deprecated)
-     *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
+     *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the end of that match.  Use the &#x60;ranked_display_badge&#x60; and &#x60;ranked_delta&#x60; fields of &#x60;/v1/players/{account_id}/match-history&#x60; instead. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return ApiResponse<kotlin.collections.List<MMRHistory>?>
      * @throws IllegalStateException If the request is not correctly configured

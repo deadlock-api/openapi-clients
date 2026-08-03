@@ -399,7 +399,7 @@ HeroMmrHistory Hero MMR History (Deprecated)
 
 
 Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the
-player's rank at the start of each ranked match they played on that hero.
+player's rank at the end of each ranked match they played on that hero.
 
 Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
 instead.
@@ -532,8 +532,8 @@ func (r ApiMmrRequest) Execute() ([]MMRHistory, *http.Response, error) {
 Mmr Batch MMR (Deprecated)
 
 
-Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on
-their latest ranked match. Players without a ranked match carrying a rank are left out.
+Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at
+the end of their latest ranked match. Players without a ranked match carrying a rank are left out.
 
 Use `/v1/players/{account_id}/rank` instead.
 
@@ -725,8 +725,8 @@ func (r ApiMmrDistributionRequest) Execute() ([]DistributionEntry, *http.Respons
 MmrDistribution MMR Distribution (Deprecated)
 
 
-Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their
-latest ranked match within the filtered range.
+Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end
+of their latest ranked match within the filtered range.
 
 Use `/v1/analytics/badge-distribution` instead.
 
@@ -865,7 +865,7 @@ MmrHistory MMR History (Deprecated)
 
 
 Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank
-Valve reported for the player at the start of that match.
+Valve reported for the player at the end of that match.
 
 Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
 instead.

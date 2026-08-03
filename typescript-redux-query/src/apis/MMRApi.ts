@@ -227,7 +227,7 @@ export function heroMmrDistribution<T>(requestParameters: HeroMmrDistributionReq
 }
 
 /**
- *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player\'s rank at the start of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+ *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player\'s rank at the end of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
  * Hero MMR History (Deprecated)
  */
 function heroMmrHistoryRaw<T>(requestParameters: HeroMmrHistoryRequest, requestConfig: runtime.TypedQueryConfig<T, Array<MMRHistory>> = {}): QueryConfig<T> {
@@ -271,7 +271,7 @@ function heroMmrHistoryRaw<T>(requestParameters: HeroMmrHistoryRequest, requestC
 }
 
 /**
-*  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player\'s rank at the start of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+*  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the player\'s rank at the end of each ranked match they played on that hero.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 * Hero MMR History (Deprecated)
 */
 export function heroMmrHistory<T>(requestParameters: HeroMmrHistoryRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<MMRHistory>>): QueryConfig<T> {
@@ -279,7 +279,7 @@ export function heroMmrHistory<T>(requestParameters: HeroMmrHistoryRequest, requ
 }
 
 /**
- *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+ *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
  * Batch MMR (Deprecated)
  */
 function mmrRaw<T>(requestParameters: MmrRequest, requestConfig: runtime.TypedQueryConfig<T, Array<MMRHistory>> = {}): QueryConfig<T> {
@@ -330,7 +330,7 @@ function mmrRaw<T>(requestParameters: MmrRequest, requestConfig: runtime.TypedQu
 }
 
 /**
-*  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player on their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+*  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
 * Batch MMR (Deprecated)
 */
 export function mmr<T>(requestParameters: MmrRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<MMRHistory>>): QueryConfig<T> {
@@ -338,7 +338,7 @@ export function mmr<T>(requestParameters: MmrRequest, requestConfig?: runtime.Ty
 }
 
 /**
- *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+ *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
  * MMR Distribution (Deprecated)
  */
 function mmrDistributionRaw<T>(requestParameters: MmrDistributionRequest, requestConfig: runtime.TypedQueryConfig<T, Array<DistributionEntry>> = {}): QueryConfig<T> {
@@ -420,7 +420,7 @@ function mmrDistributionRaw<T>(requestParameters: MmrDistributionRequest, reques
 }
 
 /**
-*  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported on their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+*  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
 * MMR Distribution (Deprecated)
 */
 export function mmrDistribution<T>(requestParameters: MmrDistributionRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<DistributionEntry>>): QueryConfig<T> {
@@ -428,7 +428,7 @@ export function mmrDistribution<T>(requestParameters: MmrDistributionRequest, re
 }
 
 /**
- *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+ *  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the end of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
  * MMR History (Deprecated)
  */
 function mmrHistoryRaw<T>(requestParameters: MmrHistoryRequest, requestConfig: runtime.TypedQueryConfig<T, Array<MMRHistory>> = {}): QueryConfig<T> {
@@ -468,7 +468,7 @@ function mmrHistoryRaw<T>(requestParameters: MmrHistoryRequest, requestConfig: r
 }
 
 /**
-*  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the start of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
+*  Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank Valve reported for the player at the end of that match.  Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history` instead. 
 * MMR History (Deprecated)
 */
 export function mmrHistory<T>(requestParameters: MmrHistoryRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<MMRHistory>>): QueryConfig<T> {

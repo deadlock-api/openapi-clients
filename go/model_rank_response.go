@@ -21,7 +21,7 @@ var _ MappedNullable = &RankResponse{}
 
 // RankResponse struct for RankResponse
 type RankResponse struct {
-	// Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	// Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	Badge int32 `json:"badge"`
 	// Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.
 	LastMatch NullableLastRankedMatch `json:"last_match,omitempty"`

@@ -246,7 +246,7 @@ namespace DeadlockApiClient.Api
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -258,7 +258,7 @@ namespace DeadlockApiClient.Api
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2938,7 +2938,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2956,7 +2956,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>

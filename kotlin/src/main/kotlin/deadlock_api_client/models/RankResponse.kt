@@ -32,7 +32,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param badge Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param badge Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param rank Rank tier, `0` when unknown.
  * @param subrank Sub-rank within the tier, `0` when unknown.
  * @param lastMatch Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.
@@ -41,7 +41,7 @@ import java.io.Serializable
 
 data class RankResponse (
 
-    /* Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
+    /* Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge")
     val badge: kotlin.Int,
 

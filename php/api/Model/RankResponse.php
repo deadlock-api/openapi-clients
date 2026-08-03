@@ -344,7 +344,7 @@ class RankResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets badge
      *
-     * @param int $badge Rank badge, `tier * 10 + subrank`. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @param int $badge Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */

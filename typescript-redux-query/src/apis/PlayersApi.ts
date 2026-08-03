@@ -587,7 +587,7 @@ export function playerHeroStats<T>(requestParameters: PlayerHeroStatsRequest, re
 }
 
 /**
- *  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+ *  Returns the player\'s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
  * Rank
  */
 function rankRaw<T>(requestParameters: RankRequest, requestConfig: runtime.TypedQueryConfig<T, RankResponse> = {}): QueryConfig<T> {
@@ -627,7 +627,7 @@ function rankRaw<T>(requestParameters: RankRequest, requestConfig: runtime.Typed
 }
 
 /**
-*  Returns the player\'s rank as Valve reported it on their latest ranked match.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+*  Returns the player\'s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
 * Rank
 */
 export function rank<T>(requestParameters: RankRequest, requestConfig?: runtime.TypedQueryConfig<T, RankResponse>): QueryConfig<T> {
