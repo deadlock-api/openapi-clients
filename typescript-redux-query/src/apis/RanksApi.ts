@@ -31,6 +31,12 @@ export interface ListRanksRequest {
     clientVersion?: number;
 }
 
+export interface SubrankImageRequest {
+    tier: number;
+    subrank: number;
+    format?: SubrankImageFormatEnum;
+}
+
 
 /**
  * Returns a single rank by tier index.
@@ -146,6 +152,63 @@ export function listRanks<T>(requestParameters: ListRanksRequest, requestConfig?
     return listRanksRaw(requestParameters, requestConfig);
 }
 
+/**
+ * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+ * Rank Subrank Image
+ */
+function subrankImageRaw<T>(requestParameters: SubrankImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
+    if (requestParameters.tier === null || requestParameters.tier === undefined) {
+        throw new runtime.RequiredError('tier','Required parameter requestParameters.tier was null or undefined when calling subrankImage.');
+    }
+
+    if (requestParameters.subrank === null || requestParameters.subrank === undefined) {
+        throw new runtime.RequiredError('subrank','Required parameter requestParameters.subrank was null or undefined when calling subrankImage.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.format !== undefined) {
+        queryParameters['format'] = requestParameters.format;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/assets/ranks/{tier}/{subrank}/image`.replace('{tier}', encodeURIComponent(String(requestParameters.tier))).replace('{subrank}', encodeURIComponent(String(requestParameters.subrank))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+* Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+* Rank Subrank Image
+*/
+export function subrankImage<T>(requestParameters: SubrankImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
+    return subrankImageRaw(requestParameters, requestConfig);
+}
+
 
 /**
     * @export
@@ -216,4 +279,12 @@ export enum ListRanksLanguageEnum {
     Turkish = 'turkish',
     Ukrainian = 'ukrainian',
     Vietnamese = 'vietnamese'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SubrankImageFormatEnum {
+    Png = 'png',
+    Webp = 'webp'
 }

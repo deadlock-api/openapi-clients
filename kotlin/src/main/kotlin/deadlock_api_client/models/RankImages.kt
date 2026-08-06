@@ -61,6 +61,18 @@ import java.io.Serializable
  * @param smallSubrank6 
  * @param smallSubrank6Webp 
  * @param smallWebp 
+ * @param subrank1 Tier badge with the division numeral drawn on it, composed on demand by this API.
+ * @param subrank1Webp 
+ * @param subrank2 
+ * @param subrank2Webp 
+ * @param subrank3 
+ * @param subrank3Webp 
+ * @param subrank4 
+ * @param subrank4Webp 
+ * @param subrank5 
+ * @param subrank5Webp 
+ * @param subrank6 
+ * @param subrank6Webp 
  */
 
 
@@ -180,7 +192,44 @@ data class RankImages (
 
     @Json(name = "small_webp")
     @Deprecated(message = "This property is deprecated.")
-    val smallWebp: kotlin.String? = null
+    val smallWebp: kotlin.String? = null,
+
+    /* Tier badge with the division numeral drawn on it, composed on demand by this API. */
+    @Json(name = "subrank1")
+    val subrank1: kotlin.String? = null,
+
+    @Json(name = "subrank1_webp")
+    val subrank1Webp: kotlin.String? = null,
+
+    @Json(name = "subrank2")
+    val subrank2: kotlin.String? = null,
+
+    @Json(name = "subrank2_webp")
+    val subrank2Webp: kotlin.String? = null,
+
+    @Json(name = "subrank3")
+    val subrank3: kotlin.String? = null,
+
+    @Json(name = "subrank3_webp")
+    val subrank3Webp: kotlin.String? = null,
+
+    @Json(name = "subrank4")
+    val subrank4: kotlin.String? = null,
+
+    @Json(name = "subrank4_webp")
+    val subrank4Webp: kotlin.String? = null,
+
+    @Json(name = "subrank5")
+    val subrank5: kotlin.String? = null,
+
+    @Json(name = "subrank5_webp")
+    val subrank5Webp: kotlin.String? = null,
+
+    @Json(name = "subrank6")
+    val subrank6: kotlin.String? = null,
+
+    @Json(name = "subrank6_webp")
+    val subrank6Webp: kotlin.String? = null
 
 ) : Serializable {
     companion object {

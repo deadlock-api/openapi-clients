@@ -36,6 +36,18 @@ Name | Type | Description | Notes
 **small_subrank6** | **string** |  | [optional] [default to undefined]
 **small_subrank6_webp** | **string** |  | [optional] [default to undefined]
 **small_webp** | **string** |  | [optional] [default to undefined]
+**subrank1** | **string** | Tier badge with the division numeral drawn on it, composed on demand by this API. | [optional] [default to undefined]
+**subrank1_webp** | **string** |  | [optional] [default to undefined]
+**subrank2** | **string** |  | [optional] [default to undefined]
+**subrank2_webp** | **string** |  | [optional] [default to undefined]
+**subrank3** | **string** |  | [optional] [default to undefined]
+**subrank3_webp** | **string** |  | [optional] [default to undefined]
+**subrank4** | **string** |  | [optional] [default to undefined]
+**subrank4_webp** | **string** |  | [optional] [default to undefined]
+**subrank5** | **string** |  | [optional] [default to undefined]
+**subrank5_webp** | **string** |  | [optional] [default to undefined]
+**subrank6** | **string** |  | [optional] [default to undefined]
+**subrank6_webp** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -73,6 +85,18 @@ const instance: RankImages = {
     small_subrank6,
     small_subrank6_webp,
     small_webp,
+    subrank1,
+    subrank1_webp,
+    subrank2,
+    subrank2_webp,
+    subrank3,
+    subrank3_webp,
+    subrank4,
+    subrank4_webp,
+    subrank5,
+    subrank5_webp,
+    subrank6,
+    subrank6_webp,
 };
 ```
 

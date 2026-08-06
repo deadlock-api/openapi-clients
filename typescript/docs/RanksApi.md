@@ -6,6 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |------------- | ------------- | -------------|
 |[**getRank**](#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank|
 |[**listRanks**](#listranks) | **GET** /v1/assets/ranks | List Ranks|
+|[**subrankImage**](#subrankimage) | **GET** /v1/assets/ranks/{tier}/{subrank}/image | Rank Subrank Image|
 
 # **getRank**
 > Rank getRank()
@@ -118,6 +119,65 @@ No authorization required
 |-------------|-------------|------------------|
 |**200** |  |  -  |
 |**404** | Requested client_version is not available |  -  |
+|**500** | Failed to load source assets |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **subrankImage**
+> Array<number> subrankImage()
+
+Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+
+### Example
+
+```typescript
+import {
+    RanksApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new RanksApi(configuration);
+
+let tier: number; //Rank tier (1-11) (default to undefined)
+let subrank: number; //Division within the tier (1-6) (default to undefined)
+let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.subrankImage(
+    tier,
+    subrank,
+    format
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **tier** | [**number**] | Rank tier (1-11) | defaults to undefined|
+| **subrank** | [**number**] | Division within the tier (1-6) | defaults to undefined|
+| **format** | [**&#39;png&#39; | &#39;webp&#39;**]**Array<&#39;png&#39; &#124; &#39;webp&#39;>** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
+
+
+### Return type
+
+**Array<number>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: image/png, image/webp
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Rank badge image |  -  |
+|**404** | Unknown tier or division |  -  |
 |**500** | Failed to load source assets |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

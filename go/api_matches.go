@@ -1414,9 +1414,9 @@ Example Parsers:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 2req/h |
-| Key | 5req/m, 100req/h |
-| Global | 5req/10s, 500req/h |
+| IP | 6req/h |
+| Key | 20req/10m, 100req/h |
+| Global | 100req/10m, 500req/h |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

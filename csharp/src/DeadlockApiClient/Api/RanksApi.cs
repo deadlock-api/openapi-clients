@@ -89,6 +89,33 @@ namespace DeadlockApiClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRanksApiResponse"/>?&gt;</returns>
         Task<IListRanksApiResponse?> ListRanksOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Subrank Image
+        /// </summary>
+        /// <remarks>
+        /// Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tier">Rank tier (1-11)</param>
+        /// <param name="subrank">Division within the tier (1-6)</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>&gt;</returns>
+        Task<ISubrankImageApiResponse> SubrankImageAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Subrank Image
+        /// </summary>
+        /// <remarks>
+        /// Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </remarks>
+        /// <param name="tier">Rank tier (1-11)</param>
+        /// <param name="subrank">Division within the tier (1-6)</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>?&gt;</returns>
+        Task<ISubrankImageApiResponse?> SubrankImageOrDefaultAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -119,6 +146,30 @@ namespace DeadlockApiClient.Api
     /// The <see cref="IListRanksApiResponse"/>
     /// </summary>
     public interface IListRanksApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<Rank>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 404 NotFound
+        /// </summary>
+        /// <returns></returns>
+        bool IsNotFound { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="ISubrankImageApiResponse"/>
+    /// </summary>
+    public interface ISubrankImageApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<int>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -182,6 +233,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorListRanks(Exception exception)
         {
             OnErrorListRanks?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnSubrankImage;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorSubrankImage;
+
+        internal void ExecuteOnSubrankImage(RanksApi.SubrankImageApiResponse apiResponse)
+        {
+            OnSubrankImage?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorSubrankImage(Exception exception)
+        {
+            OnErrorSubrankImage?.Invoke(this, new ExceptionEventArgs(exception));
         }
     }
 
@@ -706,6 +777,280 @@ namespace DeadlockApiClient.Api
             /// <param name="result"></param>
             /// <returns></returns>
             public bool TryOk([NotNullWhen(true)]out List<Rank>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 404 NotFound
+            /// </summary>
+            /// <returns></returns>
+            public bool IsNotFound => 404 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatSubrankImage(ref int tier, ref int subrank, ref Option<string> format);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        private void ValidateSubrankImage(Option<string> format)
+        {
+            if (format.IsSet && format.Value == null)
+                throw new ArgumentNullException(nameof(format));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="tier"></param>
+        /// <param name="subrank"></param>
+        /// <param name="format"></param>
+        private void AfterSubrankImageDefaultImplementation(ISubrankImageApiResponse apiResponseLocalVar, int tier, int subrank, Option<string> format)
+        {
+            bool suppressDefaultLog = false;
+            AfterSubrankImage(ref suppressDefaultLog, apiResponseLocalVar, tier, subrank, format);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="tier"></param>
+        /// <param name="subrank"></param>
+        /// <param name="format"></param>
+        partial void AfterSubrankImage(ref bool suppressDefaultLog, ISubrankImageApiResponse apiResponseLocalVar, int tier, int subrank, Option<string> format);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="tier"></param>
+        /// <param name="subrank"></param>
+        /// <param name="format"></param>
+        private void OnErrorSubrankImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int tier, int subrank, Option<string> format)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorSubrankImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, tier, subrank, format);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="tier"></param>
+        /// <param name="subrank"></param>
+        /// <param name="format"></param>
+        partial void OnErrorSubrankImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int tier, int subrank, Option<string> format);
+
+        /// <summary>
+        /// Rank Subrank Image Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </summary>
+        /// <param name="tier">Rank tier (1-11)</param>
+        /// <param name="subrank">Division within the tier (1-6)</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>&gt;</returns>
+        public async Task<ISubrankImageApiResponse?> SubrankImageOrDefaultAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await SubrankImageAsync(tier, subrank, format, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Rank Subrank Image Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tier">Rank tier (1-11)</param>
+        /// <param name="subrank">Division within the tier (1-6)</param>
+        /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>&gt;</returns>
+        public async Task<ISubrankImageApiResponse> SubrankImageAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateSubrankImage(format);
+
+                FormatSubrankImage(ref tier, ref subrank, ref format);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/assets/ranks/{tier}/{subrank}/image"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/assets/ranks/{tier}/{subrank}/image");
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Btier%7D", Uri.EscapeDataString(tier.ToString()));
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bsubrank%7D", Uri.EscapeDataString(subrank.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (format.IsSet)
+                        parseQueryStringLocalVar["format"] = ClientUtils.ParameterToString(format.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "image/png",
+                        "image/webp"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        SubrankImageApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/assets/ranks/{tier}/{subrank}/image", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterSubrankImageDefaultImplementation(apiResponseLocalVar, tier, subrank, format);
+
+                        Events.ExecuteOnSubrankImage(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorSubrankImageDefaultImplementation(e, "/v1/assets/ranks/{tier}/{subrank}/image", uriBuilderLocalVar.Path, tier, subrank, format);
+                Events.ExecuteOnErrorSubrankImage(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="SubrankImageApiResponse"/>
+        /// </summary>
+        public partial class SubrankImageApiResponse : DeadlockApiClient.Client.ApiResponse, ISubrankImageApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<RanksApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="SubrankImageApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public SubrankImageApiResponse(ILogger<RanksApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="SubrankImageApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public SubrankImageApiResponse(ILogger<RanksApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<int>? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<int>? result)
             {
                 result = null;
 

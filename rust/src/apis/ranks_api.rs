@@ -34,6 +34,17 @@ pub struct ListRanksParams {
     pub client_version: Option<u32>
 }
 
+/// struct for passing parameters to the method [`subrank_image`]
+#[derive(Clone, Debug)]
+pub struct SubrankImageParams {
+    /// Rank tier (1-11)
+    pub tier: u32,
+    /// Division within the tier (1-6)
+    pub subrank: u32,
+    /// Image format. Defaults to `png`. Supported: `png`, `webp`.
+    pub format: Option<String>
+}
+
 
 /// struct for typed errors of method [`get_rank`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -48,6 +59,15 @@ pub enum GetRankError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListRanksError {
+    Status404(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`subrank_image`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SubrankImageError {
     Status404(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -132,6 +152,44 @@ pub async fn list_ranks(configuration: &configuration::Configuration, params: Li
     } else {
         let content = resp.text().await?;
         let entity: Option<ListRanksError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+pub async fn subrank_image(configuration: &configuration::Configuration, params: SubrankImageParams) -> Result<Vec<u32>, Error<SubrankImageError>> {
+
+    let uri_str = format!("{}/v1/assets/ranks/{tier}/{subrank}/image", configuration.base_path, tier=params.tier, subrank=params.subrank);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.format {
+        req_builder = req_builder.query(&[("format", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SubrankImageError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -40,6 +40,13 @@ class TestRanksApi(unittest.TestCase):
         """
         pass
 
+    def test_subrank_image(self) -> None:
+        """Test case for subrank_image
+
+        Rank Subrank Image
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

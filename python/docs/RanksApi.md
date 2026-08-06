@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_rank**](RanksApi.md#get_rank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 [**list_ranks**](RanksApi.md#list_ranks) | **GET** /v1/assets/ranks | List Ranks
+[**subrank_image**](RanksApi.md#subrank_image) | **GET** /v1/assets/ranks/{tier}/{subrank}/image | Rank Subrank Image
 
 
 # **get_rank**
@@ -150,6 +151,79 @@ No authorization required
 |-------------|-------------|------------------|
 **200** |  |  -  |
 **404** | Requested client_version is not available |  -  |
+**500** | Failed to load source assets |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **subrank_image**
+> List[int] subrank_image(tier, subrank, format=format)
+
+Rank Subrank Image
+
+Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.RanksApi(api_client)
+    tier = 56 # int | Rank tier (1-11)
+    subrank = 56 # int | Division within the tier (1-6)
+    format = 'format_example' # str | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+    try:
+        # Rank Subrank Image
+        api_response = api_instance.subrank_image(tier, subrank, format=format)
+        print("The response of RanksApi->subrank_image:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling RanksApi->subrank_image: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tier** | **int**| Rank tier (1-11) | 
+ **subrank** | **int**| Division within the tier (1-6) | 
+ **format** | **str**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] 
+
+### Return type
+
+**List[int]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: image/png, image/webp
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Rank badge image |  -  |
+**404** | Unknown tier or division |  -  |
 **500** | Failed to load source assets |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

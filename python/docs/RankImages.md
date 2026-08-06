@@ -36,6 +36,18 @@ Name | Type | Description | Notes
 **small_subrank6** | **str** |  | [optional] 
 **small_subrank6_webp** | **str** |  | [optional] 
 **small_webp** | **str** |  | [optional] 
+**subrank1** | **str** | Tier badge with the division numeral drawn on it, composed on demand by this API. | [optional] 
+**subrank1_webp** | **str** |  | [optional] 
+**subrank2** | **str** |  | [optional] 
+**subrank2_webp** | **str** |  | [optional] 
+**subrank3** | **str** |  | [optional] 
+**subrank3_webp** | **str** |  | [optional] 
+**subrank4** | **str** |  | [optional] 
+**subrank4_webp** | **str** |  | [optional] 
+**subrank5** | **str** |  | [optional] 
+**subrank5_webp** | **str** |  | [optional] 
+**subrank6** | **str** |  | [optional] 
+**subrank6_webp** | **str** |  | [optional] 
 
 ## Example
 

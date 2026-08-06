@@ -94,4 +94,16 @@ class RanksApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for subrankImage
+     *
+     * Rank Subrank Image.
+     *
+     */
+    public function testSubrankImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

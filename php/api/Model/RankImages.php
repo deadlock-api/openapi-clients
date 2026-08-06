@@ -87,7 +87,19 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'small_subrank5_webp' => 'string',
         'small_subrank6' => 'string',
         'small_subrank6_webp' => 'string',
-        'small_webp' => 'string'
+        'small_webp' => 'string',
+        'subrank1' => 'string',
+        'subrank1_webp' => 'string',
+        'subrank2' => 'string',
+        'subrank2_webp' => 'string',
+        'subrank3' => 'string',
+        'subrank3_webp' => 'string',
+        'subrank4' => 'string',
+        'subrank4_webp' => 'string',
+        'subrank5' => 'string',
+        'subrank5_webp' => 'string',
+        'subrank6' => 'string',
+        'subrank6_webp' => 'string'
     ];
 
     /**
@@ -127,7 +139,19 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'small_subrank5_webp' => null,
         'small_subrank6' => null,
         'small_subrank6_webp' => null,
-        'small_webp' => null
+        'small_webp' => null,
+        'subrank1' => null,
+        'subrank1_webp' => null,
+        'subrank2' => null,
+        'subrank2_webp' => null,
+        'subrank3' => null,
+        'subrank3_webp' => null,
+        'subrank4' => null,
+        'subrank4_webp' => null,
+        'subrank5' => null,
+        'subrank5_webp' => null,
+        'subrank6' => null,
+        'subrank6_webp' => null
     ];
 
     /**
@@ -165,7 +189,19 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'small_subrank5_webp' => true,
         'small_subrank6' => true,
         'small_subrank6_webp' => true,
-        'small_webp' => true
+        'small_webp' => true,
+        'subrank1' => true,
+        'subrank1_webp' => true,
+        'subrank2' => true,
+        'subrank2_webp' => true,
+        'subrank3' => true,
+        'subrank3_webp' => true,
+        'subrank4' => true,
+        'subrank4_webp' => true,
+        'subrank5' => true,
+        'subrank5_webp' => true,
+        'subrank6' => true,
+        'subrank6_webp' => true
     ];
 
     /**
@@ -283,7 +319,19 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'small_subrank5_webp' => 'small_subrank5_webp',
         'small_subrank6' => 'small_subrank6',
         'small_subrank6_webp' => 'small_subrank6_webp',
-        'small_webp' => 'small_webp'
+        'small_webp' => 'small_webp',
+        'subrank1' => 'subrank1',
+        'subrank1_webp' => 'subrank1_webp',
+        'subrank2' => 'subrank2',
+        'subrank2_webp' => 'subrank2_webp',
+        'subrank3' => 'subrank3',
+        'subrank3_webp' => 'subrank3_webp',
+        'subrank4' => 'subrank4',
+        'subrank4_webp' => 'subrank4_webp',
+        'subrank5' => 'subrank5',
+        'subrank5_webp' => 'subrank5_webp',
+        'subrank6' => 'subrank6',
+        'subrank6_webp' => 'subrank6_webp'
     ];
 
     /**
@@ -321,7 +369,19 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'small_subrank5_webp' => 'setSmallSubrank5Webp',
         'small_subrank6' => 'setSmallSubrank6',
         'small_subrank6_webp' => 'setSmallSubrank6Webp',
-        'small_webp' => 'setSmallWebp'
+        'small_webp' => 'setSmallWebp',
+        'subrank1' => 'setSubrank1',
+        'subrank1_webp' => 'setSubrank1Webp',
+        'subrank2' => 'setSubrank2',
+        'subrank2_webp' => 'setSubrank2Webp',
+        'subrank3' => 'setSubrank3',
+        'subrank3_webp' => 'setSubrank3Webp',
+        'subrank4' => 'setSubrank4',
+        'subrank4_webp' => 'setSubrank4Webp',
+        'subrank5' => 'setSubrank5',
+        'subrank5_webp' => 'setSubrank5Webp',
+        'subrank6' => 'setSubrank6',
+        'subrank6_webp' => 'setSubrank6Webp'
     ];
 
     /**
@@ -359,7 +419,19 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'small_subrank5_webp' => 'getSmallSubrank5Webp',
         'small_subrank6' => 'getSmallSubrank6',
         'small_subrank6_webp' => 'getSmallSubrank6Webp',
-        'small_webp' => 'getSmallWebp'
+        'small_webp' => 'getSmallWebp',
+        'subrank1' => 'getSubrank1',
+        'subrank1_webp' => 'getSubrank1Webp',
+        'subrank2' => 'getSubrank2',
+        'subrank2_webp' => 'getSubrank2Webp',
+        'subrank3' => 'getSubrank3',
+        'subrank3_webp' => 'getSubrank3Webp',
+        'subrank4' => 'getSubrank4',
+        'subrank4_webp' => 'getSubrank4Webp',
+        'subrank5' => 'getSubrank5',
+        'subrank5_webp' => 'getSubrank5Webp',
+        'subrank6' => 'getSubrank6',
+        'subrank6_webp' => 'getSubrank6Webp'
     ];
 
     /**
@@ -449,6 +521,18 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('small_subrank6', $data ?? [], null);
         $this->setIfExists('small_subrank6_webp', $data ?? [], null);
         $this->setIfExists('small_webp', $data ?? [], null);
+        $this->setIfExists('subrank1', $data ?? [], null);
+        $this->setIfExists('subrank1_webp', $data ?? [], null);
+        $this->setIfExists('subrank2', $data ?? [], null);
+        $this->setIfExists('subrank2_webp', $data ?? [], null);
+        $this->setIfExists('subrank3', $data ?? [], null);
+        $this->setIfExists('subrank3_webp', $data ?? [], null);
+        $this->setIfExists('subrank4', $data ?? [], null);
+        $this->setIfExists('subrank4_webp', $data ?? [], null);
+        $this->setIfExists('subrank5', $data ?? [], null);
+        $this->setIfExists('subrank5_webp', $data ?? [], null);
+        $this->setIfExists('subrank6', $data ?? [], null);
+        $this->setIfExists('subrank6_webp', $data ?? [], null);
     }
 
     /**
@@ -1561,6 +1645,414 @@ class RankImages implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['small_webp'] = $small_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank1
+     *
+     * @return string|null
+     */
+    public function getSubrank1()
+    {
+        return $this->container['subrank1'];
+    }
+
+    /**
+     * Sets subrank1
+     *
+     * @param string|null $subrank1 Tier badge with the division numeral drawn on it, composed on demand by this API.
+     *
+     * @return self
+     */
+    public function setSubrank1($subrank1)
+    {
+        if (is_null($subrank1)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank1'] = $subrank1;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank1_webp
+     *
+     * @return string|null
+     */
+    public function getSubrank1Webp()
+    {
+        return $this->container['subrank1_webp'];
+    }
+
+    /**
+     * Sets subrank1_webp
+     *
+     * @param string|null $subrank1_webp subrank1_webp
+     *
+     * @return self
+     */
+    public function setSubrank1Webp($subrank1_webp)
+    {
+        if (is_null($subrank1_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank1_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank1_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank1_webp'] = $subrank1_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank2
+     *
+     * @return string|null
+     */
+    public function getSubrank2()
+    {
+        return $this->container['subrank2'];
+    }
+
+    /**
+     * Sets subrank2
+     *
+     * @param string|null $subrank2 subrank2
+     *
+     * @return self
+     */
+    public function setSubrank2($subrank2)
+    {
+        if (is_null($subrank2)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank2'] = $subrank2;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank2_webp
+     *
+     * @return string|null
+     */
+    public function getSubrank2Webp()
+    {
+        return $this->container['subrank2_webp'];
+    }
+
+    /**
+     * Sets subrank2_webp
+     *
+     * @param string|null $subrank2_webp subrank2_webp
+     *
+     * @return self
+     */
+    public function setSubrank2Webp($subrank2_webp)
+    {
+        if (is_null($subrank2_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank2_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank2_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank2_webp'] = $subrank2_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank3
+     *
+     * @return string|null
+     */
+    public function getSubrank3()
+    {
+        return $this->container['subrank3'];
+    }
+
+    /**
+     * Sets subrank3
+     *
+     * @param string|null $subrank3 subrank3
+     *
+     * @return self
+     */
+    public function setSubrank3($subrank3)
+    {
+        if (is_null($subrank3)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank3');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank3', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank3'] = $subrank3;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank3_webp
+     *
+     * @return string|null
+     */
+    public function getSubrank3Webp()
+    {
+        return $this->container['subrank3_webp'];
+    }
+
+    /**
+     * Sets subrank3_webp
+     *
+     * @param string|null $subrank3_webp subrank3_webp
+     *
+     * @return self
+     */
+    public function setSubrank3Webp($subrank3_webp)
+    {
+        if (is_null($subrank3_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank3_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank3_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank3_webp'] = $subrank3_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank4
+     *
+     * @return string|null
+     */
+    public function getSubrank4()
+    {
+        return $this->container['subrank4'];
+    }
+
+    /**
+     * Sets subrank4
+     *
+     * @param string|null $subrank4 subrank4
+     *
+     * @return self
+     */
+    public function setSubrank4($subrank4)
+    {
+        if (is_null($subrank4)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank4');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank4', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank4'] = $subrank4;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank4_webp
+     *
+     * @return string|null
+     */
+    public function getSubrank4Webp()
+    {
+        return $this->container['subrank4_webp'];
+    }
+
+    /**
+     * Sets subrank4_webp
+     *
+     * @param string|null $subrank4_webp subrank4_webp
+     *
+     * @return self
+     */
+    public function setSubrank4Webp($subrank4_webp)
+    {
+        if (is_null($subrank4_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank4_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank4_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank4_webp'] = $subrank4_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank5
+     *
+     * @return string|null
+     */
+    public function getSubrank5()
+    {
+        return $this->container['subrank5'];
+    }
+
+    /**
+     * Sets subrank5
+     *
+     * @param string|null $subrank5 subrank5
+     *
+     * @return self
+     */
+    public function setSubrank5($subrank5)
+    {
+        if (is_null($subrank5)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank5');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank5', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank5'] = $subrank5;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank5_webp
+     *
+     * @return string|null
+     */
+    public function getSubrank5Webp()
+    {
+        return $this->container['subrank5_webp'];
+    }
+
+    /**
+     * Sets subrank5_webp
+     *
+     * @param string|null $subrank5_webp subrank5_webp
+     *
+     * @return self
+     */
+    public function setSubrank5Webp($subrank5_webp)
+    {
+        if (is_null($subrank5_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank5_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank5_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank5_webp'] = $subrank5_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank6
+     *
+     * @return string|null
+     */
+    public function getSubrank6()
+    {
+        return $this->container['subrank6'];
+    }
+
+    /**
+     * Sets subrank6
+     *
+     * @param string|null $subrank6 subrank6
+     *
+     * @return self
+     */
+    public function setSubrank6($subrank6)
+    {
+        if (is_null($subrank6)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank6');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank6', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank6'] = $subrank6;
+
+        return $this;
+    }
+
+    /**
+     * Gets subrank6_webp
+     *
+     * @return string|null
+     */
+    public function getSubrank6Webp()
+    {
+        return $this->container['subrank6_webp'];
+    }
+
+    /**
+     * Sets subrank6_webp
+     *
+     * @param string|null $subrank6_webp subrank6_webp
+     *
+     * @return self
+     */
+    public function setSubrank6Webp($subrank6_webp)
+    {
+        if (is_null($subrank6_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'subrank6_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subrank6_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subrank6_webp'] = $subrank6_webp;
 
         return $this;
     }

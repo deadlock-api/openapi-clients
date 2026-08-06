@@ -191,6 +191,7 @@ Class | Method | HTTP request | Description
 *RankedSeasonsAPI* | [**ListRankedSeasons**](docs/RankedSeasonsAPI.md#listrankedseasons) | **Get** /v1/assets/ranked-seasons | List Ranked Seasons
 *RanksAPI* | [**GetRank**](docs/RanksAPI.md#getrank) | **Get** /v1/assets/ranks/{tier} | Get Rank
 *RanksAPI* | [**ListRanks**](docs/RanksAPI.md#listranks) | **Get** /v1/assets/ranks | List Ranks
+*RanksAPI* | [**SubrankImage**](docs/RanksAPI.md#subrankimage) | **Get** /v1/assets/ranks/{tier}/{subrank}/image | Rank Subrank Image
 *SQLAPI* | [**ListTables**](docs/SQLAPI.md#listtables) | **Get** /v1/sql/tables | List Tables
 *SQLAPI* | [**Sql**](docs/SQLAPI.md#sql) | **Get** /v1/sql | Query
 *SQLAPI* | [**TableSchema**](docs/SQLAPI.md#tableschema) | **Get** /v1/sql/tables/{table}/schema | Table Schema

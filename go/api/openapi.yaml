@@ -193,7 +193,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -464,7 +464,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -598,7 +598,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -686,7 +686,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -919,7 +919,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -1064,7 +1064,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -1264,7 +1264,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -1561,7 +1561,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -1830,7 +1830,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -2109,7 +2109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -2395,7 +2395,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -2727,7 +2727,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -3027,7 +3027,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -3327,7 +3327,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -3632,7 +3632,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -3868,7 +3868,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -4181,7 +4181,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -6358,6 +6358,70 @@ paths:
       summary: Get Rank
       tags:
       - Ranks
+  /v1/assets/ranks/{tier}/{subrank}/image:
+    get:
+      description: "Returns the tier badge with its I-VI division numeral drawn on\
+        \ it (binary, not a URL). Use `?format=webp` for WebP."
+      operationId: subrank_image
+      parameters:
+      - description: Rank tier (1-11)
+        explode: false
+        in: path
+        name: tier
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: Division within the tier (1-6)
+        explode: false
+        in: path
+        name: subrank
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - png
+          - webp
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+            image/webp:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+          description: Rank badge image
+        "404":
+          description: Unknown tier or division
+        "500":
+          description: Failed to load source assets
+      summary: Rank Subrank Image
+      tags:
+      - Ranks
   /v1/assets/sounds:
     get:
       description: "Nested file-tree of all hosted sounds, mapping each name to its\
@@ -7386,9 +7450,9 @@ paths:
         ### Rate Limits:
         | Type | Limit |
         | ---- | ----- |
-        | IP | With broadcast_url: 20req/m<br>With match_id: 20req/m + 2req/h |
-        | Key | With broadcast_url: -<br>With match_id: 5req/m, 100req/h |
-        | Global | With broadcast_url: 100req/m<br>With match_id: 100req/m + 5req/10s, 500req/h |
+        | IP | With broadcast_url: 20req/m<br>With match_id: 6req/h |
+        | Key | With broadcast_url: -<br>With match_id: 20req/10m, 100req/h |
+        | Global | With broadcast_url: 100req/m<br>With match_id: 100req/10m, 500req/h |
       operationId: live_query
       parameters:
       - description: SQL query to run over the broadcast's entity/event tables (see
@@ -8085,8 +8149,8 @@ paths:
       description: "\nThis endpoints spectates a match and returns the live URL to\
         \ be used in any demofile broadcast parser.\n\nExample Parsers:\n- [Demofile-Net](https://github.com/saul/demofile-net)\n\
         - [Haste](https://github.com/blukai/haste/)\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 2req/h |\n| Key | 5req/m, 100req/h |\n\
-        | Global | 5req/10s, 500req/h |\n    "
+        \ Limit |\n| ---- | ----- |\n| IP | 6req/h |\n| Key | 20req/10m, 100req/h\
+        \ |\n| Global | 100req/10m, 500req/h |\n    "
       operationId: url
       parameters:
       - description: The match ID
@@ -8592,7 +8656,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -8716,7 +8780,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783209600
+          default: 1783296000
           format: int64
           nullable: true
           type: integer
@@ -9835,9 +9899,10 @@ paths:
       - Players
   /v1/players/{account_id}/rank/image:
     get:
-      description: "Returns the rank badge image directly (binary), not a URL. Players\
-        \ whose recent ranked matches carry no rank get the `Obscurus` image. Use\
-        \ `?format=webp` for WebP."
+      description: "Returns the rank badge image directly (binary), not a URL, with\
+        \ the player's I-VI division numeral drawn on it. Players whose recent ranked\
+        \ matches carry no rank, and players still in placement, get the plain tier\
+        \ badge. Use `?format=webp` for WebP."
       operationId: rank_image
       parameters:
       - description: The players `SteamID3`
@@ -16100,6 +16165,18 @@ components:
           small_subrank6: small_subrank6
           small_subrank6_webp: small_subrank6_webp
           small_webp: small_webp
+          subrank1: subrank1
+          subrank1_webp: subrank1_webp
+          subrank2: subrank2
+          subrank2_webp: subrank2_webp
+          subrank3: subrank3
+          subrank3_webp: subrank3_webp
+          subrank4: subrank4
+          subrank4_webp: subrank4_webp
+          subrank5: subrank5
+          subrank5_webp: subrank5_webp
+          subrank6: subrank6
+          subrank6_webp: subrank6_webp
         name: name
         tier: 0
       properties:
@@ -16153,6 +16230,18 @@ components:
         small_subrank6: small_subrank6
         small_subrank6_webp: small_subrank6_webp
         small_webp: small_webp
+        subrank1: subrank1
+        subrank1_webp: subrank1_webp
+        subrank2: subrank2
+        subrank2_webp: subrank2_webp
+        subrank3: subrank3
+        subrank3_webp: subrank3_webp
+        subrank4: subrank4
+        subrank4_webp: subrank4_webp
+        subrank5: subrank5
+        subrank5_webp: subrank5_webp
+        subrank6: subrank6
+        subrank6_webp: subrank6_webp
       properties:
         chalk:
           nullable: true
@@ -16268,6 +16357,44 @@ components:
           type: string
         small_webp:
           deprecated: true
+          nullable: true
+          type: string
+        subrank1:
+          description: "Tier badge with the division numeral drawn on it, composed\
+            \ on demand by this API."
+          nullable: true
+          type: string
+        subrank1_webp:
+          nullable: true
+          type: string
+        subrank2:
+          nullable: true
+          type: string
+        subrank2_webp:
+          nullable: true
+          type: string
+        subrank3:
+          nullable: true
+          type: string
+        subrank3_webp:
+          nullable: true
+          type: string
+        subrank4:
+          nullable: true
+          type: string
+        subrank4_webp:
+          nullable: true
+          type: string
+        subrank5:
+          nullable: true
+          type: string
+        subrank5_webp:
+          nullable: true
+          type: string
+        subrank6:
+          nullable: true
+          type: string
+        subrank6_webp:
           nullable: true
           type: string
     RankResponse:

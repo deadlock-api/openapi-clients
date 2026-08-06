@@ -94,6 +94,44 @@ export const RanksApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+         * @summary Rank Subrank Image
+         * @param {number} tier Rank tier (1-11)
+         * @param {number} subrank Division within the tier (1-6)
+         * @param {SubrankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        subrankImage: async (tier, subrank, format, options = {}) => {
+            // verify required parameter 'tier' is not null or undefined
+            assertParamExists('subrankImage', 'tier', tier);
+            // verify required parameter 'subrank' is not null or undefined
+            assertParamExists('subrankImage', 'subrank', subrank);
+            const localVarPath = `/v1/assets/ranks/{tier}/{subrank}/image`
+                .replace('{tier}', encodeURIComponent(String(tier)))
+                .replace('{subrank}', encodeURIComponent(String(subrank)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (format !== undefined) {
+                localVarQueryParameter['format'] = format;
+            }
+            localVarHeaderParameter['Accept'] = 'image/png,image/webp';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     };
 };
 /**
@@ -131,6 +169,21 @@ export const RanksApiFp = function (configuration) {
             const localVarOperationServerBasePath = operationServerMap['RanksApi.listRanks']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+         * @summary Rank Subrank Image
+         * @param {number} tier Rank tier (1-11)
+         * @param {number} subrank Division within the tier (1-6)
+         * @param {SubrankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async subrankImage(tier, subrank, format, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.subrankImage(tier, subrank, format, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RanksApi.subrankImage']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     };
 };
 /**
@@ -159,6 +212,16 @@ export const RanksApiFactory = function (configuration, basePath, axios) {
         listRanks(requestParameters = {}, options) {
             return localVarFp.listRanks(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+         * @summary Rank Subrank Image
+         * @param {RanksApiSubrankImageRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        subrankImage(requestParameters, options) {
+            return localVarFp.subrankImage(requestParameters.tier, requestParameters.subrank, requestParameters.format, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -184,6 +247,16 @@ export class RanksApi extends BaseAPI {
      */
     listRanks(requestParameters = {}, options) {
         return RanksApiFp(this.configuration).listRanks(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+     * @summary Rank Subrank Image
+     * @param {RanksApiSubrankImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    subrankImage(requestParameters, options) {
+        return RanksApiFp(this.configuration).subrankImage(requestParameters.tier, requestParameters.subrank, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
     }
 }
 export const GetRankLanguageEnum = {
@@ -247,5 +320,9 @@ export const ListRanksLanguageEnum = {
     Turkish: 'turkish',
     Ukrainian: 'ukrainian',
     Vietnamese: 'vietnamese',
+};
+export const SubrankImageFormatEnum = {
+    Png: 'png',
+    Webp: 'webp',
 };
 //# sourceMappingURL=ranks-api.js.map

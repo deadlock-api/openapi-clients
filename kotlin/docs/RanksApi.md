@@ -6,6 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | ------------- | ------------- | ------------- |
 | [**getRank**](RanksApi.md#getRank) | **GET** /v1/assets/ranks/{tier} | Get Rank |
 | [**listRanks**](RanksApi.md#listRanks) | **GET** /v1/assets/ranks | List Ranks |
+| [**subrankImage**](RanksApi.md#subrankImage) | **GET** /v1/assets/ranks/{tier}/{subrank}/image | Rank Subrank Image |
 
 
 <a id="getRank"></a>
@@ -105,4 +106,54 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a id="subrankImage"></a>
+# **subrankImage**
+> kotlin.collections.List&lt;kotlin.Int&gt; subrankImage(tier, subrank, format)
+
+Rank Subrank Image
+
+Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use &#x60;?format&#x3D;webp&#x60; for WebP.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = RanksApi()
+val tier : kotlin.Int = 56 // kotlin.Int | Rank tier (1-11)
+val subrank : kotlin.Int = 56 // kotlin.Int | Division within the tier (1-6)
+val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+try {
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.subrankImage(tier, subrank, format)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling RanksApi#subrankImage")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RanksApi#subrankImage")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| **tier** | **kotlin.Int**| Rank tier (1-11) | |
+| **subrank** | **kotlin.Int**| Division within the tier (1-6) | |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
+
+### Return type
+
+**kotlin.collections.List&lt;kotlin.Int&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 

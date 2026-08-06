@@ -348,4 +348,112 @@ class RankImagesTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "subrank1"
+     */
+    public function testPropertySubrank1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank1_webp"
+     */
+    public function testPropertySubrank1Webp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank2"
+     */
+    public function testPropertySubrank2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank2_webp"
+     */
+    public function testPropertySubrank2Webp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank3"
+     */
+    public function testPropertySubrank3()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank3_webp"
+     */
+    public function testPropertySubrank3Webp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank4"
+     */
+    public function testPropertySubrank4()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank4_webp"
+     */
+    public function testPropertySubrank4Webp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank5"
+     */
+    public function testPropertySubrank5()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank5_webp"
+     */
+    public function testPropertySubrank5Webp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank6"
+     */
+    public function testPropertySubrank6()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "subrank6_webp"
+     */
+    public function testPropertySubrank6Webp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

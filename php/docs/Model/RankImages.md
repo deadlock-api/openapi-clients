@@ -34,5 +34,17 @@ Name | Type | Description | Notes
 **small_subrank6** | **string** |  | [optional]
 **small_subrank6_webp** | **string** |  | [optional]
 **small_webp** | **string** |  | [optional]
+**subrank1** | **string** | Tier badge with the division numeral drawn on it, composed on demand by this API. | [optional]
+**subrank1_webp** | **string** |  | [optional]
+**subrank2** | **string** |  | [optional]
+**subrank2_webp** | **string** |  | [optional]
+**subrank3** | **string** |  | [optional]
+**subrank3_webp** | **string** |  | [optional]
+**subrank4** | **string** |  | [optional]
+**subrank4_webp** | **string** |  | [optional]
+**subrank5** | **string** |  | [optional]
+**subrank5_webp** | **string** |  | [optional]
+**subrank6** | **string** |  | [optional]
+**subrank6_webp** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

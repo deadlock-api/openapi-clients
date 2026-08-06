@@ -53,5 +53,15 @@ class RanksApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test subrankImage
+        should("test subrankImage") {
+            // uncomment below to test subrankImage
+            //val tier : kotlin.Int = 56 // kotlin.Int | Rank tier (1-11)
+            //val subrank : kotlin.Int = 56 // kotlin.Int | Division within the tier (1-6)
+            //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.subrankImage(tier, subrank, format)
+            //result shouldBe ("TODO")
+        }
+
     }
 }

@@ -952,7 +952,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/rank/image
      * Rank Image
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return kotlin.collections.List<kotlin.Int>
@@ -985,7 +985,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/rank/image
      * Rank Image
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the &#x60;Obscurus&#x60; image. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+     * Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetRank**](RanksAPI.md#GetRank) | **Get** /v1/assets/ranks/{tier} | Get Rank
 [**ListRanks**](RanksAPI.md#ListRanks) | **Get** /v1/assets/ranks | List Ranks
+[**SubrankImage**](RanksAPI.md#SubrankImage) | **Get** /v1/assets/ranks/{tier}/{subrank}/image | Rank Subrank Image
 
 
 
@@ -145,6 +146,81 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SubrankImage
+
+> []int32 SubrankImage(ctx, tier, subrank).Format(format).Execute()
+
+Rank Subrank Image
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	tier := int32(56) // int32 | Rank tier (1-11)
+	subrank := int32(56) // int32 | Division within the tier (1-6)
+	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RanksAPI.SubrankImage(context.Background(), tier, subrank).Format(format).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RanksAPI.SubrankImage``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubrankImage`: []int32
+	fmt.Fprintf(os.Stdout, "Response from `RanksAPI.SubrankImage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tier** | **int32** | Rank tier (1-11) | 
+**subrank** | **int32** | Division within the tier (1-6) | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubrankImageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
+
+### Return type
+
+**[]int32**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: image/png, image/webp
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

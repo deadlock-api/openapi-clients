@@ -75,6 +75,19 @@ type RankImages struct {
 	SmallSubrank6Webp NullableString `json:"small_subrank6_webp,omitempty"`
 	// Deprecated
 	SmallWebp NullableString `json:"small_webp,omitempty"`
+	// Tier badge with the division numeral drawn on it, composed on demand by this API.
+	Subrank1 NullableString `json:"subrank1,omitempty"`
+	Subrank1Webp NullableString `json:"subrank1_webp,omitempty"`
+	Subrank2 NullableString `json:"subrank2,omitempty"`
+	Subrank2Webp NullableString `json:"subrank2_webp,omitempty"`
+	Subrank3 NullableString `json:"subrank3,omitempty"`
+	Subrank3Webp NullableString `json:"subrank3_webp,omitempty"`
+	Subrank4 NullableString `json:"subrank4,omitempty"`
+	Subrank4Webp NullableString `json:"subrank4_webp,omitempty"`
+	Subrank5 NullableString `json:"subrank5,omitempty"`
+	Subrank5Webp NullableString `json:"subrank5_webp,omitempty"`
+	Subrank6 NullableString `json:"subrank6,omitempty"`
+	Subrank6Webp NullableString `json:"subrank6_webp,omitempty"`
 }
 
 // NewRankImages instantiates a new RankImages object
@@ -1432,6 +1445,510 @@ func (o *RankImages) UnsetSmallWebp() {
 	o.SmallWebp.Unset()
 }
 
+// GetSubrank1 returns the Subrank1 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank1() string {
+	if o == nil || IsNil(o.Subrank1.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank1.Get()
+}
+
+// GetSubrank1Ok returns a tuple with the Subrank1 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank1Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank1.Get(), o.Subrank1.IsSet()
+}
+
+// HasSubrank1 returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank1() bool {
+	if o != nil && o.Subrank1.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank1 gets a reference to the given NullableString and assigns it to the Subrank1 field.
+func (o *RankImages) SetSubrank1(v string) {
+	o.Subrank1.Set(&v)
+}
+// SetSubrank1Nil sets the value for Subrank1 to be an explicit nil
+func (o *RankImages) SetSubrank1Nil() {
+	o.Subrank1.Set(nil)
+}
+
+// UnsetSubrank1 ensures that no value is present for Subrank1, not even an explicit nil
+func (o *RankImages) UnsetSubrank1() {
+	o.Subrank1.Unset()
+}
+
+// GetSubrank1Webp returns the Subrank1Webp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank1Webp() string {
+	if o == nil || IsNil(o.Subrank1Webp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank1Webp.Get()
+}
+
+// GetSubrank1WebpOk returns a tuple with the Subrank1Webp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank1WebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank1Webp.Get(), o.Subrank1Webp.IsSet()
+}
+
+// HasSubrank1Webp returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank1Webp() bool {
+	if o != nil && o.Subrank1Webp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank1Webp gets a reference to the given NullableString and assigns it to the Subrank1Webp field.
+func (o *RankImages) SetSubrank1Webp(v string) {
+	o.Subrank1Webp.Set(&v)
+}
+// SetSubrank1WebpNil sets the value for Subrank1Webp to be an explicit nil
+func (o *RankImages) SetSubrank1WebpNil() {
+	o.Subrank1Webp.Set(nil)
+}
+
+// UnsetSubrank1Webp ensures that no value is present for Subrank1Webp, not even an explicit nil
+func (o *RankImages) UnsetSubrank1Webp() {
+	o.Subrank1Webp.Unset()
+}
+
+// GetSubrank2 returns the Subrank2 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank2() string {
+	if o == nil || IsNil(o.Subrank2.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank2.Get()
+}
+
+// GetSubrank2Ok returns a tuple with the Subrank2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank2Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank2.Get(), o.Subrank2.IsSet()
+}
+
+// HasSubrank2 returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank2() bool {
+	if o != nil && o.Subrank2.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank2 gets a reference to the given NullableString and assigns it to the Subrank2 field.
+func (o *RankImages) SetSubrank2(v string) {
+	o.Subrank2.Set(&v)
+}
+// SetSubrank2Nil sets the value for Subrank2 to be an explicit nil
+func (o *RankImages) SetSubrank2Nil() {
+	o.Subrank2.Set(nil)
+}
+
+// UnsetSubrank2 ensures that no value is present for Subrank2, not even an explicit nil
+func (o *RankImages) UnsetSubrank2() {
+	o.Subrank2.Unset()
+}
+
+// GetSubrank2Webp returns the Subrank2Webp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank2Webp() string {
+	if o == nil || IsNil(o.Subrank2Webp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank2Webp.Get()
+}
+
+// GetSubrank2WebpOk returns a tuple with the Subrank2Webp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank2WebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank2Webp.Get(), o.Subrank2Webp.IsSet()
+}
+
+// HasSubrank2Webp returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank2Webp() bool {
+	if o != nil && o.Subrank2Webp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank2Webp gets a reference to the given NullableString and assigns it to the Subrank2Webp field.
+func (o *RankImages) SetSubrank2Webp(v string) {
+	o.Subrank2Webp.Set(&v)
+}
+// SetSubrank2WebpNil sets the value for Subrank2Webp to be an explicit nil
+func (o *RankImages) SetSubrank2WebpNil() {
+	o.Subrank2Webp.Set(nil)
+}
+
+// UnsetSubrank2Webp ensures that no value is present for Subrank2Webp, not even an explicit nil
+func (o *RankImages) UnsetSubrank2Webp() {
+	o.Subrank2Webp.Unset()
+}
+
+// GetSubrank3 returns the Subrank3 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank3() string {
+	if o == nil || IsNil(o.Subrank3.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank3.Get()
+}
+
+// GetSubrank3Ok returns a tuple with the Subrank3 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank3Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank3.Get(), o.Subrank3.IsSet()
+}
+
+// HasSubrank3 returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank3() bool {
+	if o != nil && o.Subrank3.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank3 gets a reference to the given NullableString and assigns it to the Subrank3 field.
+func (o *RankImages) SetSubrank3(v string) {
+	o.Subrank3.Set(&v)
+}
+// SetSubrank3Nil sets the value for Subrank3 to be an explicit nil
+func (o *RankImages) SetSubrank3Nil() {
+	o.Subrank3.Set(nil)
+}
+
+// UnsetSubrank3 ensures that no value is present for Subrank3, not even an explicit nil
+func (o *RankImages) UnsetSubrank3() {
+	o.Subrank3.Unset()
+}
+
+// GetSubrank3Webp returns the Subrank3Webp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank3Webp() string {
+	if o == nil || IsNil(o.Subrank3Webp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank3Webp.Get()
+}
+
+// GetSubrank3WebpOk returns a tuple with the Subrank3Webp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank3WebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank3Webp.Get(), o.Subrank3Webp.IsSet()
+}
+
+// HasSubrank3Webp returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank3Webp() bool {
+	if o != nil && o.Subrank3Webp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank3Webp gets a reference to the given NullableString and assigns it to the Subrank3Webp field.
+func (o *RankImages) SetSubrank3Webp(v string) {
+	o.Subrank3Webp.Set(&v)
+}
+// SetSubrank3WebpNil sets the value for Subrank3Webp to be an explicit nil
+func (o *RankImages) SetSubrank3WebpNil() {
+	o.Subrank3Webp.Set(nil)
+}
+
+// UnsetSubrank3Webp ensures that no value is present for Subrank3Webp, not even an explicit nil
+func (o *RankImages) UnsetSubrank3Webp() {
+	o.Subrank3Webp.Unset()
+}
+
+// GetSubrank4 returns the Subrank4 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank4() string {
+	if o == nil || IsNil(o.Subrank4.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank4.Get()
+}
+
+// GetSubrank4Ok returns a tuple with the Subrank4 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank4Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank4.Get(), o.Subrank4.IsSet()
+}
+
+// HasSubrank4 returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank4() bool {
+	if o != nil && o.Subrank4.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank4 gets a reference to the given NullableString and assigns it to the Subrank4 field.
+func (o *RankImages) SetSubrank4(v string) {
+	o.Subrank4.Set(&v)
+}
+// SetSubrank4Nil sets the value for Subrank4 to be an explicit nil
+func (o *RankImages) SetSubrank4Nil() {
+	o.Subrank4.Set(nil)
+}
+
+// UnsetSubrank4 ensures that no value is present for Subrank4, not even an explicit nil
+func (o *RankImages) UnsetSubrank4() {
+	o.Subrank4.Unset()
+}
+
+// GetSubrank4Webp returns the Subrank4Webp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank4Webp() string {
+	if o == nil || IsNil(o.Subrank4Webp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank4Webp.Get()
+}
+
+// GetSubrank4WebpOk returns a tuple with the Subrank4Webp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank4WebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank4Webp.Get(), o.Subrank4Webp.IsSet()
+}
+
+// HasSubrank4Webp returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank4Webp() bool {
+	if o != nil && o.Subrank4Webp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank4Webp gets a reference to the given NullableString and assigns it to the Subrank4Webp field.
+func (o *RankImages) SetSubrank4Webp(v string) {
+	o.Subrank4Webp.Set(&v)
+}
+// SetSubrank4WebpNil sets the value for Subrank4Webp to be an explicit nil
+func (o *RankImages) SetSubrank4WebpNil() {
+	o.Subrank4Webp.Set(nil)
+}
+
+// UnsetSubrank4Webp ensures that no value is present for Subrank4Webp, not even an explicit nil
+func (o *RankImages) UnsetSubrank4Webp() {
+	o.Subrank4Webp.Unset()
+}
+
+// GetSubrank5 returns the Subrank5 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank5() string {
+	if o == nil || IsNil(o.Subrank5.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank5.Get()
+}
+
+// GetSubrank5Ok returns a tuple with the Subrank5 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank5Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank5.Get(), o.Subrank5.IsSet()
+}
+
+// HasSubrank5 returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank5() bool {
+	if o != nil && o.Subrank5.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank5 gets a reference to the given NullableString and assigns it to the Subrank5 field.
+func (o *RankImages) SetSubrank5(v string) {
+	o.Subrank5.Set(&v)
+}
+// SetSubrank5Nil sets the value for Subrank5 to be an explicit nil
+func (o *RankImages) SetSubrank5Nil() {
+	o.Subrank5.Set(nil)
+}
+
+// UnsetSubrank5 ensures that no value is present for Subrank5, not even an explicit nil
+func (o *RankImages) UnsetSubrank5() {
+	o.Subrank5.Unset()
+}
+
+// GetSubrank5Webp returns the Subrank5Webp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank5Webp() string {
+	if o == nil || IsNil(o.Subrank5Webp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank5Webp.Get()
+}
+
+// GetSubrank5WebpOk returns a tuple with the Subrank5Webp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank5WebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank5Webp.Get(), o.Subrank5Webp.IsSet()
+}
+
+// HasSubrank5Webp returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank5Webp() bool {
+	if o != nil && o.Subrank5Webp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank5Webp gets a reference to the given NullableString and assigns it to the Subrank5Webp field.
+func (o *RankImages) SetSubrank5Webp(v string) {
+	o.Subrank5Webp.Set(&v)
+}
+// SetSubrank5WebpNil sets the value for Subrank5Webp to be an explicit nil
+func (o *RankImages) SetSubrank5WebpNil() {
+	o.Subrank5Webp.Set(nil)
+}
+
+// UnsetSubrank5Webp ensures that no value is present for Subrank5Webp, not even an explicit nil
+func (o *RankImages) UnsetSubrank5Webp() {
+	o.Subrank5Webp.Unset()
+}
+
+// GetSubrank6 returns the Subrank6 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank6() string {
+	if o == nil || IsNil(o.Subrank6.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank6.Get()
+}
+
+// GetSubrank6Ok returns a tuple with the Subrank6 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank6Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank6.Get(), o.Subrank6.IsSet()
+}
+
+// HasSubrank6 returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank6() bool {
+	if o != nil && o.Subrank6.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank6 gets a reference to the given NullableString and assigns it to the Subrank6 field.
+func (o *RankImages) SetSubrank6(v string) {
+	o.Subrank6.Set(&v)
+}
+// SetSubrank6Nil sets the value for Subrank6 to be an explicit nil
+func (o *RankImages) SetSubrank6Nil() {
+	o.Subrank6.Set(nil)
+}
+
+// UnsetSubrank6 ensures that no value is present for Subrank6, not even an explicit nil
+func (o *RankImages) UnsetSubrank6() {
+	o.Subrank6.Unset()
+}
+
+// GetSubrank6Webp returns the Subrank6Webp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankImages) GetSubrank6Webp() string {
+	if o == nil || IsNil(o.Subrank6Webp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Subrank6Webp.Get()
+}
+
+// GetSubrank6WebpOk returns a tuple with the Subrank6Webp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankImages) GetSubrank6WebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subrank6Webp.Get(), o.Subrank6Webp.IsSet()
+}
+
+// HasSubrank6Webp returns a boolean if a field has been set.
+func (o *RankImages) HasSubrank6Webp() bool {
+	if o != nil && o.Subrank6Webp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSubrank6Webp gets a reference to the given NullableString and assigns it to the Subrank6Webp field.
+func (o *RankImages) SetSubrank6Webp(v string) {
+	o.Subrank6Webp.Set(&v)
+}
+// SetSubrank6WebpNil sets the value for Subrank6Webp to be an explicit nil
+func (o *RankImages) SetSubrank6WebpNil() {
+	o.Subrank6Webp.Set(nil)
+}
+
+// UnsetSubrank6Webp ensures that no value is present for Subrank6Webp, not even an explicit nil
+func (o *RankImages) UnsetSubrank6Webp() {
+	o.Subrank6Webp.Unset()
+}
+
 func (o RankImages) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1531,6 +2048,42 @@ func (o RankImages) ToMap() (map[string]interface{}, error) {
 	}
 	if o.SmallWebp.IsSet() {
 		toSerialize["small_webp"] = o.SmallWebp.Get()
+	}
+	if o.Subrank1.IsSet() {
+		toSerialize["subrank1"] = o.Subrank1.Get()
+	}
+	if o.Subrank1Webp.IsSet() {
+		toSerialize["subrank1_webp"] = o.Subrank1Webp.Get()
+	}
+	if o.Subrank2.IsSet() {
+		toSerialize["subrank2"] = o.Subrank2.Get()
+	}
+	if o.Subrank2Webp.IsSet() {
+		toSerialize["subrank2_webp"] = o.Subrank2Webp.Get()
+	}
+	if o.Subrank3.IsSet() {
+		toSerialize["subrank3"] = o.Subrank3.Get()
+	}
+	if o.Subrank3Webp.IsSet() {
+		toSerialize["subrank3_webp"] = o.Subrank3Webp.Get()
+	}
+	if o.Subrank4.IsSet() {
+		toSerialize["subrank4"] = o.Subrank4.Get()
+	}
+	if o.Subrank4Webp.IsSet() {
+		toSerialize["subrank4_webp"] = o.Subrank4Webp.Get()
+	}
+	if o.Subrank5.IsSet() {
+		toSerialize["subrank5"] = o.Subrank5.Get()
+	}
+	if o.Subrank5Webp.IsSet() {
+		toSerialize["subrank5_webp"] = o.Subrank5Webp.Get()
+	}
+	if o.Subrank6.IsSet() {
+		toSerialize["subrank6"] = o.Subrank6.Get()
+	}
+	if o.Subrank6Webp.IsSet() {
+		toSerialize["subrank6_webp"] = o.Subrank6Webp.Get()
 	}
 	return toSerialize, nil
 }

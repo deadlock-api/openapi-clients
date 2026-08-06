@@ -36,6 +36,16 @@ export declare const RanksApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listRanks: (language?: ListRanksLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+     * @summary Rank Subrank Image
+     * @param {number} tier Rank tier (1-11)
+     * @param {number} subrank Division within the tier (1-6)
+     * @param {SubrankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    subrankImage: (tier: number, subrank: number, format?: SubrankImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * RanksApi - functional programming interface
@@ -60,6 +70,16 @@ export declare const RanksApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listRanks(language?: ListRanksLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Rank>>>;
+    /**
+     * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+     * @summary Rank Subrank Image
+     * @param {number} tier Rank tier (1-11)
+     * @param {number} subrank Division within the tier (1-6)
+     * @param {SubrankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    subrankImage(tier: number, subrank: number, format?: SubrankImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
 };
 /**
  * RanksApi - factory interface
@@ -81,6 +101,14 @@ export declare const RanksApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listRanks(requestParameters?: RanksApiListRanksRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Rank>>;
+    /**
+     * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+     * @summary Rank Subrank Image
+     * @param {RanksApiSubrankImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    subrankImage(requestParameters: RanksApiSubrankImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
 };
 /**
  * Request parameters for getRank operation in RanksApi.
@@ -113,6 +141,23 @@ export interface RanksApiListRanksRequest {
     readonly clientVersion?: number | null;
 }
 /**
+ * Request parameters for subrankImage operation in RanksApi.
+ */
+export interface RanksApiSubrankImageRequest {
+    /**
+     * Rank tier (1-11)
+     */
+    readonly tier: number;
+    /**
+     * Division within the tier (1-6)
+     */
+    readonly subrank: number;
+    /**
+     * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     */
+    readonly format?: SubrankImageFormatEnum;
+}
+/**
  * RanksApi - object-oriented interface
  */
 export declare class RanksApi extends BaseAPI {
@@ -132,6 +177,14 @@ export declare class RanksApi extends BaseAPI {
      * @throws {RequiredError}
      */
     listRanks(requestParameters?: RanksApiListRanksRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Rank[], any, {}, any>>;
+    /**
+     * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+     * @summary Rank Subrank Image
+     * @param {RanksApiSubrankImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    subrankImage(requestParameters: RanksApiSubrankImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
 }
 export declare const GetRankLanguageEnum: {
     readonly Brazilian: "brazilian";
@@ -197,4 +250,9 @@ export declare const ListRanksLanguageEnum: {
     readonly Vietnamese: "vietnamese";
 };
 export type ListRanksLanguageEnum = typeof ListRanksLanguageEnum[keyof typeof ListRanksLanguageEnum];
+export declare const SubrankImageFormatEnum: {
+    readonly Png: "png";
+    readonly Webp: "webp";
+};
+export type SubrankImageFormatEnum = typeof SubrankImageFormatEnum[keyof typeof SubrankImageFormatEnum];
 //# sourceMappingURL=ranks-api.d.ts.map

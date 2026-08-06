@@ -213,5 +213,77 @@ class RankImagesTest : ShouldSpec() {
             //modelInstance.smallWebp shouldBe ("TODO")
         }
 
+        // to test the property `subrank1` - Tier badge with the division numeral drawn on it, composed on demand by this API.
+        should("test subrank1") {
+            // uncomment below to test the property
+            //modelInstance.subrank1 shouldBe ("TODO")
+        }
+
+        // to test the property `subrank1Webp`
+        should("test subrank1Webp") {
+            // uncomment below to test the property
+            //modelInstance.subrank1Webp shouldBe ("TODO")
+        }
+
+        // to test the property `subrank2`
+        should("test subrank2") {
+            // uncomment below to test the property
+            //modelInstance.subrank2 shouldBe ("TODO")
+        }
+
+        // to test the property `subrank2Webp`
+        should("test subrank2Webp") {
+            // uncomment below to test the property
+            //modelInstance.subrank2Webp shouldBe ("TODO")
+        }
+
+        // to test the property `subrank3`
+        should("test subrank3") {
+            // uncomment below to test the property
+            //modelInstance.subrank3 shouldBe ("TODO")
+        }
+
+        // to test the property `subrank3Webp`
+        should("test subrank3Webp") {
+            // uncomment below to test the property
+            //modelInstance.subrank3Webp shouldBe ("TODO")
+        }
+
+        // to test the property `subrank4`
+        should("test subrank4") {
+            // uncomment below to test the property
+            //modelInstance.subrank4 shouldBe ("TODO")
+        }
+
+        // to test the property `subrank4Webp`
+        should("test subrank4Webp") {
+            // uncomment below to test the property
+            //modelInstance.subrank4Webp shouldBe ("TODO")
+        }
+
+        // to test the property `subrank5`
+        should("test subrank5") {
+            // uncomment below to test the property
+            //modelInstance.subrank5 shouldBe ("TODO")
+        }
+
+        // to test the property `subrank5Webp`
+        should("test subrank5Webp") {
+            // uncomment below to test the property
+            //modelInstance.subrank5Webp shouldBe ("TODO")
+        }
+
+        // to test the property `subrank6`
+        should("test subrank6") {
+            // uncomment below to test the property
+            //modelInstance.subrank6 shouldBe ("TODO")
+        }
+
+        // to test the property `subrank6Webp`
+        should("test subrank6Webp") {
+            // uncomment below to test the property
+            //modelInstance.subrank6Webp shouldBe ("TODO")
+        }
+
     }
 }

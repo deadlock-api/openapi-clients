@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_rank**](RanksApi.md#get_rank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 [**list_ranks**](RanksApi.md#list_ranks) | **GET** /v1/assets/ranks | List Ranks
+[**subrank_image**](RanksApi.md#subrank_image) | **GET** /v1/assets/ranks/{tier}/{subrank}/image | Rank Subrank Image
 
 
 
@@ -68,6 +69,38 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## subrank_image
+
+> Vec<u32> subrank_image(tier, subrank, format)
+Rank Subrank Image
+
+Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tier** | **u32** | Rank tier (1-11) | [required] |
+**subrank** | **u32** | Division within the tier (1-6) | [required] |
+**format** | Option<**String**> | Image format. Defaults to `png`. Supported: `png`, `webp`. |  |
+
+### Return type
+
+**Vec<u32>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: image/png, image/webp
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -122,7 +122,7 @@ export declare const PlayersApiAxiosParamCreator: (configuration?: Configuration
      */
     rankAvgImage: (accountIds: Array<number>, format?: RankAvgImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+     * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
      * @summary Rank Image
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {RankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
@@ -263,7 +263,7 @@ export declare const PlayersApiFp: (configuration?: Configuration) => {
      */
     rankAvgImage(accountIds: Array<number>, format?: RankAvgImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
     /**
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+     * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
      * @summary Rank Image
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {RankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
@@ -370,7 +370,7 @@ export declare const PlayersApiFactory: (configuration?: Configuration, basePath
      */
     rankAvgImage(requestParameters: PlayersApiRankAvgImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
     /**
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+     * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
      * @summary Rank Image
      * @param {PlayersApiRankImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -730,7 +730,7 @@ export declare class PlayersApi extends BaseAPI {
      */
     rankAvgImage(requestParameters: PlayersApiRankAvgImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
     /**
-     * Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+     * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
      * @summary Rank Image
      * @param {PlayersApiRankImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

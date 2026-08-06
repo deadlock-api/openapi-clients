@@ -74,6 +74,31 @@ pub struct RankImages {
     pub small_subrank6_webp: Option<Option<String>>,
     #[serde(rename = "small_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub small_webp: Option<Option<String>>,
+    /// Tier badge with the division numeral drawn on it, composed on demand by this API.
+    #[serde(rename = "subrank1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank1: Option<Option<String>>,
+    #[serde(rename = "subrank1_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank1_webp: Option<Option<String>>,
+    #[serde(rename = "subrank2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank2: Option<Option<String>>,
+    #[serde(rename = "subrank2_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank2_webp: Option<Option<String>>,
+    #[serde(rename = "subrank3", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank3: Option<Option<String>>,
+    #[serde(rename = "subrank3_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank3_webp: Option<Option<String>>,
+    #[serde(rename = "subrank4", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank4: Option<Option<String>>,
+    #[serde(rename = "subrank4_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank4_webp: Option<Option<String>>,
+    #[serde(rename = "subrank5", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank5: Option<Option<String>>,
+    #[serde(rename = "subrank5_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank5_webp: Option<Option<String>>,
+    #[serde(rename = "subrank6", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank6: Option<Option<String>>,
+    #[serde(rename = "subrank6_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub subrank6_webp: Option<Option<String>>,
 }
 
 impl RankImages {
@@ -110,6 +135,18 @@ impl RankImages {
             small_subrank6: None,
             small_subrank6_webp: None,
             small_webp: None,
+            subrank1: None,
+            subrank1_webp: None,
+            subrank2: None,
+            subrank2_webp: None,
+            subrank3: None,
+            subrank3_webp: None,
+            subrank4: None,
+            subrank4_webp: None,
+            subrank5: None,
+            subrank5_webp: None,
+            subrank6: None,
+            subrank6_webp: None,
         }
     }
 }

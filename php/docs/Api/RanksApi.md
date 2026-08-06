@@ -8,6 +8,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | ------------- | ------------- | ------------- |
 | [**getRank()**](RanksApi.md#getRank) | **GET** /v1/assets/ranks/{tier} | Get Rank |
 | [**listRanks()**](RanksApi.md#listRanks) | **GET** /v1/assets/ranks | List Ranks |
+| [**subrankImage()**](RanksApi.md#subrankImage) | **GET** /v1/assets/ranks/{tier}/{subrank}/image | Rank Subrank Image |
 
 
 ## `getRank()`
@@ -123,6 +124,66 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `subrankImage()`
+
+```php
+subrankImage($tier, $subrank, $format): int[]
+```
+
+Rank Subrank Image
+
+Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\RanksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tier = 56; // int | Rank tier (1-11)
+$subrank = 56; // int | Division within the tier (1-6)
+$format = 'format_example'; // string | Image format. Defaults to `png`. Supported: `png`, `webp`.
+
+try {
+    $result = $apiInstance->subrankImage($tier, $subrank, $format);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RanksApi->subrankImage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tier** | **int**| Rank tier (1-11) | |
+| **subrank** | **int**| Division within the tier (1-6) | |
+| **format** | **string**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] |
+
+### Return type
+
+**int[]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `image/png`, `image/webp`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

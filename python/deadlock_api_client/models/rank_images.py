@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -57,7 +57,19 @@ class RankImages(BaseModel):
     small_subrank6: Optional[StrictStr] = None
     small_subrank6_webp: Optional[StrictStr] = None
     small_webp: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["chalk", "chalk_webp", "large", "large_subrank1", "large_subrank1_webp", "large_subrank2", "large_subrank2_webp", "large_subrank3", "large_subrank3_webp", "large_subrank4", "large_subrank4_webp", "large_subrank5", "large_subrank5_webp", "large_subrank6", "large_subrank6_webp", "large_webp", "small", "small_subrank1", "small_subrank1_webp", "small_subrank2", "small_subrank2_webp", "small_subrank3", "small_subrank3_webp", "small_subrank4", "small_subrank4_webp", "small_subrank5", "small_subrank5_webp", "small_subrank6", "small_subrank6_webp", "small_webp"]
+    subrank1: Optional[StrictStr] = Field(default=None, description="Tier badge with the division numeral drawn on it, composed on demand by this API.")
+    subrank1_webp: Optional[StrictStr] = None
+    subrank2: Optional[StrictStr] = None
+    subrank2_webp: Optional[StrictStr] = None
+    subrank3: Optional[StrictStr] = None
+    subrank3_webp: Optional[StrictStr] = None
+    subrank4: Optional[StrictStr] = None
+    subrank4_webp: Optional[StrictStr] = None
+    subrank5: Optional[StrictStr] = None
+    subrank5_webp: Optional[StrictStr] = None
+    subrank6: Optional[StrictStr] = None
+    subrank6_webp: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["chalk", "chalk_webp", "large", "large_subrank1", "large_subrank1_webp", "large_subrank2", "large_subrank2_webp", "large_subrank3", "large_subrank3_webp", "large_subrank4", "large_subrank4_webp", "large_subrank5", "large_subrank5_webp", "large_subrank6", "large_subrank6_webp", "large_webp", "small", "small_subrank1", "small_subrank1_webp", "small_subrank2", "small_subrank2_webp", "small_subrank3", "small_subrank3_webp", "small_subrank4", "small_subrank4_webp", "small_subrank5", "small_subrank5_webp", "small_subrank6", "small_subrank6_webp", "small_webp", "subrank1", "subrank1_webp", "subrank2", "subrank2_webp", "subrank3", "subrank3_webp", "subrank4", "subrank4_webp", "subrank5", "subrank5_webp", "subrank6", "subrank6_webp"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -248,6 +260,66 @@ class RankImages(BaseModel):
         if self.small_webp is None and "small_webp" in self.model_fields_set:
             _dict['small_webp'] = None
 
+        # set to None if subrank1 (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank1 is None and "subrank1" in self.model_fields_set:
+            _dict['subrank1'] = None
+
+        # set to None if subrank1_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank1_webp is None and "subrank1_webp" in self.model_fields_set:
+            _dict['subrank1_webp'] = None
+
+        # set to None if subrank2 (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank2 is None and "subrank2" in self.model_fields_set:
+            _dict['subrank2'] = None
+
+        # set to None if subrank2_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank2_webp is None and "subrank2_webp" in self.model_fields_set:
+            _dict['subrank2_webp'] = None
+
+        # set to None if subrank3 (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank3 is None and "subrank3" in self.model_fields_set:
+            _dict['subrank3'] = None
+
+        # set to None if subrank3_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank3_webp is None and "subrank3_webp" in self.model_fields_set:
+            _dict['subrank3_webp'] = None
+
+        # set to None if subrank4 (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank4 is None and "subrank4" in self.model_fields_set:
+            _dict['subrank4'] = None
+
+        # set to None if subrank4_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank4_webp is None and "subrank4_webp" in self.model_fields_set:
+            _dict['subrank4_webp'] = None
+
+        # set to None if subrank5 (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank5 is None and "subrank5" in self.model_fields_set:
+            _dict['subrank5'] = None
+
+        # set to None if subrank5_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank5_webp is None and "subrank5_webp" in self.model_fields_set:
+            _dict['subrank5_webp'] = None
+
+        # set to None if subrank6 (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank6 is None and "subrank6" in self.model_fields_set:
+            _dict['subrank6'] = None
+
+        # set to None if subrank6_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.subrank6_webp is None and "subrank6_webp" in self.model_fields_set:
+            _dict['subrank6_webp'] = None
+
         return _dict
 
     @classmethod
@@ -289,7 +361,19 @@ class RankImages(BaseModel):
             "small_subrank5_webp": obj.get("small_subrank5_webp"),
             "small_subrank6": obj.get("small_subrank6"),
             "small_subrank6_webp": obj.get("small_subrank6_webp"),
-            "small_webp": obj.get("small_webp")
+            "small_webp": obj.get("small_webp"),
+            "subrank1": obj.get("subrank1"),
+            "subrank1_webp": obj.get("subrank1_webp"),
+            "subrank2": obj.get("subrank2"),
+            "subrank2_webp": obj.get("subrank2_webp"),
+            "subrank3": obj.get("subrank3"),
+            "subrank3_webp": obj.get("subrank3_webp"),
+            "subrank4": obj.get("subrank4"),
+            "subrank4_webp": obj.get("subrank4_webp"),
+            "subrank5": obj.get("subrank5"),
+            "subrank5_webp": obj.get("subrank5_webp"),
+            "subrank6": obj.get("subrank6"),
+            "subrank6_webp": obj.get("subrank6_webp")
         })
         return _obj
 

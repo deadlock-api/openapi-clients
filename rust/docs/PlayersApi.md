@@ -298,7 +298,7 @@ No authorization required
 > Vec<u32> rank_image(account_id, format)
 Rank Image
 
-Returns the rank badge image directly (binary), not a URL. Players whose recent ranked matches carry no rank get the `Obscurus` image. Use `?format=webp` for WebP.
+Returns the rank badge image directly (binary), not a URL, with the player's I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
 
 ### Parameters
 

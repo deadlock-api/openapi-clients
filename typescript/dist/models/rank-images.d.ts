@@ -121,5 +121,20 @@ export interface RankImages {
      * @deprecated
      */
     'small_webp'?: string | null;
+    /**
+     * Tier badge with the division numeral drawn on it, composed on demand by this API.
+     */
+    'subrank1'?: string | null;
+    'subrank1_webp'?: string | null;
+    'subrank2'?: string | null;
+    'subrank2_webp'?: string | null;
+    'subrank3'?: string | null;
+    'subrank3_webp'?: string | null;
+    'subrank4'?: string | null;
+    'subrank4_webp'?: string | null;
+    'subrank5'?: string | null;
+    'subrank5_webp'?: string | null;
+    'subrank6'?: string | null;
+    'subrank6_webp'?: string | null;
 }
 //# sourceMappingURL=rank-images.d.ts.map

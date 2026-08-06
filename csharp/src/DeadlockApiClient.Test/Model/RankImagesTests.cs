@@ -322,5 +322,113 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'SmallWebp'
         }
+
+        /// <summary>
+        /// Test the property 'Subrank1'
+        /// </summary>
+        [Fact]
+        public void Subrank1Test()
+        {
+            // TODO unit test for the property 'Subrank1'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank1Webp'
+        /// </summary>
+        [Fact]
+        public void Subrank1WebpTest()
+        {
+            // TODO unit test for the property 'Subrank1Webp'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank2'
+        /// </summary>
+        [Fact]
+        public void Subrank2Test()
+        {
+            // TODO unit test for the property 'Subrank2'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank2Webp'
+        /// </summary>
+        [Fact]
+        public void Subrank2WebpTest()
+        {
+            // TODO unit test for the property 'Subrank2Webp'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank3'
+        /// </summary>
+        [Fact]
+        public void Subrank3Test()
+        {
+            // TODO unit test for the property 'Subrank3'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank3Webp'
+        /// </summary>
+        [Fact]
+        public void Subrank3WebpTest()
+        {
+            // TODO unit test for the property 'Subrank3Webp'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank4'
+        /// </summary>
+        [Fact]
+        public void Subrank4Test()
+        {
+            // TODO unit test for the property 'Subrank4'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank4Webp'
+        /// </summary>
+        [Fact]
+        public void Subrank4WebpTest()
+        {
+            // TODO unit test for the property 'Subrank4Webp'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank5'
+        /// </summary>
+        [Fact]
+        public void Subrank5Test()
+        {
+            // TODO unit test for the property 'Subrank5'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank5Webp'
+        /// </summary>
+        [Fact]
+        public void Subrank5WebpTest()
+        {
+            // TODO unit test for the property 'Subrank5Webp'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank6'
+        /// </summary>
+        [Fact]
+        public void Subrank6Test()
+        {
+            // TODO unit test for the property 'Subrank6'
+        }
+
+        /// <summary>
+        /// Test the property 'Subrank6Webp'
+        /// </summary>
+        [Fact]
+        public void Subrank6WebpTest()
+        {
+            // TODO unit test for the property 'Subrank6Webp'
+        }
     }
 }

@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **liveQuery**
 > liveQuery()
 
- Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | With broadcast_url: 20req/m<br>With match_id: 20req/m + 2req/h | | Key | With broadcast_url: -<br>With match_id: 5req/m, 100req/h | | Global | With broadcast_url: 100req/m<br>With match_id: 100req/m + 5req/10s, 500req/h | 
+ Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | With broadcast_url: 20req/m<br>With match_id: 6req/h | | Key | With broadcast_url: -<br>With match_id: 20req/10m, 100req/h | | Global | With broadcast_url: 100req/m<br>With match_id: 100req/10m, 500req/h | 
 
 ### Example
 

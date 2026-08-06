@@ -9,3 +9,9 @@ Accept: application/json
 ## List Ranks
 GET https://api.deadlock-api.com/v1/assets/ranks?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
+
+### Rank Subrank Image
+## Rank Subrank Image
+GET https://api.deadlock-api.com/v1/assets/ranks/{{tier}}/{{subrank}}/image?format={{format}}
+Accept: image/png
+Accept: image/webp

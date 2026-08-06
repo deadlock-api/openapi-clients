@@ -198,6 +198,78 @@ export interface RankImages  {
      * @memberof RankImages
      */
     smallWebp?: string;
+    /**
+     * Tier badge with the division numeral drawn on it, composed on demand by this API.
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank1?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank1Webp?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank2?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank2Webp?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank3?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank3Webp?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank4?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank4Webp?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank5?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank5Webp?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank6?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RankImages
+     */
+    subrank6Webp?: string;
 }
 
 export function RankImagesFromJSON(json: any): RankImages {
@@ -232,6 +304,18 @@ export function RankImagesFromJSON(json: any): RankImages {
         'smallSubrank6': !exists(json, 'small_subrank6') ? undefined : json['small_subrank6'],
         'smallSubrank6Webp': !exists(json, 'small_subrank6_webp') ? undefined : json['small_subrank6_webp'],
         'smallWebp': !exists(json, 'small_webp') ? undefined : json['small_webp'],
+        'subrank1': !exists(json, 'subrank1') ? undefined : json['subrank1'],
+        'subrank1Webp': !exists(json, 'subrank1_webp') ? undefined : json['subrank1_webp'],
+        'subrank2': !exists(json, 'subrank2') ? undefined : json['subrank2'],
+        'subrank2Webp': !exists(json, 'subrank2_webp') ? undefined : json['subrank2_webp'],
+        'subrank3': !exists(json, 'subrank3') ? undefined : json['subrank3'],
+        'subrank3Webp': !exists(json, 'subrank3_webp') ? undefined : json['subrank3_webp'],
+        'subrank4': !exists(json, 'subrank4') ? undefined : json['subrank4'],
+        'subrank4Webp': !exists(json, 'subrank4_webp') ? undefined : json['subrank4_webp'],
+        'subrank5': !exists(json, 'subrank5') ? undefined : json['subrank5'],
+        'subrank5Webp': !exists(json, 'subrank5_webp') ? undefined : json['subrank5_webp'],
+        'subrank6': !exists(json, 'subrank6') ? undefined : json['subrank6'],
+        'subrank6Webp': !exists(json, 'subrank6_webp') ? undefined : json['subrank6_webp'],
     };
 }
 
@@ -270,6 +354,18 @@ export function RankImagesToJSON(value?: RankImages): any {
         'small_subrank6': value.smallSubrank6,
         'small_subrank6_webp': value.smallSubrank6Webp,
         'small_webp': value.smallWebp,
+        'subrank1': value.subrank1,
+        'subrank1_webp': value.subrank1Webp,
+        'subrank2': value.subrank2,
+        'subrank2_webp': value.subrank2Webp,
+        'subrank3': value.subrank3,
+        'subrank3_webp': value.subrank3Webp,
+        'subrank4': value.subrank4,
+        'subrank4_webp': value.subrank4Webp,
+        'subrank5': value.subrank5,
+        'subrank5_webp': value.subrank5Webp,
+        'subrank6': value.subrank6,
+        'subrank6_webp': value.subrank6Webp,
     };
 }
 

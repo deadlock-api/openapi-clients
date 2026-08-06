@@ -48,4 +48,19 @@ func Test_deadlock_api_client_RanksAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test RanksAPIService SubrankImage", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var tier int32
+		var subrank int32
+
+		resp, httpRes, err := apiClient.RanksAPI.SubrankImage(context.Background(), tier, subrank).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

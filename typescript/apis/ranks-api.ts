@@ -112,6 +112,49 @@ export const RanksApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+         * @summary Rank Subrank Image
+         * @param {number} tier Rank tier (1-11)
+         * @param {number} subrank Division within the tier (1-6)
+         * @param {SubrankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        subrankImage: async (tier: number, subrank: number, format?: SubrankImageFormatEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tier' is not null or undefined
+            assertParamExists('subrankImage', 'tier', tier)
+            // verify required parameter 'subrank' is not null or undefined
+            assertParamExists('subrankImage', 'subrank', subrank)
+            const localVarPath = `/v1/assets/ranks/{tier}/{subrank}/image`
+                .replace('{tier}', encodeURIComponent(String(tier)))
+                .replace('{subrank}', encodeURIComponent(String(subrank)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (format !== undefined) {
+                localVarQueryParameter['format'] = format;
+            }
+
+            localVarHeaderParameter['Accept'] = 'image/png,image/webp';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -150,6 +193,21 @@ export const RanksApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['RanksApi.listRanks']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+         * @summary Rank Subrank Image
+         * @param {number} tier Rank tier (1-11)
+         * @param {number} subrank Division within the tier (1-6)
+         * @param {SubrankImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async subrankImage(tier: number, subrank: number, format?: SubrankImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.subrankImage(tier, subrank, format, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RanksApi.subrankImage']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -178,6 +236,16 @@ export const RanksApiFactory = function (configuration?: Configuration, basePath
          */
         listRanks(requestParameters: RanksApiListRanksRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<Rank>> {
             return localVarFp.listRanks(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+         * @summary Rank Subrank Image
+         * @param {RanksApiSubrankImageRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        subrankImage(requestParameters: RanksApiSubrankImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
+            return localVarFp.subrankImage(requestParameters.tier, requestParameters.subrank, requestParameters.format, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -218,6 +286,26 @@ export interface RanksApiListRanksRequest {
 }
 
 /**
+ * Request parameters for subrankImage operation in RanksApi.
+ */
+export interface RanksApiSubrankImageRequest {
+    /**
+     * Rank tier (1-11)
+     */
+    readonly tier: number
+
+    /**
+     * Division within the tier (1-6)
+     */
+    readonly subrank: number
+
+    /**
+     * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
+     */
+    readonly format?: SubrankImageFormatEnum
+}
+
+/**
  * RanksApi - object-oriented interface
  */
 export class RanksApi extends BaseAPI {
@@ -241,6 +329,17 @@ export class RanksApi extends BaseAPI {
      */
     public listRanks(requestParameters: RanksApiListRanksRequest = {}, options?: RawAxiosRequestConfig) {
         return RanksApiFp(this.configuration).listRanks(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use `?format=webp` for WebP.
+     * @summary Rank Subrank Image
+     * @param {RanksApiSubrankImageRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public subrankImage(requestParameters: RanksApiSubrankImageRequest, options?: RawAxiosRequestConfig) {
+        return RanksApiFp(this.configuration).subrankImage(requestParameters.tier, requestParameters.subrank, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -308,3 +407,8 @@ export const ListRanksLanguageEnum = {
     Vietnamese: 'vietnamese',
 } as const;
 export type ListRanksLanguageEnum = typeof ListRanksLanguageEnum[keyof typeof ListRanksLanguageEnum];
+export const SubrankImageFormatEnum = {
+    Png: 'png',
+    Webp: 'webp',
+} as const;
+export type SubrankImageFormatEnum = typeof SubrankImageFormatEnum[keyof typeof SubrankImageFormatEnum];
