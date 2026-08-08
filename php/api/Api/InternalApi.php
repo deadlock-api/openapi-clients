@@ -77,6 +77,9 @@ class InternalApi
         'ingestSalts' => [
             'application/json',
         ],
+        'submitFeedback' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -295,6 +298,223 @@ class InternalApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($clickhouse_salts));
             } else {
                 $httpBody = $clickhouse_salts;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation submitFeedback
+     *
+     * Submit Website Feedback
+     *
+     * @param  \OpenAPI\Client\Model\FeedbackSubmission $feedback_submission feedback_submission (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFeedback'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function submitFeedback($feedback_submission, string $contentType = self::contentTypes['submitFeedback'][0])
+    {
+        $this->submitFeedbackWithHttpInfo($feedback_submission, $contentType);
+    }
+
+    /**
+     * Operation submitFeedbackWithHttpInfo
+     *
+     * Submit Website Feedback
+     *
+     * @param  \OpenAPI\Client\Model\FeedbackSubmission $feedback_submission (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFeedback'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function submitFeedbackWithHttpInfo($feedback_submission, string $contentType = self::contentTypes['submitFeedback'][0])
+    {
+        $request = $this->submitFeedbackRequest($feedback_submission, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation submitFeedbackAsync
+     *
+     * Submit Website Feedback
+     *
+     * @param  \OpenAPI\Client\Model\FeedbackSubmission $feedback_submission (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFeedback'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitFeedbackAsync($feedback_submission, string $contentType = self::contentTypes['submitFeedback'][0])
+    {
+        return $this->submitFeedbackAsyncWithHttpInfo($feedback_submission, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation submitFeedbackAsyncWithHttpInfo
+     *
+     * Submit Website Feedback
+     *
+     * @param  \OpenAPI\Client\Model\FeedbackSubmission $feedback_submission (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFeedback'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitFeedbackAsyncWithHttpInfo($feedback_submission, string $contentType = self::contentTypes['submitFeedback'][0])
+    {
+        $returnType = '';
+        $request = $this->submitFeedbackRequest($feedback_submission, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'submitFeedback'
+     *
+     * @param  \OpenAPI\Client\Model\FeedbackSubmission $feedback_submission (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitFeedback'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function submitFeedbackRequest($feedback_submission, string $contentType = self::contentTypes['submitFeedback'][0])
+    {
+
+        // verify the required parameter 'feedback_submission' is set
+        if ($feedback_submission === null || (is_array($feedback_submission) && count($feedback_submission) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $feedback_submission when calling submitFeedback'
+            );
+        }
+
+
+        $resourcePath = '/v1/feedback';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            [],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($feedback_submission)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($feedback_submission));
+            } else {
+                $httpBody = $feedback_submission;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

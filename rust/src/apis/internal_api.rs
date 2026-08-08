@@ -20,11 +20,27 @@ pub struct IngestSaltsParams {
     pub clickhouse_salts: Vec<models::ClickhouseSalts>
 }
 
+/// struct for passing parameters to the method [`submit_feedback`]
+#[derive(Clone, Debug)]
+pub struct SubmitFeedbackParams {
+    pub feedback_submission: models::FeedbackSubmission
+}
+
 
 /// struct for typed errors of method [`ingest_salts`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IngestSaltsError {
+    Status400(),
+    Status429(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`submit_feedback`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SubmitFeedbackError {
     Status400(),
     Status429(),
     Status500(),
@@ -53,6 +69,31 @@ pub async fn ingest_salts(configuration: &configuration::Configuration, params: 
     } else {
         let content = resp.text().await?;
         let entity: Option<IngestSaltsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+pub async fn submit_feedback(configuration: &configuration::Configuration, params: SubmitFeedbackParams) -> Result<(), Error<SubmitFeedbackError>> {
+
+    let uri_str = format!("{}/v1/feedback", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.feedback_submission);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SubmitFeedbackError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

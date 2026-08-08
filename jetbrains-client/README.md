@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**healthCheck**](Apis/InfoApi.http#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](Apis/InfoApi.http#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingestSalts**](Apis/InternalApi.http#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
+*InternalApi* | [**submitFeedback**](Apis/InternalApi.http#submitfeedback) | **POST** /v1/feedback | Submit Website Feedback
 *ItemsApi* | [**getItem**](Apis/ItemsApi.http#getitem) | **GET** /v1/assets/items/{id_or_class_name} | Get Item
 *ItemsApi* | [**getItemsByHeroId**](Apis/ItemsApi.http#getitemsbyheroid) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero
 *ItemsApi* | [**getItemsBySlotType**](Apis/ItemsApi.http#getitemsbyslottype) | **GET** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type

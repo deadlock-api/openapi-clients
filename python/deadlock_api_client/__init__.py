@@ -107,6 +107,9 @@ __all__ = [
     "FeedItem",
     "FeedItemOneOf",
     "FeedItemOneOf1",
+    "FeedbackKind",
+    "FeedbackSubmission",
+    "FeedbackTarget",
     "FlashData",
     "ForumPatch",
     "GameMode",
@@ -216,6 +219,7 @@ __all__ = [
     "ShopStatDisplay",
     "ShopVitalityStatsDisplay",
     "ShopWeaponStatsDisplay",
+    "SourceLocation",
     "SpreadPenalty",
     "StartingStat",
     "StartingStats",
@@ -259,6 +263,7 @@ __all__ = [
     "VariableCategory",
     "VariableDescription",
     "VerticalRecoil",
+    "Viewport",
     "Weapon",
     "WeaponInfo",
     "ZiplanePath",
@@ -358,6 +363,9 @@ from deadlock_api_client.models.enemy_stats import EnemyStats as EnemyStats
 from deadlock_api_client.models.feed_item import FeedItem as FeedItem
 from deadlock_api_client.models.feed_item_one_of import FeedItemOneOf as FeedItemOneOf
 from deadlock_api_client.models.feed_item_one_of1 import FeedItemOneOf1 as FeedItemOneOf1
+from deadlock_api_client.models.feedback_kind import FeedbackKind as FeedbackKind
+from deadlock_api_client.models.feedback_submission import FeedbackSubmission as FeedbackSubmission
+from deadlock_api_client.models.feedback_target import FeedbackTarget as FeedbackTarget
 from deadlock_api_client.models.flash_data import FlashData as FlashData
 from deadlock_api_client.models.forum_patch import ForumPatch as ForumPatch
 from deadlock_api_client.models.game_mode import GameMode as GameMode
@@ -467,6 +475,7 @@ from deadlock_api_client.models.shop_spirit_stats_display import ShopSpiritStats
 from deadlock_api_client.models.shop_stat_display import ShopStatDisplay as ShopStatDisplay
 from deadlock_api_client.models.shop_vitality_stats_display import ShopVitalityStatsDisplay as ShopVitalityStatsDisplay
 from deadlock_api_client.models.shop_weapon_stats_display import ShopWeaponStatsDisplay as ShopWeaponStatsDisplay
+from deadlock_api_client.models.source_location import SourceLocation as SourceLocation
 from deadlock_api_client.models.spread_penalty import SpreadPenalty as SpreadPenalty
 from deadlock_api_client.models.starting_stat import StartingStat as StartingStat
 from deadlock_api_client.models.starting_stats import StartingStats as StartingStats
@@ -510,6 +519,7 @@ from deadlock_api_client.models.upgrade_tooltip_section_attribute import Upgrade
 from deadlock_api_client.models.variable_category import VariableCategory as VariableCategory
 from deadlock_api_client.models.variable_description import VariableDescription as VariableDescription
 from deadlock_api_client.models.vertical_recoil import VerticalRecoil as VerticalRecoil
+from deadlock_api_client.models.viewport import Viewport as Viewport
 from deadlock_api_client.models.weapon import Weapon as Weapon
 from deadlock_api_client.models.weapon_info import WeaponInfo as WeaponInfo
 from deadlock_api_client.models.ziplane_path import ZiplanePath as ZiplanePath

@@ -33,6 +33,13 @@ class TestInternalApi(unittest.TestCase):
         """
         pass
 
+    def test_submit_feedback(self) -> None:
+        """Test case for submit_feedback
+
+        Submit Website Feedback
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

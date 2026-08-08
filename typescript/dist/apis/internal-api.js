@@ -52,6 +52,36 @@ export const InternalApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+         * @summary Submit Website Feedback
+         * @param {FeedbackSubmission} feedbackSubmission
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitFeedback: async (feedbackSubmission, options = {}) => {
+            // verify required parameter 'feedbackSubmission' is not null or undefined
+            assertParamExists('submitFeedback', 'feedbackSubmission', feedbackSubmission);
+            const localVarPath = `/v1/feedback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            localVarRequestOptions.data = serializeDataIfNeeded(feedbackSubmission, localVarRequestOptions, configuration);
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     };
 };
 /**
@@ -73,6 +103,19 @@ export const InternalApiFp = function (configuration) {
             const localVarOperationServerBasePath = operationServerMap['InternalApi.ingestSalts']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+         * @summary Submit Website Feedback
+         * @param {FeedbackSubmission} feedbackSubmission
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async submitFeedback(feedbackSubmission, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitFeedback(feedbackSubmission, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.submitFeedback']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     };
 };
 /**
@@ -91,6 +134,16 @@ export const InternalApiFactory = function (configuration, basePath, axios) {
         ingestSalts(requestParameters, options) {
             return localVarFp.ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(axios, basePath));
         },
+        /**
+         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+         * @summary Submit Website Feedback
+         * @param {InternalApiSubmitFeedbackRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitFeedback(requestParameters, options) {
+            return localVarFp.submitFeedback(requestParameters.feedbackSubmission, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -106,6 +159,16 @@ export class InternalApi extends BaseAPI {
      */
     ingestSalts(requestParameters, options) {
         return InternalApiFp(this.configuration).ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+     * @summary Submit Website Feedback
+     * @param {InternalApiSubmitFeedbackRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    submitFeedback(requestParameters, options) {
+        return InternalApiFp(this.configuration).submitFeedback(requestParameters.feedbackSubmission, options).then((request) => request(this.axios, this.basePath));
     }
 }
 //# sourceMappingURL=internal-api.js.map

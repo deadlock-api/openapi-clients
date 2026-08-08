@@ -59,5 +59,15 @@ namespace DeadlockApiClient.Test.Api
             List<ClickhouseSalts> clickhouseSalts = default!;
             await _instance.IngestSaltsAsync(clickhouseSalts);
         }
+
+        /// <summary>
+        /// Test SubmitFeedback
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task SubmitFeedbackAsyncTest()
+        {
+            FeedbackSubmission feedbackSubmission = default!;
+            await _instance.SubmitFeedbackAsync(feedbackSubmission);
+        }
     }
 }

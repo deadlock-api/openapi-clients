@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ingest_salts**](InternalApi.md#ingest_salts) | **POST** /v1/matches/salts | Match Salts Ingest
+[**submit_feedback**](InternalApi.md#submit_feedback) | **POST** /v1/feedback | Submit Website Feedback
 
 
 # **ingest_salts**
@@ -90,6 +91,84 @@ No authorization required
 **400** | Provided parameters are invalid or the salt check failed. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Ingest failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **submit_feedback**
+> submit_feedback(feedback_submission)
+
+Submit Website Feedback
+
+
+Stores a component annotation or general feedback submitted from deadlock-api.com.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 10req/min, 100req/h |
+| Key | - |
+| Global | 2000req/h |
+    
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.feedback_submission import FeedbackSubmission
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.InternalApi(api_client)
+    feedback_submission = deadlock_api_client.FeedbackSubmission() # FeedbackSubmission | 
+
+    try:
+        # Submit Website Feedback
+        api_instance.submit_feedback(feedback_submission)
+    except Exception as e:
+        print("Exception when calling InternalApi->submit_feedback: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **feedback_submission** | [**FeedbackSubmission**](FeedbackSubmission.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Feedback stored. |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**429** | Rate limit exceeded |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

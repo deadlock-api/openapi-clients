@@ -144,6 +144,7 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**healthCheck**](docs/Api/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/Api/InfoApi.md#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingestSalts**](docs/Api/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
+*InternalApi* | [**submitFeedback**](docs/Api/InternalApi.md#submitfeedback) | **POST** /v1/feedback | Submit Website Feedback
 *ItemsApi* | [**getItem**](docs/Api/ItemsApi.md#getitem) | **GET** /v1/assets/items/{id_or_class_name} | Get Item
 *ItemsApi* | [**getItemsByHeroId**](docs/Api/ItemsApi.md#getitemsbyheroid) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero
 *ItemsApi* | [**getItemsBySlotType**](docs/Api/ItemsApi.md#getitemsbyslottype) | **GET** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type
@@ -257,6 +258,9 @@ Class | Method | HTTP request | Description
 - [FeedItem](docs/Model/FeedItem.md)
 - [FeedItemOneOf](docs/Model/FeedItemOneOf.md)
 - [FeedItemOneOf1](docs/Model/FeedItemOneOf1.md)
+- [FeedbackKind](docs/Model/FeedbackKind.md)
+- [FeedbackSubmission](docs/Model/FeedbackSubmission.md)
+- [FeedbackTarget](docs/Model/FeedbackTarget.md)
 - [FlashData](docs/Model/FlashData.md)
 - [ForumPatch](docs/Model/ForumPatch.md)
 - [GameMode](docs/Model/GameMode.md)
@@ -366,6 +370,7 @@ Class | Method | HTTP request | Description
 - [ShopStatDisplay](docs/Model/ShopStatDisplay.md)
 - [ShopVitalityStatsDisplay](docs/Model/ShopVitalityStatsDisplay.md)
 - [ShopWeaponStatsDisplay](docs/Model/ShopWeaponStatsDisplay.md)
+- [SourceLocation](docs/Model/SourceLocation.md)
 - [SpreadPenalty](docs/Model/SpreadPenalty.md)
 - [StartingStat](docs/Model/StartingStat.md)
 - [StartingStats](docs/Model/StartingStats.md)
@@ -409,6 +414,7 @@ Class | Method | HTTP request | Description
 - [VariableCategory](docs/Model/VariableCategory.md)
 - [VariableDescription](docs/Model/VariableDescription.md)
 - [VerticalRecoil](docs/Model/VerticalRecoil.md)
+- [Viewport](docs/Model/Viewport.md)
 - [Weapon](docs/Model/Weapon.md)
 - [WeaponInfo](docs/Model/WeaponInfo.md)
 - [ZiplanePath](docs/Model/ZiplanePath.md)

@@ -9,3 +9,22 @@ Content-Type: application/json
  
 }
 
+
+### Submit Website Feedback
+## Submit Website Feedback
+POST https://api.deadlock-api.com/v1/feedback
+Content-Type: application/json
+
+{
+ "build_id": "<string>",
+ "comment": "<string>",
+ "element_text": "<string>",
+ "kind": "<string>",
+ "nickname": "<string>",
+ "page_url": "<string>",
+ "selector": "<string>",
+ "source": "<string>",
+ "targets": "<string>",
+ "viewport": "<string>"
+}
+

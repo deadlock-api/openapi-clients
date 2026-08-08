@@ -137,3 +137,111 @@ func (a *InternalAPIService) IngestSaltsExecute(r ApiIngestSaltsRequest) (*http.
 
 	return localVarHTTPResponse, nil
 }
+
+type ApiSubmitFeedbackRequest struct {
+	ctx context.Context
+	ApiService *InternalAPIService
+	feedbackSubmission *FeedbackSubmission
+}
+
+func (r ApiSubmitFeedbackRequest) FeedbackSubmission(feedbackSubmission FeedbackSubmission) ApiSubmitFeedbackRequest {
+	r.feedbackSubmission = &feedbackSubmission
+	return r
+}
+
+func (r ApiSubmitFeedbackRequest) Execute() (*http.Response, error) {
+	return r.ApiService.SubmitFeedbackExecute(r)
+}
+
+/*
+SubmitFeedback Submit Website Feedback
+
+
+Stores a component annotation or general feedback submitted from deadlock-api.com.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 10req/min, 100req/h |
+| Key | - |
+| Global | 2000req/h |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiSubmitFeedbackRequest
+*/
+func (a *InternalAPIService) SubmitFeedback(ctx context.Context) ApiSubmitFeedbackRequest {
+	return ApiSubmitFeedbackRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *InternalAPIService) SubmitFeedbackExecute(r ApiSubmitFeedbackRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InternalAPIService.SubmitFeedback")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/feedback"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.feedbackSubmission == nil {
+		return nil, reportError("feedbackSubmission is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.feedbackSubmission
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}

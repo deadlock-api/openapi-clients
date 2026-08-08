@@ -193,7 +193,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -464,7 +464,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -598,7 +598,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -686,7 +686,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -919,7 +919,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -1064,7 +1064,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -1264,7 +1264,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -1561,7 +1561,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -1830,7 +1830,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -2109,7 +2109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -2395,7 +2395,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -2727,7 +2727,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -3027,7 +3027,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -3327,7 +3327,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -3632,7 +3632,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -3868,7 +3868,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -4181,7 +4181,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -6889,6 +6889,31 @@ paths:
       summary: Widget Versions
       tags:
       - Commands
+  /v1/feedback:
+    post:
+      description: "\nStores a component annotation or general feedback submitted\
+        \ from deadlock-api.com.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | -----\
+        \ |\n| IP | 10req/min, 100req/h |\n| Key | - |\n| Global | 2000req/h |\n \
+        \   "
+      operationId: submit_feedback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackSubmission"
+        required: true
+      responses:
+        "201":
+          description: Feedback stored.
+        "400":
+          description: Provided parameters are invalid.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Internal server error
+      summary: Submit Website Feedback
+      tags:
+      - Internal
   /v1/graphql:
     get:
       description: "\nInteractive GraphiQL playground for exploring the GraphQL API.\n\
@@ -8656,7 +8681,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -8780,7 +8805,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783382400
+          default: 1783468800
           format: int64
           nullable: true
           type: integer
@@ -12027,6 +12052,88 @@ components:
       oneOf:
       - $ref: "#/components/schemas/FeedItem_oneOf"
       - $ref: "#/components/schemas/FeedItem_oneOf_1"
+    FeedbackKind:
+      enum:
+      - annotation
+      - general
+      type: string
+    FeedbackSubmission:
+      example:
+        build_id: build_id
+        comment: comment
+        element_text: element_text
+        kind: annotation
+        nickname: nickname
+        page_url: page_url
+        selector: selector
+        source: ""
+        targets:
+        - element_text: element_text
+          selector: selector
+          source: ""
+        - element_text: element_text
+          selector: selector
+          source: ""
+        viewport: ""
+      properties:
+        build_id:
+          nullable: true
+          type: string
+        comment:
+          type: string
+        element_text:
+          nullable: true
+          type: string
+        kind:
+          $ref: "#/components/schemas/FeedbackKind"
+        nickname:
+          nullable: true
+          type: string
+        page_url:
+          type: string
+        selector:
+          nullable: true
+          type: string
+        source:
+          allOf:
+          - $ref: "#/components/schemas/SourceLocation"
+          description: |-
+            Superseded by `targets`; still accepted so pages cached from an older
+            build keep submitting successfully.
+          nullable: true
+        targets:
+          description: The annotated elements. Left empty for general feedback.
+          items:
+            $ref: "#/components/schemas/FeedbackTarget"
+          type: array
+          default: null
+        viewport:
+          allOf:
+          - $ref: "#/components/schemas/Viewport"
+          nullable: true
+      required:
+      - comment
+      - kind
+      - page_url
+    FeedbackTarget:
+      description: |-
+        One annotated element. A submission carries several when the visitor picked
+        more than one.
+      example:
+        element_text: element_text
+        selector: selector
+        source: ""
+      properties:
+        element_text:
+          nullable: true
+          type: string
+        selector:
+          nullable: true
+          type: string
+        source:
+          allOf:
+          - $ref: "#/components/schemas/SourceLocation"
+          nullable: true
     FlashData:
       example:
         brightness: 6.027456183070403
@@ -17021,6 +17128,28 @@ components:
       required:
       - display_stats
       - other_display_stats
+    SourceLocation:
+      properties:
+        chain:
+          items:
+            type: string
+          type: array
+          default: null
+        column:
+          format: int32
+          type: integer
+        component:
+          nullable: true
+          type: string
+        file:
+          type: string
+        line:
+          format: int32
+          type: integer
+      required:
+      - column
+      - file
+      - line
     SpreadPenalty:
       description: |-
         Source data emits spread penalties as either a list of floats or a string
@@ -18150,6 +18279,21 @@ components:
           allOf:
           - $ref: "#/components/schemas/RecoilRange"
           nullable: true
+    Viewport:
+      properties:
+        device_pixel_ratio:
+          format: float
+          type: number
+        height:
+          format: int32
+          type: integer
+        width:
+          format: int32
+          type: integer
+      required:
+      - device_pixel_ratio
+      - height
+      - width
     Weapon:
       properties:
         class_name:

@@ -60,6 +60,9 @@ docs/EnemyStats.md
 docs/FeedItem.md
 docs/FeedItemOneOf.md
 docs/FeedItemOneOf1.md
+docs/FeedbackKind.md
+docs/FeedbackSubmission.md
+docs/FeedbackTarget.md
 docs/FlashData.md
 docs/ForumPatch.md
 docs/GameMode.md
@@ -188,6 +191,7 @@ docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
 docs/ShopWeaponStatsDisplay.md
+docs/SourceLocation.md
 docs/SpreadPenalty.md
 docs/StartingStat.md
 docs/StartingStats.md
@@ -233,6 +237,7 @@ docs/UpgradeTooltipSectionAttribute.md
 docs/VariableCategory.md
 docs/VariableDescription.md
 docs/VerticalRecoil.md
+docs/Viewport.md
 docs/Weapon.md
 docs/WeaponInfo.md
 docs/ZiplanePath.md
@@ -334,6 +339,9 @@ src/main/kotlin/deadlock_api_client/models/EnemyStats.kt
 src/main/kotlin/deadlock_api_client/models/FeedItem.kt
 src/main/kotlin/deadlock_api_client/models/FeedItemOneOf.kt
 src/main/kotlin/deadlock_api_client/models/FeedItemOneOf1.kt
+src/main/kotlin/deadlock_api_client/models/FeedbackKind.kt
+src/main/kotlin/deadlock_api_client/models/FeedbackSubmission.kt
+src/main/kotlin/deadlock_api_client/models/FeedbackTarget.kt
 src/main/kotlin/deadlock_api_client/models/FlashData.kt
 src/main/kotlin/deadlock_api_client/models/ForumPatch.kt
 src/main/kotlin/deadlock_api_client/models/GameMode.kt
@@ -443,6 +451,7 @@ src/main/kotlin/deadlock_api_client/models/ShopSpiritStatsDisplay.kt
 src/main/kotlin/deadlock_api_client/models/ShopStatDisplay.kt
 src/main/kotlin/deadlock_api_client/models/ShopVitalityStatsDisplay.kt
 src/main/kotlin/deadlock_api_client/models/ShopWeaponStatsDisplay.kt
+src/main/kotlin/deadlock_api_client/models/SourceLocation.kt
 src/main/kotlin/deadlock_api_client/models/SpreadPenalty.kt
 src/main/kotlin/deadlock_api_client/models/StartingStat.kt
 src/main/kotlin/deadlock_api_client/models/StartingStats.kt
@@ -486,6 +495,7 @@ src/main/kotlin/deadlock_api_client/models/UpgradeTooltipSectionAttribute.kt
 src/main/kotlin/deadlock_api_client/models/VariableCategory.kt
 src/main/kotlin/deadlock_api_client/models/VariableDescription.kt
 src/main/kotlin/deadlock_api_client/models/VerticalRecoil.kt
+src/main/kotlin/deadlock_api_client/models/Viewport.kt
 src/main/kotlin/deadlock_api_client/models/Weapon.kt
 src/main/kotlin/deadlock_api_client/models/WeaponInfo.kt
 src/main/kotlin/deadlock_api_client/models/ZiplanePath.kt
@@ -569,6 +579,9 @@ src/test/kotlin/deadlock_api_client/models/EnemyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/FeedItemOneOf1Test.kt
 src/test/kotlin/deadlock_api_client/models/FeedItemOneOfTest.kt
 src/test/kotlin/deadlock_api_client/models/FeedItemTest.kt
+src/test/kotlin/deadlock_api_client/models/FeedbackKindTest.kt
+src/test/kotlin/deadlock_api_client/models/FeedbackSubmissionTest.kt
+src/test/kotlin/deadlock_api_client/models/FeedbackTargetTest.kt
 src/test/kotlin/deadlock_api_client/models/FlashDataTest.kt
 src/test/kotlin/deadlock_api_client/models/ForumPatchTest.kt
 src/test/kotlin/deadlock_api_client/models/GameModeTest.kt
@@ -678,6 +691,7 @@ src/test/kotlin/deadlock_api_client/models/ShopSpiritStatsDisplayTest.kt
 src/test/kotlin/deadlock_api_client/models/ShopStatDisplayTest.kt
 src/test/kotlin/deadlock_api_client/models/ShopVitalityStatsDisplayTest.kt
 src/test/kotlin/deadlock_api_client/models/ShopWeaponStatsDisplayTest.kt
+src/test/kotlin/deadlock_api_client/models/SourceLocationTest.kt
 src/test/kotlin/deadlock_api_client/models/SpreadPenaltyTest.kt
 src/test/kotlin/deadlock_api_client/models/StartingStatTest.kt
 src/test/kotlin/deadlock_api_client/models/StartingStatsTest.kt
@@ -721,6 +735,7 @@ src/test/kotlin/deadlock_api_client/models/UpgradeTooltipSectionTest.kt
 src/test/kotlin/deadlock_api_client/models/VariableCategoryTest.kt
 src/test/kotlin/deadlock_api_client/models/VariableDescriptionTest.kt
 src/test/kotlin/deadlock_api_client/models/VerticalRecoilTest.kt
+src/test/kotlin/deadlock_api_client/models/ViewportTest.kt
 src/test/kotlin/deadlock_api_client/models/WeaponInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/WeaponTest.kt
 src/test/kotlin/deadlock_api_client/models/ZiplanePathTest.kt

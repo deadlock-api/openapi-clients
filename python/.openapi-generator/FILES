@@ -91,6 +91,9 @@ deadlock_api_client/models/enemy_stats.py
 deadlock_api_client/models/feed_item.py
 deadlock_api_client/models/feed_item_one_of.py
 deadlock_api_client/models/feed_item_one_of1.py
+deadlock_api_client/models/feedback_kind.py
+deadlock_api_client/models/feedback_submission.py
+deadlock_api_client/models/feedback_target.py
 deadlock_api_client/models/flash_data.py
 deadlock_api_client/models/forum_patch.py
 deadlock_api_client/models/game_mode.py
@@ -200,6 +203,7 @@ deadlock_api_client/models/shop_spirit_stats_display.py
 deadlock_api_client/models/shop_stat_display.py
 deadlock_api_client/models/shop_vitality_stats_display.py
 deadlock_api_client/models/shop_weapon_stats_display.py
+deadlock_api_client/models/source_location.py
 deadlock_api_client/models/spread_penalty.py
 deadlock_api_client/models/starting_stat.py
 deadlock_api_client/models/starting_stats.py
@@ -243,6 +247,7 @@ deadlock_api_client/models/upgrade_tooltip_section_attribute.py
 deadlock_api_client/models/variable_category.py
 deadlock_api_client/models/variable_description.py
 deadlock_api_client/models/vertical_recoil.py
+deadlock_api_client/models/viewport.py
 deadlock_api_client/models/weapon.py
 deadlock_api_client/models/weapon_info.py
 deadlock_api_client/models/ziplane_path.py
@@ -307,6 +312,9 @@ docs/EnemyStats.md
 docs/FeedItem.md
 docs/FeedItemOneOf.md
 docs/FeedItemOneOf1.md
+docs/FeedbackKind.md
+docs/FeedbackSubmission.md
+docs/FeedbackTarget.md
 docs/FlashData.md
 docs/ForumPatch.md
 docs/GameMode.md
@@ -435,6 +443,7 @@ docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
 docs/ShopWeaponStatsDisplay.md
+docs/SourceLocation.md
 docs/SpreadPenalty.md
 docs/StartingStat.md
 docs/StartingStats.md
@@ -480,6 +489,7 @@ docs/UpgradeTooltipSectionAttribute.md
 docs/VariableCategory.md
 docs/VariableDescription.md
 docs/VerticalRecoil.md
+docs/Viewport.md
 docs/Weapon.md
 docs/WeaponInfo.md
 docs/ZiplanePath.md
@@ -549,6 +559,9 @@ test/test_enemy_stats.py
 test/test_feed_item.py
 test/test_feed_item_one_of.py
 test/test_feed_item_one_of1.py
+test/test_feedback_kind.py
+test/test_feedback_submission.py
+test/test_feedback_target.py
 test/test_flash_data.py
 test/test_forum_patch.py
 test/test_game_mode.py
@@ -676,6 +689,7 @@ test/test_shop_spirit_stats_display.py
 test/test_shop_stat_display.py
 test/test_shop_vitality_stats_display.py
 test/test_shop_weapon_stats_display.py
+test/test_source_location.py
 test/test_spread_penalty.py
 test/test_sql_api.py
 test/test_starting_stat.py
@@ -722,6 +736,7 @@ test/test_upgrade_tooltip_section_attribute.py
 test/test_variable_category.py
 test/test_variable_description.py
 test/test_vertical_recoil.py
+test/test_viewport.py
 test/test_weapon.py
 test/test_weapon_info.py
 test/test_ziplane_path.py

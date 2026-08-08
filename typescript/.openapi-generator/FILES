@@ -96,6 +96,9 @@ docs/EnemyStats.md
 docs/FeedItem.md
 docs/FeedItemOneOf.md
 docs/FeedItemOneOf1.md
+docs/FeedbackKind.md
+docs/FeedbackSubmission.md
+docs/FeedbackTarget.md
 docs/FlashData.md
 docs/ForumPatch.md
 docs/GameMode.md
@@ -224,6 +227,7 @@ docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
 docs/ShopWeaponStatsDisplay.md
+docs/SourceLocation.md
 docs/SpreadPenalty.md
 docs/StartingStat.md
 docs/StartingStats.md
@@ -269,6 +273,7 @@ docs/UpgradeTooltipSectionAttribute.md
 docs/VariableCategory.md
 docs/VariableDescription.md
 docs/VerticalRecoil.md
+docs/Viewport.md
 docs/Weapon.md
 docs/WeaponInfo.md
 docs/ZiplanePath.md
@@ -323,6 +328,9 @@ models/enemy-stats.ts
 models/feed-item-one-of.ts
 models/feed-item-one-of1.ts
 models/feed-item.ts
+models/feedback-kind.ts
+models/feedback-submission.ts
+models/feedback-target.ts
 models/flash-data.ts
 models/forum-patch.ts
 models/game-mode.ts
@@ -433,6 +441,7 @@ models/shop-spirit-stats-display.ts
 models/shop-stat-display.ts
 models/shop-vitality-stats-display.ts
 models/shop-weapon-stats-display.ts
+models/source-location.ts
 models/spread-penalty.ts
 models/starting-stat.ts
 models/starting-stats.ts
@@ -476,6 +485,7 @@ models/upgrade.ts
 models/variable-category.ts
 models/variable-description.ts
 models/vertical-recoil.ts
+models/viewport.ts
 models/weapon-info.ts
 models/weapon.ts
 models/ziplane-path.ts

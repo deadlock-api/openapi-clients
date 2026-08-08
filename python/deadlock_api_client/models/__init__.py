@@ -62,6 +62,9 @@ from deadlock_api_client.models.enemy_stats import EnemyStats
 from deadlock_api_client.models.feed_item import FeedItem
 from deadlock_api_client.models.feed_item_one_of import FeedItemOneOf
 from deadlock_api_client.models.feed_item_one_of1 import FeedItemOneOf1
+from deadlock_api_client.models.feedback_kind import FeedbackKind
+from deadlock_api_client.models.feedback_submission import FeedbackSubmission
+from deadlock_api_client.models.feedback_target import FeedbackTarget
 from deadlock_api_client.models.flash_data import FlashData
 from deadlock_api_client.models.forum_patch import ForumPatch
 from deadlock_api_client.models.game_mode import GameMode
@@ -171,6 +174,7 @@ from deadlock_api_client.models.shop_spirit_stats_display import ShopSpiritStats
 from deadlock_api_client.models.shop_stat_display import ShopStatDisplay
 from deadlock_api_client.models.shop_vitality_stats_display import ShopVitalityStatsDisplay
 from deadlock_api_client.models.shop_weapon_stats_display import ShopWeaponStatsDisplay
+from deadlock_api_client.models.source_location import SourceLocation
 from deadlock_api_client.models.spread_penalty import SpreadPenalty
 from deadlock_api_client.models.starting_stat import StartingStat
 from deadlock_api_client.models.starting_stats import StartingStats
@@ -214,6 +218,7 @@ from deadlock_api_client.models.upgrade_tooltip_section_attribute import Upgrade
 from deadlock_api_client.models.variable_category import VariableCategory
 from deadlock_api_client.models.variable_description import VariableDescription
 from deadlock_api_client.models.vertical_recoil import VerticalRecoil
+from deadlock_api_client.models.viewport import Viewport
 from deadlock_api_client.models.weapon import Weapon
 from deadlock_api_client.models.weapon_info import WeaponInfo
 from deadlock_api_client.models.ziplane_path import ZiplanePath

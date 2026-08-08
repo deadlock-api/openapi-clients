@@ -60,6 +60,29 @@ namespace DeadlockApiClient.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIngestSaltsApiResponse"/>?&gt;</returns>
         Task<IIngestSaltsApiResponse?> IngestSaltsOrDefaultAsync(List<ClickhouseSalts> clickhouseSalts, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Submit Website Feedback
+        /// </summary>
+        /// <remarks>
+        ///  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="feedbackSubmission"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubmitFeedbackApiResponse"/>&gt;</returns>
+        Task<ISubmitFeedbackApiResponse> SubmitFeedbackAsync(FeedbackSubmission feedbackSubmission, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Submit Website Feedback
+        /// </summary>
+        /// <remarks>
+        ///  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+        /// </remarks>
+        /// <param name="feedbackSubmission"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubmitFeedbackApiResponse"/>?&gt;</returns>
+        Task<ISubmitFeedbackApiResponse?> SubmitFeedbackOrDefaultAsync(FeedbackSubmission feedbackSubmission, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -72,6 +95,36 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="ISubmitFeedbackApiResponse"/>
+    /// </summary>
+    public interface ISubmitFeedbackApiResponse : DeadlockApiClient.Client.IApiResponse
+    {
+        /// <summary>
+        /// Returns true if the response is 201 Created
+        /// </summary>
+        /// <returns></returns>
+        bool IsCreated { get; }
 
         /// <summary>
         /// Returns true if the response is 400 BadRequest
@@ -115,6 +168,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorIngestSalts(Exception exception)
         {
             OnErrorIngestSalts?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnSubmitFeedback;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorSubmitFeedback;
+
+        internal void ExecuteOnSubmitFeedback(InternalApi.SubmitFeedbackApiResponse apiResponse)
+        {
+            OnSubmitFeedback?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorSubmitFeedback(Exception exception)
+        {
+            OnErrorSubmitFeedback?.Invoke(this, new ExceptionEventArgs(exception));
         }
     }
 
@@ -359,6 +432,236 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatSubmitFeedback(FeedbackSubmission feedbackSubmission);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="feedbackSubmission"></param>
+        /// <returns></returns>
+        private void ValidateSubmitFeedback(FeedbackSubmission feedbackSubmission)
+        {
+            if (feedbackSubmission == null)
+                throw new ArgumentNullException(nameof(feedbackSubmission));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="feedbackSubmission"></param>
+        private void AfterSubmitFeedbackDefaultImplementation(ISubmitFeedbackApiResponse apiResponseLocalVar, FeedbackSubmission feedbackSubmission)
+        {
+            bool suppressDefaultLog = false;
+            AfterSubmitFeedback(ref suppressDefaultLog, apiResponseLocalVar, feedbackSubmission);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="feedbackSubmission"></param>
+        partial void AfterSubmitFeedback(ref bool suppressDefaultLog, ISubmitFeedbackApiResponse apiResponseLocalVar, FeedbackSubmission feedbackSubmission);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="feedbackSubmission"></param>
+        private void OnErrorSubmitFeedbackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, FeedbackSubmission feedbackSubmission)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorSubmitFeedback(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, feedbackSubmission);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="feedbackSubmission"></param>
+        partial void OnErrorSubmitFeedback(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, FeedbackSubmission feedbackSubmission);
+
+        /// <summary>
+        /// Submit Website Feedback  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+        /// </summary>
+        /// <param name="feedbackSubmission"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubmitFeedbackApiResponse"/>&gt;</returns>
+        public async Task<ISubmitFeedbackApiResponse?> SubmitFeedbackOrDefaultAsync(FeedbackSubmission feedbackSubmission, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await SubmitFeedbackAsync(feedbackSubmission, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Submit Website Feedback  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="feedbackSubmission"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ISubmitFeedbackApiResponse"/>&gt;</returns>
+        public async Task<ISubmitFeedbackApiResponse> SubmitFeedbackAsync(FeedbackSubmission feedbackSubmission, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateSubmitFeedback(feedbackSubmission);
+
+                FormatSubmitFeedback(feedbackSubmission);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/feedback"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/feedback");
+
+                    httpRequestMessageLocalVar.Content = (feedbackSubmission as object) is DeadlockApiClient.Client.FileParameter fileParameterLocalVar
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                        : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(feedbackSubmission, _jsonSerializerOptions));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] contentTypes = new string[] {
+                        "application/json"
+                    };
+
+                    string? contentTypeLocalVar = ClientUtils.SelectHeaderContentType(contentTypes);
+
+                    if (contentTypeLocalVar != null && httpRequestMessageLocalVar.Content != null)
+                        httpRequestMessageLocalVar.Content.Headers.ContentType = new MediaTypeHeaderValue(contentTypeLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        SubmitFeedbackApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/feedback", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterSubmitFeedbackDefaultImplementation(apiResponseLocalVar, feedbackSubmission);
+
+                        Events.ExecuteOnSubmitFeedback(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorSubmitFeedbackDefaultImplementation(e, "/v1/feedback", uriBuilderLocalVar.Path, feedbackSubmission);
+                Events.ExecuteOnErrorSubmitFeedback(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="SubmitFeedbackApiResponse"/>
+        /// </summary>
+        public partial class SubmitFeedbackApiResponse : DeadlockApiClient.Client.ApiResponse, ISubmitFeedbackApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<InternalApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="SubmitFeedbackApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public SubmitFeedbackApiResponse(ILogger<InternalApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="SubmitFeedbackApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public SubmitFeedbackApiResponse(ILogger<InternalApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 201 Created
+            /// </summary>
+            /// <returns></returns>
+            public bool IsCreated => 201 == (int)StatusCode;
 
             /// <summary>
             /// Returns true if the response is 400 BadRequest

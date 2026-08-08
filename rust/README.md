@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info
 *InternalApi* | [**ingest_salts**](docs/InternalApi.md#ingest_salts) | **POST** /v1/matches/salts | Match Salts Ingest
+*InternalApi* | [**submit_feedback**](docs/InternalApi.md#submit_feedback) | **POST** /v1/feedback | Submit Website Feedback
 *ItemsApi* | [**get_item**](docs/ItemsApi.md#get_item) | **GET** /v1/assets/items/{id_or_class_name} | Get Item
 *ItemsApi* | [**get_items_by_hero_id**](docs/ItemsApi.md#get_items_by_hero_id) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero
 *ItemsApi* | [**get_items_by_slot_type**](docs/ItemsApi.md#get_items_by_slot_type) | **GET** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type
@@ -211,6 +212,9 @@ Class | Method | HTTP request | Description
  - [FeedItem](docs/FeedItem.md)
  - [FeedItemOneOf](docs/FeedItemOneOf.md)
  - [FeedItemOneOf1](docs/FeedItemOneOf1.md)
+ - [FeedbackKind](docs/FeedbackKind.md)
+ - [FeedbackSubmission](docs/FeedbackSubmission.md)
+ - [FeedbackTarget](docs/FeedbackTarget.md)
  - [FlashData](docs/FlashData.md)
  - [ForumPatch](docs/ForumPatch.md)
  - [GameMode](docs/GameMode.md)
@@ -320,6 +324,7 @@ Class | Method | HTTP request | Description
  - [ShopStatDisplay](docs/ShopStatDisplay.md)
  - [ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)
  - [ShopWeaponStatsDisplay](docs/ShopWeaponStatsDisplay.md)
+ - [SourceLocation](docs/SourceLocation.md)
  - [SpreadPenalty](docs/SpreadPenalty.md)
  - [StartingStat](docs/StartingStat.md)
  - [StartingStats](docs/StartingStats.md)
@@ -363,6 +368,7 @@ Class | Method | HTTP request | Description
  - [VariableCategory](docs/VariableCategory.md)
  - [VariableDescription](docs/VariableDescription.md)
  - [VerticalRecoil](docs/VerticalRecoil.md)
+ - [Viewport](docs/Viewport.md)
  - [Weapon](docs/Weapon.md)
  - [WeaponInfo](docs/WeaponInfo.md)
  - [ZiplanePath](docs/ZiplanePath.md)

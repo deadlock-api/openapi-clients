@@ -18,10 +18,17 @@ import {
     ClickhouseSalts,
     ClickhouseSaltsFromJSON,
     ClickhouseSaltsToJSON,
+    FeedbackSubmission,
+    FeedbackSubmissionFromJSON,
+    FeedbackSubmissionToJSON,
 } from '../models';
 
 export interface IngestSaltsRequest {
     clickhouseSalts: Array<ClickhouseSalts>;
+}
+
+export interface SubmitFeedbackRequest {
+    feedbackSubmission: FeedbackSubmission;
 }
 
 
@@ -72,5 +79,54 @@ function ingestSaltsRaw<T>(requestParameters: IngestSaltsRequest, requestConfig:
 */
 export function ingestSalts<T>(requestParameters: IngestSaltsRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
     return ingestSaltsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+ * Submit Website Feedback
+ */
+function submitFeedbackRaw<T>(requestParameters: SubmitFeedbackRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
+    if (requestParameters.feedbackSubmission === null || requestParameters.feedbackSubmission === undefined) {
+        throw new runtime.RequiredError('feedbackSubmission','Required parameter requestParameters.feedbackSubmission was null or undefined when calling submitFeedback.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/feedback`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'POST',
+            headers: headerParameters,
+        },
+        body: queryParameters || FeedbackSubmissionToJSON(requestParameters.feedbackSubmission),
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+*  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+* Submit Website Feedback
+*/
+export function submitFeedback<T>(requestParameters: SubmitFeedbackRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
+    return submitFeedbackRaw(requestParameters, requestConfig);
 }
 

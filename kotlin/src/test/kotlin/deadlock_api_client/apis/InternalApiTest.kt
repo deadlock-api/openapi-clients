@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.InternalApi
 import deadlock_api_client.models.ClickhouseSalts
+import deadlock_api_client.models.FeedbackSubmission
 
 class InternalApiTest : ShouldSpec() {
     init {
@@ -39,6 +40,13 @@ class InternalApiTest : ShouldSpec() {
             // uncomment below to test ingestSalts
             //val clickhouseSalts : kotlin.collections.List<ClickhouseSalts> =  // kotlin.collections.List<ClickhouseSalts> | 
             //apiInstance.ingestSalts(clickhouseSalts)
+        }
+
+        // to test submitFeedback
+        should("test submitFeedback") {
+            // uncomment below to test submitFeedback
+            //val feedbackSubmission : FeedbackSubmission =  // FeedbackSubmission | 
+            //apiInstance.submitFeedback(feedbackSubmission)
         }
 
     }

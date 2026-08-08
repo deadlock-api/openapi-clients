@@ -87,6 +87,9 @@ api/Model/EnemyStats.php
 api/Model/FeedItem.php
 api/Model/FeedItemOneOf.php
 api/Model/FeedItemOneOf1.php
+api/Model/FeedbackKind.php
+api/Model/FeedbackSubmission.php
+api/Model/FeedbackTarget.php
 api/Model/FlashData.php
 api/Model/ForumPatch.php
 api/Model/GameMode.php
@@ -197,6 +200,7 @@ api/Model/ShopSpiritStatsDisplay.php
 api/Model/ShopStatDisplay.php
 api/Model/ShopVitalityStatsDisplay.php
 api/Model/ShopWeaponStatsDisplay.php
+api/Model/SourceLocation.php
 api/Model/SpreadPenalty.php
 api/Model/StartingStat.php
 api/Model/StartingStats.php
@@ -240,6 +244,7 @@ api/Model/UpgradeTooltipSectionAttribute.php
 api/Model/VariableCategory.php
 api/Model/VariableDescription.php
 api/Model/VerticalRecoil.php
+api/Model/Viewport.php
 api/Model/Weapon.php
 api/Model/WeaponInfo.php
 api/Model/ZiplanePath.php
@@ -325,6 +330,9 @@ docs/Model/EnemyStats.md
 docs/Model/FeedItem.md
 docs/Model/FeedItemOneOf.md
 docs/Model/FeedItemOneOf1.md
+docs/Model/FeedbackKind.md
+docs/Model/FeedbackSubmission.md
+docs/Model/FeedbackTarget.md
 docs/Model/FlashData.md
 docs/Model/ForumPatch.md
 docs/Model/GameMode.md
@@ -434,6 +442,7 @@ docs/Model/ShopSpiritStatsDisplay.md
 docs/Model/ShopStatDisplay.md
 docs/Model/ShopVitalityStatsDisplay.md
 docs/Model/ShopWeaponStatsDisplay.md
+docs/Model/SourceLocation.md
 docs/Model/SpreadPenalty.md
 docs/Model/StartingStat.md
 docs/Model/StartingStats.md
@@ -477,6 +486,7 @@ docs/Model/UpgradeTooltipSectionAttribute.md
 docs/Model/VariableCategory.md
 docs/Model/VariableDescription.md
 docs/Model/VerticalRecoil.md
+docs/Model/Viewport.md
 docs/Model/Weapon.md
 docs/Model/WeaponInfo.md
 docs/Model/ZiplanePath.md
@@ -562,6 +572,9 @@ test/Model/EnemyStatsTest.php
 test/Model/FeedItemOneOf1Test.php
 test/Model/FeedItemOneOfTest.php
 test/Model/FeedItemTest.php
+test/Model/FeedbackKindTest.php
+test/Model/FeedbackSubmissionTest.php
+test/Model/FeedbackTargetTest.php
 test/Model/FlashDataTest.php
 test/Model/ForumPatchTest.php
 test/Model/GameModeTest.php
@@ -671,6 +684,7 @@ test/Model/ShopSpiritStatsDisplayTest.php
 test/Model/ShopStatDisplayTest.php
 test/Model/ShopVitalityStatsDisplayTest.php
 test/Model/ShopWeaponStatsDisplayTest.php
+test/Model/SourceLocationTest.php
 test/Model/SpreadPenaltyTest.php
 test/Model/StartingStatTest.php
 test/Model/StartingStatsTest.php
@@ -714,6 +728,7 @@ test/Model/UpgradeTooltipSectionTest.php
 test/Model/VariableCategoryTest.php
 test/Model/VariableDescriptionTest.php
 test/Model/VerticalRecoilTest.php
+test/Model/ViewportTest.php
 test/Model/WeaponInfoTest.php
 test/Model/WeaponTest.php
 test/Model/ZiplanePathTest.php

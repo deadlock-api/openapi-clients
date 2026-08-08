@@ -84,6 +84,9 @@ docs/models/EnemyStats.md
 docs/models/FeedItem.md
 docs/models/FeedItemOneOf.md
 docs/models/FeedItemOneOf1.md
+docs/models/FeedbackKind.md
+docs/models/FeedbackSubmission.md
+docs/models/FeedbackTarget.md
 docs/models/FlashData.md
 docs/models/ForumPatch.md
 docs/models/GameMode.md
@@ -193,6 +196,7 @@ docs/models/ShopSpiritStatsDisplay.md
 docs/models/ShopStatDisplay.md
 docs/models/ShopVitalityStatsDisplay.md
 docs/models/ShopWeaponStatsDisplay.md
+docs/models/SourceLocation.md
 docs/models/SpreadPenalty.md
 docs/models/StartingStat.md
 docs/models/StartingStats.md
@@ -236,6 +240,7 @@ docs/models/UpgradeTooltipSectionAttribute.md
 docs/models/VariableCategory.md
 docs/models/VariableDescription.md
 docs/models/VerticalRecoil.md
+docs/models/Viewport.md
 docs/models/Weapon.md
 docs/models/WeaponInfo.md
 docs/models/ZiplanePath.md
@@ -324,6 +329,9 @@ src/DeadlockApiClient.Test/Model/EnemyStatsTests.cs
 src/DeadlockApiClient.Test/Model/FeedItemOneOf1Tests.cs
 src/DeadlockApiClient.Test/Model/FeedItemOneOfTests.cs
 src/DeadlockApiClient.Test/Model/FeedItemTests.cs
+src/DeadlockApiClient.Test/Model/FeedbackKindTests.cs
+src/DeadlockApiClient.Test/Model/FeedbackSubmissionTests.cs
+src/DeadlockApiClient.Test/Model/FeedbackTargetTests.cs
 src/DeadlockApiClient.Test/Model/FlashDataTests.cs
 src/DeadlockApiClient.Test/Model/ForumPatchTests.cs
 src/DeadlockApiClient.Test/Model/GameModeTests.cs
@@ -433,6 +441,7 @@ src/DeadlockApiClient.Test/Model/ShopSpiritStatsDisplayTests.cs
 src/DeadlockApiClient.Test/Model/ShopStatDisplayTests.cs
 src/DeadlockApiClient.Test/Model/ShopVitalityStatsDisplayTests.cs
 src/DeadlockApiClient.Test/Model/ShopWeaponStatsDisplayTests.cs
+src/DeadlockApiClient.Test/Model/SourceLocationTests.cs
 src/DeadlockApiClient.Test/Model/SpreadPenaltyTests.cs
 src/DeadlockApiClient.Test/Model/StartingStatTests.cs
 src/DeadlockApiClient.Test/Model/StartingStatsTests.cs
@@ -476,6 +485,7 @@ src/DeadlockApiClient.Test/Model/UpgradeTooltipSectionTests.cs
 src/DeadlockApiClient.Test/Model/VariableCategoryTests.cs
 src/DeadlockApiClient.Test/Model/VariableDescriptionTests.cs
 src/DeadlockApiClient.Test/Model/VerticalRecoilTests.cs
+src/DeadlockApiClient.Test/Model/ViewportTests.cs
 src/DeadlockApiClient.Test/Model/WeaponInfoTests.cs
 src/DeadlockApiClient.Test/Model/WeaponTests.cs
 src/DeadlockApiClient.Test/Model/ZiplanePathTests.cs
@@ -586,6 +596,9 @@ src/DeadlockApiClient/Model/EnemyStats.cs
 src/DeadlockApiClient/Model/FeedItem.cs
 src/DeadlockApiClient/Model/FeedItemOneOf.cs
 src/DeadlockApiClient/Model/FeedItemOneOf1.cs
+src/DeadlockApiClient/Model/FeedbackKind.cs
+src/DeadlockApiClient/Model/FeedbackSubmission.cs
+src/DeadlockApiClient/Model/FeedbackTarget.cs
 src/DeadlockApiClient/Model/FlashData.cs
 src/DeadlockApiClient/Model/ForumPatch.cs
 src/DeadlockApiClient/Model/GameMode.cs
@@ -695,6 +708,7 @@ src/DeadlockApiClient/Model/ShopSpiritStatsDisplay.cs
 src/DeadlockApiClient/Model/ShopStatDisplay.cs
 src/DeadlockApiClient/Model/ShopVitalityStatsDisplay.cs
 src/DeadlockApiClient/Model/ShopWeaponStatsDisplay.cs
+src/DeadlockApiClient/Model/SourceLocation.cs
 src/DeadlockApiClient/Model/SpreadPenalty.cs
 src/DeadlockApiClient/Model/StartingStat.cs
 src/DeadlockApiClient/Model/StartingStats.cs
@@ -738,6 +752,7 @@ src/DeadlockApiClient/Model/UpgradeTooltipSectionAttribute.cs
 src/DeadlockApiClient/Model/VariableCategory.cs
 src/DeadlockApiClient/Model/VariableDescription.cs
 src/DeadlockApiClient/Model/VerticalRecoil.cs
+src/DeadlockApiClient/Model/Viewport.cs
 src/DeadlockApiClient/Model/Weapon.cs
 src/DeadlockApiClient/Model/WeaponInfo.cs
 src/DeadlockApiClient/Model/ZiplanePath.cs

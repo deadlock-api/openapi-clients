@@ -116,6 +116,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check |
 | *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info |
 | *InternalApi* | [**ingestSalts**](docs/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+| *InternalApi* | [**submitFeedback**](docs/InternalApi.md#submitfeedback) | **POST** /v1/feedback | Submit Website Feedback |
 | *ItemsApi* | [**getItem**](docs/ItemsApi.md#getitem) | **GET** /v1/assets/items/{id_or_class_name} | Get Item |
 | *ItemsApi* | [**getItemsByHeroId**](docs/ItemsApi.md#getitemsbyheroid) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero |
 | *ItemsApi* | [**getItemsBySlotType**](docs/ItemsApi.md#getitemsbyslottype) | **GET** /v1/assets/items/by-slot-type/{slot_type} | List Items By Slot Type |
@@ -231,6 +232,9 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.FeedItem](docs/FeedItem.md)
  - [deadlock_api_client.models.FeedItemOneOf](docs/FeedItemOneOf.md)
  - [deadlock_api_client.models.FeedItemOneOf1](docs/FeedItemOneOf1.md)
+ - [deadlock_api_client.models.FeedbackKind](docs/FeedbackKind.md)
+ - [deadlock_api_client.models.FeedbackSubmission](docs/FeedbackSubmission.md)
+ - [deadlock_api_client.models.FeedbackTarget](docs/FeedbackTarget.md)
  - [deadlock_api_client.models.FlashData](docs/FlashData.md)
  - [deadlock_api_client.models.ForumPatch](docs/ForumPatch.md)
  - [deadlock_api_client.models.GameMode](docs/GameMode.md)
@@ -340,6 +344,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ShopStatDisplay](docs/ShopStatDisplay.md)
  - [deadlock_api_client.models.ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)
  - [deadlock_api_client.models.ShopWeaponStatsDisplay](docs/ShopWeaponStatsDisplay.md)
+ - [deadlock_api_client.models.SourceLocation](docs/SourceLocation.md)
  - [deadlock_api_client.models.SpreadPenalty](docs/SpreadPenalty.md)
  - [deadlock_api_client.models.StartingStat](docs/StartingStat.md)
  - [deadlock_api_client.models.StartingStats](docs/StartingStats.md)
@@ -383,6 +388,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.VariableCategory](docs/VariableCategory.md)
  - [deadlock_api_client.models.VariableDescription](docs/VariableDescription.md)
  - [deadlock_api_client.models.VerticalRecoil](docs/VerticalRecoil.md)
+ - [deadlock_api_client.models.Viewport](docs/Viewport.md)
  - [deadlock_api_client.models.Weapon](docs/Weapon.md)
  - [deadlock_api_client.models.WeaponInfo](docs/WeaponInfo.md)
  - [deadlock_api_client.models.ZiplanePath](docs/ZiplanePath.md)

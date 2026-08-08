@@ -13,6 +13,7 @@ import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import { type RequestArgs, BaseAPI } from '../base.js';
 import type { ClickhouseSalts } from '../models/index.js';
+import type { FeedbackSubmission } from '../models/index.js';
 /**
  * InternalApi - axios parameter creator
  */
@@ -25,6 +26,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     ingestSalts: (clickhouseSalts: Array<ClickhouseSalts>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+     * @summary Submit Website Feedback
+     * @param {FeedbackSubmission} feedbackSubmission
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    submitFeedback: (feedbackSubmission: FeedbackSubmission, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -38,6 +47,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     ingestSalts(clickhouseSalts: Array<ClickhouseSalts>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+     * @summary Submit Website Feedback
+     * @param {FeedbackSubmission} feedbackSubmission
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    submitFeedback(feedbackSubmission: FeedbackSubmission, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * InternalApi - factory interface
@@ -51,12 +68,26 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+     * @summary Submit Website Feedback
+     * @param {InternalApiSubmitFeedbackRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    submitFeedback(requestParameters: InternalApiSubmitFeedbackRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 };
 /**
  * Request parameters for ingestSalts operation in InternalApi.
  */
 export interface InternalApiIngestSaltsRequest {
     readonly clickhouseSalts: Array<ClickhouseSalts>;
+}
+/**
+ * Request parameters for submitFeedback operation in InternalApi.
+ */
+export interface InternalApiSubmitFeedbackRequest {
+    readonly feedbackSubmission: FeedbackSubmission;
 }
 /**
  * InternalApi - object-oriented interface
@@ -70,5 +101,13 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      */
     ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
+    /**
+     *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
+     * @summary Submit Website Feedback
+     * @param {InternalApiSubmitFeedbackRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    submitFeedback(requestParameters: InternalApiSubmitFeedbackRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
 }
 //# sourceMappingURL=internal-api.d.ts.map

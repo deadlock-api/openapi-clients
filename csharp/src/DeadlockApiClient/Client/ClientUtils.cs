@@ -161,6 +161,8 @@ namespace DeadlockApiClient.Client
                 return FeedItemOneOf.SourceEnumToJsonValue(feedItemOneOfSourceEnum);
             if (obj is FeedItemOneOf1.SourceEnum feedItemOneOf1SourceEnum)
                 return FeedItemOneOf1.SourceEnumToJsonValue(feedItemOneOf1SourceEnum);
+            if (obj is FeedbackKind feedbackKind)
+                return FeedbackKindValueConverter.ToJsonValue(feedbackKind);
             if (obj is GameMode gameMode)
                 return GameModeValueConverter.ToJsonValue(gameMode);
             if (obj is HeroType heroType)

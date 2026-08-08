@@ -82,4 +82,16 @@ class InternalApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for submitFeedback
+     *
+     * Submit Website Feedback.
+     *
+     */
+    public function testSubmitFeedback()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

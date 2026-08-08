@@ -99,6 +99,10 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new FeedItemJsonConverter());
             _jsonOptions.Converters.Add(new FeedItemOneOfJsonConverter());
             _jsonOptions.Converters.Add(new FeedItemOneOf1JsonConverter());
+            _jsonOptions.Converters.Add(new FeedbackKindJsonConverter());
+            _jsonOptions.Converters.Add(new FeedbackKindNullableJsonConverter());
+            _jsonOptions.Converters.Add(new FeedbackSubmissionJsonConverter());
+            _jsonOptions.Converters.Add(new FeedbackTargetJsonConverter());
             _jsonOptions.Converters.Add(new FlashDataJsonConverter());
             _jsonOptions.Converters.Add(new ForumPatchJsonConverter());
             _jsonOptions.Converters.Add(new GameModeJsonConverter());
@@ -216,6 +220,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ShopStatDisplayJsonConverter());
             _jsonOptions.Converters.Add(new ShopVitalityStatsDisplayJsonConverter());
             _jsonOptions.Converters.Add(new ShopWeaponStatsDisplayJsonConverter());
+            _jsonOptions.Converters.Add(new SourceLocationJsonConverter());
             _jsonOptions.Converters.Add(new SpreadPenaltyJsonConverter());
             _jsonOptions.Converters.Add(new StartingStatJsonConverter());
             _jsonOptions.Converters.Add(new StartingStatsJsonConverter());
@@ -261,6 +266,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new VariableCategoryNullableJsonConverter());
             _jsonOptions.Converters.Add(new VariableDescriptionJsonConverter());
             _jsonOptions.Converters.Add(new VerticalRecoilJsonConverter());
+            _jsonOptions.Converters.Add(new ViewportJsonConverter());
             _jsonOptions.Converters.Add(new WeaponJsonConverter());
             _jsonOptions.Converters.Add(new WeaponInfoJsonConverter());
             _jsonOptions.Converters.Add(new ZiplanePathJsonConverter());
