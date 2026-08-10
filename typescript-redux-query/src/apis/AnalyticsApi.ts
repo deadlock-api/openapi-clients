@@ -63,6 +63,9 @@ import {
     KillDeathStats,
     KillDeathStatsFromJSON,
     KillDeathStatsToJSON,
+    LaneMatchupStats,
+    LaneMatchupStatsFromJSON,
+    LaneMatchupStatsToJSON,
     PlayerEntry,
     PlayerEntryFromJSON,
     PlayerEntryToJSON,
@@ -378,6 +381,24 @@ export interface KillDeathStatsRequest {
     maxDeathsPerRaster?: number;
     minGameTimeS?: number;
     maxGameTimeS?: number;
+}
+
+export interface LaneMatchupStatsRequest {
+    gameMode?: LaneMatchupStatsGameModeEnum;
+    matchMode?: string;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
+    heroIds?: Array<number>;
+    enemyHeroIds?: Array<number>;
+    minMatches?: number;
+    maxMatches?: number;
+    accountIds?: Array<number>;
 }
 
 export interface PlayerPerformanceCurveRequest {
@@ -2447,6 +2468,126 @@ export function killDeathStats<T>(requestParameters: KillDeathStatsRequest, requ
 }
 
 /**
+ *  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ * Lane Matchup Stats
+ */
+function laneMatchupStatsRaw<T>(requestParameters: LaneMatchupStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<LaneMatchupStats>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.gameMode !== undefined) {
+        queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+
+    if (requestParameters.heroIds) {
+        queryParameters['hero_ids'] = requestParameters.heroIds;
+    }
+
+
+    if (requestParameters.enemyHeroIds) {
+        queryParameters['enemy_hero_ids'] = requestParameters.enemyHeroIds;
+    }
+
+
+    if (requestParameters.minMatches !== undefined) {
+        queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
+    if (requestParameters.maxMatches !== undefined) {
+        queryParameters['max_matches'] = requestParameters.maxMatches;
+    }
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/lane-matchup-stats`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(LaneMatchupStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+* Lane Matchup Stats
+*/
+export function laneMatchupStats<T>(requestParameters: LaneMatchupStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<LaneMatchupStats>>): QueryConfig<T> {
+    return laneMatchupStatsRaw(requestParameters, requestConfig);
+}
+
+/**
  *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Performance Curve
  */
@@ -3102,6 +3243,16 @@ export enum ItemStatsGameModeEnum {
     * @enum {string}
     */
 export enum KillDeathStatsGameModeEnum {
+    Normal = 'normal',
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LaneMatchupStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',

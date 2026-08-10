@@ -137,6 +137,7 @@ api/Model/ItemType.php
 api/Model/JobStatus.php
 api/Model/KillDeathStats.php
 api/Model/LaneInfo.php
+api/Model/LaneMatchupStats.php
 api/Model/LastRankedMatch.php
 api/Model/Leaderboard.php
 api/Model/LeaderboardEntry.php
@@ -380,6 +381,7 @@ docs/Model/ItemType.md
 docs/Model/JobStatus.md
 docs/Model/KillDeathStats.md
 docs/Model/LaneInfo.md
+docs/Model/LaneMatchupStats.md
 docs/Model/LastRankedMatch.md
 docs/Model/Leaderboard.md
 docs/Model/LeaderboardEntry.md
@@ -622,6 +624,7 @@ test/Model/ItemTypeTest.php
 test/Model/JobStatusTest.php
 test/Model/KillDeathStatsTest.php
 test/Model/LaneInfoTest.php
+test/Model/LaneMatchupStatsTest.php
 test/Model/LastRankedMatchTest.php
 test/Model/LeaderboardEntryTest.php
 test/Model/LeaderboardTest.php

@@ -69,6 +69,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**itemPermutationStats**](docs/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsApi* | [**itemStats**](docs/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**killDeathStats**](docs/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
+*AnalyticsApi* | [**laneMatchupStats**](docs/AnalyticsApi.md#lanematchupstats) | **GET** /v1/analytics/lane-matchup-stats | Lane Matchup Stats
 *AnalyticsApi* | [**playerPerformanceCurve**](docs/AnalyticsApi.md#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsApi* | [**playerScoreboard**](docs/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](docs/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
@@ -269,6 +270,7 @@ Class | Method | HTTP request | Description
  - [JobStatus](docs/JobStatus.md)
  - [KillDeathStats](docs/KillDeathStats.md)
  - [LaneInfo](docs/LaneInfo.md)
+ - [LaneMatchupStats](docs/LaneMatchupStats.md)
  - [LastRankedMatch](docs/LastRankedMatch.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)

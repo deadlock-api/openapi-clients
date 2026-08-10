@@ -480,6 +480,32 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test LaneMatchupStats
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task LaneMatchupStatsAsyncTest()
+        {
+            Client.Option<string?> gameMode = default!;
+            Client.Option<string?> matchMode = default!;
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            Client.Option<List<int>?> heroIds = default!;
+            Client.Option<List<int>?> enemyHeroIds = default!;
+            Client.Option<long?> minMatches = default!;
+            Client.Option<long?> maxMatches = default!;
+            Client.Option<List<int>?> accountIds = default!;
+            var response = await _instance.LaneMatchupStatsAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, enemyHeroIds, minMatches, maxMatches, accountIds);
+            var model = response.Ok();
+            Assert.IsType<List<LaneMatchupStats>>(model);
+        }
+
+        /// <summary>
         /// Test PlayerPerformanceCurve
         /// </summary>
         [Fact (Skip = "not implemented")]

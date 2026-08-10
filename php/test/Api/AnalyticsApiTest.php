@@ -252,6 +252,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for laneMatchupStats
+     *
+     * Lane Matchup Stats.
+     *
+     */
+    public function testLaneMatchupStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for playerPerformanceCurve
      *
      * Player Performance Curve.

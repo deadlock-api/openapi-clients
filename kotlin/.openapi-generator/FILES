@@ -116,6 +116,7 @@ docs/ItemsApi.md
 docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
+docs/LaneMatchupStats.md
 docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
@@ -389,6 +390,7 @@ src/main/kotlin/deadlock_api_client/models/ItemType.kt
 src/main/kotlin/deadlock_api_client/models/JobStatus.kt
 src/main/kotlin/deadlock_api_client/models/KillDeathStats.kt
 src/main/kotlin/deadlock_api_client/models/LaneInfo.kt
+src/main/kotlin/deadlock_api_client/models/LaneMatchupStats.kt
 src/main/kotlin/deadlock_api_client/models/LastRankedMatch.kt
 src/main/kotlin/deadlock_api_client/models/Leaderboard.kt
 src/main/kotlin/deadlock_api_client/models/LeaderboardEntry.kt
@@ -629,6 +631,7 @@ src/test/kotlin/deadlock_api_client/models/ItemTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/JobStatusTest.kt
 src/test/kotlin/deadlock_api_client/models/KillDeathStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/LaneInfoTest.kt
+src/test/kotlin/deadlock_api_client/models/LaneMatchupStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/LastRankedMatchTest.kt
 src/test/kotlin/deadlock_api_client/models/LeaderboardEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/LeaderboardTest.kt

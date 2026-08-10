@@ -196,6 +196,8 @@ pub mod kill_death_stats;
 pub use self::kill_death_stats::KillDeathStats;
 pub mod lane_info;
 pub use self::lane_info::LaneInfo;
+pub mod lane_matchup_stats;
+pub use self::lane_matchup_stats::LaneMatchupStats;
 pub mod last_ranked_match;
 pub use self::last_ranked_match::LastRankedMatch;
 pub mod leaderboard;

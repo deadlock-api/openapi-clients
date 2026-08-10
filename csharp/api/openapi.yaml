@@ -193,7 +193,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -464,7 +464,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -598,7 +598,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -686,7 +686,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -919,7 +919,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -1064,7 +1064,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -1264,7 +1264,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -1561,7 +1561,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -1830,7 +1830,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -2109,7 +2109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -2395,7 +2395,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -2727,7 +2727,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -3027,7 +3027,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -3327,7 +3327,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -3573,6 +3573,231 @@ paths:
       summary: Kill Death Stats
       tags:
       - Analytics
+  /v1/analytics/lane-matchup-stats:
+    get:
+      description: "\nRetrieves duo-versus-duo lane statistics: how a pair of heroes\
+        \ sharing a lane performed against the pair of heroes they laned against.\n\
+        \nOnly lanes where *both* sides fielded exactly two players are counted, and\
+        \ each lane contributes one row per side, so every matchup appears twice with\
+        \ the two sides swapped.\n\nPass `hero_ids` and `enemy_hero_ids` to scope\
+        \ the response to the duos you care about. Without them the full duo-versus-duo\
+        \ matrix is computed, which is a considerably more expensive query.\n\nResults\
+        \ are cached for **1 hour**. The cache key is determined by the specific combination\
+        \ of filter parameters used in the query. Subsequent requests using the exact\
+        \ same filters within this timeframe will receive the cached response.\n\n\
+        ### Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      operationId: lane_matchup_stats
+      parameters:
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. **Default:** `normal`."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          - explore_n_y_c
+          - internal
+          nullable: true
+          type: string
+        style: form
+      - description: "Filter matches based on the match mode. Valid values: `unranked`,\
+          \ `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`.\
+          \ **Default:** `ranked,unranked`."
+        explode: true
+        in: query
+        name: match_mode
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1783728000
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Comma separated list of hero ids the *ally* duo has to be drawn\
+          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of hero ids the *enemy* duo has to be drawn\
+          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: enemy_hero_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: The minimum number of lane matchups played for a duo pairing
+          to be included in the response.
+        explode: true
+        in: query
+        name: min_matches
+        required: false
+        schema:
+          default: 20
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: The maximum number of lane matchups played for a duo pairing
+          to be included in the response.
+        explode: true
+        in: query
+        name: max_matches
+        required: false
+        schema:
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: Comma separated list of account ids to include
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          nullable: true
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/LaneMatchupStats"
+                type: array
+                default: null
+          description: Lane Matchup Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch lane matchup stats
+      summary: Lane Matchup Stats
+      tags:
+      - Analytics
   /v1/analytics/player-performance-curve:
     get:
       description: "\nRetrieves player performance statistics (net worth, kills, deaths,\
@@ -3632,7 +3857,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -3868,7 +4093,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -4181,7 +4406,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -8681,7 +8906,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -8805,7 +9030,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783555200
+          default: 1783728000
           format: int64
           nullable: true
           type: integer
@@ -14389,6 +14614,75 @@ components:
       required:
       - color
       - lane_name
+    LaneMatchupStats:
+      example:
+        assigned_lane: 0
+        enemy_hero_ids:
+        - 0
+        - 0
+        hero_ids:
+        - 0
+        - 0
+        matches_played: 0
+        net_worth_diff_9min: 5.637376656633329
+        net_worth_matches: 0
+        wins: 0
+      properties:
+        assigned_lane:
+          description: The lane the matchup was played in. See the `lane_info` array
+            of <https://api.deadlock-api.com/v1/assets/generic-data>.
+          format: int32
+          minimum: 0
+          type: integer
+        enemy_hero_ids:
+          description: The ascending hero id pair they laned against.
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        hero_ids:
+          description: "The ascending hero id pair that shared the lane. See more:\
+            \ <https://api.deadlock-api.com/v1/assets/heroes>"
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        matches_played:
+          description: The total number of lane matchups between `hero_ids` and `enemy_hero_ids`
+            in this lane.
+          format: int64
+          minimum: 0
+          type: integer
+        net_worth_diff_9min:
+          description: |-
+            Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind.
+            `0` when no counted matchup had net-worth samples for all four players.
+          format: double
+          type: number
+        net_worth_matches:
+          description: How many of `matches_played` carried net-worth samples for
+            all four players.
+          format: int64
+          minimum: 0
+          type: integer
+        wins:
+          description: The number of matches `hero_ids` won against `enemy_hero_ids`
+            in this lane.
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - assigned_lane
+      - enemy_hero_ids
+      - hero_ids
+      - matches_played
+      - net_worth_diff_9min
+      - net_worth_matches
+      - wins
     LastRankedMatch:
       properties:
         match_id:
