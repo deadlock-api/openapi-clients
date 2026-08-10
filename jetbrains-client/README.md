@@ -33,6 +33,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**itemStats**](Apis/AnalyticsApi.http#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**killDeathStats**](Apis/AnalyticsApi.http#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 *AnalyticsApi* | [**laneMatchupStats**](Apis/AnalyticsApi.http#lanematchupstats) | **GET** /v1/analytics/lane-matchup-stats | Lane Matchup Stats
+*AnalyticsApi* | [**laneSoulCurve**](Apis/AnalyticsApi.http#lanesoulcurve) | **GET** /v1/analytics/lane-soul-curve | Lane Soul Curve
 *AnalyticsApi* | [**playerPerformanceCurve**](Apis/AnalyticsApi.http#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsApi* | [**playerScoreboard**](Apis/AnalyticsApi.http#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](Apis/AnalyticsApi.http#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics

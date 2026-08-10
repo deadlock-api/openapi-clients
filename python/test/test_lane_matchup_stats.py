@@ -43,7 +43,7 @@ class TestLaneMatchupStats(unittest.TestCase):
                     0
                     ],
                 matches_played = 0,
-                net_worth_diff_9min = 1.337,
+                net_worth_diff_15min = 1.337,
                 net_worth_matches = 0,
                 wins = 0
             )
@@ -57,7 +57,7 @@ class TestLaneMatchupStats(unittest.TestCase):
                     0
                     ],
                 matches_played = 0,
-                net_worth_diff_9min = 1.337,
+                net_worth_diff_15min = 1.337,
                 net_worth_matches = 0,
                 wins = 0,
         )

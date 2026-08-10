@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **enemy_hero_ids** | **List[int]** | The ascending hero id pair they laned against. | 
 **hero_ids** | **List[int]** | The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **matches_played** | **int** | The total number of lane matchups between &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; in this lane. | 
-**net_worth_diff_9min** | **float** | Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players. | 
+**net_worth_diff_15min** | **float** | Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players. | 
 **net_worth_matches** | **int** | How many of &#x60;matches_played&#x60; carried net-worth samples for all four players. | 
 **wins** | **int** | The number of matches &#x60;hero_ids&#x60; won against &#x60;enemy_hero_ids&#x60; in this lane. | 
 

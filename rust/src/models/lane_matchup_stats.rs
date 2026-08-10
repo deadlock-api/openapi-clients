@@ -25,9 +25,9 @@ pub struct LaneMatchupStats {
     /// The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.
     #[serde(rename = "matches_played")]
     pub matches_played: u64,
-    /// Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
-    #[serde(rename = "net_worth_diff_9min")]
-    pub net_worth_diff_9min: f64,
+    /// Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+    #[serde(rename = "net_worth_diff_15min")]
+    pub net_worth_diff_15min: f64,
     /// How many of `matches_played` carried net-worth samples for all four players.
     #[serde(rename = "net_worth_matches")]
     pub net_worth_matches: u64,
@@ -37,13 +37,13 @@ pub struct LaneMatchupStats {
 }
 
 impl LaneMatchupStats {
-    pub fn new(assigned_lane: u32, enemy_hero_ids: Vec<u32>, hero_ids: Vec<u32>, matches_played: u64, net_worth_diff_9min: f64, net_worth_matches: u64, wins: u64) -> LaneMatchupStats {
+    pub fn new(assigned_lane: u32, enemy_hero_ids: Vec<u32>, hero_ids: Vec<u32>, matches_played: u64, net_worth_diff_15min: f64, net_worth_matches: u64, wins: u64) -> LaneMatchupStats {
         LaneMatchupStats {
             assigned_lane,
             enemy_hero_ids,
             hero_ids,
             matches_played,
-            net_worth_diff_9min,
+            net_worth_diff_15min,
             net_worth_matches,
             wins,
         }

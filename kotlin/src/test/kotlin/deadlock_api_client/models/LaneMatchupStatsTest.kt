@@ -57,10 +57,10 @@ class LaneMatchupStatsTest : ShouldSpec() {
             //modelInstance.matchesPlayed shouldBe ("TODO")
         }
 
-        // to test the property `netWorthDiff9min` - Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
-        should("test netWorthDiff9min") {
+        // to test the property `netWorthDiff15min` - Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+        should("test netWorthDiff15min") {
             // uncomment below to test the property
-            //modelInstance.netWorthDiff9min shouldBe ("TODO")
+            //modelInstance.netWorthDiff15min shouldBe ("TODO")
         }
 
         // to test the property `netWorthMatches` - How many of `matches_played` carried net-worth samples for all four players.

@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**item_stats**](AnalyticsApi.md#item_stats) | **GET** /v1/analytics/item-stats | Item Stats
 [**kill_death_stats**](AnalyticsApi.md#kill_death_stats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 [**lane_matchup_stats**](AnalyticsApi.md#lane_matchup_stats) | **GET** /v1/analytics/lane-matchup-stats | Lane Matchup Stats
+[**lane_soul_curve**](AnalyticsApi.md#lane_soul_curve) | **GET** /v1/analytics/lane-soul-curve | Lane Soul Curve
 [**player_performance_curve**](AnalyticsApi.md#player_performance_curve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 [**player_scoreboard**](AnalyticsApi.md#player_scoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 [**player_stats_metrics**](AnalyticsApi.md#player_stats_metrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
@@ -1899,6 +1900,119 @@ No authorization required
 **200** | Lane Matchup Stats |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **500** | Failed to fetch lane matchup stats |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **lane_soul_curve**
+> List[LaneSoulCurve] lane_soul_curve(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_ids=hero_ids, enemy_hero_ids=enemy_hero_ids, min_matches=min_matches, account_ids=account_ids)
+
+Lane Soul Curve
+
+
+Retrieves how a duo's soul lead over the duo they laned against develops through the first 15 minutes.
+
+The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.
+
+Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.
+
+Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
+    
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.lane_soul_curve import LaneSoulCurve
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.AnalyticsApi(api_client)
+    game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
+    match_mode = 'match_mode_example' # str | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
+    min_unix_timestamp = 1783728000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1783728000)
+    max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
+    min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    min_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
+    max_average_badge = 56 # int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
+    min_match_id = 56 # int | Filter matches based on their ID. (optional)
+    max_match_id = 56 # int | Filter matches based on their ID. (optional)
+    hero_ids = [56] # List[int] | Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+    enemy_hero_ids = [56] # List[int] | Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+    min_matches = 20 # int | The minimum number of lane matchups played for a duo pairing to be included in the response. (optional) (default to 20)
+    account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
+
+    try:
+        # Lane Soul Curve
+        api_response = api_instance.lane_soul_curve(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_ids=hero_ids, enemy_hero_ids=enemy_hero_ids, min_matches=min_matches, account_ids=account_ids)
+        print("The response of AnalyticsApi->lane_soul_curve:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AnalyticsApi->lane_soul_curve: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
+ **match_mode** | **str**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] 
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1783728000]
+ **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
+ **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+ **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+ **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
+ **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
+ **hero_ids** | [**List[int]**](int.md)| Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+ **enemy_hero_ids** | [**List[int]**](int.md)| Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+ **min_matches** | **int**| The minimum number of lane matchups played for a duo pairing to be included in the response. | [optional] [default to 20]
+ **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids to include | [optional] 
+
+### Return type
+
+[**List[LaneSoulCurve]**](LaneSoulCurve.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Lane Soul Curve |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**500** | Failed to fetch lane soul curve |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

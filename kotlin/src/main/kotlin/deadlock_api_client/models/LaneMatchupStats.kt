@@ -35,7 +35,7 @@ import java.io.Serializable
  * @param enemyHeroIds The ascending hero id pair they laned against.
  * @param heroIds The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param matchesPlayed The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.
- * @param netWorthDiff9min Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+ * @param netWorthDiff15min Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
  * @param netWorthMatches How many of `matches_played` carried net-worth samples for all four players.
  * @param wins The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
  */
@@ -59,9 +59,9 @@ data class LaneMatchupStats (
     @Json(name = "matches_played")
     val matchesPlayed: kotlin.Long,
 
-    /* Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players. */
-    @Json(name = "net_worth_diff_9min")
-    val netWorthDiff9min: kotlin.Double,
+    /* Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players. */
+    @Json(name = "net_worth_diff_15min")
+    val netWorthDiff15min: kotlin.Double,
 
     /* How many of `matches_played` carried net-worth samples for all four players. */
     @Json(name = "net_worth_matches")

@@ -158,6 +158,7 @@ __all__ = [
     "KillDeathStats",
     "LaneInfo",
     "LaneMatchupStats",
+    "LaneSoulCurve",
     "LastRankedMatch",
     "Leaderboard",
     "LeaderboardEntry",
@@ -415,6 +416,7 @@ from deadlock_api_client.models.job_status import JobStatus as JobStatus
 from deadlock_api_client.models.kill_death_stats import KillDeathStats as KillDeathStats
 from deadlock_api_client.models.lane_info import LaneInfo as LaneInfo
 from deadlock_api_client.models.lane_matchup_stats import LaneMatchupStats as LaneMatchupStats
+from deadlock_api_client.models.lane_soul_curve import LaneSoulCurve as LaneSoulCurve
 from deadlock_api_client.models.last_ranked_match import LastRankedMatch as LastRankedMatch
 from deadlock_api_client.models.leaderboard import Leaderboard as Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry as LeaderboardEntry

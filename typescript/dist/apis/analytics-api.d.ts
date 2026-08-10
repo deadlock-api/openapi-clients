@@ -29,6 +29,7 @@ import type { ItemPermutationStats } from '../models/index.js';
 import type { ItemStats } from '../models/index.js';
 import type { KillDeathStats } from '../models/index.js';
 import type { LaneMatchupStats } from '../models/index.js';
+import type { LaneSoulCurve } from '../models/index.js';
 import type { PlayerEntry } from '../models/index.js';
 import type { PlayerPerformanceCurvePoint } from '../models/index.js';
 /**
@@ -426,6 +427,27 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     laneMatchupStats: (gameMode?: LaneMatchupStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: Array<number> | null, enemyHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Retrieves how a duo\'s soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Lane Soul Curve
+     * @param {LaneSoulCurveGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [minMatchId] Filter matches based on their ID.
+     * @param {number | null} [maxMatchId] Filter matches based on their ID.
+     * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number | null} [minMatches] The minimum number of lane matchups played for a duo pairing to be included in the response.
+     * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    laneSoulCurve: (gameMode?: LaneSoulCurveGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: Array<number> | null, enemyHeroIds?: Array<number> | null, minMatches?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Performance Curve
@@ -898,6 +920,27 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      */
     laneMatchupStats(gameMode?: LaneMatchupStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: Array<number> | null, enemyHeroIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LaneMatchupStats>>>;
     /**
+     *  Retrieves how a duo\'s soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Lane Soul Curve
+     * @param {LaneSoulCurveGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [minMatchId] Filter matches based on their ID.
+     * @param {number | null} [maxMatchId] Filter matches based on their ID.
+     * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number | null} [minMatches] The minimum number of lane matchups played for a duo pairing to be included in the response.
+     * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    laneSoulCurve(gameMode?: LaneSoulCurveGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: Array<number> | null, enemyHeroIds?: Array<number> | null, minMatches?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LaneSoulCurve>>>;
+    /**
      *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Performance Curve
      * @param {number | null} [resolution] Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
@@ -1107,6 +1150,14 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     laneMatchupStats(requestParameters?: AnalyticsApiLaneMatchupStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<LaneMatchupStats>>;
+    /**
+     *  Retrieves how a duo\'s soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Lane Soul Curve
+     * @param {AnalyticsApiLaneSoulCurveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    laneSoulCurve(requestParameters?: AnalyticsApiLaneSoulCurveRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<LaneSoulCurve>>;
     /**
      *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Performance Curve
@@ -2331,6 +2382,67 @@ export interface AnalyticsApiLaneMatchupStatsRequest {
     readonly accountIds?: Array<number> | null;
 }
 /**
+ * Request parameters for laneSoulCurve operation in AnalyticsApi.
+ */
+export interface AnalyticsApiLaneSoulCurveRequest {
+    /**
+     * Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     */
+    readonly gameMode?: LaneSoulCurveGameModeEnum;
+    /**
+     * Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     */
+    readonly matchMode?: string | null;
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null;
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null;
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null;
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null;
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null;
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null;
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null;
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null;
+    /**
+     * Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly heroIds?: Array<number> | null;
+    /**
+     * Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly enemyHeroIds?: Array<number> | null;
+    /**
+     * The minimum number of lane matchups played for a duo pairing to be included in the response.
+     */
+    readonly minMatches?: number | null;
+    /**
+     * Comma separated list of account ids to include
+     */
+    readonly accountIds?: Array<number> | null;
+}
+/**
  * Request parameters for playerPerformanceCurve operation in AnalyticsApi.
  */
 export interface AnalyticsApiPlayerPerformanceCurveRequest {
@@ -2694,6 +2806,14 @@ export declare class AnalyticsApi extends BaseAPI {
      */
     laneMatchupStats(requestParameters?: AnalyticsApiLaneMatchupStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<LaneMatchupStats[], any, {}, any>>;
     /**
+     *  Retrieves how a duo\'s soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Lane Soul Curve
+     * @param {AnalyticsApiLaneSoulCurveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    laneSoulCurve(requestParameters?: AnalyticsApiLaneSoulCurveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<LaneSoulCurve[], any, {}, any>>;
+    /**
      *  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Performance Curve
      * @param {AnalyticsApiPlayerPerformanceCurveRequest} requestParameters Request parameters.
@@ -2924,6 +3044,13 @@ export declare const LaneMatchupStatsGameModeEnum: {
     readonly Internal: "internal";
 };
 export type LaneMatchupStatsGameModeEnum = typeof LaneMatchupStatsGameModeEnum[keyof typeof LaneMatchupStatsGameModeEnum];
+export declare const LaneSoulCurveGameModeEnum: {
+    readonly Normal: "normal";
+    readonly StreetBrawl: "street_brawl";
+    readonly ExploreNYC: "explore_n_y_c";
+    readonly Internal: "internal";
+};
+export type LaneSoulCurveGameModeEnum = typeof LaneSoulCurveGameModeEnum[keyof typeof LaneSoulCurveGameModeEnum];
 export declare const PlayerPerformanceCurveGameModeEnum: {
     readonly Normal: "normal";
     readonly StreetBrawl: "street_brawl";

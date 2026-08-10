@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **EnemyHeroIds** | **[]int32** | The ascending hero id pair they laned against. | 
 **HeroIds** | **[]int32** | The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **MatchesPlayed** | **int64** | The total number of lane matchups between &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; in this lane. | 
-**NetWorthDiff9min** | **float64** | Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players. | 
+**NetWorthDiff15min** | **float64** | Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players. | 
 **NetWorthMatches** | **int64** | How many of &#x60;matches_played&#x60; carried net-worth samples for all four players. | 
 **Wins** | **int64** | The number of matches &#x60;hero_ids&#x60; won against &#x60;enemy_hero_ids&#x60; in this lane. | 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewLaneMatchupStats
 
-`func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff9min float64, netWorthMatches int64, wins int64, ) *LaneMatchupStats`
+`func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff15min float64, netWorthMatches int64, wins int64, ) *LaneMatchupStats`
 
 NewLaneMatchupStats instantiates a new LaneMatchupStats object
 This constructor will assign default values to properties that have it defined,
@@ -111,24 +111,24 @@ and a boolean to check if the value has been set.
 SetMatchesPlayed sets MatchesPlayed field to given value.
 
 
-### GetNetWorthDiff9min
+### GetNetWorthDiff15min
 
-`func (o *LaneMatchupStats) GetNetWorthDiff9min() float64`
+`func (o *LaneMatchupStats) GetNetWorthDiff15min() float64`
 
-GetNetWorthDiff9min returns the NetWorthDiff9min field if non-nil, zero value otherwise.
+GetNetWorthDiff15min returns the NetWorthDiff15min field if non-nil, zero value otherwise.
 
-### GetNetWorthDiff9minOk
+### GetNetWorthDiff15minOk
 
-`func (o *LaneMatchupStats) GetNetWorthDiff9minOk() (*float64, bool)`
+`func (o *LaneMatchupStats) GetNetWorthDiff15minOk() (*float64, bool)`
 
-GetNetWorthDiff9minOk returns a tuple with the NetWorthDiff9min field if it's non-nil, zero value otherwise
+GetNetWorthDiff15minOk returns a tuple with the NetWorthDiff15min field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNetWorthDiff9min
+### SetNetWorthDiff15min
 
-`func (o *LaneMatchupStats) SetNetWorthDiff9min(v float64)`
+`func (o *LaneMatchupStats) SetNetWorthDiff15min(v float64)`
 
-SetNetWorthDiff9min sets NetWorthDiff9min field to given value.
+SetNetWorthDiff15min sets NetWorthDiff15min field to given value.
 
 
 ### GetNetWorthMatches

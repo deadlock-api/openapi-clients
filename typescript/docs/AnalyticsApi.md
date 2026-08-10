@@ -20,6 +20,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**itemStats**](#itemstats) | **GET** /v1/analytics/item-stats | Item Stats|
 |[**killDeathStats**](#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats|
 |[**laneMatchupStats**](#lanematchupstats) | **GET** /v1/analytics/lane-matchup-stats | Lane Matchup Stats|
+|[**laneSoulCurve**](#lanesoulcurve) | **GET** /v1/analytics/lane-soul-curve | Lane Soul Curve|
 |[**playerPerformanceCurve**](#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve|
 |[**playerScoreboard**](#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard|
 |[**playerStatsMetrics**](#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics|
@@ -1658,6 +1659,98 @@ No authorization required
 |**200** | Lane Matchup Stats |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**500** | Failed to fetch lane matchup stats |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **laneSoulCurve**
+> Array<LaneSoulCurve> laneSoulCurve()
+
+ Retrieves how a duo\'s soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+### Example
+
+```typescript
+import {
+    AnalyticsApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new AnalyticsApi(configuration);
+
+let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
+let matchMode: string; //Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional) (default to undefined)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1783728000)
+let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
+let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
+let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
+let minAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional) (default to undefined)
+let maxAverageBadge: number; //Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional) (default to undefined)
+let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
+let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
+let heroIds: Array<number>; //Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional) (default to undefined)
+let enemyHeroIds: Array<number>; //Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional) (default to undefined)
+let minMatches: number; //The minimum number of lane matchups played for a duo pairing to be included in the response. (optional) (default to 20)
+let accountIds: Array<number>; //Comma separated list of account ids to include (optional) (default to undefined)
+
+const { status, data } = await apiInstance.laneSoulCurve(
+    gameMode,
+    matchMode,
+    minUnixTimestamp,
+    maxUnixTimestamp,
+    minDurationS,
+    maxDurationS,
+    minAverageBadge,
+    maxAverageBadge,
+    minMatchId,
+    maxMatchId,
+    heroIds,
+    enemyHeroIds,
+    minMatches,
+    accountIds
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
+| **matchMode** | [**string**] | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | (optional) defaults to undefined|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1783728000|
+| **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
+| **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
+| **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
+| **minAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | (optional) defaults to undefined|
+| **maxAverageBadge** | [**number**] | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | (optional) defaults to undefined|
+| **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
+| **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
+| **heroIds** | **Array&lt;number&gt;** | Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | (optional) defaults to undefined|
+| **enemyHeroIds** | **Array&lt;number&gt;** | Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | (optional) defaults to undefined|
+| **minMatches** | [**number**] | The minimum number of lane matchups played for a duo pairing to be included in the response. | (optional) defaults to 20|
+| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids to include | (optional) defaults to undefined|
+
+
+### Return type
+
+**Array<LaneSoulCurve>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Lane Soul Curve |  -  |
+|**400** | Provided parameters are invalid. |  -  |
+|**500** | Failed to fetch lane soul curve |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

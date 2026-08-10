@@ -506,6 +506,31 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test LaneSoulCurve
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task LaneSoulCurveAsyncTest()
+        {
+            Client.Option<string?> gameMode = default!;
+            Client.Option<string?> matchMode = default!;
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            Client.Option<List<int>?> heroIds = default!;
+            Client.Option<List<int>?> enemyHeroIds = default!;
+            Client.Option<long?> minMatches = default!;
+            Client.Option<List<int>?> accountIds = default!;
+            var response = await _instance.LaneSoulCurveAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, enemyHeroIds, minMatches, accountIds);
+            var model = response.Ok();
+            Assert.IsType<List<LaneSoulCurve>>(model);
+        }
+
+        /// <summary>
         /// Test PlayerPerformanceCurve
         /// </summary>
         [Fact (Skip = "not implemented")]

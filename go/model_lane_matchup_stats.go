@@ -29,8 +29,8 @@ type LaneMatchupStats struct {
 	HeroIds []int32 `json:"hero_ids"`
 	// The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.
 	MatchesPlayed int64 `json:"matches_played"`
-	// Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
-	NetWorthDiff9min float64 `json:"net_worth_diff_9min"`
+	// Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+	NetWorthDiff15min float64 `json:"net_worth_diff_15min"`
 	// How many of `matches_played` carried net-worth samples for all four players.
 	NetWorthMatches int64 `json:"net_worth_matches"`
 	// The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
@@ -43,13 +43,13 @@ type _LaneMatchupStats LaneMatchupStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff9min float64, netWorthMatches int64, wins int64) *LaneMatchupStats {
+func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff15min float64, netWorthMatches int64, wins int64) *LaneMatchupStats {
 	this := LaneMatchupStats{}
 	this.AssignedLane = assignedLane
 	this.EnemyHeroIds = enemyHeroIds
 	this.HeroIds = heroIds
 	this.MatchesPlayed = matchesPlayed
-	this.NetWorthDiff9min = netWorthDiff9min
+	this.NetWorthDiff15min = netWorthDiff15min
 	this.NetWorthMatches = netWorthMatches
 	this.Wins = wins
 	return &this
@@ -159,28 +159,28 @@ func (o *LaneMatchupStats) SetMatchesPlayed(v int64) {
 	o.MatchesPlayed = v
 }
 
-// GetNetWorthDiff9min returns the NetWorthDiff9min field value
-func (o *LaneMatchupStats) GetNetWorthDiff9min() float64 {
+// GetNetWorthDiff15min returns the NetWorthDiff15min field value
+func (o *LaneMatchupStats) GetNetWorthDiff15min() float64 {
 	if o == nil {
 		var ret float64
 		return ret
 	}
 
-	return o.NetWorthDiff9min
+	return o.NetWorthDiff15min
 }
 
-// GetNetWorthDiff9minOk returns a tuple with the NetWorthDiff9min field value
+// GetNetWorthDiff15minOk returns a tuple with the NetWorthDiff15min field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetNetWorthDiff9minOk() (*float64, bool) {
+func (o *LaneMatchupStats) GetNetWorthDiff15minOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.NetWorthDiff9min, true
+	return &o.NetWorthDiff15min, true
 }
 
-// SetNetWorthDiff9min sets field value
-func (o *LaneMatchupStats) SetNetWorthDiff9min(v float64) {
-	o.NetWorthDiff9min = v
+// SetNetWorthDiff15min sets field value
+func (o *LaneMatchupStats) SetNetWorthDiff15min(v float64) {
+	o.NetWorthDiff15min = v
 }
 
 // GetNetWorthMatches returns the NetWorthMatches field value
@@ -245,7 +245,7 @@ func (o LaneMatchupStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["enemy_hero_ids"] = o.EnemyHeroIds
 	toSerialize["hero_ids"] = o.HeroIds
 	toSerialize["matches_played"] = o.MatchesPlayed
-	toSerialize["net_worth_diff_9min"] = o.NetWorthDiff9min
+	toSerialize["net_worth_diff_15min"] = o.NetWorthDiff15min
 	toSerialize["net_worth_matches"] = o.NetWorthMatches
 	toSerialize["wins"] = o.Wins
 	return toSerialize, nil
@@ -260,7 +260,7 @@ func (o *LaneMatchupStats) UnmarshalJSON(data []byte) (err error) {
 		"enemy_hero_ids",
 		"hero_ids",
 		"matches_played",
-		"net_worth_diff_9min",
+		"net_worth_diff_15min",
 		"net_worth_matches",
 		"wins",
 	}

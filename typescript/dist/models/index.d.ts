@@ -98,6 +98,7 @@ export * from './job-status.js';
 export * from './kill-death-stats.js';
 export * from './lane-info.js';
 export * from './lane-matchup-stats.js';
+export * from './lane-soul-curve.js';
 export * from './last-ranked-match.js';
 export * from './leaderboard.js';
 export * from './leaderboard-entry.js';

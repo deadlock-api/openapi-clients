@@ -122,6 +122,9 @@ class AnalyticsApi
         'laneMatchupStats' => [
             'application/json',
         ],
+        'laneSoulCurve' => [
+            'application/json',
+        ],
         'playerPerformanceCurve' => [
             'application/json',
         ],
@@ -9040,6 +9043,503 @@ class AnalyticsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $max_matches,
             'max_matches', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_ids,
+            'account_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation laneSoulCurve
+     *
+     * Lane Soul Curve
+     *
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783728000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int[]|null $hero_ids Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int[]|null $enemy_hero_ids Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $min_matches The minimum number of lane matchups played for a duo pairing to be included in the response. (optional, default to 20)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['laneSoulCurve'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\LaneSoulCurve[]
+     */
+    public function laneSoulCurve($game_mode = null, $match_mode = null, $min_unix_timestamp = 1783728000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $enemy_hero_ids = null, $min_matches = 20, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    {
+        list($response) = $this->laneSoulCurveWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $enemy_hero_ids, $min_matches, $account_ids, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation laneSoulCurveWithHttpInfo
+     *
+     * Lane Soul Curve
+     *
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783728000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int[]|null $hero_ids Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int[]|null $enemy_hero_ids Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $min_matches The minimum number of lane matchups played for a duo pairing to be included in the response. (optional, default to 20)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['laneSoulCurve'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\LaneSoulCurve[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function laneSoulCurveWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1783728000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $enemy_hero_ids = null, $min_matches = 20, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    {
+        $request = $this->laneSoulCurveRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $enemy_hero_ids, $min_matches, $account_ids, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\LaneSoulCurve[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\LaneSoulCurve[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\LaneSoulCurve[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation laneSoulCurveAsync
+     *
+     * Lane Soul Curve
+     *
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783728000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int[]|null $hero_ids Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int[]|null $enemy_hero_ids Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $min_matches The minimum number of lane matchups played for a duo pairing to be included in the response. (optional, default to 20)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['laneSoulCurve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function laneSoulCurveAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1783728000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $enemy_hero_ids = null, $min_matches = 20, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    {
+        return $this->laneSoulCurveAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $enemy_hero_ids, $min_matches, $account_ids, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation laneSoulCurveAsyncWithHttpInfo
+     *
+     * Lane Soul Curve
+     *
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783728000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int[]|null $hero_ids Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int[]|null $enemy_hero_ids Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $min_matches The minimum number of lane matchups played for a duo pairing to be included in the response. (optional, default to 20)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['laneSoulCurve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function laneSoulCurveAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1783728000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $enemy_hero_ids = null, $min_matches = 20, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\LaneSoulCurve[]';
+        $request = $this->laneSoulCurveRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $enemy_hero_ids, $min_matches, $account_ids, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'laneSoulCurve'
+     *
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1783728000)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int[]|null $hero_ids Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int[]|null $enemy_hero_ids Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $min_matches The minimum number of lane matchups played for a duo pairing to be included in the response. (optional, default to 20)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['laneSoulCurve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function laneSoulCurveRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1783728000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $enemy_hero_ids = null, $min_matches = 20, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    {
+
+
+
+
+
+        if ($min_duration_s !== null && $min_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling AnalyticsApi.laneSoulCurve, must be smaller than or equal to 7000.');
+        }
+        if ($min_duration_s !== null && $min_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling AnalyticsApi.laneSoulCurve, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_duration_s !== null && $max_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling AnalyticsApi.laneSoulCurve, must be smaller than or equal to 7000.');
+        }
+        if ($max_duration_s !== null && $max_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling AnalyticsApi.laneSoulCurve, must be bigger than or equal to 0.');
+        }
+        
+        if ($min_average_badge !== null && $min_average_badge > 116) {
+            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling AnalyticsApi.laneSoulCurve, must be smaller than or equal to 116.');
+        }
+        if ($min_average_badge !== null && $min_average_badge < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling AnalyticsApi.laneSoulCurve, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_average_badge !== null && $max_average_badge > 116) {
+            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling AnalyticsApi.laneSoulCurve, must be smaller than or equal to 116.');
+        }
+        if ($max_average_badge !== null && $max_average_badge < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling AnalyticsApi.laneSoulCurve, must be bigger than or equal to 0.');
+        }
+        
+        if ($min_match_id !== null && $min_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling AnalyticsApi.laneSoulCurve, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_match_id !== null && $max_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling AnalyticsApi.laneSoulCurve, must be bigger than or equal to 0.');
+        }
+        
+
+
+        if ($min_matches !== null && $min_matches < 1) {
+            throw new \InvalidArgumentException('invalid value for "$min_matches" when calling AnalyticsApi.laneSoulCurve, must be bigger than or equal to 1.');
+        }
+        
+        if ($account_ids !== null && count($account_ids) > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling AnalyticsApi.laneSoulCurve, number of items must be less than or equal to 1000.');
+        }
+        if ($account_ids !== null && count($account_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling AnalyticsApi.laneSoulCurve, number of items must be greater than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/v1/analytics/lane-soul-curve';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $game_mode,
+            'game_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $match_mode,
+            'match_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_unix_timestamp,
+            'min_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_unix_timestamp,
+            'max_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_duration_s,
+            'min_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_duration_s,
+            'max_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_average_badge,
+            'min_average_badge', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_average_badge,
+            'max_average_badge', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_match_id,
+            'min_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_match_id,
+            'max_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_ids,
+            'hero_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $enemy_hero_ids,
+            'enemy_hero_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_matches,
+            'min_matches', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode

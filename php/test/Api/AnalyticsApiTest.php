@@ -264,6 +264,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for laneSoulCurve
+     *
+     * Lane Soul Curve.
+     *
+     */
+    public function testLaneSoulCurve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for playerPerformanceCurve
      *
      * Player Performance Curve.

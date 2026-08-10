@@ -32,10 +32,10 @@ class LaneMatchupStats(BaseModel):
     enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against.")
     hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     matches_played: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.")
-    net_worth_diff_9min: Union[StrictFloat, StrictInt] = Field(description="Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.")
+    net_worth_diff_15min: Union[StrictFloat, StrictInt] = Field(description="Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.")
     net_worth_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="How many of `matches_played` carried net-worth samples for all four players.")
     wins: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.")
-    __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff_9min", "net_worth_matches", "wins"]
+    __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff_15min", "net_worth_matches", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -92,7 +92,7 @@ class LaneMatchupStats(BaseModel):
             "enemy_hero_ids": obj.get("enemy_hero_ids"),
             "hero_ids": obj.get("hero_ids"),
             "matches_played": obj.get("matches_played"),
-            "net_worth_diff_9min": obj.get("net_worth_diff_9min"),
+            "net_worth_diff_15min": obj.get("net_worth_diff_15min"),
             "net_worth_matches": obj.get("net_worth_matches"),
             "wins": obj.get("wins")
         })

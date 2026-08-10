@@ -116,9 +116,9 @@ class LaneMatchupStatsTest extends TestCase
     }
 
     /**
-     * Test attribute "net_worth_diff_9min"
+     * Test attribute "net_worth_diff_15min"
      */
-    public function testPropertyNetWorthDiff9min()
+    public function testPropertyNetWorthDiff15min()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

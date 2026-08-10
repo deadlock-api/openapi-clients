@@ -61,7 +61,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'int[]',
         'hero_ids' => 'int[]',
         'matches_played' => 'int',
-        'net_worth_diff_9min' => 'float',
+        'net_worth_diff_15min' => 'float',
         'net_worth_matches' => 'int',
         'wins' => 'int'
     ];
@@ -78,7 +78,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'int32',
         'hero_ids' => 'int32',
         'matches_played' => 'int64',
-        'net_worth_diff_9min' => 'double',
+        'net_worth_diff_15min' => 'double',
         'net_worth_matches' => 'int64',
         'wins' => 'int64'
     ];
@@ -93,7 +93,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => false,
         'hero_ids' => false,
         'matches_played' => false,
-        'net_worth_diff_9min' => false,
+        'net_worth_diff_15min' => false,
         'net_worth_matches' => false,
         'wins' => false
     ];
@@ -188,7 +188,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'enemy_hero_ids',
         'hero_ids' => 'hero_ids',
         'matches_played' => 'matches_played',
-        'net_worth_diff_9min' => 'net_worth_diff_9min',
+        'net_worth_diff_15min' => 'net_worth_diff_15min',
         'net_worth_matches' => 'net_worth_matches',
         'wins' => 'wins'
     ];
@@ -203,7 +203,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'setEnemyHeroIds',
         'hero_ids' => 'setHeroIds',
         'matches_played' => 'setMatchesPlayed',
-        'net_worth_diff_9min' => 'setNetWorthDiff9min',
+        'net_worth_diff_15min' => 'setNetWorthDiff15min',
         'net_worth_matches' => 'setNetWorthMatches',
         'wins' => 'setWins'
     ];
@@ -218,7 +218,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'getEnemyHeroIds',
         'hero_ids' => 'getHeroIds',
         'matches_played' => 'getMatchesPlayed',
-        'net_worth_diff_9min' => 'getNetWorthDiff9min',
+        'net_worth_diff_15min' => 'getNetWorthDiff15min',
         'net_worth_matches' => 'getNetWorthMatches',
         'wins' => 'getWins'
     ];
@@ -284,7 +284,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('enemy_hero_ids', $data ?? [], null);
         $this->setIfExists('hero_ids', $data ?? [], null);
         $this->setIfExists('matches_played', $data ?? [], null);
-        $this->setIfExists('net_worth_diff_9min', $data ?? [], null);
+        $this->setIfExists('net_worth_diff_15min', $data ?? [], null);
         $this->setIfExists('net_worth_matches', $data ?? [], null);
         $this->setIfExists('wins', $data ?? [], null);
     }
@@ -336,8 +336,8 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'matches_played', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['net_worth_diff_9min'] === null) {
-            $invalidProperties[] = "'net_worth_diff_9min' can't be null";
+        if ($this->container['net_worth_diff_15min'] === null) {
+            $invalidProperties[] = "'net_worth_diff_15min' can't be null";
         }
         if ($this->container['net_worth_matches'] === null) {
             $invalidProperties[] = "'net_worth_matches' can't be null";
@@ -485,28 +485,28 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets net_worth_diff_9min
+     * Gets net_worth_diff_15min
      *
      * @return float
      */
-    public function getNetWorthDiff9min()
+    public function getNetWorthDiff15min()
     {
-        return $this->container['net_worth_diff_9min'];
+        return $this->container['net_worth_diff_15min'];
     }
 
     /**
-     * Sets net_worth_diff_9min
+     * Sets net_worth_diff_15min
      *
-     * @param float $net_worth_diff_9min Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+     * @param float $net_worth_diff_15min Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
      *
      * @return self
      */
-    public function setNetWorthDiff9min($net_worth_diff_9min)
+    public function setNetWorthDiff15min($net_worth_diff_15min)
     {
-        if (is_null($net_worth_diff_9min)) {
-            throw new \InvalidArgumentException('non-nullable net_worth_diff_9min cannot be null');
+        if (is_null($net_worth_diff_15min)) {
+            throw new \InvalidArgumentException('non-nullable net_worth_diff_15min cannot be null');
         }
-        $this->container['net_worth_diff_9min'] = $net_worth_diff_9min;
+        $this->container['net_worth_diff_15min'] = $net_worth_diff_15min;
 
         return $this;
     }

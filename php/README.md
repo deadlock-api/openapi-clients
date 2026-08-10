@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**itemStats**](docs/Api/AnalyticsApi.md#itemstats) | **GET** /v1/analytics/item-stats | Item Stats
 *AnalyticsApi* | [**killDeathStats**](docs/Api/AnalyticsApi.md#killdeathstats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
 *AnalyticsApi* | [**laneMatchupStats**](docs/Api/AnalyticsApi.md#lanematchupstats) | **GET** /v1/analytics/lane-matchup-stats | Lane Matchup Stats
+*AnalyticsApi* | [**laneSoulCurve**](docs/Api/AnalyticsApi.md#lanesoulcurve) | **GET** /v1/analytics/lane-soul-curve | Lane Soul Curve
 *AnalyticsApi* | [**playerPerformanceCurve**](docs/Api/AnalyticsApi.md#playerperformancecurve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsApi* | [**playerScoreboard**](docs/Api/AnalyticsApi.md#playerscoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsApi* | [**playerStatsMetrics**](docs/Api/AnalyticsApi.md#playerstatsmetrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
@@ -310,6 +311,7 @@ Class | Method | HTTP request | Description
 - [KillDeathStats](docs/Model/KillDeathStats.md)
 - [LaneInfo](docs/Model/LaneInfo.md)
 - [LaneMatchupStats](docs/Model/LaneMatchupStats.md)
+- [LaneSoulCurve](docs/Model/LaneSoulCurve.md)
 - [LastRankedMatch](docs/Model/LastRankedMatch.md)
 - [Leaderboard](docs/Model/Leaderboard.md)
 - [LeaderboardEntry](docs/Model/LeaderboardEntry.md)

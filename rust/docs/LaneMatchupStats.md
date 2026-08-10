@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **enemy_hero_ids** | **Vec<u32>** | The ascending hero id pair they laned against. | 
 **hero_ids** | **Vec<u32>** | The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **matches_played** | **u64** | The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane. | 
-**net_worth_diff_9min** | **f64** | Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players. | 
+**net_worth_diff_15min** | **f64** | Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players. | 
 **net_worth_matches** | **u64** | How many of `matches_played` carried net-worth samples for all four players. | 
 **wins** | **u64** | The number of matches `hero_ids` won against `enemy_hero_ids` in this lane. | 
 

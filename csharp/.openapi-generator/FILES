@@ -135,6 +135,7 @@ docs/models/JobStatus.md
 docs/models/KillDeathStats.md
 docs/models/LaneInfo.md
 docs/models/LaneMatchupStats.md
+docs/models/LaneSoulCurve.md
 docs/models/LastRankedMatch.md
 docs/models/Leaderboard.md
 docs/models/LeaderboardEntry.md
@@ -381,6 +382,7 @@ src/DeadlockApiClient.Test/Model/JobStatusTests.cs
 src/DeadlockApiClient.Test/Model/KillDeathStatsTests.cs
 src/DeadlockApiClient.Test/Model/LaneInfoTests.cs
 src/DeadlockApiClient.Test/Model/LaneMatchupStatsTests.cs
+src/DeadlockApiClient.Test/Model/LaneSoulCurveTests.cs
 src/DeadlockApiClient.Test/Model/LastRankedMatchTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardEntryTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardTests.cs
@@ -649,6 +651,7 @@ src/DeadlockApiClient/Model/JobStatus.cs
 src/DeadlockApiClient/Model/KillDeathStats.cs
 src/DeadlockApiClient/Model/LaneInfo.cs
 src/DeadlockApiClient/Model/LaneMatchupStats.cs
+src/DeadlockApiClient/Model/LaneSoulCurve.cs
 src/DeadlockApiClient/Model/LastRankedMatch.cs
 src/DeadlockApiClient/Model/Leaderboard.cs
 src/DeadlockApiClient/Model/LeaderboardEntry.cs

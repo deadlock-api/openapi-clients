@@ -198,6 +198,8 @@ pub mod lane_info;
 pub use self::lane_info::LaneInfo;
 pub mod lane_matchup_stats;
 pub use self::lane_matchup_stats::LaneMatchupStats;
+pub mod lane_soul_curve;
+pub use self::lane_soul_curve::LaneSoulCurve;
 pub mod last_ranked_match;
 pub use self::last_ranked_match::LastRankedMatch;
 pub mod leaderboard;

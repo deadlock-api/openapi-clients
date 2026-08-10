@@ -3798,6 +3798,220 @@ paths:
       summary: Lane Matchup Stats
       tags:
       - Analytics
+  /v1/analytics/lane-soul-curve:
+    get:
+      description: "\nRetrieves how a duo's soul lead over the duo they laned against\
+        \ develops through the first 15 minutes.\n\nThe curve is sampled at 180, 360,\
+        \ 540, 720 and 900 seconds and is not interpolated; its last point is the\
+        \ `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both*\
+        \ sides fielded exactly two players are counted, and each lane contributes\
+        \ one row per side, so every matchup appears twice with the two sides swapped.\n\
+        \nPass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you\
+        \ care about. Without them the full duo-versus-duo matrix is computed, which\
+        \ is a considerably more expensive query.\n\nResults are cached for **1 hour**\
+        \ based on the combination of query parameters provided. Subsequent identical\
+        \ requests within this timeframe will receive the cached response.\n\n###\
+        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      operationId: lane_soul_curve
+      parameters:
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. **Default:** `normal`."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          - explore_n_y_c
+          - internal
+          nullable: true
+          type: string
+        style: form
+      - description: "Filter matches based on the match mode. Valid values: `unranked`,\
+          \ `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`.\
+          \ **Default:** `ranked,unranked`."
+        explode: true
+        in: query
+        name: match_mode
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1783728000
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Comma separated list of hero ids the *ally* duo has to be drawn\
+          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of hero ids the *enemy* duo has to be drawn\
+          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: enemy_hero_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: The minimum number of lane matchups played for a duo pairing
+          to be included in the response.
+        explode: true
+        in: query
+        name: min_matches
+        required: false
+        schema:
+          default: 20
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: Comma separated list of account ids to include
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          nullable: true
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/LaneSoulCurve"
+                type: array
+                default: null
+          description: Lane Soul Curve
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch lane soul curve
+      summary: Lane Soul Curve
+      tags:
+      - Analytics
   /v1/analytics/player-performance-curve:
     get:
       description: "\nRetrieves player performance statistics (net worth, kills, deaths,\
@@ -14624,7 +14838,7 @@ components:
         - 0
         - 0
         matches_played: 0
-        net_worth_diff_9min: 5.637376656633329
+        net_worth_diff_15min: 5.637376656633329
         net_worth_matches: 0
         wins: 0
       properties:
@@ -14657,9 +14871,9 @@ components:
           format: int64
           minimum: 0
           type: integer
-        net_worth_diff_9min:
+        net_worth_diff_15min:
           description: |-
-            Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind.
+            Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind.
             `0` when no counted matchup had net-worth samples for all four players.
           format: double
           type: number
@@ -14680,9 +14894,98 @@ components:
       - enemy_hero_ids
       - hero_ids
       - matches_played
-      - net_worth_diff_9min
+      - net_worth_diff_15min
       - net_worth_matches
       - wins
+    LaneSoulCurve:
+      example:
+        assigned_lane: 0
+        enemy_hero_ids:
+        - 0
+        - 0
+        hero_ids:
+        - 0
+        - 0
+        matches_played: 0
+        net_worth_diff:
+        - 5.637376656633329
+        - 5.637376656633329
+        net_worth_diff_std:
+        - 2.3021358869347655
+        - 2.3021358869347655
+        sample_times_s:
+        - 0
+        - 0
+      properties:
+        assigned_lane:
+          description: The lane the matchup was played in. See the `lane_info` array
+            of <https://api.deadlock-api.com/v1/assets/generic-data>.
+          format: int32
+          minimum: 0
+          type: integer
+        enemy_hero_ids:
+          description: The ascending hero id pair they laned against.
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        hero_ids:
+          description: "The ascending hero id pair that shared the lane. See more:\
+            \ <https://api.deadlock-api.com/v1/assets/heroes>"
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        matches_played:
+          description: |-
+            Lane matchups behind the curve, counted at its *least* covered sample. A match that ended
+            before 900s still contributes to the earlier points, so the earlier points rest on at least
+            this many matchups and never fewer.
+          format: int64
+          minimum: 0
+          type: integer
+        net_worth_diff:
+          description: |-
+            Mean souls the duo is ahead by at the matching entry of `sample_times_s`. Negative means
+            behind. Same length as `sample_times_s`.
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        net_worth_diff_std:
+          description: |-
+            Population standard deviation of the lead across the counted matchups, at the matching entry
+            of `sample_times_s`. Same length as `sample_times_s`.
+
+            Spread between individual games, not uncertainty about the mean: it stays wide however many
+            matchups are counted, because lane outcomes genuinely differ that much.
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        sample_times_s:
+          description: "Seconds into the match each entry of `net_worth_diff` was\
+            \ sampled at, ascending."
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+      required:
+      - assigned_lane
+      - enemy_hero_ids
+      - hero_ids
+      - matches_played
+      - net_worth_diff
+      - net_worth_diff_std
+      - sample_times_s
     LastRankedMatch:
       properties:
         match_id:

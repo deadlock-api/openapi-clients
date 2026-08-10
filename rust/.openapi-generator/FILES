@@ -119,6 +119,7 @@ docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
 docs/LaneMatchupStats.md
+docs/LaneSoulCurve.md
 docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
@@ -379,6 +380,7 @@ src/models/job_status.rs
 src/models/kill_death_stats.rs
 src/models/lane_info.rs
 src/models/lane_matchup_stats.rs
+src/models/lane_soul_curve.rs
 src/models/last_ranked_match.rs
 src/models/leaderboard.rs
 src/models/leaderboard_entry.rs

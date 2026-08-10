@@ -43,11 +43,11 @@ export interface LaneMatchupStats  {
      */
     matchesPlayed: number;
     /**
-     * Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+     * Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
      * @type {number}
      * @memberof LaneMatchupStats
      */
-    netWorthDiff9min: number;
+    netWorthDiff15min: number;
     /**
      * How many of `matches_played` carried net-worth samples for all four players.
      * @type {number}
@@ -68,7 +68,7 @@ export function LaneMatchupStatsFromJSON(json: any): LaneMatchupStats {
         'enemyHeroIds': json['enemy_hero_ids'],
         'heroIds': json['hero_ids'],
         'matchesPlayed': json['matches_played'],
-        'netWorthDiff9min': json['net_worth_diff_9min'],
+        'netWorthDiff15min': json['net_worth_diff_15min'],
         'netWorthMatches': json['net_worth_matches'],
         'wins': json['wins'],
     };
@@ -83,7 +83,7 @@ export function LaneMatchupStatsToJSON(value?: LaneMatchupStats): any {
         'enemy_hero_ids': value.enemyHeroIds,
         'hero_ids': value.heroIds,
         'matches_played': value.matchesPlayed,
-        'net_worth_diff_9min': value.netWorthDiff9min,
+        'net_worth_diff_15min': value.netWorthDiff15min,
         'net_worth_matches': value.netWorthMatches,
         'wins': value.wins,
     };

@@ -37,17 +37,17 @@ namespace DeadlockApiClient.Model
         /// <param name="enemyHeroIds">The ascending hero id pair they laned against.</param>
         /// <param name="heroIds">The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matchesPlayed">The total number of lane matchups between &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; in this lane.</param>
-        /// <param name="netWorthDiff9min">Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.</param>
+        /// <param name="netWorthDiff15min">Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.</param>
         /// <param name="netWorthMatches">How many of &#x60;matches_played&#x60; carried net-worth samples for all four players.</param>
         /// <param name="wins">The number of matches &#x60;hero_ids&#x60; won against &#x60;enemy_hero_ids&#x60; in this lane.</param>
         [JsonConstructor]
-        public LaneMatchupStats(int assignedLane, List<int> enemyHeroIds, List<int> heroIds, long matchesPlayed, double netWorthDiff9min, long netWorthMatches, long wins)
+        public LaneMatchupStats(int assignedLane, List<int> enemyHeroIds, List<int> heroIds, long matchesPlayed, double netWorthDiff15min, long netWorthMatches, long wins)
         {
             AssignedLane = assignedLane;
             EnemyHeroIds = enemyHeroIds;
             HeroIds = heroIds;
             MatchesPlayed = matchesPlayed;
-            NetWorthDiff9min = netWorthDiff9min;
+            NetWorthDiff15min = netWorthDiff15min;
             NetWorthMatches = netWorthMatches;
             Wins = wins;
             OnCreated();
@@ -84,11 +84,11 @@ namespace DeadlockApiClient.Model
         public long MatchesPlayed { get; set; }
 
         /// <summary>
-        /// Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.
+        /// Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.
         /// </summary>
-        /// <value>Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.</value>
-        [JsonPropertyName("net_worth_diff_9min")]
-        public double NetWorthDiff9min { get; set; }
+        /// <value>Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.</value>
+        [JsonPropertyName("net_worth_diff_15min")]
+        public double NetWorthDiff15min { get; set; }
 
         /// <summary>
         /// How many of &#x60;matches_played&#x60; carried net-worth samples for all four players.
@@ -116,7 +116,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  EnemyHeroIds: ").Append(EnemyHeroIds).Append("\n");
             sb.Append("  HeroIds: ").Append(HeroIds).Append("\n");
             sb.Append("  MatchesPlayed: ").Append(MatchesPlayed).Append("\n");
-            sb.Append("  NetWorthDiff9min: ").Append(NetWorthDiff9min).Append("\n");
+            sb.Append("  NetWorthDiff15min: ").Append(NetWorthDiff15min).Append("\n");
             sb.Append("  NetWorthMatches: ").Append(NetWorthMatches).Append("\n");
             sb.Append("  Wins: ").Append(Wins).Append("\n");
             sb.Append("}\n");
@@ -194,7 +194,7 @@ namespace DeadlockApiClient.Model
             Option<List<int>?> enemyHeroIds = default;
             Option<List<int>?> heroIds = default;
             Option<long?> matchesPlayed = default;
-            Option<double?> netWorthDiff9min = default;
+            Option<double?> netWorthDiff15min = default;
             Option<long?> netWorthMatches = default;
             Option<long?> wins = default;
 
@@ -225,8 +225,8 @@ namespace DeadlockApiClient.Model
                         case "matches_played":
                             matchesPlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
-                        case "net_worth_diff_9min":
-                            netWorthDiff9min = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                        case "net_worth_diff_15min":
+                            netWorthDiff15min = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "net_worth_matches":
                             netWorthMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -252,8 +252,8 @@ namespace DeadlockApiClient.Model
             if (!matchesPlayed.IsSet)
                 throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(matchesPlayed));
 
-            if (!netWorthDiff9min.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(netWorthDiff9min));
+            if (!netWorthDiff15min.IsSet)
+                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(netWorthDiff15min));
 
             if (!netWorthMatches.IsSet)
                 throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(netWorthMatches));
@@ -273,8 +273,8 @@ namespace DeadlockApiClient.Model
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
                 throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class LaneMatchupStats.");
 
-            if (netWorthDiff9min.IsSet && netWorthDiff9min.Value == null)
-                throw new ArgumentNullException(nameof(netWorthDiff9min), "Property is not nullable for class LaneMatchupStats.");
+            if (netWorthDiff15min.IsSet && netWorthDiff15min.Value == null)
+                throw new ArgumentNullException(nameof(netWorthDiff15min), "Property is not nullable for class LaneMatchupStats.");
 
             if (netWorthMatches.IsSet && netWorthMatches.Value == null)
                 throw new ArgumentNullException(nameof(netWorthMatches), "Property is not nullable for class LaneMatchupStats.");
@@ -282,7 +282,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new ArgumentNullException(nameof(wins), "Property is not nullable for class LaneMatchupStats.");
 
-            return new LaneMatchupStats(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff9min.Value!.Value!, netWorthMatches.Value!.Value!, wins.Value!.Value!);
+            return new LaneMatchupStats(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff15min.Value!.Value!, netWorthMatches.Value!.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -323,7 +323,7 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, laneMatchupStats.HeroIds, jsonSerializerOptions);
             writer.WriteNumber("matches_played", laneMatchupStats.MatchesPlayed);
 
-            writer.WriteNumber("net_worth_diff_9min", laneMatchupStats.NetWorthDiff9min);
+            writer.WriteNumber("net_worth_diff_15min", laneMatchupStats.NetWorthDiff15min);
 
             writer.WriteNumber("net_worth_matches", laneMatchupStats.NetWorthMatches);
 

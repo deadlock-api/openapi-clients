@@ -90,12 +90,12 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'NetWorthDiff9min'
+        /// Test the property 'NetWorthDiff15min'
         /// </summary>
         [Fact]
-        public void NetWorthDiff9minTest()
+        public void NetWorthDiff15minTest()
         {
-            // TODO unit test for the property 'NetWorthDiff9min'
+            // TODO unit test for the property 'NetWorthDiff15min'
         }
 
         /// <summary>

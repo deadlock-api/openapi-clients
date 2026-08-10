@@ -32,9 +32,9 @@ export interface LaneMatchupStats {
      */
     'matches_played': number;
     /**
-     * Mean souls the duo is ahead by 9 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+     * Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
      */
-    'net_worth_diff_9min': number;
+    'net_worth_diff_15min': number;
     /**
      * How many of `matches_played` carried net-worth samples for all four players.
      */
