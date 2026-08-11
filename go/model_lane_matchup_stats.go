@@ -21,18 +21,22 @@ var _ MappedNullable = &LaneMatchupStats{}
 
 // LaneMatchupStats **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 type LaneMatchupStats struct {
-	// The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+	// The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
 	AssignedLane int32 `json:"assigned_lane"`
-	// The ascending hero id pair they laned against.
+	// The ascending hero id pair they laned against, or empty when grouped away.
 	EnemyHeroIds []int32 `json:"enemy_hero_ids"`
-	// The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	// The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroIds []int32 `json:"hero_ids"`
 	// The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.
 	MatchesPlayed int64 `json:"matches_played"`
-	// Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
-	NetWorthDiff15min float64 `json:"net_worth_diff_15min"`
-	// How many of `matches_played` carried net-worth samples for all four players.
-	NetWorthMatches int64 `json:"net_worth_matches"`
+	// Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
+	NetWorthDiff float64 `json:"net_worth_diff"`
+	// How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
+	SampleMatches int64 `json:"sample_matches"`
+	// Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
+	SampleTimeS int32 `json:"sample_time_s"`
+	// A reading per stat named in `stats`. Empty unless the parameter was set.
+	Stats map[string]LaneMatchupStat `json:"stats"`
 	// The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
 	Wins int64 `json:"wins"`
 }
@@ -43,14 +47,16 @@ type _LaneMatchupStats LaneMatchupStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff15min float64, netWorthMatches int64, wins int64) *LaneMatchupStats {
+func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff float64, sampleMatches int64, sampleTimeS int32, stats map[string]LaneMatchupStat, wins int64) *LaneMatchupStats {
 	this := LaneMatchupStats{}
 	this.AssignedLane = assignedLane
 	this.EnemyHeroIds = enemyHeroIds
 	this.HeroIds = heroIds
 	this.MatchesPlayed = matchesPlayed
-	this.NetWorthDiff15min = netWorthDiff15min
-	this.NetWorthMatches = netWorthMatches
+	this.NetWorthDiff = netWorthDiff
+	this.SampleMatches = sampleMatches
+	this.SampleTimeS = sampleTimeS
+	this.Stats = stats
 	this.Wins = wins
 	return &this
 }
@@ -159,52 +165,100 @@ func (o *LaneMatchupStats) SetMatchesPlayed(v int64) {
 	o.MatchesPlayed = v
 }
 
-// GetNetWorthDiff15min returns the NetWorthDiff15min field value
-func (o *LaneMatchupStats) GetNetWorthDiff15min() float64 {
+// GetNetWorthDiff returns the NetWorthDiff field value
+func (o *LaneMatchupStats) GetNetWorthDiff() float64 {
 	if o == nil {
 		var ret float64
 		return ret
 	}
 
-	return o.NetWorthDiff15min
+	return o.NetWorthDiff
 }
 
-// GetNetWorthDiff15minOk returns a tuple with the NetWorthDiff15min field value
+// GetNetWorthDiffOk returns a tuple with the NetWorthDiff field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetNetWorthDiff15minOk() (*float64, bool) {
+func (o *LaneMatchupStats) GetNetWorthDiffOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.NetWorthDiff15min, true
+	return &o.NetWorthDiff, true
 }
 
-// SetNetWorthDiff15min sets field value
-func (o *LaneMatchupStats) SetNetWorthDiff15min(v float64) {
-	o.NetWorthDiff15min = v
+// SetNetWorthDiff sets field value
+func (o *LaneMatchupStats) SetNetWorthDiff(v float64) {
+	o.NetWorthDiff = v
 }
 
-// GetNetWorthMatches returns the NetWorthMatches field value
-func (o *LaneMatchupStats) GetNetWorthMatches() int64 {
+// GetSampleMatches returns the SampleMatches field value
+func (o *LaneMatchupStats) GetSampleMatches() int64 {
 	if o == nil {
 		var ret int64
 		return ret
 	}
 
-	return o.NetWorthMatches
+	return o.SampleMatches
 }
 
-// GetNetWorthMatchesOk returns a tuple with the NetWorthMatches field value
+// GetSampleMatchesOk returns a tuple with the SampleMatches field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetNetWorthMatchesOk() (*int64, bool) {
+func (o *LaneMatchupStats) GetSampleMatchesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.NetWorthMatches, true
+	return &o.SampleMatches, true
 }
 
-// SetNetWorthMatches sets field value
-func (o *LaneMatchupStats) SetNetWorthMatches(v int64) {
-	o.NetWorthMatches = v
+// SetSampleMatches sets field value
+func (o *LaneMatchupStats) SetSampleMatches(v int64) {
+	o.SampleMatches = v
+}
+
+// GetSampleTimeS returns the SampleTimeS field value
+func (o *LaneMatchupStats) GetSampleTimeS() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.SampleTimeS
+}
+
+// GetSampleTimeSOk returns a tuple with the SampleTimeS field value
+// and a boolean to check if the value has been set.
+func (o *LaneMatchupStats) GetSampleTimeSOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SampleTimeS, true
+}
+
+// SetSampleTimeS sets field value
+func (o *LaneMatchupStats) SetSampleTimeS(v int32) {
+	o.SampleTimeS = v
+}
+
+// GetStats returns the Stats field value
+func (o *LaneMatchupStats) GetStats() map[string]LaneMatchupStat {
+	if o == nil {
+		var ret map[string]LaneMatchupStat
+		return ret
+	}
+
+	return o.Stats
+}
+
+// GetStatsOk returns a tuple with the Stats field value
+// and a boolean to check if the value has been set.
+func (o *LaneMatchupStats) GetStatsOk() (map[string]LaneMatchupStat, bool) {
+	if o == nil {
+		return map[string]LaneMatchupStat{}, false
+	}
+	return o.Stats, true
+}
+
+// SetStats sets field value
+func (o *LaneMatchupStats) SetStats(v map[string]LaneMatchupStat) {
+	o.Stats = v
 }
 
 // GetWins returns the Wins field value
@@ -245,8 +299,10 @@ func (o LaneMatchupStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["enemy_hero_ids"] = o.EnemyHeroIds
 	toSerialize["hero_ids"] = o.HeroIds
 	toSerialize["matches_played"] = o.MatchesPlayed
-	toSerialize["net_worth_diff_15min"] = o.NetWorthDiff15min
-	toSerialize["net_worth_matches"] = o.NetWorthMatches
+	toSerialize["net_worth_diff"] = o.NetWorthDiff
+	toSerialize["sample_matches"] = o.SampleMatches
+	toSerialize["sample_time_s"] = o.SampleTimeS
+	toSerialize["stats"] = o.Stats
 	toSerialize["wins"] = o.Wins
 	return toSerialize, nil
 }
@@ -260,8 +316,10 @@ func (o *LaneMatchupStats) UnmarshalJSON(data []byte) (err error) {
 		"enemy_hero_ids",
 		"hero_ids",
 		"matches_played",
-		"net_worth_diff_15min",
-		"net_worth_matches",
+		"net_worth_diff",
+		"sample_matches",
+		"sample_time_s",
+		"stats",
 		"wins",
 	}
 

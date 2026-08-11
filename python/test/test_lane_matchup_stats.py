@@ -43,8 +43,16 @@ class TestLaneMatchupStats(unittest.TestCase):
                     0
                     ],
                 matches_played = 0,
-                net_worth_diff_15min = 1.337,
-                net_worth_matches = 0,
+                net_worth_diff = 1.337,
+                sample_matches = 0,
+                sample_time_s = 0,
+                stats = {
+                    'key' : deadlock_api_client.models.lane_matchup_stat.LaneMatchupStat(
+                        diff = 1.337, 
+                        diff_std = 1.337, 
+                        value = 1.337, 
+                        value_std = 1.337, )
+                    },
                 wins = 0
             )
         else:
@@ -57,8 +65,16 @@ class TestLaneMatchupStats(unittest.TestCase):
                     0
                     ],
                 matches_played = 0,
-                net_worth_diff_15min = 1.337,
-                net_worth_matches = 0,
+                net_worth_diff = 1.337,
+                sample_matches = 0,
+                sample_time_s = 0,
+                stats = {
+                    'key' : deadlock_api_client.models.lane_matchup_stat.LaneMatchupStat(
+                        diff = 1.337, 
+                        diff_std = 1.337, 
+                        value = 1.337, 
+                        value_std = 1.337, )
+                    },
                 wins = 0,
         )
         """

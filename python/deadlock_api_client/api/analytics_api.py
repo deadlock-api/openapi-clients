@@ -8352,10 +8352,14 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        sample_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.")] = None,
+        assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups played for a duo pairing to be included in the response.")] = None,
-        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups played for a duo pairing to be included in the response.")] = None,
+        stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.")] = None,
+        group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups behind a row for it to be included in the response.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -8372,7 +8376,7 @@ class AnalyticsApi:
     ) -> List[LaneMatchupStats]:
         """Lane Matchup Stats (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -8394,13 +8398,21 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param sample_time_s: Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.
+        :type sample_time_s: int
+        :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        :type assigned_lanes: str
         :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
         :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
-        :param min_matches: The minimum number of lane matchups played for a duo pairing to be included in the response.
+        :param stats: Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
+        :type stats: str
+        :param group_by: Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+        :type group_by: str
+        :param min_matches: The minimum number of lane matchups behind a row for it to be included in the response.
         :type min_matches: int
-        :param max_matches: The maximum number of lane matchups played for a duo pairing to be included in the response.
+        :param max_matches: The maximum number of lane matchups behind a row for it to be included in the response.
         :type max_matches: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -8437,8 +8449,12 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            sample_time_s=sample_time_s,
+            assigned_lanes=assigned_lanes,
             hero_ids=hero_ids,
             enemy_hero_ids=enemy_hero_ids,
+            stats=stats,
+            group_by=group_by,
             min_matches=min_matches,
             max_matches=max_matches,
             account_ids=account_ids,
@@ -8477,10 +8493,14 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        sample_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.")] = None,
+        assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups played for a duo pairing to be included in the response.")] = None,
-        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups played for a duo pairing to be included in the response.")] = None,
+        stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.")] = None,
+        group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups behind a row for it to be included in the response.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -8497,7 +8517,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[LaneMatchupStats]]:
         """Lane Matchup Stats (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -8519,13 +8539,21 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param sample_time_s: Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.
+        :type sample_time_s: int
+        :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        :type assigned_lanes: str
         :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
         :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
-        :param min_matches: The minimum number of lane matchups played for a duo pairing to be included in the response.
+        :param stats: Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
+        :type stats: str
+        :param group_by: Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+        :type group_by: str
+        :param min_matches: The minimum number of lane matchups behind a row for it to be included in the response.
         :type min_matches: int
-        :param max_matches: The maximum number of lane matchups played for a duo pairing to be included in the response.
+        :param max_matches: The maximum number of lane matchups behind a row for it to be included in the response.
         :type max_matches: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -8562,8 +8590,12 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            sample_time_s=sample_time_s,
+            assigned_lanes=assigned_lanes,
             hero_ids=hero_ids,
             enemy_hero_ids=enemy_hero_ids,
+            stats=stats,
+            group_by=group_by,
             min_matches=min_matches,
             max_matches=max_matches,
             account_ids=account_ids,
@@ -8602,10 +8634,14 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        sample_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.")] = None,
+        assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups played for a duo pairing to be included in the response.")] = None,
-        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups played for a duo pairing to be included in the response.")] = None,
+        stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.")] = None,
+        group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups behind a row for it to be included in the response.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -8622,7 +8658,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Lane Matchup Stats (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -8644,13 +8680,21 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param sample_time_s: Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.
+        :type sample_time_s: int
+        :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        :type assigned_lanes: str
         :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
         :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
-        :param min_matches: The minimum number of lane matchups played for a duo pairing to be included in the response.
+        :param stats: Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
+        :type stats: str
+        :param group_by: Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+        :type group_by: str
+        :param min_matches: The minimum number of lane matchups behind a row for it to be included in the response.
         :type min_matches: int
-        :param max_matches: The maximum number of lane matchups played for a duo pairing to be included in the response.
+        :param max_matches: The maximum number of lane matchups behind a row for it to be included in the response.
         :type max_matches: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
@@ -8687,8 +8731,12 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            sample_time_s=sample_time_s,
+            assigned_lanes=assigned_lanes,
             hero_ids=hero_ids,
             enemy_hero_ids=enemy_hero_ids,
+            stats=stats,
+            group_by=group_by,
             min_matches=min_matches,
             max_matches=max_matches,
             account_ids=account_ids,
@@ -8722,8 +8770,12 @@ class AnalyticsApi:
         max_average_badge,
         min_match_id,
         max_match_id,
+        sample_time_s,
+        assigned_lanes,
         hero_ids,
         enemy_hero_ids,
+        stats,
+        group_by,
         min_matches,
         max_matches,
         account_ids,
@@ -8792,6 +8844,14 @@ class AnalyticsApi:
             
             _query_params.append(('max_match_id', max_match_id))
             
+        if sample_time_s is not None:
+            
+            _query_params.append(('sample_time_s', sample_time_s))
+            
+        if assigned_lanes is not None:
+            
+            _query_params.append(('assigned_lanes', assigned_lanes))
+            
         if hero_ids is not None:
             
             _query_params.append(('hero_ids', hero_ids))
@@ -8799,6 +8859,14 @@ class AnalyticsApi:
         if enemy_hero_ids is not None:
             
             _query_params.append(('enemy_hero_ids', enemy_hero_ids))
+            
+        if stats is not None:
+            
+            _query_params.append(('stats', stats))
+            
+        if group_by is not None:
+            
+            _query_params.append(('group_by', group_by))
             
         if min_matches is not None:
             
@@ -8861,9 +8929,15 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Earliest sample to return, in seconds into the match. **Default:** 180.")] = None,
+        max_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.")] = None,
+        assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups played for a duo pairing to be included in the response.")] = None,
+        stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.")] = None,
+        group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups behind a row for it to be included in the response.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -8880,7 +8954,7 @@ class AnalyticsApi:
     ) -> List[LaneSoulCurve]:
         """Lane Soul Curve (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -8902,12 +8976,24 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param min_time_s: Earliest sample to return, in seconds into the match. **Default:** 180.
+        :type min_time_s: int
+        :param max_time_s: Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
+        :type max_time_s: int
+        :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        :type assigned_lanes: str
         :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
         :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
-        :param min_matches: The minimum number of lane matchups played for a duo pairing to be included in the response.
+        :param stats: Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
+        :type stats: str
+        :param group_by: Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+        :type group_by: str
+        :param min_matches: The minimum number of lane matchups behind a row for it to be included in the response.
         :type min_matches: int
+        :param max_matches: The maximum number of lane matchups behind a row for it to be included in the response.
+        :type max_matches: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -8943,9 +9029,15 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            min_time_s=min_time_s,
+            max_time_s=max_time_s,
+            assigned_lanes=assigned_lanes,
             hero_ids=hero_ids,
             enemy_hero_ids=enemy_hero_ids,
+            stats=stats,
+            group_by=group_by,
             min_matches=min_matches,
+            max_matches=max_matches,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8982,9 +9074,15 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Earliest sample to return, in seconds into the match. **Default:** 180.")] = None,
+        max_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.")] = None,
+        assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups played for a duo pairing to be included in the response.")] = None,
+        stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.")] = None,
+        group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups behind a row for it to be included in the response.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -9001,7 +9099,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[LaneSoulCurve]]:
         """Lane Soul Curve (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -9023,12 +9121,24 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param min_time_s: Earliest sample to return, in seconds into the match. **Default:** 180.
+        :type min_time_s: int
+        :param max_time_s: Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
+        :type max_time_s: int
+        :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        :type assigned_lanes: str
         :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
         :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
-        :param min_matches: The minimum number of lane matchups played for a duo pairing to be included in the response.
+        :param stats: Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
+        :type stats: str
+        :param group_by: Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+        :type group_by: str
+        :param min_matches: The minimum number of lane matchups behind a row for it to be included in the response.
         :type min_matches: int
+        :param max_matches: The maximum number of lane matchups behind a row for it to be included in the response.
+        :type max_matches: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -9064,9 +9174,15 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            min_time_s=min_time_s,
+            max_time_s=max_time_s,
+            assigned_lanes=assigned_lanes,
             hero_ids=hero_ids,
             enemy_hero_ids=enemy_hero_ids,
+            stats=stats,
+            group_by=group_by,
             min_matches=min_matches,
+            max_matches=max_matches,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9103,9 +9219,15 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Earliest sample to return, in seconds into the match. **Default:** 180.")] = None,
+        max_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.")] = None,
+        assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups played for a duo pairing to be included in the response.")] = None,
+        stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.")] = None,
+        group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
+        max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of lane matchups behind a row for it to be included in the response.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -9122,7 +9244,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Lane Soul Curve (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -9144,12 +9266,24 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
+        :param min_time_s: Earliest sample to return, in seconds into the match. **Default:** 180.
+        :type min_time_s: int
+        :param max_time_s: Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
+        :type max_time_s: int
+        :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        :type assigned_lanes: str
         :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
         :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
-        :param min_matches: The minimum number of lane matchups played for a duo pairing to be included in the response.
+        :param stats: Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
+        :type stats: str
+        :param group_by: Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+        :type group_by: str
+        :param min_matches: The minimum number of lane matchups behind a row for it to be included in the response.
         :type min_matches: int
+        :param max_matches: The maximum number of lane matchups behind a row for it to be included in the response.
+        :type max_matches: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -9185,9 +9319,15 @@ class AnalyticsApi:
             max_average_badge=max_average_badge,
             min_match_id=min_match_id,
             max_match_id=max_match_id,
+            min_time_s=min_time_s,
+            max_time_s=max_time_s,
+            assigned_lanes=assigned_lanes,
             hero_ids=hero_ids,
             enemy_hero_ids=enemy_hero_ids,
+            stats=stats,
+            group_by=group_by,
             min_matches=min_matches,
+            max_matches=max_matches,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9219,9 +9359,15 @@ class AnalyticsApi:
         max_average_badge,
         min_match_id,
         max_match_id,
+        min_time_s,
+        max_time_s,
+        assigned_lanes,
         hero_ids,
         enemy_hero_ids,
+        stats,
+        group_by,
         min_matches,
+        max_matches,
         account_ids,
         _request_auth,
         _content_type,
@@ -9288,6 +9434,18 @@ class AnalyticsApi:
             
             _query_params.append(('max_match_id', max_match_id))
             
+        if min_time_s is not None:
+            
+            _query_params.append(('min_time_s', min_time_s))
+            
+        if max_time_s is not None:
+            
+            _query_params.append(('max_time_s', max_time_s))
+            
+        if assigned_lanes is not None:
+            
+            _query_params.append(('assigned_lanes', assigned_lanes))
+            
         if hero_ids is not None:
             
             _query_params.append(('hero_ids', hero_ids))
@@ -9296,9 +9454,21 @@ class AnalyticsApi:
             
             _query_params.append(('enemy_hero_ids', enemy_hero_ids))
             
+        if stats is not None:
+            
+            _query_params.append(('stats', stats))
+            
+        if group_by is not None:
+            
+            _query_params.append(('group_by', group_by))
+            
         if min_matches is not None:
             
             _query_params.append(('min_matches', min_matches))
+            
+        if max_matches is not None:
+            
+            _query_params.append(('max_matches', max_matches))
             
         if account_ids is not None:
             

@@ -33,15 +33,17 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaneSoulCurve" /> class.
         /// </summary>
-        /// <param name="assignedLane">The lane the matchup was played in. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</param>
-        /// <param name="enemyHeroIds">The ascending hero id pair they laned against.</param>
-        /// <param name="heroIds">The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
-        /// <param name="matchesPlayed">Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.</param>
+        /// <param name="assignedLane">The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</param>
+        /// <param name="enemyHeroIds">The ascending hero id pair they laned against, or empty when grouped away.</param>
+        /// <param name="heroIds">The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="matchesPlayed">Lane matchups behind the row, counted at its *first* sample. This is what &#x60;min_matches&#x60; and &#x60;max_matches&#x60; filter on, so it does not move when the requested time range changes; read &#x60;sample_matches&#x60; for what any individual point rests on.</param>
         /// <param name="netWorthDiff">Mean souls the duo is ahead by at the matching entry of &#x60;sample_times_s&#x60;. Negative means behind. Same length as &#x60;sample_times_s&#x60;.</param>
         /// <param name="netWorthDiffStd">Population standard deviation of the lead across the counted matchups, at the matching entry of &#x60;sample_times_s&#x60;. Same length as &#x60;sample_times_s&#x60;.  Spread between individual games, not uncertainty about the mean: it stays wide however many matchups are counted, because lane outcomes genuinely differ that much.</param>
-        /// <param name="sampleTimesS">Seconds into the match each entry of &#x60;net_worth_diff&#x60; was sampled at, ascending.</param>
+        /// <param name="sampleMatches">How many lane matchups were still running at the matching entry of &#x60;sample_times_s&#x60;. Falls off towards the end of the curve as shorter matches drop out.</param>
+        /// <param name="sampleTimesS">Seconds into the match each entry of the curves was sampled at, ascending.</param>
+        /// <param name="stats">A curve per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.</param>
         [JsonConstructor]
-        public LaneSoulCurve(int assignedLane, List<int> enemyHeroIds, List<int> heroIds, long matchesPlayed, List<double> netWorthDiff, List<double> netWorthDiffStd, List<int> sampleTimesS)
+        public LaneSoulCurve(int assignedLane, List<int> enemyHeroIds, List<int> heroIds, long matchesPlayed, List<double> netWorthDiff, List<double> netWorthDiffStd, List<long> sampleMatches, List<int> sampleTimesS, Dictionary<string, LaneStatCurve> stats)
         {
             AssignedLane = assignedLane;
             EnemyHeroIds = enemyHeroIds;
@@ -49,37 +51,39 @@ namespace DeadlockApiClient.Model
             MatchesPlayed = matchesPlayed;
             NetWorthDiff = netWorthDiff;
             NetWorthDiffStd = netWorthDiffStd;
+            SampleMatches = sampleMatches;
             SampleTimesS = sampleTimesS;
+            Stats = stats;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// The lane the matchup was played in. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
+        /// The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
         /// </summary>
-        /// <value>The lane the matchup was played in. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</value>
+        /// <value>The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</value>
         [JsonPropertyName("assigned_lane")]
         public int AssignedLane { get; set; }
 
         /// <summary>
-        /// The ascending hero id pair they laned against.
+        /// The ascending hero id pair they laned against, or empty when grouped away.
         /// </summary>
-        /// <value>The ascending hero id pair they laned against.</value>
+        /// <value>The ascending hero id pair they laned against, or empty when grouped away.</value>
         [JsonPropertyName("enemy_hero_ids")]
         public List<int> EnemyHeroIds { get; set; }
 
         /// <summary>
-        /// The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+        /// The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
+        /// <value>The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_ids")]
         public List<int> HeroIds { get; set; }
 
         /// <summary>
-        /// Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+        /// Lane matchups behind the row, counted at its *first* sample. This is what &#x60;min_matches&#x60; and &#x60;max_matches&#x60; filter on, so it does not move when the requested time range changes; read &#x60;sample_matches&#x60; for what any individual point rests on.
         /// </summary>
-        /// <value>Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.</value>
+        /// <value>Lane matchups behind the row, counted at its *first* sample. This is what &#x60;min_matches&#x60; and &#x60;max_matches&#x60; filter on, so it does not move when the requested time range changes; read &#x60;sample_matches&#x60; for what any individual point rests on.</value>
         [JsonPropertyName("matches_played")]
         public long MatchesPlayed { get; set; }
 
@@ -98,11 +102,25 @@ namespace DeadlockApiClient.Model
         public List<double> NetWorthDiffStd { get; set; }
 
         /// <summary>
-        /// Seconds into the match each entry of &#x60;net_worth_diff&#x60; was sampled at, ascending.
+        /// How many lane matchups were still running at the matching entry of &#x60;sample_times_s&#x60;. Falls off towards the end of the curve as shorter matches drop out.
         /// </summary>
-        /// <value>Seconds into the match each entry of &#x60;net_worth_diff&#x60; was sampled at, ascending.</value>
+        /// <value>How many lane matchups were still running at the matching entry of &#x60;sample_times_s&#x60;. Falls off towards the end of the curve as shorter matches drop out.</value>
+        [JsonPropertyName("sample_matches")]
+        public List<long> SampleMatches { get; set; }
+
+        /// <summary>
+        /// Seconds into the match each entry of the curves was sampled at, ascending.
+        /// </summary>
+        /// <value>Seconds into the match each entry of the curves was sampled at, ascending.</value>
         [JsonPropertyName("sample_times_s")]
         public List<int> SampleTimesS { get; set; }
+
+        /// <summary>
+        /// A curve per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.
+        /// </summary>
+        /// <value>A curve per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.</value>
+        [JsonPropertyName("stats")]
+        public Dictionary<string, LaneStatCurve> Stats { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,7 +136,9 @@ namespace DeadlockApiClient.Model
             sb.Append("  MatchesPlayed: ").Append(MatchesPlayed).Append("\n");
             sb.Append("  NetWorthDiff: ").Append(NetWorthDiff).Append("\n");
             sb.Append("  NetWorthDiffStd: ").Append(NetWorthDiffStd).Append("\n");
+            sb.Append("  SampleMatches: ").Append(SampleMatches).Append("\n");
             sb.Append("  SampleTimesS: ").Append(SampleTimesS).Append("\n");
+            sb.Append("  Stats: ").Append(Stats).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,7 +204,9 @@ namespace DeadlockApiClient.Model
             Option<long?> matchesPlayed = default;
             Option<List<double>?> netWorthDiff = default;
             Option<List<double>?> netWorthDiffStd = default;
+            Option<List<long>?> sampleMatches = default;
             Option<List<int>?> sampleTimesS = default;
+            Option<Dictionary<string, LaneStatCurve>?> stats = default;
 
             while (utf8JsonReader.Read())
             {
@@ -219,8 +241,14 @@ namespace DeadlockApiClient.Model
                         case "net_worth_diff_std":
                             netWorthDiffStd = new Option<List<double>?>(JsonSerializer.Deserialize<List<double>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
+                        case "sample_matches":
+                            sampleMatches = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
                         case "sample_times_s":
                             sampleTimesS = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "stats":
+                            stats = new Option<Dictionary<string, LaneStatCurve>?>(JsonSerializer.Deserialize<Dictionary<string, LaneStatCurve>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -246,8 +274,14 @@ namespace DeadlockApiClient.Model
             if (!netWorthDiffStd.IsSet)
                 throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(netWorthDiffStd));
 
+            if (!sampleMatches.IsSet)
+                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(sampleMatches));
+
             if (!sampleTimesS.IsSet)
                 throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(sampleTimesS));
+
+            if (!stats.IsSet)
+                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(stats));
 
             if (assignedLane.IsSet && assignedLane.Value == null)
                 throw new ArgumentNullException(nameof(assignedLane), "Property is not nullable for class LaneSoulCurve.");
@@ -267,10 +301,16 @@ namespace DeadlockApiClient.Model
             if (netWorthDiffStd.IsSet && netWorthDiffStd.Value == null)
                 throw new ArgumentNullException(nameof(netWorthDiffStd), "Property is not nullable for class LaneSoulCurve.");
 
+            if (sampleMatches.IsSet && sampleMatches.Value == null)
+                throw new ArgumentNullException(nameof(sampleMatches), "Property is not nullable for class LaneSoulCurve.");
+
             if (sampleTimesS.IsSet && sampleTimesS.Value == null)
                 throw new ArgumentNullException(nameof(sampleTimesS), "Property is not nullable for class LaneSoulCurve.");
 
-            return new LaneSoulCurve(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff.Value!, netWorthDiffStd.Value!, sampleTimesS.Value!);
+            if (stats.IsSet && stats.Value == null)
+                throw new ArgumentNullException(nameof(stats), "Property is not nullable for class LaneSoulCurve.");
+
+            return new LaneSoulCurve(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff.Value!, netWorthDiffStd.Value!, sampleMatches.Value!, sampleTimesS.Value!, stats.Value!);
         }
 
         /// <summary>
@@ -309,8 +349,14 @@ namespace DeadlockApiClient.Model
             if (laneSoulCurve.NetWorthDiffStd == null)
                 throw new ArgumentNullException(nameof(laneSoulCurve.NetWorthDiffStd), "Property is required for class LaneSoulCurve.");
 
+            if (laneSoulCurve.SampleMatches == null)
+                throw new ArgumentNullException(nameof(laneSoulCurve.SampleMatches), "Property is required for class LaneSoulCurve.");
+
             if (laneSoulCurve.SampleTimesS == null)
                 throw new ArgumentNullException(nameof(laneSoulCurve.SampleTimesS), "Property is required for class LaneSoulCurve.");
+
+            if (laneSoulCurve.Stats == null)
+                throw new ArgumentNullException(nameof(laneSoulCurve.Stats), "Property is required for class LaneSoulCurve.");
 
             writer.WriteNumber("assigned_lane", laneSoulCurve.AssignedLane);
 
@@ -324,8 +370,12 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, laneSoulCurve.NetWorthDiff, jsonSerializerOptions);
             writer.WritePropertyName("net_worth_diff_std");
             JsonSerializer.Serialize(writer, laneSoulCurve.NetWorthDiffStd, jsonSerializerOptions);
+            writer.WritePropertyName("sample_matches");
+            JsonSerializer.Serialize(writer, laneSoulCurve.SampleMatches, jsonSerializerOptions);
             writer.WritePropertyName("sample_times_s");
             JsonSerializer.Serialize(writer, laneSoulCurve.SampleTimesS, jsonSerializerOptions);
+            writer.WritePropertyName("stats");
+            JsonSerializer.Serialize(writer, laneSoulCurve.Stats, jsonSerializerOptions);
         }
     }
 }

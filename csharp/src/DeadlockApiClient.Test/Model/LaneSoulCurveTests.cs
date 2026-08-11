@@ -108,12 +108,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'SampleMatches'
+        /// </summary>
+        [Fact]
+        public void SampleMatchesTest()
+        {
+            // TODO unit test for the property 'SampleMatches'
+        }
+
+        /// <summary>
         /// Test the property 'SampleTimesS'
         /// </summary>
         [Fact]
         public void SampleTimesSTest()
         {
             // TODO unit test for the property 'SampleTimesS'
+        }
+
+        /// <summary>
+        /// Test the property 'Stats'
+        /// </summary>
+        [Fact]
+        public void StatsTest()
+        {
+            // TODO unit test for the property 'Stats'
         }
     }
 }

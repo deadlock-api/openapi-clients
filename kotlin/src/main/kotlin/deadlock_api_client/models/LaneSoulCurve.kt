@@ -23,6 +23,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.LaneStatCurve
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -31,31 +32,33 @@ import java.io.Serializable
 /**
  * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  *
- * @param assignedLane The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
- * @param enemyHeroIds The ascending hero id pair they laned against.
- * @param heroIds The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param matchesPlayed Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+ * @param assignedLane The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+ * @param enemyHeroIds The ascending hero id pair they laned against, or empty when grouped away.
+ * @param heroIds The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+ * @param matchesPlayed Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
  * @param netWorthDiff Mean souls the duo is ahead by at the matching entry of `sample_times_s`. Negative means behind. Same length as `sample_times_s`.
  * @param netWorthDiffStd Population standard deviation of the lead across the counted matchups, at the matching entry of `sample_times_s`. Same length as `sample_times_s`.  Spread between individual games, not uncertainty about the mean: it stays wide however many matchups are counted, because lane outcomes genuinely differ that much.
- * @param sampleTimesS Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.
+ * @param sampleMatches How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
+ * @param sampleTimesS Seconds into the match each entry of the curves was sampled at, ascending.
+ * @param stats A curve per stat named in `stats`. Empty unless the parameter was set.
  */
 
 
 data class LaneSoulCurve (
 
-    /* The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. */
+    /* The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. */
     @Json(name = "assigned_lane")
     val assignedLane: kotlin.Int,
 
-    /* The ascending hero id pair they laned against. */
+    /* The ascending hero id pair they laned against, or empty when grouped away. */
     @Json(name = "enemy_hero_ids")
     val enemyHeroIds: kotlin.collections.List<kotlin.Int>,
 
-    /* The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
+    /* The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_ids")
     val heroIds: kotlin.collections.List<kotlin.Int>,
 
-    /* Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer. */
+    /* Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on. */
     @Json(name = "matches_played")
     val matchesPlayed: kotlin.Long,
 
@@ -67,9 +70,17 @@ data class LaneSoulCurve (
     @Json(name = "net_worth_diff_std")
     val netWorthDiffStd: kotlin.collections.List<kotlin.Double>,
 
-    /* Seconds into the match each entry of `net_worth_diff` was sampled at, ascending. */
+    /* How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out. */
+    @Json(name = "sample_matches")
+    val sampleMatches: kotlin.collections.List<kotlin.Long>,
+
+    /* Seconds into the match each entry of the curves was sampled at, ascending. */
     @Json(name = "sample_times_s")
-    val sampleTimesS: kotlin.collections.List<kotlin.Int>
+    val sampleTimesS: kotlin.collections.List<kotlin.Int>,
+
+    /* A curve per stat named in `stats`. Empty unless the parameter was set. */
+    @Json(name = "stats")
+    val stats: kotlin.collections.Map<kotlin.String, LaneStatCurve>
 
 ) : Serializable {
     companion object {

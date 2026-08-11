@@ -155,8 +155,10 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new JobStatusNullableJsonConverter());
             _jsonOptions.Converters.Add(new KillDeathStatsJsonConverter());
             _jsonOptions.Converters.Add(new LaneInfoJsonConverter());
+            _jsonOptions.Converters.Add(new LaneMatchupStatJsonConverter());
             _jsonOptions.Converters.Add(new LaneMatchupStatsJsonConverter());
             _jsonOptions.Converters.Add(new LaneSoulCurveJsonConverter());
+            _jsonOptions.Converters.Add(new LaneStatCurveJsonConverter());
             _jsonOptions.Converters.Add(new LastRankedMatchJsonConverter());
             _jsonOptions.Converters.Add(new LeaderboardJsonConverter());
             _jsonOptions.Converters.Add(new LeaderboardEntryJsonConverter());

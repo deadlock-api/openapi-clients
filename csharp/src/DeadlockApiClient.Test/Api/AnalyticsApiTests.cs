@@ -495,12 +495,16 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> maxAverageBadge = default!;
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
+            Client.Option<int?> sampleTimeS = default!;
+            Client.Option<string?> assignedLanes = default!;
             Client.Option<List<int>?> heroIds = default!;
             Client.Option<List<int>?> enemyHeroIds = default!;
+            Client.Option<string?> stats = default!;
+            Client.Option<string?> groupBy = default!;
             Client.Option<long?> minMatches = default!;
             Client.Option<long?> maxMatches = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.LaneMatchupStatsAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, enemyHeroIds, minMatches, maxMatches, accountIds);
+            var response = await _instance.LaneMatchupStatsAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sampleTimeS, assignedLanes, heroIds, enemyHeroIds, stats, groupBy, minMatches, maxMatches, accountIds);
             var model = response.Ok();
             Assert.IsType<List<LaneMatchupStats>>(model);
         }
@@ -521,11 +525,17 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> maxAverageBadge = default!;
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
+            Client.Option<int?> minTimeS = default!;
+            Client.Option<int?> maxTimeS = default!;
+            Client.Option<string?> assignedLanes = default!;
             Client.Option<List<int>?> heroIds = default!;
             Client.Option<List<int>?> enemyHeroIds = default!;
+            Client.Option<string?> stats = default!;
+            Client.Option<string?> groupBy = default!;
             Client.Option<long?> minMatches = default!;
+            Client.Option<long?> maxMatches = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.LaneSoulCurveAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, enemyHeroIds, minMatches, accountIds);
+            var response = await _instance.LaneSoulCurveAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minTimeS, maxTimeS, assignedLanes, heroIds, enemyHeroIds, stats, groupBy, minMatches, maxMatches, accountIds);
             var model = response.Ok();
             Assert.IsType<List<LaneSoulCurve>>(model);
         }

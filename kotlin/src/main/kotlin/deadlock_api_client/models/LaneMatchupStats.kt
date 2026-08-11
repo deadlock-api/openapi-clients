@@ -23,6 +23,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.LaneMatchupStat
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -31,27 +32,29 @@ import java.io.Serializable
 /**
  * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  *
- * @param assignedLane The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
- * @param enemyHeroIds The ascending hero id pair they laned against.
- * @param heroIds The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+ * @param assignedLane The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+ * @param enemyHeroIds The ascending hero id pair they laned against, or empty when grouped away.
+ * @param heroIds The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param matchesPlayed The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.
- * @param netWorthDiff15min Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
- * @param netWorthMatches How many of `matches_played` carried net-worth samples for all four players.
+ * @param netWorthDiff Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
+ * @param sampleMatches How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
+ * @param sampleTimeS Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
+ * @param stats A reading per stat named in `stats`. Empty unless the parameter was set.
  * @param wins The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
  */
 
 
 data class LaneMatchupStats (
 
-    /* The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. */
+    /* The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. */
     @Json(name = "assigned_lane")
     val assignedLane: kotlin.Int,
 
-    /* The ascending hero id pair they laned against. */
+    /* The ascending hero id pair they laned against, or empty when grouped away. */
     @Json(name = "enemy_hero_ids")
     val enemyHeroIds: kotlin.collections.List<kotlin.Int>,
 
-    /* The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
+    /* The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_ids")
     val heroIds: kotlin.collections.List<kotlin.Int>,
 
@@ -59,13 +62,21 @@ data class LaneMatchupStats (
     @Json(name = "matches_played")
     val matchesPlayed: kotlin.Long,
 
-    /* Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players. */
-    @Json(name = "net_worth_diff_15min")
-    val netWorthDiff15min: kotlin.Double,
+    /* Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long. */
+    @Json(name = "net_worth_diff")
+    val netWorthDiff: kotlin.Double,
 
-    /* How many of `matches_played` carried net-worth samples for all four players. */
-    @Json(name = "net_worth_matches")
-    val netWorthMatches: kotlin.Long,
+    /* How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only. */
+    @Json(name = "sample_matches")
+    val sampleMatches: kotlin.Long,
+
+    /* Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter. */
+    @Json(name = "sample_time_s")
+    val sampleTimeS: kotlin.Int,
+
+    /* A reading per stat named in `stats`. Empty unless the parameter was set. */
+    @Json(name = "stats")
+    val stats: kotlin.collections.Map<kotlin.String, LaneMatchupStat>,
 
     /* The number of matches `hero_ids` won against `enemy_hero_ids` in this lane. */
     @Json(name = "wins")

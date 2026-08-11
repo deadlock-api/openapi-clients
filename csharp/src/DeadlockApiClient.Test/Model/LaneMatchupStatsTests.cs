@@ -90,21 +90,39 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'NetWorthDiff15min'
+        /// Test the property 'NetWorthDiff'
         /// </summary>
         [Fact]
-        public void NetWorthDiff15minTest()
+        public void NetWorthDiffTest()
         {
-            // TODO unit test for the property 'NetWorthDiff15min'
+            // TODO unit test for the property 'NetWorthDiff'
         }
 
         /// <summary>
-        /// Test the property 'NetWorthMatches'
+        /// Test the property 'SampleMatches'
         /// </summary>
         [Fact]
-        public void NetWorthMatchesTest()
+        public void SampleMatchesTest()
         {
-            // TODO unit test for the property 'NetWorthMatches'
+            // TODO unit test for the property 'SampleMatches'
+        }
+
+        /// <summary>
+        /// Test the property 'SampleTimeS'
+        /// </summary>
+        [Fact]
+        public void SampleTimeSTest()
+        {
+            // TODO unit test for the property 'SampleTimeS'
+        }
+
+        /// <summary>
+        /// Test the property 'Stats'
+        /// </summary>
+        [Fact]
+        public void StatsTest()
+        {
+            // TODO unit test for the property 'Stats'
         }
 
         /// <summary>

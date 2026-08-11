@@ -13,25 +13,28 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { LaneStatCurve } from './lane-stat-curve.js';
 
 /**
  * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  */
 export interface LaneSoulCurve {
     /**
-     * The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+     * The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
      */
     'assigned_lane': number;
     /**
-     * The ascending hero id pair they laned against.
+     * The ascending hero id pair they laned against, or empty when grouped away.
      */
     'enemy_hero_ids': Array<number>;
     /**
-     * The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+     * The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_ids': Array<number>;
     /**
-     * Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+     * Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
      */
     'matches_played': number;
     /**
@@ -43,8 +46,16 @@ export interface LaneSoulCurve {
      */
     'net_worth_diff_std': Array<number>;
     /**
-     * Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.
+     * How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
+     */
+    'sample_matches': Array<number>;
+    /**
+     * Seconds into the match each entry of the curves was sampled at, ascending.
      */
     'sample_times_s': Array<number>;
+    /**
+     * A curve per stat named in `stats`. Empty unless the parameter was set.
+     */
+    'stats': { [key: string]: LaneStatCurve; };
 }
 

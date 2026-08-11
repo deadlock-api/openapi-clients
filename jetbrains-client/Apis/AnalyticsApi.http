@@ -77,12 +77,12 @@ Accept: application/json
 
 ### Lane Matchup Stats (Subject to Change)
 ## Lane Matchup Stats (Subject to Change)
-GET https://api.deadlock-api.com/v1/analytics/lane-matchup-stats?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&enemyHeroIds={{enemyHeroIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/lane-matchup-stats?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&sampleTimeS={{sampleTimeS}}&assignedLanes={{assignedLanes}}&heroIds={{heroIds}}&enemyHeroIds={{enemyHeroIds}}&stats={{stats}}&groupBy={{groupBy}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Lane Soul Curve (Subject to Change)
 ## Lane Soul Curve (Subject to Change)
-GET https://api.deadlock-api.com/v1/analytics/lane-soul-curve?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&enemyHeroIds={{enemyHeroIds}}&minMatches={{minMatches}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/lane-soul-curve?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minTimeS={{minTimeS}}&maxTimeS={{maxTimeS}}&assignedLanes={{assignedLanes}}&heroIds={{heroIds}}&enemyHeroIds={{enemyHeroIds}}&stats={{stats}}&groupBy={{groupBy}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Player Performance Curve

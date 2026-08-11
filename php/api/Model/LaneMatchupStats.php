@@ -62,8 +62,10 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'int[]',
         'hero_ids' => 'int[]',
         'matches_played' => 'int',
-        'net_worth_diff_15min' => 'float',
-        'net_worth_matches' => 'int',
+        'net_worth_diff' => 'float',
+        'sample_matches' => 'int',
+        'sample_time_s' => 'int',
+        'stats' => 'array<string,\OpenAPI\Client\Model\LaneMatchupStat>',
         'wins' => 'int'
     ];
 
@@ -79,8 +81,10 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'int32',
         'hero_ids' => 'int32',
         'matches_played' => 'int64',
-        'net_worth_diff_15min' => 'double',
-        'net_worth_matches' => 'int64',
+        'net_worth_diff' => 'double',
+        'sample_matches' => 'int64',
+        'sample_time_s' => 'int32',
+        'stats' => null,
         'wins' => 'int64'
     ];
 
@@ -94,8 +98,10 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => false,
         'hero_ids' => false,
         'matches_played' => false,
-        'net_worth_diff_15min' => false,
-        'net_worth_matches' => false,
+        'net_worth_diff' => false,
+        'sample_matches' => false,
+        'sample_time_s' => false,
+        'stats' => false,
         'wins' => false
     ];
 
@@ -189,8 +195,10 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'enemy_hero_ids',
         'hero_ids' => 'hero_ids',
         'matches_played' => 'matches_played',
-        'net_worth_diff_15min' => 'net_worth_diff_15min',
-        'net_worth_matches' => 'net_worth_matches',
+        'net_worth_diff' => 'net_worth_diff',
+        'sample_matches' => 'sample_matches',
+        'sample_time_s' => 'sample_time_s',
+        'stats' => 'stats',
         'wins' => 'wins'
     ];
 
@@ -204,8 +212,10 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'setEnemyHeroIds',
         'hero_ids' => 'setHeroIds',
         'matches_played' => 'setMatchesPlayed',
-        'net_worth_diff_15min' => 'setNetWorthDiff15min',
-        'net_worth_matches' => 'setNetWorthMatches',
+        'net_worth_diff' => 'setNetWorthDiff',
+        'sample_matches' => 'setSampleMatches',
+        'sample_time_s' => 'setSampleTimeS',
+        'stats' => 'setStats',
         'wins' => 'setWins'
     ];
 
@@ -219,8 +229,10 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'enemy_hero_ids' => 'getEnemyHeroIds',
         'hero_ids' => 'getHeroIds',
         'matches_played' => 'getMatchesPlayed',
-        'net_worth_diff_15min' => 'getNetWorthDiff15min',
-        'net_worth_matches' => 'getNetWorthMatches',
+        'net_worth_diff' => 'getNetWorthDiff',
+        'sample_matches' => 'getSampleMatches',
+        'sample_time_s' => 'getSampleTimeS',
+        'stats' => 'getStats',
         'wins' => 'getWins'
     ];
 
@@ -285,8 +297,10 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('enemy_hero_ids', $data ?? [], null);
         $this->setIfExists('hero_ids', $data ?? [], null);
         $this->setIfExists('matches_played', $data ?? [], null);
-        $this->setIfExists('net_worth_diff_15min', $data ?? [], null);
-        $this->setIfExists('net_worth_matches', $data ?? [], null);
+        $this->setIfExists('net_worth_diff', $data ?? [], null);
+        $this->setIfExists('sample_matches', $data ?? [], null);
+        $this->setIfExists('sample_time_s', $data ?? [], null);
+        $this->setIfExists('stats', $data ?? [], null);
         $this->setIfExists('wins', $data ?? [], null);
     }
 
@@ -337,16 +351,26 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'matches_played', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['net_worth_diff_15min'] === null) {
-            $invalidProperties[] = "'net_worth_diff_15min' can't be null";
+        if ($this->container['net_worth_diff'] === null) {
+            $invalidProperties[] = "'net_worth_diff' can't be null";
         }
-        if ($this->container['net_worth_matches'] === null) {
-            $invalidProperties[] = "'net_worth_matches' can't be null";
+        if ($this->container['sample_matches'] === null) {
+            $invalidProperties[] = "'sample_matches' can't be null";
         }
-        if (($this->container['net_worth_matches'] < 0)) {
-            $invalidProperties[] = "invalid value for 'net_worth_matches', must be bigger than or equal to 0.";
+        if (($this->container['sample_matches'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sample_matches', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['sample_time_s'] === null) {
+            $invalidProperties[] = "'sample_time_s' can't be null";
+        }
+        if (($this->container['sample_time_s'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sample_time_s', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['stats'] === null) {
+            $invalidProperties[] = "'stats' can't be null";
+        }
         if ($this->container['wins'] === null) {
             $invalidProperties[] = "'wins' can't be null";
         }
@@ -382,7 +406,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets assigned_lane
      *
-     * @param int $assigned_lane The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+     * @param int $assigned_lane The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
      *
      * @return self
      */
@@ -413,7 +437,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enemy_hero_ids
      *
-     * @param int[] $enemy_hero_ids The ascending hero id pair they laned against.
+     * @param int[] $enemy_hero_ids The ascending hero id pair they laned against, or empty when grouped away.
      *
      * @return self
      */
@@ -440,7 +464,7 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hero_ids
      *
-     * @param int[] $hero_ids The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+     * @param int[] $hero_ids The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      *
      * @return self
      */
@@ -486,59 +510,117 @@ class LaneMatchupStats implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets net_worth_diff_15min
+     * Gets net_worth_diff
      *
      * @return float
      */
-    public function getNetWorthDiff15min()
+    public function getNetWorthDiff()
     {
-        return $this->container['net_worth_diff_15min'];
+        return $this->container['net_worth_diff'];
     }
 
     /**
-     * Sets net_worth_diff_15min
+     * Sets net_worth_diff
      *
-     * @param float $net_worth_diff_15min Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+     * @param float $net_worth_diff Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
      *
      * @return self
      */
-    public function setNetWorthDiff15min($net_worth_diff_15min)
+    public function setNetWorthDiff($net_worth_diff)
     {
-        if (is_null($net_worth_diff_15min)) {
-            throw new \InvalidArgumentException('non-nullable net_worth_diff_15min cannot be null');
+        if (is_null($net_worth_diff)) {
+            throw new \InvalidArgumentException('non-nullable net_worth_diff cannot be null');
         }
-        $this->container['net_worth_diff_15min'] = $net_worth_diff_15min;
+        $this->container['net_worth_diff'] = $net_worth_diff;
 
         return $this;
     }
 
     /**
-     * Gets net_worth_matches
+     * Gets sample_matches
      *
      * @return int
      */
-    public function getNetWorthMatches()
+    public function getSampleMatches()
     {
-        return $this->container['net_worth_matches'];
+        return $this->container['sample_matches'];
     }
 
     /**
-     * Sets net_worth_matches
+     * Sets sample_matches
      *
-     * @param int $net_worth_matches How many of `matches_played` carried net-worth samples for all four players.
+     * @param int $sample_matches How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
      *
      * @return self
      */
-    public function setNetWorthMatches($net_worth_matches)
+    public function setSampleMatches($sample_matches)
     {
-        if (is_null($net_worth_matches)) {
-            throw new \InvalidArgumentException('non-nullable net_worth_matches cannot be null');
+        if (is_null($sample_matches)) {
+            throw new \InvalidArgumentException('non-nullable sample_matches cannot be null');
         }
-        if (($net_worth_matches < 0)) {
-            throw new \InvalidArgumentException('invalid value for $net_worth_matches when calling LaneMatchupStats., must be bigger than or equal to 0.');
+        if (($sample_matches < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sample_matches when calling LaneMatchupStats., must be bigger than or equal to 0.');
         }
 
-        $this->container['net_worth_matches'] = $net_worth_matches;
+        $this->container['sample_matches'] = $sample_matches;
+
+        return $this;
+    }
+
+    /**
+     * Gets sample_time_s
+     *
+     * @return int
+     */
+    public function getSampleTimeS()
+    {
+        return $this->container['sample_time_s'];
+    }
+
+    /**
+     * Sets sample_time_s
+     *
+     * @param int $sample_time_s Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
+     *
+     * @return self
+     */
+    public function setSampleTimeS($sample_time_s)
+    {
+        if (is_null($sample_time_s)) {
+            throw new \InvalidArgumentException('non-nullable sample_time_s cannot be null');
+        }
+        if (($sample_time_s < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sample_time_s when calling LaneMatchupStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['sample_time_s'] = $sample_time_s;
+
+        return $this;
+    }
+
+    /**
+     * Gets stats
+     *
+     * @return array<string,\OpenAPI\Client\Model\LaneMatchupStat>
+     */
+    public function getStats()
+    {
+        return $this->container['stats'];
+    }
+
+    /**
+     * Sets stats
+     *
+     * @param array<string,\OpenAPI\Client\Model\LaneMatchupStat> $stats A reading per stat named in `stats`. Empty unless the parameter was set.
+     *
+     * @return self
+     */
+    public function setStats($stats)
+    {
+        if (is_null($stats)) {
+            throw new \InvalidArgumentException('non-nullable stats cannot be null');
+        }
+        $this->container['stats'] = $stats;
 
         return $this;
     }

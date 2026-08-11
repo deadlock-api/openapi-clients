@@ -64,7 +64,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         'matches_played' => 'int',
         'net_worth_diff' => 'float[]',
         'net_worth_diff_std' => 'float[]',
-        'sample_times_s' => 'int[]'
+        'sample_matches' => 'int[]',
+        'sample_times_s' => 'int[]',
+        'stats' => 'array<string,\OpenAPI\Client\Model\LaneStatCurve>'
     ];
 
     /**
@@ -81,7 +83,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         'matches_played' => 'int64',
         'net_worth_diff' => 'double',
         'net_worth_diff_std' => 'double',
-        'sample_times_s' => 'int32'
+        'sample_matches' => 'int64',
+        'sample_times_s' => 'int32',
+        'stats' => null
     ];
 
     /**
@@ -96,7 +100,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         'matches_played' => false,
         'net_worth_diff' => false,
         'net_worth_diff_std' => false,
-        'sample_times_s' => false
+        'sample_matches' => false,
+        'sample_times_s' => false,
+        'stats' => false
     ];
 
     /**
@@ -191,7 +197,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         'matches_played' => 'matches_played',
         'net_worth_diff' => 'net_worth_diff',
         'net_worth_diff_std' => 'net_worth_diff_std',
-        'sample_times_s' => 'sample_times_s'
+        'sample_matches' => 'sample_matches',
+        'sample_times_s' => 'sample_times_s',
+        'stats' => 'stats'
     ];
 
     /**
@@ -206,7 +214,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         'matches_played' => 'setMatchesPlayed',
         'net_worth_diff' => 'setNetWorthDiff',
         'net_worth_diff_std' => 'setNetWorthDiffStd',
-        'sample_times_s' => 'setSampleTimesS'
+        'sample_matches' => 'setSampleMatches',
+        'sample_times_s' => 'setSampleTimesS',
+        'stats' => 'setStats'
     ];
 
     /**
@@ -221,7 +231,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         'matches_played' => 'getMatchesPlayed',
         'net_worth_diff' => 'getNetWorthDiff',
         'net_worth_diff_std' => 'getNetWorthDiffStd',
-        'sample_times_s' => 'getSampleTimesS'
+        'sample_matches' => 'getSampleMatches',
+        'sample_times_s' => 'getSampleTimesS',
+        'stats' => 'getStats'
     ];
 
     /**
@@ -287,7 +299,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('matches_played', $data ?? [], null);
         $this->setIfExists('net_worth_diff', $data ?? [], null);
         $this->setIfExists('net_worth_diff_std', $data ?? [], null);
+        $this->setIfExists('sample_matches', $data ?? [], null);
         $this->setIfExists('sample_times_s', $data ?? [], null);
+        $this->setIfExists('stats', $data ?? [], null);
     }
 
     /**
@@ -343,8 +357,14 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['net_worth_diff_std'] === null) {
             $invalidProperties[] = "'net_worth_diff_std' can't be null";
         }
+        if ($this->container['sample_matches'] === null) {
+            $invalidProperties[] = "'sample_matches' can't be null";
+        }
         if ($this->container['sample_times_s'] === null) {
             $invalidProperties[] = "'sample_times_s' can't be null";
+        }
+        if ($this->container['stats'] === null) {
+            $invalidProperties[] = "'stats' can't be null";
         }
         return $invalidProperties;
     }
@@ -374,7 +394,7 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets assigned_lane
      *
-     * @param int $assigned_lane The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+     * @param int $assigned_lane The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
      *
      * @return self
      */
@@ -405,7 +425,7 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enemy_hero_ids
      *
-     * @param int[] $enemy_hero_ids The ascending hero id pair they laned against.
+     * @param int[] $enemy_hero_ids The ascending hero id pair they laned against, or empty when grouped away.
      *
      * @return self
      */
@@ -432,7 +452,7 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hero_ids
      *
-     * @param int[] $hero_ids The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+     * @param int[] $hero_ids The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      *
      * @return self
      */
@@ -459,7 +479,7 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets matches_played
      *
-     * @param int $matches_played Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+     * @param int $matches_played Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
      *
      * @return self
      */
@@ -532,6 +552,33 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets sample_matches
+     *
+     * @return int[]
+     */
+    public function getSampleMatches()
+    {
+        return $this->container['sample_matches'];
+    }
+
+    /**
+     * Sets sample_matches
+     *
+     * @param int[] $sample_matches How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
+     *
+     * @return self
+     */
+    public function setSampleMatches($sample_matches)
+    {
+        if (is_null($sample_matches)) {
+            throw new \InvalidArgumentException('non-nullable sample_matches cannot be null');
+        }
+        $this->container['sample_matches'] = $sample_matches;
+
+        return $this;
+    }
+
+    /**
      * Gets sample_times_s
      *
      * @return int[]
@@ -544,7 +591,7 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sample_times_s
      *
-     * @param int[] $sample_times_s Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.
+     * @param int[] $sample_times_s Seconds into the match each entry of the curves was sampled at, ascending.
      *
      * @return self
      */
@@ -554,6 +601,33 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable sample_times_s cannot be null');
         }
         $this->container['sample_times_s'] = $sample_times_s;
+
+        return $this;
+    }
+
+    /**
+     * Gets stats
+     *
+     * @return array<string,\OpenAPI\Client\Model\LaneStatCurve>
+     */
+    public function getStats()
+    {
+        return $this->container['stats'];
+    }
+
+    /**
+     * Sets stats
+     *
+     * @param array<string,\OpenAPI\Client\Model\LaneStatCurve> $stats A curve per stat named in `stats`. Empty unless the parameter was set.
+     *
+     * @return self
+     */
+    public function setStats($stats)
+    {
+        if (is_null($stats)) {
+            throw new \InvalidArgumentException('non-nullable stats cannot be null');
+        }
+        $this->container['stats'] = $stats;
 
         return $this;
     }

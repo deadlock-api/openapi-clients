@@ -397,8 +397,12 @@ export interface LaneMatchupStatsRequest {
     maxAverageBadge?: number;
     minMatchId?: number;
     maxMatchId?: number;
+    sampleTimeS?: number;
+    assignedLanes?: string;
     heroIds?: Array<number>;
     enemyHeroIds?: Array<number>;
+    stats?: string;
+    groupBy?: string;
     minMatches?: number;
     maxMatches?: number;
     accountIds?: Array<number>;
@@ -415,9 +419,15 @@ export interface LaneSoulCurveRequest {
     maxAverageBadge?: number;
     minMatchId?: number;
     maxMatchId?: number;
+    minTimeS?: number;
+    maxTimeS?: number;
+    assignedLanes?: string;
     heroIds?: Array<number>;
     enemyHeroIds?: Array<number>;
+    stats?: string;
+    groupBy?: string;
     minMatches?: number;
+    maxMatches?: number;
     accountIds?: Array<number>;
 }
 
@@ -2488,7 +2498,7 @@ export function killDeathStats<T>(requestParameters: KillDeathStatsRequest, requ
 }
 
 /**
- *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game\'s recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Lane Matchup Stats (Subject to Change)
  */
 function laneMatchupStatsRaw<T>(requestParameters: LaneMatchupStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<LaneMatchupStats>> = {}): QueryConfig<T> {
@@ -2547,6 +2557,16 @@ function laneMatchupStatsRaw<T>(requestParameters: LaneMatchupStatsRequest, requ
     }
 
 
+    if (requestParameters.sampleTimeS !== undefined) {
+        queryParameters['sample_time_s'] = requestParameters.sampleTimeS;
+    }
+
+
+    if (requestParameters.assignedLanes !== undefined) {
+        queryParameters['assigned_lanes'] = requestParameters.assignedLanes;
+    }
+
+
     if (requestParameters.heroIds) {
         queryParameters['hero_ids'] = requestParameters.heroIds;
     }
@@ -2554,6 +2574,16 @@ function laneMatchupStatsRaw<T>(requestParameters: LaneMatchupStatsRequest, requ
 
     if (requestParameters.enemyHeroIds) {
         queryParameters['enemy_hero_ids'] = requestParameters.enemyHeroIds;
+    }
+
+
+    if (requestParameters.stats !== undefined) {
+        queryParameters['stats'] = requestParameters.stats;
+    }
+
+
+    if (requestParameters.groupBy !== undefined) {
+        queryParameters['group_by'] = requestParameters.groupBy;
     }
 
 
@@ -2600,7 +2630,7 @@ function laneMatchupStatsRaw<T>(requestParameters: LaneMatchupStatsRequest, requ
 }
 
 /**
-*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game\'s recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Lane Matchup Stats (Subject to Change)
 */
 export function laneMatchupStats<T>(requestParameters: LaneMatchupStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<LaneMatchupStats>>): QueryConfig<T> {
@@ -2608,7 +2638,7 @@ export function laneMatchupStats<T>(requestParameters: LaneMatchupStatsRequest, 
 }
 
 /**
- *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Lane Soul Curve (Subject to Change)
  */
 function laneSoulCurveRaw<T>(requestParameters: LaneSoulCurveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<LaneSoulCurve>> = {}): QueryConfig<T> {
@@ -2667,6 +2697,21 @@ function laneSoulCurveRaw<T>(requestParameters: LaneSoulCurveRequest, requestCon
     }
 
 
+    if (requestParameters.minTimeS !== undefined) {
+        queryParameters['min_time_s'] = requestParameters.minTimeS;
+    }
+
+
+    if (requestParameters.maxTimeS !== undefined) {
+        queryParameters['max_time_s'] = requestParameters.maxTimeS;
+    }
+
+
+    if (requestParameters.assignedLanes !== undefined) {
+        queryParameters['assigned_lanes'] = requestParameters.assignedLanes;
+    }
+
+
     if (requestParameters.heroIds) {
         queryParameters['hero_ids'] = requestParameters.heroIds;
     }
@@ -2677,8 +2722,23 @@ function laneSoulCurveRaw<T>(requestParameters: LaneSoulCurveRequest, requestCon
     }
 
 
+    if (requestParameters.stats !== undefined) {
+        queryParameters['stats'] = requestParameters.stats;
+    }
+
+
+    if (requestParameters.groupBy !== undefined) {
+        queryParameters['group_by'] = requestParameters.groupBy;
+    }
+
+
     if (requestParameters.minMatches !== undefined) {
         queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
+    if (requestParameters.maxMatches !== undefined) {
+        queryParameters['max_matches'] = requestParameters.maxMatches;
     }
 
 
@@ -2715,7 +2775,7 @@ function laneSoulCurveRaw<T>(requestParameters: LaneSoulCurveRequest, requestCon
 }
 
 /**
-*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s soul lead over the duo they laned against develops through the first 15 minutes.  The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Lane Soul Curve (Subject to Change)
 */
 export function laneSoulCurve<T>(requestParameters: LaneSoulCurveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<LaneSoulCurve>>): QueryConfig<T> {

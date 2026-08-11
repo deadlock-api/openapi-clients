@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 /// LaneSoulCurve : **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LaneSoulCurve {
-    /// The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+    /// The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
     #[serde(rename = "assigned_lane")]
     pub assigned_lane: u32,
-    /// The ascending hero id pair they laned against.
+    /// The ascending hero id pair they laned against, or empty when grouped away.
     #[serde(rename = "enemy_hero_ids")]
     pub enemy_hero_ids: Vec<u32>,
-    /// The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    /// The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_ids")]
     pub hero_ids: Vec<u32>,
-    /// Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+    /// Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
     #[serde(rename = "matches_played")]
     pub matches_played: u64,
     /// Mean souls the duo is ahead by at the matching entry of `sample_times_s`. Negative means behind. Same length as `sample_times_s`.
@@ -32,14 +32,20 @@ pub struct LaneSoulCurve {
     /// Population standard deviation of the lead across the counted matchups, at the matching entry of `sample_times_s`. Same length as `sample_times_s`.  Spread between individual games, not uncertainty about the mean: it stays wide however many matchups are counted, because lane outcomes genuinely differ that much.
     #[serde(rename = "net_worth_diff_std")]
     pub net_worth_diff_std: Vec<f64>,
-    /// Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.
+    /// How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
+    #[serde(rename = "sample_matches")]
+    pub sample_matches: Vec<u64>,
+    /// Seconds into the match each entry of the curves was sampled at, ascending.
     #[serde(rename = "sample_times_s")]
     pub sample_times_s: Vec<u32>,
+    /// A curve per stat named in `stats`. Empty unless the parameter was set.
+    #[serde(rename = "stats")]
+    pub stats: std::collections::HashMap<String, models::LaneStatCurve>,
 }
 
 impl LaneSoulCurve {
     /// **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
-    pub fn new(assigned_lane: u32, enemy_hero_ids: Vec<u32>, hero_ids: Vec<u32>, matches_played: u64, net_worth_diff: Vec<f64>, net_worth_diff_std: Vec<f64>, sample_times_s: Vec<u32>) -> LaneSoulCurve {
+    pub fn new(assigned_lane: u32, enemy_hero_ids: Vec<u32>, hero_ids: Vec<u32>, matches_played: u64, net_worth_diff: Vec<f64>, net_worth_diff_std: Vec<f64>, sample_matches: Vec<u64>, sample_times_s: Vec<u32>, stats: std::collections::HashMap<String, models::LaneStatCurve>) -> LaneSoulCurve {
         LaneSoulCurve {
             assigned_lane,
             enemy_hero_ids,
@@ -47,7 +53,9 @@ impl LaneSoulCurve {
             matches_played,
             net_worth_diff,
             net_worth_diff_std,
+            sample_matches,
             sample_times_s,
+            stats,
         }
     }
 }

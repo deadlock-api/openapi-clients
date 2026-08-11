@@ -27,25 +27,26 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.LaneMatchupStats
+import deadlock_api_client.models.LaneMatchupStat
 
 class LaneMatchupStatsTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of LaneMatchupStats
         //val modelInstance = LaneMatchupStats()
 
-        // to test the property `assignedLane` - The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        // to test the property `assignedLane` - The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         should("test assignedLane") {
             // uncomment below to test the property
             //modelInstance.assignedLane shouldBe ("TODO")
         }
 
-        // to test the property `enemyHeroIds` - The ascending hero id pair they laned against.
+        // to test the property `enemyHeroIds` - The ascending hero id pair they laned against, or empty when grouped away.
         should("test enemyHeroIds") {
             // uncomment below to test the property
             //modelInstance.enemyHeroIds shouldBe ("TODO")
         }
 
-        // to test the property `heroIds` - The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        // to test the property `heroIds` - The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test heroIds") {
             // uncomment below to test the property
             //modelInstance.heroIds shouldBe ("TODO")
@@ -57,16 +58,28 @@ class LaneMatchupStatsTest : ShouldSpec() {
             //modelInstance.matchesPlayed shouldBe ("TODO")
         }
 
-        // to test the property `netWorthDiff15min` - Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
-        should("test netWorthDiff15min") {
+        // to test the property `netWorthDiff` - Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
+        should("test netWorthDiff") {
             // uncomment below to test the property
-            //modelInstance.netWorthDiff15min shouldBe ("TODO")
+            //modelInstance.netWorthDiff shouldBe ("TODO")
         }
 
-        // to test the property `netWorthMatches` - How many of `matches_played` carried net-worth samples for all four players.
-        should("test netWorthMatches") {
+        // to test the property `sampleMatches` - How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
+        should("test sampleMatches") {
             // uncomment below to test the property
-            //modelInstance.netWorthMatches shouldBe ("TODO")
+            //modelInstance.sampleMatches shouldBe ("TODO")
+        }
+
+        // to test the property `sampleTimeS` - Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
+        should("test sampleTimeS") {
+            // uncomment below to test the property
+            //modelInstance.sampleTimeS shouldBe ("TODO")
+        }
+
+        // to test the property `stats` - A reading per stat named in `stats`. Empty unless the parameter was set.
+        should("test stats") {
+            // uncomment below to test the property
+            //modelInstance.stats shouldBe ("TODO")
         }
 
         // to test the property `wins` - The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.

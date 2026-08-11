@@ -12,6 +12,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    LaneStatCurve,
+    LaneStatCurveFromJSON,
+    LaneStatCurveToJSON,
+} from './';
+
 /**
  * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  * @export
@@ -19,25 +25,25 @@ import { exists, mapValues } from '../runtime';
  */
 export interface LaneSoulCurve  {
     /**
-     * The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+     * The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
      * @type {number}
      * @memberof LaneSoulCurve
      */
     assignedLane: number;
     /**
-     * The ascending hero id pair they laned against.
+     * The ascending hero id pair they laned against, or empty when grouped away.
      * @type {Array<number>}
      * @memberof LaneSoulCurve
      */
     enemyHeroIds: Array<number>;
     /**
-     * The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+     * The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      * @type {Array<number>}
      * @memberof LaneSoulCurve
      */
     heroIds: Array<number>;
     /**
-     * Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+     * Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
      * @type {number}
      * @memberof LaneSoulCurve
      */
@@ -55,11 +61,23 @@ export interface LaneSoulCurve  {
      */
     netWorthDiffStd: Array<number>;
     /**
-     * Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.
+     * How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
+     * @type {Array<number>}
+     * @memberof LaneSoulCurve
+     */
+    sampleMatches: Array<number>;
+    /**
+     * Seconds into the match each entry of the curves was sampled at, ascending.
      * @type {Array<number>}
      * @memberof LaneSoulCurve
      */
     sampleTimesS: Array<number>;
+    /**
+     * A curve per stat named in `stats`. Empty unless the parameter was set.
+     * @type {{ [key: string]: LaneStatCurve; }}
+     * @memberof LaneSoulCurve
+     */
+    stats: { [key: string]: LaneStatCurve; };
 }
 
 export function LaneSoulCurveFromJSON(json: any): LaneSoulCurve {
@@ -70,7 +88,9 @@ export function LaneSoulCurveFromJSON(json: any): LaneSoulCurve {
         'matchesPlayed': json['matches_played'],
         'netWorthDiff': json['net_worth_diff'],
         'netWorthDiffStd': json['net_worth_diff_std'],
+        'sampleMatches': json['sample_matches'],
         'sampleTimesS': json['sample_times_s'],
+        'stats': mapValues(json['stats'], LaneStatCurveFromJSON),
     };
 }
 
@@ -85,7 +105,9 @@ export function LaneSoulCurveToJSON(value?: LaneSoulCurve): any {
         'matches_played': value.matchesPlayed,
         'net_worth_diff': value.netWorthDiff,
         'net_worth_diff_std': value.netWorthDiffStd,
+        'sample_matches': value.sampleMatches,
         'sample_times_s': value.sampleTimesS,
+        'stats': mapValues(value.stats, LaneStatCurveToJSON),
     };
 }
 

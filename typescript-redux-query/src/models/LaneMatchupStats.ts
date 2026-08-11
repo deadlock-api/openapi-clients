@@ -12,6 +12,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    LaneMatchupStat,
+    LaneMatchupStatFromJSON,
+    LaneMatchupStatToJSON,
+} from './';
+
 /**
  * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  * @export
@@ -19,19 +25,19 @@ import { exists, mapValues } from '../runtime';
  */
 export interface LaneMatchupStats  {
     /**
-     * The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+     * The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
      * @type {number}
      * @memberof LaneMatchupStats
      */
     assignedLane: number;
     /**
-     * The ascending hero id pair they laned against.
+     * The ascending hero id pair they laned against, or empty when grouped away.
      * @type {Array<number>}
      * @memberof LaneMatchupStats
      */
     enemyHeroIds: Array<number>;
     /**
-     * The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+     * The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      * @type {Array<number>}
      * @memberof LaneMatchupStats
      */
@@ -43,17 +49,29 @@ export interface LaneMatchupStats  {
      */
     matchesPlayed: number;
     /**
-     * Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+     * Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
      * @type {number}
      * @memberof LaneMatchupStats
      */
-    netWorthDiff15min: number;
+    netWorthDiff: number;
     /**
-     * How many of `matches_played` carried net-worth samples for all four players.
+     * How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
      * @type {number}
      * @memberof LaneMatchupStats
      */
-    netWorthMatches: number;
+    sampleMatches: number;
+    /**
+     * Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
+     * @type {number}
+     * @memberof LaneMatchupStats
+     */
+    sampleTimeS: number;
+    /**
+     * A reading per stat named in `stats`. Empty unless the parameter was set.
+     * @type {{ [key: string]: LaneMatchupStat; }}
+     * @memberof LaneMatchupStats
+     */
+    stats: { [key: string]: LaneMatchupStat; };
     /**
      * The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
      * @type {number}
@@ -68,8 +86,10 @@ export function LaneMatchupStatsFromJSON(json: any): LaneMatchupStats {
         'enemyHeroIds': json['enemy_hero_ids'],
         'heroIds': json['hero_ids'],
         'matchesPlayed': json['matches_played'],
-        'netWorthDiff15min': json['net_worth_diff_15min'],
-        'netWorthMatches': json['net_worth_matches'],
+        'netWorthDiff': json['net_worth_diff'],
+        'sampleMatches': json['sample_matches'],
+        'sampleTimeS': json['sample_time_s'],
+        'stats': mapValues(json['stats'], LaneMatchupStatFromJSON),
         'wins': json['wins'],
     };
 }
@@ -83,8 +103,10 @@ export function LaneMatchupStatsToJSON(value?: LaneMatchupStats): any {
         'enemy_hero_ids': value.enemyHeroIds,
         'hero_ids': value.heroIds,
         'matches_played': value.matchesPlayed,
-        'net_worth_diff_15min': value.netWorthDiff15min,
-        'net_worth_matches': value.netWorthMatches,
+        'net_worth_diff': value.netWorthDiff,
+        'sample_matches': value.sampleMatches,
+        'sample_time_s': value.sampleTimeS,
+        'stats': mapValues(value.stats, LaneMatchupStatToJSON),
         'wins': value.wins,
     };
 }

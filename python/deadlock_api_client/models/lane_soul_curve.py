@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
+from deadlock_api_client.models.lane_stat_curve import LaneStatCurve
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,14 +29,16 @@ class LaneSoulCurve(BaseModel):
     """
     **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
     """ # noqa: E501
-    assigned_lane: Annotated[int, Field(strict=True, ge=0)] = Field(description="The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
-    enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against.")
-    hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
-    matches_played: Annotated[int, Field(strict=True, ge=0)] = Field(description="Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.")
+    assigned_lane: Annotated[int, Field(strict=True, ge=0)] = Field(description="The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
+    enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against, or empty when grouped away.")
+    hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    matches_played: Annotated[int, Field(strict=True, ge=0)] = Field(description="Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.")
     net_worth_diff: List[Union[StrictFloat, StrictInt]] = Field(description="Mean souls the duo is ahead by at the matching entry of `sample_times_s`. Negative means behind. Same length as `sample_times_s`.")
     net_worth_diff_std: List[Union[StrictFloat, StrictInt]] = Field(description="Population standard deviation of the lead across the counted matchups, at the matching entry of `sample_times_s`. Same length as `sample_times_s`.  Spread between individual games, not uncertainty about the mean: it stays wide however many matchups are counted, because lane outcomes genuinely differ that much.")
-    sample_times_s: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.")
-    __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff", "net_worth_diff_std", "sample_times_s"]
+    sample_matches: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.")
+    sample_times_s: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="Seconds into the match each entry of the curves was sampled at, ascending.")
+    stats: Dict[str, LaneStatCurve] = Field(description="A curve per stat named in `stats`. Empty unless the parameter was set.")
+    __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff", "net_worth_diff_std", "sample_matches", "sample_times_s", "stats"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -76,6 +79,13 @@ class LaneSoulCurve(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each value in stats (dict)
+        _field_dict = {}
+        if self.stats:
+            for _key_stats in self.stats:
+                if self.stats[_key_stats]:
+                    _field_dict[_key_stats] = self.stats[_key_stats].to_dict()
+            _dict['stats'] = _field_dict
         return _dict
 
     @classmethod
@@ -94,7 +104,14 @@ class LaneSoulCurve(BaseModel):
             "matches_played": obj.get("matches_played"),
             "net_worth_diff": obj.get("net_worth_diff"),
             "net_worth_diff_std": obj.get("net_worth_diff_std"),
-            "sample_times_s": obj.get("sample_times_s")
+            "sample_matches": obj.get("sample_matches"),
+            "sample_times_s": obj.get("sample_times_s"),
+            "stats": dict(
+                (_k, LaneStatCurve.from_dict(_v))
+                for _k, _v in obj["stats"].items()
+            )
+            if obj.get("stats") is not None
+            else None
         })
         return _obj
 

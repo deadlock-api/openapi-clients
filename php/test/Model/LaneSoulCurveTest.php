@@ -134,9 +134,27 @@ class LaneSoulCurveTest extends TestCase
     }
 
     /**
+     * Test attribute "sample_matches"
+     */
+    public function testPropertySampleMatches()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "sample_times_s"
      */
     public function testPropertySampleTimesS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "stats"
+     */
+    public function testPropertyStats()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

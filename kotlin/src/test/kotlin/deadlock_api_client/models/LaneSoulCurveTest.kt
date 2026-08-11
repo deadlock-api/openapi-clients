@@ -27,31 +27,32 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.LaneSoulCurve
+import deadlock_api_client.models.LaneStatCurve
 
 class LaneSoulCurveTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of LaneSoulCurve
         //val modelInstance = LaneSoulCurve()
 
-        // to test the property `assignedLane` - The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        // to test the property `assignedLane` - The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         should("test assignedLane") {
             // uncomment below to test the property
             //modelInstance.assignedLane shouldBe ("TODO")
         }
 
-        // to test the property `enemyHeroIds` - The ascending hero id pair they laned against.
+        // to test the property `enemyHeroIds` - The ascending hero id pair they laned against, or empty when grouped away.
         should("test enemyHeroIds") {
             // uncomment below to test the property
             //modelInstance.enemyHeroIds shouldBe ("TODO")
         }
 
-        // to test the property `heroIds` - The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        // to test the property `heroIds` - The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test heroIds") {
             // uncomment below to test the property
             //modelInstance.heroIds shouldBe ("TODO")
         }
 
-        // to test the property `matchesPlayed` - Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+        // to test the property `matchesPlayed` - Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
         should("test matchesPlayed") {
             // uncomment below to test the property
             //modelInstance.matchesPlayed shouldBe ("TODO")
@@ -69,10 +70,22 @@ class LaneSoulCurveTest : ShouldSpec() {
             //modelInstance.netWorthDiffStd shouldBe ("TODO")
         }
 
-        // to test the property `sampleTimesS` - Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.
+        // to test the property `sampleMatches` - How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
+        should("test sampleMatches") {
+            // uncomment below to test the property
+            //modelInstance.sampleMatches shouldBe ("TODO")
+        }
+
+        // to test the property `sampleTimesS` - Seconds into the match each entry of the curves was sampled at, ascending.
         should("test sampleTimesS") {
             // uncomment below to test the property
             //modelInstance.sampleTimesS shouldBe ("TODO")
+        }
+
+        // to test the property `stats` - A curve per stat named in `stats`. Empty unless the parameter was set.
+        should("test stats") {
+            // uncomment below to test the property
+            //modelInstance.stats shouldBe ("TODO")
         }
 
     }

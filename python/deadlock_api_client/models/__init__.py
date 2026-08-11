@@ -112,8 +112,10 @@ from deadlock_api_client.models.item_type import ItemType
 from deadlock_api_client.models.job_status import JobStatus
 from deadlock_api_client.models.kill_death_stats import KillDeathStats
 from deadlock_api_client.models.lane_info import LaneInfo
+from deadlock_api_client.models.lane_matchup_stat import LaneMatchupStat
 from deadlock_api_client.models.lane_matchup_stats import LaneMatchupStats
 from deadlock_api_client.models.lane_soul_curve import LaneSoulCurve
+from deadlock_api_client.models.lane_stat_curve import LaneStatCurve
 from deadlock_api_client.models.last_ranked_match import LastRankedMatch
 from deadlock_api_client.models.leaderboard import Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry

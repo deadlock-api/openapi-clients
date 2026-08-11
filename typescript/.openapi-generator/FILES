@@ -152,8 +152,10 @@ docs/ItemsApi.md
 docs/JobStatus.md
 docs/KillDeathStats.md
 docs/LaneInfo.md
+docs/LaneMatchupStat.md
 docs/LaneMatchupStats.md
 docs/LaneSoulCurve.md
+docs/LaneStatCurve.md
 docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
@@ -381,8 +383,10 @@ models/item.ts
 models/job-status.ts
 models/kill-death-stats.ts
 models/lane-info.ts
+models/lane-matchup-stat.ts
 models/lane-matchup-stats.ts
 models/lane-soul-curve.ts
+models/lane-stat-curve.ts
 models/last-ranked-match.ts
 models/leaderboard-entry.ts
 models/leaderboard.ts

@@ -33,22 +33,26 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaneMatchupStats" /> class.
         /// </summary>
-        /// <param name="assignedLane">The lane the matchup was played in. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</param>
-        /// <param name="enemyHeroIds">The ascending hero id pair they laned against.</param>
-        /// <param name="heroIds">The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="assignedLane">The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</param>
+        /// <param name="enemyHeroIds">The ascending hero id pair they laned against, or empty when grouped away.</param>
+        /// <param name="heroIds">The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matchesPlayed">The total number of lane matchups between &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; in this lane.</param>
-        /// <param name="netWorthDiff15min">Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.</param>
-        /// <param name="netWorthMatches">How many of &#x60;matches_played&#x60; carried net-worth samples for all four players.</param>
+        /// <param name="netWorthDiff">Mean souls the duo is ahead by at &#x60;sample_time_s&#x60;, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup lasted that long.</param>
+        /// <param name="sampleMatches">How many of &#x60;matches_played&#x60; lasted to &#x60;sample_time_s&#x60; with all four players still in. Every reading on this row rests on those matchups only.</param>
+        /// <param name="sampleTimeS">Seconds into the match the stat readings were taken at. Echoes the &#x60;sample_time_s&#x60; parameter.</param>
+        /// <param name="stats">A reading per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.</param>
         /// <param name="wins">The number of matches &#x60;hero_ids&#x60; won against &#x60;enemy_hero_ids&#x60; in this lane.</param>
         [JsonConstructor]
-        public LaneMatchupStats(int assignedLane, List<int> enemyHeroIds, List<int> heroIds, long matchesPlayed, double netWorthDiff15min, long netWorthMatches, long wins)
+        public LaneMatchupStats(int assignedLane, List<int> enemyHeroIds, List<int> heroIds, long matchesPlayed, double netWorthDiff, long sampleMatches, int sampleTimeS, Dictionary<string, LaneMatchupStat> stats, long wins)
         {
             AssignedLane = assignedLane;
             EnemyHeroIds = enemyHeroIds;
             HeroIds = heroIds;
             MatchesPlayed = matchesPlayed;
-            NetWorthDiff15min = netWorthDiff15min;
-            NetWorthMatches = netWorthMatches;
+            NetWorthDiff = netWorthDiff;
+            SampleMatches = sampleMatches;
+            SampleTimeS = sampleTimeS;
+            Stats = stats;
             Wins = wins;
             OnCreated();
         }
@@ -56,23 +60,23 @@ namespace DeadlockApiClient.Model
         partial void OnCreated();
 
         /// <summary>
-        /// The lane the matchup was played in. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
+        /// The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
         /// </summary>
-        /// <value>The lane the matchup was played in. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</value>
+        /// <value>The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</value>
         [JsonPropertyName("assigned_lane")]
         public int AssignedLane { get; set; }
 
         /// <summary>
-        /// The ascending hero id pair they laned against.
+        /// The ascending hero id pair they laned against, or empty when grouped away.
         /// </summary>
-        /// <value>The ascending hero id pair they laned against.</value>
+        /// <value>The ascending hero id pair they laned against, or empty when grouped away.</value>
         [JsonPropertyName("enemy_hero_ids")]
         public List<int> EnemyHeroIds { get; set; }
 
         /// <summary>
-        /// The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+        /// The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
+        /// <value>The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_ids")]
         public List<int> HeroIds { get; set; }
 
@@ -84,18 +88,32 @@ namespace DeadlockApiClient.Model
         public long MatchesPlayed { get; set; }
 
         /// <summary>
-        /// Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.
+        /// Mean souls the duo is ahead by at &#x60;sample_time_s&#x60;, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup lasted that long.
         /// </summary>
-        /// <value>Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players.</value>
-        [JsonPropertyName("net_worth_diff_15min")]
-        public double NetWorthDiff15min { get; set; }
+        /// <value>Mean souls the duo is ahead by at &#x60;sample_time_s&#x60;, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup lasted that long.</value>
+        [JsonPropertyName("net_worth_diff")]
+        public double NetWorthDiff { get; set; }
 
         /// <summary>
-        /// How many of &#x60;matches_played&#x60; carried net-worth samples for all four players.
+        /// How many of &#x60;matches_played&#x60; lasted to &#x60;sample_time_s&#x60; with all four players still in. Every reading on this row rests on those matchups only.
         /// </summary>
-        /// <value>How many of &#x60;matches_played&#x60; carried net-worth samples for all four players.</value>
-        [JsonPropertyName("net_worth_matches")]
-        public long NetWorthMatches { get; set; }
+        /// <value>How many of &#x60;matches_played&#x60; lasted to &#x60;sample_time_s&#x60; with all four players still in. Every reading on this row rests on those matchups only.</value>
+        [JsonPropertyName("sample_matches")]
+        public long SampleMatches { get; set; }
+
+        /// <summary>
+        /// Seconds into the match the stat readings were taken at. Echoes the &#x60;sample_time_s&#x60; parameter.
+        /// </summary>
+        /// <value>Seconds into the match the stat readings were taken at. Echoes the &#x60;sample_time_s&#x60; parameter.</value>
+        [JsonPropertyName("sample_time_s")]
+        public int SampleTimeS { get; set; }
+
+        /// <summary>
+        /// A reading per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.
+        /// </summary>
+        /// <value>A reading per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.</value>
+        [JsonPropertyName("stats")]
+        public Dictionary<string, LaneMatchupStat> Stats { get; set; }
 
         /// <summary>
         /// The number of matches &#x60;hero_ids&#x60; won against &#x60;enemy_hero_ids&#x60; in this lane.
@@ -116,8 +134,10 @@ namespace DeadlockApiClient.Model
             sb.Append("  EnemyHeroIds: ").Append(EnemyHeroIds).Append("\n");
             sb.Append("  HeroIds: ").Append(HeroIds).Append("\n");
             sb.Append("  MatchesPlayed: ").Append(MatchesPlayed).Append("\n");
-            sb.Append("  NetWorthDiff15min: ").Append(NetWorthDiff15min).Append("\n");
-            sb.Append("  NetWorthMatches: ").Append(NetWorthMatches).Append("\n");
+            sb.Append("  NetWorthDiff: ").Append(NetWorthDiff).Append("\n");
+            sb.Append("  SampleMatches: ").Append(SampleMatches).Append("\n");
+            sb.Append("  SampleTimeS: ").Append(SampleTimeS).Append("\n");
+            sb.Append("  Stats: ").Append(Stats).Append("\n");
             sb.Append("  Wins: ").Append(Wins).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -142,10 +162,16 @@ namespace DeadlockApiClient.Model
                 yield return new ValidationResult("Invalid value for MatchesPlayed, must be a value greater than or equal to 0.", new [] { "MatchesPlayed" });
             }
 
-            // NetWorthMatches (long) minimum
-            if (this.NetWorthMatches < (long)0)
+            // SampleMatches (long) minimum
+            if (this.SampleMatches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for NetWorthMatches, must be a value greater than or equal to 0.", new [] { "NetWorthMatches" });
+                yield return new ValidationResult("Invalid value for SampleMatches, must be a value greater than or equal to 0.", new [] { "SampleMatches" });
+            }
+
+            // SampleTimeS (int) minimum
+            if (this.SampleTimeS < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for SampleTimeS, must be a value greater than or equal to 0.", new [] { "SampleTimeS" });
             }
 
             // Wins (long) minimum
@@ -194,8 +220,10 @@ namespace DeadlockApiClient.Model
             Option<List<int>?> enemyHeroIds = default;
             Option<List<int>?> heroIds = default;
             Option<long?> matchesPlayed = default;
-            Option<double?> netWorthDiff15min = default;
-            Option<long?> netWorthMatches = default;
+            Option<double?> netWorthDiff = default;
+            Option<long?> sampleMatches = default;
+            Option<int?> sampleTimeS = default;
+            Option<Dictionary<string, LaneMatchupStat>?> stats = default;
             Option<long?> wins = default;
 
             while (utf8JsonReader.Read())
@@ -225,11 +253,17 @@ namespace DeadlockApiClient.Model
                         case "matches_played":
                             matchesPlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
-                        case "net_worth_diff_15min":
-                            netWorthDiff15min = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                        case "net_worth_diff":
+                            netWorthDiff = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
-                        case "net_worth_matches":
-                            netWorthMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                        case "sample_matches":
+                            sampleMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "sample_time_s":
+                            sampleTimeS = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "stats":
+                            stats = new Option<Dictionary<string, LaneMatchupStat>?>(JsonSerializer.Deserialize<Dictionary<string, LaneMatchupStat>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "wins":
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -252,11 +286,17 @@ namespace DeadlockApiClient.Model
             if (!matchesPlayed.IsSet)
                 throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(matchesPlayed));
 
-            if (!netWorthDiff15min.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(netWorthDiff15min));
+            if (!netWorthDiff.IsSet)
+                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(netWorthDiff));
 
-            if (!netWorthMatches.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(netWorthMatches));
+            if (!sampleMatches.IsSet)
+                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(sampleMatches));
+
+            if (!sampleTimeS.IsSet)
+                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(sampleTimeS));
+
+            if (!stats.IsSet)
+                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(stats));
 
             if (!wins.IsSet)
                 throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(wins));
@@ -273,16 +313,22 @@ namespace DeadlockApiClient.Model
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
                 throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class LaneMatchupStats.");
 
-            if (netWorthDiff15min.IsSet && netWorthDiff15min.Value == null)
-                throw new ArgumentNullException(nameof(netWorthDiff15min), "Property is not nullable for class LaneMatchupStats.");
+            if (netWorthDiff.IsSet && netWorthDiff.Value == null)
+                throw new ArgumentNullException(nameof(netWorthDiff), "Property is not nullable for class LaneMatchupStats.");
 
-            if (netWorthMatches.IsSet && netWorthMatches.Value == null)
-                throw new ArgumentNullException(nameof(netWorthMatches), "Property is not nullable for class LaneMatchupStats.");
+            if (sampleMatches.IsSet && sampleMatches.Value == null)
+                throw new ArgumentNullException(nameof(sampleMatches), "Property is not nullable for class LaneMatchupStats.");
+
+            if (sampleTimeS.IsSet && sampleTimeS.Value == null)
+                throw new ArgumentNullException(nameof(sampleTimeS), "Property is not nullable for class LaneMatchupStats.");
+
+            if (stats.IsSet && stats.Value == null)
+                throw new ArgumentNullException(nameof(stats), "Property is not nullable for class LaneMatchupStats.");
 
             if (wins.IsSet && wins.Value == null)
                 throw new ArgumentNullException(nameof(wins), "Property is not nullable for class LaneMatchupStats.");
 
-            return new LaneMatchupStats(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff15min.Value!.Value!, netWorthMatches.Value!.Value!, wins.Value!.Value!);
+            return new LaneMatchupStats(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff.Value!.Value!, sampleMatches.Value!.Value!, sampleTimeS.Value!.Value!, stats.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -315,6 +361,9 @@ namespace DeadlockApiClient.Model
             if (laneMatchupStats.HeroIds == null)
                 throw new ArgumentNullException(nameof(laneMatchupStats.HeroIds), "Property is required for class LaneMatchupStats.");
 
+            if (laneMatchupStats.Stats == null)
+                throw new ArgumentNullException(nameof(laneMatchupStats.Stats), "Property is required for class LaneMatchupStats.");
+
             writer.WriteNumber("assigned_lane", laneMatchupStats.AssignedLane);
 
             writer.WritePropertyName("enemy_hero_ids");
@@ -323,10 +372,14 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, laneMatchupStats.HeroIds, jsonSerializerOptions);
             writer.WriteNumber("matches_played", laneMatchupStats.MatchesPlayed);
 
-            writer.WriteNumber("net_worth_diff_15min", laneMatchupStats.NetWorthDiff15min);
+            writer.WriteNumber("net_worth_diff", laneMatchupStats.NetWorthDiff);
 
-            writer.WriteNumber("net_worth_matches", laneMatchupStats.NetWorthMatches);
+            writer.WriteNumber("sample_matches", laneMatchupStats.SampleMatches);
 
+            writer.WriteNumber("sample_time_s", laneMatchupStats.SampleTimeS);
+
+            writer.WritePropertyName("stats");
+            JsonSerializer.Serialize(writer, laneMatchupStats.Stats, jsonSerializerOptions);
             writer.WriteNumber("wins", laneMatchupStats.Wins);
         }
     }

@@ -193,7 +193,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -464,7 +464,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -598,7 +598,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -686,7 +686,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -919,7 +919,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -1064,7 +1064,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -1264,7 +1264,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -1561,7 +1561,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -1830,7 +1830,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -2109,7 +2109,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -2395,7 +2395,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -2727,7 +2727,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -3027,7 +3027,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -3327,7 +3327,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -3579,18 +3579,28 @@ paths:
         \ not yet stable. Its parameters, response fields and semantics may change\
         \ or be removed without notice.\n\nRetrieves duo-versus-duo lane statistics:\
         \ how a pair of heroes sharing a lane performed against the pair of heroes\
-        \ they laned against.\n\nOnly lanes where *both* sides fielded exactly two\
-        \ players are counted, and each lane contributes one row per side, so every\
-        \ matchup appears twice with the two sides swapped.\n\nPass `hero_ids` and\
-        \ `enemy_hero_ids` to scope the response to the duos you care about. Without\
-        \ them the full duo-versus-duo matrix is computed, which is a considerably\
-        \ more expensive query.\n\nResults are cached for **1 hour**. The cache key\
-        \ is determined by the specific combination of filter parameters used in the\
-        \ query. Subsequent requests using the exact same filters within this timeframe\
-        \ will receive the cached response.\n\n### Rate Limits:\n> The rate limits\
-        \ below are **shared across all analytics endpoints**.\n\n| Type | Limit |\n\
-        | ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
-        \ |\n    "
+        \ they laned against.\n\nWin rate covers the whole match. Everything else\
+        \ is read at `sample_time_s` (900 by default, the last sample before the game's\
+        \ recording cadence coarsens) off the matchups that lasted that long, counted\
+        \ by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass\
+        \ `stats` for any other per-tick stat the game records — kills, denies, player\
+        \ damage, healing, level and so on — each as the duo's own combined value\
+        \ *and* as its lead over the enemy duo.\n\nOnly lanes where *both* sides fielded\
+        \ exactly two players are counted, and each lane contributes one row per side,\
+        \ so every matchup appears twice with the two sides swapped.\n\n`group_by`\
+        \ chooses what a row stands for. The default groups all three dimensions,\
+        \ giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids`\
+        \ gives a duo's record across every opponent, dropping `hero_ids` gives what\
+        \ a duo is up against, and dropping `assigned_lane` merges the lanes. Folded\
+        \ dimensions come back as `0` / an empty array.\n\nPass `hero_ids` and `enemy_hero_ids`\
+        \ to scope the response to the duos you care about. Without them the full\
+        \ duo-versus-duo matrix is computed, which is a considerably more expensive\
+        \ query.\n\nResults are cached for **1 hour**. The cache key is determined\
+        \ by the specific combination of filter parameters used in the query. Subsequent\
+        \ requests using the exact same filters within this timeframe will receive\
+        \ the cached response.\n\n### Rate Limits:\n> The rate limits below are **shared\
+        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
+        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: lane_matchup_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -3626,7 +3636,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -3713,6 +3723,31 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: |-
+          Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose
+          match ended earlier are still counted in `wins` and `matches_played`, but contribute no
+          reading; `sample_matches` reports how many did.
+        explode: true
+        in: query
+        name: sample_time_s
+        required: false
+        schema:
+          default: 900
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Comma separated list of `assigned_lane` values to restrict the
+          response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        explode: true
+        in: query
+        name: assigned_lanes
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - description: "Comma separated list of hero ids the *ally* duo has to be drawn\
           \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
@@ -3743,8 +3778,28 @@ paths:
           type: array
           default: null
         style: form
-      - description: The minimum number of lane matchups played for a duo pairing
-          to be included in the response.
+      - description: "Comma separated list of extra per-tick stats to report, at most\
+          \ 8. **Default:** none."
+        explode: true
+        in: query
+        name: stats
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Comma separated list of dimensions to group by. Valid values:\
+          \ `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three."
+        explode: true
+        in: query
+        name: group_by
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: The minimum number of lane matchups behind a row for it to be
+          included in the response.
         explode: true
         in: query
         name: min_matches
@@ -3756,8 +3811,8 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: The maximum number of lane matchups played for a duo pairing
-          to be included in the response.
+      - description: The maximum number of lane matchups behind a row for it to be
+          included in the response.
         explode: true
         in: query
         name: max_matches
@@ -3805,20 +3860,32 @@ paths:
     get:
       description: "\n> **⚠️ Subject to change:** This endpoint is newly added and\
         \ not yet stable. Its parameters, response fields and semantics may change\
-        \ or be removed without notice.\n\nRetrieves how a duo's soul lead over the\
-        \ duo they laned against develops through the first 15 minutes.\n\nThe curve\
-        \ is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated;\
-        \ its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only\
-        \ lanes where *both* sides fielded exactly two players are counted, and each\
-        \ lane contributes one row per side, so every matchup appears twice with the\
-        \ two sides swapped.\n\nPass `hero_ids` and `enemy_hero_ids` to scope the\
-        \ response to the duos you care about. Without them the full duo-versus-duo\
-        \ matrix is computed, which is a considerably more expensive query.\n\nResults\
-        \ are cached for **1 hour** based on the combination of query parameters provided.\
-        \ Subsequent identical requests within this timeframe will receive the cached\
-        \ response.\n\n### Rate Limits:\n> The rate limits below are **shared across\
-        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
-        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+        \ or be removed without notice.\n\nRetrieves how a duo's lead over the duo\
+        \ they laned against develops over the course of the match.\n\nThe curve is\
+        \ not interpolated: it carries exactly the samples the game records, which\
+        \ are every 180 seconds up to the 15 minute mark and every 300 seconds after\
+        \ that. It runs from `min_time_s` (180 by default) to `max_time_s`, which\
+        \ is open by default, so a matchup is followed until its matches end. `sample_matches`\
+        \ reports how many matchups were still running at each point, and thins out\
+        \ towards the end of the curve.\n\nOnly lanes where *both* sides fielded exactly\
+        \ two players are counted, and each lane contributes one row per side, so\
+        \ every matchup appears twice with the two sides swapped.\n\nSouls are always\
+        \ reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick\
+        \ stat the game records — kills, denies, player damage, healing, level and\
+        \ so on — each as the duo's own combined value *and* as its lead over the\
+        \ enemy duo.\n\n`group_by` chooses what a row stands for. The default groups\
+        \ all three dimensions, giving one row per duo-versus-duo matchup per lane.\
+        \ Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping\
+        \ `hero_ids` gives what a duo is up against, and dropping `assigned_lane`\
+        \ merges the lanes. Folded dimensions come back as `0` / an empty array.\n\
+        \nPass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you\
+        \ care about. Without them the full duo-versus-duo matrix is computed, which\
+        \ is a considerably more expensive query.\n\nResults are cached for **1 hour**\
+        \ based on the combination of query parameters provided. Subsequent identical\
+        \ requests within this timeframe will receive the cached response.\n\n###\
+        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: lane_soul_curve
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -3854,7 +3921,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -3941,6 +4008,42 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: "Earliest sample to return, in seconds into the match. **Default:**\
+          \ 180."
+        explode: true
+        in: query
+        name: min_time_s
+        required: false
+        schema:
+          default: 180
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: |-
+          Latest sample to return, in seconds into the match. Omit to follow every matchup to the end
+          of its match.
+        explode: true
+        in: query
+        name: max_time_s
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Comma separated list of `assigned_lane` values to restrict the
+          response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+        explode: true
+        in: query
+        name: assigned_lanes
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - description: "Comma separated list of hero ids the *ally* duo has to be drawn\
           \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
@@ -3971,14 +4074,46 @@ paths:
           type: array
           default: null
         style: form
-      - description: The minimum number of lane matchups played for a duo pairing
-          to be included in the response.
+      - description: "Comma separated list of extra per-tick stats to return curves\
+          \ for, at most 8. **Default:** none."
+        explode: true
+        in: query
+        name: stats
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Comma separated list of dimensions to group by. Valid values:\
+          \ `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three."
+        explode: true
+        in: query
+        name: group_by
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: The minimum number of lane matchups behind a row for it to be
+          included in the response.
         explode: true
         in: query
         name: min_matches
         required: false
         schema:
           default: 20
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: The maximum number of lane matchups behind a row for it to be
+          included in the response.
+        explode: true
+        in: query
+        name: max_matches
+        required: false
+        schema:
           format: int64
           minimum: 1
           nullable: true
@@ -4076,7 +4211,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -4312,7 +4447,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -4625,7 +4760,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -9125,7 +9260,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -9249,7 +9384,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1783728000
+          default: 1783814400
           format: int64
           nullable: true
           type: integer
@@ -14833,6 +14968,39 @@ components:
       required:
       - color
       - lane_name
+    LaneMatchupStat:
+      description: "One requested stat, read at `sample_time_s` and averaged over\
+        \ the matchups that reached it."
+      example:
+        diff: 9.301444243932576
+        diff_std: 3.616076749251911
+        value: 2.027123023002322
+        value_std: 4.145608029883936
+      properties:
+        diff:
+          description: Mean of the duo's combined value minus the enemy duo's. Negative
+            means behind.
+          format: double
+          type: number
+        diff_std:
+          description: Population standard deviation of `diff` across the counted
+            matchups.
+          format: double
+          type: number
+        value:
+          description: "Mean of the duo's combined value, summed over its two players."
+          format: double
+          type: number
+        value_std:
+          description: Population standard deviation of `value` across the counted
+            matchups.
+          format: double
+          type: number
+      required:
+      - diff
+      - diff_std
+      - value
+      - value_std
     LaneMatchupStats:
       description: "**⚠️ Subject to change:** newly added, fields may change or be\
         \ removed without notice."
@@ -14845,18 +15013,26 @@ components:
         - 0
         - 0
         matches_played: 0
-        net_worth_diff_15min: 5.637376656633329
-        net_worth_matches: 0
+        net_worth_diff: 5.637376656633329
+        sample_matches: 0
+        sample_time_s: 0
+        stats:
+          key:
+            diff: 9.301444243932576
+            diff_std: 3.616076749251911
+            value: 2.027123023002322
+            value_std: 4.145608029883936
         wins: 0
       properties:
         assigned_lane:
-          description: The lane the matchup was played in. See the `lane_info` array
-            of <https://api.deadlock-api.com/v1/assets/generic-data>.
+          description: "The lane the matchup was played in, or `0` when `assigned_lane`\
+            \ was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>."
           format: int32
           minimum: 0
           type: integer
         enemy_hero_ids:
-          description: The ascending hero id pair they laned against.
+          description: "The ascending hero id pair they laned against, or empty when\
+            \ grouped away."
           items:
             format: int32
             minimum: 0
@@ -14864,8 +15040,8 @@ components:
           type: array
           default: null
         hero_ids:
-          description: "The ascending hero id pair that shared the lane. See more:\
-            \ <https://api.deadlock-api.com/v1/assets/heroes>"
+          description: "The ascending hero id pair that shared the lane, or empty\
+            \ when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
             format: int32
             minimum: 0
@@ -14878,18 +15054,30 @@ components:
           format: int64
           minimum: 0
           type: integer
-        net_worth_diff_15min:
+        net_worth_diff:
           description: |-
-            Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind.
-            `0` when no counted matchup had net-worth samples for all four players.
+            Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind.
+            `0` when no counted matchup lasted that long.
           format: double
           type: number
-        net_worth_matches:
-          description: How many of `matches_played` carried net-worth samples for
-            all four players.
+        sample_matches:
+          description: |-
+            How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every
+            reading on this row rests on those matchups only.
           format: int64
           minimum: 0
           type: integer
+        sample_time_s:
+          description: Seconds into the match the stat readings were taken at. Echoes
+            the `sample_time_s` parameter.
+          format: int32
+          minimum: 0
+          type: integer
+        stats:
+          additionalProperties:
+            $ref: "#/components/schemas/LaneMatchupStat"
+          description: A reading per stat named in `stats`. Empty unless the parameter
+            was set.
         wins:
           description: The number of matches `hero_ids` won against `enemy_hero_ids`
             in this lane.
@@ -14901,8 +15089,10 @@ components:
       - enemy_hero_ids
       - hero_ids
       - matches_played
-      - net_worth_diff_15min
-      - net_worth_matches
+      - net_worth_diff
+      - sample_matches
+      - sample_time_s
+      - stats
       - wins
     LaneSoulCurve:
       description: "**⚠️ Subject to change:** newly added, fields may change or be\
@@ -14922,18 +15112,36 @@ components:
         net_worth_diff_std:
         - 2.3021358869347655
         - 2.3021358869347655
+        sample_matches:
+        - 0
+        - 0
         sample_times_s:
         - 0
         - 0
+        stats:
+          key:
+            diff:
+            - 3.616076749251911
+            - 3.616076749251911
+            diff_std:
+            - 2.027123023002322
+            - 2.027123023002322
+            value:
+            - 4.145608029883936
+            - 4.145608029883936
+            value_std:
+            - 7.386281948385884
+            - 7.386281948385884
       properties:
         assigned_lane:
-          description: The lane the matchup was played in. See the `lane_info` array
-            of <https://api.deadlock-api.com/v1/assets/generic-data>.
+          description: "The lane the matchup was played in, or `0` when `assigned_lane`\
+            \ was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>."
           format: int32
           minimum: 0
           type: integer
         enemy_hero_ids:
-          description: The ascending hero id pair they laned against.
+          description: "The ascending hero id pair they laned against, or empty when\
+            \ grouped away."
           items:
             format: int32
             minimum: 0
@@ -14941,8 +15149,8 @@ components:
           type: array
           default: null
         hero_ids:
-          description: "The ascending hero id pair that shared the lane. See more:\
-            \ <https://api.deadlock-api.com/v1/assets/heroes>"
+          description: "The ascending hero id pair that shared the lane, or empty\
+            \ when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
             format: int32
             minimum: 0
@@ -14951,9 +15159,9 @@ components:
           default: null
         matches_played:
           description: |-
-            Lane matchups behind the curve, counted at its *least* covered sample. A match that ended
-            before 900s still contributes to the earlier points, so the earlier points rest on at least
-            this many matchups and never fewer.
+            Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and
+            `max_matches` filter on, so it does not move when the requested time range changes; read
+            `sample_matches` for what any individual point rests on.
           format: int64
           minimum: 0
           type: integer
@@ -14978,15 +15186,30 @@ components:
             type: number
           type: array
           default: null
+        sample_matches:
+          description: |-
+            How many lane matchups were still running at the matching entry of `sample_times_s`.
+            Falls off towards the end of the curve as shorter matches drop out.
+          items:
+            format: int64
+            minimum: 0
+            type: integer
+          type: array
+          default: null
         sample_times_s:
-          description: "Seconds into the match each entry of `net_worth_diff` was\
-            \ sampled at, ascending."
+          description: "Seconds into the match each entry of the curves was sampled\
+            \ at, ascending."
           items:
             format: int32
             minimum: 0
             type: integer
           type: array
           default: null
+        stats:
+          additionalProperties:
+            $ref: "#/components/schemas/LaneStatCurve"
+          description: A curve per stat named in `stats`. Empty unless the parameter
+            was set.
       required:
       - assigned_lane
       - enemy_hero_ids
@@ -14994,7 +15217,61 @@ components:
       - matches_played
       - net_worth_diff
       - net_worth_diff_std
+      - sample_matches
       - sample_times_s
+      - stats
+    LaneStatCurve:
+      description: One requested stat's curve. All four arrays line up with `sample_times_s`.
+      example:
+        diff:
+        - 3.616076749251911
+        - 3.616076749251911
+        diff_std:
+        - 2.027123023002322
+        - 2.027123023002322
+        value:
+        - 4.145608029883936
+        - 4.145608029883936
+        value_std:
+        - 7.386281948385884
+        - 7.386281948385884
+      properties:
+        diff:
+          description: Mean of the duo's combined value minus the enemy duo's. Negative
+            means behind.
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        diff_std:
+          description: Population standard deviation of `diff` across the counted
+            matchups.
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        value:
+          description: "Mean of the duo's combined value, summed over its two players."
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        value_std:
+          description: Population standard deviation of `value` across the counted
+            matchups.
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+      required:
+      - diff
+      - diff_std
+      - value
+      - value_std
     LastRankedMatch:
       properties:
         match_id:

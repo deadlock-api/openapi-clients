@@ -14,24 +14,30 @@ use serde::{Deserialize, Serialize};
 /// LaneMatchupStats : **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LaneMatchupStats {
-    /// The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+    /// The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
     #[serde(rename = "assigned_lane")]
     pub assigned_lane: u32,
-    /// The ascending hero id pair they laned against.
+    /// The ascending hero id pair they laned against, or empty when grouped away.
     #[serde(rename = "enemy_hero_ids")]
     pub enemy_hero_ids: Vec<u32>,
-    /// The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    /// The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_ids")]
     pub hero_ids: Vec<u32>,
     /// The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.
     #[serde(rename = "matches_played")]
     pub matches_played: u64,
-    /// Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
-    #[serde(rename = "net_worth_diff_15min")]
-    pub net_worth_diff_15min: f64,
-    /// How many of `matches_played` carried net-worth samples for all four players.
-    #[serde(rename = "net_worth_matches")]
-    pub net_worth_matches: u64,
+    /// Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
+    #[serde(rename = "net_worth_diff")]
+    pub net_worth_diff: f64,
+    /// How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
+    #[serde(rename = "sample_matches")]
+    pub sample_matches: u64,
+    /// Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
+    #[serde(rename = "sample_time_s")]
+    pub sample_time_s: u32,
+    /// A reading per stat named in `stats`. Empty unless the parameter was set.
+    #[serde(rename = "stats")]
+    pub stats: std::collections::HashMap<String, models::LaneMatchupStat>,
     /// The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
     #[serde(rename = "wins")]
     pub wins: u64,
@@ -39,14 +45,16 @@ pub struct LaneMatchupStats {
 
 impl LaneMatchupStats {
     /// **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
-    pub fn new(assigned_lane: u32, enemy_hero_ids: Vec<u32>, hero_ids: Vec<u32>, matches_played: u64, net_worth_diff_15min: f64, net_worth_matches: u64, wins: u64) -> LaneMatchupStats {
+    pub fn new(assigned_lane: u32, enemy_hero_ids: Vec<u32>, hero_ids: Vec<u32>, matches_played: u64, net_worth_diff: f64, sample_matches: u64, sample_time_s: u32, stats: std::collections::HashMap<String, models::LaneMatchupStat>, wins: u64) -> LaneMatchupStats {
         LaneMatchupStats {
             assigned_lane,
             enemy_hero_ids,
             hero_ids,
             matches_played,
-            net_worth_diff_15min,
-            net_worth_matches,
+            net_worth_diff,
+            sample_matches,
+            sample_time_s,
+            stats,
             wins,
         }
     }

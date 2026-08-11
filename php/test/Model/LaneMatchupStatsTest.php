@@ -116,18 +116,36 @@ class LaneMatchupStatsTest extends TestCase
     }
 
     /**
-     * Test attribute "net_worth_diff_15min"
+     * Test attribute "net_worth_diff"
      */
-    public function testPropertyNetWorthDiff15min()
+    public function testPropertyNetWorthDiff()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "net_worth_matches"
+     * Test attribute "sample_matches"
      */
-    public function testPropertyNetWorthMatches()
+    public function testPropertySampleMatches()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "sample_time_s"
+     */
+    public function testPropertySampleTimeS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "stats"
+     */
+    public function testPropertyStats()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

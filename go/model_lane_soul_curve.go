@@ -21,20 +21,24 @@ var _ MappedNullable = &LaneSoulCurve{}
 
 // LaneSoulCurve **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 type LaneSoulCurve struct {
-	// The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+	// The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
 	AssignedLane int32 `json:"assigned_lane"`
-	// The ascending hero id pair they laned against.
+	// The ascending hero id pair they laned against, or empty when grouped away.
 	EnemyHeroIds []int32 `json:"enemy_hero_ids"`
-	// The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	// The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroIds []int32 `json:"hero_ids"`
-	// Lane matchups behind the curve, counted at its *least* covered sample. A match that ended before 900s still contributes to the earlier points, so the earlier points rest on at least this many matchups and never fewer.
+	// Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
 	MatchesPlayed int64 `json:"matches_played"`
 	// Mean souls the duo is ahead by at the matching entry of `sample_times_s`. Negative means behind. Same length as `sample_times_s`.
 	NetWorthDiff []float64 `json:"net_worth_diff"`
 	// Population standard deviation of the lead across the counted matchups, at the matching entry of `sample_times_s`. Same length as `sample_times_s`.  Spread between individual games, not uncertainty about the mean: it stays wide however many matchups are counted, because lane outcomes genuinely differ that much.
 	NetWorthDiffStd []float64 `json:"net_worth_diff_std"`
-	// Seconds into the match each entry of `net_worth_diff` was sampled at, ascending.
+	// How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
+	SampleMatches []int64 `json:"sample_matches"`
+	// Seconds into the match each entry of the curves was sampled at, ascending.
 	SampleTimesS []int32 `json:"sample_times_s"`
+	// A curve per stat named in `stats`. Empty unless the parameter was set.
+	Stats map[string]LaneStatCurve `json:"stats"`
 }
 
 type _LaneSoulCurve LaneSoulCurve
@@ -43,7 +47,7 @@ type _LaneSoulCurve LaneSoulCurve
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLaneSoulCurve(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff []float64, netWorthDiffStd []float64, sampleTimesS []int32) *LaneSoulCurve {
+func NewLaneSoulCurve(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff []float64, netWorthDiffStd []float64, sampleMatches []int64, sampleTimesS []int32, stats map[string]LaneStatCurve) *LaneSoulCurve {
 	this := LaneSoulCurve{}
 	this.AssignedLane = assignedLane
 	this.EnemyHeroIds = enemyHeroIds
@@ -51,7 +55,9 @@ func NewLaneSoulCurve(assignedLane int32, enemyHeroIds []int32, heroIds []int32,
 	this.MatchesPlayed = matchesPlayed
 	this.NetWorthDiff = netWorthDiff
 	this.NetWorthDiffStd = netWorthDiffStd
+	this.SampleMatches = sampleMatches
 	this.SampleTimesS = sampleTimesS
+	this.Stats = stats
 	return &this
 }
 
@@ -207,6 +213,30 @@ func (o *LaneSoulCurve) SetNetWorthDiffStd(v []float64) {
 	o.NetWorthDiffStd = v
 }
 
+// GetSampleMatches returns the SampleMatches field value
+func (o *LaneSoulCurve) GetSampleMatches() []int64 {
+	if o == nil {
+		var ret []int64
+		return ret
+	}
+
+	return o.SampleMatches
+}
+
+// GetSampleMatchesOk returns a tuple with the SampleMatches field value
+// and a boolean to check if the value has been set.
+func (o *LaneSoulCurve) GetSampleMatchesOk() ([]int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SampleMatches, true
+}
+
+// SetSampleMatches sets field value
+func (o *LaneSoulCurve) SetSampleMatches(v []int64) {
+	o.SampleMatches = v
+}
+
 // GetSampleTimesS returns the SampleTimesS field value
 func (o *LaneSoulCurve) GetSampleTimesS() []int32 {
 	if o == nil {
@@ -231,6 +261,30 @@ func (o *LaneSoulCurve) SetSampleTimesS(v []int32) {
 	o.SampleTimesS = v
 }
 
+// GetStats returns the Stats field value
+func (o *LaneSoulCurve) GetStats() map[string]LaneStatCurve {
+	if o == nil {
+		var ret map[string]LaneStatCurve
+		return ret
+	}
+
+	return o.Stats
+}
+
+// GetStatsOk returns a tuple with the Stats field value
+// and a boolean to check if the value has been set.
+func (o *LaneSoulCurve) GetStatsOk() (map[string]LaneStatCurve, bool) {
+	if o == nil {
+		return map[string]LaneStatCurve{}, false
+	}
+	return o.Stats, true
+}
+
+// SetStats sets field value
+func (o *LaneSoulCurve) SetStats(v map[string]LaneStatCurve) {
+	o.Stats = v
+}
+
 func (o LaneSoulCurve) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -247,7 +301,9 @@ func (o LaneSoulCurve) ToMap() (map[string]interface{}, error) {
 	toSerialize["matches_played"] = o.MatchesPlayed
 	toSerialize["net_worth_diff"] = o.NetWorthDiff
 	toSerialize["net_worth_diff_std"] = o.NetWorthDiffStd
+	toSerialize["sample_matches"] = o.SampleMatches
 	toSerialize["sample_times_s"] = o.SampleTimesS
+	toSerialize["stats"] = o.Stats
 	return toSerialize, nil
 }
 
@@ -262,7 +318,9 @@ func (o *LaneSoulCurve) UnmarshalJSON(data []byte) (err error) {
 		"matches_played",
 		"net_worth_diff",
 		"net_worth_diff_std",
+		"sample_matches",
 		"sample_times_s",
+		"stats",
 	}
 
 	allProperties := make(map[string]interface{})

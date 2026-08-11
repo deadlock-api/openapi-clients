@@ -435,12 +435,16 @@ class AnalyticsApiTest : ShouldSpec() {
             //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val sampleTimeS : kotlin.Int = 56 // kotlin.Int | Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.
+            //val assignedLanes : kotlin.String = assignedLanes_example // kotlin.String | Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
             //val heroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val enemyHeroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-            //val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of lane matchups played for a duo pairing to be included in the response.
-            //val maxMatches : kotlin.Long = 789 // kotlin.Long | The maximum number of lane matchups played for a duo pairing to be included in the response.
+            //val stats : kotlin.String = stats_example // kotlin.String | Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
+            //val groupBy : kotlin.String = groupBy_example // kotlin.String | Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+            //val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of lane matchups behind a row for it to be included in the response.
+            //val maxMatches : kotlin.Long = 789 // kotlin.Long | The maximum number of lane matchups behind a row for it to be included in the response.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
-            //val result : kotlin.collections.List<LaneMatchupStats> = apiInstance.laneMatchupStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, enemyHeroIds, minMatches, maxMatches, accountIds)
+            //val result : kotlin.collections.List<LaneMatchupStats> = apiInstance.laneMatchupStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sampleTimeS, assignedLanes, heroIds, enemyHeroIds, stats, groupBy, minMatches, maxMatches, accountIds)
             //result shouldBe ("TODO")
         }
 
@@ -457,11 +461,17 @@ class AnalyticsApiTest : ShouldSpec() {
             //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val minTimeS : kotlin.Int = 56 // kotlin.Int | Earliest sample to return, in seconds into the match. **Default:** 180.
+            //val maxTimeS : kotlin.Int = 56 // kotlin.Int | Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
+            //val assignedLanes : kotlin.String = assignedLanes_example // kotlin.String | Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
             //val heroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val enemyHeroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-            //val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of lane matchups played for a duo pairing to be included in the response.
+            //val stats : kotlin.String = stats_example // kotlin.String | Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
+            //val groupBy : kotlin.String = groupBy_example // kotlin.String | Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.
+            //val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of lane matchups behind a row for it to be included in the response.
+            //val maxMatches : kotlin.Long = 789 // kotlin.Long | The maximum number of lane matchups behind a row for it to be included in the response.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
-            //val result : kotlin.collections.List<LaneSoulCurve> = apiInstance.laneSoulCurve(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, enemyHeroIds, minMatches, accountIds)
+            //val result : kotlin.collections.List<LaneSoulCurve> = apiInstance.laneSoulCurve(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minTimeS, maxTimeS, assignedLanes, heroIds, enemyHeroIds, stats, groupBy, minMatches, maxMatches, accountIds)
             //result shouldBe ("TODO")
         }
 

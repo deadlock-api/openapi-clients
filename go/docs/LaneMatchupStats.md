@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignedLane** | **int32** | The lane the matchup was played in. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
-**EnemyHeroIds** | **[]int32** | The ascending hero id pair they laned against. | 
-**HeroIds** | **[]int32** | The ascending hero id pair that shared the lane. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**AssignedLane** | **int32** | The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
+**EnemyHeroIds** | **[]int32** | The ascending hero id pair they laned against, or empty when grouped away. | 
+**HeroIds** | **[]int32** | The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **MatchesPlayed** | **int64** | The total number of lane matchups between &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; in this lane. | 
-**NetWorthDiff15min** | **float64** | Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup had net-worth samples for all four players. | 
-**NetWorthMatches** | **int64** | How many of &#x60;matches_played&#x60; carried net-worth samples for all four players. | 
+**NetWorthDiff** | **float64** | Mean souls the duo is ahead by at &#x60;sample_time_s&#x60;, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup lasted that long. | 
+**SampleMatches** | **int64** | How many of &#x60;matches_played&#x60; lasted to &#x60;sample_time_s&#x60; with all four players still in. Every reading on this row rests on those matchups only. | 
+**SampleTimeS** | **int32** | Seconds into the match the stat readings were taken at. Echoes the &#x60;sample_time_s&#x60; parameter. | 
+**Stats** | [**map[string]LaneMatchupStat**](LaneMatchupStat.md) | A reading per stat named in &#x60;stats&#x60;. Empty unless the parameter was set. | 
 **Wins** | **int64** | The number of matches &#x60;hero_ids&#x60; won against &#x60;enemy_hero_ids&#x60; in this lane. | 
 
 ## Methods
 
 ### NewLaneMatchupStats
 
-`func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff15min float64, netWorthMatches int64, wins int64, ) *LaneMatchupStats`
+`func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff float64, sampleMatches int64, sampleTimeS int32, stats map[string]LaneMatchupStat, wins int64, ) *LaneMatchupStats`
 
 NewLaneMatchupStats instantiates a new LaneMatchupStats object
 This constructor will assign default values to properties that have it defined,
@@ -111,44 +113,84 @@ and a boolean to check if the value has been set.
 SetMatchesPlayed sets MatchesPlayed field to given value.
 
 
-### GetNetWorthDiff15min
+### GetNetWorthDiff
 
-`func (o *LaneMatchupStats) GetNetWorthDiff15min() float64`
+`func (o *LaneMatchupStats) GetNetWorthDiff() float64`
 
-GetNetWorthDiff15min returns the NetWorthDiff15min field if non-nil, zero value otherwise.
+GetNetWorthDiff returns the NetWorthDiff field if non-nil, zero value otherwise.
 
-### GetNetWorthDiff15minOk
+### GetNetWorthDiffOk
 
-`func (o *LaneMatchupStats) GetNetWorthDiff15minOk() (*float64, bool)`
+`func (o *LaneMatchupStats) GetNetWorthDiffOk() (*float64, bool)`
 
-GetNetWorthDiff15minOk returns a tuple with the NetWorthDiff15min field if it's non-nil, zero value otherwise
+GetNetWorthDiffOk returns a tuple with the NetWorthDiff field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNetWorthDiff15min
+### SetNetWorthDiff
 
-`func (o *LaneMatchupStats) SetNetWorthDiff15min(v float64)`
+`func (o *LaneMatchupStats) SetNetWorthDiff(v float64)`
 
-SetNetWorthDiff15min sets NetWorthDiff15min field to given value.
+SetNetWorthDiff sets NetWorthDiff field to given value.
 
 
-### GetNetWorthMatches
+### GetSampleMatches
 
-`func (o *LaneMatchupStats) GetNetWorthMatches() int64`
+`func (o *LaneMatchupStats) GetSampleMatches() int64`
 
-GetNetWorthMatches returns the NetWorthMatches field if non-nil, zero value otherwise.
+GetSampleMatches returns the SampleMatches field if non-nil, zero value otherwise.
 
-### GetNetWorthMatchesOk
+### GetSampleMatchesOk
 
-`func (o *LaneMatchupStats) GetNetWorthMatchesOk() (*int64, bool)`
+`func (o *LaneMatchupStats) GetSampleMatchesOk() (*int64, bool)`
 
-GetNetWorthMatchesOk returns a tuple with the NetWorthMatches field if it's non-nil, zero value otherwise
+GetSampleMatchesOk returns a tuple with the SampleMatches field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNetWorthMatches
+### SetSampleMatches
 
-`func (o *LaneMatchupStats) SetNetWorthMatches(v int64)`
+`func (o *LaneMatchupStats) SetSampleMatches(v int64)`
 
-SetNetWorthMatches sets NetWorthMatches field to given value.
+SetSampleMatches sets SampleMatches field to given value.
+
+
+### GetSampleTimeS
+
+`func (o *LaneMatchupStats) GetSampleTimeS() int32`
+
+GetSampleTimeS returns the SampleTimeS field if non-nil, zero value otherwise.
+
+### GetSampleTimeSOk
+
+`func (o *LaneMatchupStats) GetSampleTimeSOk() (*int32, bool)`
+
+GetSampleTimeSOk returns a tuple with the SampleTimeS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSampleTimeS
+
+`func (o *LaneMatchupStats) SetSampleTimeS(v int32)`
+
+SetSampleTimeS sets SampleTimeS field to given value.
+
+
+### GetStats
+
+`func (o *LaneMatchupStats) GetStats() map[string]LaneMatchupStat`
+
+GetStats returns the Stats field if non-nil, zero value otherwise.
+
+### GetStatsOk
+
+`func (o *LaneMatchupStats) GetStatsOk() (*map[string]LaneMatchupStat, bool)`
+
+GetStatsOk returns a tuple with the Stats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStats
+
+`func (o *LaneMatchupStats) SetStats(v map[string]LaneMatchupStat)`
+
+SetStats sets Stats field to given value.
 
 
 ### GetWins

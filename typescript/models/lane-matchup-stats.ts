@@ -13,21 +13,24 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { LaneMatchupStat } from './lane-matchup-stat.js';
 
 /**
  * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  */
 export interface LaneMatchupStats {
     /**
-     * The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
+     * The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
      */
     'assigned_lane': number;
     /**
-     * The ascending hero id pair they laned against.
+     * The ascending hero id pair they laned against, or empty when grouped away.
      */
     'enemy_hero_ids': Array<number>;
     /**
-     * The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+     * The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_ids': Array<number>;
     /**
@@ -35,13 +38,21 @@ export interface LaneMatchupStats {
      */
     'matches_played': number;
     /**
-     * Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.
+     * Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
      */
-    'net_worth_diff_15min': number;
+    'net_worth_diff': number;
     /**
-     * How many of `matches_played` carried net-worth samples for all four players.
+     * How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
      */
-    'net_worth_matches': number;
+    'sample_matches': number;
+    /**
+     * Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
+     */
+    'sample_time_s': number;
+    /**
+     * A reading per stat named in `stats`. Empty unless the parameter was set.
+     */
+    'stats': { [key: string]: LaneMatchupStat; };
     /**
      * The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
      */

@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
+from deadlock_api_client.models.lane_matchup_stat import LaneMatchupStat
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,14 +29,16 @@ class LaneMatchupStats(BaseModel):
     """
     **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
     """ # noqa: E501
-    assigned_lane: Annotated[int, Field(strict=True, ge=0)] = Field(description="The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
-    enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against.")
-    hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    assigned_lane: Annotated[int, Field(strict=True, ge=0)] = Field(description="The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
+    enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against, or empty when grouped away.")
+    hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     matches_played: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.")
-    net_worth_diff_15min: Union[StrictFloat, StrictInt] = Field(description="Mean souls the duo is ahead by 15 minutes in, against that duo. Negative means behind. `0` when no counted matchup had net-worth samples for all four players.")
-    net_worth_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="How many of `matches_played` carried net-worth samples for all four players.")
+    net_worth_diff: Union[StrictFloat, StrictInt] = Field(description="Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.")
+    sample_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.")
+    sample_time_s: Annotated[int, Field(strict=True, ge=0)] = Field(description="Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.")
+    stats: Dict[str, LaneMatchupStat] = Field(description="A reading per stat named in `stats`. Empty unless the parameter was set.")
     wins: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.")
-    __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff_15min", "net_worth_matches", "wins"]
+    __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff", "sample_matches", "sample_time_s", "stats", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -76,6 +79,13 @@ class LaneMatchupStats(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each value in stats (dict)
+        _field_dict = {}
+        if self.stats:
+            for _key_stats in self.stats:
+                if self.stats[_key_stats]:
+                    _field_dict[_key_stats] = self.stats[_key_stats].to_dict()
+            _dict['stats'] = _field_dict
         return _dict
 
     @classmethod
@@ -92,8 +102,15 @@ class LaneMatchupStats(BaseModel):
             "enemy_hero_ids": obj.get("enemy_hero_ids"),
             "hero_ids": obj.get("hero_ids"),
             "matches_played": obj.get("matches_played"),
-            "net_worth_diff_15min": obj.get("net_worth_diff_15min"),
-            "net_worth_matches": obj.get("net_worth_matches"),
+            "net_worth_diff": obj.get("net_worth_diff"),
+            "sample_matches": obj.get("sample_matches"),
+            "sample_time_s": obj.get("sample_time_s"),
+            "stats": dict(
+                (_k, LaneMatchupStat.from_dict(_v))
+                for _k, _v in obj["stats"].items()
+            )
+            if obj.get("stats") is not None
+            else None,
             "wins": obj.get("wins")
         })
         return _obj

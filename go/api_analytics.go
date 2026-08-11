@@ -237,7 +237,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -520,7 +520,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -687,7 +687,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -935,7 +935,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1203,7 +1203,7 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1449,7 +1449,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1767,7 +1767,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2130,7 +2130,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2447,7 +2447,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2762,7 +2762,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3084,7 +3084,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3445,7 +3445,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3835,7 +3835,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4230,7 +4230,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4614,7 +4614,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4753,8 +4753,12 @@ type ApiLaneMatchupStatsRequest struct {
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
+	sampleTimeS *int32
+	assignedLanes *string
 	heroIds *[]int32
 	enemyHeroIds *[]int32
+	stats *string
+	groupBy *string
 	minMatches *int64
 	maxMatches *int64
 	accountIds *[]int32
@@ -4820,6 +4824,18 @@ func (r ApiLaneMatchupStatsRequest) MaxMatchId(maxMatchId int64) ApiLaneMatchupS
 	return r
 }
 
+// Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in &#x60;wins&#x60; and &#x60;matches_played&#x60;, but contribute no reading; &#x60;sample_matches&#x60; reports how many did.
+func (r ApiLaneMatchupStatsRequest) SampleTimeS(sampleTimeS int32) ApiLaneMatchupStatsRequest {
+	r.sampleTimeS = &sampleTimeS
+	return r
+}
+
+// Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
+func (r ApiLaneMatchupStatsRequest) AssignedLanes(assignedLanes string) ApiLaneMatchupStatsRequest {
+	r.assignedLanes = &assignedLanes
+	return r
+}
+
 // Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiLaneMatchupStatsRequest) HeroIds(heroIds []int32) ApiLaneMatchupStatsRequest {
 	r.heroIds = &heroIds
@@ -4832,13 +4848,25 @@ func (r ApiLaneMatchupStatsRequest) EnemyHeroIds(enemyHeroIds []int32) ApiLaneMa
 	return r
 }
 
-// The minimum number of lane matchups played for a duo pairing to be included in the response.
+// Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
+func (r ApiLaneMatchupStatsRequest) Stats(stats string) ApiLaneMatchupStatsRequest {
+	r.stats = &stats
+	return r
+}
+
+// Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three.
+func (r ApiLaneMatchupStatsRequest) GroupBy(groupBy string) ApiLaneMatchupStatsRequest {
+	r.groupBy = &groupBy
+	return r
+}
+
+// The minimum number of lane matchups behind a row for it to be included in the response.
 func (r ApiLaneMatchupStatsRequest) MinMatches(minMatches int64) ApiLaneMatchupStatsRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
-// The maximum number of lane matchups played for a duo pairing to be included in the response.
+// The maximum number of lane matchups behind a row for it to be included in the response.
 func (r ApiLaneMatchupStatsRequest) MaxMatches(maxMatches int64) ApiLaneMatchupStatsRequest {
 	r.maxMatches = &maxMatches
 	return r
@@ -4862,7 +4890,11 @@ LaneMatchupStats Lane Matchup Stats (Subject to Change)
 
 Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.
 
+Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.
+
 Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.
+
+`group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.
 
 Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.
 
@@ -4918,7 +4950,7 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4943,6 +4975,16 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.maxMatchId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
 	}
+	if r.sampleTimeS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sample_time_s", r.sampleTimeS, "form", "")
+	} else {
+		var defaultValue int32 = 900
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sample_time_s", defaultValue, "form", "")
+		r.sampleTimeS = &defaultValue
+	}
+	if r.assignedLanes != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "assigned_lanes", r.assignedLanes, "form", "")
+	}
 	if r.heroIds != nil {
 		t := *r.heroIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
@@ -4964,6 +5006,12 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "enemy_hero_ids", t, "form", "multi")
 		}
+	}
+	if r.stats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "stats", r.stats, "form", "")
+	}
+	if r.groupBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "group_by", r.groupBy, "form", "")
 	}
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
@@ -5053,9 +5101,15 @@ type ApiLaneSoulCurveRequest struct {
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
+	minTimeS *int32
+	maxTimeS *int32
+	assignedLanes *string
 	heroIds *[]int32
 	enemyHeroIds *[]int32
+	stats *string
+	groupBy *string
 	minMatches *int64
+	maxMatches *int64
 	accountIds *[]int32
 }
 
@@ -5119,6 +5173,24 @@ func (r ApiLaneSoulCurveRequest) MaxMatchId(maxMatchId int64) ApiLaneSoulCurveRe
 	return r
 }
 
+// Earliest sample to return, in seconds into the match. **Default:** 180.
+func (r ApiLaneSoulCurveRequest) MinTimeS(minTimeS int32) ApiLaneSoulCurveRequest {
+	r.minTimeS = &minTimeS
+	return r
+}
+
+// Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
+func (r ApiLaneSoulCurveRequest) MaxTimeS(maxTimeS int32) ApiLaneSoulCurveRequest {
+	r.maxTimeS = &maxTimeS
+	return r
+}
+
+// Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
+func (r ApiLaneSoulCurveRequest) AssignedLanes(assignedLanes string) ApiLaneSoulCurveRequest {
+	r.assignedLanes = &assignedLanes
+	return r
+}
+
 // Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiLaneSoulCurveRequest) HeroIds(heroIds []int32) ApiLaneSoulCurveRequest {
 	r.heroIds = &heroIds
@@ -5131,9 +5203,27 @@ func (r ApiLaneSoulCurveRequest) EnemyHeroIds(enemyHeroIds []int32) ApiLaneSoulC
 	return r
 }
 
-// The minimum number of lane matchups played for a duo pairing to be included in the response.
+// Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
+func (r ApiLaneSoulCurveRequest) Stats(stats string) ApiLaneSoulCurveRequest {
+	r.stats = &stats
+	return r
+}
+
+// Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three.
+func (r ApiLaneSoulCurveRequest) GroupBy(groupBy string) ApiLaneSoulCurveRequest {
+	r.groupBy = &groupBy
+	return r
+}
+
+// The minimum number of lane matchups behind a row for it to be included in the response.
 func (r ApiLaneSoulCurveRequest) MinMatches(minMatches int64) ApiLaneSoulCurveRequest {
 	r.minMatches = &minMatches
+	return r
+}
+
+// The maximum number of lane matchups behind a row for it to be included in the response.
+func (r ApiLaneSoulCurveRequest) MaxMatches(maxMatches int64) ApiLaneSoulCurveRequest {
+	r.maxMatches = &maxMatches
 	return r
 }
 
@@ -5153,9 +5243,15 @@ LaneSoulCurve Lane Soul Curve (Subject to Change)
 
 > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.
 
-Retrieves how a duo's soul lead over the duo they laned against develops through the first 15 minutes.
+Retrieves how a duo's lead over the duo they laned against develops over the course of the match.
 
-The curve is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated; its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.
+The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.
+
+Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.
+
+Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.
+
+`group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.
 
 Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.
 
@@ -5211,7 +5307,7 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5236,6 +5332,19 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.maxMatchId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
 	}
+	if r.minTimeS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_time_s", r.minTimeS, "form", "")
+	} else {
+		var defaultValue int32 = 180
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_time_s", defaultValue, "form", "")
+		r.minTimeS = &defaultValue
+	}
+	if r.maxTimeS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_time_s", r.maxTimeS, "form", "")
+	}
+	if r.assignedLanes != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "assigned_lanes", r.assignedLanes, "form", "")
+	}
 	if r.heroIds != nil {
 		t := *r.heroIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
@@ -5258,12 +5367,21 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 			parameterAddToHeaderOrQuery(localVarQueryParams, "enemy_hero_ids", t, "form", "multi")
 		}
 	}
+	if r.stats != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "stats", r.stats, "form", "")
+	}
+	if r.groupBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "group_by", r.groupBy, "form", "")
+	}
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
 		var defaultValue int64 = 20
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
+	}
+	if r.maxMatches != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches", r.maxMatches, "form", "")
 	}
 	if r.accountIds != nil {
 		t := *r.accountIds
@@ -5523,7 +5641,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6162,7 +6280,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1783728000
+		var defaultValue int64 = 1783814400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

@@ -49,9 +49,27 @@ class TestLaneSoulCurve(unittest.TestCase):
                 net_worth_diff_std = [
                     1.337
                     ],
+                sample_matches = [
+                    0
+                    ],
                 sample_times_s = [
                     0
-                    ]
+                    ],
+                stats = {
+                    'key' : deadlock_api_client.models.lane_stat_curve.LaneStatCurve(
+                        diff = [
+                            1.337
+                            ], 
+                        diff_std = [
+                            1.337
+                            ], 
+                        value = [
+                            1.337
+                            ], 
+                        value_std = [
+                            1.337
+                            ], )
+                    }
             )
         else:
             return LaneSoulCurve(
@@ -69,9 +87,27 @@ class TestLaneSoulCurve(unittest.TestCase):
                 net_worth_diff_std = [
                     1.337
                     ],
+                sample_matches = [
+                    0
+                    ],
                 sample_times_s = [
                     0
                     ],
+                stats = {
+                    'key' : deadlock_api_client.models.lane_stat_curve.LaneStatCurve(
+                        diff = [
+                            1.337
+                            ], 
+                        diff_std = [
+                            1.337
+                            ], 
+                        value = [
+                            1.337
+                            ], 
+                        value_std = [
+                            1.337
+                            ], )
+                    },
         )
         """
 
