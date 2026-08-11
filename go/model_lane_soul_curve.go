@@ -19,7 +19,7 @@ import (
 // checks if the LaneSoulCurve type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LaneSoulCurve{}
 
-// LaneSoulCurve struct for LaneSoulCurve
+// LaneSoulCurve **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 type LaneSoulCurve struct {
 	// The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
 	AssignedLane int32 `json:"assigned_lane"`

@@ -26,7 +26,7 @@ using DeadlockApiClient.Client;
 namespace DeadlockApiClient.Model
 {
     /// <summary>
-    /// LaneSoulCurve
+    /// **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
     /// </summary>
     public partial class LaneSoulCurve : IValidatableObject
     {

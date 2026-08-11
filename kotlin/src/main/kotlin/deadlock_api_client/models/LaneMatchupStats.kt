@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
+ * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  *
  * @param assignedLane The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
  * @param enemyHeroIds The ascending hero id pair they laned against.

@@ -4855,8 +4855,10 @@ func (r ApiLaneMatchupStatsRequest) Execute() ([]LaneMatchupStats, *http.Respons
 }
 
 /*
-LaneMatchupStats Lane Matchup Stats
+LaneMatchupStats Lane Matchup Stats (Subject to Change)
 
+
+> **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.
 
 Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.
 
@@ -5146,8 +5148,10 @@ func (r ApiLaneSoulCurveRequest) Execute() ([]LaneSoulCurve, *http.Response, err
 }
 
 /*
-LaneSoulCurve Lane Soul Curve
+LaneSoulCurve Lane Soul Curve (Subject to Change)
 
+
+> **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.
 
 Retrieves how a duo's soul lead over the duo they laned against develops through the first 15 minutes.
 

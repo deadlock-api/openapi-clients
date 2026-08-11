@@ -3575,19 +3575,22 @@ paths:
       - Analytics
   /v1/analytics/lane-matchup-stats:
     get:
-      description: "\nRetrieves duo-versus-duo lane statistics: how a pair of heroes\
-        \ sharing a lane performed against the pair of heroes they laned against.\n\
-        \nOnly lanes where *both* sides fielded exactly two players are counted, and\
-        \ each lane contributes one row per side, so every matchup appears twice with\
-        \ the two sides swapped.\n\nPass `hero_ids` and `enemy_hero_ids` to scope\
-        \ the response to the duos you care about. Without them the full duo-versus-duo\
-        \ matrix is computed, which is a considerably more expensive query.\n\nResults\
-        \ are cached for **1 hour**. The cache key is determined by the specific combination\
-        \ of filter parameters used in the query. Subsequent requests using the exact\
-        \ same filters within this timeframe will receive the cached response.\n\n\
-        ### Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: "\n> **⚠️ Subject to change:** This endpoint is newly added and\
+        \ not yet stable. Its parameters, response fields and semantics may change\
+        \ or be removed without notice.\n\nRetrieves duo-versus-duo lane statistics:\
+        \ how a pair of heroes sharing a lane performed against the pair of heroes\
+        \ they laned against.\n\nOnly lanes where *both* sides fielded exactly two\
+        \ players are counted, and each lane contributes one row per side, so every\
+        \ matchup appears twice with the two sides swapped.\n\nPass `hero_ids` and\
+        \ `enemy_hero_ids` to scope the response to the duos you care about. Without\
+        \ them the full duo-versus-duo matrix is computed, which is a considerably\
+        \ more expensive query.\n\nResults are cached for **1 hour**. The cache key\
+        \ is determined by the specific combination of filter parameters used in the\
+        \ query. Subsequent requests using the exact same filters within this timeframe\
+        \ will receive the cached response.\n\n### Rate Limits:\n> The rate limits\
+        \ below are **shared across all analytics endpoints**.\n\n| Type | Limit |\n\
+        | ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
+        \ |\n    "
       operationId: lane_matchup_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -3795,25 +3798,27 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch lane matchup stats
-      summary: Lane Matchup Stats
+      summary: Lane Matchup Stats (Subject to Change)
       tags:
       - Analytics
   /v1/analytics/lane-soul-curve:
     get:
-      description: "\nRetrieves how a duo's soul lead over the duo they laned against\
-        \ develops through the first 15 minutes.\n\nThe curve is sampled at 180, 360,\
-        \ 540, 720 and 900 seconds and is not interpolated; its last point is the\
-        \ `net_worth_diff_15min` of `/lane-matchup-stats`. Only lanes where *both*\
-        \ sides fielded exactly two players are counted, and each lane contributes\
-        \ one row per side, so every matchup appears twice with the two sides swapped.\n\
-        \nPass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you\
-        \ care about. Without them the full duo-versus-duo matrix is computed, which\
-        \ is a considerably more expensive query.\n\nResults are cached for **1 hour**\
-        \ based on the combination of query parameters provided. Subsequent identical\
-        \ requests within this timeframe will receive the cached response.\n\n###\
-        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: "\n> **⚠️ Subject to change:** This endpoint is newly added and\
+        \ not yet stable. Its parameters, response fields and semantics may change\
+        \ or be removed without notice.\n\nRetrieves how a duo's soul lead over the\
+        \ duo they laned against develops through the first 15 minutes.\n\nThe curve\
+        \ is sampled at 180, 360, 540, 720 and 900 seconds and is not interpolated;\
+        \ its last point is the `net_worth_diff_15min` of `/lane-matchup-stats`. Only\
+        \ lanes where *both* sides fielded exactly two players are counted, and each\
+        \ lane contributes one row per side, so every matchup appears twice with the\
+        \ two sides swapped.\n\nPass `hero_ids` and `enemy_hero_ids` to scope the\
+        \ response to the duos you care about. Without them the full duo-versus-duo\
+        \ matrix is computed, which is a considerably more expensive query.\n\nResults\
+        \ are cached for **1 hour** based on the combination of query parameters provided.\
+        \ Subsequent identical requests within this timeframe will receive the cached\
+        \ response.\n\n### Rate Limits:\n> The rate limits below are **shared across\
+        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
+        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: lane_soul_curve
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -4009,7 +4014,7 @@ paths:
           description: Provided parameters are invalid.
         "500":
           description: Failed to fetch lane soul curve
-      summary: Lane Soul Curve
+      summary: Lane Soul Curve (Subject to Change)
       tags:
       - Analytics
   /v1/analytics/player-performance-curve:
@@ -14829,6 +14834,8 @@ components:
       - color
       - lane_name
     LaneMatchupStats:
+      description: "**⚠️ Subject to change:** newly added, fields may change or be\
+        \ removed without notice."
       example:
         assigned_lane: 0
         enemy_hero_ids:
@@ -14898,6 +14905,8 @@ components:
       - net_worth_matches
       - wins
     LaneSoulCurve:
+      description: "**⚠️ Subject to change:** newly added, fields may change or be\
+        \ removed without notice."
       example:
         assigned_lane: 0
         enemy_hero_ids:

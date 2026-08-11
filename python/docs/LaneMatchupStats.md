@@ -1,5 +1,6 @@
 # LaneMatchupStats
 
+**⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 
 ## Properties
 

@@ -9,6 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+/**
+ * **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
+ */
 export interface LaneSoulCurve {
     /**
      * The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.

@@ -19,8 +19,8 @@ Method | HTTP request | Description
 [**ItemPermutationStats**](AnalyticsAPI.md#ItemPermutationStats) | **Get** /v1/analytics/item-permutation-stats | Item Permutation Stats
 [**ItemStats**](AnalyticsAPI.md#ItemStats) | **Get** /v1/analytics/item-stats | Item Stats
 [**KillDeathStats**](AnalyticsAPI.md#KillDeathStats) | **Get** /v1/analytics/kill-death-stats | Kill Death Stats
-[**LaneMatchupStats**](AnalyticsAPI.md#LaneMatchupStats) | **Get** /v1/analytics/lane-matchup-stats | Lane Matchup Stats
-[**LaneSoulCurve**](AnalyticsAPI.md#LaneSoulCurve) | **Get** /v1/analytics/lane-soul-curve | Lane Soul Curve
+[**LaneMatchupStats**](AnalyticsAPI.md#LaneMatchupStats) | **Get** /v1/analytics/lane-matchup-stats | Lane Matchup Stats (Subject to Change)
+[**LaneSoulCurve**](AnalyticsAPI.md#LaneSoulCurve) | **Get** /v1/analytics/lane-soul-curve | Lane Soul Curve (Subject to Change)
 [**PlayerPerformanceCurve**](AnalyticsAPI.md#PlayerPerformanceCurve) | **Get** /v1/analytics/player-performance-curve | Player Performance Curve
 [**PlayerScoreboard**](AnalyticsAPI.md#PlayerScoreboard) | **Get** /v1/analytics/scoreboards/players | Player Scoreboard
 [**PlayerStatsMetrics**](AnalyticsAPI.md#PlayerStatsMetrics) | **Get** /v1/analytics/player-stats/metrics | Player Stats Metrics
@@ -1523,7 +1523,7 @@ No authorization required
 
 > []LaneMatchupStats LaneMatchupStats(ctx).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroIds(heroIds).EnemyHeroIds(enemyHeroIds).MinMatches(minMatches).MaxMatches(maxMatches).AccountIds(accountIds).Execute()
 
-Lane Matchup Stats
+Lane Matchup Stats (Subject to Change)
 
 
 
@@ -1617,7 +1617,7 @@ No authorization required
 
 > []LaneSoulCurve LaneSoulCurve(ctx).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroIds(heroIds).EnemyHeroIds(enemyHeroIds).MinMatches(minMatches).AccountIds(accountIds).Execute()
 
-Lane Soul Curve
+Lane Soul Curve (Subject to Change)
 
 
 

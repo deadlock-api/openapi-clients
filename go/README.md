@@ -107,8 +107,8 @@ Class | Method | HTTP request | Description
 *AnalyticsAPI* | [**ItemPermutationStats**](docs/AnalyticsAPI.md#itempermutationstats) | **Get** /v1/analytics/item-permutation-stats | Item Permutation Stats
 *AnalyticsAPI* | [**ItemStats**](docs/AnalyticsAPI.md#itemstats) | **Get** /v1/analytics/item-stats | Item Stats
 *AnalyticsAPI* | [**KillDeathStats**](docs/AnalyticsAPI.md#killdeathstats) | **Get** /v1/analytics/kill-death-stats | Kill Death Stats
-*AnalyticsAPI* | [**LaneMatchupStats**](docs/AnalyticsAPI.md#lanematchupstats) | **Get** /v1/analytics/lane-matchup-stats | Lane Matchup Stats
-*AnalyticsAPI* | [**LaneSoulCurve**](docs/AnalyticsAPI.md#lanesoulcurve) | **Get** /v1/analytics/lane-soul-curve | Lane Soul Curve
+*AnalyticsAPI* | [**LaneMatchupStats**](docs/AnalyticsAPI.md#lanematchupstats) | **Get** /v1/analytics/lane-matchup-stats | Lane Matchup Stats (Subject to Change)
+*AnalyticsAPI* | [**LaneSoulCurve**](docs/AnalyticsAPI.md#lanesoulcurve) | **Get** /v1/analytics/lane-soul-curve | Lane Soul Curve (Subject to Change)
 *AnalyticsAPI* | [**PlayerPerformanceCurve**](docs/AnalyticsAPI.md#playerperformancecurve) | **Get** /v1/analytics/player-performance-curve | Player Performance Curve
 *AnalyticsAPI* | [**PlayerScoreboard**](docs/AnalyticsAPI.md#playerscoreboard) | **Get** /v1/analytics/scoreboards/players | Player Scoreboard
 *AnalyticsAPI* | [**PlayerStatsMetrics**](docs/AnalyticsAPI.md#playerstatsmetrics) | **Get** /v1/analytics/player-stats/metrics | Player Stats Metrics

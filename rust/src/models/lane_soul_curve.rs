@@ -11,6 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// LaneSoulCurve : **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LaneSoulCurve {
     /// The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
@@ -37,6 +38,7 @@ pub struct LaneSoulCurve {
 }
 
 impl LaneSoulCurve {
+    /// **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
     pub fn new(assigned_lane: u32, enemy_hero_ids: Vec<u32>, hero_ids: Vec<u32>, matches_played: u64, net_worth_diff: Vec<f64>, net_worth_diff_std: Vec<f64>, sample_times_s: Vec<u32>) -> LaneSoulCurve {
         LaneSoulCurve {
             assigned_lane,

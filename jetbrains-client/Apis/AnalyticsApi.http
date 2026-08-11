@@ -75,13 +75,13 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/analytics/kill-death-stats?team={{team}}&gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&accountIds={{accountIds}}&heroIds={{heroIds}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minKillsPerRaster={{minKillsPerRaster}}&maxKillsPerRaster={{maxKillsPerRaster}}&minDeathsPerRaster={{minDeathsPerRaster}}&maxDeathsPerRaster={{maxDeathsPerRaster}}&minGameTimeS={{minGameTimeS}}&maxGameTimeS={{maxGameTimeS}}
 Accept: application/json
 
-### Lane Matchup Stats
-## Lane Matchup Stats
+### Lane Matchup Stats (Subject to Change)
+## Lane Matchup Stats (Subject to Change)
 GET https://api.deadlock-api.com/v1/analytics/lane-matchup-stats?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&enemyHeroIds={{enemyHeroIds}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountIds={{accountIds}}
 Accept: application/json
 
-### Lane Soul Curve
-## Lane Soul Curve
+### Lane Soul Curve (Subject to Change)
+## Lane Soul Curve (Subject to Change)
 GET https://api.deadlock-api.com/v1/analytics/lane-soul-curve?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroIds={{heroIds}}&enemyHeroIds={{enemyHeroIds}}&minMatches={{minMatches}}&accountIds={{accountIds}}
 Accept: application/json
 

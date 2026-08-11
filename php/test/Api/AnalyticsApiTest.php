@@ -254,7 +254,7 @@ class AnalyticsApiTest extends TestCase
     /**
      * Test case for laneMatchupStats
      *
-     * Lane Matchup Stats.
+     * Lane Matchup Stats (Subject to Change).
      *
      */
     public function testLaneMatchupStats()
@@ -266,7 +266,7 @@ class AnalyticsApiTest extends TestCase
     /**
      * Test case for laneSoulCurve
      *
-     * Lane Soul Curve.
+     * Lane Soul Curve (Subject to Change).
      *
      */
     public function testLaneSoulCurve()

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * LaneMatchupStatsTest Class Doc Comment
  *
  * @category    Class
- * @description LaneMatchupStats
+ * @description **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

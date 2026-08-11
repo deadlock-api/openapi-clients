@@ -26,7 +26,7 @@ from pydantic_core import to_jsonable_python
 
 class LaneSoulCurve(BaseModel):
     """
-    LaneSoulCurve
+    **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
     """ # noqa: E501
     assigned_lane: Annotated[int, Field(strict=True, ge=0)] = Field(description="The lane the matchup was played in. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
     enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against.")

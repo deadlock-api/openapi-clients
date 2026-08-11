@@ -19,8 +19,8 @@ Method | HTTP request | Description
 [**item_permutation_stats**](AnalyticsApi.md#item_permutation_stats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats
 [**item_stats**](AnalyticsApi.md#item_stats) | **GET** /v1/analytics/item-stats | Item Stats
 [**kill_death_stats**](AnalyticsApi.md#kill_death_stats) | **GET** /v1/analytics/kill-death-stats | Kill Death Stats
-[**lane_matchup_stats**](AnalyticsApi.md#lane_matchup_stats) | **GET** /v1/analytics/lane-matchup-stats | Lane Matchup Stats
-[**lane_soul_curve**](AnalyticsApi.md#lane_soul_curve) | **GET** /v1/analytics/lane-soul-curve | Lane Soul Curve
+[**lane_matchup_stats**](AnalyticsApi.md#lane_matchup_stats) | **GET** /v1/analytics/lane-matchup-stats | Lane Matchup Stats (Subject to Change)
+[**lane_soul_curve**](AnalyticsApi.md#lane_soul_curve) | **GET** /v1/analytics/lane-soul-curve | Lane Soul Curve (Subject to Change)
 [**player_performance_curve**](AnalyticsApi.md#player_performance_curve) | **GET** /v1/analytics/player-performance-curve | Player Performance Curve
 [**player_scoreboard**](AnalyticsApi.md#player_scoreboard) | **GET** /v1/analytics/scoreboards/players | Player Scoreboard
 [**player_stats_metrics**](AnalyticsApi.md#player_stats_metrics) | **GET** /v1/analytics/player-stats/metrics | Player Stats Metrics
@@ -1791,8 +1791,10 @@ No authorization required
 # **lane_matchup_stats**
 > List[LaneMatchupStats] lane_matchup_stats(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_ids=hero_ids, enemy_hero_ids=enemy_hero_ids, min_matches=min_matches, max_matches=max_matches, account_ids=account_ids)
 
-Lane Matchup Stats
+Lane Matchup Stats (Subject to Change)
 
+
+> **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.
 
 Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.
 
@@ -1849,7 +1851,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
 
     try:
-        # Lane Matchup Stats
+        # Lane Matchup Stats (Subject to Change)
         api_response = api_instance.lane_matchup_stats(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_ids=hero_ids, enemy_hero_ids=enemy_hero_ids, min_matches=min_matches, max_matches=max_matches, account_ids=account_ids)
         print("The response of AnalyticsApi->lane_matchup_stats:\n")
         pprint(api_response)
@@ -1906,8 +1908,10 @@ No authorization required
 # **lane_soul_curve**
 > List[LaneSoulCurve] lane_soul_curve(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_ids=hero_ids, enemy_hero_ids=enemy_hero_ids, min_matches=min_matches, account_ids=account_ids)
 
-Lane Soul Curve
+Lane Soul Curve (Subject to Change)
 
+
+> **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.
 
 Retrieves how a duo's soul lead over the duo they laned against develops through the first 15 minutes.
 
@@ -1963,7 +1967,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
 
     try:
-        # Lane Soul Curve
+        # Lane Soul Curve (Subject to Change)
         api_response = api_instance.lane_soul_curve(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_ids=hero_ids, enemy_hero_ids=enemy_hero_ids, min_matches=min_matches, account_ids=account_ids)
         print("The response of AnalyticsApi->lane_soul_curve:\n")
         pprint(api_response)
