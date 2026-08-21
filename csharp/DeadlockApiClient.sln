@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadlockApiClient", "src\DeadlockApiClient\DeadlockApiClient.csproj", "{72A966D8-B783-431E-BFE6-7A6942EAA56B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadlockApiClient", "src\DeadlockApiClient\DeadlockApiClient.csproj", "{772C90BB-DD97-4ACF-9080-5B48CC4928EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadlockApiClient.Test", "src\DeadlockApiClient.Test\DeadlockApiClient.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72A966D8-B783-431E-BFE6-7A6942EAA56B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72A966D8-B783-431E-BFE6-7A6942EAA56B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72A966D8-B783-431E-BFE6-7A6942EAA56B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72A966D8-B783-431E-BFE6-7A6942EAA56B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{772C90BB-DD97-4ACF-9080-5B48CC4928EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{772C90BB-DD97-4ACF-9080-5B48CC4928EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{772C90BB-DD97-4ACF-9080-5B48CC4928EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{772C90BB-DD97-4ACF-9080-5B48CC4928EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
