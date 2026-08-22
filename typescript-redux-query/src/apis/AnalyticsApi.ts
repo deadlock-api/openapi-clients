@@ -3272,6 +3272,7 @@ export enum HeroCountersStatsGameModeEnum {
     */
 export enum HeroScoreboardSortByEnum {
     Matches = 'matches',
+    Rank = 'rank',
     Wins = 'wins',
     Losses = 'losses',
     Winrate = 'winrate',
@@ -3479,6 +3480,7 @@ export enum PlayerPerformanceCurveGameModeEnum {
     */
 export enum PlayerScoreboardSortByEnum {
     Matches = 'matches',
+    Rank = 'rank',
     Wins = 'wins',
     Losses = 'losses',
     Winrate = 'winrate',

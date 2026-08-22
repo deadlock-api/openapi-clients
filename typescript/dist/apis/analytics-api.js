@@ -3044,6 +3044,7 @@ export const HeroCountersStatsGameModeEnum = {
 };
 export const HeroScoreboardSortByEnum = {
     Matches: 'matches',
+    Rank: 'rank',
     Wins: 'wins',
     Losses: 'losses',
     Winrate: 'winrate',
@@ -3195,6 +3196,7 @@ export const PlayerPerformanceCurveGameModeEnum = {
 };
 export const PlayerScoreboardSortByEnum = {
     Matches: 'matches',
+    Rank: 'rank',
     Wins: 'wins',
     Losses: 'losses',
     Winrate: 'winrate',
