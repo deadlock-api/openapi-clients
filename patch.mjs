@@ -93,18 +93,19 @@ addJsExtensions(dir);
 // axios >= 1.19 types `request<T, R>` as returning `Promise<AxiosResponseResult<T, R, D, P>>`,
 // a conditional type over an unexported `unique symbol`. Without the cast, `createRequestFunction`'s
 // inferred type references that symbol and declaration emit fails with TS2527.
+// Generators >= 7.20 emit the cast themselves; only patch when it is missing.
 const commonPath = resolve(dir, "common.ts");
 if (existsSync(commonPath)) {
   const common = readFileSync(commonPath, "utf8");
-  const patched = common.replace(
-    "return axios.request<T, R>(axiosRequestArgs);",
-    "return axios.request<T, R>(axiosRequestArgs) as Promise<R>;",
-  );
-  if (patched === common) {
-    console.error("patch.mjs: could not patch axios.request call in common.ts");
-    process.exit(1);
+  const casted = "return axios.request<T, R>(axiosRequestArgs) as Promise<R>;";
+  if (!common.includes(casted)) {
+    const patched = common.replace("return axios.request<T, R>(axiosRequestArgs);", casted);
+    if (patched === common) {
+      console.error("patch.mjs: could not patch axios.request call in common.ts");
+      process.exit(1);
+    }
+    writeFileSync(commonPath, patched);
   }
-  writeFileSync(commonPath, patched);
 }
 
 // Remove `dist` from the generated .gitignore so the built output is committed
