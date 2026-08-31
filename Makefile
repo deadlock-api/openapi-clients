@@ -1,9 +1,10 @@
-.PHONY: all python typescript typescript-redux-query rust kotlin go php jetbrains-client csharp clean
+.PHONY: all python typescript typescript-redux-query typescript-graphql rust kotlin go php jetbrains-client csharp clean
 
 OPENAPI_SPEC = openapi.json
 OPENAPI_URL = https://api.deadlock-api.com/openapi.json
+GRAPHQL_URL = https://api.deadlock-api.com/v1/graphql
 
-all: $(OPENAPI_SPEC) python typescript typescript-redux-query rust kotlin go php jetbrains-client csharp
+all: $(OPENAPI_SPEC) python typescript typescript-redux-query typescript-graphql rust kotlin go php jetbrains-client csharp
 
 $(OPENAPI_SPEC):
 	@echo "--> Fetching OpenAPI spec..."
@@ -35,6 +36,13 @@ typescript-redux-query:
 	@echo "--> Generating Typescript Redux Query client for the API..."
 	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i $(OPENAPI_SPEC) -g typescript-redux-query -o typescript-redux-query/ --skip-validate-spec --additional-properties=npmName=deadlock_api_client_redux_query,useSingleRequestParameter=true,supportsES6=true
 	@echo "--> API client generated successfully in typescript-redux-query/"
+
+typescript-graphql:
+	@echo "--> Generating Typescript GraphQL client for the API..."
+	pnpx @genql/cli --endpoint $(GRAPHQL_URL) --output typescript-graphql/src
+	@echo "--> Building Typescript GraphQL client..."
+	@cd typescript-graphql && npm install --ignore-scripts && npm run build
+	@echo "--> GraphQL client generated successfully in typescript-graphql/"
 
 rust:
 	@echo "--> Creating directory for the API client..."
@@ -91,5 +99,5 @@ csharp:
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf openapitools.json $(OPENAPI_SPEC) python typescript typescript-redux-query rust kotlin go php jetbrains-client csharp
+	@rm -rf openapitools.json $(OPENAPI_SPEC) python typescript typescript-redux-query typescript-graphql/src typescript-graphql/dist typescript-graphql/node_modules rust kotlin go php jetbrains-client csharp
 	@echo "--> Cleanup complete."

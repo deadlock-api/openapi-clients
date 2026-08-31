@@ -10,6 +10,7 @@ The clients are organized by language:
 -   **Rust**: `rust/` — Client for the Deadlock API.
 -   **TypeScript**: `typescript/` — Client for the Deadlock API.
 -   **TypeScript Redux Query**: `typescript-redux-query/` — Client for the Deadlock API.
+-   **TypeScript GraphQL**: `typescript-graphql/` — Typed [genql](https://genql.dev) client for the GraphQL endpoint.
 -   **Kotlin & Java**: `kotlin/` — Client for the Deadlock API.
 -   **Go**: `go/` — Client for the Deadlock API.
 -   **PHP**: `php/` — Client for the Deadlock API.
@@ -70,6 +71,21 @@ yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-redu
 
 # pnpm
 pnpm add github:deadlock-api/openapi-clients#path:/typescript-redux-query
+```
+
+### TypeScript GraphQL
+
+Typed query-builder client for the GraphQL endpoint (`/v1/graphql`), generated with [genql](https://genql.dev). See `typescript-graphql/README.md` for usage.
+
+```bash
+# npm
+npm install 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-graphql?master'
+
+# yarn
+yarn add 'https://gitpkg.vercel.app/deadlock-api/openapi-clients/typescript-graphql?master'
+
+# pnpm
+pnpm add github:deadlock-api/openapi-clients#path:/typescript-graphql
 ```
 
 ### Kotlin & Java
