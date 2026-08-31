@@ -1,0 +1,38 @@
+{
+  "name": "deadlock_api_graphql_client",
+  "version": "0.1.0",
+  "description": "Typed GraphQL client for the Deadlock API, generated with genql",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deadlock-api/openapi-clients.git"
+  },
+  "keywords": [
+    "graphql",
+    "typescript",
+    "genql",
+    "deadlock_api_graphql_client"
+  ],
+  "license": "Unlicense",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.0 || ^5.0"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}

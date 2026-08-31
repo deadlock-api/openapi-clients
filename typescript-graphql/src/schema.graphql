@@ -1,0 +1,764 @@
+schema {
+  query: QueryRoot
+}
+
+type Ability {
+  id: Int!
+  class_name: String!
+  name: String!
+  start_trained: Boolean
+  image: String
+  image_webp: String
+  hero: Int
+  heroes: [Int!]
+  update_time: Int
+  type: ItemType!
+  grant_ammo_on_cast: Boolean
+  behaviours: [String!]
+  description: AbilityDescription!
+  ability_type: AbilityType
+  boss_damage_scale: Float
+  dependant_abilities: [String!]
+  videos: AbilityVideos
+  properties: JSON!
+  weapon_info: JSON!
+  tooltip_details: JSON!
+  upgrades: JSON!
+  dependent_abilities: JSON!
+}
+
+enum AbilityActivation {
+  HOLD_TOGGLE
+  INSTANT_CAST
+  ON_BUTTON_IS_DOWN
+  PASSIVE
+  PRESS
+  PRESS_TOGGLE
+  INSTANT_CAST_TOGGLE
+}
+
+type AbilityDescription {
+  desc: String
+  quip: String
+  t_1_desc: String
+  t_2_desc: String
+  t_3_desc: String
+  active: String
+  passive: String
+}
+
+enum AbilityImbue {
+  ACTIVE
+  ACTIVE_NON_ULT
+  MODIFIER_VALUE
+}
+
+enum AbilityType {
+  INNATE
+  ITEM
+  SIGNATURE
+  ULTIMATE
+  WEAPON
+  MELEE
+  COSMETIC
+}
+
+type AbilityVideos {
+  webm: String
+  mp_4: String
+}
+
+union AssetItem = Ability | Weapon | Upgrade
+
+input BoolFilter {
+  eq: Boolean
+  is_null: Boolean
+}
+
+type Hero {
+  id: Int!
+  class_name: String!
+  name: String!
+  description: HeroDescription!
+  player_selectable: Boolean!
+  disabled: Boolean!
+  in_development: Boolean!
+  needs_testing: Boolean!
+  assigned_players_only: Boolean!
+
+  """Always emitted (empty if the hero declares no `m_vecHeroTags`)."""
+  tags: [String!]!
+  gun_tag: String
+  hideout_rich_presence: String
+  hero_type: HeroType
+  prerelease_only: Boolean
+  limited_testing: Boolean!
+  complexity: Int!
+  skin: Int!
+  images: HeroImages!
+  physics: HeroPhysics!
+  shop_stat_display: ShopStatDisplay!
+  stats_display: StatsDisplay!
+  hero_stats_ui: HeroStatsUI!
+  item_draft_weights: JSON!
+  items: JSON!
+  starting_stats: JSON!
+  item_slot_info: JSON!
+  colors: JSON!
+  cost_bonuses: JSON!
+  level_info: JSON!
+  scaling_stats: JSON!
+  purchase_bonuses: JSON!
+  standard_level_up_upgrades: JSON!
+  item_draft_bucketing: JSON!
+}
+
+type HeroDescription {
+  lore: String
+  role: String
+  playstyle: String
+}
+
+type HeroImages {
+  icon_hero_card: String
+  icon_hero_card_webp: String
+  icon_image_small: String
+  icon_image_small_webp: String
+  minimap_image: String
+  minimap_image_webp: String
+  hero_card_critical: String
+  hero_card_critical_webp: String
+  hero_card_gloat: String
+  hero_card_gloat_webp: String
+  top_bar_vertical_image: String
+  top_bar_vertical_image_webp: String
+  weapon_image: String
+  weapon_image_webp: String
+  background_image: String
+  background_image_webp: String
+  name_image: String
+}
+
+type HeroPhysics {
+  stealth_speed_meters_per_second: Float!
+  collision_height: Float
+  collision_radius: Float
+  step_height: Float
+  footstep_sound_travel_distance_meters: Float
+  step_sound_time: Float
+  step_sound_time_sprinting: Float
+}
+
+type HeroStatsUI {
+  weapon_stat_display: String!
+  display_stats: [HeroStatsUIDisplay!]!
+}
+
+type HeroStatsUIDisplay {
+  category: String!
+  stat_type: String!
+}
+
+enum HeroType {
+  ASSASSIN
+  BRAWLER
+  MARKSMAN
+  MYSTIC
+}
+
+input I32Filter {
+  eq: Int
+  in: [Int!]
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+  is_null: Boolean
+}
+
+input I64Filter {
+  eq: Int
+  in: [Int!]
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+  is_null: Boolean
+}
+
+type Item {
+  game_time_s: Int
+  item_id: Int
+  upgrade_id: Int
+  sold_time_s: Int
+  flags: Int
+  imbued_ability_id: Int
+
+  """
+  Catalog asset for this purchased item, matched by `item_id` then `upgrade_id`.
+  """
+  asset: AssetItem
+}
+
+enum ItemSlotType {
+  WEAPON
+  SPIRIT
+  VITALITY
+}
+
+"""Discriminator for the `type` field on every item variant."""
+enum ItemType {
+  ABILITY
+  WEAPON
+  UPGRADE
+}
+
+"""A scalar that can represent any JSON value."""
+scalar JSON
+
+scalar JsonScalar
+
+"""
+Set of languages the upstream `localization/<lang>.json` files are keyed by.
+"""
+enum Language {
+  BRAZILIAN
+  BULGARIAN
+  CZECH
+  DANISH
+  DUTCH
+  ENGLISH
+  FINNISH
+  FRENCH
+  GERMAN
+  GREEK
+  HUNGARIAN
+  INDONESIAN
+  ITALIAN
+  JAPANESE
+  KOREANA
+  LATAM
+  NORWEGIAN
+  POLISH
+  PORTUGUESE
+  ROMANIAN
+  RUSSIAN
+  SCHINESE
+  SPANISH
+  SWEDISH
+  TCHINESE
+  THAI
+  TURKISH
+  UKRAINIAN
+  VIETNAMESE
+}
+
+type Match {
+  match_id: Int
+  start_time: Int
+  duration_s: Int
+  match_mode: String
+  game_mode: String
+  game_mode_version: Int
+  bot_difficulty: String
+  winning_team: String
+  match_outcome: String
+  average_badge_team_0: Int
+  average_badge_team_1: Int
+  average_badge: Int
+  is_high_skill_range_parties: Boolean
+  low_pri_pool: Boolean
+  new_player_pool: Boolean
+  not_scored: Boolean
+  ranked_type: String
+  rank_interval: Int
+  rewards_eligible: Boolean
+  earned_holiday_award_2025: Boolean
+  objectives_mask_team_0: Int
+  objectives_mask_team_1: Int
+  team_score: JsonScalar
+  match_tracked_stats: JsonScalar
+  team_0_tracked_stats: JsonScalar
+  team_1_tracked_stats: JsonScalar
+  objectives: JsonScalar
+  mid_boss: JsonScalar
+  street_brawl_rounds: JsonScalar
+  banned_hero_ids: JsonScalar
+  first_mid_boss_time_s: Int
+  first_objective_destroyed_time_s: Int
+  players: [MatchPlayer!]
+}
+
+"""
+One `player_match_history` row per (`account_id`, `match_id`) — the same
+data as the REST `/v1/players/{account_id}/match-history` endpoint, minus
+the on-demand Steam fetch (only what `ClickHouse` has stored).
+"""
+type MatchHistoryEntry {
+  account_id: Int
+  match_id: Int
+
+  """See more: <https://api.deadlock-api.com/v1/assets/heroes>"""
+  hero_id: Int
+  hero_level: Int
+  start_time: Int
+  game_mode: String
+  match_mode: String
+  player_team: String
+  player_kills: Int
+  player_deaths: Int
+  player_assists: Int
+  denies: Int
+  net_worth: Int
+  last_hits: Int
+  team_abandoned: Boolean
+  abandoned_time_s: Int
+  match_duration_s: Int
+
+  """The winning team id."""
+  match_result: Int
+  objectives_mask_team_0: Int
+  objectives_mask_team_1: Int
+  brawl_score_team_0: Int
+  brawl_score_team_1: Int
+  brawl_avg_round_time_s: Int
+  won: Boolean
+
+  """How the match was scored for the player."""
+  player_match_outcome: String
+
+  """
+  The ranked badge shown for the player after the match (tier = first digits, subtier = last digit), capped at Eternus 6. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+  """
+  ranked_display_badge: Int
+
+  """The ranked progress change the player got from this match."""
+  ranked_delta: Int
+
+  """
+  Non-zero if this match counted towards the player's ranked calibration.
+  """
+  ranked_calibration_match: Int
+
+  """
+  Whether the player's demotion protection absorbed a loss in this match.
+  """
+  ranked_used_demotion_protection: Boolean
+
+  """
+  Hero asset metadata for this entry's `hero_id` (latest version, English).
+  """
+  hero: Hero
+}
+
+"""
+Filter input for the `match_history` query. Operations across fields are AND-ed.
+"""
+input MatchHistoryWhere {
+  account_id: U32Filter
+  match_id: U64Filter
+  hero_id: U32Filter
+  hero_level: U32Filter
+  start_time: I64Filter
+  game_mode: StringFilter
+  match_mode: StringFilter
+  player_team: StringFilter
+  player_kills: U32Filter
+  player_deaths: U32Filter
+  player_assists: U32Filter
+  denies: U32Filter
+  net_worth: U32Filter
+  last_hits: U32Filter
+  team_abandoned: BoolFilter
+  match_duration_s: U32Filter
+  match_result: U32Filter
+  won: BoolFilter
+  player_match_outcome: StringFilter
+  ranked_display_badge: U32Filter
+  ranked_delta: I32Filter
+  ranked_calibration_match: U32Filter
+  ranked_used_demotion_protection: BoolFilter
+}
+
+type MatchPlayer {
+  match_id: Int
+  account_id: Int
+  player_slot: Int
+  team: String
+  hero_id: Int
+  party: Int
+  assigned_lane: Int
+  start_time: Int
+  duration_s: Int
+  match_mode: String
+  game_mode: String
+  winning_team: String
+  match_outcome: String
+  average_badge_team_0: Int
+  average_badge_team_1: Int
+  average_badge: Int
+  kills: Int
+  deaths: Int
+  assists: Int
+  net_worth: Int
+  last_hits: Int
+  denies: Int
+  ability_points: Int
+  player_level: Int
+  abandon_match_time_s: Int
+  mvp_rank: Int
+  max_level: Int
+  max_player_damage: Int
+  max_player_damage_taken: Int
+  max_boss_damage: Int
+  max_creep_damage: Int
+  max_creep_kills: Int
+  max_neutral_kills: Int
+  max_neutral_damage: Int
+  max_max_health: Int
+  max_hero_bullets_hit: Int
+  max_hero_bullets_hit_crit: Int
+  max_shots_hit: Int
+  max_shots_missed: Int
+  rewards_eligible: Boolean
+  earned_holiday_award_2025: Boolean
+  player_match_outcome: String
+  player_rank_initial_display_rank: Int
+  player_rank_initial_flat_progress: Int
+  player_rank_final_flat_progress: Int
+  player_rank_desired_progress_change: Int
+  player_rank_initial_calibration_games: Int
+  player_rank_initial_demotion_protection_games: Int
+  player_rank_consumed_demotion_protection: Boolean
+  player_rank_initial_win_streak: Int
+  hero_build_id: Int
+
+  """
+  Hero locked before the pre-game swap window; 0 when unknown. Differs from `hero_id` when the player swapped.
+  """
+  pregame_hero_id: Int
+  items: [Item!]
+  stats: [Stat!]
+  death_details: JsonScalar
+  accolades: JsonScalar
+  book_reward: JsonScalar
+  power_up_buffs: JsonScalar
+  ability_stats: JsonScalar
+  player_tracked_stats: JsonScalar
+  stats_type_stat: JsonScalar
+  hero_xp_rewards: JsonScalar
+
+  """
+  Hero asset metadata for this player's `hero_id` (latest version, English).
+  """
+  hero: Hero
+}
+
+"""
+Filter input for the `matches` and (transitively) `match_players` queries.
+All listed columns are filterable. Operations across fields are AND-ed.
+"""
+input MatchPlayerWhere {
+  match_id: U64Filter
+  account_id: U32Filter
+  hero_id: U32Filter
+  player_slot: U32Filter
+  team: StringFilter
+  start_time: I64Filter
+  duration_s: U32Filter
+  match_mode: StringFilter
+  game_mode: StringFilter
+  winning_team: StringFilter
+  match_outcome: StringFilter
+  average_badge_team_0: U32Filter
+  average_badge_team_1: U32Filter
+  average_badge: U32Filter
+  is_high_skill_range_parties: BoolFilter
+  low_pri_pool: BoolFilter
+  new_player_pool: BoolFilter
+  not_scored: BoolFilter
+  rewards_eligible: BoolFilter
+  kills: U32Filter
+  deaths: U32Filter
+  assists: U32Filter
+  net_worth: U32Filter
+  player_level: U32Filter
+  assigned_lane: U32Filter
+}
+
+enum OrderByMatch {
+  MATCH_ID
+  START_TIME
+  AVERAGE_BADGE
+}
+
+enum OrderByMatchHistory {
+  MATCH_ID
+  ACCOUNT_ID
+  START_TIME
+}
+
+enum OrderByMatchPlayer {
+  MATCH_ID
+  ACCOUNT_ID
+  START_TIME
+}
+
+enum OrderDirection {
+  DESC
+  ASC
+}
+
+type QueryRoot {
+  """Match-grouped query — one node per match_id with players aggregated."""
+  matches(where: MatchPlayerWhere, order_by: OrderByMatch, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [Match!]!
+
+  """Player-row query — one node per (match_id, account_id)."""
+  match_players(where: MatchPlayerWhere, order_by: OrderByMatchPlayer, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchPlayer!]!
+
+  """
+  Player match history — one node per (account_id, match_id), from the
+  stored `player_match_history` table (no on-demand Steam fetch).
+  """
+  match_history(where: MatchHistoryWhere, order_by: OrderByMatchHistory, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchHistoryEntry!]!
+
+  """
+  All heroes for the given client version (defaults to latest), localized
+  to `language` (defaults to English). Sourced from the versioned assets,
+  not ClickHouse.
+  """
+  heroes(client_version: Int, language: Language): [Hero!]!
+
+  """
+  All items (abilities, weapons, upgrades) for the given client version
+  (defaults to latest), localized to `language` (defaults to English).
+  """
+  items(client_version: Int, language: Language): [AssetItem!]!
+
+  """
+  All rank tiers for the given client version (defaults to latest),
+  localized to `language` (defaults to English).
+  """
+  ranks(client_version: Int, language: Language): [Rank!]!
+}
+
+type Rank {
+  tier: Int!
+  name: String!
+  images: RankImages!
+  color: String!
+}
+
+"""
+Image URLs for a single rank tier. Field declaration order is load-bearing:
+it sets the JSON key order, which is stable across versions of this API.
+"""
+type RankImages {
+  large: String
+  large_webp: String
+  chalk: String
+  chalk_webp: String
+  large_subrank_1: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank1`.")
+  large_subrank_1_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank1_webp`.")
+  large_subrank_2: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank2`.")
+  large_subrank_2_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank2_webp`.")
+  large_subrank_3: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank3`.")
+  large_subrank_3_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank3_webp`.")
+  large_subrank_4: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank4`.")
+  large_subrank_4_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank4_webp`.")
+  large_subrank_5: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank5`.")
+  large_subrank_5_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank5_webp`.")
+  large_subrank_6: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank6`.")
+  large_subrank_6_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank6_webp`.")
+  small: String @deprecated(reason: "No longer produced by the game assets; use `large`/`chalk` instead.")
+  small_webp: String @deprecated(reason: "No longer produced by the game assets; use `large`/`chalk` instead.")
+  small_subrank_1: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank1`.")
+  small_subrank_1_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank1_webp`.")
+  small_subrank_2: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank2`.")
+  small_subrank_2_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank2_webp`.")
+  small_subrank_3: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank3`.")
+  small_subrank_3_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank3_webp`.")
+  small_subrank_4: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank4`.")
+  small_subrank_4_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank4_webp`.")
+  small_subrank_5: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank5`.")
+  small_subrank_5_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank5_webp`.")
+  small_subrank_6: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank6`.")
+  small_subrank_6_webp: String @deprecated(reason: "Size variants are gone; this is an alias of `subrank6_webp`.")
+
+  """
+  Tier badge with the division numeral drawn on it, composed on demand by this API.
+  """
+  subrank_1: String
+  subrank_1_webp: String
+  subrank_2: String
+  subrank_2_webp: String
+  subrank_3: String
+  subrank_3_webp: String
+  subrank_4: String
+  subrank_4_webp: String
+  subrank_5: String
+  subrank_5_webp: String
+  subrank_6: String
+  subrank_6_webp: String
+}
+
+type ShopSpiritStatsDisplay {
+  display_stats: [String!]!
+}
+
+type ShopStatDisplay {
+  spirit_stats_display: ShopSpiritStatsDisplay!
+  vitality_stats_display: ShopVitalityStatsDisplay!
+  weapon_stats_display: ShopWeaponStatsDisplay!
+}
+
+type ShopVitalityStatsDisplay {
+  display_stats: [String!]!
+  other_display_stats: [String!]!
+}
+
+type ShopWeaponStatsDisplay {
+  display_stats: [String!]!
+  other_display_stats: [String!]!
+  weapon_attributes: [String!]
+  weapon_image: String
+  weapon_image_webp: String
+}
+
+type Stat {
+  time_stamp_s: Int
+  net_worth: Int
+  gold_player: Int
+  gold_player_orbs: Int
+  gold_lane_creep_orbs: Int
+  gold_neutral_creep_orbs: Int
+  gold_boss: Int
+  gold_boss_orb: Int
+  gold_treasure: Int
+  gold_denied: Int
+  gold_death_loss: Int
+  gold_lane_creep: Int
+  gold_neutral_creep: Int
+  kills: Int
+  deaths: Int
+  assists: Int
+  creep_kills: Int
+  neutral_kills: Int
+  possible_creeps: Int
+  creep_damage: Int
+  player_damage: Int
+  neutral_damage: Int
+  boss_damage: Int
+  denies: Int
+  player_healing: Int
+  ability_points: Int
+  self_healing: Int
+  player_damage_taken: Int
+  max_health: Int
+  weapon_power: Int
+  tech_power: Int
+  shots_hit: Int
+  shots_missed: Int
+  damage_absorbed: Int
+  absorption_provided: Int
+  hero_bullets_hit: Int
+  hero_bullets_hit_crit: Int
+  heal_prevented: Int
+  heal_lost: Int
+  damage_mitigated: Int
+  level: Int
+  player_barriering: Int
+  teammate_healing: Int
+  teammate_barriering: Int
+}
+
+type StatsDisplay {
+  health_header_stats: [String!]!
+  health_stats: [String!]!
+  magic_header_stats: [String!]!
+  magic_stats: [String!]!
+  weapon_header_stats: [String!]!
+  weapon_stats: [String!]!
+}
+
+input StringFilter {
+  eq: String
+  in: [String!]
+  is_null: Boolean
+}
+
+input U32Filter {
+  eq: Int
+  in: [Int!]
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+  is_null: Boolean
+}
+
+input U64Filter {
+  eq: Int
+  in: [Int!]
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+  is_null: Boolean
+}
+
+type Upgrade {
+  id: Int!
+  class_name: String!
+  name: String!
+  start_trained: Boolean
+  image: String
+  image_webp: String
+  hero: Int
+  heroes: [Int!]
+  update_time: Int
+  type: ItemType!
+  shop_image: String
+  shop_image_webp: String
+  shop_image_small: String
+  shop_image_small_webp: String
+  item_slot_type: ItemSlotType!
+  item_tier: Int!
+  disabled: Boolean
+  description: UpgradeDescription
+  activation: AbilityActivation!
+  imbue: AbilityImbue
+  component_items: [String!]
+  is_active_item: Boolean!
+  shopable: Boolean!
+  cost: Int
+  weapon_info: JSON!
+  properties: JSON!
+  tooltip_sections: JSON!
+  upgrades: JSON!
+}
+
+type UpgradeDescription {
+  desc: String
+  desc_2: String
+  active: String
+  passive: String
+}
+
+type Weapon {
+  id: Int!
+  class_name: String!
+  name: String!
+  start_trained: Boolean
+  image: String
+  image_webp: String
+  hero: Int
+  heroes: [Int!]
+  update_time: Int
+  type: ItemType!
+  crosshair_css_class: String
+  use_custom_crosshair_settings: Boolean
+  properties: JSON!
+  weapon_info: JSON!
+  custom_crosshair_settings: JSON!
+}
