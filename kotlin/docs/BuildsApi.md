@@ -54,6 +54,8 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **minUnixTimestamp** | **kotlin.Long**| Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp). | [optional] |
 | **minPublishedUnixTimestamp** | **kotlin.Long**| Filter builds based on their published time (Unix timestamp). | [optional] |
@@ -72,8 +74,6 @@ try {
 | **heroId** | **kotlin.Int**| Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **tag** | **kotlin.Int**| Filter builds by tag. | [optional] |
 | **rollupCategory** | **kotlin.Int**| Filter builds by rollup category. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **authorId** | **kotlin.Int**| The author&#39;s &#x60;SteamID3&#x60; | [optional] |
 
 ### Return type

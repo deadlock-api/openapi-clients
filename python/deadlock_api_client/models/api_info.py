@@ -77,13 +77,17 @@ class APIInfo(BaseModel):
         _field_dict = {}
         if self.table_sizes:
             for _key_table_sizes in self.table_sizes:
-                if self.table_sizes[_key_table_sizes]:
-                    _field_dict[_key_table_sizes] = self.table_sizes[_key_table_sizes].to_dict()
+                _field_dict[_key_table_sizes] = self.table_sizes[_key_table_sizes].to_dict() if self.table_sizes[_key_table_sizes] is not None else None
             _dict['table_sizes'] = _field_dict
         # set to None if fetched_matches_per_day (nullable) is None
         # and model_fields_set contains the field
         if self.fetched_matches_per_day is None and "fetched_matches_per_day" in self.model_fields_set:
             _dict['fetched_matches_per_day'] = None
+
+        # set to None if table_sizes (nullable) is None
+        # and model_fields_set contains the field
+        if self.table_sizes is None and "table_sizes" in self.model_fields_set:
+            _dict['table_sizes'] = None
 
         # set to None if user_ingested_matches_last24h (nullable) is None
         # and model_fields_set contains the field

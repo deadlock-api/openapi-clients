@@ -50,7 +50,7 @@ export interface NpcUnit {
     'backdoor_bullet_resist_modifier'?: SubclassBulletResistModifier | null;
     'barrack_boss_dps'?: number | null;
     'barrack_guardian_damage_resist_pct'?: number | null;
-    'bound_abilities'?: { [key: string]: string; };
+    'bound_abilities'?: { [key: string]: string; } | null;
     'class_name': string;
     'empowered_modifier_level1'?: SubclassEmpoweredModifierLevel | null;
     'empowered_modifier_level2'?: SubclassEmpoweredModifierLevel | null;

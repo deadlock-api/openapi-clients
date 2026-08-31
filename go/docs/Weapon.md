@@ -334,6 +334,16 @@ SetProperties sets Properties field to given value.
 
 HasProperties returns a boolean if a field has been set.
 
+### SetPropertiesNil
+
+`func (o *Weapon) SetPropertiesNil(b bool)`
+
+ SetPropertiesNil sets the value for Properties to be an explicit nil
+
+### UnsetProperties
+`func (o *Weapon) UnsetProperties()`
+
+UnsetProperties ensures that no value is present for Properties, not even an explicit nil
 ### GetStartTrained
 
 `func (o *Weapon) GetStartTrained() bool`

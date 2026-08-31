@@ -75,8 +75,7 @@ class TooltipDetailsBlock(BaseModel):
         _items = []
         if self.properties:
             for _item_properties in self.properties:
-                if _item_properties:
-                    _items.append(_item_properties.to_dict())
+                _items.append(_item_properties.to_dict() if _item_properties is not None else None)
             _dict['properties'] = _items
         # set to None if loc_string (nullable) is None
         # and model_fields_set contains the field

@@ -25,7 +25,7 @@ export interface APIInfo {
     /**
      * The sizes of all tables in the database.
      */
-    'table_sizes'?: { [key: string]: TableSize; };
+    'table_sizes'?: { [key: string]: TableSize; } | null;
     /**
      * The number of matches ingested in the last 24 hours.
      * @deprecated

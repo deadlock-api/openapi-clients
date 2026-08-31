@@ -26,7 +26,7 @@ using DeadlockApiClient.Client;
 namespace DeadlockApiClient.Model
 {
     /// <summary>
-    /// Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order, which matches the legacy Python endpoint.
+    /// Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
     /// </summary>
     public partial class SteamInfo : IValidatableObject
     {
@@ -41,7 +41,7 @@ namespace DeadlockApiClient.Model
         /// <param name="sourceRevision">sourceRevision</param>
         /// <param name="toolsAppId">toolsAppId</param>
         /// <param name="versionDate">versionDate</param>
-        /// <param name="versionDatetime">&#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone) — matches the Python output.</param>
+        /// <param name="versionDatetime">&#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone).</param>
         /// <param name="versionTime">versionTime</param>
         [JsonConstructor]
         public SteamInfo(int appId, int clientVersion, string productName, int serverAppId, int serverVersion, long sourceRevision, int toolsAppId, string versionDate, string versionDatetime, string versionTime)
@@ -110,9 +110,9 @@ namespace DeadlockApiClient.Model
         public string VersionDate { get; set; }
 
         /// <summary>
-        /// &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone) — matches the Python output.
+        /// &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone).
         /// </summary>
-        /// <value>&#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone) — matches the Python output.</value>
+        /// <value>&#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone).</value>
         [JsonPropertyName("version_datetime")]
         public string VersionDatetime { get; set; }
 

@@ -12,7 +12,7 @@
 import type { LastRankedMatch } from './last-ranked-match.js';
 export interface RankResponse {
     /**
-     * Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. Eternus subranks are percentile-based and refreshed daily by Valve, so within Eternus this is the badge the player entered their latest ranked match with. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'badge': number;
     /**

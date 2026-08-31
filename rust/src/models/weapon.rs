@@ -31,8 +31,8 @@ pub struct Weapon {
     pub image_webp: Option<Option<String>>,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "properties", skip_serializing_if = "Option::is_none")]
-    pub properties: Option<std::collections::HashMap<String, models::ItemProperty>>,
+    #[serde(rename = "properties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub properties: Option<Option<std::collections::HashMap<String, models::ItemProperty>>>,
     #[serde(rename = "start_trained", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub start_trained: Option<Option<bool>>,
     #[serde(rename = "type")]

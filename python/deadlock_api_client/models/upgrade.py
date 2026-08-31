@@ -113,22 +113,19 @@ class Upgrade(BaseModel):
         _field_dict = {}
         if self.properties:
             for _key_properties in self.properties:
-                if self.properties[_key_properties]:
-                    _field_dict[_key_properties] = self.properties[_key_properties].to_dict()
+                _field_dict[_key_properties] = self.properties[_key_properties].to_dict() if self.properties[_key_properties] is not None else None
             _dict['properties'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of each item in tooltip_sections (list)
         _items = []
         if self.tooltip_sections:
             for _item_tooltip_sections in self.tooltip_sections:
-                if _item_tooltip_sections:
-                    _items.append(_item_tooltip_sections.to_dict())
+                _items.append(_item_tooltip_sections.to_dict() if _item_tooltip_sections is not None else None)
             _dict['tooltip_sections'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in upgrades (list)
         _items = []
         if self.upgrades:
             for _item_upgrades in self.upgrades:
-                if _item_upgrades:
-                    _items.append(_item_upgrades.to_dict())
+                _items.append(_item_upgrades.to_dict() if _item_upgrades is not None else None)
             _dict['upgrades'] = _items
         # override the default output from pydantic by calling `to_dict()` of weapon_info
         if self.weapon_info:
@@ -177,6 +174,11 @@ class Upgrade(BaseModel):
         # and model_fields_set contains the field
         if self.imbue is None and "imbue" in self.model_fields_set:
             _dict['imbue'] = None
+
+        # set to None if properties (nullable) is None
+        # and model_fields_set contains the field
+        if self.properties is None and "properties" in self.model_fields_set:
+            _dict['properties'] = None
 
         # set to None if shop_image (nullable) is None
         # and model_fields_set contains the field

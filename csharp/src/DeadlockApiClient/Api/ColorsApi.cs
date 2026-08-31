@@ -65,7 +65,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IListColorsApiResponse"/>
     /// </summary>
-    public interface IListColorsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, Color>?>
+    public interface IListColorsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.Dictionary<string, Color>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -348,20 +348,32 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Dictionary<string, Color>? Ok()
+            public DeadlockApiClient.Model.Dictionary<string, Color>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.Dictionary<string, Color>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.Dictionary<string, Color>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, Color>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Dictionary<string, Color>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.Dictionary<string, Color>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Dictionary<string, Color>? result)
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.Dictionary<string, Color>? result)
             {
                 result = null;
 

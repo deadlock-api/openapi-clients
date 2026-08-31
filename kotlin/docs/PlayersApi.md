@@ -148,6 +148,8 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
@@ -157,8 +159,6 @@ try {
 | **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
 
 ### Return type
@@ -204,9 +204,9 @@ try {
 ```
 
 ### Parameters
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | **forceRefetch** | **kotlin.Boolean**| Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional] |
 
 ### Return type
@@ -261,6 +261,8 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
@@ -271,8 +273,6 @@ try {
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
 | **maxMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **sameParty** | **kotlin.Boolean**| Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). | [optional] [default to false] |
 
 ### Return type
@@ -330,6 +330,8 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
@@ -343,8 +345,6 @@ try {
 | **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] |
 | **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] |
 | **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 
 ### Return type
@@ -366,7 +366,7 @@ No authorization required
 
 Rank
 
- Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+ Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
 
 ### Example
 ```kotlin
@@ -436,9 +436,9 @@ try {
 ```
 
 ### Parameters
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
 | **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type
@@ -484,9 +484,9 @@ try {
 ```
 
 ### Parameters
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type
@@ -578,9 +578,9 @@ try {
 ```
 
 ### Parameters
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
 | **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type
@@ -626,9 +626,9 @@ try {
 ```
 
 ### Parameters
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type

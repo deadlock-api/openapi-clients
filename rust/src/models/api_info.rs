@@ -17,8 +17,8 @@ pub struct ApiInfo {
     #[serde(rename = "fetched_matches_per_day", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub fetched_matches_per_day: Option<Option<u64>>,
     /// The sizes of all tables in the database.
-    #[serde(rename = "table_sizes", skip_serializing_if = "Option::is_none")]
-    pub table_sizes: Option<std::collections::HashMap<String, models::TableSize>>,
+    #[serde(rename = "table_sizes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub table_sizes: Option<Option<std::collections::HashMap<String, models::TableSize>>>,
     /// The number of matches ingested in the last 24 hours.
     #[serde(rename = "user_ingested_matches_last24h", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub user_ingested_matches_last24h: Option<Option<u64>>,

@@ -83,8 +83,7 @@ class LaneMatchupStats(BaseModel):
         _field_dict = {}
         if self.stats:
             for _key_stats in self.stats:
-                if self.stats[_key_stats]:
-                    _field_dict[_key_stats] = self.stats[_key_stats].to_dict()
+                _field_dict[_key_stats] = self.stats[_key_stats].to_dict() if self.stats[_key_stats] is not None else None
             _dict['stats'] = _field_dict
         return _dict
 

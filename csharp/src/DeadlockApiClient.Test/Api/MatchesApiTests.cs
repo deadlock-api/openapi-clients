@@ -177,7 +177,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<bool?> disableSteam = default!;
             var response = await _instance.SaltsAsync(matchId, disableSteam);
             var model = response.Ok();
-            Assert.IsType<MatchSaltsResponse>(model);
+            Assert.IsType<DeadlockApiClient.Model.MatchSaltsResponse>(model);
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace DeadlockApiClient.Test.Api
             long matchId = default!;
             var response = await _instance.UrlAsync(matchId);
             var model = response.Ok();
-            Assert.IsType<MatchSpectateResponse>(model);
+            Assert.IsType<DeadlockApiClient.Model.MatchSpectateResponse>(model);
         }
 
         /// <summary>

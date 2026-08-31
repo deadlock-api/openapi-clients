@@ -623,11 +623,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.Item? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.Item? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.Item? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Item>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.Item? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -879,11 +891,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<Item>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<Item>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<Item>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<Item>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<Item>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1129,11 +1153,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<Item>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<Item>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<Item>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<Item>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<Item>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1379,11 +1415,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<Item>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<Item>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<Item>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<Item>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<Item>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1622,11 +1670,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<Item>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<Item>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<Item>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<Item>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<Item>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null

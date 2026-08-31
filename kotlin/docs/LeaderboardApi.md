@@ -86,9 +86,9 @@ try {
 ```
 
 ### Parameters
-| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 
 ### Return type
@@ -134,9 +134,9 @@ try {
 ```
 
 ### Parameters
-| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 
 ### Return type

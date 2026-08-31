@@ -74,8 +74,7 @@ class SubclassIntrinsicModifiersSubclass(BaseModel):
         _items = []
         if self.script_values:
             for _item_script_values in self.script_values:
-                if _item_script_values:
-                    _items.append(_item_script_values.to_dict())
+                _items.append(_item_script_values.to_dict() if _item_script_values is not None else None)
             _dict['script_values'] = _items
         # set to None if script_values (nullable) is None
         # and model_fields_set contains the field

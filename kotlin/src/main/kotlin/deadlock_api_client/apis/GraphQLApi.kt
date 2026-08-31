@@ -109,6 +109,7 @@ open class GraphQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/graphql",

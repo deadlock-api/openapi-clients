@@ -231,6 +231,16 @@ SetDependentAbilities sets DependentAbilities field to given value.
 
 HasDependentAbilities returns a boolean if a field has been set.
 
+### SetDependentAbilitiesNil
+
+`func (o *Ability) SetDependentAbilitiesNil(b bool)`
+
+ SetDependentAbilitiesNil sets the value for DependentAbilities to be an explicit nil
+
+### UnsetDependentAbilities
+`func (o *Ability) UnsetDependentAbilities()`
+
+UnsetDependentAbilities ensures that no value is present for DependentAbilities, not even an explicit nil
 ### GetDescription
 
 `func (o *Ability) GetDescription() AbilityDescription`
@@ -491,6 +501,16 @@ SetProperties sets Properties field to given value.
 
 HasProperties returns a boolean if a field has been set.
 
+### SetPropertiesNil
+
+`func (o *Ability) SetPropertiesNil(b bool)`
+
+ SetPropertiesNil sets the value for Properties to be an explicit nil
+
+### UnsetProperties
+`func (o *Ability) UnsetProperties()`
+
+UnsetProperties ensures that no value is present for Properties, not even an explicit nil
 ### GetStartTrained
 
 `func (o *Ability) GetStartTrained() bool`

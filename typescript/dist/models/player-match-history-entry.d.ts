@@ -47,7 +47,7 @@ export interface PlayerMatchHistoryEntry {
      */
     'ranked_delta'?: number | null;
     /**
-     * The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      */
     'ranked_display_badge'?: number | null;
     /**

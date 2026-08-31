@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetHeroAsync(heroId, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<Hero>(model);
+            Assert.IsType<DeadlockApiClient.Model.Hero>(model);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetHeroByNameAsync(name, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<Hero>(model);
+            Assert.IsType<DeadlockApiClient.Model.Hero>(model);
         }
 
         /// <summary>

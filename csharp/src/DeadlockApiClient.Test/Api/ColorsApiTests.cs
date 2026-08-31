@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.ListColorsAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<Dictionary<string, Color>>(model);
+            Assert.IsType<DeadlockApiClient.Model.Dictionary<string, Color>>(model);
         }
     }
 }

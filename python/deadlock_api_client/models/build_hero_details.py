@@ -79,8 +79,7 @@ class BuildHeroDetails(BaseModel):
         _items = []
         if self.mod_categories:
             for _item_mod_categories in self.mod_categories:
-                if _item_mod_categories:
-                    _items.append(_item_mod_categories.to_dict())
+                _items.append(_item_mod_categories.to_dict() if _item_mod_categories is not None else None)
             _dict['mod_categories'] = _items
         # set to None if ability_order (nullable) is None
         # and model_fields_set contains the field

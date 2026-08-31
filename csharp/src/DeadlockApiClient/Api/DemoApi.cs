@@ -847,11 +847,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.DemoSchemaResponse? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.DemoSchemaResponse? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.DemoSchemaResponse? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.DemoSchemaResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.DemoSchemaResponse? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1112,11 +1124,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.DemoQueryStatusResponse? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.DemoQueryStatusResponse? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.DemoQueryStatusResponse? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.DemoQueryStatusResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.DemoQueryStatusResponse? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1371,11 +1395,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.DemoQueryJobResponse? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.DemoQueryJobResponse? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.DemoQueryJobResponse? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.DemoQueryJobResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.DemoQueryJobResponse? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1409,11 +1445,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.DemoQueryJobResponse? Accepted()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.DemoQueryJobResponse? result = null;
+                OnAccepted(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultAccepted();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.DemoQueryJobResponse? DefaultAccepted()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsAccepted
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.DemoQueryJobResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnAccepted(ref bool suppressDefault, ref DeadlockApiClient.Model.DemoQueryJobResponse? result);
 
             /// <summary>
             /// Returns true if the response is 202 Accepted and the deserialized response is not null

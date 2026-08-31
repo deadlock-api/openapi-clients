@@ -183,7 +183,7 @@ class PlayerMatchHistoryEntryTest : ShouldSpec() {
             //modelInstance.rankedDelta shouldBe ("TODO")
         }
 
-        // to test the property `rankedDisplayBadge` - The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        // to test the property `rankedDisplayBadge` - The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rankedDisplayBadge") {
             // uncomment below to test the property
             //modelInstance.rankedDisplayBadge shouldBe ("TODO")

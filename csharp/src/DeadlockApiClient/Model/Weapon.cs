@@ -382,7 +382,7 @@ namespace DeadlockApiClient.Model
                             imageWebp = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "properties":
-                            properties = new Option<Dictionary<string, ItemProperty>?>(JsonSerializer.Deserialize<Dictionary<string, ItemProperty>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            properties = new Option<Dictionary<string, ItemProperty>?>(JsonSerializer.Deserialize<Dictionary<string, ItemProperty>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "start_trained":
                             startTrained = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -426,9 +426,6 @@ namespace DeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new ArgumentNullException(nameof(type), "Property is not nullable for class Weapon.");
 
-            if (properties.IsSet && properties.Value == null)
-                throw new ArgumentNullException(nameof(properties), "Property is not nullable for class Weapon.");
-
             return new Weapon(className.Value!, id.Value!.Value!, name.Value!, type.Value!.Value!, crosshairCssClass, customCrosshairSettings, hero, heroes, image, imageWebp, properties, startTrained, updateTime, useCustomCrosshairSettings, weaponInfo);
         }
 
@@ -461,9 +458,6 @@ namespace DeadlockApiClient.Model
 
             if (weapon.Name == null)
                 throw new ArgumentNullException(nameof(weapon.Name), "Property is required for class Weapon.");
-
-            if (weapon.PropertiesOption.IsSet && weapon.Properties == null)
-                throw new ArgumentNullException(nameof(weapon.Properties), "Property is required for class Weapon.");
 
             writer.WriteString("class_name", weapon.ClassName);
 
@@ -515,10 +509,13 @@ namespace DeadlockApiClient.Model
                     writer.WriteNull("image_webp");
 
             if (weapon.PropertiesOption.IsSet)
-            {
-                writer.WritePropertyName("properties");
-                JsonSerializer.Serialize(writer, weapon.Properties, jsonSerializerOptions);
-            }
+                if (weapon.PropertiesOption.Value != null)
+                {
+                    writer.WritePropertyName("properties");
+                    JsonSerializer.Serialize(writer, weapon.Properties, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("properties");
             if (weapon.StartTrainedOption.IsSet)
                 if (weapon.StartTrainedOption.Value != null)
                     writer.WriteBoolean("start_trained", weapon.StartTrainedOption.Value!.Value);

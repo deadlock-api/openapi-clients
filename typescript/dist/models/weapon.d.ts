@@ -25,7 +25,7 @@ export interface Weapon {
     'name': string;
     'properties'?: {
         [key: string]: ItemProperty;
-    };
+    } | null;
     'start_trained'?: boolean | null;
     'type': ItemType;
     'update_time'?: number | null;

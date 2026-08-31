@@ -262,6 +262,7 @@ open class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: C
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/matches/custom/{lobby_id}/leave".replace("{"+"lobby_id"+"}", encodeURIComponent(lobbyId.toString())),
@@ -332,6 +333,7 @@ open class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: C
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/matches/custom/{lobby_id}/ready".replace("{"+"lobby_id"+"}", encodeURIComponent(lobbyId.toString())),
@@ -402,6 +404,7 @@ open class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: C
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/matches/custom/{lobby_id}/start".replace("{"+"lobby_id"+"}", encodeURIComponent(lobbyId.toString())),
@@ -472,6 +475,7 @@ open class CustomMatchesApi(basePath: kotlin.String = defaultBasePath, client: C
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/matches/custom/{lobby_id}/unready".replace("{"+"lobby_id"+"}", encodeURIComponent(lobbyId.toString())),

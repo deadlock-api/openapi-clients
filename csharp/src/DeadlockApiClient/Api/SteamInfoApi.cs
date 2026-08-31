@@ -392,11 +392,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<SteamInfo>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<SteamInfo>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<SteamInfo>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<SteamInfo>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<SteamInfo>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -632,11 +644,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.SteamInfo? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.SteamInfo? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.SteamInfo? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.SteamInfo>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.SteamInfo? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null

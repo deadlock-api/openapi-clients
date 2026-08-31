@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **source_revision** | **u64** |  | 
 **tools_app_id** | **u32** |  | 
 **version_date** | **String** |  | 
-**version_datetime** | **String** | `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone) — matches the Python output. | 
+**version_datetime** | **String** | `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone). | 
 **version_time** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

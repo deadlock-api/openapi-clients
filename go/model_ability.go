@@ -243,9 +243,9 @@ func (o *Ability) SetDependantAbilities(v []string) {
 	o.DependantAbilities = v
 }
 
-// GetDependentAbilities returns the DependentAbilities field value if set, zero value otherwise.
+// GetDependentAbilities returns the DependentAbilities field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Ability) GetDependentAbilities() map[string]DependantAbilities {
-	if o == nil || IsNil(o.DependentAbilities) {
+	if o == nil {
 		var ret map[string]DependantAbilities
 		return ret
 	}
@@ -254,6 +254,7 @@ func (o *Ability) GetDependentAbilities() map[string]DependantAbilities {
 
 // GetDependentAbilitiesOk returns a tuple with the DependentAbilities field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Ability) GetDependentAbilitiesOk() (map[string]DependantAbilities, bool) {
 	if o == nil || IsNil(o.DependentAbilities) {
 		return map[string]DependantAbilities{}, false
@@ -548,9 +549,9 @@ func (o *Ability) SetName(v string) {
 	o.Name = v
 }
 
-// GetProperties returns the Properties field value if set, zero value otherwise.
+// GetProperties returns the Properties field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Ability) GetProperties() map[string]ItemProperty {
-	if o == nil || IsNil(o.Properties) {
+	if o == nil {
 		var ret map[string]ItemProperty
 		return ret
 	}
@@ -559,6 +560,7 @@ func (o *Ability) GetProperties() map[string]ItemProperty {
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Ability) GetPropertiesOk() (map[string]ItemProperty, bool) {
 	if o == nil || IsNil(o.Properties) {
 		return map[string]ItemProperty{}, false
@@ -870,7 +872,7 @@ func (o Ability) ToMap() (map[string]interface{}, error) {
 	if o.DependantAbilities != nil {
 		toSerialize["dependant_abilities"] = o.DependantAbilities
 	}
-	if !IsNil(o.DependentAbilities) {
+	if o.DependentAbilities != nil {
 		toSerialize["dependent_abilities"] = o.DependentAbilities
 	}
 	toSerialize["description"] = o.Description
@@ -891,7 +893,7 @@ func (o Ability) ToMap() (map[string]interface{}, error) {
 		toSerialize["image_webp"] = o.ImageWebp.Get()
 	}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Properties) {
+	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
 	if o.StartTrained.IsSet() {

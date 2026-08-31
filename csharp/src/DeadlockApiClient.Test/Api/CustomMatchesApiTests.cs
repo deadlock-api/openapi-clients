@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Test.Api
             CreateCustomRequest createCustomRequest = default!;
             var response = await _instance.CreateCustomAsync(createCustomRequest);
             var model = response.Ok();
-            Assert.IsType<CreateCustomResponse>(model);
+            Assert.IsType<DeadlockApiClient.Model.CreateCustomResponse>(model);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Test.Api
             long partyId = default!;
             var response = await _instance.GetCustomAsync(partyId);
             var model = response.Ok();
-            Assert.IsType<GetCustomMatchIdResponse>(model);
+            Assert.IsType<DeadlockApiClient.Model.GetCustomMatchIdResponse>(model);
         }
 
         /// <summary>

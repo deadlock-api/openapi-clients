@@ -40,10 +40,10 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). | |
-| **matchId** | **kotlin.Long**| Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **query** | **kotlin.String**| SQL query to run over the broadcast&#39;s entity/event tables (see &#x60;/demo/schema&#x60;). | |
+| **matchId** | **kotlin.Long**| Match to spectate and stream. Provide this or &#x60;broadcast_url&#x60;; &#x60;broadcast_url&#x60; wins if both are given. Resolving a match spectates its lobby and is rate-limited. | [optional] |
 | **broadcastUrl** | **kotlin.String**| Explicit broadcast base URL (from &#x60;/live/urls&#x60;). Provide this or &#x60;match_id&#x60;. | [optional] |
 
 ### Return type

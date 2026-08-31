@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **SourceRevision** | **int64** |  | 
 **ToolsAppId** | **int32** |  | 
 **VersionDate** | **string** |  | 
-**VersionDatetime** | **string** | &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone) — matches the Python output. | 
+**VersionDatetime** | **string** | &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone). | 
 **VersionTime** | **string** |  | 
 
 ## Methods

@@ -131,6 +131,7 @@ open class DemoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/matches/demo/live/query",

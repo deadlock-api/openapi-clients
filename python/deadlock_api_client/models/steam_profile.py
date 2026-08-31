@@ -87,8 +87,7 @@ class SteamProfile(BaseModel):
         _items = []
         if self.friends:
             for _item_friends in self.friends:
-                if _item_friends:
-                    _items.append(_item_friends.to_dict())
+                _items.append(_item_friends.to_dict() if _item_friends is not None else None)
             _dict['friends'] = _items
         # set to None if countrycode (nullable) is None
         # and model_fields_set contains the field

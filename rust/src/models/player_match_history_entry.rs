@@ -65,7 +65,7 @@ pub struct PlayerMatchHistoryEntry {
     /// The ranked progress change the player got from this match.
     #[serde(rename = "ranked_delta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ranked_delta: Option<Option<i32>>,
-    /// The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    /// The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "ranked_display_badge", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ranked_display_badge: Option<Option<u32>>,
     /// Whether the player's demotion protection absorbed a loss in this match.

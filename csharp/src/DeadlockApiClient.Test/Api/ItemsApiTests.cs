@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetItemAsync(idOrClassName, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<Item>(model);
+            Assert.IsType<DeadlockApiClient.Model.Item>(model);
         }
 
         /// <summary>

@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.ListLootTablesAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<Dictionary<string, LootTable>>(model);
+            Assert.IsType<DeadlockApiClient.Model.Dictionary<string, LootTable>>(model);
         }
     }
 }

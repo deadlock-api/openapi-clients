@@ -83,8 +83,7 @@ class ItemDraftRoundPerGameRound(BaseModel):
         _items = []
         if self.item_draft_rounds:
             for _item_item_draft_rounds in self.item_draft_rounds:
-                if _item_item_draft_rounds:
-                    _items.append(_item_item_draft_rounds.to_dict())
+                _items.append(_item_item_draft_rounds.to_dict() if _item_item_draft_rounds is not None else None)
             _dict['item_draft_rounds'] = _items
         return _dict
 

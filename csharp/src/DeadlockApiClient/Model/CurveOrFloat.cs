@@ -34,7 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="CurveOrFloat" /> class.
         /// </summary>
         /// <param name="curve"></param>
-        public CurveOrFloat(Curve curve)
+        internal CurveOrFloat(Curve curve)
         {
             Curve = curve;
             OnCreated();
@@ -44,7 +44,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="CurveOrFloat" /> class.
         /// </summary>
         /// <param name="double"></param>
-        public CurveOrFloat(double @double)
+        internal CurveOrFloat(double @double)
         {
             Double = @double;
             OnCreated();

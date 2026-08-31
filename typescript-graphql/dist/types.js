@@ -5,57 +5,58 @@ export default {
         4,
         8,
         9,
-        16,
-        19,
+        10,
+        17,
         20,
-        22,
+        21,
         23,
         24,
         25,
         26,
-        32,
+        27,
         33,
         34,
         35,
-        44
+        36,
+        46
     ],
     "types": {
         "Ability": {
             "id": [
-                20
+                21
             ],
             "class_name": [
-                44
+                46
             ],
             "name": [
-                44
+                46
             ],
             "start_trained": [
                 8
             ],
             "image": [
-                44
+                46
             ],
             "image_webp": [
-                44
+                46
             ],
             "hero": [
-                20
+                21
             ],
             "heroes": [
-                20
+                21
             ],
             "update_time": [
-                20
+                21
             ],
             "type": [
-                23
+                24
             ],
             "grant_ammo_on_cast": [
                 8
             ],
             "behaviours": [
-                44
+                46
             ],
             "description": [
                 2
@@ -64,71 +65,71 @@ export default {
                 4
             ],
             "boss_damage_scale": [
-                9
+                10
             ],
             "dependant_abilities": [
-                44
+                46
             ],
             "videos": [
                 5
             ],
             "properties": [
-                24
+                25
             ],
             "weapon_info": [
-                24
+                25
             ],
             "tooltip_details": [
-                24
+                25
             ],
             "upgrades": [
-                24
+                25
             ],
             "dependent_abilities": [
-                24
+                25
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "AbilityActivation": {},
         "AbilityDescription": {
             "desc": [
-                44
+                46
             ],
             "quip": [
-                44
+                46
             ],
             "t_1_desc": [
-                44
+                46
             ],
             "t_2_desc": [
-                44
+                46
             ],
             "t_3_desc": [
-                44
+                46
             ],
             "active": [
-                44
+                46
             ],
             "passive": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "AbilityImbue": {},
         "AbilityType": {},
         "AbilityVideos": {
             "webm": [
-                44
+                46
             ],
             "mp_4": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "AssetItem": {
@@ -136,13 +137,13 @@ export default {
                 0
             ],
             "on_Weapon": [
-                50
+                52
             ],
             "on_Upgrade": [
-                48
+                50
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "BoolFilter": {
@@ -153,23 +154,24 @@ export default {
                 8
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "Boolean": {},
+        "DateTime": {},
         "Float": {},
         "Hero": {
             "id": [
-                20
+                21
             ],
             "class_name": [
-                44
+                46
             ],
             "name": [
-                44
+                46
             ],
             "description": [
-                11
+                12
             ],
             "player_selectable": [
                 8
@@ -187,16 +189,16 @@ export default {
                 8
             ],
             "tags": [
-                44
+                46
             ],
             "gun_tag": [
-                44
+                46
             ],
             "hideout_rich_presence": [
-                44
+                46
             ],
             "hero_type": [
-                16
+                17
             ],
             "prerelease_only": [
                 8
@@ -205,260 +207,260 @@ export default {
                 8
             ],
             "complexity": [
-                20
+                21
             ],
             "skin": [
-                20
+                21
             ],
             "images": [
-                12
-            ],
-            "physics": [
                 13
             ],
-            "shop_stat_display": [
-                39
-            ],
-            "stats_display": [
-                43
-            ],
-            "hero_stats_ui": [
+            "physics": [
                 14
             ],
+            "shop_stat_display": [
+                40
+            ],
+            "stats_display": [
+                44
+            ],
+            "hero_stats_ui": [
+                15
+            ],
             "item_draft_weights": [
-                24
+                25
             ],
             "items": [
-                24
+                25
             ],
             "starting_stats": [
-                24
+                25
             ],
             "item_slot_info": [
-                24
+                25
             ],
             "colors": [
-                24
+                25
             ],
             "cost_bonuses": [
-                24
+                25
             ],
             "level_info": [
-                24
+                25
             ],
             "scaling_stats": [
-                24
+                25
             ],
             "purchase_bonuses": [
-                24
+                25
             ],
             "standard_level_up_upgrades": [
-                24
+                25
             ],
             "item_draft_bucketing": [
-                24
+                25
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "HeroDescription": {
             "lore": [
-                44
+                46
             ],
             "role": [
-                44
+                46
             ],
             "playstyle": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "HeroImages": {
             "icon_hero_card": [
-                44
+                46
             ],
             "icon_hero_card_webp": [
-                44
+                46
             ],
             "icon_image_small": [
-                44
+                46
             ],
             "icon_image_small_webp": [
-                44
+                46
             ],
             "minimap_image": [
-                44
+                46
             ],
             "minimap_image_webp": [
-                44
+                46
             ],
             "hero_card_critical": [
-                44
+                46
             ],
             "hero_card_critical_webp": [
-                44
+                46
             ],
             "hero_card_gloat": [
-                44
+                46
             ],
             "hero_card_gloat_webp": [
-                44
+                46
             ],
             "top_bar_vertical_image": [
-                44
+                46
             ],
             "top_bar_vertical_image_webp": [
-                44
+                46
             ],
             "weapon_image": [
-                44
+                46
             ],
             "weapon_image_webp": [
-                44
+                46
             ],
             "background_image": [
-                44
+                46
             ],
             "background_image_webp": [
-                44
+                46
             ],
             "name_image": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "HeroPhysics": {
             "stealth_speed_meters_per_second": [
-                9
+                10
             ],
             "collision_height": [
-                9
+                10
             ],
             "collision_radius": [
-                9
+                10
             ],
             "step_height": [
-                9
+                10
             ],
             "footstep_sound_travel_distance_meters": [
-                9
+                10
             ],
             "step_sound_time": [
-                9
+                10
             ],
             "step_sound_time_sprinting": [
-                9
+                10
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "HeroStatsUI": {
             "weapon_stat_display": [
-                44
+                46
             ],
             "display_stats": [
-                15
+                16
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "HeroStatsUIDisplay": {
             "category": [
-                44
+                46
             ],
             "stat_type": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "HeroType": {},
         "I32Filter": {
             "eq": [
-                20
+                21
             ],
             "in": [
-                20
+                21
             ],
             "gt": [
-                20
+                21
             ],
             "gte": [
-                20
+                21
             ],
             "lt": [
-                20
+                21
             ],
             "lte": [
-                20
+                21
             ],
             "is_null": [
                 8
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "I64Filter": {
             "eq": [
-                20
+                21
             ],
             "in": [
-                20
+                21
             ],
             "gt": [
-                20
+                21
             ],
             "gte": [
-                20
+                21
             ],
             "lt": [
-                20
+                21
             ],
             "lte": [
-                20
+                21
             ],
             "is_null": [
                 8
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "ID": {},
         "Int": {},
         "Item": {
             "game_time_s": [
-                20
+                21
             ],
             "item_id": [
-                20
+                21
             ],
             "upgrade_id": [
-                20
+                21
             ],
             "sold_time_s": [
-                20
+                21
             ],
             "flags": [
-                20
+                21
             ],
             "imbued_ability_id": [
-                20
+                21
             ],
             "asset": [
                 6
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "ItemSlotType": {},
@@ -468,40 +470,40 @@ export default {
         "Language": {},
         "Match": {
             "match_id": [
-                20
+                21
             ],
             "start_time": [
-                20
+                21
             ],
             "duration_s": [
-                20
+                21
             ],
             "match_mode": [
-                44
+                46
             ],
             "game_mode": [
-                44
+                46
             ],
             "game_mode_version": [
-                20
+                21
             ],
             "bot_difficulty": [
-                44
+                46
             ],
             "winning_team": [
-                44
+                46
             ],
             "match_outcome": [
-                44
+                46
             ],
             "average_badge_team_0": [
-                20
+                21
             ],
             "average_badge_team_1": [
-                20
+                21
             ],
             "average_badge": [
-                20
+                21
             ],
             "is_high_skill_range_parties": [
                 8
@@ -516,10 +518,10 @@ export default {
                 8
             ],
             "ranked_type": [
-                44
+                46
             ],
             "rank_interval": [
-                20
+                21
             ],
             "rewards_eligible": [
                 8
@@ -528,334 +530,334 @@ export default {
                 8
             ],
             "objectives_mask_team_0": [
-                20
+                21
             ],
             "objectives_mask_team_1": [
-                20
+                21
             ],
             "team_score": [
-                25
+                26
             ],
             "match_tracked_stats": [
-                25
+                26
             ],
             "team_0_tracked_stats": [
-                25
+                26
             ],
             "team_1_tracked_stats": [
-                25
+                26
             ],
             "objectives": [
-                25
+                26
             ],
             "mid_boss": [
-                25
+                26
             ],
             "street_brawl_rounds": [
-                25
+                26
             ],
             "banned_hero_ids": [
-                25
+                26
             ],
             "first_mid_boss_time_s": [
-                20
+                21
             ],
             "first_objective_destroyed_time_s": [
-                20
+                21
             ],
             "players": [
-                30
+                31
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "MatchHistoryEntry": {
             "account_id": [
-                20
+                21
             ],
             "match_id": [
-                20
+                21
             ],
             "hero_id": [
-                20
+                21
             ],
             "hero_level": [
-                20
+                21
             ],
             "start_time": [
-                20
+                21
             ],
             "game_mode": [
-                44
+                46
             ],
             "match_mode": [
-                44
+                46
             ],
             "player_team": [
-                44
+                46
             ],
             "player_kills": [
-                20
+                21
             ],
             "player_deaths": [
-                20
+                21
             ],
             "player_assists": [
-                20
+                21
             ],
             "denies": [
-                20
+                21
             ],
             "net_worth": [
-                20
+                21
             ],
             "last_hits": [
-                20
+                21
             ],
             "team_abandoned": [
                 8
             ],
             "abandoned_time_s": [
-                20
+                21
             ],
             "match_duration_s": [
-                20
+                21
             ],
             "match_result": [
-                20
+                21
             ],
             "objectives_mask_team_0": [
-                20
+                21
             ],
             "objectives_mask_team_1": [
-                20
+                21
             ],
             "brawl_score_team_0": [
-                20
+                21
             ],
             "brawl_score_team_1": [
-                20
+                21
             ],
             "brawl_avg_round_time_s": [
-                20
+                21
             ],
             "won": [
                 8
             ],
             "player_match_outcome": [
-                44
+                46
             ],
             "ranked_display_badge": [
-                20
+                21
             ],
             "ranked_delta": [
-                20
+                21
             ],
             "ranked_calibration_match": [
-                20
+                21
             ],
             "ranked_used_demotion_protection": [
                 8
             ],
             "hero": [
-                10
+                11
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "MatchHistoryWhere": {
             "account_id": [
-                46
+                48
             ],
             "match_id": [
-                47
+                49
             ],
             "hero_id": [
-                46
+                48
             ],
             "hero_level": [
-                46
+                48
             ],
             "start_time": [
-                18
+                19
             ],
             "game_mode": [
-                45
+                47
             ],
             "match_mode": [
-                45
+                47
             ],
             "player_team": [
-                45
+                47
             ],
             "player_kills": [
-                46
+                48
             ],
             "player_deaths": [
-                46
+                48
             ],
             "player_assists": [
-                46
+                48
             ],
             "denies": [
-                46
+                48
             ],
             "net_worth": [
-                46
+                48
             ],
             "last_hits": [
-                46
+                48
             ],
             "team_abandoned": [
                 7
             ],
             "match_duration_s": [
-                46
+                48
             ],
             "match_result": [
-                46
+                48
             ],
             "won": [
                 7
             ],
             "player_match_outcome": [
-                45
+                47
             ],
             "ranked_display_badge": [
-                46
+                48
             ],
             "ranked_delta": [
-                17
+                18
             ],
             "ranked_calibration_match": [
-                46
+                48
             ],
             "ranked_used_demotion_protection": [
                 7
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "MatchPlayer": {
             "match_id": [
-                20
+                21
             ],
             "account_id": [
-                20
+                21
             ],
             "player_slot": [
-                20
+                21
             ],
             "team": [
-                44
+                46
             ],
             "hero_id": [
-                20
+                21
             ],
             "party": [
-                20
+                21
             ],
             "assigned_lane": [
-                20
+                21
             ],
             "start_time": [
-                20
+                21
             ],
             "duration_s": [
-                20
+                21
             ],
             "match_mode": [
-                44
+                46
             ],
             "game_mode": [
-                44
+                46
             ],
             "winning_team": [
-                44
+                46
             ],
             "match_outcome": [
-                44
+                46
             ],
             "average_badge_team_0": [
-                20
+                21
             ],
             "average_badge_team_1": [
-                20
+                21
             ],
             "average_badge": [
-                20
+                21
             ],
             "kills": [
-                20
+                21
             ],
             "deaths": [
-                20
+                21
             ],
             "assists": [
-                20
+                21
             ],
             "net_worth": [
-                20
+                21
             ],
             "last_hits": [
-                20
+                21
             ],
             "denies": [
-                20
+                21
             ],
             "ability_points": [
-                20
+                21
             ],
             "player_level": [
-                20
+                21
             ],
             "abandon_match_time_s": [
-                20
+                21
             ],
             "mvp_rank": [
-                20
+                21
             ],
             "max_level": [
-                20
+                21
             ],
             "max_player_damage": [
-                20
+                21
             ],
             "max_player_damage_taken": [
-                20
+                21
             ],
             "max_boss_damage": [
-                20
+                21
             ],
             "max_creep_damage": [
-                20
+                21
             ],
             "max_creep_kills": [
-                20
+                21
             ],
             "max_neutral_kills": [
-                20
+                21
             ],
             "max_neutral_damage": [
-                20
+                21
             ],
             "max_max_health": [
-                20
+                21
             ],
             "max_hero_bullets_hit": [
-                20
+                21
             ],
             "max_hero_bullets_hit_crit": [
-                20
+                21
             ],
             "max_shots_hit": [
-                20
+                21
             ],
             "max_shots_missed": [
-                20
+                21
             ],
             "rewards_eligible": [
                 8
@@ -864,117 +866,120 @@ export default {
                 8
             ],
             "player_match_outcome": [
-                44
+                46
             ],
             "player_rank_initial_display_rank": [
-                20
+                21
             ],
             "player_rank_initial_flat_progress": [
-                20
+                21
             ],
             "player_rank_final_flat_progress": [
-                20
+                21
             ],
             "player_rank_desired_progress_change": [
-                20
+                21
             ],
             "player_rank_initial_calibration_games": [
-                20
+                21
             ],
             "player_rank_initial_demotion_protection_games": [
-                20
+                21
             ],
             "player_rank_consumed_demotion_protection": [
                 8
             ],
             "player_rank_initial_win_streak": [
-                20
-            ],
-            "hero_build_id": [
-                20
-            ],
-            "pregame_hero_id": [
-                20
-            ],
-            "items": [
                 21
             ],
+            "hero_build_id": [
+                21
+            ],
+            "pregame_hero_id": [
+                21
+            ],
+            "items": [
+                22
+            ],
             "stats": [
-                42
+                43
             ],
             "death_details": [
-                25
+                26
             ],
             "accolades": [
-                25
+                26
             ],
             "book_reward": [
-                25
+                26
             ],
             "power_up_buffs": [
-                25
+                26
             ],
             "ability_stats": [
-                25
+                26
             ],
             "player_tracked_stats": [
-                25
+                26
             ],
             "stats_type_stat": [
-                25
+                26
             ],
             "hero_xp_rewards": [
-                25
+                26
             ],
             "hero": [
-                10
+                11
+            ],
+            "steam": [
+                45
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "MatchPlayerWhere": {
             "match_id": [
-                47
+                49
             ],
             "account_id": [
-                46
+                48
             ],
             "hero_id": [
-                46
+                48
             ],
             "player_slot": [
-                46
+                48
             ],
             "team": [
-                45
+                47
             ],
             "start_time": [
-                18
+                19
             ],
             "duration_s": [
-                46
+                48
             ],
             "match_mode": [
-                45
+                47
             ],
             "game_mode": [
-                45
+                47
             ],
             "winning_team": [
-                45
+                47
             ],
             "match_outcome": [
-                45
+                47
             ],
             "average_badge_team_0": [
-                46
+                48
             ],
             "average_badge_team_1": [
-                46
+                48
             ],
             "average_badge": [
-                46
+                48
             ],
             "is_high_skill_range_parties": [
                 7
@@ -992,25 +997,25 @@ export default {
                 7
             ],
             "kills": [
-                46
+                48
             ],
             "deaths": [
-                46
+                48
             ],
             "assists": [
-                46
+                48
             ],
             "net_worth": [
-                46
+                48
             ],
             "player_level": [
-                46
+                48
             ],
             "assigned_lane": [
-                46
+                48
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "OrderByMatch": {},
@@ -1019,486 +1024,518 @@ export default {
         "OrderDirection": {},
         "Rank": {
             "tier": [
-                20
+                21
             ],
             "name": [
-                44
+                46
             ],
             "images": [
-                37
+                38
             ],
             "color": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "RankImages": {
             "large": [
-                44
+                46
             ],
             "large_webp": [
-                44
+                46
             ],
             "chalk": [
-                44
+                46
             ],
             "chalk_webp": [
-                44
+                46
             ],
             "large_subrank_1": [
-                44
+                46
             ],
             "large_subrank_1_webp": [
-                44
+                46
             ],
             "large_subrank_2": [
-                44
+                46
             ],
             "large_subrank_2_webp": [
-                44
+                46
             ],
             "large_subrank_3": [
-                44
+                46
             ],
             "large_subrank_3_webp": [
-                44
+                46
             ],
             "large_subrank_4": [
-                44
+                46
             ],
             "large_subrank_4_webp": [
-                44
+                46
             ],
             "large_subrank_5": [
-                44
+                46
             ],
             "large_subrank_5_webp": [
-                44
+                46
             ],
             "large_subrank_6": [
-                44
+                46
             ],
             "large_subrank_6_webp": [
-                44
+                46
             ],
             "small": [
-                44
+                46
             ],
             "small_webp": [
-                44
+                46
             ],
             "small_subrank_1": [
-                44
+                46
             ],
             "small_subrank_1_webp": [
-                44
+                46
             ],
             "small_subrank_2": [
-                44
+                46
             ],
             "small_subrank_2_webp": [
-                44
+                46
             ],
             "small_subrank_3": [
-                44
+                46
             ],
             "small_subrank_3_webp": [
-                44
+                46
             ],
             "small_subrank_4": [
-                44
+                46
             ],
             "small_subrank_4_webp": [
-                44
+                46
             ],
             "small_subrank_5": [
-                44
+                46
             ],
             "small_subrank_5_webp": [
-                44
+                46
             ],
             "small_subrank_6": [
-                44
+                46
             ],
             "small_subrank_6_webp": [
-                44
+                46
             ],
             "subrank_1": [
-                44
+                46
             ],
             "subrank_1_webp": [
-                44
+                46
             ],
             "subrank_2": [
-                44
+                46
             ],
             "subrank_2_webp": [
-                44
+                46
             ],
             "subrank_3": [
-                44
+                46
             ],
             "subrank_3_webp": [
-                44
+                46
             ],
             "subrank_4": [
-                44
+                46
             ],
             "subrank_4_webp": [
-                44
+                46
             ],
             "subrank_5": [
-                44
+                46
             ],
             "subrank_5_webp": [
-                44
+                46
             ],
             "subrank_6": [
-                44
+                46
             ],
             "subrank_6_webp": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "ShopSpiritStatsDisplay": {
             "display_stats": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "ShopStatDisplay": {
             "spirit_stats_display": [
-                38
+                39
             ],
             "vitality_stats_display": [
-                40
-            ],
-            "weapon_stats_display": [
                 41
             ],
+            "weapon_stats_display": [
+                42
+            ],
             "__typename": [
-                44
+                46
             ]
         },
         "ShopVitalityStatsDisplay": {
             "display_stats": [
-                44
+                46
             ],
             "other_display_stats": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "ShopWeaponStatsDisplay": {
             "display_stats": [
-                44
+                46
             ],
             "other_display_stats": [
-                44
+                46
             ],
             "weapon_attributes": [
-                44
+                46
             ],
             "weapon_image": [
-                44
+                46
             ],
             "weapon_image_webp": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "Stat": {
             "time_stamp_s": [
-                20
+                21
             ],
             "net_worth": [
-                20
+                21
             ],
             "gold_player": [
-                20
+                21
             ],
             "gold_player_orbs": [
-                20
+                21
             ],
             "gold_lane_creep_orbs": [
-                20
+                21
             ],
             "gold_neutral_creep_orbs": [
-                20
+                21
             ],
             "gold_boss": [
-                20
+                21
             ],
             "gold_boss_orb": [
-                20
+                21
             ],
             "gold_treasure": [
-                20
+                21
             ],
             "gold_denied": [
-                20
+                21
             ],
             "gold_death_loss": [
-                20
+                21
             ],
             "gold_lane_creep": [
-                20
+                21
             ],
             "gold_neutral_creep": [
-                20
+                21
             ],
             "kills": [
-                20
+                21
             ],
             "deaths": [
-                20
+                21
             ],
             "assists": [
-                20
+                21
             ],
             "creep_kills": [
-                20
+                21
             ],
             "neutral_kills": [
-                20
+                21
             ],
             "possible_creeps": [
-                20
+                21
             ],
             "creep_damage": [
-                20
+                21
             ],
             "player_damage": [
-                20
+                21
             ],
             "neutral_damage": [
-                20
+                21
             ],
             "boss_damage": [
-                20
+                21
             ],
             "denies": [
-                20
+                21
             ],
             "player_healing": [
-                20
+                21
             ],
             "ability_points": [
-                20
+                21
             ],
             "self_healing": [
-                20
+                21
             ],
             "player_damage_taken": [
-                20
+                21
             ],
             "max_health": [
-                20
+                21
             ],
             "weapon_power": [
-                20
+                21
             ],
             "tech_power": [
-                20
+                21
             ],
             "shots_hit": [
-                20
+                21
             ],
             "shots_missed": [
-                20
+                21
             ],
             "damage_absorbed": [
-                20
+                21
             ],
             "absorption_provided": [
-                20
+                21
             ],
             "hero_bullets_hit": [
-                20
+                21
             ],
             "hero_bullets_hit_crit": [
-                20
+                21
             ],
             "heal_prevented": [
-                20
+                21
             ],
             "heal_lost": [
-                20
+                21
             ],
             "damage_mitigated": [
-                20
+                21
             ],
             "level": [
-                20
+                21
             ],
             "player_barriering": [
-                20
+                21
             ],
             "teammate_healing": [
-                20
+                21
             ],
             "teammate_barriering": [
-                20
+                21
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "StatsDisplay": {
             "health_header_stats": [
-                44
+                46
             ],
             "health_stats": [
-                44
+                46
             ],
             "magic_header_stats": [
-                44
+                46
             ],
             "magic_stats": [
-                44
+                46
             ],
             "weapon_header_stats": [
-                44
+                46
             ],
             "weapon_stats": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
+            ]
+        },
+        "SteamProfile": {
+            "account_id": [
+                21
+            ],
+            "personaname": [
+                46
+            ],
+            "profileurl": [
+                46
+            ],
+            "avatar": [
+                46
+            ],
+            "avatarmedium": [
+                46
+            ],
+            "avatarfull": [
+                46
+            ],
+            "realname": [
+                46
+            ],
+            "countrycode": [
+                46
+            ],
+            "last_updated": [
+                9
+            ],
+            "__typename": [
+                46
             ]
         },
         "String": {},
         "StringFilter": {
             "eq": [
-                44
+                46
             ],
             "in": [
-                44
+                46
             ],
             "is_null": [
                 8
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "U32Filter": {
             "eq": [
-                20
+                21
             ],
             "in": [
-                20
+                21
             ],
             "gt": [
-                20
+                21
             ],
             "gte": [
-                20
+                21
             ],
             "lt": [
-                20
+                21
             ],
             "lte": [
-                20
+                21
             ],
             "is_null": [
                 8
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "U64Filter": {
             "eq": [
-                20
+                21
             ],
             "in": [
-                20
+                21
             ],
             "gt": [
-                20
+                21
             ],
             "gte": [
-                20
+                21
             ],
             "lt": [
-                20
+                21
             ],
             "lte": [
-                20
+                21
             ],
             "is_null": [
                 8
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "Upgrade": {
             "id": [
-                20
+                21
             ],
             "class_name": [
-                44
+                46
             ],
             "name": [
-                44
+                46
             ],
             "start_trained": [
                 8
             ],
             "image": [
-                44
+                46
             ],
             "image_webp": [
-                44
+                46
             ],
             "hero": [
-                20
+                21
             ],
             "heroes": [
-                20
+                21
             ],
             "update_time": [
-                20
+                21
             ],
             "type": [
-                23
+                24
             ],
             "shop_image": [
-                44
+                46
             ],
             "shop_image_webp": [
-                44
+                46
             ],
             "shop_image_small": [
-                44
+                46
             ],
             "shop_image_small_webp": [
-                44
+                46
             ],
             "item_slot_type": [
-                22
+                23
             ],
             "item_tier": [
-                20
+                21
             ],
             "disabled": [
                 8
             ],
             "description": [
-                49
+                51
             ],
             "activation": [
                 1
@@ -1507,7 +1544,7 @@ export default {
                 3
             ],
             "component_items": [
-                44
+                46
             ],
             "is_active_item": [
                 8
@@ -1516,166 +1553,166 @@ export default {
                 8
             ],
             "cost": [
-                20
+                21
             ],
             "weapon_info": [
-                24
+                25
             ],
             "properties": [
-                24
+                25
             ],
             "tooltip_sections": [
-                24
+                25
             ],
             "upgrades": [
-                24
+                25
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "UpgradeDescription": {
             "desc": [
-                44
+                46
             ],
             "desc_2": [
-                44
+                46
             ],
             "active": [
-                44
+                46
             ],
             "passive": [
-                44
+                46
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "Weapon": {
             "id": [
-                20
+                21
             ],
             "class_name": [
-                44
+                46
             ],
             "name": [
-                44
+                46
             ],
             "start_trained": [
                 8
             ],
             "image": [
-                44
+                46
             ],
             "image_webp": [
-                44
+                46
             ],
             "hero": [
-                20
+                21
             ],
             "heroes": [
-                20
+                21
             ],
             "update_time": [
-                20
+                21
             ],
             "type": [
-                23
+                24
             ],
             "crosshair_css_class": [
-                44
+                46
             ],
             "use_custom_crosshair_settings": [
                 8
             ],
             "properties": [
-                24
+                25
             ],
             "weapon_info": [
-                24
+                25
             ],
             "custom_crosshair_settings": [
-                24
+                25
             ],
             "__typename": [
-                44
+                46
             ]
         },
         "Query": {
             "matches": [
-                27,
-                {
-                    "where": [
-                        31
-                    ],
-                    "order_by": [
-                        32
-                    ],
-                    "order_direction": [
-                        35
-                    ],
-                    "limit": [
-                        20,
-                        "Int!"
-                    ],
-                    "offset": [
-                        20,
-                        "Int!"
-                    ]
-                }
-            ],
-            "match_players": [
-                30,
-                {
-                    "where": [
-                        31
-                    ],
-                    "order_by": [
-                        34
-                    ],
-                    "order_direction": [
-                        35
-                    ],
-                    "limit": [
-                        20,
-                        "Int!"
-                    ],
-                    "offset": [
-                        20,
-                        "Int!"
-                    ]
-                }
-            ],
-            "match_history": [
                 28,
                 {
                     "where": [
-                        29
+                        32
                     ],
                     "order_by": [
                         33
                     ],
                     "order_direction": [
-                        35
+                        36
                     ],
                     "limit": [
-                        20,
+                        21,
                         "Int!"
                     ],
                     "offset": [
-                        20,
+                        21,
+                        "Int!"
+                    ]
+                }
+            ],
+            "match_players": [
+                31,
+                {
+                    "where": [
+                        32
+                    ],
+                    "order_by": [
+                        35
+                    ],
+                    "order_direction": [
+                        36
+                    ],
+                    "limit": [
+                        21,
+                        "Int!"
+                    ],
+                    "offset": [
+                        21,
+                        "Int!"
+                    ]
+                }
+            ],
+            "match_history": [
+                29,
+                {
+                    "where": [
+                        30
+                    ],
+                    "order_by": [
+                        34
+                    ],
+                    "order_direction": [
+                        36
+                    ],
+                    "limit": [
+                        21,
+                        "Int!"
+                    ],
+                    "offset": [
+                        21,
                         "Int!"
                     ]
                 }
             ],
             "heroes": [
-                10,
+                11,
                 {
                     "client_version": [
-                        20
+                        21
                     ],
                     "language": [
-                        26
+                        27
                     ]
                 }
             ],
@@ -1683,26 +1720,26 @@ export default {
                 6,
                 {
                     "client_version": [
-                        20
+                        21
                     ],
                     "language": [
-                        26
+                        27
                     ]
                 }
             ],
             "ranks": [
-                36,
+                37,
                 {
                     "client_version": [
-                        20
+                        21
                     ],
                     "language": [
-                        26
+                        27
                     ]
                 }
             ],
             "__typename": [
-                44
+                46
             ]
         }
     }

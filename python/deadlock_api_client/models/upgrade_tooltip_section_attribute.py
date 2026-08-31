@@ -78,8 +78,7 @@ class UpgradeTooltipSectionAttribute(BaseModel):
         _items = []
         if self.important_properties_with_icon:
             for _item_important_properties_with_icon in self.important_properties_with_icon:
-                if _item_important_properties_with_icon:
-                    _items.append(_item_important_properties_with_icon.to_dict())
+                _items.append(_item_important_properties_with_icon.to_dict() if _item_important_properties_with_icon is not None else None)
             _dict['important_properties_with_icon'] = _items
         # set to None if elevated_properties (nullable) is None
         # and model_fields_set contains the field

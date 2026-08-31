@@ -29,8 +29,8 @@ pub struct NpcUnit {
     pub barrack_boss_dps: Option<Option<f64>>,
     #[serde(rename = "barrack_guardian_damage_resist_pct", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub barrack_guardian_damage_resist_pct: Option<Option<f64>>,
-    #[serde(rename = "bound_abilities", skip_serializing_if = "Option::is_none")]
-    pub bound_abilities: Option<std::collections::HashMap<String, String>>,
+    #[serde(rename = "bound_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub bound_abilities: Option<Option<std::collections::HashMap<String, String>>>,
     #[serde(rename = "class_name")]
     pub class_name: String,
     #[serde(rename = "empowered_modifier_level1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

@@ -74,8 +74,7 @@ class RawAbilityUpgrade(BaseModel):
         _items = []
         if self.property_upgrades:
             for _item_property_upgrades in self.property_upgrades:
-                if _item_property_upgrades:
-                    _items.append(_item_property_upgrades.to_dict())
+                _items.append(_item_property_upgrades.to_dict() if _item_property_upgrades is not None else None)
             _dict['property_upgrades'] = _items
         return _dict
 

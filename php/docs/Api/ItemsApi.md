@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemsApi
 
-Item, ability, and weapon definitions parsed from the patch&#39;s KV3 source files. Mirrors the previous Python &#x60;/v2/items&#x60; endpoint.
+Item, ability, and weapon definitions parsed from the patch&#39;s KV3 source files.
 
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 

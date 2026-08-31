@@ -140,6 +140,12 @@ export const isStatsDisplay = (obj) => {
         throw new Error('__typename is missing in "isStatsDisplay"');
     return StatsDisplay_possibleTypes.includes(obj.__typename);
 };
+const SteamProfile_possibleTypes = ['SteamProfile'];
+export const isSteamProfile = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isSteamProfile"');
+    return SteamProfile_possibleTypes.includes(obj.__typename);
+};
 const Upgrade_possibleTypes = ['Upgrade'];
 export const isUpgrade = (obj) => {
     if (!obj?.__typename)

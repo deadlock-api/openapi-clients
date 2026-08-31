@@ -103,8 +103,7 @@ class GenericData(BaseModel):
         _items = []
         if self.armor_groups:
             for _item_armor_groups in self.armor_groups:
-                if _item_armor_groups:
-                    _items.append(_item_armor_groups.to_dict())
+                _items.append(_item_armor_groups.to_dict() if _item_armor_groups is not None else None)
             _dict['armor_groups'] = _items
         # override the default output from pydantic by calling `to_dict()` of damage_flash
         if self.damage_flash:
@@ -125,15 +124,13 @@ class GenericData(BaseModel):
         _items = []
         if self.lane_info:
             for _item_lane_info in self.lane_info:
-                if _item_lane_info:
-                    _items.append(_item_lane_info.to_dict())
+                _items.append(_item_lane_info.to_dict() if _item_lane_info is not None else None)
             _dict['lane_info'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in mini_map_offsets (list)
         _items = []
         if self.mini_map_offsets:
             for _item_mini_map_offsets in self.mini_map_offsets:
-                if _item_mini_map_offsets:
-                    _items.append(_item_mini_map_offsets.to_dict())
+                _items.append(_item_mini_map_offsets.to_dict() if _item_mini_map_offsets is not None else None)
             _dict['mini_map_offsets'] = _items
         # override the default output from pydantic by calling `to_dict()` of minimap_team_combine_color
         if self.minimap_team_combine_color:
@@ -145,8 +142,7 @@ class GenericData(BaseModel):
         _items = []
         if self.new_player_metrics:
             for _item_new_player_metrics in self.new_player_metrics:
-                if _item_new_player_metrics:
-                    _items.append(_item_new_player_metrics.to_dict())
+                _items.append(_item_new_player_metrics.to_dict() if _item_new_player_metrics is not None else None)
             _dict['new_player_metrics'] = _items
         # override the default output from pydantic by calling `to_dict()` of objective_params
         if self.objective_params:
@@ -158,8 +154,7 @@ class GenericData(BaseModel):
         _items = []
         if self.spirit_groups:
             for _item_spirit_groups in self.spirit_groups:
-                if _item_spirit_groups:
-                    _items.append(_item_spirit_groups.to_dict())
+                _items.append(_item_spirit_groups.to_dict() if _item_spirit_groups is not None else None)
             _dict['spirit_groups'] = _items
         # override the default output from pydantic by calling `to_dict()` of street_brawl
         if self.street_brawl:
@@ -168,8 +163,7 @@ class GenericData(BaseModel):
         _items = []
         if self.weapon_groups:
             for _item_weapon_groups in self.weapon_groups:
-                if _item_weapon_groups:
-                    _items.append(_item_weapon_groups.to_dict())
+                _items.append(_item_weapon_groups.to_dict() if _item_weapon_groups is not None else None)
             _dict['weapon_groups'] = _items
         # set to None if enemy_objectives_and_zipline_color (nullable) is None
         # and model_fields_set contains the field

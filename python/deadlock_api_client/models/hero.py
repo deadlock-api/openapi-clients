@@ -124,10 +124,9 @@ class Hero(BaseModel):
         _field_dict_of_array = {}
         if self.cost_bonuses:
             for _key_cost_bonuses in self.cost_bonuses:
-                if self.cost_bonuses[_key_cost_bonuses] is not None:
-                    _field_dict_of_array[_key_cost_bonuses] = [
-                        _item.to_dict() for _item in self.cost_bonuses[_key_cost_bonuses]
-                    ]
+                _field_dict_of_array[_key_cost_bonuses] = [
+                    _item.to_dict() if _item is not None else None for _item in self.cost_bonuses[_key_cost_bonuses]
+                ] if self.cost_bonuses[_key_cost_bonuses] is not None else None
             _dict['cost_bonuses'] = _field_dict_of_array
         # override the default output from pydantic by calling `to_dict()` of description
         if self.description:
@@ -142,22 +141,19 @@ class Hero(BaseModel):
         _field_dict = {}
         if self.item_draft_bucketing:
             for _key_item_draft_bucketing in self.item_draft_bucketing:
-                if self.item_draft_bucketing[_key_item_draft_bucketing]:
-                    _field_dict[_key_item_draft_bucketing] = self.item_draft_bucketing[_key_item_draft_bucketing].to_dict()
+                _field_dict[_key_item_draft_bucketing] = self.item_draft_bucketing[_key_item_draft_bucketing].to_dict() if self.item_draft_bucketing[_key_item_draft_bucketing] is not None else None
             _dict['item_draft_bucketing'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of each value in item_slot_info (dict)
         _field_dict = {}
         if self.item_slot_info:
             for _key_item_slot_info in self.item_slot_info:
-                if self.item_slot_info[_key_item_slot_info]:
-                    _field_dict[_key_item_slot_info] = self.item_slot_info[_key_item_slot_info].to_dict()
+                _field_dict[_key_item_slot_info] = self.item_slot_info[_key_item_slot_info].to_dict() if self.item_slot_info[_key_item_slot_info] is not None else None
             _dict['item_slot_info'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of each value in level_info (dict)
         _field_dict = {}
         if self.level_info:
             for _key_level_info in self.level_info:
-                if self.level_info[_key_level_info]:
-                    _field_dict[_key_level_info] = self.level_info[_key_level_info].to_dict()
+                _field_dict[_key_level_info] = self.level_info[_key_level_info].to_dict() if self.level_info[_key_level_info] is not None else None
             _dict['level_info'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of physics
         if self.physics:
@@ -166,17 +162,15 @@ class Hero(BaseModel):
         _field_dict_of_array = {}
         if self.purchase_bonuses:
             for _key_purchase_bonuses in self.purchase_bonuses:
-                if self.purchase_bonuses[_key_purchase_bonuses] is not None:
-                    _field_dict_of_array[_key_purchase_bonuses] = [
-                        _item.to_dict() for _item in self.purchase_bonuses[_key_purchase_bonuses]
-                    ]
+                _field_dict_of_array[_key_purchase_bonuses] = [
+                    _item.to_dict() if _item is not None else None for _item in self.purchase_bonuses[_key_purchase_bonuses]
+                ] if self.purchase_bonuses[_key_purchase_bonuses] is not None else None
             _dict['purchase_bonuses'] = _field_dict_of_array
         # override the default output from pydantic by calling `to_dict()` of each value in scaling_stats (dict)
         _field_dict = {}
         if self.scaling_stats:
             for _key_scaling_stats in self.scaling_stats:
-                if self.scaling_stats[_key_scaling_stats]:
-                    _field_dict[_key_scaling_stats] = self.scaling_stats[_key_scaling_stats].to_dict()
+                _field_dict[_key_scaling_stats] = self.scaling_stats[_key_scaling_stats].to_dict() if self.scaling_stats[_key_scaling_stats] is not None else None
             _dict['scaling_stats'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of shop_stat_display
         if self.shop_stat_display:

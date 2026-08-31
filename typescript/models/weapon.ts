@@ -36,7 +36,7 @@ export interface Weapon {
     'image'?: string | null;
     'image_webp'?: string | null;
     'name': string;
-    'properties'?: { [key: string]: ItemProperty; };
+    'properties'?: { [key: string]: ItemProperty; } | null;
     'start_trained'?: boolean | null;
     'type': ItemType;
     'update_time'?: number | null;

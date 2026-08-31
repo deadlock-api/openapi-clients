@@ -34,7 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="FeedItem" /> class.
         /// </summary>
         /// <param name="feedItemOneOf"></param>
-        public FeedItem(FeedItemOneOf feedItemOneOf)
+        internal FeedItem(FeedItemOneOf feedItemOneOf)
         {
             FeedItemOneOf = feedItemOneOf;
             OnCreated();
@@ -44,7 +44,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="FeedItem" /> class.
         /// </summary>
         /// <param name="feedItemOneOf1"></param>
-        public FeedItem(FeedItemOneOf1 feedItemOneOf1)
+        internal FeedItem(FeedItemOneOf1 feedItemOneOf1)
         {
             FeedItemOneOf1 = feedItemOneOf1;
             OnCreated();

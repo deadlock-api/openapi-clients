@@ -87,6 +87,16 @@ SetTableSizes sets TableSizes field to given value.
 
 HasTableSizes returns a boolean if a field has been set.
 
+### SetTableSizesNil
+
+`func (o *APIInfo) SetTableSizesNil(b bool)`
+
+ SetTableSizesNil sets the value for TableSizes to be an explicit nil
+
+### UnsetTableSizes
+`func (o *APIInfo) UnsetTableSizes()`
+
+UnsetTableSizes ensures that no value is present for TableSizes, not even an explicit nil
 ### GetUserIngestedMatchesLast24h
 
 `func (o *APIInfo) GetUserIngestedMatchesLast24h() int64`

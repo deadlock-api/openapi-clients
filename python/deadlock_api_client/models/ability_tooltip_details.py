@@ -75,8 +75,7 @@ class AbilityTooltipDetails(BaseModel):
         _items = []
         if self.info_sections:
             for _item_info_sections in self.info_sections:
-                if _item_info_sections:
-                    _items.append(_item_info_sections.to_dict())
+                _items.append(_item_info_sections.to_dict() if _item_info_sections is not None else None)
             _dict['info_sections'] = _items
         # set to None if additional_header_properties (nullable) is None
         # and model_fields_set contains the field

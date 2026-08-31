@@ -85,11 +85,11 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
 | **region** | **kotlin.String**| The players region | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **template** | **kotlin.String**| The command template to resolve | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional] |
 
 ### Return type
@@ -137,11 +137,11 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **accountId** | **kotlin.Int**|  | |
 | **region** | **kotlin.String**|  | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **variables** | **kotlin.String**| Variables to resolve, separated by commas. | [optional] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional] |
 
 ### Return type

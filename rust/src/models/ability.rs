@@ -23,8 +23,8 @@ pub struct Ability {
     pub class_name: String,
     #[serde(rename = "dependant_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub dependant_abilities: Option<Option<Vec<String>>>,
-    #[serde(rename = "dependent_abilities", skip_serializing_if = "Option::is_none")]
-    pub dependent_abilities: Option<std::collections::HashMap<String, models::DependantAbilities>>,
+    #[serde(rename = "dependent_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::DependantAbilities>>>,
     #[serde(rename = "description")]
     pub description: Box<models::AbilityDescription>,
     #[serde(rename = "grant_ammo_on_cast", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -41,8 +41,8 @@ pub struct Ability {
     pub image_webp: Option<Option<String>>,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "properties", skip_serializing_if = "Option::is_none")]
-    pub properties: Option<std::collections::HashMap<String, models::ItemProperty>>,
+    #[serde(rename = "properties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub properties: Option<Option<std::collections::HashMap<String, models::ItemProperty>>>,
     #[serde(rename = "start_trained", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub start_trained: Option<Option<bool>>,
     #[serde(rename = "tooltip_details", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

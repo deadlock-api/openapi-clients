@@ -102,15 +102,13 @@ class StreetBrawl(BaseModel):
         _items = []
         if self.item_draft_rounds_per_game_round:
             for _item_item_draft_rounds_per_game_round in self.item_draft_rounds_per_game_round:
-                if _item_item_draft_rounds_per_game_round:
-                    _items.append(_item_item_draft_rounds_per_game_round.to_dict())
+                _items.append(_item_item_draft_rounds_per_game_round.to_dict() if _item_item_draft_rounds_per_game_round is not None else None)
             _dict['item_draft_rounds_per_game_round'] = _items
         # override the default output from pydantic by calling `to_dict()` of each value in item_drafts (dict)
         _field_dict = {}
         if self.item_drafts:
             for _key_item_drafts in self.item_drafts:
-                if self.item_drafts[_key_item_drafts]:
-                    _field_dict[_key_item_drafts] = self.item_drafts[_key_item_drafts].to_dict()
+                _field_dict[_key_item_drafts] = self.item_drafts[_key_item_drafts].to_dict() if self.item_drafts[_key_item_drafts] is not None else None
             _dict['item_drafts'] = _field_dict
         return _dict
 

@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetBuildTagAsync(buildTagId, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<BuildTag>(model);
+            Assert.IsType<DeadlockApiClient.Model.BuildTag>(model);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetBuildTagByNameAsync(name, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<BuildTag>(model);
+            Assert.IsType<DeadlockApiClient.Model.BuildTag>(model);
         }
 
         /// <summary>

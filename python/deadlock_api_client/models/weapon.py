@@ -95,8 +95,7 @@ class Weapon(BaseModel):
         _field_dict = {}
         if self.properties:
             for _key_properties in self.properties:
-                if self.properties[_key_properties]:
-                    _field_dict[_key_properties] = self.properties[_key_properties].to_dict()
+                _field_dict[_key_properties] = self.properties[_key_properties].to_dict() if self.properties[_key_properties] is not None else None
             _dict['properties'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of weapon_info
         if self.weapon_info:
@@ -130,6 +129,11 @@ class Weapon(BaseModel):
         # and model_fields_set contains the field
         if self.image_webp is None and "image_webp" in self.model_fields_set:
             _dict['image_webp'] = None
+
+        # set to None if properties (nullable) is None
+        # and model_fields_set contains the field
+        if self.properties is None and "properties" in self.model_fields_set:
+            _dict['properties'] = None
 
         # set to None if start_trained (nullable) is None
         # and model_fields_set contains the field

@@ -491,7 +491,7 @@ namespace DeadlockApiClient.Model
                             dependantAbilities = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "dependent_abilities":
-                            dependentAbilities = new Option<Dictionary<string, DependantAbilities>?>(JsonSerializer.Deserialize<Dictionary<string, DependantAbilities>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            dependentAbilities = new Option<Dictionary<string, DependantAbilities>?>(JsonSerializer.Deserialize<Dictionary<string, DependantAbilities>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "grant_ammo_on_cast":
                             grantAmmoOnCast = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -509,7 +509,7 @@ namespace DeadlockApiClient.Model
                             imageWebp = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "properties":
-                            properties = new Option<Dictionary<string, ItemProperty>?>(JsonSerializer.Deserialize<Dictionary<string, ItemProperty>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            properties = new Option<Dictionary<string, ItemProperty>?>(JsonSerializer.Deserialize<Dictionary<string, ItemProperty>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "start_trained":
                             startTrained = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -565,12 +565,6 @@ namespace DeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new ArgumentNullException(nameof(type), "Property is not nullable for class Ability.");
 
-            if (dependentAbilities.IsSet && dependentAbilities.Value == null)
-                throw new ArgumentNullException(nameof(dependentAbilities), "Property is not nullable for class Ability.");
-
-            if (properties.IsSet && properties.Value == null)
-                throw new ArgumentNullException(nameof(properties), "Property is not nullable for class Ability.");
-
             return new Ability(className.Value!, description.Value!, id.Value!.Value!, name.Value!, type.Value!.Value!, abilityType, behaviours, bossDamageScale, dependantAbilities, dependentAbilities, grantAmmoOnCast, hero, heroes, image, imageWebp, properties, startTrained, tooltipDetails, updateTime, upgrades, videos, weaponInfo);
         }
 
@@ -606,12 +600,6 @@ namespace DeadlockApiClient.Model
 
             if (ability.Name == null)
                 throw new ArgumentNullException(nameof(ability.Name), "Property is required for class Ability.");
-
-            if (ability.DependentAbilitiesOption.IsSet && ability.DependentAbilities == null)
-                throw new ArgumentNullException(nameof(ability.DependentAbilities), "Property is required for class Ability.");
-
-            if (ability.PropertiesOption.IsSet && ability.Properties == null)
-                throw new ArgumentNullException(nameof(ability.Properties), "Property is required for class Ability.");
 
             writer.WriteString("class_name", ability.ClassName);
 
@@ -655,10 +643,13 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("dependant_abilities");
             if (ability.DependentAbilitiesOption.IsSet)
-            {
-                writer.WritePropertyName("dependent_abilities");
-                JsonSerializer.Serialize(writer, ability.DependentAbilities, jsonSerializerOptions);
-            }
+                if (ability.DependentAbilitiesOption.Value != null)
+                {
+                    writer.WritePropertyName("dependent_abilities");
+                    JsonSerializer.Serialize(writer, ability.DependentAbilities, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("dependent_abilities");
             if (ability.GrantAmmoOnCastOption.IsSet)
                 if (ability.GrantAmmoOnCastOption.Value != null)
                     writer.WriteBoolean("grant_ammo_on_cast", ability.GrantAmmoOnCastOption.Value!.Value);
@@ -692,10 +683,13 @@ namespace DeadlockApiClient.Model
                     writer.WriteNull("image_webp");
 
             if (ability.PropertiesOption.IsSet)
-            {
-                writer.WritePropertyName("properties");
-                JsonSerializer.Serialize(writer, ability.Properties, jsonSerializerOptions);
-            }
+                if (ability.PropertiesOption.Value != null)
+                {
+                    writer.WritePropertyName("properties");
+                    JsonSerializer.Serialize(writer, ability.Properties, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("properties");
             if (ability.StartTrainedOption.IsSet)
                 if (ability.StartTrainedOption.Value != null)
                     writer.WriteBoolean("start_trained", ability.StartTrainedOption.Value!.Value);

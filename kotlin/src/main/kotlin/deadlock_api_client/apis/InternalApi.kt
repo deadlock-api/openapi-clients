@@ -115,6 +115,7 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Content-Type"] = "application/json"
         
+
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/matches/salts",
@@ -186,6 +187,7 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Content-Type"] = "application/json"
         
+
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/feedback",

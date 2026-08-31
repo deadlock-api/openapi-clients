@@ -79,8 +79,7 @@ class PlayerCard(BaseModel):
         _items = []
         if self.slots:
             for _item_slots in self.slots:
-                if _item_slots:
-                    _items.append(_item_slots.to_dict())
+                _items.append(_item_slots.to_dict() if _item_slots is not None else None)
             _dict['slots'] = _items
         # set to None if ranked_badge_level (nullable) is None
         # and model_fields_set contains the field

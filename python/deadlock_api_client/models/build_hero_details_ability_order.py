@@ -74,8 +74,7 @@ class BuildHeroDetailsAbilityOrder(BaseModel):
         _items = []
         if self.currency_changes:
             for _item_currency_changes in self.currency_changes:
-                if _item_currency_changes:
-                    _items.append(_item_currency_changes.to_dict())
+                _items.append(_item_currency_changes.to_dict() if _item_currency_changes is not None else None)
             _dict['currency_changes'] = _items
         # set to None if currency_changes (nullable) is None
         # and model_fields_set contains the field

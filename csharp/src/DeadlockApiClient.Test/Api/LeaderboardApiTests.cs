@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Test.Api
             string region = default!;
             var response = await _instance.LeaderboardAsync(region);
             var model = response.Ok();
-            Assert.IsType<Leaderboard>(model);
+            Assert.IsType<DeadlockApiClient.Model.Leaderboard>(model);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Test.Api
             int heroId = default!;
             var response = await _instance.LeaderboardHeroAsync(region, heroId);
             var model = response.Ok();
-            Assert.IsType<Leaderboard>(model);
+            Assert.IsType<DeadlockApiClient.Model.Leaderboard>(model);
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **player_team** | **number** |  | [default to undefined]
 **ranked_calibration_match** | **number** | Non-zero if this match counted towards the player\&#39;s ranked calibration. | [optional] [default to undefined]
 **ranked_delta** | **number** | The ranked progress change the player got from this match. | [optional] [default to undefined]
-**ranked_display_badge** | **number** | The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
+**ranked_display_badge** | **number** | The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] [default to undefined]
 **ranked_used_demotion_protection** | **boolean** | Whether the player\&#39;s demotion protection absorbed a loss in this match. | [optional] [default to undefined]
 **start_time** | **number** |  | [default to undefined]
 **team_abandoned** | **boolean** |  | [optional] [default to undefined]

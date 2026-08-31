@@ -175,8 +175,7 @@ class NpcUnit(BaseModel):
         _items = []
         if self.intrinsic_modifiers:
             for _item_intrinsic_modifiers in self.intrinsic_modifiers:
-                if _item_intrinsic_modifiers:
-                    _items.append(_item_intrinsic_modifiers.to_dict())
+                _items.append(_item_intrinsic_modifiers.to_dict() if _item_intrinsic_modifiers is not None else None)
             _dict['intrinsic_modifiers'] = _items
         # override the default output from pydantic by calling `to_dict()` of objective_health_growth_phase1
         if self.objective_health_growth_phase1:
@@ -232,6 +231,11 @@ class NpcUnit(BaseModel):
         # and model_fields_set contains the field
         if self.barrack_guardian_damage_resist_pct is None and "barrack_guardian_damage_resist_pct" in self.model_fields_set:
             _dict['barrack_guardian_damage_resist_pct'] = None
+
+        # set to None if bound_abilities (nullable) is None
+        # and model_fields_set contains the field
+        if self.bound_abilities is None and "bound_abilities" in self.model_fields_set:
+            _dict['bound_abilities'] = None
 
         # set to None if empowered_modifier_level1 (nullable) is None
         # and model_fields_set contains the field

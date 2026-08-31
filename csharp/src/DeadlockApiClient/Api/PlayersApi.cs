@@ -246,7 +246,7 @@ namespace DeadlockApiClient.Api
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -258,7 +258,7 @@ namespace DeadlockApiClient.Api
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1251,11 +1251,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.PlayerAccountStats? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.PlayerAccountStats? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.PlayerAccountStats? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.PlayerAccountStats>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.PlayerAccountStats? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1503,11 +1515,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.PlayerCard? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.PlayerCard? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.PlayerCard? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.PlayerCard>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.PlayerCard? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -1840,11 +1864,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<EnemyStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<EnemyStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<EnemyStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<EnemyStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<EnemyStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -2093,11 +2129,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<PlayerMatchHistoryEntry>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<PlayerMatchHistoryEntry>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<PlayerMatchHistoryEntry>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<PlayerMatchHistoryEntry>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<PlayerMatchHistoryEntry>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -2137,11 +2185,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<PlayerMatchHistoryEntry>? TooManyRequests()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<PlayerMatchHistoryEntry>? result = null;
+                OnTooManyRequests(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultTooManyRequests();
+                return result;
+            }
+
+            private List<PlayerMatchHistoryEntry>? DefaultTooManyRequests()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsTooManyRequests
                     ? System.Text.Json.JsonSerializer.Deserialize<List<PlayerMatchHistoryEntry>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnTooManyRequests(ref bool suppressDefault, ref List<PlayerMatchHistoryEntry>? result);
 
             /// <summary>
             /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
@@ -2465,11 +2525,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<MateStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<MateStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<MateStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<MateStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<MateStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -2840,11 +2912,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<HeroStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<HeroStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<HeroStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<HeroStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<HeroStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -2938,7 +3022,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2956,7 +3040,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -3080,11 +3164,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.RankResponse? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.RankResponse? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.RankResponse? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.RankResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.RankResponse? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -3358,11 +3454,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<int>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<int>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<int>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<int>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -3637,11 +3745,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<int>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<int>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<int>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<int>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -3889,11 +4009,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.RankResponse? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.RankResponse? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.RankResponse? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.RankResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.RankResponse? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -4167,11 +4299,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<int>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<int>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<int>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<int>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -4446,11 +4590,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<int>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<int>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<int>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<int>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null

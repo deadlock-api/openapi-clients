@@ -87,9 +87,9 @@ func (o *APIInfo) UnsetFetchedMatchesPerDay() {
 	o.FetchedMatchesPerDay.Unset()
 }
 
-// GetTableSizes returns the TableSizes field value if set, zero value otherwise.
+// GetTableSizes returns the TableSizes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *APIInfo) GetTableSizes() map[string]TableSize {
-	if o == nil || IsNil(o.TableSizes) {
+	if o == nil {
 		var ret map[string]TableSize
 		return ret
 	}
@@ -98,6 +98,7 @@ func (o *APIInfo) GetTableSizes() map[string]TableSize {
 
 // GetTableSizesOk returns a tuple with the TableSizes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *APIInfo) GetTableSizesOk() (map[string]TableSize, bool) {
 	if o == nil || IsNil(o.TableSizes) {
 		return map[string]TableSize{}, false
@@ -177,7 +178,7 @@ func (o APIInfo) ToMap() (map[string]interface{}, error) {
 	if o.FetchedMatchesPerDay.IsSet() {
 		toSerialize["fetched_matches_per_day"] = o.FetchedMatchesPerDay.Get()
 	}
-	if !IsNil(o.TableSizes) {
+	if o.TableSizes != nil {
 		toSerialize["table_sizes"] = o.TableSizes
 	}
 	if o.UserIngestedMatchesLast24h.IsSet() {

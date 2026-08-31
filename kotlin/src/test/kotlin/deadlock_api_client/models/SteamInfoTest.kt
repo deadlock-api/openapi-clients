@@ -81,7 +81,7 @@ class SteamInfoTest : ShouldSpec() {
             //modelInstance.versionDate shouldBe ("TODO")
         }
 
-        // to test the property `versionDatetime` - `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone) — matches the Python output.
+        // to test the property `versionDatetime` - `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).
         should("test versionDatetime") {
             // uncomment below to test the property
             //modelInstance.versionDatetime shouldBe ("TODO")

@@ -38,9 +38,9 @@ try {
 ```
 
 ### Parameters
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
 | **refresh** | **kotlin.Boolean**| Refresh the listed profiles from the Steam Web API before returning. | [optional] |
 
 ### Return type
@@ -89,12 +89,12 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **searchQuery** | **kotlin.String**| Search query for Steam profiles. | |
 | **limit** | **kotlin.Int**| Maximum number of profiles to return. | [optional] [default to 100] |
 | **minMatchesPlayedLast30d** | **kotlin.Int**| Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. | [optional] [default to 5] |
 | **minLastTeamAvgBadge** | **kotlin.Int**| Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. | [optional] [default to 0] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **matchesPlayedWeight** | **kotlin.Double**| Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. | [optional] [default to 0.02] |
 
 ### Return type

@@ -45,8 +45,8 @@ pub struct Upgrade {
     pub item_tier: u32,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "properties", skip_serializing_if = "Option::is_none")]
-    pub properties: Option<std::collections::HashMap<String, models::UpgradeProperty>>,
+    #[serde(rename = "properties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub properties: Option<Option<std::collections::HashMap<String, models::UpgradeProperty>>>,
     #[serde(rename = "shop_image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shop_image: Option<Option<String>>,
     #[serde(rename = "shop_image_small", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

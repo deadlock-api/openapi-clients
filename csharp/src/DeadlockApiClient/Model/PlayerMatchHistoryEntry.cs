@@ -58,7 +58,7 @@ namespace DeadlockApiClient.Model
         /// <param name="brawlScoreTeam1">brawlScoreTeam1</param>
         /// <param name="rankedCalibrationMatch">Non-zero if this match counted towards the player&#39;s ranked calibration.</param>
         /// <param name="rankedDelta">The ranked progress change the player got from this match.</param>
-        /// <param name="rankedDisplayBadge">The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rankedDisplayBadge">The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="rankedUsedDemotionProtection">Whether the player&#39;s demotion protection absorbed a loss in this match.</param>
         /// <param name="teamAbandoned">teamAbandoned</param>
         [JsonConstructor]
@@ -301,9 +301,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankedDisplayBadgeOption { get; private set; }
 
         /// <summary>
-        /// The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        /// <value>The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_display_badge")]
         public int? RankedDisplayBadge { get { return this.RankedDisplayBadgeOption.Value; } set { this.RankedDisplayBadgeOption = new(value); } }
 

@@ -75,6 +75,13 @@ input BoolFilter {
   is_null: Boolean
 }
 
+"""
+Implement the DateTime<Utc> scalar
+
+The input/output is a string in RFC3339 format.
+"""
+scalar DateTime
+
 type Hero {
   id: Int!
   class_name: String!
@@ -452,6 +459,13 @@ type MatchPlayer {
   Hero asset metadata for this player's `hero_id` (latest version, English).
   """
   hero: Hero
+
+  """
+  Stored Steam profile for this player's `account_id` (no live Steam
+  fetch). `null` for protected users and accounts without a stored
+  profile.
+  """
+  steam: SteamProfile
 }
 
 """
@@ -679,6 +693,22 @@ type StatsDisplay {
   magic_stats: [String!]!
   weapon_header_stats: [String!]!
   weapon_stats: [String!]!
+}
+
+"""
+Stored Steam profile of a player, from the `steam_profiles` table (no live
+Steam Web API fetch). Same data as the REST `/v1/players/steam` endpoint.
+"""
+type SteamProfile {
+  account_id: Int!
+  personaname: String!
+  profileurl: String!
+  avatar: String!
+  avatarmedium: String!
+  avatarfull: String!
+  realname: String
+  countrycode: String
+  last_updated: DateTime!
 }
 
 input StringFilter {

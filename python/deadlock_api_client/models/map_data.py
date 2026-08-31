@@ -83,15 +83,13 @@ class MapData(BaseModel):
         _field_dict = {}
         if self.objective_positions:
             for _key_objective_positions in self.objective_positions:
-                if self.objective_positions[_key_objective_positions]:
-                    _field_dict[_key_objective_positions] = self.objective_positions[_key_objective_positions].to_dict()
+                _field_dict[_key_objective_positions] = self.objective_positions[_key_objective_positions].to_dict() if self.objective_positions[_key_objective_positions] is not None else None
             _dict['objective_positions'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of each item in zipline_paths (list)
         _items = []
         if self.zipline_paths:
             for _item_zipline_paths in self.zipline_paths:
-                if _item_zipline_paths:
-                    _items.append(_item_zipline_paths.to_dict())
+                _items.append(_item_zipline_paths.to_dict() if _item_zipline_paths is not None else None)
             _dict['zipline_paths'] = _items
         return _dict
 

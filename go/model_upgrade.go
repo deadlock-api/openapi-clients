@@ -607,9 +607,9 @@ func (o *Upgrade) SetName(v string) {
 	o.Name = v
 }
 
-// GetProperties returns the Properties field value if set, zero value otherwise.
+// GetProperties returns the Properties field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Upgrade) GetProperties() map[string]UpgradeProperty {
-	if o == nil || IsNil(o.Properties) {
+	if o == nil {
 		var ret map[string]UpgradeProperty
 		return ret
 	}
@@ -618,6 +618,7 @@ func (o *Upgrade) GetProperties() map[string]UpgradeProperty {
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Upgrade) GetPropertiesOk() (map[string]UpgradeProperty, bool) {
 	if o == nil || IsNil(o.Properties) {
 		return map[string]UpgradeProperty{}, false
@@ -1091,7 +1092,7 @@ func (o Upgrade) ToMap() (map[string]interface{}, error) {
 	toSerialize["item_slot_type"] = o.ItemSlotType
 	toSerialize["item_tier"] = o.ItemTier
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Properties) {
+	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
 	if o.ShopImage.IsSet() {

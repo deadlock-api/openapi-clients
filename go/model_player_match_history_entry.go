@@ -49,7 +49,7 @@ type PlayerMatchHistoryEntry struct {
 	RankedCalibrationMatch NullableInt32 `json:"ranked_calibration_match,omitempty"`
 	// The ranked progress change the player got from this match.
 	RankedDelta NullableInt32 `json:"ranked_delta,omitempty"`
-	// The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	// The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	RankedDisplayBadge NullableInt32 `json:"ranked_display_badge,omitempty"`
 	// Whether the player's demotion protection absorbed a loss in this match.
 	RankedUsedDemotionProtection NullableBool `json:"ranked_used_demotion_protection,omitempty"`

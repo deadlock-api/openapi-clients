@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetRankAsync(tier, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<Rank>(model);
+            Assert.IsType<DeadlockApiClient.Model.Rank>(model);
         }
 
         /// <summary>

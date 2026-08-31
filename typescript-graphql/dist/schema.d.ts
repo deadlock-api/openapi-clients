@@ -1,5 +1,6 @@
 export type Scalars = {
     Boolean: boolean;
+    DateTime: any;
     Float: number;
     ID: string;
     Int: number;
@@ -301,6 +302,12 @@ export interface MatchPlayer {
     hero_xp_rewards: (Scalars['JsonScalar'] | null);
     /** Hero asset metadata for this player's `hero_id` (latest version, English). */
     hero: (Hero | null);
+    /**
+     * Stored Steam profile for this player's `account_id` (no live Steam
+     * fetch). `null` for protected users and accounts without a stored
+     * profile.
+     */
+    steam: (SteamProfile | null);
     __typename: 'MatchPlayer';
 }
 export type OrderByMatch = 'MATCH_ID' | 'START_TIME' | 'AVERAGE_BADGE';
@@ -496,6 +503,22 @@ export interface StatsDisplay {
     weapon_header_stats: Scalars['String'][];
     weapon_stats: Scalars['String'][];
     __typename: 'StatsDisplay';
+}
+/**
+ * Stored Steam profile of a player, from the `steam_profiles` table (no live
+ * Steam Web API fetch). Same data as the REST `/v1/players/steam` endpoint.
+ */
+export interface SteamProfile {
+    account_id: Scalars['Int'];
+    personaname: Scalars['String'];
+    profileurl: Scalars['String'];
+    avatar: Scalars['String'];
+    avatarmedium: Scalars['String'];
+    avatarfull: Scalars['String'];
+    realname: (Scalars['String'] | null);
+    countrycode: (Scalars['String'] | null);
+    last_updated: Scalars['DateTime'];
+    __typename: 'SteamProfile';
 }
 export interface Upgrade {
     id: Scalars['Int'];
@@ -902,6 +925,12 @@ export interface MatchPlayerGenqlSelection {
     hero_xp_rewards?: boolean | number;
     /** Hero asset metadata for this player's `hero_id` (latest version, English). */
     hero?: HeroGenqlSelection;
+    /**
+     * Stored Steam profile for this player's `account_id` (no live Steam
+     * fetch). `null` for protected users and accounts without a stored
+     * profile.
+     */
+    steam?: SteamProfileGenqlSelection;
     __typename?: boolean | number;
     __scalar?: boolean | number;
 }
@@ -1174,6 +1203,23 @@ export interface StatsDisplayGenqlSelection {
     __typename?: boolean | number;
     __scalar?: boolean | number;
 }
+/**
+ * Stored Steam profile of a player, from the `steam_profiles` table (no live
+ * Steam Web API fetch). Same data as the REST `/v1/players/steam` endpoint.
+ */
+export interface SteamProfileGenqlSelection {
+    account_id?: boolean | number;
+    personaname?: boolean | number;
+    profileurl?: boolean | number;
+    avatar?: boolean | number;
+    avatarmedium?: boolean | number;
+    avatarfull?: boolean | number;
+    realname?: boolean | number;
+    countrycode?: boolean | number;
+    last_updated?: boolean | number;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
 export interface StringFilter {
     eq?: (Scalars['String'] | null);
     in?: (Scalars['String'][] | null);
@@ -1326,6 +1372,9 @@ export declare const isStat: (obj?: {
 export declare const isStatsDisplay: (obj?: {
     __typename?: any;
 } | null) => obj is StatsDisplay;
+export declare const isSteamProfile: (obj?: {
+    __typename?: any;
+} | null) => obj is SteamProfile;
 export declare const isUpgrade: (obj?: {
     __typename?: any;
 } | null) => obj is Upgrade;

@@ -83,8 +83,7 @@ class RankedSeason(BaseModel):
         _items = []
         if self.intervals:
             for _item_intervals in self.intervals:
-                if _item_intervals:
-                    _items.append(_item_intervals.to_dict())
+                _items.append(_item_intervals.to_dict() if _item_intervals is not None else None)
             _dict['intervals'] = _items
         return _dict
 

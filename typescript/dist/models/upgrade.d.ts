@@ -37,7 +37,7 @@ export interface Upgrade {
     'name': string;
     'properties'?: {
         [key: string]: UpgradeProperty;
-    };
+    } | null;
     'shop_image'?: string | null;
     'shop_image_small'?: string | null;
     'shop_image_small_webp'?: string | null;

@@ -60,7 +60,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetNpcUnitAsync(idOrClassname, clientVersion);
             var model = response.Ok();
-            Assert.IsType<NpcUnit>(model);
+            Assert.IsType<DeadlockApiClient.Model.NpcUnit>(model);
         }
 
         /// <summary>

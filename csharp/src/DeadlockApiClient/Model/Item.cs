@@ -34,7 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
         /// <param name="ability"></param>
-        public Item(Ability ability)
+        internal Item(Ability ability)
         {
             Ability = ability;
             OnCreated();
@@ -44,7 +44,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
         /// <param name="weapon"></param>
-        public Item(Weapon weapon)
+        internal Item(Weapon weapon)
         {
             Weapon = weapon;
             OnCreated();
@@ -54,7 +54,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
         /// <param name="upgrade"></param>
-        public Item(Upgrade upgrade)
+        internal Item(Upgrade upgrade)
         {
             Upgrade = upgrade;
             OnCreated();

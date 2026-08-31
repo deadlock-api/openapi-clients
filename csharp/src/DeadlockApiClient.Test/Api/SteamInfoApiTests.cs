@@ -70,7 +70,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetSteamInfoAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<SteamInfo>(model);
+            Assert.IsType<DeadlockApiClient.Model.SteamInfo>(model);
         }
     }
 }

@@ -1257,7 +1257,7 @@ namespace DeadlockApiClient.Model
                             barrackGuardianDamageResistPct = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "bound_abilities":
-                            boundAbilities = new Option<Dictionary<string, string>?>(JsonSerializer.Deserialize<Dictionary<string, string>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            boundAbilities = new Option<Dictionary<string, string>?>(JsonSerializer.Deserialize<Dictionary<string, string>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "empowered_modifier_level1":
                             empoweredModifierLevel1 = new Option<SubclassEmpoweredModifierLevel?>(JsonSerializer.Deserialize<SubclassEmpoweredModifierLevel>(ref utf8JsonReader, jsonSerializerOptions));
@@ -1442,9 +1442,6 @@ namespace DeadlockApiClient.Model
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class NpcUnit.");
 
-            if (boundAbilities.IsSet && boundAbilities.Value == null)
-                throw new ArgumentNullException(nameof(boundAbilities), "Property is not nullable for class NpcUnit.");
-
             return new NpcUnit(className.Value!, id.Value!.Value!, acceleration, attackT1BossMaxRange, attackT3BossMaxRange, attackT3BossPhase2MaxRange, attackTrooperMaxRange, backdoorBulletResistModifier, barrackBossDps, barrackGuardianDamageResistPct, boundAbilities, empoweredModifierLevel1, empoweredModifierLevel2, enemyTrooperDamageReduction, enemyTrooperProtectionRange, generatorBossDps, goldReward, goldRewardBonusPercentPerMinute, healthBarColorEnemy, healthBarColorFriend, healthBarColorTeam1, healthBarColorTeam2, healthBarColorTeamNeutral, intrinsicModifiers, laserDpsMaxHealth, laserDpsToPlayers, maxHealth, maxHealthFinal, maxHealthGenerator, meleeAttemptRange, meleeDamage, meleeDuration, meleeHitRange, nearDeathDuration, noShieldLaserDpsToPlayers, objectiveHealthGrowthPhase1, objectiveHealthGrowthPhase2, objectiveRegen, phase2Health, playerDamageResistPct, playerDps, rangedArmorModifier, runSpeed, sightRangeNpcs, sightRangePlayers, spawnBreakablesOnDeath, stompDamage, stompDamageMaxHealthPercent, stompImpactRadius, stunDuration, t1BossDamageResistPct, t1BossDps, t1BossDpsbaseResist, t1BossDpsmaxResist, t1BossDpsmaxResistTimeInSeconds, t2BossDamageResistPct, t2BossDps, t2BossDpsbaseResist, t2BossDpsmaxResist, t2BossDpsmaxResistTimeInSeconds, t3BossDamageResistPct, t3BossDps, trooperDamageResistPct, trooperDps, walkSpeed, weaponInfo);
         }
 
@@ -1474,9 +1471,6 @@ namespace DeadlockApiClient.Model
         {
             if (npcUnit.ClassName == null)
                 throw new ArgumentNullException(nameof(npcUnit.ClassName), "Property is required for class NpcUnit.");
-
-            if (npcUnit.BoundAbilitiesOption.IsSet && npcUnit.BoundAbilities == null)
-                throw new ArgumentNullException(nameof(npcUnit.BoundAbilities), "Property is required for class NpcUnit.");
 
             writer.WriteString("class_name", npcUnit.ClassName);
 
@@ -1533,10 +1527,13 @@ namespace DeadlockApiClient.Model
                     writer.WriteNull("barrack_guardian_damage_resist_pct");
 
             if (npcUnit.BoundAbilitiesOption.IsSet)
-            {
-                writer.WritePropertyName("bound_abilities");
-                JsonSerializer.Serialize(writer, npcUnit.BoundAbilities, jsonSerializerOptions);
-            }
+                if (npcUnit.BoundAbilitiesOption.Value != null)
+                {
+                    writer.WritePropertyName("bound_abilities");
+                    JsonSerializer.Serialize(writer, npcUnit.BoundAbilities, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("bound_abilities");
             if (npcUnit.EmpoweredModifierLevel1Option.IsSet)
                 if (npcUnit.EmpoweredModifierLevel1Option.Value != null)
                 {

@@ -79,8 +79,7 @@ class BuildHeroDetailsCategory(BaseModel):
         _items = []
         if self.mods:
             for _item_mods in self.mods:
-                if _item_mods:
-                    _items.append(_item_mods.to_dict())
+                _items.append(_item_mods.to_dict() if _item_mods is not None else None)
             _dict['mods'] = _items
         # set to None if description (nullable) is None
         # and model_fields_set contains the field

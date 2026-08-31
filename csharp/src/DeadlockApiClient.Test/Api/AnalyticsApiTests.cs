@@ -370,7 +370,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<List<int>?> lockedColumns = default!;
             var response = await _instance.ItemFlowStatsAsync(phaseIntervalS, phaseCount, gameMode, matchMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountIds, includeItemIds, excludeItemIds, lockedItemIds, lockedColumns);
             var model = response.Ok();
-            Assert.IsType<ItemFlowStats>(model);
+            Assert.IsType<DeadlockApiClient.Model.ItemFlowStats>(model);
         }
 
         /// <summary>
@@ -624,7 +624,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<List<int>?> accountIds = default!;
             var response = await _instance.PlayerStatsMetricsAsync(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds);
             var model = response.Ok();
-            Assert.IsType<Dictionary<string, HashMapValue>>(model);
+            Assert.IsType<DeadlockApiClient.Model.Dictionary<string, HashMapValue>>(model);
         }
     }
 }

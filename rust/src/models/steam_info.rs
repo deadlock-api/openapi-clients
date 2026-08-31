@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// SteamInfo : Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order, which matches the legacy Python endpoint.
+/// SteamInfo : Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SteamInfo {
     #[serde(rename = "app_id")]
@@ -30,7 +30,7 @@ pub struct SteamInfo {
     pub tools_app_id: u32,
     #[serde(rename = "version_date")]
     pub version_date: String,
-    /// `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone) — matches the Python output.
+    /// `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).
     #[serde(rename = "version_datetime")]
     pub version_datetime: String,
     #[serde(rename = "version_time")]
@@ -38,7 +38,7 @@ pub struct SteamInfo {
 }
 
 impl SteamInfo {
-    /// Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order, which matches the legacy Python endpoint.
+    /// Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
     pub fn new(app_id: u32, client_version: u32, product_name: String, server_app_id: u32, server_version: u32, source_revision: u64, tools_app_id: u32, version_date: String, version_datetime: String, version_time: String) -> SteamInfo {
         SteamInfo {
             app_id,

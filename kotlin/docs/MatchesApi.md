@@ -46,9 +46,9 @@ try {
 ```
 
 ### Parameters
-| **accountId** | **kotlin.Int**| The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
@@ -113,7 +113,7 @@ No authorization required
 
 Bulk Metadata
 
- This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+ This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains &#x60;hero_build_id&#x60; and &#x60;pregame_hero_id&#x60; fields (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &gt; **Note:** The &#x60;pregame_hero_id&#x60; is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
 ### Example
 ```kotlin
@@ -170,6 +170,8 @@ try {
 ```
 
 ### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
 | **includeInfo** | **kotlin.Boolean**| Include match info in the response. | [optional] [default to true] |
 | **includeMoreInfo** | **kotlin.Boolean**| Include more match info in the response. | [optional] |
 | **includeObjectives** | **kotlin.Boolean**| Include objectives in the response. | [optional] |
@@ -204,8 +206,6 @@ try {
 | **orderBy** | **kotlin.String**| The field to order the results by. | [optional] [enum: match_id, start_time, average_badge] |
 | **orderDirection** | **kotlin.String**| The direction to order the results by. | [optional] [enum: desc, asc] |
 | **limit** | **kotlin.Int**| The maximum number of matches to return. | [optional] [default to 1000] |
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
 | **format** | **kotlin.String**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [enum: json, ndjson] |
 
 ### Return type
@@ -272,7 +272,7 @@ No authorization required
 
 Metadata
 
- This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
+ This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &#x60;pregame_hero_ids&#x60; maps &#x60;account_id&#x60; to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
 
 ### Example
 ```kotlin
@@ -296,10 +296,10 @@ try {
 ```
 
 ### Parameters
-| **matchId** | **kotlin.Long**| The match ID | |
-| **isCustom** | **kotlin.Boolean**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **matchId** | **kotlin.Long**| The match ID | |
+| **isCustom** | **kotlin.Boolean**|  | [optional] |
 | **disableSteam** | **kotlin.Boolean**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] |
 
 ### Return type
@@ -346,10 +346,10 @@ try {
 ```
 
 ### Parameters
-| **matchId** | **kotlin.Long**| The match ID | |
-| **isCustom** | **kotlin.Boolean**|  | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **matchId** | **kotlin.Long**| The match ID | |
+| **isCustom** | **kotlin.Boolean**|  | [optional] |
 | **disableSteam** | **kotlin.Boolean**| If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. | [optional] |
 
 ### Return type
@@ -438,9 +438,9 @@ try {
 ```
 
 ### Parameters
-| **matchId** | **kotlin.Long**| The match ID | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **matchId** | **kotlin.Long**| The match ID | |
 | **disableSteam** | **kotlin.Boolean**| If &#x60;true&#x60;, skip the Steam fallback when the salts are not available in Clickhouse and return an error instead. | [optional] |
 
 ### Return type

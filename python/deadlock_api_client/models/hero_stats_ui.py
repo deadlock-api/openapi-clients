@@ -75,8 +75,7 @@ class HeroStatsUI(BaseModel):
         _items = []
         if self.display_stats:
             for _item_display_stats in self.display_stats:
-                if _item_display_stats:
-                    _items.append(_item_display_stats.to_dict())
+                _items.append(_item_display_stats.to_dict() if _item_display_stats is not None else None)
             _dict['display_stats'] = _items
         return _dict
 

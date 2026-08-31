@@ -13,7 +13,7 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order, which matches the legacy Python endpoint.
+ * Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
  * @export
  * @interface SteamInfo
  */
@@ -67,7 +67,7 @@ export interface SteamInfo  {
      */
     versionDate: string;
     /**
-     * `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone) — matches the Python output.
+     * `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).
      * @type {string}
      * @memberof SteamInfo
      */

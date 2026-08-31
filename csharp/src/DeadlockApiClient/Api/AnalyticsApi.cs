@@ -48,7 +48,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -78,7 +78,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -108,7 +108,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -129,7 +129,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -150,7 +150,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBuildItemStatsApiResponse"/>&gt;</returns>
@@ -163,7 +163,7 @@ namespace DeadlockApiClient.Api
         ///  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </remarks>
         /// <param name="heroId">Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBuildItemStatsApiResponse"/>?&gt;</returns>
@@ -179,7 +179,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -206,7 +206,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -233,7 +233,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -253,7 +253,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -274,7 +274,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -298,7 +298,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="heroId">The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -323,7 +323,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -354,7 +354,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -386,7 +386,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -415,7 +415,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -448,7 +448,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="minMatches">Filter by min number of matches played. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -475,7 +475,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="minMatches">Filter by min number of matches played. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -501,7 +501,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -532,7 +532,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -563,7 +563,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -590,7 +590,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -621,7 +621,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -652,7 +652,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -687,7 +687,7 @@ namespace DeadlockApiClient.Api
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional) (deprecated)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -717,7 +717,7 @@ namespace DeadlockApiClient.Api
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional) (deprecated)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -750,7 +750,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="maxEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="sameLaneFilter">When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -789,7 +789,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="maxEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="sameLaneFilter">When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -822,7 +822,7 @@ namespace DeadlockApiClient.Api
         /// <param name="team">Filter by team number. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -856,7 +856,7 @@ namespace DeadlockApiClient.Api
         /// <param name="team">Filter by team number. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -890,7 +890,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -919,7 +919,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -949,7 +949,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -979,7 +979,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1011,7 +1011,7 @@ namespace DeadlockApiClient.Api
         /// <param name="resolution">Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1038,7 +1038,7 @@ namespace DeadlockApiClient.Api
         /// <param name="resolution">Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1127,7 +1127,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1154,7 +1154,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1632,7 +1632,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IPlayerStatsMetricsApiResponse"/>
     /// </summary>
-    public interface IPlayerStatsMetricsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, HashMapValue>?>
+    public interface IPlayerStatsMetricsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.Dictionary<string, HashMapValue>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -2230,7 +2230,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -2268,7 +2268,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -2467,11 +2467,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<AnalyticsAbilityOrderStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<AnalyticsAbilityOrderStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<AnalyticsAbilityOrderStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<AnalyticsAbilityOrderStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<AnalyticsAbilityOrderStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -2609,7 +2621,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -2638,7 +2650,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -2803,11 +2815,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<BadgeDistribution>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<BadgeDistribution>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<BadgeDistribution>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<BadgeDistribution>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<BadgeDistribution>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -2912,7 +2936,7 @@ namespace DeadlockApiClient.Api
         /// Build Item Stats  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </summary>
         /// <param name="heroId">Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBuildItemStatsApiResponse"/>&gt;</returns>
@@ -2933,7 +2957,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxLastUpdatedUnixTimestamp">Filter builds based on their last updated time (Unix timestamp). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBuildItemStatsApiResponse"/>&gt;</returns>
@@ -3067,11 +3091,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<BuildItemStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<BuildItemStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<BuildItemStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<BuildItemStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<BuildItemStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -3245,7 +3281,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3280,7 +3316,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3470,11 +3506,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<AnalyticsGameStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<AnalyticsGameStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<AnalyticsGameStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<AnalyticsGameStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<AnalyticsGameStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -3619,7 +3667,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3647,7 +3695,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3810,11 +3858,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<HeroBanStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<HeroBanStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<HeroBanStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<HeroBanStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<HeroBanStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -3964,7 +4024,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="heroId">The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3996,7 +4056,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -4171,11 +4231,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<HeroBuildStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<HeroBuildStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<HeroBuildStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<HeroBuildStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<HeroBuildStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -4353,7 +4425,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -4392,7 +4464,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -4597,11 +4669,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<HeroCombStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<HeroCombStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<HeroCombStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<HeroCombStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<HeroCombStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -4771,7 +4855,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -4808,7 +4892,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -5005,11 +5089,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<HeroCounterStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<HeroCounterStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<HeroCounterStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<HeroCounterStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<HeroCounterStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -5189,7 +5285,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="minMatches">Filter by min number of matches played. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -5224,7 +5320,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="minMatches">Filter by min number of matches played. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -5411,11 +5507,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<HeroEntry>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<HeroEntry>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<HeroEntry>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<HeroEntry>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<HeroEntry>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -5605,7 +5713,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -5644,7 +5752,7 @@ namespace DeadlockApiClient.Api
         /// <param name="bucket">Bucket allows you to group the stats by a specific field. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -5850,11 +5958,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<AnalyticsHeroStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<AnalyticsHeroStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<AnalyticsHeroStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<AnalyticsHeroStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<AnalyticsHeroStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -6016,7 +6136,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -6051,7 +6171,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -6240,11 +6360,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<HeroSynergyStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<HeroSynergyStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<HeroSynergyStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<HeroSynergyStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<HeroSynergyStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -6425,7 +6557,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -6464,7 +6596,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -6666,11 +6798,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.ItemFlowStats? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.ItemFlowStats? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.ItemFlowStats? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.ItemFlowStats>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.ItemFlowStats? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -6850,7 +6994,7 @@ namespace DeadlockApiClient.Api
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -6888,7 +7032,7 @@ namespace DeadlockApiClient.Api
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -7083,11 +7227,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<ItemPermutationStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<ItemPermutationStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<ItemPermutationStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<ItemPermutationStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<ItemPermutationStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -7316,7 +7472,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="maxEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="sameLaneFilter">When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -7363,7 +7519,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="maxEnemyNetworth">Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)</param>
         /// <param name="sameLaneFilter">When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -7594,11 +7750,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<ItemStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<ItemStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<ItemStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<ItemStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<ItemStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -7789,7 +7957,7 @@ namespace DeadlockApiClient.Api
         /// <param name="team">Filter by team number. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -7831,7 +7999,7 @@ namespace DeadlockApiClient.Api
         /// <param name="team">Filter by team number. (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -8047,11 +8215,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<KillDeathStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<KillDeathStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<KillDeathStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<KillDeathStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<KillDeathStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -8221,7 +8401,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -8258,7 +8438,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -8455,11 +8635,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<LaneMatchupStats>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<LaneMatchupStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<LaneMatchupStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<LaneMatchupStats>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<LaneMatchupStats>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -8633,7 +8825,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -8671,7 +8863,7 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -8872,11 +9064,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<LaneSoulCurve>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<LaneSoulCurve>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<LaneSoulCurve>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<LaneSoulCurve>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<LaneSoulCurve>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -9039,7 +9243,7 @@ namespace DeadlockApiClient.Api
         /// <param name="resolution">Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -9074,7 +9278,7 @@ namespace DeadlockApiClient.Api
         /// <param name="resolution">Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -9262,11 +9466,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<PlayerPerformanceCurvePoint>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<PlayerPerformanceCurvePoint>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<PlayerPerformanceCurvePoint>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<PlayerPerformanceCurvePoint>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<PlayerPerformanceCurvePoint>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -9695,11 +9911,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public List<PlayerEntry>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                List<PlayerEntry>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<PlayerEntry>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<List<PlayerEntry>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref List<PlayerEntry>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -9862,7 +10090,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -9897,7 +10125,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1784678400)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1785542400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -10083,20 +10311,32 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Dictionary<string, HashMapValue>? Ok()
+            public DeadlockApiClient.Model.Dictionary<string, HashMapValue>? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.Dictionary<string, HashMapValue>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.Dictionary<string, HashMapValue>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, HashMapValue>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Dictionary<string, HashMapValue>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.Dictionary<string, HashMapValue>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Dictionary<string, HashMapValue>? result)
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.Dictionary<string, HashMapValue>? result)
             {
                 result = null;
 

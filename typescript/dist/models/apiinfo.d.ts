@@ -20,7 +20,7 @@ export interface APIInfo {
      */
     'table_sizes'?: {
         [key: string]: TableSize;
-    };
+    } | null;
     /**
      * The number of matches ingested in the last 24 hours.
      * @deprecated

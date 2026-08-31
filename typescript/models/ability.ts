@@ -47,7 +47,7 @@ export interface Ability {
     'boss_damage_scale'?: number | null;
     'class_name': string;
     'dependant_abilities'?: Array<string> | null;
-    'dependent_abilities'?: { [key: string]: DependantAbilities; };
+    'dependent_abilities'?: { [key: string]: DependantAbilities; } | null;
     'description': AbilityDescription;
     'grant_ammo_on_cast'?: boolean | null;
     'hero'?: number | null;
@@ -56,7 +56,7 @@ export interface Ability {
     'image'?: string | null;
     'image_webp'?: string | null;
     'name': string;
-    'properties'?: { [key: string]: ItemProperty; };
+    'properties'?: { [key: string]: ItemProperty; } | null;
     'start_trained'?: boolean | null;
     'tooltip_details'?: AbilityTooltipDetails | null;
     'type': ItemType;

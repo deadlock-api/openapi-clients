@@ -81,15 +81,13 @@ class SubclassModifierDefinitionSubclass(BaseModel):
         _items = []
         if self.modifier_values:
             for _item_modifier_values in self.modifier_values:
-                if _item_modifier_values:
-                    _items.append(_item_modifier_values.to_dict())
+                _items.append(_item_modifier_values.to_dict() if _item_modifier_values is not None else None)
             _dict['modifier_values'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in script_values (list)
         _items = []
         if self.script_values:
             for _item_script_values in self.script_values:
-                if _item_script_values:
-                    _items.append(_item_script_values.to_dict())
+                _items.append(_item_script_values.to_dict() if _item_script_values is not None else None)
             _dict['script_values'] = _items
         # set to None if always_show_in_ui (nullable) is None
         # and model_fields_set contains the field

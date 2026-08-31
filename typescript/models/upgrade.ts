@@ -58,7 +58,7 @@ export interface Upgrade {
     'item_slot_type': ItemSlotType;
     'item_tier': number;
     'name': string;
-    'properties'?: { [key: string]: UpgradeProperty; };
+    'properties'?: { [key: string]: UpgradeProperty; } | null;
     'shop_image'?: string | null;
     'shop_image_small'?: string | null;
     'shop_image_small_webp'?: string | null;

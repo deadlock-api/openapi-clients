@@ -52,7 +52,7 @@ class PlayerMatchHistoryEntry(BaseModel):
     player_team: StrictInt
     ranked_calibration_match: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Non-zero if this match counted towards the player's ranked calibration.")
     ranked_delta: Optional[StrictInt] = Field(default=None, description="The ranked progress change the player got from this match.")
-    ranked_display_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    ranked_display_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     ranked_used_demotion_protection: Optional[StrictBool] = Field(default=None, description="Whether the player's demotion protection absorbed a loss in this match.")
     start_time: Annotated[int, Field(strict=True, ge=0)]
     team_abandoned: Optional[StrictBool] = None

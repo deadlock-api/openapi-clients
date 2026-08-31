@@ -76,8 +76,7 @@ class RawItemWeaponInfoBulletSpeedCurve(BaseModel):
         _items = []
         if self.spline:
             for _item_spline in self.spline:
-                if _item_spline:
-                    _items.append(_item_spline.to_dict())
+                _items.append(_item_spline.to_dict() if _item_spline is not None else None)
             _dict['spline'] = _items
         # set to None if spline (nullable) is None
         # and model_fields_set contains the field

@@ -540,9 +540,11 @@ BulkMetadata Bulk Metadata
 
 This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.
 
-When player info is included, each player object contains a `hero_build_id` field (if available) from demo analysis.
+When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.
 
 > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.
+
+> **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their `hero_id`.
 
 ### Rate Limits:
 | Type | Limit |
@@ -913,6 +915,8 @@ This endpoint returns the match metadata for the given `match_id` parsed into JS
 Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.
 
 > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.
+
+`pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.
 
 Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 

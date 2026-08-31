@@ -77,8 +77,7 @@ class DemoSchemaResponse(BaseModel):
         _items = []
         if self.tables:
             for _item_tables in self.tables:
-                if _item_tables:
-                    _items.append(_item_tables.to_dict())
+                _items.append(_item_tables.to_dict() if _item_tables is not None else None)
             _dict['tables'] = _items
         return _dict
 

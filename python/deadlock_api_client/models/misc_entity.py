@@ -118,15 +118,13 @@ class MiscEntity(BaseModel):
         _items = []
         if self.m_vec_pickups_lv2:
             for _item_m_vec_pickups_lv2 in self.m_vec_pickups_lv2:
-                if _item_m_vec_pickups_lv2:
-                    _items.append(_item_m_vec_pickups_lv2.to_dict())
+                _items.append(_item_m_vec_pickups_lv2.to_dict() if _item_m_vec_pickups_lv2 is not None else None)
             _dict['m_vecPickups_lv2'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in m_vec_pickups_lv3 (list)
         _items = []
         if self.m_vec_pickups_lv3:
             for _item_m_vec_pickups_lv3 in self.m_vec_pickups_lv3:
-                if _item_m_vec_pickups_lv3:
-                    _items.append(_item_m_vec_pickups_lv3.to_dict())
+                _items.append(_item_m_vec_pickups_lv3.to_dict() if _item_m_vec_pickups_lv3 is not None else None)
             _dict['m_vecPickups_lv3'] = _items
         # override the default output from pydantic by calling `to_dict()` of modifier
         if self.modifier:
@@ -138,8 +136,7 @@ class MiscEntity(BaseModel):
         _items = []
         if self.primary_pickups:
             for _item_primary_pickups in self.primary_pickups:
-                if _item_primary_pickups:
-                    _items.append(_item_primary_pickups.to_dict())
+                _items.append(_item_primary_pickups.to_dict() if _item_primary_pickups is not None else None)
             _dict['primary_pickups'] = _items
         # set to None if break_on_dodge_touch (nullable) is None
         # and model_fields_set contains the field

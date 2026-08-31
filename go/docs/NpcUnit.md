@@ -395,6 +395,16 @@ SetBoundAbilities sets BoundAbilities field to given value.
 
 HasBoundAbilities returns a boolean if a field has been set.
 
+### SetBoundAbilitiesNil
+
+`func (o *NpcUnit) SetBoundAbilitiesNil(b bool)`
+
+ SetBoundAbilitiesNil sets the value for BoundAbilities to be an explicit nil
+
+### UnsetBoundAbilities
+`func (o *NpcUnit) UnsetBoundAbilities()`
+
+UnsetBoundAbilities ensures that no value is present for BoundAbilities, not even an explicit nil
 ### GetClassName
 
 `func (o *NpcUnit) GetClassName() string`

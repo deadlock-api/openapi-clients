@@ -19,7 +19,7 @@ import (
 // checks if the SteamInfo type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SteamInfo{}
 
-// SteamInfo Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order, which matches the legacy Python endpoint.
+// SteamInfo Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
 type SteamInfo struct {
 	AppId int32 `json:"app_id"`
 	ClientVersion int32 `json:"client_version"`
@@ -29,7 +29,7 @@ type SteamInfo struct {
 	SourceRevision int64 `json:"source_revision"`
 	ToolsAppId int32 `json:"tools_app_id"`
 	VersionDate string `json:"version_date"`
-	// `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone) — matches the Python output.
+	// `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).
 	VersionDatetime string `json:"version_datetime"`
 	VersionTime string `json:"version_time"`
 }

@@ -183,7 +183,7 @@ namespace DeadlockApiClient.Model
                             fetchedMatchesPerDay = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "table_sizes":
-                            tableSizes = new Option<Dictionary<string, TableSize>?>(JsonSerializer.Deserialize<Dictionary<string, TableSize>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            tableSizes = new Option<Dictionary<string, TableSize>?>(JsonSerializer.Deserialize<Dictionary<string, TableSize>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "user_ingested_matches_last24h":
                             userIngestedMatchesLast24h = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -193,9 +193,6 @@ namespace DeadlockApiClient.Model
                     }
                 }
             }
-
-            if (tableSizes.IsSet && tableSizes.Value == null)
-                throw new ArgumentNullException(nameof(tableSizes), "Property is not nullable for class APIInfo.");
 
             return new APIInfo(fetchedMatchesPerDay, tableSizes, userIngestedMatchesLast24h);
         }
@@ -224,9 +221,6 @@ namespace DeadlockApiClient.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, APIInfo aPIInfo, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (aPIInfo.TableSizesOption.IsSet && aPIInfo.TableSizes == null)
-                throw new ArgumentNullException(nameof(aPIInfo.TableSizes), "Property is required for class APIInfo.");
-
             if (aPIInfo.FetchedMatchesPerDayOption.IsSet)
                 if (aPIInfo.FetchedMatchesPerDayOption.Value != null)
                     writer.WriteNumber("fetched_matches_per_day", aPIInfo.FetchedMatchesPerDayOption.Value!.Value);
@@ -234,10 +228,13 @@ namespace DeadlockApiClient.Model
                     writer.WriteNull("fetched_matches_per_day");
 
             if (aPIInfo.TableSizesOption.IsSet)
-            {
-                writer.WritePropertyName("table_sizes");
-                JsonSerializer.Serialize(writer, aPIInfo.TableSizes, jsonSerializerOptions);
-            }
+                if (aPIInfo.TableSizesOption.Value != null)
+                {
+                    writer.WritePropertyName("table_sizes");
+                    JsonSerializer.Serialize(writer, aPIInfo.TableSizes, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("table_sizes");
             if (aPIInfo.UserIngestedMatchesLast24hOption.IsSet)
                 if (aPIInfo.UserIngestedMatchesLast24hOption.Value != null)
                     writer.WriteNumber("user_ingested_matches_last24h", aPIInfo.UserIngestedMatchesLast24hOption.Value!.Value);

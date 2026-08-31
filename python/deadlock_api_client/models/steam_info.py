@@ -26,7 +26,7 @@ from pydantic_core import to_jsonable_python
 
 class SteamInfo(BaseModel):
     """
-    Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order, which matches the legacy Python endpoint.
+    Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
     """ # noqa: E501
     app_id: Annotated[int, Field(strict=True, ge=0)]
     client_version: Annotated[int, Field(strict=True, ge=0)]
@@ -36,7 +36,7 @@ class SteamInfo(BaseModel):
     source_revision: Annotated[int, Field(strict=True, ge=0)]
     tools_app_id: Annotated[int, Field(strict=True, ge=0)]
     version_date: StrictStr
-    version_datetime: StrictStr = Field(description="`version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone) — matches the Python output.")
+    version_datetime: StrictStr = Field(description="`version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).")
     version_time: StrictStr
     __properties: ClassVar[List[str]] = ["app_id", "client_version", "product_name", "server_app_id", "server_version", "source_revision", "tools_app_id", "version_date", "version_datetime", "version_time"]
 

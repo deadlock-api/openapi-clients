@@ -247,7 +247,12 @@ namespace DeadlockApiClient.Model
                         case "source":
                             string? sourceRawValue = utf8JsonReader.GetString();
                             if (sourceRawValue != null)
-                                source = new Option<FeedItemOneOf1.SourceEnum?>(FeedItemOneOf1.SourceEnumFromStringOrDefault(sourceRawValue));
+                            {
+                                FeedItemOneOf1.SourceEnum? sourceValue = FeedItemOneOf1.SourceEnumFromStringOrDefault(sourceRawValue);
+                                if (sourceValue == null)
+                                    throw new JsonException();
+                                source = new Option<FeedItemOneOf1.SourceEnum?>(sourceValue);
+                            }
                             break;
                         default:
                             break;

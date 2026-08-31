@@ -76,8 +76,7 @@ class TableSchemaResponse(BaseModel):
         _items = []
         if self.columns:
             for _item_columns in self.columns:
-                if _item_columns:
-                    _items.append(_item_columns.to_dict())
+                _items.append(_item_columns.to_dict() if _item_columns is not None else None)
             _dict['columns'] = _items
         return _dict
 

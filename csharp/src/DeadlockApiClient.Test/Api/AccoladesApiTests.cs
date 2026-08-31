@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetAccoladeAsync(accoladeId, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<Accolade>(model);
+            Assert.IsType<DeadlockApiClient.Model.Accolade>(model);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.GetAccoladeByNameAsync(name, language, clientVersion);
             var model = response.Ok();
-            Assert.IsType<Accolade>(model);
+            Assert.IsType<DeadlockApiClient.Model.Accolade>(model);
         }
 
         /// <summary>

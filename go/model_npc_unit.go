@@ -446,9 +446,9 @@ func (o *NpcUnit) UnsetBarrackGuardianDamageResistPct() {
 	o.BarrackGuardianDamageResistPct.Unset()
 }
 
-// GetBoundAbilities returns the BoundAbilities field value if set, zero value otherwise.
+// GetBoundAbilities returns the BoundAbilities field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NpcUnit) GetBoundAbilities() map[string]string {
-	if o == nil || IsNil(o.BoundAbilities) {
+	if o == nil {
 		var ret map[string]string
 		return ret
 	}
@@ -457,6 +457,7 @@ func (o *NpcUnit) GetBoundAbilities() map[string]string {
 
 // GetBoundAbilitiesOk returns a tuple with the BoundAbilities field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NpcUnit) GetBoundAbilitiesOk() (map[string]string, bool) {
 	if o == nil || IsNil(o.BoundAbilities) {
 		return map[string]string{}, false
@@ -2861,7 +2862,7 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 	if o.BarrackGuardianDamageResistPct.IsSet() {
 		toSerialize["barrack_guardian_damage_resist_pct"] = o.BarrackGuardianDamageResistPct.Get()
 	}
-	if !IsNil(o.BoundAbilities) {
+	if o.BoundAbilities != nil {
 		toSerialize["bound_abilities"] = o.BoundAbilities
 	}
 	toSerialize["class_name"] = o.ClassName

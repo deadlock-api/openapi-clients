@@ -376,9 +376,9 @@ func (o *Weapon) SetName(v string) {
 	o.Name = v
 }
 
-// GetProperties returns the Properties field value if set, zero value otherwise.
+// GetProperties returns the Properties field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Weapon) GetProperties() map[string]ItemProperty {
-	if o == nil || IsNil(o.Properties) {
+	if o == nil {
 		var ret map[string]ItemProperty
 		return ret
 	}
@@ -387,6 +387,7 @@ func (o *Weapon) GetProperties() map[string]ItemProperty {
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Weapon) GetPropertiesOk() (map[string]ItemProperty, bool) {
 	if o == nil || IsNil(o.Properties) {
 		return map[string]ItemProperty{}, false
@@ -631,7 +632,7 @@ func (o Weapon) ToMap() (map[string]interface{}, error) {
 		toSerialize["image_webp"] = o.ImageWebp.Get()
 	}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Properties) {
+	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
 	if o.StartTrained.IsSet() {

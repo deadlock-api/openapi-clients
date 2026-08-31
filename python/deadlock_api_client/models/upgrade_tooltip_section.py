@@ -76,8 +76,7 @@ class UpgradeTooltipSection(BaseModel):
         _items = []
         if self.section_attributes:
             for _item_section_attributes in self.section_attributes:
-                if _item_section_attributes:
-                    _items.append(_item_section_attributes.to_dict())
+                _items.append(_item_section_attributes.to_dict() if _item_section_attributes is not None else None)
             _dict['section_attributes'] = _items
         # set to None if section_attributes (nullable) is None
         # and model_fields_set contains the field

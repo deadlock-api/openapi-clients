@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> matchId = default!;
             var response = await _instance.SchemaAsync(matchId);
             var model = response.Ok();
-            Assert.IsType<DemoSchemaResponse>(model);
+            Assert.IsType<DeadlockApiClient.Model.DemoSchemaResponse>(model);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace DeadlockApiClient.Test.Api
             string jobId = default!;
             var response = await _instance.StatusAsync(jobId);
             var model = response.Ok();
-            Assert.IsType<DemoQueryStatusResponse>(model);
+            Assert.IsType<DeadlockApiClient.Model.DemoQueryStatusResponse>(model);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace DeadlockApiClient.Test.Api
             DemoQueryRequest demoQueryRequest = default!;
             var response = await _instance.SubmitAsync(demoQueryRequest);
             var model = response.Ok();
-            Assert.IsType<DemoQueryJobResponse>(model);
+            Assert.IsType<DeadlockApiClient.Model.DemoQueryJobResponse>(model);
         }
     }
 }

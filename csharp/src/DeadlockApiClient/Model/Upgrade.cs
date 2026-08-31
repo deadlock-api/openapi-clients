@@ -604,7 +604,7 @@ namespace DeadlockApiClient.Model
                             imbue = new Option<AbilityImbue?>(JsonSerializer.Deserialize<AbilityImbue?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "properties":
-                            properties = new Option<Dictionary<string, UpgradeProperty>?>(JsonSerializer.Deserialize<Dictionary<string, UpgradeProperty>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            properties = new Option<Dictionary<string, UpgradeProperty>?>(JsonSerializer.Deserialize<Dictionary<string, UpgradeProperty>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "shop_image":
                             shopImage = new Option<string?>(utf8JsonReader.GetString());
@@ -693,9 +693,6 @@ namespace DeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new ArgumentNullException(nameof(type), "Property is not nullable for class Upgrade.");
 
-            if (properties.IsSet && properties.Value == null)
-                throw new ArgumentNullException(nameof(properties), "Property is not nullable for class Upgrade.");
-
             return new Upgrade(activation.Value!.Value!, className.Value!, id.Value!.Value!, isActiveItem.Value!.Value!, itemSlotType.Value!.Value!, itemTier.Value!.Value!, name.Value!, shopable.Value!.Value!, type.Value!.Value!, componentItems, cost, description, disabled, hero, heroes, image, imageWebp, imbue, properties, shopImage, shopImageSmall, shopImageSmallWebp, shopImageWebp, startTrained, tooltipSections, updateTime, upgrades, weaponInfo);
         }
 
@@ -728,9 +725,6 @@ namespace DeadlockApiClient.Model
 
             if (upgrade.Name == null)
                 throw new ArgumentNullException(nameof(upgrade.Name), "Property is required for class Upgrade.");
-
-            if (upgrade.PropertiesOption.IsSet && upgrade.Properties == null)
-                throw new ArgumentNullException(nameof(upgrade.Properties), "Property is required for class Upgrade.");
 
             var activationRawValue = AbilityActivationValueConverter.ToJsonValue(upgrade.Activation);
             writer.WriteString("activation", activationRawValue);
@@ -816,10 +810,13 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("imbue");
             if (upgrade.PropertiesOption.IsSet)
-            {
-                writer.WritePropertyName("properties");
-                JsonSerializer.Serialize(writer, upgrade.Properties, jsonSerializerOptions);
-            }
+                if (upgrade.PropertiesOption.Value != null)
+                {
+                    writer.WritePropertyName("properties");
+                    JsonSerializer.Serialize(writer, upgrade.Properties, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("properties");
             if (upgrade.ShopImageOption.IsSet)
                 if (upgrade.ShopImageOption.Value != null)
                     writer.WriteString("shop_image", upgrade.ShopImage);

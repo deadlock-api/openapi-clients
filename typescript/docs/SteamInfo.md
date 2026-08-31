@@ -1,6 +1,6 @@
 # SteamInfo
 
-Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order, which matches the legacy Python endpoint.
+Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
 
 ## Properties
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **source_revision** | **number** |  | [default to undefined]
 **tools_app_id** | **number** |  | [default to undefined]
 **version_date** | **string** |  | [default to undefined]
-**version_datetime** | **string** | &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone) — matches the Python output. | [default to undefined]
+**version_datetime** | **string** | &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone). | [default to undefined]
 **version_time** | **string** |  | [default to undefined]
 
 ## Example

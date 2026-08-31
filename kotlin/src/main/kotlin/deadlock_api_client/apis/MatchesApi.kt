@@ -286,7 +286,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/metadata
      * Bulk Metadata
-     *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+     *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains &#x60;hero_build_id&#x60; and &#x60;pregame_hero_id&#x60; fields (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &gt; **Note:** The &#x60;pregame_hero_id&#x60; is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
      * @param includeInfo Include match info in the response. (optional, default to true)
      * @param includeMoreInfo Include more match info in the response. (optional)
      * @param includeObjectives Include objectives in the response. (optional)
@@ -352,7 +352,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/metadata
      * Bulk Metadata
-     *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+     *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains &#x60;hero_build_id&#x60; and &#x60;pregame_hero_id&#x60; fields (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &gt; **Note:** The &#x60;pregame_hero_id&#x60; is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
      * @param includeInfo Include match info in the response. (optional, default to true)
      * @param includeMoreInfo Include more match info in the response. (optional)
      * @param includeObjectives Include objectives in the response. (optional)
@@ -626,6 +626,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Content-Type"] = "application/json"
         
+
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/matches/live/urls",
@@ -639,7 +640,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata
      * Metadata
-     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
+     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &#x60;pregame_hero_ids&#x60; maps &#x60;account_id&#x60; to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
@@ -672,7 +673,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/metadata
      * Metadata
-     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
+     *  This endpoint returns the match metadata for the given &#x60;match_id&#x60; parsed into JSON.  Each player object is enriched with a &#x60;hero_build_id&#x60; field (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &#x60;pregame_hero_ids&#x60; maps &#x60;account_id&#x60; to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From Cache: 100req/s&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From Cache: 100req/s&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h |     
      * @param matchId The match ID
      * @param isCustom  (optional)
      * @param disableSteam If &#x60;true&#x60;, skip the Steam fallback when the metadata is not available in S3 and return an error instead. (optional)
@@ -710,6 +711,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/matches/{match_id}/metadata".replace("{"+"match_id"+"}", encodeURIComponent(matchId.toString())),

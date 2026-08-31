@@ -56,6 +56,7 @@ declare const _default: {
             __typename: number[];
         };
         Boolean: {};
+        DateTime: {};
         Float: {};
         Hero: {
             id: number[];
@@ -336,6 +337,7 @@ declare const _default: {
             stats_type_stat: number[];
             hero_xp_rewards: number[];
             hero: number[];
+            steam: number[];
             __typename: number[];
         };
         MatchPlayerWhere: {
@@ -499,6 +501,18 @@ declare const _default: {
             magic_stats: number[];
             weapon_header_stats: number[];
             weapon_stats: number[];
+            __typename: number[];
+        };
+        SteamProfile: {
+            account_id: number[];
+            personaname: number[];
+            profileurl: number[];
+            avatar: number[];
+            avatarmedium: number[];
+            avatarfull: number[];
+            realname: number[];
+            countrycode: number[];
+            last_updated: number[];
             __typename: number[];
         };
         String: {};

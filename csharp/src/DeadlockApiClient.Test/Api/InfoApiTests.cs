@@ -58,7 +58,7 @@ namespace DeadlockApiClient.Test.Api
         {
             var response = await _instance.HealthCheckAsync();
             var model = response.Ok();
-            Assert.IsType<Status>(model);
+            Assert.IsType<DeadlockApiClient.Model.Status>(model);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace DeadlockApiClient.Test.Api
         {
             var response = await _instance.InfoAsync();
             var model = response.Ok();
-            Assert.IsType<APIInfo>(model);
+            Assert.IsType<DeadlockApiClient.Model.APIInfo>(model);
         }
     }
 }

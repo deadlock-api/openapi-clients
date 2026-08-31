@@ -402,6 +402,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/assets/ranks/{tier}/{subrank}/image".replace("{"+"tier"+"}", encodeURIComponent(tier.toString())).replace("{"+"subrank"+"}", encodeURIComponent(subrank.toString())),

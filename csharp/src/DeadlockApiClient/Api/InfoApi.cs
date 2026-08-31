@@ -385,11 +385,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.Status? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.Status? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.Status? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Status>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.Status? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -423,11 +435,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public string? InternalServerError()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                string? result = null;
+                OnInternalServerError(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultInternalServerError();
+                return result;
+            }
+
+            private string? DefaultInternalServerError()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsInternalServerError
                     ? System.Text.Json.JsonSerializer.Deserialize<string>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnInternalServerError(ref bool suppressDefault, ref string? result);
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError and the deserialized response is not null
@@ -641,11 +665,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public DeadlockApiClient.Model.APIInfo? Ok()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.APIInfo? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.APIInfo? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
                     ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.APIInfo>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.APIInfo? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
@@ -679,11 +715,23 @@ namespace DeadlockApiClient.Api
             /// <returns></returns>
             public string? InternalServerError()
             {
-                // This logic may be modified with the AsModel.mustache template
+                bool suppressDefault = false;
+                string? result = null;
+                OnInternalServerError(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultInternalServerError();
+                return result;
+            }
+
+            private string? DefaultInternalServerError()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsInternalServerError
                     ? System.Text.Json.JsonSerializer.Deserialize<string>(RawContent, _jsonSerializerOptions)
                     : null;
             }
+
+            partial void OnInternalServerError(ref bool suppressDefault, ref string? result);
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError and the deserialized response is not null
