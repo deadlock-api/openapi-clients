@@ -288,7 +288,7 @@ export interface MatchPlayer {
     player_rank_consumed_demotion_protection: (Scalars['Boolean'] | null);
     player_rank_initial_win_streak: (Scalars['Int'] | null);
     hero_build_id: (Scalars['Int'] | null);
-    /** Hero locked before the pre-game swap window; 0 when unknown. Differs from `hero_id` when the player swapped. */
+    /** Hero locked before the pre-game swap window; null when unknown. Differs from `hero_id` when the player swapped. */
     pregame_hero_id: (Scalars['Int'] | null);
     items: (Item[] | null);
     stats: (Stat[] | null);
@@ -911,7 +911,7 @@ export interface MatchPlayerGenqlSelection {
     player_rank_consumed_demotion_protection?: boolean | number;
     player_rank_initial_win_streak?: boolean | number;
     hero_build_id?: boolean | number;
-    /** Hero locked before the pre-game swap window; 0 when unknown. Differs from `hero_id` when the player swapped. */
+    /** Hero locked before the pre-game swap window; null when unknown. Differs from `hero_id` when the player swapped. */
     pregame_hero_id?: boolean | number;
     items?: ItemGenqlSelection;
     stats?: StatGenqlSelection;

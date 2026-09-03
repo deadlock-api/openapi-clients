@@ -113,7 +113,7 @@ No authorization required
 
 Bulk Metadata
 
- This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains &#x60;hero_build_id&#x60; and &#x60;pregame_hero_id&#x60; fields (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &gt; **Note:** The &#x60;pregame_hero_id&#x60; is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+ This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains &#x60;hero_build_id&#x60; and &#x60;pregame_hero_id&#x60; fields (if available) from demo analysis.  &gt; **Note:** The &#x60;hero_build_id&#x60; represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  &gt; **Note:** The &#x60;pregame_hero_id&#x60; is the hero the player had locked before the pre-game swap window (&#x60;null&#x60; if unknown). A player swapped heroes when it differs from their &#x60;hero_id&#x60;.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
 ### Example
 ```kotlin

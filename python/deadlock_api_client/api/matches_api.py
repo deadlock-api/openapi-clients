@@ -630,7 +630,7 @@ class MatchesApi:
     ) -> List[int]:
         """Bulk Metadata
 
-         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
         :param include_info: Include match info in the response.
         :type include_info: bool
@@ -835,7 +835,7 @@ class MatchesApi:
     ) -> ApiResponse[List[int]]:
         """Bulk Metadata
 
-         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
         :param include_info: Include match info in the response.
         :type include_info: bool
@@ -1040,7 +1040,7 @@ class MatchesApi:
     ) -> RESTResponseType:
         """Bulk Metadata
 
-         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (0 if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
 
         :param include_info: Include match info in the response.
         :type include_info: bool
