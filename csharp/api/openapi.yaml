@@ -57,9 +57,12 @@ tags:
     \ |\n\nSince ranks only exist on ranked matches, players without one are missing\
     \ from the responses, and the\nhero-scoped variants no longer differ per hero:\
     \ they report the account-wide rank restricted to\nmatches played on that hero.\n\
-    \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n| Key\
-    \ | 25req/min |\n| Global | 50req/min |\n\nRate limits are shared across all MMR\
-    \ endpoints (single bucket).\n    "
+    \n### Rate Limits:\n\nThe rank and rank-history endpoints share one bucket:\n\n\
+    | Type | Limit |\n| ---- | ----- |\n| IP | 20req/min |\n| Key | 100req/min & 2000req/h\
+    \ |\n| Global | 200req/min |\n\nThe distribution endpoints aggregate over every\
+    \ ranked match and are far more expensive, so they\nhave their own, tighter bucket:\n\
+    \n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n| Key | 25req/min |\n\
+    | Global | 50req/min |\n    "
   name: MMR
 - description: Steam related endpoints
   name: Steam
@@ -193,7 +196,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -464,7 +467,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -598,7 +601,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -686,7 +689,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -919,7 +922,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -1064,7 +1067,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -1264,7 +1267,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -1561,7 +1564,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -1830,7 +1833,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -2109,7 +2112,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -2395,7 +2398,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -2727,7 +2730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -3027,7 +3030,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -3327,7 +3330,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -3636,7 +3639,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -3921,7 +3924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -4211,7 +4214,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -4447,7 +4450,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -4761,7 +4764,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -9271,7 +9274,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
@@ -9395,7 +9398,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785715200
+          default: 1785801600
           format: int64
           nullable: true
           type: integer
