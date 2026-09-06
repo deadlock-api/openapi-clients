@@ -26,6 +26,20 @@ class TestBuildsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_fetch_build_live(self) -> None:
+        """Test case for fetch_build_live
+
+        Fetch Live
+        """
+        pass
+
+    def test_fetch_builds_by_author_live(self) -> None:
+        """Test case for fetch_builds_by_author_live
+
+        Fetch Live by Author
+        """
+        pass
+
     def test_search_builds(self) -> None:
         """Test case for search_builds
 

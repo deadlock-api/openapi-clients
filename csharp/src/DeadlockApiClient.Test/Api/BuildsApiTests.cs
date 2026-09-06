@@ -51,6 +51,32 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test FetchBuildLive
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task FetchBuildLiveAsyncTest()
+        {
+            int heroId = default!;
+            int buildId = default!;
+            Client.Option<bool> forceRefetch = default!;
+            var response = await _instance.FetchBuildLiveAsync(heroId, buildId, forceRefetch);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.Build>(model);
+        }
+
+        /// <summary>
+        /// Test FetchBuildsByAuthorLive
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task FetchBuildsByAuthorLiveAsyncTest()
+        {
+            int accountId = default!;
+            var response = await _instance.FetchBuildsByAuthorLiveAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<List<Build>>(model);
+        }
+
+        /// <summary>
         /// Test SearchBuilds
         /// </summary>
         [Fact (Skip = "not implemented")]

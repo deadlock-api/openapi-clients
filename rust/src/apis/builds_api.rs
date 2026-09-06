@@ -14,6 +14,24 @@ use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
+/// struct for passing parameters to the method [`fetch_build_live`]
+#[derive(Clone, Debug)]
+pub struct FetchBuildLiveParams {
+    /// The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    pub hero_id: u32,
+    /// The build ID to fetch.
+    pub build_id: u32,
+    /// Fetch the build from the Game Coordinator even if it is already in the database.
+    pub force_refetch: Option<bool>
+}
+
+/// struct for passing parameters to the method [`fetch_builds_by_author_live`]
+#[derive(Clone, Debug)]
+pub struct FetchBuildsByAuthorLiveParams {
+    /// The players `SteamID3`
+    pub account_id: u32
+}
+
 /// struct for passing parameters to the method [`search_builds`]
 #[derive(Clone, Debug)]
 pub struct SearchBuildsParams {
@@ -58,6 +76,27 @@ pub struct SearchBuildsParams {
 }
 
 
+/// struct for typed errors of method [`fetch_build_live`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum FetchBuildLiveError {
+    Status400(),
+    Status404(),
+    Status429(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`fetch_builds_by_author_live`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum FetchBuildsByAuthorLiveError {
+    Status400(),
+    Status429(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`search_builds`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -68,6 +107,79 @@ pub enum SearchBuildsError {
     UnknownValue(serde_json::Value),
 }
 
+
+///  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+pub async fn fetch_build_live(configuration: &configuration::Configuration, params: FetchBuildLiveParams) -> Result<models::Build, Error<FetchBuildLiveError>> {
+
+    let uri_str = format!("{}/v1/builds/{hero_id}/{build_id}", configuration.base_path, hero_id=params.hero_id, build_id=params.build_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.force_refetch {
+        req_builder = req_builder.query(&[("force_refetch", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Build`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Build`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<FetchBuildLiveError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+pub async fn fetch_builds_by_author_live(configuration: &configuration::Configuration, params: FetchBuildsByAuthorLiveParams) -> Result<Vec<models::Build>, Error<FetchBuildsByAuthorLiveError>> {
+
+    let uri_str = format!("{}/v1/builds/by-author/{account_id}", configuration.base_path, account_id=params.account_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::Build&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::Build&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<FetchBuildsByAuthorLiveError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
 
 ///  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn search_builds(configuration: &configuration::Configuration, params: SearchBuildsParams) -> Result<Vec<models::Build>, Error<SearchBuildsError>> {

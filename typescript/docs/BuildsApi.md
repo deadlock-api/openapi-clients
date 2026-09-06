@@ -4,7 +4,124 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|[**fetchBuildLive**](#fetchbuildlive) | **GET** /v1/builds/{hero_id}/{build_id} | Fetch Live|
+|[**fetchBuildsByAuthorLive**](#fetchbuildsbyauthorlive) | **GET** /v1/builds/by-author/{account_id} | Fetch Live by Author|
 |[**searchBuilds**](#searchbuilds) | **GET** /v1/builds | Search|
+
+# **fetchBuildLive**
+> Build fetchBuildLive()
+
+ Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+
+### Example
+
+```typescript
+import {
+    BuildsApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new BuildsApi(configuration);
+
+let heroId: number; //The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
+let buildId: number; //The build ID to fetch. (default to undefined)
+let forceRefetch: boolean; //Fetch the build from the Game Coordinator even if it is already in the database. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.fetchBuildLive(
+    heroId,
+    buildId,
+    forceRefetch
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **heroId** | [**number**] | The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
+| **buildId** | [**number**] | The build ID to fetch. | defaults to undefined|
+| **forceRefetch** | [**boolean**] | Fetch the build from the Game Coordinator even if it is already in the database. | (optional) defaults to undefined|
+
+
+### Return type
+
+**Build**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** |  |  -  |
+|**400** | Provided parameters are invalid. |  -  |
+|**404** | Build not found |  -  |
+|**429** | Rate limit exceeded |  -  |
+|**500** | Fetching build failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **fetchBuildsByAuthorLive**
+> Array<Build> fetchBuildsByAuthorLive()
+
+ Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+
+### Example
+
+```typescript
+import {
+    BuildsApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new BuildsApi(configuration);
+
+let accountId: number; //The players `SteamID3` (default to undefined)
+
+const { status, data } = await apiInstance.fetchBuildsByAuthorLive(
+    accountId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
+
+
+### Return type
+
+**Array<Build>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** |  |  -  |
+|**400** | Provided parameters are invalid. |  -  |
+|**429** | Rate limit exceeded |  -  |
+|**500** | Fetching builds failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchBuilds**
 > Array<Build> searchBuilds()

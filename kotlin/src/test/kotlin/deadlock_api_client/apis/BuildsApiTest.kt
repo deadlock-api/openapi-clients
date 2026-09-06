@@ -34,6 +34,24 @@ class BuildsApiTest : ShouldSpec() {
         // uncomment below to create an instance of BuildsApi
         //val apiInstance = BuildsApi()
 
+        // to test fetchBuildLive
+        should("test fetchBuildLive") {
+            // uncomment below to test fetchBuildLive
+            //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+            //val buildId : kotlin.Int = 56 // kotlin.Int | The build ID to fetch.
+            //val forceRefetch : kotlin.Boolean = true // kotlin.Boolean | Fetch the build from the Game Coordinator even if it is already in the database.
+            //val result : Build = apiInstance.fetchBuildLive(heroId, buildId, forceRefetch)
+            //result shouldBe ("TODO")
+        }
+
+        // to test fetchBuildsByAuthorLive
+        should("test fetchBuildsByAuthorLive") {
+            // uncomment below to test fetchBuildsByAuthorLive
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val result : kotlin.collections.List<Build> = apiInstance.fetchBuildsByAuthorLive(accountId)
+            //result shouldBe ("TODO")
+        }
+
         // to test searchBuilds
         should("test searchBuilds") {
             // uncomment below to test searchBuilds

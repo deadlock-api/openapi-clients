@@ -1,5 +1,15 @@
 ## BuildsApi
 
+### Fetch Live
+## Fetch Live
+GET https://api.deadlock-api.com/v1/builds/{{hero_id}}/{{build_id}}?forceRefetch={{forceRefetch}}
+Accept: application/json
+
+### Fetch Live by Author
+## Fetch Live by Author
+GET https://api.deadlock-api.com/v1/builds/by-author/{{account_id}}
+Accept: application/json
+
 ### Search
 ## Search
 GET https://api.deadlock-api.com/v1/builds?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minPublishedUnixTimestamp={{minPublishedUnixTimestamp}}&maxPublishedUnixTimestamp={{maxPublishedUnixTimestamp}}&sortBy={{sortBy}}&start={{start}}&limit={{limit}}&sortDirection={{sortDirection}}&searchName={{searchName}}&searchDescription={{searchDescription}}&onlyLatest={{onlyLatest}}&language={{language}}&buildLanguage={{buildLanguage}}&buildId={{buildId}}&version={{version}}&heroId={{heroId}}&tag={{tag}}&rollupCategory={{rollupCategory}}&authorId={{authorId}}

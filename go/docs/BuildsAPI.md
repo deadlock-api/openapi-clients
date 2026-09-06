@@ -4,8 +4,155 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**FetchBuildLive**](BuildsAPI.md#FetchBuildLive) | **Get** /v1/builds/{hero_id}/{build_id} | Fetch Live
+[**FetchBuildsByAuthorLive**](BuildsAPI.md#FetchBuildsByAuthorLive) | **Get** /v1/builds/by-author/{account_id} | Fetch Live by Author
 [**SearchBuilds**](BuildsAPI.md#SearchBuilds) | **Get** /v1/builds | Search
 
+
+
+## FetchBuildLive
+
+> Build FetchBuildLive(ctx, heroId, buildId).ForceRefetch(forceRefetch).Execute()
+
+Fetch Live
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	heroId := int32(56) // int32 | The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	buildId := int32(56) // int32 | The build ID to fetch.
+	forceRefetch := true // bool | Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BuildsAPI.FetchBuildLive(context.Background(), heroId, buildId).ForceRefetch(forceRefetch).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BuildsAPI.FetchBuildLive``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FetchBuildLive`: Build
+	fmt.Fprintf(os.Stdout, "Response from `BuildsAPI.FetchBuildLive`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**heroId** | **int32** | The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**buildId** | **int32** | The build ID to fetch. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFetchBuildLiveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **forceRefetch** | **bool** | Fetch the build from the Game Coordinator even if it is already in the database. | 
+
+### Return type
+
+[**Build**](Build.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FetchBuildsByAuthorLive
+
+> []Build FetchBuildsByAuthorLive(ctx, accountId).Execute()
+
+Fetch Live by Author
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountId := int32(56) // int32 | The players `SteamID3`
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BuildsAPI.FetchBuildsByAuthorLive(context.Background(), accountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BuildsAPI.FetchBuildsByAuthorLive``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FetchBuildsByAuthorLive`: []Build
+	fmt.Fprintf(os.Stdout, "Response from `BuildsAPI.FetchBuildsByAuthorLive`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFetchBuildsByAuthorLiveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]Build**](Build.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## SearchBuilds

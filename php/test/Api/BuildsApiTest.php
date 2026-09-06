@@ -72,6 +72,30 @@ class BuildsApiTest extends TestCase
     }
 
     /**
+     * Test case for fetchBuildLive
+     *
+     * Fetch Live.
+     *
+     */
+    public function testFetchBuildLive()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for fetchBuildsByAuthorLive
+     *
+     * Fetch Live by Author.
+     *
+     */
+    public function testFetchBuildsByAuthorLive()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for searchBuilds
      *
      * Search.

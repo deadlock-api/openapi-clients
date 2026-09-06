@@ -119,6 +119,8 @@ Class | Method | HTTP request | Description
 *BuildTagsAPI* | [**GetBuildTag**](docs/BuildTagsAPI.md#getbuildtag) | **Get** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
 *BuildTagsAPI* | [**GetBuildTagByName**](docs/BuildTagsAPI.md#getbuildtagbyname) | **Get** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name
 *BuildTagsAPI* | [**ListBuildTags**](docs/BuildTagsAPI.md#listbuildtags) | **Get** /v1/assets/build-tags | List Build Tags
+*BuildsAPI* | [**FetchBuildLive**](docs/BuildsAPI.md#fetchbuildlive) | **Get** /v1/builds/{hero_id}/{build_id} | Fetch Live
+*BuildsAPI* | [**FetchBuildsByAuthorLive**](docs/BuildsAPI.md#fetchbuildsbyauthorlive) | **Get** /v1/builds/by-author/{account_id} | Fetch Live by Author
 *BuildsAPI* | [**SearchBuilds**](docs/BuildsAPI.md#searchbuilds) | **Get** /v1/builds | Search
 *ClientVersionsAPI* | [**ListClientVersions**](docs/ClientVersionsAPI.md#listclientversions) | **Get** /v1/assets/client-versions | List Client Versions
 *ColorsAPI* | [**ListColors**](docs/ColorsAPI.md#listcolors) | **Get** /v1/assets/colors | List Colors

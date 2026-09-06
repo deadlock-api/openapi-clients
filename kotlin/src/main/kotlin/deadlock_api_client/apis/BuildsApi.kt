@@ -54,6 +54,163 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
+     * GET /v1/builds/{hero_id}/{build_id}
+     * Fetch Live
+     *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set &#x60;force_refetch&#x3D;true&#x60; to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+     * @param heroId The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param buildId The build ID to fetch.
+     * @param forceRefetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @return Build
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun fetchBuildLive(heroId: kotlin.Int, buildId: kotlin.Int, forceRefetch: kotlin.Boolean? = null) : Build {
+        val localVarResponse = fetchBuildLiveWithHttpInfo(heroId = heroId, buildId = buildId, forceRefetch = forceRefetch)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Build
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/builds/{hero_id}/{build_id}
+     * Fetch Live
+     *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set &#x60;force_refetch&#x3D;true&#x60; to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+     * @param heroId The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param buildId The build ID to fetch.
+     * @param forceRefetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @return ApiResponse<Build?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun fetchBuildLiveWithHttpInfo(heroId: kotlin.Int, buildId: kotlin.Int, forceRefetch: kotlin.Boolean?) : ApiResponse<Build?> {
+        val localVariableConfig = fetchBuildLiveRequestConfig(heroId = heroId, buildId = buildId, forceRefetch = forceRefetch)
+
+        return request<Unit, Build>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation fetchBuildLive
+     *
+     * @param heroId The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param buildId The build ID to fetch.
+     * @param forceRefetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @return RequestConfig
+     */
+    fun fetchBuildLiveRequestConfig(heroId: kotlin.Int, buildId: kotlin.Int, forceRefetch: kotlin.Boolean?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (forceRefetch != null) {
+                    put("force_refetch", listOf(forceRefetch.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/builds/{hero_id}/{build_id}".replace("{"+"hero_id"+"}", encodeURIComponent(heroId.toString())).replace("{"+"build_id"+"}", encodeURIComponent(buildId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/builds/by-author/{account_id}
+     * Fetch Live by Author
+     *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return kotlin.collections.List<Build>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun fetchBuildsByAuthorLive(accountId: kotlin.Int) : kotlin.collections.List<Build> {
+        val localVarResponse = fetchBuildsByAuthorLiveWithHttpInfo(accountId = accountId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Build>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/builds/by-author/{account_id}
+     * Fetch Live by Author
+     *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return ApiResponse<kotlin.collections.List<Build>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun fetchBuildsByAuthorLiveWithHttpInfo(accountId: kotlin.Int) : ApiResponse<kotlin.collections.List<Build>?> {
+        val localVariableConfig = fetchBuildsByAuthorLiveRequestConfig(accountId = accountId)
+
+        return request<Unit, kotlin.collections.List<Build>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation fetchBuildsByAuthorLive
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RequestConfig
+     */
+    fun fetchBuildsByAuthorLiveRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/builds/by-author/{account_id}".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
      * enum for parameter sortBy
      */
      enum class SortBySearchBuilds(val value: kotlin.String) {

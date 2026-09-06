@@ -4,7 +4,90 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**FetchBuildLive**](BuildsApi.md#fetchbuildlive) | **GET** /v1/builds/{hero_id}/{build_id} | Fetch Live |
+| [**FetchBuildsByAuthorLive**](BuildsApi.md#fetchbuildsbyauthorlive) | **GET** /v1/builds/by-author/{account_id} | Fetch Live by Author |
 | [**SearchBuilds**](BuildsApi.md#searchbuilds) | **GET** /v1/builds | Search |
+
+<a id="fetchbuildlive"></a>
+# **FetchBuildLive**
+> Build FetchBuildLive (int heroId, int buildId, bool forceRefetch = null)
+
+Fetch Live
+
+ Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **heroId** | **int** | The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
+| **buildId** | **int** | The build ID to fetch. |  |
+| **forceRefetch** | **bool** | Fetch the build from the Game Coordinator even if it is already in the database. | [optional]  |
+
+### Return type
+
+[**Build**](Build.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **400** | Provided parameters are invalid. |  -  |
+| **404** | Build not found |  -  |
+| **429** | Rate limit exceeded |  -  |
+| **500** | Fetching build failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="fetchbuildsbyauthorlive"></a>
+# **FetchBuildsByAuthorLive**
+> List&lt;Build&gt; FetchBuildsByAuthorLive (int accountId)
+
+Fetch Live by Author
+
+ Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+
+### Return type
+
+[**List&lt;Build&gt;**](Build.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **400** | Provided parameters are invalid. |  -  |
+| **429** | Rate limit exceeded |  -  |
+| **500** | Fetching builds failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="searchbuilds"></a>
 # **SearchBuilds**

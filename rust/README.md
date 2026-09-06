@@ -74,6 +74,8 @@ Class | Method | HTTP request | Description
 *BuildTagsApi* | [**get_build_tag**](docs/BuildTagsApi.md#get_build_tag) | **GET** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
 *BuildTagsApi* | [**get_build_tag_by_name**](docs/BuildTagsApi.md#get_build_tag_by_name) | **GET** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name
 *BuildTagsApi* | [**list_build_tags**](docs/BuildTagsApi.md#list_build_tags) | **GET** /v1/assets/build-tags | List Build Tags
+*BuildsApi* | [**fetch_build_live**](docs/BuildsApi.md#fetch_build_live) | **GET** /v1/builds/{hero_id}/{build_id} | Fetch Live
+*BuildsApi* | [**fetch_builds_by_author_live**](docs/BuildsApi.md#fetch_builds_by_author_live) | **GET** /v1/builds/by-author/{account_id} | Fetch Live by Author
 *BuildsApi* | [**search_builds**](docs/BuildsApi.md#search_builds) | **GET** /v1/builds | Search
 *ClientVersionsApi* | [**list_client_versions**](docs/ClientVersionsApi.md#list_client_versions) | **GET** /v1/assets/client-versions | List Client Versions
 *ColorsApi* | [**list_colors**](docs/ColorsApi.md#list_colors) | **GET** /v1/assets/colors | List Colors

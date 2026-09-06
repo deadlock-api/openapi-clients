@@ -196,7 +196,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -467,7 +467,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -601,7 +601,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -689,7 +689,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -922,7 +922,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -1067,7 +1067,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -1267,7 +1267,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -1564,7 +1564,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -1833,7 +1833,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -2112,7 +2112,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -2398,7 +2398,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -2730,7 +2730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -3030,7 +3030,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -3330,7 +3330,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -3639,7 +3639,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -3924,7 +3924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -4214,7 +4214,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -4450,7 +4450,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -4764,7 +4764,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -7308,6 +7308,108 @@ paths:
       summary: Search
       tags:
       - Builds
+  /v1/builds/by-author/{account_id}:
+    get:
+      description: "\nFetches all builds of an author directly from the Deadlock Game\
+        \ Coordinator and stores them in the database.\n\nUnlike the search endpoint,\
+        \ this does not rely on builds already being in our database, so it can be\
+        \ used to\nlook up builds that have not been crawled yet. Every fetched build\
+        \ is upserted into the database.\n\nProtobuf definitions can be found here:\
+        \ [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
+        \nRelevant Protobuf Messages:\n- CMsgClientToGCFindHeroBuilds\n- CMsgClientToGCFindHeroBuildsResponse\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 20req/min |\n\
+        | Key | 100req/min |\n| Global | 500req/min |\n    "
+      operationId: fetch_builds_by_author_live
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Build"
+                type: array
+                default: null
+          description: ""
+        "400":
+          description: Provided parameters are invalid.
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Fetching builds failed
+      summary: Fetch Live by Author
+      tags:
+      - Builds
+  /v1/builds/{hero_id}/{build_id}:
+    get:
+      description: "\nReturns a single build. If the build is already in our database\
+        \ it is served from there, otherwise it is\nfetched live from the Deadlock\
+        \ Game Coordinator and stored in the database.\n\nSet `force_refetch=true`\
+        \ to always fetch from the Game Coordinator, e.g. to pick up a newer version.\n\
+        \nRate limits only apply when the build is fetched from the Game Coordinator.\n\
+        \nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
+        \nRelevant Protobuf Messages:\n- CMsgClientToGCFindHeroBuilds\n- CMsgClientToGCFindHeroBuildsResponse\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 20req/min |\n\
+        | Key | 100req/min |\n| Global | 500req/min |\n    "
+      operationId: fetch_build_live
+      parameters:
+      - description: "The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: false
+        in: path
+        name: hero_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: The build ID to fetch.
+        explode: false
+        in: path
+        name: build_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - description: Fetch the build from the Game Coordinator even if it is already
+          in the database.
+        explode: true
+        in: query
+        name: force_refetch
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Build"
+          description: ""
+        "400":
+          description: Provided parameters are invalid.
+        "404":
+          description: Build not found
+        "429":
+          description: Rate limit exceeded
+        "500":
+          description: Fetching build failed
+      summary: Fetch Live
+      tags:
+      - Builds
   /v1/commands/resolve:
     get:
       description: "\n    Resolves a command and returns the resolved command.\n\n\
@@ -9274,7 +9376,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer
@@ -9398,7 +9500,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1785888000
+          default: 1785974400
           format: int64
           nullable: true
           type: integer

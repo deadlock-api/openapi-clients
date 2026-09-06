@@ -74,6 +74,12 @@ class BuildsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'fetchBuildLive' => [
+            'application/json',
+        ],
+        'fetchBuildsByAuthorLive' => [
+            'application/json',
+        ],
         'searchBuilds' => [
             'application/json',
         ],
@@ -123,6 +129,594 @@ class BuildsApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation fetchBuildLive
+     *
+     * Fetch Live
+     *
+     * @param  int $hero_id The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int $build_id The build ID to fetch. (required)
+     * @param  bool|null $force_refetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildLive'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Build
+     */
+    public function fetchBuildLive($hero_id, $build_id, $force_refetch = null, string $contentType = self::contentTypes['fetchBuildLive'][0])
+    {
+        list($response) = $this->fetchBuildLiveWithHttpInfo($hero_id, $build_id, $force_refetch, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation fetchBuildLiveWithHttpInfo
+     *
+     * Fetch Live
+     *
+     * @param  int $hero_id The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int $build_id The build ID to fetch. (required)
+     * @param  bool|null $force_refetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildLive'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Build, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function fetchBuildLiveWithHttpInfo($hero_id, $build_id, $force_refetch = null, string $contentType = self::contentTypes['fetchBuildLive'][0])
+    {
+        $request = $this->fetchBuildLiveRequest($hero_id, $build_id, $force_refetch, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\Build',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\Build',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Build',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation fetchBuildLiveAsync
+     *
+     * Fetch Live
+     *
+     * @param  int $hero_id The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int $build_id The build ID to fetch. (required)
+     * @param  bool|null $force_refetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildLive'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBuildLiveAsync($hero_id, $build_id, $force_refetch = null, string $contentType = self::contentTypes['fetchBuildLive'][0])
+    {
+        return $this->fetchBuildLiveAsyncWithHttpInfo($hero_id, $build_id, $force_refetch, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation fetchBuildLiveAsyncWithHttpInfo
+     *
+     * Fetch Live
+     *
+     * @param  int $hero_id The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int $build_id The build ID to fetch. (required)
+     * @param  bool|null $force_refetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildLive'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBuildLiveAsyncWithHttpInfo($hero_id, $build_id, $force_refetch = null, string $contentType = self::contentTypes['fetchBuildLive'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Build';
+        $request = $this->fetchBuildLiveRequest($hero_id, $build_id, $force_refetch, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'fetchBuildLive'
+     *
+     * @param  int $hero_id The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int $build_id The build ID to fetch. (required)
+     * @param  bool|null $force_refetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildLive'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function fetchBuildLiveRequest($hero_id, $build_id, $force_refetch = null, string $contentType = self::contentTypes['fetchBuildLive'][0])
+    {
+
+        // verify the required parameter 'hero_id' is set
+        if ($hero_id === null || (is_array($hero_id) && count($hero_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hero_id when calling fetchBuildLive'
+            );
+        }
+        if ($hero_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling BuildsApi.fetchBuildLive, must be bigger than or equal to 0.');
+        }
+        
+        // verify the required parameter 'build_id' is set
+        if ($build_id === null || (is_array($build_id) && count($build_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $build_id when calling fetchBuildLive'
+            );
+        }
+        if ($build_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$build_id" when calling BuildsApi.fetchBuildLive, must be bigger than or equal to 0.');
+        }
+        
+
+
+        $resourcePath = '/v1/builds/{hero_id}/{build_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $force_refetch,
+            'force_refetch', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($hero_id !== null) {
+            $resourcePath = str_replace(
+                '{hero_id}',
+                ObjectSerializer::toPathValue($hero_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($build_id !== null) {
+            $resourcePath = str_replace(
+                '{build_id}',
+                ObjectSerializer::toPathValue($build_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation fetchBuildsByAuthorLive
+     *
+     * Fetch Live by Author
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildsByAuthorLive'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Build[]
+     */
+    public function fetchBuildsByAuthorLive($account_id, string $contentType = self::contentTypes['fetchBuildsByAuthorLive'][0])
+    {
+        list($response) = $this->fetchBuildsByAuthorLiveWithHttpInfo($account_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation fetchBuildsByAuthorLiveWithHttpInfo
+     *
+     * Fetch Live by Author
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildsByAuthorLive'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Build[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function fetchBuildsByAuthorLiveWithHttpInfo($account_id, string $contentType = self::contentTypes['fetchBuildsByAuthorLive'][0])
+    {
+        $request = $this->fetchBuildsByAuthorLiveRequest($account_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\Build[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\Build[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Build[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation fetchBuildsByAuthorLiveAsync
+     *
+     * Fetch Live by Author
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildsByAuthorLive'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBuildsByAuthorLiveAsync($account_id, string $contentType = self::contentTypes['fetchBuildsByAuthorLive'][0])
+    {
+        return $this->fetchBuildsByAuthorLiveAsyncWithHttpInfo($account_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation fetchBuildsByAuthorLiveAsyncWithHttpInfo
+     *
+     * Fetch Live by Author
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildsByAuthorLive'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function fetchBuildsByAuthorLiveAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['fetchBuildsByAuthorLive'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Build[]';
+        $request = $this->fetchBuildsByAuthorLiveRequest($account_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'fetchBuildsByAuthorLive'
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchBuildsByAuthorLive'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function fetchBuildsByAuthorLiveRequest($account_id, string $contentType = self::contentTypes['fetchBuildsByAuthorLive'][0])
+    {
+
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling fetchBuildsByAuthorLive'
+            );
+        }
+        if ($account_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling BuildsApi.fetchBuildsByAuthorLive, must be bigger than or equal to 0.');
+        }
+        
+
+        $resourcePath = '/v1/builds/by-author/{account_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{account_id}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**

@@ -29,6 +29,83 @@ import type { Build } from '../models/index.js';
 export const BuildsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+         * @summary Fetch Live
+         * @param {number} heroId The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number} buildId The build ID to fetch.
+         * @param {boolean} [forceRefetch] Fetch the build from the Game Coordinator even if it is already in the database.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchBuildLive: async (heroId: number, buildId: number, forceRefetch?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'heroId' is not null or undefined
+            assertParamExists('fetchBuildLive', 'heroId', heroId)
+            // verify required parameter 'buildId' is not null or undefined
+            assertParamExists('fetchBuildLive', 'buildId', buildId)
+            const localVarPath = `/v1/builds/{hero_id}/{build_id}`
+                .replace('{hero_id}', encodeURIComponent(String(heroId)))
+                .replace('{build_id}', encodeURIComponent(String(buildId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (forceRefetch !== undefined) {
+                localVarQueryParameter['force_refetch'] = forceRefetch;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+         * @summary Fetch Live by Author
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchBuildsByAuthorLive: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('fetchBuildsByAuthorLive', 'accountId', accountId)
+            const localVarPath = `/v1/builds/by-author/{account_id}`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Search
          * @param {number} [minUnixTimestamp] Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp).
@@ -163,6 +240,34 @@ export const BuildsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = BuildsApiAxiosParamCreator(configuration)
     return {
         /**
+         *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+         * @summary Fetch Live
+         * @param {number} heroId The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number} buildId The build ID to fetch.
+         * @param {boolean} [forceRefetch] Fetch the build from the Game Coordinator even if it is already in the database.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async fetchBuildLive(heroId: number, buildId: number, forceRefetch?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Build>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchBuildLive(heroId, buildId, forceRefetch, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BuildsApi.fetchBuildLive']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+         * @summary Fetch Live by Author
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async fetchBuildsByAuthorLive(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Build>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchBuildsByAuthorLive(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BuildsApi.fetchBuildsByAuthorLive']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Search
          * @param {number} [minUnixTimestamp] Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp).
@@ -203,6 +308,26 @@ export const BuildsApiFactory = function (configuration?: Configuration, basePat
     const localVarFp = BuildsApiFp(configuration)
     return {
         /**
+         *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+         * @summary Fetch Live
+         * @param {BuildsApiFetchBuildLiveRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchBuildLive(requestParameters: BuildsApiFetchBuildLiveRequest, options?: RawAxiosRequestConfig): AxiosPromise<Build> {
+            return localVarFp.fetchBuildLive(requestParameters.heroId, requestParameters.buildId, requestParameters.forceRefetch, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+         * @summary Fetch Live by Author
+         * @param {BuildsApiFetchBuildsByAuthorLiveRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchBuildsByAuthorLive(requestParameters: BuildsApiFetchBuildsByAuthorLiveRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Build>> {
+            return localVarFp.fetchBuildsByAuthorLive(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Search
          * @param {BuildsApiSearchBuildsRequest} requestParameters Request parameters.
@@ -214,6 +339,36 @@ export const BuildsApiFactory = function (configuration?: Configuration, basePat
         },
     };
 };
+
+/**
+ * Request parameters for fetchBuildLive operation in BuildsApi.
+ */
+export interface BuildsApiFetchBuildLiveRequest {
+    /**
+     * The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly heroId: number
+
+    /**
+     * The build ID to fetch.
+     */
+    readonly buildId: number
+
+    /**
+     * Fetch the build from the Game Coordinator even if it is already in the database.
+     */
+    readonly forceRefetch?: boolean
+}
+
+/**
+ * Request parameters for fetchBuildsByAuthorLive operation in BuildsApi.
+ */
+export interface BuildsApiFetchBuildsByAuthorLiveRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number
+}
 
 /**
  * Request parameters for searchBuilds operation in BuildsApi.
@@ -319,6 +474,28 @@ export interface BuildsApiSearchBuildsRequest {
  * BuildsApi - object-oriented interface
  */
 export class BuildsApi extends BaseAPI {
+    /**
+     *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+     * @summary Fetch Live
+     * @param {BuildsApiFetchBuildLiveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public fetchBuildLive(requestParameters: BuildsApiFetchBuildLiveRequest, options?: RawAxiosRequestConfig) {
+        return BuildsApiFp(this.configuration).fetchBuildLive(requestParameters.heroId, requestParameters.buildId, requestParameters.forceRefetch, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+     * @summary Fetch Live by Author
+     * @param {BuildsApiFetchBuildsByAuthorLiveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public fetchBuildsByAuthorLive(requestParameters: BuildsApiFetchBuildsByAuthorLiveRequest, options?: RawAxiosRequestConfig) {
+        return BuildsApiFp(this.configuration).fetchBuildsByAuthorLive(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Search

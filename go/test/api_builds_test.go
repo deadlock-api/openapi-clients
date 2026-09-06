@@ -22,6 +22,35 @@ func Test_deadlock_api_client_BuildsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test BuildsAPIService FetchBuildLive", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var heroId int32
+		var buildId int32
+
+		resp, httpRes, err := apiClient.BuildsAPI.FetchBuildLive(context.Background(), heroId, buildId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test BuildsAPIService FetchBuildsByAuthorLive", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var accountId int32
+
+		resp, httpRes, err := apiClient.BuildsAPI.FetchBuildsByAuthorLive(context.Background(), accountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test BuildsAPIService SearchBuilds", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

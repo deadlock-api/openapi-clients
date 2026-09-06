@@ -16,11 +16,279 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
 // BuildsAPIService BuildsAPI service
 type BuildsAPIService service
+
+type ApiFetchBuildLiveRequest struct {
+	ctx context.Context
+	ApiService *BuildsAPIService
+	heroId int32
+	buildId int32
+	forceRefetch *bool
+}
+
+// Fetch the build from the Game Coordinator even if it is already in the database.
+func (r ApiFetchBuildLiveRequest) ForceRefetch(forceRefetch bool) ApiFetchBuildLiveRequest {
+	r.forceRefetch = &forceRefetch
+	return r
+}
+
+func (r ApiFetchBuildLiveRequest) Execute() (*Build, *http.Response, error) {
+	return r.ApiService.FetchBuildLiveExecute(r)
+}
+
+/*
+FetchBuildLive Fetch Live
+
+
+Returns a single build. If the build is already in our database it is served from there, otherwise it is
+fetched live from the Deadlock Game Coordinator and stored in the database.
+
+Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.
+
+Rate limits only apply when the build is fetched from the Game Coordinator.
+
+Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+Relevant Protobuf Messages:
+- CMsgClientToGCFindHeroBuilds
+- CMsgClientToGCFindHeroBuildsResponse
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 20req/min |
+| Key | 100req/min |
+| Global | 500req/min |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param heroId The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+ @param buildId The build ID to fetch.
+ @return ApiFetchBuildLiveRequest
+*/
+func (a *BuildsAPIService) FetchBuildLive(ctx context.Context, heroId int32, buildId int32) ApiFetchBuildLiveRequest {
+	return ApiFetchBuildLiveRequest{
+		ApiService: a,
+		ctx: ctx,
+		heroId: heroId,
+		buildId: buildId,
+	}
+}
+
+// Execute executes the request
+//  @return Build
+func (a *BuildsAPIService) FetchBuildLiveExecute(r ApiFetchBuildLiveRequest) (*Build, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Build
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildsAPIService.FetchBuildLive")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/builds/{hero_id}/{build_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"hero_id"+"}", url.PathEscape(parameterValueToString(r.heroId, "heroId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"build_id"+"}", url.PathEscape(parameterValueToString(r.buildId, "buildId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.heroId < 0 {
+		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
+	}
+	if r.buildId < 0 {
+		return localVarReturnValue, nil, reportError("buildId must be greater than 0")
+	}
+
+	if r.forceRefetch != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "force_refetch", r.forceRefetch, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiFetchBuildsByAuthorLiveRequest struct {
+	ctx context.Context
+	ApiService *BuildsAPIService
+	accountId int32
+}
+
+func (r ApiFetchBuildsByAuthorLiveRequest) Execute() ([]Build, *http.Response, error) {
+	return r.ApiService.FetchBuildsByAuthorLiveExecute(r)
+}
+
+/*
+FetchBuildsByAuthorLive Fetch Live by Author
+
+
+Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.
+
+Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to
+look up builds that have not been crawled yet. Every fetched build is upserted into the database.
+
+Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+Relevant Protobuf Messages:
+- CMsgClientToGCFindHeroBuilds
+- CMsgClientToGCFindHeroBuildsResponse
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 20req/min |
+| Key | 100req/min |
+| Global | 500req/min |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param accountId The players `SteamID3`
+ @return ApiFetchBuildsByAuthorLiveRequest
+*/
+func (a *BuildsAPIService) FetchBuildsByAuthorLive(ctx context.Context, accountId int32) ApiFetchBuildsByAuthorLiveRequest {
+	return ApiFetchBuildsByAuthorLiveRequest{
+		ApiService: a,
+		ctx: ctx,
+		accountId: accountId,
+	}
+}
+
+// Execute executes the request
+//  @return []Build
+func (a *BuildsAPIService) FetchBuildsByAuthorLiveExecute(r ApiFetchBuildsByAuthorLiveRequest) ([]Build, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []Build
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildsAPIService.FetchBuildsByAuthorLive")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/builds/by-author/{account_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountId < 0 {
+		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiSearchBuildsRequest struct {
 	ctx context.Context

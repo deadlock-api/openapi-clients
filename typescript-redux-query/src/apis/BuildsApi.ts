@@ -20,6 +20,16 @@ import {
     BuildToJSON,
 } from '../models';
 
+export interface FetchBuildLiveRequest {
+    heroId: number;
+    buildId: number;
+    forceRefetch?: boolean;
+}
+
+export interface FetchBuildsByAuthorLiveRequest {
+    accountId: number;
+}
+
 export interface SearchBuildsRequest {
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
@@ -42,6 +52,112 @@ export interface SearchBuildsRequest {
     authorId?: number;
 }
 
+
+/**
+ *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+ * Fetch Live
+ */
+function fetchBuildLiveRaw<T>(requestParameters: FetchBuildLiveRequest, requestConfig: runtime.TypedQueryConfig<T, Build> = {}): QueryConfig<T> {
+    if (requestParameters.heroId === null || requestParameters.heroId === undefined) {
+        throw new runtime.RequiredError('heroId','Required parameter requestParameters.heroId was null or undefined when calling fetchBuildLive.');
+    }
+
+    if (requestParameters.buildId === null || requestParameters.buildId === undefined) {
+        throw new runtime.RequiredError('buildId','Required parameter requestParameters.buildId was null or undefined when calling fetchBuildLive.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.forceRefetch !== undefined) {
+        queryParameters['force_refetch'] = requestParameters.forceRefetch;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/builds/{hero_id}/{build_id}`.replace('{hero_id}', encodeURIComponent(String(requestParameters.heroId))).replace('{build_id}', encodeURIComponent(String(requestParameters.buildId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(BuildFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+* Fetch Live
+*/
+export function fetchBuildLive<T>(requestParameters: FetchBuildLiveRequest, requestConfig?: runtime.TypedQueryConfig<T, Build>): QueryConfig<T> {
+    return fetchBuildLiveRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+ * Fetch Live by Author
+ */
+function fetchBuildsByAuthorLiveRaw<T>(requestParameters: FetchBuildsByAuthorLiveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<Build>> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling fetchBuildsByAuthorLive.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/builds/by-author/{account_id}`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(BuildFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+* Fetch Live by Author
+*/
+export function fetchBuildsByAuthorLive<T>(requestParameters: FetchBuildsByAuthorLiveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<Build>>): QueryConfig<T> {
+    return fetchBuildsByAuthorLiveRaw(requestParameters, requestConfig);
+}
 
 /**
  *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     

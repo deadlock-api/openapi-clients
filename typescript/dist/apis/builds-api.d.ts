@@ -18,6 +18,24 @@ import type { Build } from '../models/index.js';
  */
 export declare const BuildsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live
+     * @param {number} heroId The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number} buildId The build ID to fetch.
+     * @param {boolean} [forceRefetch] Fetch the build from the Game Coordinator even if it is already in the database.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildLive: (heroId: number, buildId: number, forceRefetch?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live by Author
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildsByAuthorLive: (accountId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Search
      * @param {number} [minUnixTimestamp] Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp).
@@ -48,6 +66,24 @@ export declare const BuildsApiAxiosParamCreator: (configuration?: Configuration)
  * BuildsApi - functional programming interface
  */
 export declare const BuildsApiFp: (configuration?: Configuration) => {
+    /**
+     *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live
+     * @param {number} heroId The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number} buildId The build ID to fetch.
+     * @param {boolean} [forceRefetch] Fetch the build from the Game Coordinator even if it is already in the database.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildLive(heroId: number, buildId: number, forceRefetch?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Build>>;
+    /**
+     *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live by Author
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildsByAuthorLive(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Build>>>;
     /**
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Search
@@ -80,6 +116,22 @@ export declare const BuildsApiFp: (configuration?: Configuration) => {
  */
 export declare const BuildsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live
+     * @param {BuildsApiFetchBuildLiveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildLive(requestParameters: BuildsApiFetchBuildLiveRequest, options?: RawAxiosRequestConfig): AxiosPromise<Build>;
+    /**
+     *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live by Author
+     * @param {BuildsApiFetchBuildsByAuthorLiveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildsByAuthorLive(requestParameters: BuildsApiFetchBuildsByAuthorLiveRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Build>>;
+    /**
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Search
      * @param {BuildsApiSearchBuildsRequest} requestParameters Request parameters.
@@ -88,6 +140,32 @@ export declare const BuildsApiFactory: (configuration?: Configuration, basePath?
      */
     searchBuilds(requestParameters?: BuildsApiSearchBuildsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Build>>;
 };
+/**
+ * Request parameters for fetchBuildLive operation in BuildsApi.
+ */
+export interface BuildsApiFetchBuildLiveRequest {
+    /**
+     * The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly heroId: number;
+    /**
+     * The build ID to fetch.
+     */
+    readonly buildId: number;
+    /**
+     * Fetch the build from the Game Coordinator even if it is already in the database.
+     */
+    readonly forceRefetch?: boolean;
+}
+/**
+ * Request parameters for fetchBuildsByAuthorLive operation in BuildsApi.
+ */
+export interface BuildsApiFetchBuildsByAuthorLiveRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number;
+}
 /**
  * Request parameters for searchBuilds operation in BuildsApi.
  */
@@ -173,6 +251,22 @@ export interface BuildsApiSearchBuildsRequest {
  * BuildsApi - object-oriented interface
  */
 export declare class BuildsApi extends BaseAPI {
+    /**
+     *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live
+     * @param {BuildsApiFetchBuildLiveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildLive(requestParameters: BuildsApiFetchBuildLiveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Build, any, {}, any>>;
+    /**
+     *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |
+     * @summary Fetch Live by Author
+     * @param {BuildsApiFetchBuildsByAuthorLiveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchBuildsByAuthorLive(requestParameters: BuildsApiFetchBuildsByAuthorLiveRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Build[], any, {}, any>>;
     /**
      *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Search
