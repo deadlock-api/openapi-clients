@@ -51,6 +51,7 @@ export interface BulkMetadataRequest {
     includePlayerStats?: boolean;
     includePlayerFinalStats?: boolean;
     includePlayerDeathDetails?: boolean;
+    includePlayerCustomUserStats?: boolean;
     gameMode?: BulkMetadataGameModeEnum;
     matchMode?: string;
     matchIds?: Array<number>;
@@ -259,6 +260,11 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 
     if (requestParameters.includePlayerDeathDetails !== undefined) {
         queryParameters['include_player_death_details'] = requestParameters.includePlayerDeathDetails;
+    }
+
+
+    if (requestParameters.includePlayerCustomUserStats !== undefined) {
+        queryParameters['include_player_custom_user_stats'] = requestParameters.includePlayerCustomUserStats;
     }
 
 
