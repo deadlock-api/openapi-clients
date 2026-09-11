@@ -90,7 +90,6 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<bool> includePlayerStats = default!;
             Client.Option<bool> includePlayerFinalStats = default!;
             Client.Option<bool> includePlayerDeathDetails = default!;
-            Client.Option<bool> includePlayerCustomUserStats = default!;
             Client.Option<string?> gameMode = default!;
             Client.Option<string?> matchMode = default!;
             Client.Option<List<long>?> matchIds = default!;
@@ -116,7 +115,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<string> orderDirection = default!;
             Client.Option<int> limit = default!;
             Client.Option<string> format = default!;
-            var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, includePlayerCustomUserStats, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format);
+            var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }

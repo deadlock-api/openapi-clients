@@ -492,6 +492,7 @@ declare const _default: {
             player_barriering: number[];
             teammate_healing: number[];
             teammate_barriering: number[];
+            custom_user_stats: number[];
             __typename: number[];
         };
         StatsDisplay: {

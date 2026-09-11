@@ -684,6 +684,7 @@ type Stat {
   player_barriering: Int
   teammate_healing: Int
   teammate_barriering: Int
+  custom_user_stats: JsonScalar
 }
 
 type StatsDisplay {

@@ -533,6 +533,7 @@ export interface Stat {
     player_barriering: (Scalars['Int'] | null)
     teammate_healing: (Scalars['Int'] | null)
     teammate_barriering: (Scalars['Int'] | null)
+    custom_user_stats: (Scalars['JsonScalar'] | null)
     __typename: 'Stat'
 }
 
@@ -1160,6 +1161,7 @@ export interface StatGenqlSelection{
     player_barriering?: boolean | number
     teammate_healing?: boolean | number
     teammate_barriering?: boolean | number
+    custom_user_stats?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }

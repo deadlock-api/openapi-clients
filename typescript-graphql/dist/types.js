@@ -1356,6 +1356,9 @@ export default {
             "teammate_barriering": [
                 21
             ],
+            "custom_user_stats": [
+                26
+            ],
             "__typename": [
                 46
             ]

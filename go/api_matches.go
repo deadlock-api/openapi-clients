@@ -293,7 +293,6 @@ type ApiBulkMetadataRequest struct {
 	includePlayerStats *bool
 	includePlayerFinalStats *bool
 	includePlayerDeathDetails *bool
-	includePlayerCustomUserStats *bool
 	gameMode *string
 	matchMode *string
 	matchIds *[]int64
@@ -378,12 +377,6 @@ func (r ApiBulkMetadataRequest) IncludePlayerFinalStats(includePlayerFinalStats 
 // Include player death details in the response.
 func (r ApiBulkMetadataRequest) IncludePlayerDeathDetails(includePlayerDeathDetails bool) ApiBulkMetadataRequest {
 	r.includePlayerDeathDetails = &includePlayerDeathDetails
-	return r
-}
-
-// Include per-player &#x60;custom_user_stats&#x60; (a map of stat name to value) in the response.
-func (r ApiBulkMetadataRequest) IncludePlayerCustomUserStats(includePlayerCustomUserStats bool) ApiBulkMetadataRequest {
-	r.includePlayerCustomUserStats = &includePlayerCustomUserStats
 	return r
 }
 
@@ -625,9 +618,6 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	}
 	if r.includePlayerDeathDetails != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_death_details", r.includePlayerDeathDetails, "form", "")
-	}
-	if r.includePlayerCustomUserStats != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_player_custom_user_stats", r.includePlayerCustomUserStats, "form", "")
 	}
 	if r.gameMode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
