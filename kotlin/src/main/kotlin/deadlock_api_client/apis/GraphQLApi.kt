@@ -55,7 +55,7 @@ open class GraphQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/graphql
      * GraphQL Playground
-     *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+     *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -85,7 +85,7 @@ open class GraphQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/graphql
      * GraphQL Playground
-     *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+     *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception

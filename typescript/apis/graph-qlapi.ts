@@ -27,7 +27,7 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 export const GraphQLApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
          * @summary GraphQL Playground
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -66,7 +66,7 @@ export const GraphQLApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GraphQLApiAxiosParamCreator(configuration)
     return {
         /**
-         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
          * @summary GraphQL Playground
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -87,7 +87,7 @@ export const GraphQLApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = GraphQLApiFp(configuration)
     return {
         /**
-         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+         *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
          * @summary GraphQL Playground
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -103,7 +103,7 @@ export const GraphQLApiFactory = function (configuration?: Configuration, basePa
  */
 export class GraphQLApi extends BaseAPI {
     /**
-     *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+     *  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
      * @summary GraphQL Playground
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

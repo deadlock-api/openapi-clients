@@ -41,7 +41,7 @@ namespace DeadlockApiClient.Api
         /// GraphQL Playground
         /// </summary>
         /// <remarks>
-        ///  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        ///  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -52,7 +52,7 @@ namespace DeadlockApiClient.Api
         /// GraphQL Playground
         /// </summary>
         /// <remarks>
-        ///  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        ///  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlaygroundApiResponse"/>?&gt;</returns>
@@ -181,7 +181,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorPlayground(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// GraphQL Playground  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        /// GraphQL Playground  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlaygroundApiResponse"/>&gt;</returns>
@@ -198,7 +198,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// GraphQL Playground  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
+        /// GraphQL Playground  Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via &#x60;POST /v1/graphql&#x60; with a JSON body of the form &#x60;{ \&quot;query\&quot;: \&quot;...\&quot;, \&quot;variables\&quot;: {...} }&#x60;.  ### Rate Limits (POST): | Type | Limit | | - -- - | - -- -- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
