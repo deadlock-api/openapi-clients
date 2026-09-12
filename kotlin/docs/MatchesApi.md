@@ -109,7 +109,7 @@ No authorization required
 
 <a id="bulkMetadata"></a>
 # **bulkMetadata**
-> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
+> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
 
 Bulk Metadata
 
@@ -147,6 +147,7 @@ val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter m
 val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
 val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
+val onlyFilteredPlayers : kotlin.Boolean = true // kotlin.Boolean | Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.
 val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val itemFilterHeroId : kotlin.Int = 56 // kotlin.Int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
 val includeItemIds : kotlin.String = includeItemIds_example // kotlin.String | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
@@ -158,7 +159,7 @@ val orderDirection : kotlin.String = orderDirection_example // kotlin.String | T
 val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
 val format : kotlin.String = format_example // kotlin.String | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#bulkMetadata")
@@ -197,6 +198,7 @@ try {
 | **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional] |
 | **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
+| **onlyFilteredPlayers** | **kotlin.Boolean**| Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. | [optional] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **itemFilterHeroId** | **kotlin.Int**| Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional] |
 | **includeItemIds** | **kotlin.String**| Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional] |

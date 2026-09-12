@@ -157,6 +157,7 @@ let isHighSkillRangeParties: boolean; //Filter matches based on whether they are
 let isLowPriPool: boolean; //Filter matches based on whether they are in the low priority pool. (optional) (default to undefined)
 let isNewPlayerPool: boolean; //Filter matches based on whether they are in the new player pool. (optional) (default to undefined)
 let accountIds: Array<number>; //Filter matches by account IDs of players that participated in the match. (optional) (default to undefined)
+let onlyFilteredPlayers: boolean; //Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`. (optional) (default to undefined)
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional) (default to undefined)
 let itemFilterHeroId: number; //Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. (optional) (default to undefined)
 let includeItemIds: string; //Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. (optional) (default to undefined)
@@ -194,6 +195,7 @@ const { status, data } = await apiInstance.bulkMetadata(
     isLowPriPool,
     isNewPlayerPool,
     accountIds,
+    onlyFilteredPlayers,
     heroIds,
     itemFilterHeroId,
     includeItemIds,
@@ -236,6 +238,7 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **isLowPriPool** | [**boolean**] | Filter matches based on whether they are in the low priority pool. | (optional) defaults to undefined|
 | **isNewPlayerPool** | [**boolean**] | Filter matches based on whether they are in the new player pool. | (optional) defaults to undefined|
 | **accountIds** | **Array&lt;number&gt;** | Filter matches by account IDs of players that participated in the match. | (optional) defaults to undefined|
+| **onlyFilteredPlayers** | [**boolean**] | Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. | (optional) defaults to undefined|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | (optional) defaults to undefined|
 | **itemFilterHeroId** | [**number**] | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | (optional) defaults to undefined|
 | **includeItemIds** | [**string**] | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | (optional) defaults to undefined|

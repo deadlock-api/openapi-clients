@@ -308,6 +308,7 @@ type ApiBulkMetadataRequest struct {
 	isLowPriPool *bool
 	isNewPlayerPool *bool
 	accountIds *[]int32
+	onlyFilteredPlayers *bool
 	heroIds *string
 	itemFilterHeroId *int32
 	includeItemIds *string
@@ -467,6 +468,12 @@ func (r ApiBulkMetadataRequest) IsNewPlayerPool(isNewPlayerPool bool) ApiBulkMet
 // Filter matches by account IDs of players that participated in the match.
 func (r ApiBulkMetadataRequest) AccountIds(accountIds []int32) ApiBulkMetadataRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;.
+func (r ApiBulkMetadataRequest) OnlyFilteredPlayers(onlyFilteredPlayers bool) ApiBulkMetadataRequest {
+	r.onlyFilteredPlayers = &onlyFilteredPlayers
 	return r
 }
 
@@ -679,6 +686,9 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.onlyFilteredPlayers != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "only_filtered_players", r.onlyFilteredPlayers, "form", "")
 	}
 	if r.heroIds != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")

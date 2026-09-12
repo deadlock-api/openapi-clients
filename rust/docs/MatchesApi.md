@@ -77,7 +77,7 @@ No authorization required
 
 ## bulk_metadata
 
-> Vec<u32> bulk_metadata(include_info, include_more_info, include_objectives, include_mid_boss, include_player_info, include_player_kda, include_player_items, include_player_stats, include_player_final_stats, include_player_death_details, game_mode, match_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, hero_ids, item_filter_hero_id, include_item_ids, exclude_item_ids, extra_match_columns, extra_player_columns, order_by, order_direction, limit, format)
+> Vec<u32> bulk_metadata(include_info, include_more_info, include_objectives, include_mid_boss, include_player_info, include_player_kda, include_player_items, include_player_stats, include_player_final_stats, include_player_death_details, game_mode, match_mode, match_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, account_ids, only_filtered_players, hero_ids, item_filter_hero_id, include_item_ids, exclude_item_ids, extra_match_columns, extra_player_columns, order_by, order_direction, limit, format)
 Bulk Metadata
 
  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | 10req/10s | | Global | 100req/min |     
@@ -112,6 +112,7 @@ Name | Type | Description  | Required | Notes
 **is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
 **is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Filter matches by account IDs of players that participated in the match. |  |
+**only_filtered_players** | Option<**bool**> | Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **item_filter_hero_id** | Option<**u32**> | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. |  |
 **include_item_ids** | Option<**String**> | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. |  |

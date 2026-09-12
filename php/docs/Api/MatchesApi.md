@@ -132,7 +132,7 @@ No authorization required
 ## `bulkMetadata()`
 
 ```php
-bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format): int[]
+bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $only_filtered_players, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format): int[]
 ```
 
 Bulk Metadata
@@ -177,6 +177,7 @@ $is_high_skill_range_parties = True; // bool | Filter matches based on whether t
 $is_low_pri_pool = True; // bool | Filter matches based on whether they are in the low priority pool.
 $is_new_player_pool = True; // bool | Filter matches based on whether they are in the new player pool.
 $account_ids = array(56); // int[] | Filter matches by account IDs of players that participated in the match.
+$only_filtered_players = True; // bool | Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $item_filter_hero_id = 56; // int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
 $include_item_ids = 'include_item_ids_example'; // string | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
@@ -189,7 +190,7 @@ $limit = 1000; // int | The maximum number of matches to return.
 $format = 'format_example'; // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
 
 try {
-    $result = $apiInstance->bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format);
+    $result = $apiInstance->bulkMetadata($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $only_filtered_players, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MatchesApi->bulkMetadata: ', $e->getMessage(), PHP_EOL;
@@ -225,6 +226,7 @@ try {
 | **is_low_pri_pool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] |
 | **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
+| **only_filtered_players** | **bool**| Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **item_filter_hero_id** | **int**| Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional] |
 | **include_item_ids** | **string**| Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional] |

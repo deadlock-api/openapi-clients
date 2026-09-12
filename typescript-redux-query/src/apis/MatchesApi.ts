@@ -66,6 +66,7 @@ export interface BulkMetadataRequest {
     isLowPriPool?: boolean;
     isNewPlayerPool?: boolean;
     accountIds?: Array<number>;
+    onlyFilteredPlayers?: boolean;
     heroIds?: string;
     itemFilterHeroId?: number;
     includeItemIds?: string;
@@ -334,6 +335,11 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.onlyFilteredPlayers !== undefined) {
+        queryParameters['only_filtered_players'] = requestParameters.onlyFilteredPlayers;
     }
 
 

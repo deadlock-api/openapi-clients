@@ -76,6 +76,8 @@ pub struct BulkMetadataParams {
     pub is_new_player_pool: Option<bool>,
     /// Filter matches by account IDs of players that participated in the match.
     pub account_ids: Option<Vec<u32>>,
+    /// Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.
+    pub only_filtered_players: Option<bool>,
     /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<String>,
     /// Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
@@ -401,6 +403,9 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
+    }
+    if let Some(ref param_value) = params.only_filtered_players {
+        req_builder = req_builder.query(&[("only_filtered_players", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.hero_ids {
         req_builder = req_builder.query(&[("hero_ids", &param_value.to_string())]);

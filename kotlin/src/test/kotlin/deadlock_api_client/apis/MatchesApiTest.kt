@@ -83,6 +83,7 @@ class MatchesApiTest : ShouldSpec() {
             //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
             //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
+            //val onlyFilteredPlayers : kotlin.Boolean = true // kotlin.Boolean | Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.
             //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val itemFilterHeroId : kotlin.Int = 56 // kotlin.Int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
             //val includeItemIds : kotlin.String = includeItemIds_example // kotlin.String | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
@@ -93,7 +94,7 @@ class MatchesApiTest : ShouldSpec() {
             //val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
             //val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
             //val format : kotlin.String = format_example // kotlin.String | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
             //result shouldBe ("TODO")
         }
 

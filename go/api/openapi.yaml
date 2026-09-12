@@ -8674,6 +8674,15 @@ paths:
           type: array
           default: null
         style: form
+      - description: Only include the players matching `account_ids` in the `players`
+          array instead of all players of the match. Requires `account_ids`.
+        explode: true
+        in: query
+        name: only_filtered_players
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query

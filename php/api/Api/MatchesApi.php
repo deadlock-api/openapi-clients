@@ -725,6 +725,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  bool|null $only_filtered_players Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $item_filter_hero_id Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
      * @param  string|null $include_item_ids Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
@@ -741,9 +742,9 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function bulkMetadata($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadata($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
-        list($response) = $this->bulkMetadataWithHttpInfo($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType);
+        list($response) = $this->bulkMetadataWithHttpInfo($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $only_filtered_players, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType);
         return $response;
     }
 
@@ -777,6 +778,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  bool|null $only_filtered_players Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $item_filter_hero_id Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
      * @param  string|null $include_item_ids Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
@@ -793,9 +795,9 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bulkMetadataWithHttpInfo($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataWithHttpInfo($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
-        $request = $this->bulkMetadataRequest($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType);
+        $request = $this->bulkMetadataRequest($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $only_filtered_players, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -896,6 +898,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  bool|null $only_filtered_players Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $item_filter_hero_id Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
      * @param  string|null $include_item_ids Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
@@ -911,9 +914,9 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bulkMetadataAsync($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataAsync($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
-        return $this->bulkMetadataAsyncWithHttpInfo($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType)
+        return $this->bulkMetadataAsyncWithHttpInfo($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $only_filtered_players, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -951,6 +954,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  bool|null $only_filtered_players Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $item_filter_hero_id Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
      * @param  string|null $include_item_ids Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
@@ -966,10 +970,10 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bulkMetadataAsyncWithHttpInfo($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataAsyncWithHttpInfo($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
         $returnType = 'int[]';
-        $request = $this->bulkMetadataRequest($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType);
+        $request = $this->bulkMetadataRequest($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $only_filtered_players, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1035,6 +1039,7 @@ class MatchesApi
      * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
      * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
      * @param  int[]|null $account_ids Filter matches by account IDs of players that participated in the match. (optional)
+     * @param  bool|null $only_filtered_players Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $item_filter_hero_id Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. (optional)
      * @param  string|null $include_item_ids Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. (optional)
@@ -1050,7 +1055,7 @@ class MatchesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function bulkMetadataRequest($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
+    public function bulkMetadataRequest($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = null, string $contentType = self::contentTypes['bulkMetadata'][0])
     {
 
 
@@ -1110,6 +1115,7 @@ class MatchesApi
             throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling MatchesApi.bulkMetadata, must be bigger than or equal to 0.');
         }
         
+
 
 
 
@@ -1362,6 +1368,15 @@ class MatchesApi
             $account_ids,
             'account_ids', // param base name
             'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $only_filtered_players,
+            'only_filtered_players', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required

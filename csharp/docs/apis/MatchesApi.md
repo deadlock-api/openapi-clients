@@ -89,7 +89,7 @@ No authorization required
 
 <a id="bulkmetadata"></a>
 # **BulkMetadata**
-> List&lt;int&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null, string format = null)
+> List&lt;int&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, bool onlyFilteredPlayers = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null, string format = null)
 
 Bulk Metadata
 
@@ -125,6 +125,7 @@ Bulk Metadata
 | **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | [optional]  |
 | **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Filter matches by account IDs of players that participated in the match. | [optional]  |
+| **onlyFilteredPlayers** | **bool** | Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. | [optional]  |
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **itemFilterHeroId** | **int** | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional]  |
 | **includeItemIds** | **string** | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional]  |
