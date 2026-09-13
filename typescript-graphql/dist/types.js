@@ -1356,6 +1356,18 @@ export default {
             "teammate_barriering": [
                 21
             ],
+            "bullet_kills": [
+                21
+            ],
+            "melee_kills": [
+                21
+            ],
+            "ability_kills": [
+                21
+            ],
+            "headshot_kills": [
+                21
+            ],
             "custom_user_stats": [
                 26
             ],

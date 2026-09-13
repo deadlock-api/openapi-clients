@@ -492,6 +492,10 @@ declare const _default: {
             player_barriering: number[];
             teammate_healing: number[];
             teammate_barriering: number[];
+            bullet_kills: number[];
+            melee_kills: number[];
+            ability_kills: number[];
+            headshot_kills: number[];
             custom_user_stats: number[];
             __typename: number[];
         };

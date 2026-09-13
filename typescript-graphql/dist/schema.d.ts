@@ -493,6 +493,10 @@ export interface Stat {
     player_barriering: (Scalars['Int'] | null);
     teammate_healing: (Scalars['Int'] | null);
     teammate_barriering: (Scalars['Int'] | null);
+    bullet_kills: (Scalars['Int'] | null);
+    melee_kills: (Scalars['Int'] | null);
+    ability_kills: (Scalars['Int'] | null);
+    headshot_kills: (Scalars['Int'] | null);
     custom_user_stats: (Scalars['JsonScalar'] | null);
     __typename: 'Stat';
 }
@@ -1191,6 +1195,10 @@ export interface StatGenqlSelection {
     player_barriering?: boolean | number;
     teammate_healing?: boolean | number;
     teammate_barriering?: boolean | number;
+    bullet_kills?: boolean | number;
+    melee_kills?: boolean | number;
+    ability_kills?: boolean | number;
+    headshot_kills?: boolean | number;
     custom_user_stats?: boolean | number;
     __typename?: boolean | number;
     __scalar?: boolean | number;

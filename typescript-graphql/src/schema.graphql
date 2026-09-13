@@ -684,6 +684,10 @@ type Stat {
   player_barriering: Int
   teammate_healing: Int
   teammate_barriering: Int
+  bullet_kills: Int
+  melee_kills: Int
+  ability_kills: Int
+  headshot_kills: Int
   custom_user_stats: JsonScalar
 }
 
