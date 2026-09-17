@@ -1487,8 +1487,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [sampleTimeS] Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in &#x60;wins&#x60; and &#x60;matches_played&#x60;, but contribute no reading; &#x60;sample_matches&#x60; reports how many did.
          * @param {string | null} [assignedLanes] Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
-         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {string | null} [stats] Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
          * @param {string | null} [groupBy] Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three.
          * @param {number | null} [minMatches] The minimum number of lane matchups behind a row for it to be included in the response.
@@ -1590,8 +1590,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
          * @param {number | null} [minTimeS] Earliest sample to return, in seconds into the match. **Default:** 180.
          * @param {number | null} [maxTimeS] Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
          * @param {string | null} [assignedLanes] Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
-         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {string | null} [stats] Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
          * @param {string | null} [groupBy] Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three.
          * @param {number | null} [minMatches] The minimum number of lane matchups behind a row for it to be included in the response.
@@ -2443,8 +2443,8 @@ export const AnalyticsApiFp = function (configuration) {
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [sampleTimeS] Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in &#x60;wins&#x60; and &#x60;matches_played&#x60;, but contribute no reading; &#x60;sample_matches&#x60; reports how many did.
          * @param {string | null} [assignedLanes] Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
-         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {string | null} [stats] Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
          * @param {string | null} [groupBy] Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three.
          * @param {number | null} [minMatches] The minimum number of lane matchups behind a row for it to be included in the response.
@@ -2475,8 +2475,8 @@ export const AnalyticsApiFp = function (configuration) {
          * @param {number | null} [minTimeS] Earliest sample to return, in seconds into the match. **Default:** 180.
          * @param {number | null} [maxTimeS] Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
          * @param {string | null} [assignedLanes] Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.
-         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [enemyHeroIds] Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {string | null} [stats] Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
          * @param {string | null} [groupBy] Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three.
          * @param {number | null} [minMatches] The minimum number of lane matchups behind a row for it to be included in the response.

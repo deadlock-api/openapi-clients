@@ -196,7 +196,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -467,7 +467,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -601,7 +601,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -689,7 +689,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -922,7 +922,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -1067,7 +1067,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -1267,7 +1267,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -1564,7 +1564,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -1833,7 +1833,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -2112,7 +2112,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -2398,7 +2398,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -2730,7 +2730,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -3030,7 +3030,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -3330,7 +3330,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -3639,7 +3639,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -3752,7 +3752,8 @@ paths:
           type: string
         style: form
       - description: "Comma separated list of hero ids the *ally* duo has to be drawn\
-          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+          \ from, or a single hero id the *ally* duo has to include. Omit to return\
+          \ every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -3767,7 +3768,8 @@ paths:
           default: null
         style: form
       - description: "Comma separated list of hero ids the *enemy* duo has to be drawn\
-          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+          \ from, or a single hero id the *enemy* duo has to include. Omit to return\
+          \ every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: enemy_hero_ids
@@ -3924,7 +3926,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -4048,7 +4050,8 @@ paths:
           type: string
         style: form
       - description: "Comma separated list of hero ids the *ally* duo has to be drawn\
-          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+          \ from, or a single hero id the *ally* duo has to include. Omit to return\
+          \ every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: hero_ids
@@ -4063,7 +4066,8 @@ paths:
           default: null
         style: form
       - description: "Comma separated list of hero ids the *enemy* duo has to be drawn\
-          \ from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+          \ from, or a single hero id the *enemy* duo has to include. Omit to return\
+          \ every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
         name: enemy_hero_ids
@@ -4214,7 +4218,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -4450,7 +4454,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -4764,7 +4768,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -8408,8 +8412,8 @@ paths:
         \ reflect any build changes made during the match.\n\n> **Note:** The `pregame_hero_id`\
         \ is the hero the player had locked before the pre-game swap window (`null`\
         \ if unknown). A player swapped heroes when it differs from their `hero_id`.\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 10req/min |\n\
-        | Key | 10req/10s |\n| Global | 100req/min |\n    "
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 30req/min |\n\
+        | Key | 30req/10s |\n| Global | 300req/min |\n    "
       operationId: bulk_metadata
       parameters:
       - description: Include match info in the response.
@@ -9385,7 +9389,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer
@@ -9509,7 +9513,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786752000
+          default: 1786924800
           format: int64
           nullable: true
           type: integer

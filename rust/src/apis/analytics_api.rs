@@ -644,9 +644,9 @@ pub struct LaneMatchupStatsParams {
     pub sample_time_s: Option<u32>,
     /// Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
     pub assigned_lanes: Option<String>,
-    /// Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    /// Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<Vec<u32>>,
-    /// Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    /// Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub enemy_hero_ids: Option<Vec<u32>>,
     /// Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
     pub stats: Option<String>,
@@ -689,9 +689,9 @@ pub struct LaneSoulCurveParams {
     pub max_time_s: Option<u32>,
     /// Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
     pub assigned_lanes: Option<String>,
-    /// Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    /// Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_ids: Option<Vec<u32>>,
-    /// Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    /// Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub enemy_hero_ids: Option<Vec<u32>>,
     /// Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
     pub stats: Option<String>,

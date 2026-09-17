@@ -8354,8 +8354,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         sample_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.")] = None,
         assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
-        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.")] = None,
         group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
@@ -8402,9 +8402,9 @@ class AnalyticsApi:
         :type sample_time_s: int
         :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         :type assigned_lanes: str
-        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
-        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
         :param stats: Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
         :type stats: str
@@ -8495,8 +8495,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         sample_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.")] = None,
         assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
-        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.")] = None,
         group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
@@ -8543,9 +8543,9 @@ class AnalyticsApi:
         :type sample_time_s: int
         :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         :type assigned_lanes: str
-        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
-        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
         :param stats: Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
         :type stats: str
@@ -8636,8 +8636,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         sample_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did.")] = None,
         assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
-        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.")] = None,
         group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
@@ -8684,9 +8684,9 @@ class AnalyticsApi:
         :type sample_time_s: int
         :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         :type assigned_lanes: str
-        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
-        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
         :param stats: Comma separated list of extra per-tick stats to report, at most 8. **Default:** none.
         :type stats: str
@@ -8932,8 +8932,8 @@ class AnalyticsApi:
         min_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Earliest sample to return, in seconds into the match. **Default:** 180.")] = None,
         max_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.")] = None,
         assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
-        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.")] = None,
         group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
@@ -8982,9 +8982,9 @@ class AnalyticsApi:
         :type max_time_s: int
         :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         :type assigned_lanes: str
-        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
-        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
         :param stats: Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
         :type stats: str
@@ -9077,8 +9077,8 @@ class AnalyticsApi:
         min_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Earliest sample to return, in seconds into the match. **Default:** 180.")] = None,
         max_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.")] = None,
         assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
-        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.")] = None,
         group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
@@ -9127,9 +9127,9 @@ class AnalyticsApi:
         :type max_time_s: int
         :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         :type assigned_lanes: str
-        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
-        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
         :param stats: Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
         :type stats: str
@@ -9222,8 +9222,8 @@ class AnalyticsApi:
         min_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Earliest sample to return, in seconds into the match. **Default:** 180.")] = None,
         max_time_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.")] = None,
         assigned_lanes: Annotated[Optional[StrictStr], Field(description="Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")] = None,
-        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        enemy_hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         stats: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.")] = None,
         group_by: Annotated[Optional[StrictStr], Field(description="Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of lane matchups behind a row for it to be included in the response.")] = None,
@@ -9272,9 +9272,9 @@ class AnalyticsApi:
         :type max_time_s: int
         :param assigned_lanes: Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
         :type assigned_lanes: str
-        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param hero_ids: Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: List[int]
-        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :param enemy_hero_ids: Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type enemy_hero_ids: List[int]
         :param stats: Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none.
         :type stats: str

@@ -198,9 +198,9 @@ When player info is included, each player object contains `hero_build_id` and `p
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 10req/min |
-| Key | 10req/10s |
-| Global | 100req/min |
+| IP | 30req/min |
+| Key | 30req/10s |
+| Global | 300req/min |
     
 
 ### Example
