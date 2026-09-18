@@ -45,6 +45,10 @@ type HeroStats struct {
 	LastPlayed int32 `json:"last_played"`
 	Matches []int64 `json:"matches"`
 	MatchesPlayed int64 `json:"matches_played"`
+	// Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+	MvpRankCounts []int64 `json:"mvp_rank_counts"`
+	// Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.
+	MvpRatedMatches int64 `json:"mvp_rated_matches"`
 	NetworthPerMin float64 `json:"networth_per_min"`
 	ObjDamagePerMin float64 `json:"obj_damage_per_min"`
 	ObjDamagePerSoul float64 `json:"obj_damage_per_soul"`
@@ -63,7 +67,7 @@ type _HeroStats HeroStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64) *HeroStats {
+func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64) *HeroStats {
 	this := HeroStats{}
 	this.AccountId = accountId
 	this.Accuracy = accuracy
@@ -88,6 +92,8 @@ func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMi
 	this.LastPlayed = lastPlayed
 	this.Matches = matches
 	this.MatchesPlayed = matchesPlayed
+	this.MvpRankCounts = mvpRankCounts
+	this.MvpRatedMatches = mvpRatedMatches
 	this.NetworthPerMin = networthPerMin
 	this.ObjDamagePerMin = objDamagePerMin
 	this.ObjDamagePerSoul = objDamagePerSoul
@@ -661,6 +667,54 @@ func (o *HeroStats) SetMatchesPlayed(v int64) {
 	o.MatchesPlayed = v
 }
 
+// GetMvpRankCounts returns the MvpRankCounts field value
+func (o *HeroStats) GetMvpRankCounts() []int64 {
+	if o == nil {
+		var ret []int64
+		return ret
+	}
+
+	return o.MvpRankCounts
+}
+
+// GetMvpRankCountsOk returns a tuple with the MvpRankCounts field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetMvpRankCountsOk() ([]int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MvpRankCounts, true
+}
+
+// SetMvpRankCounts sets field value
+func (o *HeroStats) SetMvpRankCounts(v []int64) {
+	o.MvpRankCounts = v
+}
+
+// GetMvpRatedMatches returns the MvpRatedMatches field value
+func (o *HeroStats) GetMvpRatedMatches() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.MvpRatedMatches
+}
+
+// GetMvpRatedMatchesOk returns a tuple with the MvpRatedMatches field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetMvpRatedMatchesOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MvpRatedMatches, true
+}
+
+// SetMvpRatedMatches sets field value
+func (o *HeroStats) SetMvpRatedMatches(v int64) {
+	o.MvpRatedMatches = v
+}
+
 // GetNetworthPerMin returns the NetworthPerMin field value
 func (o *HeroStats) GetNetworthPerMin() float64 {
 	if o == nil {
@@ -934,6 +988,8 @@ func (o HeroStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["last_played"] = o.LastPlayed
 	toSerialize["matches"] = o.Matches
 	toSerialize["matches_played"] = o.MatchesPlayed
+	toSerialize["mvp_rank_counts"] = o.MvpRankCounts
+	toSerialize["mvp_rated_matches"] = o.MvpRatedMatches
 	toSerialize["networth_per_min"] = o.NetworthPerMin
 	toSerialize["obj_damage_per_min"] = o.ObjDamagePerMin
 	toSerialize["obj_damage_per_soul"] = o.ObjDamagePerSoul
@@ -975,6 +1031,8 @@ func (o *HeroStats) UnmarshalJSON(data []byte) (err error) {
 		"last_played",
 		"matches",
 		"matches_played",
+		"mvp_rank_counts",
+		"mvp_rated_matches",
 		"networth_per_min",
 		"obj_damage_per_min",
 		"obj_damage_per_soul",

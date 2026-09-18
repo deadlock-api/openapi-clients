@@ -51,6 +51,8 @@ class HeroStats(BaseModel):
     last_played: Annotated[int, Field(strict=True, ge=0)]
     matches: List[Annotated[int, Field(strict=True, ge=0)]]
     matches_played: Annotated[int, Field(strict=True, ge=0)]
+    mvp_rank_counts: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.")
+    mvp_rated_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.")
     networth_per_min: Union[StrictFloat, StrictInt]
     obj_damage_per_min: Union[StrictFloat, StrictInt]
     obj_damage_per_soul: Union[StrictFloat, StrictInt]
@@ -61,7 +63,7 @@ class HeroStats(BaseModel):
     total_player_damage: Annotated[int, Field(strict=True, ge=0)]
     total_player_damage_taken: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["account_id", "accuracy", "assists", "assists_per_min", "creeps_per_min", "crit_shot_rate", "damage_mitigated_per_min", "damage_per_min", "damage_per_soul", "damage_taken_per_min", "damage_taken_per_soul", "deaths", "deaths_per_min", "denies_per_match", "denies_per_min", "ending_level", "hero_id", "kills", "kills_per_min", "last_hits_per_min", "last_played", "matches", "matches_played", "networth_per_min", "obj_damage_per_min", "obj_damage_per_soul", "time_played", "total_boss_damage", "total_creep_damage", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "wins"]
+    __properties: ClassVar[List[str]] = ["account_id", "accuracy", "assists", "assists_per_min", "creeps_per_min", "crit_shot_rate", "damage_mitigated_per_min", "damage_per_min", "damage_per_soul", "damage_taken_per_min", "damage_taken_per_soul", "deaths", "deaths_per_min", "denies_per_match", "denies_per_min", "ending_level", "hero_id", "kills", "kills_per_min", "last_hits_per_min", "last_played", "matches", "matches_played", "mvp_rank_counts", "mvp_rated_matches", "networth_per_min", "obj_damage_per_min", "obj_damage_per_soul", "time_played", "total_boss_damage", "total_creep_damage", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -137,6 +139,8 @@ class HeroStats(BaseModel):
             "last_played": obj.get("last_played"),
             "matches": obj.get("matches"),
             "matches_played": obj.get("matches_played"),
+            "mvp_rank_counts": obj.get("mvp_rank_counts"),
+            "mvp_rated_matches": obj.get("mvp_rated_matches"),
             "networth_per_min": obj.get("networth_per_min"),
             "obj_damage_per_min": obj.get("obj_damage_per_min"),
             "obj_damage_per_soul": obj.get("obj_damage_per_soul"),

@@ -23,6 +23,7 @@ from deadlock_api_client.models.ability_tooltip_details import AbilityTooltipDet
 from deadlock_api_client.models.ability_type import AbilityType
 from deadlock_api_client.models.ability_videos import AbilityVideos
 from deadlock_api_client.models.accolade import Accolade
+from deadlock_api_client.models.account_rank import AccountRank
 from deadlock_api_client.models.active_match import ActiveMatch
 from deadlock_api_client.models.active_match_game_mode import ActiveMatchGameMode
 from deadlock_api_client.models.active_match_mode import ActiveMatchMode
@@ -154,6 +155,7 @@ from deadlock_api_client.models.player_entry import PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
 from deadlock_api_client.models.rank import Rank
+from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry
 from deadlock_api_client.models.rank_images import RankImages
 from deadlock_api_client.models.rank_response import RankResponse
 from deadlock_api_client.models.ranked_season import RankedSeason

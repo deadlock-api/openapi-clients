@@ -15,6 +15,9 @@
 import { HttpMethods, QueryConfig, ResponseBody, ResponseText } from 'redux-query';
 import * as runtime from '../runtime';
 import {
+    AccountRank,
+    AccountRankFromJSON,
+    AccountRankToJSON,
     EnemyStats,
     EnemyStatsFromJSON,
     EnemyStatsToJSON,
@@ -33,6 +36,9 @@ import {
     PlayerMatchHistoryEntry,
     PlayerMatchHistoryEntryFromJSON,
     PlayerMatchHistoryEntryToJSON,
+    RankDistributionEntry,
+    RankDistributionEntryFromJSON,
+    RankDistributionEntryToJSON,
     RankResponse,
     RankResponseFromJSON,
     RankResponseToJSON,
@@ -102,6 +108,22 @@ export interface RankRequest {
 export interface RankAvgImageRequest {
     accountIds: Array<number>;
     format?: RankAvgImageFormatEnum;
+}
+
+export interface RankBatchRequest {
+    accountIds: Array<number>;
+}
+
+export interface RankDistributionRequest {
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    isHighSkillRangeParties?: boolean;
+    isLowPriPool?: boolean;
+    isNewPlayerPool?: boolean;
+    minMatchId?: number;
+    maxMatchId?: number;
 }
 
 export interface RankImageRequest {
@@ -690,6 +712,150 @@ function rankAvgImageRaw<T>(requestParameters: RankAvgImageRequest, requestConfi
 */
 export function rankAvgImage<T>(requestParameters: RankAvgImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
     return rankAvgImageRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+ * Batch Rank
+ */
+function rankBatchRaw<T>(requestParameters: RankBatchRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AccountRank>> = {}): QueryConfig<T> {
+    if (requestParameters.accountIds === null || requestParameters.accountIds === undefined) {
+        throw new runtime.RequiredError('accountIds','Required parameter requestParameters.accountIds was null or undefined when calling rankBatch.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/rank`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(AccountRankFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+* Batch Rank
+*/
+export function rankBatch<T>(requestParameters: RankBatchRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AccountRank>>): QueryConfig<T> {
+    return rankBatchRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+ * Rank Distribution
+ */
+function rankDistributionRaw<T>(requestParameters: RankDistributionRequest, requestConfig: runtime.TypedQueryConfig<T, Array<RankDistributionEntry>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.isHighSkillRangeParties !== undefined) {
+        queryParameters['is_high_skill_range_parties'] = requestParameters.isHighSkillRangeParties;
+    }
+
+
+    if (requestParameters.isLowPriPool !== undefined) {
+        queryParameters['is_low_pri_pool'] = requestParameters.isLowPriPool;
+    }
+
+
+    if (requestParameters.isNewPlayerPool !== undefined) {
+        queryParameters['is_new_player_pool'] = requestParameters.isNewPlayerPool;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/rank/distribution`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(RankDistributionEntryFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+* Rank Distribution
+*/
+export function rankDistribution<T>(requestParameters: RankDistributionRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<RankDistributionEntry>>): QueryConfig<T> {
+    return rankDistributionRaw(requestParameters, requestConfig);
 }
 
 /**

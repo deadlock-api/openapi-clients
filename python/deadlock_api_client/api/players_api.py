@@ -18,12 +18,14 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.account_rank import AccountRank
 from deadlock_api_client.models.enemy_stats import EnemyStats
 from deadlock_api_client.models.hero_stats import HeroStats
 from deadlock_api_client.models.mate_stats import MateStats
 from deadlock_api_client.models.player_account_stats import PlayerAccountStats
 from deadlock_api_client.models.player_card import PlayerCard
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
+from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry
 from deadlock_api_client.models.rank_response import RankResponse
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
@@ -2766,6 +2768,679 @@ class PlayersApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/players/rank/image',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def rank_batch(
+        self,
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[AccountRank]:
+        """Batch Rank
+
+         Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+
+        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rank_batch_serialize(
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AccountRank]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def rank_batch_with_http_info(
+        self,
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[AccountRank]]:
+        """Batch Rank
+
+         Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+
+        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rank_batch_serialize(
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AccountRank]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def rank_batch_without_preload_content(
+        self,
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Batch Rank
+
+         Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+
+        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rank_batch_serialize(
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AccountRank]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _rank_batch_serialize(
+        self,
+        account_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'account_ids': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if account_ids is not None:
+            
+            _query_params.append(('account_ids', account_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/players/rank',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def rank_distribution(
+        self,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
+        is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
+        is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[RankDistributionEntry]:
+        """Rank Distribution
+
+         Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param is_high_skill_range_parties: Filter matches based on whether they are in the high skill range.
+        :type is_high_skill_range_parties: bool
+        :param is_low_pri_pool: Filter matches based on whether they are in the low priority pool.
+        :type is_low_pri_pool: bool
+        :param is_new_player_pool: Filter matches based on whether they are in the new player pool.
+        :type is_new_player_pool: bool
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rank_distribution_serialize(
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            is_high_skill_range_parties=is_high_skill_range_parties,
+            is_low_pri_pool=is_low_pri_pool,
+            is_new_player_pool=is_new_player_pool,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[RankDistributionEntry]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def rank_distribution_with_http_info(
+        self,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
+        is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
+        is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[RankDistributionEntry]]:
+        """Rank Distribution
+
+         Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param is_high_skill_range_parties: Filter matches based on whether they are in the high skill range.
+        :type is_high_skill_range_parties: bool
+        :param is_low_pri_pool: Filter matches based on whether they are in the low priority pool.
+        :type is_low_pri_pool: bool
+        :param is_new_player_pool: Filter matches based on whether they are in the new player pool.
+        :type is_new_player_pool: bool
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rank_distribution_serialize(
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            is_high_skill_range_parties=is_high_skill_range_parties,
+            is_low_pri_pool=is_low_pri_pool,
+            is_new_player_pool=is_new_player_pool,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[RankDistributionEntry]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def rank_distribution_without_preload_content(
+        self,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
+        is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
+        is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Rank Distribution
+
+         Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param is_high_skill_range_parties: Filter matches based on whether they are in the high skill range.
+        :type is_high_skill_range_parties: bool
+        :param is_low_pri_pool: Filter matches based on whether they are in the low priority pool.
+        :type is_low_pri_pool: bool
+        :param is_new_player_pool: Filter matches based on whether they are in the new player pool.
+        :type is_new_player_pool: bool
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._rank_distribution_serialize(
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            is_high_skill_range_parties=is_high_skill_range_parties,
+            is_low_pri_pool=is_low_pri_pool,
+            is_new_player_pool=is_new_player_pool,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[RankDistributionEntry]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _rank_distribution_serialize(
+        self,
+        min_unix_timestamp,
+        max_unix_timestamp,
+        min_duration_s,
+        max_duration_s,
+        is_high_skill_range_parties,
+        is_low_pri_pool,
+        is_new_player_pool,
+        min_match_id,
+        max_match_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if min_unix_timestamp is not None:
+            
+            _query_params.append(('min_unix_timestamp', min_unix_timestamp))
+            
+        if max_unix_timestamp is not None:
+            
+            _query_params.append(('max_unix_timestamp', max_unix_timestamp))
+            
+        if min_duration_s is not None:
+            
+            _query_params.append(('min_duration_s', min_duration_s))
+            
+        if max_duration_s is not None:
+            
+            _query_params.append(('max_duration_s', max_duration_s))
+            
+        if is_high_skill_range_parties is not None:
+            
+            _query_params.append(('is_high_skill_range_parties', is_high_skill_range_parties))
+            
+        if is_low_pri_pool is not None:
+            
+            _query_params.append(('is_low_pri_pool', is_low_pri_pool))
+            
+        if is_new_player_pool is not None:
+            
+            _query_params.append(('is_new_player_pool', is_new_player_pool))
+            
+        if min_match_id is not None:
+            
+            _query_params.append(('min_match_id', min_match_id))
+            
+        if max_match_id is not None:
+            
+            _query_params.append(('max_match_id', max_match_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/players/rank/distribution',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

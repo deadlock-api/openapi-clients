@@ -287,6 +287,24 @@ class HeroStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "mvp_rank_counts"
+     */
+    public function testPropertyMvpRankCounts()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "mvp_rated_matches"
+     */
+    public function testPropertyMvpRatedMatches()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "networth_per_min"
      */
     public function testPropertyNetworthPerMin()

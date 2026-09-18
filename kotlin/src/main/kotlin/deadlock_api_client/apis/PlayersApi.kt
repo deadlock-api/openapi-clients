@@ -27,12 +27,14 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import deadlock_api_client.models.AccountRank
 import deadlock_api_client.models.EnemyStats
 import deadlock_api_client.models.HeroStats
 import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
+import deadlock_api_client.models.RankDistributionEntry
 import deadlock_api_client.models.RankResponse
 
 import com.squareup.moshi.Json
@@ -926,6 +928,208 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/players/rank/image",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/rank
+     * Batch Rank
+     *  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @return kotlin.collections.List<AccountRank>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun rankBatch(accountIds: kotlin.collections.List<kotlin.Int>) : kotlin.collections.List<AccountRank> {
+        val localVarResponse = rankBatchWithHttpInfo(accountIds = accountIds)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AccountRank>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/rank
+     * Batch Rank
+     *  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @return ApiResponse<kotlin.collections.List<AccountRank>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun rankBatchWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>) : ApiResponse<kotlin.collections.List<AccountRank>?> {
+        val localVariableConfig = rankBatchRequestConfig(accountIds = accountIds)
+
+        return request<Unit, kotlin.collections.List<AccountRank>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation rankBatch
+     *
+     * @param accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @return RequestConfig
+     */
+    fun rankBatchRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/rank",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/rank/distribution
+     * Rank Distribution
+     *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return kotlin.collections.List<RankDistributionEntry>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1787011200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
+        val localVarResponse = rankDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<RankDistributionEntry>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/rank/distribution
+     * Rank Distribution
+     *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return ApiResponse<kotlin.collections.List<RankDistributionEntry>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun rankDistributionWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<RankDistributionEntry>?> {
+        val localVariableConfig = rankDistributionRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
+
+        return request<Unit, kotlin.collections.List<RankDistributionEntry>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation rankDistribution
+     *
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param isHighSkillRangeParties Filter matches based on whether they are in the high skill range. (optional)
+     * @param isLowPriPool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param isNewPlayerPool Filter matches based on whether they are in the new player pool. (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @return RequestConfig
+     */
+    fun rankDistributionRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (isHighSkillRangeParties != null) {
+                    put("is_high_skill_range_parties", listOf(isHighSkillRangeParties.toString()))
+                }
+                if (isLowPriPool != null) {
+                    put("is_low_pri_pool", listOf(isLowPriPool.toString()))
+                }
+                if (isNewPlayerPool != null) {
+                    put("is_new_player_pool", listOf(isNewPlayerPool.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/rank/distribution",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

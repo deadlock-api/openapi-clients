@@ -14,6 +14,8 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**playerHeroStats()**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
 | [**rank()**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank |
 | [**rankAvgImage()**](PlayersApi.md#rankAvgImage) | **GET** /v1/players/rank/image | Rank Avg Image |
+| [**rankBatch()**](PlayersApi.md#rankBatch) | **GET** /v1/players/rank | Batch Rank |
+| [**rankDistribution()**](PlayersApi.md#rankDistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**rankImage()**](PlayersApi.md#rankImage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
 | [**rankPredict()**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
 | [**rankPredictAvgImage()**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
@@ -531,6 +533,134 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `image/png`, `image/webp`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `rankBatch()`
+
+```php
+rankBatch($account_ids): \OpenAPI\Client\Model\AccountRank[]
+```
+
+Batch Rank
+
+Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_ids = array(56); // int[] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+
+try {
+    $result = $apiInstance->rankBatch($account_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->rankBatch: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\AccountRank[]**](../Model/AccountRank.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `rankDistribution()`
+
+```php
+rankDistribution($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id): \OpenAPI\Client\Model\RankDistributionEntry[]
+```
+
+Rank Distribution
+
+Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$min_unix_timestamp = 1787011200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
+$min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$is_high_skill_range_parties = True; // bool | Filter matches based on whether they are in the high skill range.
+$is_low_pri_pool = True; // bool | Filter matches based on whether they are in the low priority pool.
+$is_new_player_pool = True; // bool | Filter matches based on whether they are in the new player pool.
+$min_match_id = 56; // int | Filter matches based on their ID.
+$max_match_id = 56; // int | Filter matches based on their ID.
+
+try {
+    $result = $apiInstance->rankDistribution($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->rankDistribution: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200] |
+| **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **is_high_skill_range_parties** | **bool**| Filter matches based on whether they are in the high skill range. | [optional] |
+| **is_low_pri_pool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] |
+| **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] |
+| **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
+| **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\RankDistributionEntry[]**](../Model/RankDistributionEntry.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

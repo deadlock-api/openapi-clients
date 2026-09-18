@@ -82,6 +82,20 @@ class TestPlayersApi(unittest.TestCase):
         """
         pass
 
+    def test_rank_batch(self) -> None:
+        """Test case for rank_batch
+
+        Batch Rank
+        """
+        pass
+
+    def test_rank_distribution(self) -> None:
+        """Test case for rank_distribution
+
+        Rank Distribution
+        """
+        pass
+
     def test_rank_image(self) -> None:
         """Test case for rank_image
 

@@ -41,6 +41,16 @@ GET https://api.deadlock-api.com/v1/players/rank/image?accountIds={{accountIds}}
 Accept: image/png
 Accept: image/webp
 
+### Batch Rank
+## Batch Rank
+GET https://api.deadlock-api.com/v1/players/rank?accountIds={{accountIds}}
+Accept: application/json
+
+### Rank Distribution
+## Rank Distribution
+GET https://api.deadlock-api.com/v1/players/rank/distribution?minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
+Accept: application/json
+
 ### Rank Image
 ## Rank Image
 GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank/image?format={{format}}

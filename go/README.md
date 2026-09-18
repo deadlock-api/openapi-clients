@@ -189,6 +189,8 @@ Class | Method | HTTP request | Description
 *PlayersAPI* | [**PlayerHeroStats**](docs/PlayersAPI.md#playerherostats) | **Get** /v1/players/hero-stats | Hero Stats
 *PlayersAPI* | [**Rank**](docs/PlayersAPI.md#rank) | **Get** /v1/players/{account_id}/rank | Rank
 *PlayersAPI* | [**RankAvgImage**](docs/PlayersAPI.md#rankavgimage) | **Get** /v1/players/rank/image | Rank Avg Image
+*PlayersAPI* | [**RankBatch**](docs/PlayersAPI.md#rankbatch) | **Get** /v1/players/rank | Batch Rank
+*PlayersAPI* | [**RankDistribution**](docs/PlayersAPI.md#rankdistribution) | **Get** /v1/players/rank/distribution | Rank Distribution
 *PlayersAPI* | [**RankImage**](docs/PlayersAPI.md#rankimage) | **Get** /v1/players/{account_id}/rank/image | Rank Image
 *PlayersAPI* | [**RankPredict**](docs/PlayersAPI.md#rankpredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
 *PlayersAPI* | [**RankPredictAvgImage**](docs/PlayersAPI.md#rankpredictavgimage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
@@ -222,6 +224,7 @@ Class | Method | HTTP request | Description
  - [AbilityType](docs/AbilityType.md)
  - [AbilityVideos](docs/AbilityVideos.md)
  - [Accolade](docs/Accolade.md)
+ - [AccountRank](docs/AccountRank.md)
  - [ActiveMatch](docs/ActiveMatch.md)
  - [ActiveMatchGameMode](docs/ActiveMatchGameMode.md)
  - [ActiveMatchMode](docs/ActiveMatchMode.md)
@@ -353,6 +356,7 @@ Class | Method | HTTP request | Description
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [Rank](docs/Rank.md)
+ - [RankDistributionEntry](docs/RankDistributionEntry.md)
  - [RankImages](docs/RankImages.md)
  - [RankResponse](docs/RankResponse.md)
  - [RankedSeason](docs/RankedSeason.md)

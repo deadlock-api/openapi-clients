@@ -171,6 +171,18 @@ class HeroStatsTest : ShouldSpec() {
             //modelInstance.matchesPlayed shouldBe ("TODO")
         }
 
+        // to test the property `mvpRankCounts` - Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+        should("test mvpRankCounts") {
+            // uncomment below to test the property
+            //modelInstance.mvpRankCounts shouldBe ("TODO")
+        }
+
+        // to test the property `mvpRatedMatches` - Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.
+        should("test mvpRatedMatches") {
+            // uncomment below to test the property
+            //modelInstance.mvpRatedMatches shouldBe ("TODO")
+        }
+
         // to test the property `networthPerMin`
         should("test networthPerMin") {
             // uncomment below to test the property

@@ -141,6 +141,7 @@ class SQLApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string[]|string
+     * @deprecated
      */
     public function listTables(string $contentType = self::contentTypes['listTables'][0])
     {
@@ -158,6 +159,7 @@ class SQLApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string[]|string, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function listTablesWithHttpInfo(string $contentType = self::contentTypes['listTables'][0])
     {
@@ -255,6 +257,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function listTablesAsync(string $contentType = self::contentTypes['listTables'][0])
     {
@@ -275,6 +278,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function listTablesAsyncWithHttpInfo(string $contentType = self::contentTypes['listTables'][0])
     {
@@ -324,6 +328,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function listTablesRequest(string $contentType = self::contentTypes['listTables'][0])
     {
@@ -409,6 +414,7 @@ class SQLApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string|string
+     * @deprecated
      */
     public function sql($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
@@ -428,6 +434,7 @@ class SQLApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string|string, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function sqlWithHttpInfo($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
@@ -527,6 +534,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function sqlAsync($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
@@ -549,6 +557,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function sqlAsyncWithHttpInfo($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
@@ -600,6 +609,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function sqlRequest($query, $format = null, string $contentType = self::contentTypes['sql'][0])
     {
@@ -710,6 +720,7 @@ class SQLApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,string>|string
+     * @deprecated
      */
     public function tableSchema($table, string $contentType = self::contentTypes['tableSchema'][0])
     {
@@ -728,6 +739,7 @@ class SQLApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,string>|string, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function tableSchemaWithHttpInfo($table, string $contentType = self::contentTypes['tableSchema'][0])
     {
@@ -826,6 +838,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function tableSchemaAsync($table, string $contentType = self::contentTypes['tableSchema'][0])
     {
@@ -847,6 +860,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function tableSchemaAsyncWithHttpInfo($table, string $contentType = self::contentTypes['tableSchema'][0])
     {
@@ -897,6 +911,7 @@ class SQLApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function tableSchemaRequest($table, string $contentType = self::contentTypes['tableSchema'][0])
     {

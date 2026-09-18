@@ -98,6 +98,12 @@ class PlayersApi
         'rankAvgImage' => [
             'application/json',
         ],
+        'rankBatch' => [
+            'application/json',
+        ],
+        'rankDistribution' => [
+            'application/json',
+        ],
         'rankImage' => [
             'application/json',
         ],
@@ -2913,6 +2919,690 @@ class PlayersApi
 
         $headers = $this->headerSelector->selectHeaders(
             ['image/png', 'image/webp', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rankBatch
+     *
+     * Batch Rank
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankBatch'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\AccountRank[]
+     */
+    public function rankBatch($account_ids, string $contentType = self::contentTypes['rankBatch'][0])
+    {
+        list($response) = $this->rankBatchWithHttpInfo($account_ids, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation rankBatchWithHttpInfo
+     *
+     * Batch Rank
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankBatch'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\AccountRank[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rankBatchWithHttpInfo($account_ids, string $contentType = self::contentTypes['rankBatch'][0])
+    {
+        $request = $this->rankBatchRequest($account_ids, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\AccountRank[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\AccountRank[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\AccountRank[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rankBatchAsync
+     *
+     * Batch Rank
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankBatchAsync($account_ids, string $contentType = self::contentTypes['rankBatch'][0])
+    {
+        return $this->rankBatchAsyncWithHttpInfo($account_ids, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rankBatchAsyncWithHttpInfo
+     *
+     * Batch Rank
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankBatchAsyncWithHttpInfo($account_ids, string $contentType = self::contentTypes['rankBatch'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\AccountRank[]';
+        $request = $this->rankBatchRequest($account_ids, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rankBatch'
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rankBatchRequest($account_ids, string $contentType = self::contentTypes['rankBatch'][0])
+    {
+
+        // verify the required parameter 'account_ids' is set
+        if ($account_ids === null || (is_array($account_ids) && count($account_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_ids when calling rankBatch'
+            );
+        }
+        if (count($account_ids) > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling PlayersApi.rankBatch, number of items must be less than or equal to 1000.');
+        }
+        if (count($account_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling PlayersApi.rankBatch, number of items must be greater than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/v1/players/rank';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_ids,
+            'account_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation rankDistribution
+     *
+     * Rank Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankDistribution'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\RankDistributionEntry[]
+     */
+    public function rankDistribution($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    {
+        list($response) = $this->rankDistributionWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation rankDistributionWithHttpInfo
+     *
+     * Rank Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankDistribution'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\RankDistributionEntry[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function rankDistributionWithHttpInfo($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    {
+        $request = $this->rankDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\RankDistributionEntry[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\RankDistributionEntry[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\RankDistributionEntry[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation rankDistributionAsync
+     *
+     * Rank Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankDistribution'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankDistributionAsync($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    {
+        return $this->rankDistributionAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation rankDistributionAsyncWithHttpInfo
+     *
+     * Rank Distribution
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankDistribution'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function rankDistributionAsyncWithHttpInfo($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\RankDistributionEntry[]';
+        $request = $this->rankDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'rankDistribution'
+     *
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  bool|null $is_high_skill_range_parties Filter matches based on whether they are in the high skill range. (optional)
+     * @param  bool|null $is_low_pri_pool Filter matches based on whether they are in the low priority pool. (optional)
+     * @param  bool|null $is_new_player_pool Filter matches based on whether they are in the new player pool. (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rankDistribution'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function rankDistributionRequest($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    {
+
+
+
+        if ($min_duration_s !== null && $min_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling PlayersApi.rankDistribution, must be smaller than or equal to 7000.');
+        }
+        if ($min_duration_s !== null && $min_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling PlayersApi.rankDistribution, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_duration_s !== null && $max_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling PlayersApi.rankDistribution, must be smaller than or equal to 7000.');
+        }
+        if ($max_duration_s !== null && $max_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling PlayersApi.rankDistribution, must be bigger than or equal to 0.');
+        }
+        
+
+
+
+        if ($min_match_id !== null && $min_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling PlayersApi.rankDistribution, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_match_id !== null && $max_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling PlayersApi.rankDistribution, must be bigger than or equal to 0.');
+        }
+        
+
+        $resourcePath = '/v1/players/rank/distribution';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_unix_timestamp,
+            'min_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_unix_timestamp,
+            'max_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_duration_s,
+            'min_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_duration_s,
+            'max_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $is_high_skill_range_parties,
+            'is_high_skill_range_parties', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $is_low_pri_pool,
+            'is_low_pri_pool', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $is_new_player_pool,
+            'is_new_player_pool', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_match_id,
+            'min_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_match_id,
+            'max_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
             $contentType,
             $multipart
         );

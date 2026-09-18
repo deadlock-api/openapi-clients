@@ -48,6 +48,7 @@ api/Model/AbilityTooltipDetails.php
 api/Model/AbilityType.php
 api/Model/AbilityVideos.php
 api/Model/Accolade.php
+api/Model/AccountRank.php
 api/Model/ActiveMatch.php
 api/Model/ActiveMatchGameMode.php
 api/Model/ActiveMatchMode.php
@@ -180,6 +181,7 @@ api/Model/PlayerEntry.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
 api/Model/Rank.php
+api/Model/RankDistributionEntry.php
 api/Model/RankImages.php
 api/Model/RankResponse.php
 api/Model/RankedSeason.php
@@ -295,6 +297,7 @@ docs/Model/AbilityTooltipDetails.md
 docs/Model/AbilityType.md
 docs/Model/AbilityVideos.md
 docs/Model/Accolade.md
+docs/Model/AccountRank.md
 docs/Model/ActiveMatch.md
 docs/Model/ActiveMatchGameMode.md
 docs/Model/ActiveMatchMode.md
@@ -426,6 +429,7 @@ docs/Model/PlayerEntry.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
 docs/Model/Rank.md
+docs/Model/RankDistributionEntry.md
 docs/Model/RankImages.md
 docs/Model/RankResponse.md
 docs/Model/RankedSeason.md
@@ -541,6 +545,7 @@ test/Model/AbilityTooltipDetailsTest.php
 test/Model/AbilityTypeTest.php
 test/Model/AbilityVideosTest.php
 test/Model/AccoladeTest.php
+test/Model/AccountRankTest.php
 test/Model/ActiveMatchGameModeTest.php
 test/Model/ActiveMatchModeTest.php
 test/Model/ActiveMatchPlayerTest.php
@@ -671,6 +676,7 @@ test/Model/PlayerCardTest.php
 test/Model/PlayerEntryTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
+test/Model/RankDistributionEntryTest.php
 test/Model/RankImagesTest.php
 test/Model/RankResponseTest.php
 test/Model/RankTest.php

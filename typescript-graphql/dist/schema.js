@@ -26,6 +26,48 @@ export const isAssetItem = (obj) => {
         throw new Error('__typename is missing in "isAssetItem"');
     return AssetItem_possibleTypes.includes(obj.__typename);
 };
+const Build_possibleTypes = ['Build'];
+export const isBuild = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isBuild"');
+    return Build_possibleTypes.includes(obj.__typename);
+};
+const BuildHero_possibleTypes = ['BuildHero'];
+export const isBuildHero = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isBuildHero"');
+    return BuildHero_possibleTypes.includes(obj.__typename);
+};
+const BuildHeroDetails_possibleTypes = ['BuildHeroDetails'];
+export const isBuildHeroDetails = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isBuildHeroDetails"');
+    return BuildHeroDetails_possibleTypes.includes(obj.__typename);
+};
+const BuildHeroDetailsAbilityOrder_possibleTypes = ['BuildHeroDetailsAbilityOrder'];
+export const isBuildHeroDetailsAbilityOrder = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isBuildHeroDetailsAbilityOrder"');
+    return BuildHeroDetailsAbilityOrder_possibleTypes.includes(obj.__typename);
+};
+const BuildHeroDetailsAbilityOrderCurrencyChange_possibleTypes = ['BuildHeroDetailsAbilityOrderCurrencyChange'];
+export const isBuildHeroDetailsAbilityOrderCurrencyChange = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isBuildHeroDetailsAbilityOrderCurrencyChange"');
+    return BuildHeroDetailsAbilityOrderCurrencyChange_possibleTypes.includes(obj.__typename);
+};
+const BuildHeroDetailsCategory_possibleTypes = ['BuildHeroDetailsCategory'];
+export const isBuildHeroDetailsCategory = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isBuildHeroDetailsCategory"');
+    return BuildHeroDetailsCategory_possibleTypes.includes(obj.__typename);
+};
+const BuildHeroDetailsCategoryAbility_possibleTypes = ['BuildHeroDetailsCategoryAbility'];
+export const isBuildHeroDetailsCategoryAbility = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isBuildHeroDetailsCategoryAbility"');
+    return BuildHeroDetailsCategoryAbility_possibleTypes.includes(obj.__typename);
+};
 const Hero_possibleTypes = ['Hero'];
 export const isHero = (obj) => {
     if (!obj?.__typename)
@@ -187,6 +229,26 @@ export const enumAbilityType = {
     MELEE: 'MELEE',
     COSMETIC: 'COSMETIC'
 };
+export const enumBuildLanguage = {
+    ENGLISH: 'ENGLISH',
+    GERMAN: 'GERMAN',
+    FRENCH: 'FRENCH',
+    ITALIAN: 'ITALIAN',
+    KOREAN: 'KOREAN',
+    SPANISH_SPAIN: 'SPANISH_SPAIN',
+    CHINESE_SIMPLIFIED: 'CHINESE_SIMPLIFIED',
+    RUSSIAN: 'RUSSIAN',
+    THAI: 'THAI',
+    JAPANESE: 'JAPANESE',
+    PORTUGUESE_PORTUGAL: 'PORTUGUESE_PORTUGAL',
+    POLISH: 'POLISH',
+    CZECH: 'CZECH',
+    TURKISH: 'TURKISH',
+    PORTUGUESE_BRAZIL: 'PORTUGUESE_BRAZIL',
+    UKRAINIAN: 'UKRAINIAN',
+    SPANISH_LATIN_AMERICA: 'SPANISH_LATIN_AMERICA',
+    VIETNAMESE: 'VIETNAMESE'
+};
 export const enumHeroType = {
     ASSASSIN: 'ASSASSIN',
     BRAWLER: 'BRAWLER',
@@ -233,6 +295,15 @@ export const enumLanguage = {
     TURKISH: 'TURKISH',
     UKRAINIAN: 'UKRAINIAN',
     VIETNAMESE: 'VIETNAMESE'
+};
+export const enumOrderByHeroBuild = {
+    WEEKLY_FAVORITES: 'WEEKLY_FAVORITES',
+    FAVORITES: 'FAVORITES',
+    IGNORES: 'IGNORES',
+    REPORTS: 'REPORTS',
+    UPDATED_AT: 'UPDATED_AT',
+    PUBLISHED_AT: 'PUBLISHED_AT',
+    VERSION: 'VERSION'
 };
 export const enumOrderByMatch = {
     MATCH_ID: 'MATCH_ID',

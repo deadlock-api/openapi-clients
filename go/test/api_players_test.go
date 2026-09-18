@@ -130,6 +130,30 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test PlayersAPIService RankBatch", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PlayersAPI.RankBatch(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PlayersAPIService RankDistribution", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PlayersAPI.RankDistribution(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PlayersAPIService RankImage", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

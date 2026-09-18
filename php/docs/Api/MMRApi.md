@@ -1,6 +1,6 @@
 # OpenAPI\Client\MMRApi
 
-# DEPRECATED! READ THIS FIRST!  All MMR endpoints are deprecated and will be removed. We no longer estimate a MMR: Valve reports the actual rank on ranked matches, and these endpoints now serve that rank instead of the old exponential moving average over team average badges.  Migrate to:  | Deprecated | Replacement | | ---------- | ----------- | | &#x60;/v1/players/mmr&#x60;, &#x60;/v1/players/mmr/{hero_id}&#x60; | &#x60;/v1/players/{account_id}/rank&#x60; | | &#x60;/v1/players/mmr/distribution&#x60;, &#x60;/v1/players/mmr/distribution/{hero_id}&#x60; | &#x60;/v1/analytics/badge-distribution&#x60; | | &#x60;/v1/players/{account_id}/mmr-history&#x60;, &#x60;/v1/players/{account_id}/mmr-history/{hero_id}&#x60; | &#x60;ranked_display_badge&#x60; / &#x60;ranked_delta&#x60; in &#x60;/v1/players/{account_id}/match-history&#x60; |  Since ranks only exist on ranked matches, players without one are missing from the responses, and the hero-scoped variants no longer differ per hero: they report the account-wide rank restricted to matches played on that hero.  ### Rate Limits:  The rank and rank-history endpoints share one bucket:  | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min |  The distribution endpoints aggregate over every ranked match and are far more expensive, so they have their own, tighter bucket:  | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min |
+# DEPRECATED! READ THIS FIRST!  All MMR endpoints are deprecated and will be removed. We no longer estimate a MMR: Valve reports the actual rank on ranked matches, and these endpoints now serve that rank instead of the old exponential moving average over team average badges.  Migrate to:  | Deprecated | Replacement | | ---------- | ----------- | | &#x60;/v1/players/mmr&#x60;, &#x60;/v1/players/mmr/{hero_id}&#x60; | &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; or &#x60;/v1/players/{account_id}/rank&#x60; | | &#x60;/v1/players/mmr/distribution&#x60;, &#x60;/v1/players/mmr/distribution/{hero_id}&#x60; | &#x60;/v1/players/rank/distribution&#x60; | | &#x60;/v1/players/{account_id}/mmr-history&#x60;, &#x60;/v1/players/{account_id}/mmr-history/{hero_id}&#x60; | &#x60;ranked_display_badge&#x60; / &#x60;ranked_delta&#x60; in &#x60;/v1/players/{account_id}/match-history&#x60; |  Since ranks only exist on ranked matches, players without one are missing from the responses, and the hero-scoped variants no longer differ per hero: they report the account-wide rank restricted to matches played on that hero.  ### Rate Limits:  The rank and rank-history endpoints share one bucket:  | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min |  The distribution endpoints aggregate over every ranked match and are far more expensive, so they have their own, tighter bucket:  | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min |
 
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
@@ -22,7 +22,7 @@ heroMmr($account_ids, $hero_id, $max_match_id): \OpenAPI\Client\Model\MMRHistory
 
 Batch Hero MMR (Deprecated)
 
-Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead.
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead.
 
 ### Example
 
@@ -82,7 +82,7 @@ heroMmrDistribution($hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_dur
 
 Hero MMR Distribution (Deprecated)
 
-Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead.
+Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead.
 
 ### Example
 
@@ -98,7 +98,7 @@ $apiInstance = new OpenAPI\Client\Api\MMRApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-$min_unix_timestamp = 1786924800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1787011200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -121,7 +121,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1786924800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -214,7 +214,7 @@ mmr($account_ids, $max_match_id): \OpenAPI\Client\Model\MMRHistory[]
 
 Batch MMR (Deprecated)
 
-Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead.
+Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead.
 
 ### Example
 
@@ -272,7 +272,7 @@ mmrDistribution($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_
 
 MMR Distribution (Deprecated)
 
-Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead.
+Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead.
 
 ### Example
 
@@ -287,7 +287,7 @@ $apiInstance = new OpenAPI\Client\Api\MMRApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1786924800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1787011200; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -309,7 +309,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1786924800] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

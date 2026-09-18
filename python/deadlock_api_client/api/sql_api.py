@@ -53,9 +53,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[str]:
-        """List Tables
+        """(Deprecated) List Tables
 
-         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -78,6 +78,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql/tables is deprecated.", DeprecationWarning)
 
         _param = self._list_tables_serialize(
             _request_auth=_request_auth,
@@ -117,9 +118,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[str]]:
-        """List Tables
+        """(Deprecated) List Tables
 
-         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -142,6 +143,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql/tables is deprecated.", DeprecationWarning)
 
         _param = self._list_tables_serialize(
             _request_auth=_request_auth,
@@ -181,9 +183,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """List Tables
+        """(Deprecated) List Tables
 
-         Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -206,6 +208,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql/tables is deprecated.", DeprecationWarning)
 
         _param = self._list_tables_serialize(
             _request_auth=_request_auth,
@@ -304,9 +307,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
-        """Query
+        """(Deprecated) Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -333,6 +336,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql is deprecated.", DeprecationWarning)
 
         _param = self._sql_serialize(
             query=query,
@@ -376,9 +380,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
-        """Query
+        """(Deprecated) Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -405,6 +409,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql is deprecated.", DeprecationWarning)
 
         _param = self._sql_serialize(
             query=query,
@@ -448,9 +453,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Query
+        """(Deprecated) Query
 
-         Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 
         :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
         :type query: str
@@ -477,6 +482,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql is deprecated.", DeprecationWarning)
 
         _param = self._sql_serialize(
             query=query,
@@ -585,9 +591,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Dict[str, str]:
-        """Table Schema
+        """(Deprecated) Table Schema
 
-         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str
@@ -612,6 +618,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql/tables/{table}/schema is deprecated.", DeprecationWarning)
 
         _param = self._table_schema_serialize(
             table=table,
@@ -653,9 +660,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Dict[str, str]]:
-        """Table Schema
+        """(Deprecated) Table Schema
 
-         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str
@@ -680,6 +687,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql/tables/{table}/schema is deprecated.", DeprecationWarning)
 
         _param = self._table_schema_serialize(
             table=table,
@@ -721,9 +729,9 @@ class SQLApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Table Schema
+        """(Deprecated) Table Schema
 
-         Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str
@@ -748,6 +756,7 @@ class SQLApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/sql/tables/{table}/schema is deprecated.", DeprecationWarning)
 
         _param = self._table_schema_serialize(
             table=table,

@@ -1,6 +1,6 @@
 # OpenAPI\Client\SQLApi
 
-Database exploration endpoints for direct SQL access. Provides functionality to execute custom SQL queries with rate limiting protection, list available tables, and inspect table schemas.
+**Deprecated.** Direct SQL access will be removed. Query the public data lake instead: https://data.deadlock-api.com (DuckDB / DuckLake) or the MCP server at &#x60;/v1/mcp&#x60;, see https://deadlock-api.com/data-dumps.
 
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
@@ -19,7 +19,7 @@ listTables(): string[]
 
 List Tables
 
-Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
 
 ### Example
 
@@ -72,7 +72,7 @@ sql($query, $format): string
 
 Query
 
-Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
 
 ### Example
 
@@ -130,7 +130,7 @@ tableSchema($table): array<string,string>
 
 Table Schema
 
-Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
 
 ### Example
 

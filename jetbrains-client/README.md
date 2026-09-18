@@ -114,6 +114,8 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**playerHeroStats**](Apis/PlayersApi.http#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats
 *PlayersApi* | [**rank**](Apis/PlayersApi.http#rank) | **GET** /v1/players/{account_id}/rank | Rank
 *PlayersApi* | [**rankAvgImage**](Apis/PlayersApi.http#rankavgimage) | **GET** /v1/players/rank/image | Rank Avg Image
+*PlayersApi* | [**rankBatch**](Apis/PlayersApi.http#rankbatch) | **GET** /v1/players/rank | Batch Rank
+*PlayersApi* | [**rankDistribution**](Apis/PlayersApi.http#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution
 *PlayersApi* | [**rankImage**](Apis/PlayersApi.http#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image
 *PlayersApi* | [**rankPredict**](Apis/PlayersApi.http#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
 *PlayersApi* | [**rankPredictAvgImage**](Apis/PlayersApi.http#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)

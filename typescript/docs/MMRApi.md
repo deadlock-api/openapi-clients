@@ -14,7 +14,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **heroMmr**
 > Array<MMRHistory> heroMmr()
 
- Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
 ### Example
 
@@ -73,7 +73,7 @@ No authorization required
 # **heroMmrDistribution**
 > Array<DistributionEntry> heroMmrDistribution()
 
- Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead. 
 
 ### Example
 
@@ -87,7 +87,7 @@ const configuration = new Configuration();
 const apiInstance = new MMRApi(configuration);
 
 let heroId: number; //The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1786924800)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1787011200)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -116,7 +116,7 @@ const { status, data } = await apiInstance.heroMmrDistribution(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1786924800|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1787011200|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -209,7 +209,7 @@ No authorization required
 # **mmr**
 > Array<MMRHistory> mmr()
 
- Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+ Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
 ### Example
 
@@ -265,7 +265,7 @@ No authorization required
 # **mmrDistribution**
 > Array<DistributionEntry> mmrDistribution()
 
- Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+ Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead. 
 
 ### Example
 
@@ -278,7 +278,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MMRApi(configuration);
 
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1786924800)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1787011200)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -305,7 +305,7 @@ const { status, data } = await apiInstance.mmrDistribution(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1786924800|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1787011200|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|

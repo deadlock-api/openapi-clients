@@ -168,6 +168,30 @@ class PlayersApiTest extends TestCase
     }
 
     /**
+     * Test case for rankBatch
+     *
+     * Batch Rank.
+     *
+     */
+    public function testRankBatch()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for rankDistribution
+     *
+     * Rank Distribution.
+     *
+     */
+    public function testRankDistribution()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for rankImage
      *
      * Rank Image.

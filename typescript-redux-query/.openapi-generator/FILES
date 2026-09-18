@@ -46,6 +46,7 @@ src/models/AbilityTooltipDetails.ts
 src/models/AbilityType.ts
 src/models/AbilityVideos.ts
 src/models/Accolade.ts
+src/models/AccountRank.ts
 src/models/ActiveMatch.ts
 src/models/ActiveMatchGameMode.ts
 src/models/ActiveMatchMode.ts
@@ -177,6 +178,7 @@ src/models/PlayerEntry.ts
 src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
 src/models/Rank.ts
+src/models/RankDistributionEntry.ts
 src/models/RankImages.ts
 src/models/RankResponse.ts
 src/models/RankedSeason.ts

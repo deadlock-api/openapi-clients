@@ -27,12 +27,14 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.PlayersApi
+import deadlock_api_client.models.AccountRank
 import deadlock_api_client.models.EnemyStats
 import deadlock_api_client.models.HeroStats
 import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerAccountStats
 import deadlock_api_client.models.PlayerCard
 import deadlock_api_client.models.PlayerMatchHistoryEntry
+import deadlock_api_client.models.RankDistributionEntry
 import deadlock_api_client.models.RankResponse
 
 class PlayersApiTest : ShouldSpec() {
@@ -135,6 +137,30 @@ class PlayersApiTest : ShouldSpec() {
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
             //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankAvgImage(accountIds, format)
+            //result shouldBe ("TODO")
+        }
+
+        // to test rankBatch
+        should("test rankBatch") {
+            // uncomment below to test rankBatch
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+            //val result : kotlin.collections.List<AccountRank> = apiInstance.rankBatch(accountIds)
+            //result shouldBe ("TODO")
+        }
+
+        // to test rankDistribution
+        should("test rankDistribution") {
+            // uncomment below to test rankDistribution
+            //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+            //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
+            //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
+            //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
+            //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+            //val result : kotlin.collections.List<RankDistributionEntry> = apiInstance.rankDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
             //result shouldBe ("TODO")
         }
 

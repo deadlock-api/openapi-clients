@@ -51,6 +51,7 @@ deadlock_api_client/models/ability_tooltip_details.py
 deadlock_api_client/models/ability_type.py
 deadlock_api_client/models/ability_videos.py
 deadlock_api_client/models/accolade.py
+deadlock_api_client/models/account_rank.py
 deadlock_api_client/models/active_match.py
 deadlock_api_client/models/active_match_game_mode.py
 deadlock_api_client/models/active_match_mode.py
@@ -183,6 +184,7 @@ deadlock_api_client/models/player_entry.py
 deadlock_api_client/models/player_match_history_entry.py
 deadlock_api_client/models/player_performance_curve_point.py
 deadlock_api_client/models/rank.py
+deadlock_api_client/models/rank_distribution_entry.py
 deadlock_api_client/models/rank_images.py
 deadlock_api_client/models/rank_response.py
 deadlock_api_client/models/ranked_season.py
@@ -268,6 +270,7 @@ docs/AbilityType.md
 docs/AbilityVideos.md
 docs/Accolade.md
 docs/AccoladesApi.md
+docs/AccountRank.md
 docs/ActiveMatch.md
 docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
@@ -423,6 +426,7 @@ docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/Rank.md
+docs/RankDistributionEntry.md
 docs/RankImages.md
 docs/RankResponse.md
 docs/RankedSeason.md
@@ -518,6 +522,7 @@ test/test_ability_type.py
 test/test_ability_videos.py
 test/test_accolade.py
 test/test_accolades_api.py
+test/test_account_rank.py
 test/test_active_match.py
 test/test_active_match_game_mode.py
 test/test_active_match_mode.py
@@ -674,6 +679,7 @@ test/test_player_match_history_entry.py
 test/test_player_performance_curve_point.py
 test/test_players_api.py
 test/test_rank.py
+test/test_rank_distribution_entry.py
 test/test_rank_images.py
 test/test_rank_response.py
 test/test_ranked_season.py

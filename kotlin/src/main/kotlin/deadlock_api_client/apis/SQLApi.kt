@@ -55,7 +55,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables
      * List Tables
-     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @return kotlin.collections.List<kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -65,7 +65,9 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun listTables() : kotlin.collections.List<kotlin.String> {
+        @Suppress("DEPRECATION")
         val localVarResponse = listTablesWithHttpInfo()
 
         return when (localVarResponse.responseType) {
@@ -86,14 +88,16 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables
      * List Tables
-     *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun listTablesWithHttpInfo() : ApiResponse<kotlin.collections.List<kotlin.String>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = listTablesRequestConfig()
 
         return request<Unit, kotlin.collections.List<kotlin.String>>(
@@ -106,6 +110,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      *
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun listTablesRequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
@@ -142,7 +147,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql
      * Query
-     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
      * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @return kotlin.String
@@ -154,7 +159,9 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun sql(query: kotlin.String, format: FormatSql? = null) : kotlin.String {
+        @Suppress("DEPRECATION")
         val localVarResponse = sqlWithHttpInfo(query = query, format = format)
 
         return when (localVarResponse.responseType) {
@@ -175,7 +182,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql
      * Query
-     *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
      * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @return ApiResponse<kotlin.String?>
@@ -184,7 +191,9 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun sqlWithHttpInfo(query: kotlin.String, format: FormatSql?) : ApiResponse<kotlin.String?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = sqlRequestConfig(query = query, format = format)
 
         return request<Unit, kotlin.String>(
@@ -199,6 +208,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun sqlRequestConfig(query: kotlin.String, format: FormatSql?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
@@ -224,7 +234,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables/{table}/schema
      * Table Schema
-     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @param table The name of the table to fetch the schema for.
      * @return kotlin.collections.Map<kotlin.String, kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
@@ -235,7 +245,9 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun tableSchema(table: kotlin.String) : kotlin.collections.Map<kotlin.String, kotlin.String> {
+        @Suppress("DEPRECATION")
         val localVarResponse = tableSchemaWithHttpInfo(table = table)
 
         return when (localVarResponse.responseType) {
@@ -256,7 +268,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables/{table}/schema
      * Table Schema
-     *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @param table The name of the table to fetch the schema for.
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -264,7 +276,9 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun tableSchemaWithHttpInfo(table: kotlin.String) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = tableSchemaRequestConfig(table = table)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
@@ -278,6 +292,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param table The name of the table to fetch the schema for.
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun tableSchemaRequestConfig(table: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()

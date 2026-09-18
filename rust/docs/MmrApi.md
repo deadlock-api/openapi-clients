@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > Vec<models::MmrHistory> hero_mmr(account_ids, hero_id, max_match_id)
 Batch Hero MMR (Deprecated)
 
- Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
 ### Parameters
 
@@ -50,7 +50,7 @@ No authorization required
 > Vec<models::DistributionEntry> hero_mmr_distribution(hero_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id)
 Hero MMR Distribution (Deprecated)
 
- Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead. 
 
 ### Parameters
 
@@ -58,7 +58,7 @@ Hero MMR Distribution (Deprecated)
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | **u32** | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1786924800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787011200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -120,7 +120,7 @@ No authorization required
 > Vec<models::MmrHistory> mmr(account_ids, max_match_id)
 Batch MMR (Deprecated)
 
- Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+ Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
 ### Parameters
 
@@ -151,14 +151,14 @@ No authorization required
 > Vec<models::DistributionEntry> mmr_distribution(min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id)
 MMR Distribution (Deprecated)
 
- Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+ Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead. 
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1786924800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787011200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |

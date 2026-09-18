@@ -60,6 +60,10 @@ class TestHeroStats(unittest.TestCase):
                     0
                     ],
                 matches_played = 0,
+                mvp_rank_counts = [
+                    0
+                    ],
+                mvp_rated_matches = 0,
                 networth_per_min = 1.337,
                 obj_damage_per_min = 1.337,
                 obj_damage_per_soul = 1.337,
@@ -98,6 +102,10 @@ class TestHeroStats(unittest.TestCase):
                     0
                     ],
                 matches_played = 0,
+                mvp_rank_counts = [
+                    0
+                    ],
+                mvp_rated_matches = 0,
                 networth_per_min = 1.337,
                 obj_damage_per_min = 1.337,
                 obj_damage_per_soul = 1.337,

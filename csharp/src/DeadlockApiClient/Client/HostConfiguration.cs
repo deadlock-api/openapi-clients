@@ -57,6 +57,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new AbilityTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new AbilityVideosJsonConverter());
             _jsonOptions.Converters.Add(new AccoladeJsonConverter());
+            _jsonOptions.Converters.Add(new AccountRankJsonConverter());
             _jsonOptions.Converters.Add(new ActiveMatchJsonConverter());
             _jsonOptions.Converters.Add(new ActiveMatchGameModeJsonConverter());
             _jsonOptions.Converters.Add(new ActiveMatchGameModeNullableJsonConverter());
@@ -198,6 +199,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new PlayerMatchHistoryEntryJsonConverter());
             _jsonOptions.Converters.Add(new PlayerPerformanceCurvePointJsonConverter());
             _jsonOptions.Converters.Add(new RankJsonConverter());
+            _jsonOptions.Converters.Add(new RankDistributionEntryJsonConverter());
             _jsonOptions.Converters.Add(new RankImagesJsonConverter());
             _jsonOptions.Converters.Add(new RankResponseJsonConverter());
             _jsonOptions.Converters.Add(new RankedSeasonJsonConverter());

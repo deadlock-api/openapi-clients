@@ -47,6 +47,7 @@ docs/AbilityType.md
 docs/AbilityVideos.md
 docs/Accolade.md
 docs/AccoladesAPI.md
+docs/AccountRank.md
 docs/ActiveMatch.md
 docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
@@ -202,6 +203,7 @@ docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersAPI.md
 docs/Rank.md
+docs/RankDistributionEntry.md
 docs/RankImages.md
 docs/RankResponse.md
 docs/RankedSeason.md
@@ -292,6 +294,7 @@ model_ability_tooltip_details.go
 model_ability_type.go
 model_ability_videos.go
 model_accolade.go
+model_account_rank.go
 model_active_match.go
 model_active_match_game_mode.go
 model_active_match_mode.go
@@ -424,6 +427,7 @@ model_player_entry.go
 model_player_match_history_entry.go
 model_player_performance_curve_point.go
 model_rank.go
+model_rank_distribution_entry.go
 model_rank_images.go
 model_rank_response.go
 model_ranked_season.go

@@ -56,6 +56,8 @@ namespace DeadlockApiClient.Model
         /// <param name="lastPlayed">lastPlayed</param>
         /// <param name="matches">matches</param>
         /// <param name="matchesPlayed">matchesPlayed</param>
+        /// <param name="mvpRankCounts">Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.</param>
+        /// <param name="mvpRatedMatches">Matches played since Valve started reporting MVP ranks (2026-01-06). Divide &#x60;mvp_rank_counts&#x60; by this, not by &#x60;matches_played&#x60;, when the time range reaches further back.</param>
         /// <param name="networthPerMin">networthPerMin</param>
         /// <param name="objDamagePerMin">objDamagePerMin</param>
         /// <param name="objDamagePerSoul">objDamagePerSoul</param>
@@ -67,7 +69,7 @@ namespace DeadlockApiClient.Model
         /// <param name="totalPlayerDamageTaken">totalPlayerDamageTaken</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public HeroStats(int accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, int lastPlayed, List<long> matches, long matchesPlayed, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long timePlayed, long totalBossDamage, long totalCreepDamage, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long wins)
+        public HeroStats(int accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, int lastPlayed, List<long> matches, long matchesPlayed, List<long> mvpRankCounts, long mvpRatedMatches, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long timePlayed, long totalBossDamage, long totalCreepDamage, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long wins)
         {
             AccountId = accountId;
             Accuracy = accuracy;
@@ -92,6 +94,8 @@ namespace DeadlockApiClient.Model
             LastPlayed = lastPlayed;
             Matches = matches;
             MatchesPlayed = matchesPlayed;
+            MvpRankCounts = mvpRankCounts;
+            MvpRatedMatches = mvpRatedMatches;
             NetworthPerMin = networthPerMin;
             ObjDamagePerMin = objDamagePerMin;
             ObjDamagePerSoul = objDamagePerSoul;
@@ -247,6 +251,20 @@ namespace DeadlockApiClient.Model
         public long MatchesPlayed { get; set; }
 
         /// <summary>
+        /// Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+        /// </summary>
+        /// <value>Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.</value>
+        [JsonPropertyName("mvp_rank_counts")]
+        public List<long> MvpRankCounts { get; set; }
+
+        /// <summary>
+        /// Matches played since Valve started reporting MVP ranks (2026-01-06). Divide &#x60;mvp_rank_counts&#x60; by this, not by &#x60;matches_played&#x60;, when the time range reaches further back.
+        /// </summary>
+        /// <value>Matches played since Valve started reporting MVP ranks (2026-01-06). Divide &#x60;mvp_rank_counts&#x60; by this, not by &#x60;matches_played&#x60;, when the time range reaches further back.</value>
+        [JsonPropertyName("mvp_rated_matches")]
+        public long MvpRatedMatches { get; set; }
+
+        /// <summary>
         /// Gets or Sets NetworthPerMin
         /// </summary>
         [JsonPropertyName("networth_per_min")]
@@ -337,6 +355,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  LastPlayed: ").Append(LastPlayed).Append("\n");
             sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("  MatchesPlayed: ").Append(MatchesPlayed).Append("\n");
+            sb.Append("  MvpRankCounts: ").Append(MvpRankCounts).Append("\n");
+            sb.Append("  MvpRatedMatches: ").Append(MvpRatedMatches).Append("\n");
             sb.Append("  NetworthPerMin: ").Append(NetworthPerMin).Append("\n");
             sb.Append("  ObjDamagePerMin: ").Append(ObjDamagePerMin).Append("\n");
             sb.Append("  ObjDamagePerSoul: ").Append(ObjDamagePerSoul).Append("\n");
@@ -398,6 +418,12 @@ namespace DeadlockApiClient.Model
             if (this.MatchesPlayed < (long)0)
             {
                 yield return new ValidationResult("Invalid value for MatchesPlayed, must be a value greater than or equal to 0.", new [] { "MatchesPlayed" });
+            }
+
+            // MvpRatedMatches (long) minimum
+            if (this.MvpRatedMatches < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for MvpRatedMatches, must be a value greater than or equal to 0.", new [] { "MvpRatedMatches" });
             }
 
             // TimePlayed (long) minimum
@@ -501,6 +527,8 @@ namespace DeadlockApiClient.Model
             Option<int?> lastPlayed = default;
             Option<List<long>?> matches = default;
             Option<long?> matchesPlayed = default;
+            Option<List<long>?> mvpRankCounts = default;
+            Option<long?> mvpRatedMatches = default;
             Option<double?> networthPerMin = default;
             Option<double?> objDamagePerMin = default;
             Option<double?> objDamagePerSoul = default;
@@ -595,6 +623,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "matches_played":
                             matchesPlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "mvp_rank_counts":
+                            mvpRankCounts = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "mvp_rated_matches":
+                            mvpRatedMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "networth_per_min":
                             networthPerMin = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -701,6 +735,12 @@ namespace DeadlockApiClient.Model
             if (!matchesPlayed.IsSet)
                 throw new ArgumentException("Property is required for class HeroStats.", nameof(matchesPlayed));
 
+            if (!mvpRankCounts.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(mvpRankCounts));
+
+            if (!mvpRatedMatches.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(mvpRatedMatches));
+
             if (!networthPerMin.IsSet)
                 throw new ArgumentException("Property is required for class HeroStats.", nameof(networthPerMin));
 
@@ -800,6 +840,12 @@ namespace DeadlockApiClient.Model
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
                 throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class HeroStats.");
 
+            if (mvpRankCounts.IsSet && mvpRankCounts.Value == null)
+                throw new ArgumentNullException(nameof(mvpRankCounts), "Property is not nullable for class HeroStats.");
+
+            if (mvpRatedMatches.IsSet && mvpRatedMatches.Value == null)
+                throw new ArgumentNullException(nameof(mvpRatedMatches), "Property is not nullable for class HeroStats.");
+
             if (networthPerMin.IsSet && networthPerMin.Value == null)
                 throw new ArgumentNullException(nameof(networthPerMin), "Property is not nullable for class HeroStats.");
 
@@ -830,7 +876,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new ArgumentNullException(nameof(wins), "Property is not nullable for class HeroStats.");
 
-            return new HeroStats(accountId.Value!.Value!, accuracy.Value!.Value!, assists.Value!.Value!, assistsPerMin.Value!.Value!, creepsPerMin.Value!.Value!, critShotRate.Value!.Value!, damageMitigatedPerMin.Value!.Value!, damagePerMin.Value!.Value!, damagePerSoul.Value!.Value!, damageTakenPerMin.Value!.Value!, damageTakenPerSoul.Value!.Value!, deaths.Value!.Value!, deathsPerMin.Value!.Value!, deniesPerMatch.Value!.Value!, deniesPerMin.Value!.Value!, endingLevel.Value!.Value!, heroId.Value!.Value!, kills.Value!.Value!, killsPerMin.Value!.Value!, lastHitsPerMin.Value!.Value!, lastPlayed.Value!.Value!, matches.Value!, matchesPlayed.Value!.Value!, networthPerMin.Value!.Value!, objDamagePerMin.Value!.Value!, objDamagePerSoul.Value!.Value!, timePlayed.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, wins.Value!.Value!);
+            return new HeroStats(accountId.Value!.Value!, accuracy.Value!.Value!, assists.Value!.Value!, assistsPerMin.Value!.Value!, creepsPerMin.Value!.Value!, critShotRate.Value!.Value!, damageMitigatedPerMin.Value!.Value!, damagePerMin.Value!.Value!, damagePerSoul.Value!.Value!, damageTakenPerMin.Value!.Value!, damageTakenPerSoul.Value!.Value!, deaths.Value!.Value!, deathsPerMin.Value!.Value!, deniesPerMatch.Value!.Value!, deniesPerMin.Value!.Value!, endingLevel.Value!.Value!, heroId.Value!.Value!, kills.Value!.Value!, killsPerMin.Value!.Value!, lastHitsPerMin.Value!.Value!, lastPlayed.Value!.Value!, matches.Value!, matchesPlayed.Value!.Value!, mvpRankCounts.Value!, mvpRatedMatches.Value!.Value!, networthPerMin.Value!.Value!, objDamagePerMin.Value!.Value!, objDamagePerSoul.Value!.Value!, timePlayed.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -859,6 +905,9 @@ namespace DeadlockApiClient.Model
         {
             if (heroStats.Matches == null)
                 throw new ArgumentNullException(nameof(heroStats.Matches), "Property is required for class HeroStats.");
+
+            if (heroStats.MvpRankCounts == null)
+                throw new ArgumentNullException(nameof(heroStats.MvpRankCounts), "Property is required for class HeroStats.");
 
             writer.WriteNumber("account_id", heroStats.AccountId);
 
@@ -905,6 +954,10 @@ namespace DeadlockApiClient.Model
             writer.WritePropertyName("matches");
             JsonSerializer.Serialize(writer, heroStats.Matches, jsonSerializerOptions);
             writer.WriteNumber("matches_played", heroStats.MatchesPlayed);
+
+            writer.WritePropertyName("mvp_rank_counts");
+            JsonSerializer.Serialize(writer, heroStats.MvpRankCounts, jsonSerializerOptions);
+            writer.WriteNumber("mvp_rated_matches", heroStats.MvpRatedMatches);
 
             writer.WriteNumber("networth_per_min", heroStats.NetworthPerMin);
 

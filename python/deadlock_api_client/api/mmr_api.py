@@ -60,7 +60,7 @@ class MMRApi:
     ) -> List[MMRHistory]:
         """(Deprecated) Batch Hero MMR (Deprecated)
 
-         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -138,7 +138,7 @@ class MMRApi:
     ) -> ApiResponse[List[MMRHistory]]:
         """(Deprecated) Batch Hero MMR (Deprecated)
 
-         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -216,7 +216,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """(Deprecated) Batch Hero MMR (Deprecated)
 
-         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -371,7 +371,7 @@ class MMRApi:
     ) -> List[DistributionEntry]:
         """(Deprecated) Hero MMR Distribution (Deprecated)
 
-         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead. 
 
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -477,7 +477,7 @@ class MMRApi:
     ) -> ApiResponse[List[DistributionEntry]]:
         """(Deprecated) Hero MMR Distribution (Deprecated)
 
-         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead. 
 
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -583,7 +583,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """(Deprecated) Hero MMR Distribution (Deprecated)
 
-         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
+         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead. 
 
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -1069,7 +1069,7 @@ class MMRApi:
     ) -> List[MMRHistory]:
         """(Deprecated) Batch MMR (Deprecated)
 
-         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1143,7 +1143,7 @@ class MMRApi:
     ) -> ApiResponse[List[MMRHistory]]:
         """(Deprecated) Batch MMR (Deprecated)
 
-         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1217,7 +1217,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """(Deprecated) Batch MMR (Deprecated)
 
-         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
         :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
         :type account_ids: List[int]
@@ -1365,7 +1365,7 @@ class MMRApi:
     ) -> List[DistributionEntry]:
         """(Deprecated) MMR Distribution (Deprecated)
 
-         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead. 
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -1467,7 +1467,7 @@ class MMRApi:
     ) -> ApiResponse[List[DistributionEntry]]:
         """(Deprecated) MMR Distribution (Deprecated)
 
-         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead. 
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int
@@ -1569,7 +1569,7 @@ class MMRApi:
     ) -> RESTResponseType:
         """(Deprecated) MMR Distribution (Deprecated)
 
-         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead. 
 
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
         :type min_unix_timestamp: int

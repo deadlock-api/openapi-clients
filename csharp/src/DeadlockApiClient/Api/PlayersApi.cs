@@ -291,6 +291,68 @@ namespace DeadlockApiClient.Api
         Task<IRankAvgImageApiResponse?> RankAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Batch Rank
+        /// </summary>
+        /// <remarks>
+        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>&gt;</returns>
+        Task<IRankBatchApiResponse> RankBatchAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Batch Rank
+        /// </summary>
+        /// <remarks>
+        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        /// </remarks>
+        /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>?&gt;</returns>
+        Task<IRankBatchApiResponse?> RankBatchOrDefaultAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Distribution
+        /// </summary>
+        /// <remarks>
+        ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="isHighSkillRangeParties">Filter matches based on whether they are in the high skill range. (optional)</param>
+        /// <param name="isLowPriPool">Filter matches based on whether they are in the low priority pool. (optional)</param>
+        /// <param name="isNewPlayerPool">Filter matches based on whether they are in the new player pool. (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>&gt;</returns>
+        Task<IRankDistributionApiResponse> RankDistributionAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Rank Distribution
+        /// </summary>
+        /// <remarks>
+        ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+        /// </remarks>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="isHighSkillRangeParties">Filter matches based on whether they are in the high skill range. (optional)</param>
+        /// <param name="isLowPriPool">Filter matches based on whether they are in the low priority pool. (optional)</param>
+        /// <param name="isNewPlayerPool">Filter matches based on whether they are in the new player pool. (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>?&gt;</returns>
+        Task<IRankDistributionApiResponse?> RankDistributionOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Rank Image
         /// </summary>
         /// <remarks>
@@ -636,6 +698,54 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
+    /// The <see cref="IRankBatchApiResponse"/>
+    /// </summary>
+    public interface IRankBatchApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<AccountRank>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IRankDistributionApiResponse"/>
+    /// </summary>
+    public interface IRankDistributionApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<RankDistributionEntry>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
     /// The <see cref="IRankImageApiResponse"/>
     /// </summary>
     public interface IRankImageApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<int>?>
@@ -936,6 +1046,46 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorRankAvgImage(Exception exception)
         {
             OnErrorRankAvgImage?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnRankBatch;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorRankBatch;
+
+        internal void ExecuteOnRankBatch(PlayersApi.RankBatchApiResponse apiResponse)
+        {
+            OnRankBatch?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorRankBatch(Exception exception)
+        {
+            OnErrorRankBatch?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnRankDistribution;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorRankDistribution;
+
+        internal void ExecuteOnRankDistribution(PlayersApi.RankDistributionApiResponse apiResponse)
+        {
+            OnRankDistribution?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorRankDistribution(Exception exception)
+        {
+            OnErrorRankDistribution?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -3509,6 +3659,606 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsNotFound => 404 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatRankBatch(List<int> accountIds);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="accountIds"></param>
+        /// <returns></returns>
+        private void ValidateRankBatch(List<int> accountIds)
+        {
+            if (accountIds == null)
+                throw new ArgumentNullException(nameof(accountIds));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountIds"></param>
+        private void AfterRankBatchDefaultImplementation(IRankBatchApiResponse apiResponseLocalVar, List<int> accountIds)
+        {
+            bool suppressDefaultLog = false;
+            AfterRankBatch(ref suppressDefaultLog, apiResponseLocalVar, accountIds);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountIds"></param>
+        partial void AfterRankBatch(ref bool suppressDefaultLog, IRankBatchApiResponse apiResponseLocalVar, List<int> accountIds);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountIds"></param>
+        private void OnErrorRankBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorRankBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountIds"></param>
+        partial void OnErrorRankBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds);
+
+        /// <summary>
+        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        /// </summary>
+        /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>&gt;</returns>
+        public async Task<IRankBatchApiResponse?> RankBatchOrDefaultAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await RankBatchAsync(accountIds, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>&gt;</returns>
+        public async Task<IRankBatchApiResponse> RankBatchAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateRankBatch(accountIds);
+
+                FormatRankBatch(accountIds);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/players/rank"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/rank");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    parseQueryStringLocalVar["account_ids"] = ClientUtils.ParameterToString(accountIds);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        RankBatchApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/rank", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterRankBatchDefaultImplementation(apiResponseLocalVar, accountIds);
+
+                        Events.ExecuteOnRankBatch(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorRankBatchDefaultImplementation(e, "/v1/players/rank", uriBuilderLocalVar.Path, accountIds);
+                Events.ExecuteOnErrorRankBatch(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="RankBatchApiResponse"/>
+        /// </summary>
+        public partial class RankBatchApiResponse : DeadlockApiClient.Client.ApiResponse, IRankBatchApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<PlayersApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="RankBatchApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankBatchApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="RankBatchApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankBatchApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<AccountRank>? Ok()
+            {
+                bool suppressDefault = false;
+                List<AccountRank>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<AccountRank>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<AccountRank>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            partial void OnOk(ref bool suppressDefault, ref List<AccountRank>? result);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<AccountRank>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatRankDistribution(ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<bool?> isHighSkillRangeParties, ref Option<bool?> isLowPriPool, ref Option<bool?> isNewPlayerPool, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="isHighSkillRangeParties"></param>
+        /// <param name="isLowPriPool"></param>
+        /// <param name="isNewPlayerPool"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        private void AfterRankDistributionDefaultImplementation(IRankDistributionApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId)
+        {
+            bool suppressDefaultLog = false;
+            AfterRankDistribution(ref suppressDefaultLog, apiResponseLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="isHighSkillRangeParties"></param>
+        /// <param name="isLowPriPool"></param>
+        /// <param name="isNewPlayerPool"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        partial void AfterRankDistribution(ref bool suppressDefaultLog, IRankDistributionApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="isHighSkillRangeParties"></param>
+        /// <param name="isLowPriPool"></param>
+        /// <param name="isNewPlayerPool"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        private void OnErrorRankDistributionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorRankDistribution(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="isHighSkillRangeParties"></param>
+        /// <param name="isLowPriPool"></param>
+        /// <param name="isNewPlayerPool"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        partial void OnErrorRankDistribution(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
+
+        /// <summary>
+        /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+        /// </summary>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="isHighSkillRangeParties">Filter matches based on whether they are in the high skill range. (optional)</param>
+        /// <param name="isLowPriPool">Filter matches based on whether they are in the low priority pool. (optional)</param>
+        /// <param name="isNewPlayerPool">Filter matches based on whether they are in the new player pool. (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>&gt;</returns>
+        public async Task<IRankDistributionApiResponse?> RankDistributionOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await RankDistributionAsync(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="isHighSkillRangeParties">Filter matches based on whether they are in the high skill range. (optional)</param>
+        /// <param name="isLowPriPool">Filter matches based on whether they are in the low priority pool. (optional)</param>
+        /// <param name="isNewPlayerPool">Filter matches based on whether they are in the new player pool. (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>&gt;</returns>
+        public async Task<IRankDistributionApiResponse> RankDistributionAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                FormatRankDistribution(ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref isHighSkillRangeParties, ref isLowPriPool, ref isNewPlayerPool, ref minMatchId, ref maxMatchId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/players/rank/distribution"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/rank/distribution");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (minUnixTimestamp.IsSet)
+                        parseQueryStringLocalVar["min_unix_timestamp"] = ClientUtils.ParameterToString(minUnixTimestamp.Value);
+
+                    if (maxUnixTimestamp.IsSet)
+                        parseQueryStringLocalVar["max_unix_timestamp"] = ClientUtils.ParameterToString(maxUnixTimestamp.Value);
+
+                    if (minDurationS.IsSet)
+                        parseQueryStringLocalVar["min_duration_s"] = ClientUtils.ParameterToString(minDurationS.Value);
+
+                    if (maxDurationS.IsSet)
+                        parseQueryStringLocalVar["max_duration_s"] = ClientUtils.ParameterToString(maxDurationS.Value);
+
+                    if (isHighSkillRangeParties.IsSet)
+                        parseQueryStringLocalVar["is_high_skill_range_parties"] = ClientUtils.ParameterToString(isHighSkillRangeParties.Value);
+
+                    if (isLowPriPool.IsSet)
+                        parseQueryStringLocalVar["is_low_pri_pool"] = ClientUtils.ParameterToString(isLowPriPool.Value);
+
+                    if (isNewPlayerPool.IsSet)
+                        parseQueryStringLocalVar["is_new_player_pool"] = ClientUtils.ParameterToString(isNewPlayerPool.Value);
+
+                    if (minMatchId.IsSet)
+                        parseQueryStringLocalVar["min_match_id"] = ClientUtils.ParameterToString(minMatchId.Value);
+
+                    if (maxMatchId.IsSet)
+                        parseQueryStringLocalVar["max_match_id"] = ClientUtils.ParameterToString(maxMatchId.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        RankDistributionApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/rank/distribution", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterRankDistributionDefaultImplementation(apiResponseLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId);
+
+                        Events.ExecuteOnRankDistribution(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorRankDistributionDefaultImplementation(e, "/v1/players/rank/distribution", uriBuilderLocalVar.Path, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId);
+                Events.ExecuteOnErrorRankDistribution(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="RankDistributionApiResponse"/>
+        /// </summary>
+        public partial class RankDistributionApiResponse : DeadlockApiClient.Client.ApiResponse, IRankDistributionApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<PlayersApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="RankDistributionApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankDistributionApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="RankDistributionApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public RankDistributionApiResponse(ILogger<PlayersApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<RankDistributionEntry>? Ok()
+            {
+                bool suppressDefault = false;
+                List<RankDistributionEntry>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<RankDistributionEntry>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<RankDistributionEntry>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            partial void OnOk(ref bool suppressDefault, ref List<RankDistributionEntry>? result);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<RankDistributionEntry>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError

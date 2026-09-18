@@ -12,6 +12,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**playerHeroStats**](PlayersApi.md#playerHeroStats) | **GET** /v1/players/hero-stats | Hero Stats |
 | [**rank**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank |
 | [**rankAvgImage**](PlayersApi.md#rankAvgImage) | **GET** /v1/players/rank/image | Rank Avg Image |
+| [**rankBatch**](PlayersApi.md#rankBatch) | **GET** /v1/players/rank | Batch Rank |
+| [**rankDistribution**](PlayersApi.md#rankDistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**rankImage**](PlayersApi.md#rankImage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
 | [**rankPredict**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
 | [**rankPredictAvgImage**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
@@ -453,6 +455,114 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
+<a id="rankBatch"></a>
+# **rankBatch**
+> kotlin.collections.List&lt;AccountRank&gt; rankBatch(accountIds)
+
+Batch Rank
+
+ Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+try {
+    val result : kotlin.collections.List<AccountRank> = apiInstance.rankBatch(accountIds)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rankBatch")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rankBatch")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+
+### Return type
+
+[**kotlin.collections.List&lt;AccountRank&gt;**](AccountRank.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="rankDistribution"></a>
+# **rankDistribution**
+> kotlin.collections.List&lt;RankDistributionEntry&gt; rankDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
+
+Rank Distribution
+
+ Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
+val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
+val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
+val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
+val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
+try {
+    val result : kotlin.collections.List<RankDistributionEntry> = apiInstance.rankDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#rankDistribution")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#rankDistribution")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200L] |
+| **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **isHighSkillRangeParties** | **kotlin.Boolean**| Filter matches based on whether they are in the high skill range. | [optional] |
+| **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional] |
+| **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional] |
+| **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+| **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
+
+### Return type
+
+[**kotlin.collections.List&lt;RankDistributionEntry&gt;**](RankDistributionEntry.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="rankImage"></a>
 # **rankImage**

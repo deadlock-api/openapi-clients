@@ -154,7 +154,7 @@ pub enum MmrHistoryError {
 }
 
 
-///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead. 
+///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 #[deprecated]
 pub async fn hero_mmr(configuration: &configuration::Configuration, params: HeroMmrParams) -> Result<Vec<models::MmrHistory>, Error<HeroMmrError>> {
 
@@ -197,7 +197,7 @@ pub async fn hero_mmr(configuration: &configuration::Configuration, params: Hero
     }
 }
 
-///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead. 
+///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead. 
 #[deprecated]
 pub async fn hero_mmr_distribution(configuration: &configuration::Configuration, params: HeroMmrDistributionParams) -> Result<Vec<models::DistributionEntry>, Error<HeroMmrDistributionError>> {
 
@@ -296,7 +296,7 @@ pub async fn hero_mmr_history(configuration: &configuration::Configuration, para
     }
 }
 
-///  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead. 
+///  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 #[deprecated]
 pub async fn mmr(configuration: &configuration::Configuration, params: MmrParams) -> Result<Vec<models::MmrHistory>, Error<MmrError>> {
 
@@ -339,7 +339,7 @@ pub async fn mmr(configuration: &configuration::Configuration, params: MmrParams
     }
 }
 
-///  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead. 
+///  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead. 
 #[deprecated]
 pub async fn mmr_distribution(configuration: &configuration::Configuration, params: MmrDistributionParams) -> Result<Vec<models::DistributionEntry>, Error<MmrDistributionError>> {
 

@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **LastPlayed** | **int32** |  | 
 **Matches** | **[]int64** |  | 
 **MatchesPlayed** | **int64** |  | 
+**MvpRankCounts** | **[]int64** | Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank. | 
+**MvpRatedMatches** | **int64** | Matches played since Valve started reporting MVP ranks (2026-01-06). Divide &#x60;mvp_rank_counts&#x60; by this, not by &#x60;matches_played&#x60;, when the time range reaches further back. | 
 **NetworthPerMin** | **float64** |  | 
 **ObjDamagePerMin** | **float64** |  | 
 **ObjDamagePerSoul** | **float64** |  | 
@@ -42,7 +44,7 @@ Name | Type | Description | Notes
 
 ### NewHeroStats
 
-`func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64, ) *HeroStats`
+`func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64, ) *HeroStats`
 
 NewHeroStats instantiates a new HeroStats object
 This constructor will assign default values to properties that have it defined,
@@ -515,6 +517,46 @@ and a boolean to check if the value has been set.
 `func (o *HeroStats) SetMatchesPlayed(v int64)`
 
 SetMatchesPlayed sets MatchesPlayed field to given value.
+
+
+### GetMvpRankCounts
+
+`func (o *HeroStats) GetMvpRankCounts() []int64`
+
+GetMvpRankCounts returns the MvpRankCounts field if non-nil, zero value otherwise.
+
+### GetMvpRankCountsOk
+
+`func (o *HeroStats) GetMvpRankCountsOk() (*[]int64, bool)`
+
+GetMvpRankCountsOk returns a tuple with the MvpRankCounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMvpRankCounts
+
+`func (o *HeroStats) SetMvpRankCounts(v []int64)`
+
+SetMvpRankCounts sets MvpRankCounts field to given value.
+
+
+### GetMvpRatedMatches
+
+`func (o *HeroStats) GetMvpRatedMatches() int64`
+
+GetMvpRatedMatches returns the MvpRatedMatches field if non-nil, zero value otherwise.
+
+### GetMvpRatedMatchesOk
+
+`func (o *HeroStats) GetMvpRatedMatchesOk() (*int64, bool)`
+
+GetMvpRatedMatchesOk returns a tuple with the MvpRatedMatches field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMvpRatedMatches
+
+`func (o *HeroStats) SetMvpRatedMatches(v int64)`
+
+SetMvpRatedMatches sets MvpRatedMatches field to given value.
 
 
 ### GetNetworthPerMin

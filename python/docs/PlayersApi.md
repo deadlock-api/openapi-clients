@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
 [**rank**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank
 [**rank_avg_image**](PlayersApi.md#rank_avg_image) | **GET** /v1/players/rank/image | Rank Avg Image
+[**rank_batch**](PlayersApi.md#rank_batch) | **GET** /v1/players/rank | Batch Rank
+[**rank_distribution**](PlayersApi.md#rank_distribution) | **GET** /v1/players/rank/distribution | Rank Distribution
 [**rank_image**](PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
 [**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
 [**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
@@ -749,6 +751,191 @@ No authorization required
 **403** | One of the users is protected |  -  |
 **404** | No image available for the rank |  -  |
 **500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rank_batch**
+> List[AccountRank] rank_batch(account_ids)
+
+Batch Rank
+
+
+Returns the rank of each player at the end of their latest ranked match, the batch form of
+`/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.
+
+Every requested account is returned once, in no particular order. Players none of whose recent
+ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`.
+Protected accounts are left out.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 20req/min |
+| Key | 100req/min & 2000req/h |
+| Global | 200req/min |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.account_rank import AccountRank
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_ids = [56] # List[int] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+
+    try:
+        # Batch Rank
+        api_response = api_instance.rank_batch(account_ids)
+        print("The response of PlayersApi->rank_batch:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->rank_batch: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+
+### Return type
+
+[**List[AccountRank]**](AccountRank.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**400** | Invalid or missing account IDs |  -  |
+**500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rank_distribution**
+> List[RankDistributionEntry] rank_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
+
+Rank Distribution
+
+
+Counts players by the rank Valve reported at the end of their latest ranked match within the
+filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked
+matches carry a rank, so the filters only ever select ranked matches, and players still in
+placement games are not counted.
+
+`/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the
+match counts by average badge; use this endpoint when you only need the players.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 5req/min |
+| Key | 25req/min |
+| Global | 50req/min |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    min_unix_timestamp = 1787011200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1787011200)
+    max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
+    min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
+    is_high_skill_range_parties = True # bool | Filter matches based on whether they are in the high skill range. (optional)
+    is_low_pri_pool = True # bool | Filter matches based on whether they are in the low priority pool. (optional)
+    is_new_player_pool = True # bool | Filter matches based on whether they are in the new player pool. (optional)
+    min_match_id = 56 # int | Filter matches based on their ID. (optional)
+    max_match_id = 56 # int | Filter matches based on their ID. (optional)
+
+    try:
+        # Rank Distribution
+        api_response = api_instance.rank_distribution(min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, min_match_id=min_match_id, max_match_id=max_match_id)
+        print("The response of PlayersApi->rank_distribution:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->rank_distribution: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200]
+ **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
+ **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
+ **is_high_skill_range_parties** | **bool**| Filter matches based on whether they are in the high skill range. | [optional] 
+ **is_low_pri_pool** | **bool**| Filter matches based on whether they are in the low priority pool. | [optional] 
+ **is_new_player_pool** | **bool**| Filter matches based on whether they are in the new player pool. | [optional] 
+ **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
+ **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
+
+### Return type
+
+[**List[RankDistributionEntry]**](RankDistributionEntry.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**400** | Provided parameters are invalid. |  -  |
+**500** | Failed to fetch rank distribution |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

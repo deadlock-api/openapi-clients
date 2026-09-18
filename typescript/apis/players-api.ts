@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
 // @ts-ignore
+import type { AccountRank } from '../models/index.js';
+// @ts-ignore
 import type { EnemyStats } from '../models/index.js';
 // @ts-ignore
 import type { HeroStats } from '../models/index.js';
@@ -33,6 +35,8 @@ import type { PlayerAccountStats } from '../models/index.js';
 import type { PlayerCard } from '../models/index.js';
 // @ts-ignore
 import type { PlayerMatchHistoryEntry } from '../models/index.js';
+// @ts-ignore
+import type { RankDistributionEntry } from '../models/index.js';
 // @ts-ignore
 import type { RankResponse } from '../models/index.js';
 /**
@@ -489,6 +493,118 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+         * @summary Batch Rank
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankBatch: async (accountIds: Array<number>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountIds' is not null or undefined
+            assertParamExists('rankBatch', 'accountIds', accountIds)
+            const localVarPath = `/v1/players/rank`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+         * @summary Rank Distribution
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankDistribution: async (minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/players/rank/distribution`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+
+            if (isHighSkillRangeParties !== undefined) {
+                localVarQueryParameter['is_high_skill_range_parties'] = isHighSkillRangeParties;
+            }
+
+            if (isLowPriPool !== undefined) {
+                localVarQueryParameter['is_low_pri_pool'] = isLowPriPool;
+            }
+
+            if (isNewPlayerPool !== undefined) {
+                localVarQueryParameter['is_new_player_pool'] = isNewPlayerPool;
+            }
+
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
          * @summary Rank Image
          * @param {number} accountId The players &#x60;SteamID3&#x60;
@@ -793,6 +909,40 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+         * @summary Batch Rank
+         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rankBatch(accountIds: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountRank>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankBatch(accountIds, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankBatch']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+         * @summary Rank Distribution
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {boolean | null} [isHighSkillRangeParties] Filter matches based on whether they are in the high skill range.
+         * @param {boolean | null} [isLowPriPool] Filter matches based on whether they are in the low priority pool.
+         * @param {boolean | null} [isNewPlayerPool] Filter matches based on whether they are in the new player pool.
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rankDistribution(minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RankDistributionEntry>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rankDistribution(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankDistribution']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
          * @summary Rank Image
          * @param {number} accountId The players &#x60;SteamID3&#x60;
@@ -938,6 +1088,26 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
          */
         rankAvgImage(requestParameters: PlayersApiRankAvgImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
             return localVarFp.rankAvgImage(requestParameters.accountIds, requestParameters.format, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+         * @summary Batch Rank
+         * @param {PlayersApiRankBatchRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankBatch(requestParameters: PlayersApiRankBatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<AccountRank>> {
+            return localVarFp.rankBatch(requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+         * @summary Rank Distribution
+         * @param {PlayersApiRankDistributionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rankDistribution(requestParameters: PlayersApiRankDistributionRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<RankDistributionEntry>> {
+            return localVarFp.rankDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
@@ -1236,6 +1406,66 @@ export interface PlayersApiRankAvgImageRequest {
 }
 
 /**
+ * Request parameters for rankBatch operation in PlayersApi.
+ */
+export interface PlayersApiRankBatchRequest {
+    /**
+     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     */
+    readonly accountIds: Array<number>
+}
+
+/**
+ * Request parameters for rankDistribution operation in PlayersApi.
+ */
+export interface PlayersApiRankDistributionRequest {
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null
+
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null
+
+    /**
+     * Filter matches based on whether they are in the high skill range.
+     */
+    readonly isHighSkillRangeParties?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the low priority pool.
+     */
+    readonly isLowPriPool?: boolean | null
+
+    /**
+     * Filter matches based on whether they are in the new player pool.
+     */
+    readonly isNewPlayerPool?: boolean | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null
+
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null
+}
+
+/**
  * Request parameters for rankImage operation in PlayersApi.
  */
 export interface PlayersApiRankImageRequest {
@@ -1380,6 +1610,28 @@ export class PlayersApi extends BaseAPI {
      */
     public rankAvgImage(requestParameters: PlayersApiRankAvgImageRequest, options?: RawAxiosRequestConfig) {
         return PlayersApiFp(this.configuration).rankAvgImage(requestParameters.accountIds, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+     * @summary Batch Rank
+     * @param {PlayersApiRankBatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rankBatch(requestParameters: PlayersApiRankBatchRequest, options?: RawAxiosRequestConfig) {
+        return PlayersApiFp(this.configuration).rankBatch(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+     * @summary Rank Distribution
+     * @param {PlayersApiRankDistributionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public rankDistribution(requestParameters: PlayersApiRankDistributionRequest = {}, options?: RawAxiosRequestConfig) {
+        return PlayersApiFp(this.configuration).rankDistribution(requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

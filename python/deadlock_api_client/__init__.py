@@ -68,6 +68,7 @@ __all__ = [
     "AbilityType",
     "AbilityVideos",
     "Accolade",
+    "AccountRank",
     "ActiveMatch",
     "ActiveMatchGameMode",
     "ActiveMatchMode",
@@ -199,6 +200,7 @@ __all__ = [
     "PlayerMatchHistoryEntry",
     "PlayerPerformanceCurvePoint",
     "Rank",
+    "RankDistributionEntry",
     "RankImages",
     "RankResponse",
     "RankedSeason",
@@ -328,6 +330,7 @@ from deadlock_api_client.models.ability_tooltip_details import AbilityTooltipDet
 from deadlock_api_client.models.ability_type import AbilityType as AbilityType
 from deadlock_api_client.models.ability_videos import AbilityVideos as AbilityVideos
 from deadlock_api_client.models.accolade import Accolade as Accolade
+from deadlock_api_client.models.account_rank import AccountRank as AccountRank
 from deadlock_api_client.models.active_match import ActiveMatch as ActiveMatch
 from deadlock_api_client.models.active_match_game_mode import ActiveMatchGameMode as ActiveMatchGameMode
 from deadlock_api_client.models.active_match_mode import ActiveMatchMode as ActiveMatchMode
@@ -459,6 +462,7 @@ from deadlock_api_client.models.player_entry import PlayerEntry as PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
 from deadlock_api_client.models.rank import Rank as Rank
+from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry as RankDistributionEntry
 from deadlock_api_client.models.rank_images import RankImages as RankImages
 from deadlock_api_client.models.rank_response import RankResponse as RankResponse
 from deadlock_api_client.models.ranked_season import RankedSeason as RankedSeason

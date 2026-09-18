@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 **last_played** | **number** |  | [default to undefined]
 **matches** | **Array&lt;number&gt;** |  | [default to undefined]
 **matches_played** | **number** |  | [default to undefined]
+**mvp_rank_counts** | **Array&lt;number&gt;** | Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank. | [default to undefined]
+**mvp_rated_matches** | **number** | Matches played since Valve started reporting MVP ranks (2026-01-06). Divide &#x60;mvp_rank_counts&#x60; by this, not by &#x60;matches_played&#x60;, when the time range reaches further back. | [default to undefined]
 **networth_per_min** | **number** |  | [default to undefined]
 **obj_damage_per_min** | **number** |  | [default to undefined]
 **obj_damage_per_soul** | **number** |  | [default to undefined]
@@ -68,6 +70,8 @@ const instance: HeroStats = {
     last_played,
     matches,
     matches_played,
+    mvp_rank_counts,
+    mvp_rated_matches,
     networth_per_min,
     obj_damage_per_min,
     obj_damage_per_soul,

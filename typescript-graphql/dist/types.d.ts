@@ -56,6 +56,69 @@ declare const _default: {
             __typename: number[];
         };
         Boolean: {};
+        Build: {
+            hero_build: number[];
+            num_favorites: number[];
+            num_ignores: number[];
+            num_reports: number[];
+            num_weekly_favorites: number[];
+            rollup_category: number[];
+            __typename: number[];
+        };
+        BuildHero: {
+            hero_id: number[];
+            hero_build_id: number[];
+            author_account_id: number[];
+            last_updated_timestamp: number[];
+            publish_timestamp: number[];
+            name: number[];
+            description: number[];
+            language: number[];
+            version: number[];
+            origin_build_id: number[];
+            tags: number[];
+            development_build: number[];
+            details: number[];
+            hero: number[];
+            author: number[];
+            __typename: number[];
+        };
+        BuildHeroDetails: {
+            mod_categories: number[];
+            ability_order: number[];
+            __typename: number[];
+        };
+        BuildHeroDetailsAbilityOrder: {
+            currency_changes: number[];
+            __typename: number[];
+        };
+        BuildHeroDetailsAbilityOrderCurrencyChange: {
+            ability_id: number[];
+            currency_type: number[];
+            delta: number[];
+            annotation: number[];
+            asset: number[];
+            __typename: number[];
+        };
+        BuildHeroDetailsCategory: {
+            name: number[];
+            width: number[];
+            height: number[];
+            description: number[];
+            mods: number[];
+            optional: number[];
+            __typename: number[];
+        };
+        BuildHeroDetailsCategoryAbility: {
+            ability_id: number[];
+            annotation: number[];
+            required_flex_slots: number[];
+            sell_priority: number[];
+            imbue_target_ability_id: number[];
+            asset: number[];
+            __typename: number[];
+        };
+        BuildLanguage: {};
         DateTime: {};
         Float: {};
         Hero: {
@@ -92,6 +155,23 @@ declare const _default: {
             purchase_bonuses: number[];
             standard_level_up_upgrades: number[];
             item_draft_bucketing: number[];
+            __typename: number[];
+        };
+        HeroBuildWhere: {
+            hero_id: number[];
+            build_id: number[];
+            version: number[];
+            author_id: number[];
+            language: number[];
+            tag: number[];
+            rollup_category: number[];
+            search_name: number[];
+            search_description: number[];
+            only_latest: number[];
+            min_unix_timestamp: number[];
+            max_unix_timestamp: number[];
+            min_published_unix_timestamp: number[];
+            max_published_unix_timestamp: number[];
             __typename: number[];
         };
         HeroDescription: {
@@ -338,6 +418,7 @@ declare const _default: {
             hero_xp_rewards: number[];
             hero: number[];
             steam: number[];
+            hero_build: number[];
             __typename: number[];
         };
         MatchPlayerWhere: {
@@ -368,6 +449,7 @@ declare const _default: {
             assigned_lane: number[];
             __typename: number[];
         };
+        OrderByHeroBuild: {};
         OrderByMatch: {};
         OrderByMatchHistory: {};
         OrderByMatchPlayer: {};
@@ -619,6 +701,13 @@ declare const _default: {
                 offset: (string | number)[];
             })[];
             match_history: (number | {
+                where: number[];
+                order_by: number[];
+                order_direction: number[];
+                limit: (string | number)[];
+                offset: (string | number)[];
+            })[];
+            hero_builds: (number | {
                 where: number[];
                 order_by: number[];
                 order_direction: number[];

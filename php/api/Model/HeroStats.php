@@ -80,6 +80,8 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_played' => 'int',
         'matches' => 'int[]',
         'matches_played' => 'int',
+        'mvp_rank_counts' => 'int[]',
+        'mvp_rated_matches' => 'int',
         'networth_per_min' => 'float',
         'obj_damage_per_min' => 'float',
         'obj_damage_per_soul' => 'float',
@@ -123,6 +125,8 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_played' => 'int32',
         'matches' => 'int64',
         'matches_played' => 'int64',
+        'mvp_rank_counts' => 'int64',
+        'mvp_rated_matches' => 'int64',
         'networth_per_min' => 'double',
         'obj_damage_per_min' => 'double',
         'obj_damage_per_soul' => 'double',
@@ -164,6 +168,8 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_played' => false,
         'matches' => false,
         'matches_played' => false,
+        'mvp_rank_counts' => false,
+        'mvp_rated_matches' => false,
         'networth_per_min' => false,
         'obj_damage_per_min' => false,
         'obj_damage_per_soul' => false,
@@ -285,6 +291,8 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_played' => 'last_played',
         'matches' => 'matches',
         'matches_played' => 'matches_played',
+        'mvp_rank_counts' => 'mvp_rank_counts',
+        'mvp_rated_matches' => 'mvp_rated_matches',
         'networth_per_min' => 'networth_per_min',
         'obj_damage_per_min' => 'obj_damage_per_min',
         'obj_damage_per_soul' => 'obj_damage_per_soul',
@@ -326,6 +334,8 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_played' => 'setLastPlayed',
         'matches' => 'setMatches',
         'matches_played' => 'setMatchesPlayed',
+        'mvp_rank_counts' => 'setMvpRankCounts',
+        'mvp_rated_matches' => 'setMvpRatedMatches',
         'networth_per_min' => 'setNetworthPerMin',
         'obj_damage_per_min' => 'setObjDamagePerMin',
         'obj_damage_per_soul' => 'setObjDamagePerSoul',
@@ -367,6 +377,8 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_played' => 'getLastPlayed',
         'matches' => 'getMatches',
         'matches_played' => 'getMatchesPlayed',
+        'mvp_rank_counts' => 'getMvpRankCounts',
+        'mvp_rated_matches' => 'getMvpRatedMatches',
         'networth_per_min' => 'getNetworthPerMin',
         'obj_damage_per_min' => 'getObjDamagePerMin',
         'obj_damage_per_soul' => 'getObjDamagePerSoul',
@@ -459,6 +471,8 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('last_played', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('matches_played', $data ?? [], null);
+        $this->setIfExists('mvp_rank_counts', $data ?? [], null);
+        $this->setIfExists('mvp_rated_matches', $data ?? [], null);
         $this->setIfExists('networth_per_min', $data ?? [], null);
         $this->setIfExists('obj_damage_per_min', $data ?? [], null);
         $this->setIfExists('obj_damage_per_soul', $data ?? [], null);
@@ -593,6 +607,16 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['matches_played'] < 0)) {
             $invalidProperties[] = "invalid value for 'matches_played', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['mvp_rank_counts'] === null) {
+            $invalidProperties[] = "'mvp_rank_counts' can't be null";
+        }
+        if ($this->container['mvp_rated_matches'] === null) {
+            $invalidProperties[] = "'mvp_rated_matches' can't be null";
+        }
+        if (($this->container['mvp_rated_matches'] < 0)) {
+            $invalidProperties[] = "invalid value for 'mvp_rated_matches', must be bigger than or equal to 0.";
         }
 
         if ($this->container['networth_per_min'] === null) {
@@ -1313,6 +1337,64 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['matches_played'] = $matches_played;
+
+        return $this;
+    }
+
+    /**
+     * Gets mvp_rank_counts
+     *
+     * @return int[]
+     */
+    public function getMvpRankCounts()
+    {
+        return $this->container['mvp_rank_counts'];
+    }
+
+    /**
+     * Sets mvp_rank_counts
+     *
+     * @param int[] $mvp_rank_counts Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+     *
+     * @return self
+     */
+    public function setMvpRankCounts($mvp_rank_counts)
+    {
+        if (is_null($mvp_rank_counts)) {
+            throw new \InvalidArgumentException('non-nullable mvp_rank_counts cannot be null');
+        }
+        $this->container['mvp_rank_counts'] = $mvp_rank_counts;
+
+        return $this;
+    }
+
+    /**
+     * Gets mvp_rated_matches
+     *
+     * @return int
+     */
+    public function getMvpRatedMatches()
+    {
+        return $this->container['mvp_rated_matches'];
+    }
+
+    /**
+     * Sets mvp_rated_matches
+     *
+     * @param int $mvp_rated_matches Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.
+     *
+     * @return self
+     */
+    public function setMvpRatedMatches($mvp_rated_matches)
+    {
+        if (is_null($mvp_rated_matches)) {
+            throw new \InvalidArgumentException('non-nullable mvp_rated_matches cannot be null');
+        }
+        if (($mvp_rated_matches < 0)) {
+            throw new \InvalidArgumentException('invalid value for $mvp_rated_matches when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['mvp_rated_matches'] = $mvp_rated_matches;
 
         return $this;
     }

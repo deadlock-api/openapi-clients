@@ -138,6 +138,36 @@ pub struct RankAvgImageParams {
     pub format: Option<String>
 }
 
+/// struct for passing parameters to the method [`rank_batch`]
+#[derive(Clone, Debug)]
+pub struct RankBatchParams {
+    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    pub account_ids: Vec<u32>
+}
+
+/// struct for passing parameters to the method [`rank_distribution`]
+#[derive(Clone, Debug)]
+pub struct RankDistributionParams {
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter matches based on whether they are in the high skill range.
+    pub is_high_skill_range_parties: Option<bool>,
+    /// Filter matches based on whether they are in the low priority pool.
+    pub is_low_pri_pool: Option<bool>,
+    /// Filter matches based on whether they are in the new player pool.
+    pub is_new_player_pool: Option<bool>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>
+}
+
 /// struct for passing parameters to the method [`rank_image`]
 #[derive(Clone, Debug)]
 pub struct RankImageParams {
@@ -249,6 +279,24 @@ pub enum RankAvgImageError {
     Status400(),
     Status403(),
     Status404(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`rank_batch`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RankBatchError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`rank_distribution`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RankDistributionError {
+    Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -683,6 +731,107 @@ pub async fn rank_avg_image(configuration: &configuration::Configuration, params
     } else {
         let content = resp.text().await?;
         let entity: Option<RankAvgImageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+pub async fn rank_batch(configuration: &configuration::Configuration, params: RankBatchParams) -> Result<Vec<models::AccountRank>, Error<RankBatchError>> {
+
+    let uri_str = format!("{}/v1/players/rank", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::AccountRank&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::AccountRank&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<RankBatchError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+pub async fn rank_distribution(configuration: &configuration::Configuration, params: RankDistributionParams) -> Result<Vec<models::RankDistributionEntry>, Error<RankDistributionError>> {
+
+    let uri_str = format!("{}/v1/players/rank/distribution", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_high_skill_range_parties {
+        req_builder = req_builder.query(&[("is_high_skill_range_parties", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_low_pri_pool {
+        req_builder = req_builder.query(&[("is_low_pri_pool", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_new_player_pool {
+        req_builder = req_builder.query(&[("is_new_player_pool", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::RankDistributionEntry&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::RankDistributionEntry&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<RankDistributionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

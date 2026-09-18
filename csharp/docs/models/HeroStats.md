@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **LastPlayed** | **int** |  | 
 **Matches** | **List&lt;long&gt;** |  | 
 **MatchesPlayed** | **long** |  | 
+**MvpRankCounts** | **List&lt;long&gt;** | Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank. | 
+**MvpRatedMatches** | **long** | Matches played since Valve started reporting MVP ranks (2026-01-06). Divide &#x60;mvp_rank_counts&#x60; by this, not by &#x60;matches_played&#x60;, when the time range reaches further back. | 
 **NetworthPerMin** | **double** |  | 
 **ObjDamagePerMin** | **double** |  | 
 **ObjDamagePerSoul** | **double** |  | 

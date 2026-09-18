@@ -41,69 +41,75 @@ namespace DeadlockApiClient.Api
         /// List Tables
         /// </summary>
         /// <remarks>
-        ///  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListTablesApiResponse"/>&gt;</returns>
+        [Obsolete]
         Task<IListTablesApiResponse> ListTablesAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Tables
         /// </summary>
         /// <remarks>
-        ///  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListTablesApiResponse"/>?&gt;</returns>
+        [Obsolete]
         Task<IListTablesApiResponse?> ListTablesOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Query
         /// </summary>
         /// <remarks>
-        ///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+        ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
         /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>&gt;</returns>
+        [Obsolete]
         Task<ISqlApiResponse> SqlAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Query
         /// </summary>
         /// <remarks>
-        ///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+        ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </remarks>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
         /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>?&gt;</returns>
+        [Obsolete]
         Task<ISqlApiResponse?> SqlOrDefaultAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Table Schema
         /// </summary>
         /// <remarks>
-        ///  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="table">The name of the table to fetch the schema for.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITableSchemaApiResponse"/>&gt;</returns>
+        [Obsolete]
         Task<ITableSchemaApiResponse> TableSchemaAsync(string table, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Table Schema
         /// </summary>
         /// <remarks>
-        ///  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </remarks>
         /// <param name="table">The name of the table to fetch the schema for.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITableSchemaApiResponse"/>?&gt;</returns>
+        [Obsolete]
         Task<ITableSchemaApiResponse?> TableSchemaOrDefaultAsync(string table, System.Threading.CancellationToken cancellationToken = default);
     }
 
@@ -311,7 +317,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorListTables(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// List Tables  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        /// List Tables  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListTablesApiResponse"/>&gt;</returns>
@@ -328,7 +334,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// List Tables  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        /// List Tables  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -616,7 +622,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorSql(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string query, Option<string> format);
 
         /// <summary>
-        /// Query  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+        /// Query  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </summary>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
         /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
@@ -635,7 +641,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Query  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+        /// Query  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
@@ -929,7 +935,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorTableSchema(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string table);
 
         /// <summary>
-        /// Table Schema  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        /// Table Schema  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </summary>
         /// <param name="table">The name of the table to fetch the schema for.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -947,7 +953,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Table Schema  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+        /// Table Schema  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="table">The name of the table to fetch the schema for.</param>

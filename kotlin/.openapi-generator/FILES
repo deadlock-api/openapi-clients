@@ -12,6 +12,7 @@ docs/AbilityType.md
 docs/AbilityVideos.md
 docs/Accolade.md
 docs/AccoladesApi.md
+docs/AccountRank.md
 docs/ActiveMatch.md
 docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
@@ -167,6 +168,7 @@ docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
 docs/PlayersApi.md
 docs/Rank.md
+docs/RankDistributionEntry.md
 docs/RankImages.md
 docs/RankResponse.md
 docs/RankedSeason.md
@@ -304,6 +306,7 @@ src/main/kotlin/deadlock_api_client/models/AbilityTooltipDetails.kt
 src/main/kotlin/deadlock_api_client/models/AbilityType.kt
 src/main/kotlin/deadlock_api_client/models/AbilityVideos.kt
 src/main/kotlin/deadlock_api_client/models/Accolade.kt
+src/main/kotlin/deadlock_api_client/models/AccountRank.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatch.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchGameMode.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchMode.kt
@@ -435,6 +438,7 @@ src/main/kotlin/deadlock_api_client/models/PlayerEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePoint.kt
 src/main/kotlin/deadlock_api_client/models/Rank.kt
+src/main/kotlin/deadlock_api_client/models/RankDistributionEntry.kt
 src/main/kotlin/deadlock_api_client/models/RankImages.kt
 src/main/kotlin/deadlock_api_client/models/RankResponse.kt
 src/main/kotlin/deadlock_api_client/models/RankedSeason.kt
@@ -548,6 +552,7 @@ src/test/kotlin/deadlock_api_client/models/AbilityTooltipDetailsTest.kt
 src/test/kotlin/deadlock_api_client/models/AbilityTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/AbilityVideosTest.kt
 src/test/kotlin/deadlock_api_client/models/AccoladeTest.kt
+src/test/kotlin/deadlock_api_client/models/AccountRankTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchGameModeTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchModeTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchPlayerTest.kt
@@ -678,6 +683,7 @@ src/test/kotlin/deadlock_api_client/models/PlayerCardTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePointTest.kt
+src/test/kotlin/deadlock_api_client/models/RankDistributionEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/RankImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/RankResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/RankTest.kt

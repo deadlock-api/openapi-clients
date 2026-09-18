@@ -157,6 +157,18 @@ export interface HeroStats  {
      */
     matchesPlayed: number;
     /**
+     * Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+     * @type {Array<number>}
+     * @memberof HeroStats
+     */
+    mvpRankCounts: Array<number>;
+    /**
+     * Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.
+     * @type {number}
+     * @memberof HeroStats
+     */
+    mvpRatedMatches: number;
+    /**
      * 
      * @type {number}
      * @memberof HeroStats
@@ -243,6 +255,8 @@ export function HeroStatsFromJSON(json: any): HeroStats {
         'lastPlayed': json['last_played'],
         'matches': json['matches'],
         'matchesPlayed': json['matches_played'],
+        'mvpRankCounts': json['mvp_rank_counts'],
+        'mvpRatedMatches': json['mvp_rated_matches'],
         'networthPerMin': json['networth_per_min'],
         'objDamagePerMin': json['obj_damage_per_min'],
         'objDamagePerSoul': json['obj_damage_per_soul'],
@@ -284,6 +298,8 @@ export function HeroStatsToJSON(value?: HeroStats): any {
         'last_played': value.lastPlayed,
         'matches': value.matches,
         'matches_played': value.matchesPlayed,
+        'mvp_rank_counts': value.mvpRankCounts,
+        'mvp_rated_matches': value.mvpRatedMatches,
         'networth_per_min': value.networthPerMin,
         'obj_damage_per_min': value.objDamagePerMin,
         'obj_damage_per_soul': value.objDamagePerSoul,

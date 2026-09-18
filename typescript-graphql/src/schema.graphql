@@ -75,6 +75,103 @@ input BoolFilter {
   is_null: Boolean
 }
 
+type Build {
+  hero_build: BuildHero!
+  num_favorites: Int
+  num_ignores: Int
+  num_reports: Int
+  num_weekly_favorites: Int
+  rollup_category: Int
+}
+
+type BuildHero {
+  """See more: <https://api.deadlock-api.com/v1/assets/heroes>"""
+  hero_id: Int!
+  hero_build_id: Int!
+  author_account_id: Int!
+  last_updated_timestamp: Int
+  publish_timestamp: Int
+  name: String!
+  description: String
+  language: Int!
+  version: Int!
+  origin_build_id: Int!
+  tags: [Int!]!
+  development_build: Boolean
+  details: BuildHeroDetails!
+
+  """
+  Hero asset metadata for this build's `hero_id` (latest version, English).
+  """
+  hero: Hero
+
+  """
+  Stored Steam profile of the build author (no live Steam fetch). `null`
+  for protected users and accounts without a stored profile.
+  """
+  author: SteamProfile
+}
+
+type BuildHeroDetails {
+  mod_categories: [BuildHeroDetailsCategory!]!
+  ability_order: BuildHeroDetailsAbilityOrder
+}
+
+type BuildHeroDetailsAbilityOrder {
+  currency_changes: [BuildHeroDetailsAbilityOrderCurrencyChange!]
+}
+
+type BuildHeroDetailsAbilityOrderCurrencyChange {
+  ability_id: Int!
+  currency_type: Int!
+  delta: Int!
+  annotation: String
+
+  """Catalog asset for this currency change's `ability_id`."""
+  asset: AssetItem
+}
+
+type BuildHeroDetailsCategory {
+  name: String!
+  width: Float
+  height: Float
+  description: String
+  mods: [BuildHeroDetailsCategoryAbility!]
+  optional: Boolean
+}
+
+type BuildHeroDetailsCategoryAbility {
+  ability_id: Int!
+  annotation: String
+  required_flex_slots: Int
+  sell_priority: Int
+  imbue_target_ability_id: Int
+
+  """Catalog asset for this build slot's `ability_id`."""
+  asset: AssetItem
+}
+
+enum BuildLanguage {
+  ENGLISH
+  GERMAN
+  FRENCH
+  ITALIAN
+  KOREAN
+  SPANISH_SPAIN
+  CHINESE_SIMPLIFIED
+  RUSSIAN
+  THAI
+  JAPANESE
+  PORTUGUESE_PORTUGAL
+  POLISH
+  CZECH
+  TURKISH
+  PORTUGUESE_BRAZIL
+  UKRAINIAN
+  SPANISH_LATIN_AMERICA
+  VIETNAMESE
+}
+
 """
 Implement the DateTime<Utc> scalar
 
@@ -118,6 +215,44 @@ type Hero {
   purchase_bonuses: JSON!
   standard_level_up_upgrades: JSON!
   item_draft_bucketing: JSON!
+}
+
+"""
+Filters for the `hero_builds` query. All set fields are AND-ed. Mirrors
+the REST `/v1/builds` search parameters.
+"""
+input HeroBuildWhere {
+  """See more: <https://api.deadlock-api.com/v1/assets/heroes>"""
+  hero_id: Int
+  build_id: Int
+  version: Int
+
+  """The author's `SteamID3`."""
+  author_id: Int
+  language: BuildLanguage
+  tag: Int
+  rollup_category: Int
+
+  """Case-insensitive substring match on the build name."""
+  search_name: String
+
+  """Case-insensitive substring match on the build description."""
+  search_description: String
+
+  """Only return the latest version of each build."""
+  only_latest: Boolean
+
+  """Filter on `last_updated` (Unix timestamp)."""
+  min_unix_timestamp: Int
+
+  """Filter on `last_updated` (Unix timestamp)."""
+  max_unix_timestamp: Int
+
+  """Filter on the published time (Unix timestamp)."""
+  min_published_unix_timestamp: Int
+
+  """Filter on the published time (Unix timestamp)."""
+  max_published_unix_timestamp: Int
 }
 
 type HeroDescription {
@@ -466,6 +601,13 @@ type MatchPlayer {
   profile.
   """
   steam: SteamProfile
+
+  """
+  Latest stored version of the build this player used, matched on
+  (`hero_id`, `hero_build_id`). `null` when the build is not in the
+  database.
+  """
+  hero_build: Build
 }
 
 """
@@ -498,6 +640,29 @@ input MatchPlayerWhere {
   net_worth: U32Filter
   player_level: U32Filter
   assigned_lane: U32Filter
+}
+
+enum OrderByHeroBuild {
+  """Sort by the number of weekly favorites."""
+  WEEKLY_FAVORITES
+
+  """Sort by the number of all-time favorites."""
+  FAVORITES
+
+  """Sort by the number of weekly ignores. (currently always 0)"""
+  IGNORES
+
+  """Sort by the number of weekly reports. (currently always 0)"""
+  REPORTS
+
+  """Sort by the last time the build was updated."""
+  UPDATED_AT
+
+  """Sort by the time the build was published."""
+  PUBLISHED_AT
+
+  """Sort by the build version."""
+  VERSION
 }
 
 enum OrderByMatch {
@@ -535,6 +700,13 @@ type QueryRoot {
   stored `player_match_history` table (no on-demand Steam fetch).
   """
   match_history(where: MatchHistoryWhere, order_by: OrderByMatchHistory, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchHistoryEntry!]!
+
+  """
+  Hero builds from the stored `hero_builds` table — the same data as the
+  REST `/v1/builds` search. Every version of a build is returned unless
+  `where.only_latest` is set.
+  """
+  hero_builds(where: HeroBuildWhere, order_by: OrderByHeroBuild, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [Build!]!
 
   """
   All heroes for the given client version (defaults to latest), localized

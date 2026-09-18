@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**player_hero_stats**](PlayersApi.md#player_hero_stats) | **GET** /v1/players/hero-stats | Hero Stats
 [**rank**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank
 [**rank_avg_image**](PlayersApi.md#rank_avg_image) | **GET** /v1/players/rank/image | Rank Avg Image
+[**rank_batch**](PlayersApi.md#rank_batch) | **GET** /v1/players/rank | Batch Rank
+[**rank_distribution**](PlayersApi.md#rank_distribution) | **GET** /v1/players/rank/distribution | Rank Distribution
 [**rank_image**](PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
 [**rank_predict**](PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
 [**rank_predict_avg_image**](PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
@@ -289,6 +291,74 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: image/png, image/webp
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## rank_batch
+
+> Vec<models::AccountRank> rank_batch(account_ids)
+Batch Rank
+
+ Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**account_ids** | [**Vec<u32>**](U32.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+
+### Return type
+
+[**Vec<models::AccountRank>**](AccountRank.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## rank_distribution
+
+> Vec<models::RankDistributionEntry> rank_distribution(min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id)
+Rank Distribution
+
+ Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787011200]
+**max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
+**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**is_high_skill_range_parties** | Option<**bool**> | Filter matches based on whether they are in the high skill range. |  |
+**is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
+**is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
+**min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+**max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
+
+### Return type
+
+[**Vec<models::RankDistributionEntry>**](RankDistributionEntry.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -18,7 +18,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Batch Hero MMR (Deprecated)
 
- Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -68,7 +68,7 @@ No authorization required
 
 Hero MMR Distribution (Deprecated)
 
- Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+ Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -103,7 +103,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **heroId** | **kotlin.Int**| The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1786924800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -180,7 +180,7 @@ No authorization required
 
 Batch MMR (Deprecated)
 
- Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+ Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -228,7 +228,7 @@ No authorization required
 
 MMR Distribution (Deprecated)
 
- Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+ Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
 
 ### Example
 ```kotlin
@@ -261,7 +261,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1786924800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

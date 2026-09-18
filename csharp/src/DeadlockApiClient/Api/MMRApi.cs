@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Batch Hero MMR (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Api
         /// Batch Hero MMR (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
@@ -71,11 +71,11 @@ namespace DeadlockApiClient.Api
         /// Hero MMR Distribution (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -93,10 +93,10 @@ namespace DeadlockApiClient.Api
         /// Hero MMR Distribution (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        ///  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </remarks>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -141,7 +141,7 @@ namespace DeadlockApiClient.Api
         /// Batch MMR (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        ///  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
@@ -155,7 +155,7 @@ namespace DeadlockApiClient.Api
         /// Batch MMR (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        ///  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
@@ -168,10 +168,10 @@ namespace DeadlockApiClient.Api
         /// MMR Distribution (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        ///  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -189,9 +189,9 @@ namespace DeadlockApiClient.Api
         /// MMR Distribution (Deprecated)
         /// </summary>
         /// <remarks>
-        ///  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        ///  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </remarks>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -610,7 +610,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorHeroMmr(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, int heroId, Option<long?> maxMatchId);
 
         /// <summary>
-        /// Batch Hero MMR (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        /// Batch Hero MMR (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
@@ -630,7 +630,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Batch Hero MMR (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        /// Batch Hero MMR (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player&#39;s rank on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
@@ -913,10 +913,10 @@ namespace DeadlockApiClient.Api
         partial void OnErrorHeroMmrDistribution(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int heroId, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
-        /// Hero MMR Distribution (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        /// Hero MMR Distribution (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </summary>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -940,11 +940,11 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Hero MMR Distribution (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        /// Hero MMR Distribution (Deprecated)  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroId">The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1488,7 +1488,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMmr(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<long?> maxMatchId);
 
         /// <summary>
-        /// Batch MMR (Deprecated)  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        /// Batch MMR (Deprecated)  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
@@ -1507,7 +1507,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Batch MMR (Deprecated)  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/{account_id}/rank&#x60; instead. 
+        /// Batch MMR (Deprecated)  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use &#x60;/v1/players/rank?account_ids&#x3D;...&#x60; instead. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.</param>
@@ -1784,9 +1784,9 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMmrDistribution(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
-        /// MMR Distribution (Deprecated)  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        /// MMR Distribution (Deprecated)  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </summary>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1810,10 +1810,10 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// MMR Distribution (Deprecated)  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/analytics/badge-distribution&#x60; instead. 
+        /// MMR Distribution (Deprecated)  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use &#x60;/v1/players/rank/distribution&#x60; instead. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1786924800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>

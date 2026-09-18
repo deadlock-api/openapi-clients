@@ -50,19 +50,20 @@ tags:
     \ rank on ranked matches, and these endpoints now serve that rank instead of the\
     \ old exponential\nmoving average over team average badges.\n\nMigrate to:\n\n\
     | Deprecated | Replacement |\n| ---------- | ----------- |\n| `/v1/players/mmr`,\
-    \ `/v1/players/mmr/{hero_id}` | `/v1/players/{account_id}/rank` |\n| `/v1/players/mmr/distribution`,\
-    \ `/v1/players/mmr/distribution/{hero_id}` | `/v1/analytics/badge-distribution`\
-    \ |\n| `/v1/players/{account_id}/mmr-history`, `/v1/players/{account_id}/mmr-history/{hero_id}`\
-    \ | `ranked_display_badge` / `ranked_delta` in `/v1/players/{account_id}/match-history`\
-    \ |\n\nSince ranks only exist on ranked matches, players without one are missing\
-    \ from the responses, and the\nhero-scoped variants no longer differ per hero:\
-    \ they report the account-wide rank restricted to\nmatches played on that hero.\n\
-    \n### Rate Limits:\n\nThe rank and rank-history endpoints share one bucket:\n\n\
-    | Type | Limit |\n| ---- | ----- |\n| IP | 20req/min |\n| Key | 100req/min & 2000req/h\
-    \ |\n| Global | 200req/min |\n\nThe distribution endpoints aggregate over every\
-    \ ranked match and are far more expensive, so they\nhave their own, tighter bucket:\n\
-    \n| Type | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n| Key | 25req/min |\n\
-    | Global | 50req/min |\n    "
+    \ `/v1/players/mmr/{hero_id}` | `/v1/players/rank?account_ids=...` or `/v1/players/{account_id}/rank`\
+    \ |\n| `/v1/players/mmr/distribution`, `/v1/players/mmr/distribution/{hero_id}`\
+    \ | `/v1/players/rank/distribution` |\n| `/v1/players/{account_id}/mmr-history`,\
+    \ `/v1/players/{account_id}/mmr-history/{hero_id}` | `ranked_display_badge` /\
+    \ `ranked_delta` in `/v1/players/{account_id}/match-history` |\n\nSince ranks\
+    \ only exist on ranked matches, players without one are missing from the responses,\
+    \ and the\nhero-scoped variants no longer differ per hero: they report the account-wide\
+    \ rank restricted to\nmatches played on that hero.\n\n### Rate Limits:\n\nThe\
+    \ rank and rank-history endpoints share one bucket:\n\n| Type | Limit |\n| ----\
+    \ | ----- |\n| IP | 20req/min |\n| Key | 100req/min & 2000req/h |\n| Global |\
+    \ 200req/min |\n\nThe distribution endpoints aggregate over every ranked match\
+    \ and are far more expensive, so they\nhave their own, tighter bucket:\n\n| Type\
+    \ | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n| Key | 25req/min |\n| Global\
+    \ | 50req/min |\n    "
   name: MMR
 - description: Steam related endpoints
   name: Steam
@@ -94,8 +95,8 @@ tags:
   name: Info
 - description: |2
 
-    Database exploration endpoints for direct SQL access.
-    Provides functionality to execute custom SQL queries with rate limiting protection, list available tables, and inspect table schemas.
+    **Deprecated.** Direct SQL access will be removed. Query the public data lake instead:
+    https://data.deadlock-api.com (DuckDB / DuckLake) or the MCP server at `/v1/mcp`, see https://deadlock-api.com/data-dumps.
   name: SQL
 - description: |2
 
@@ -196,7 +197,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -467,7 +468,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -601,7 +602,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -689,7 +690,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -922,7 +923,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -1067,7 +1068,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -1267,7 +1268,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -1564,7 +1565,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -1833,7 +1834,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -2112,7 +2113,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -2398,7 +2399,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -2730,7 +2731,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -3030,7 +3031,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -3330,7 +3331,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -3639,7 +3640,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -3926,7 +3927,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -4218,7 +4219,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -4454,7 +4455,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -4768,7 +4769,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -9324,7 +9325,7 @@ paths:
         Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at
         the end of their latest ranked match. Players without a ranked match carrying a rank are left out.
 
-        Use `/v1/players/{account_id}/rank` instead.
+        Use `/v1/players/rank?account_ids=...` instead.
       operationId: mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -9379,7 +9380,7 @@ paths:
         Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end
         of their latest ranked match within the filtered range.
 
-        Use `/v1/analytics/badge-distribution` instead.
+        Use `/v1/players/rank/distribution` instead.
       operationId: mmr_distribution
       parameters:
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
@@ -9389,7 +9390,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -9503,7 +9504,7 @@ paths:
         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by
         the rank they had on their latest ranked match played on that hero.
 
-        Use `/v1/analytics/badge-distribution` instead.
+        Use `/v1/players/rank/distribution` instead.
       operationId: hero_mmr_distribution
       parameters:
       - description: Filter matches based on their start time (Unix timestamp). **Default:**
@@ -9513,7 +9514,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1786924800
+          default: 1787011200
           format: int64
           nullable: true
           type: integer
@@ -9637,7 +9638,7 @@ paths:
         Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each
         player's rank on their latest ranked match played on that hero.
 
-        Use `/v1/players/{account_id}/rank` instead.
+        Use `/v1/players/rank?account_ids=...` instead.
       operationId: hero_mmr
       parameters:
       - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
@@ -9694,6 +9695,58 @@ paths:
       summary: Batch Hero MMR (Deprecated)
       tags:
       - MMR
+  /v1/players/rank:
+    get:
+      description: |2
+
+        Returns the rank of each player at the end of their latest ranked match, the batch form of
+        `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.
+
+        Every requested account is returned once, in no particular order. Players none of whose recent
+        ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`.
+        Protected accounts are left out.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 20req/min |
+        | Key | 100req/min & 2000req/h |
+        | Global | 200req/min |
+      operationId: rank_batch
+      parameters:
+      - description: "Comma separated list of account ids, Account IDs are in `SteamID3`\
+          \ format."
+        explode: true
+        in: query
+        name: account_ids
+        required: true
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/AccountRank"
+                type: array
+                default: null
+          description: ""
+        "400":
+          description: Invalid or missing account IDs
+        "500":
+          description: Rank lookup failed
+      summary: Batch Rank
+      tags:
+      - Players
   /v1/players/rank-predict/image:
     get:
       deprecated: true
@@ -9754,6 +9807,139 @@ paths:
         "500":
           description: Rank lookup failed
       summary: Rank Predict Avg Image (Deprecated)
+      tags:
+      - Players
+  /v1/players/rank/distribution:
+    get:
+      description: |2
+
+        Counts players by the rank Valve reported at the end of their latest ranked match within the
+        filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked
+        matches carry a rank, so the filters only ever select ranked matches, and players still in
+        placement games are not counted.
+
+        `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the
+        match counts by average badge; use this endpoint when you only need the players.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 5req/min |
+        | Key | 25req/min |
+        | Global | 50req/min |
+      operationId: rank_distribution
+      parameters:
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1787011200
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on whether they are in the high skill range.
+        explode: true
+        in: query
+        name: is_high_skill_range_parties
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the low priority
+          pool.
+        explode: true
+        in: query
+        name: is_low_pri_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on whether they are in the new player pool.
+        explode: true
+        in: query
+        name: is_new_player_pool
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/RankDistributionEntry"
+                type: array
+                default: null
+          description: ""
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch rank distribution
+      summary: Rank Distribution
       tags:
       - Players
   /v1/players/rank/image:
@@ -10779,9 +10965,13 @@ paths:
       - Servers
   /v1/sql:
     get:
-      description: "\nExecutes a SQL query on the database.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 2req/min, 20req/hr |\n| Key | 10req/min\
-        \ |\n| Global | 30req/min |\n    "
+      deprecated: true
+      description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
+        \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
+        \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
+        \nExecutes a SQL query on the database.\n\n### Rate Limits:\n| Type | Limit\
+        \ |\n| ---- | ----- |\n| IP | 2req/min, 20req/hr |\n| Key | 10req/min |\n\
+        | Global | 30req/min |\n    "
       operationId: sql
       parameters:
       - description: The SQL query to execute. It must follow the Clickhouse SQL syntax.
@@ -10822,9 +11012,13 @@ paths:
       - SQL
   /v1/sql/tables:
     get:
-      description: "\nLists all tables in the database.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global |\
-        \ 60req/min |\n    "
+      deprecated: true
+      description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
+        \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
+        \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
+        \nLists all tables in the database.\n\n### Rate Limits:\n| Type | Limit |\n\
+        | ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min |\n\
+        \    "
       operationId: list_tables
       responses:
         "200":
@@ -10847,9 +11041,13 @@ paths:
       - SQL
   /v1/sql/tables/{table}/schema:
     get:
-      description: "\nReturns the schema of a table.\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min\
-        \ |\n    "
+      deprecated: true
+      description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
+        \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
+        \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
+        \nReturns the schema of a table.\n\n### Rate Limits:\n| Type | Limit |\n|\
+        \ ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min |\n\
+        \    "
       operationId: table_schema
       parameters:
       - description: The name of the table to fetch the schema for.
@@ -11233,6 +11431,54 @@ components:
       - id
       - threshold_type
       - tracked_stat_name
+    AccountRank:
+      allOf:
+      - properties:
+          badge:
+            description: |-
+              Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded.
+              Eternus subranks are percentile-based and refreshed daily by Valve, so within Eternus this
+              is the badge the player entered their latest ranked match with.
+              `0` when no recent ranked match reports a rank.
+              See more: <https://api.deadlock-api.com/v1/assets/ranks>
+            format: int32
+            minimum: 0
+            type: integer
+          last_match:
+            allOf:
+            - $ref: "#/components/schemas/LastRankedMatch"
+            description: |-
+              Rank metadata of the ranked match the badge was read from. `null` when none of the player's
+              recent ranked matches reports a rank.
+            nullable: true
+          rank:
+            description: "Rank tier, `0` when unknown."
+            format: int32
+            minimum: 0
+            type: integer
+          subrank:
+            description: "Sub-rank within the tier, `0` when unknown."
+            format: int32
+            minimum: 0
+            type: integer
+        required:
+        - badge
+        - rank
+        - subrank
+      - properties:
+          account_id:
+            description: The players `SteamID3`
+            format: int32
+            minimum: 0
+            type: integer
+        required:
+        - account_id
+      example:
+        badge: 0
+        last_match: ""
+        rank: 0
+        subrank: 0
+        account_id: 0
     ActiveMatch:
       example:
         compat_version: 0
@@ -14172,9 +14418,13 @@ components:
         - 0
         - 0
         matches_played: 0
-        networth_per_min: 8.762042012749001
-        obj_damage_per_min: 9.018348186070783
-        obj_damage_per_soul: 6.438423552598547
+        mvp_rank_counts:
+        - 0
+        - 0
+        mvp_rated_matches: 0
+        networth_per_min: 6.438423552598547
+        obj_damage_per_min: 3.5571952270680973
+        obj_damage_per_soul: 6.965117697638846
         time_played: 0
         total_boss_damage: 0
         total_creep_damage: 0
@@ -14264,6 +14514,24 @@ components:
           format: int64
           minimum: 0
           type: integer
+        mvp_rank_counts:
+          description: |-
+            Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is
+            rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+          items:
+            format: int64
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        mvp_rated_matches:
+          description: |-
+            Matches played since Valve started reporting MVP ranks (2026-01-06). Divide
+            `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches
+            further back.
+          format: int64
+          minimum: 0
+          type: integer
         networth_per_min:
           format: double
           type: number
@@ -14325,6 +14593,8 @@ components:
       - last_played
       - matches
       - matches_played
+      - mvp_rank_counts
+      - mvp_rated_matches
       - networth_per_min
       - obj_damage_per_min
       - obj_damage_per_soul
@@ -17346,6 +17616,39 @@ components:
       - images
       - name
       - tier
+    RankDistributionEntry:
+      example:
+        badge: 0
+        players: 0
+        rank: 0
+        subrank: 0
+      properties:
+        badge:
+          description: "Rank badge, `tier * 10 + subrank`. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+          format: int32
+          minimum: 0
+          type: integer
+        players:
+          description: Number of players whose rank at the end of their latest ranked
+            match in the filtered range is this badge.
+          format: int64
+          minimum: 0
+          type: integer
+        rank:
+          description: Rank tier.
+          format: int32
+          minimum: 0
+          type: integer
+        subrank:
+          description: Sub-rank within the tier.
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - badge
+      - players
+      - rank
+      - subrank
     RankImages:
       description: |-
         Image URLs for a single rank tier. Field declaration order is load-bearing:

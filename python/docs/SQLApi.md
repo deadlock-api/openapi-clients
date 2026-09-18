@@ -15,6 +15,10 @@ Method | HTTP request | Description
 List Tables
 
 
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at
+https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+see https://deadlock-api.com/data-dumps.
+
 Lists all tables in the database.
 
 ### Rate Limits:
@@ -87,6 +91,10 @@ No authorization required
 
 Query
 
+
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at
+https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+see https://deadlock-api.com/data-dumps.
 
 Executes a SQL query on the database.
 
@@ -166,6 +174,10 @@ No authorization required
 
 Table Schema
 
+
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at
+https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+see https://deadlock-api.com/data-dumps.
 
 Returns the schema of a table.
 

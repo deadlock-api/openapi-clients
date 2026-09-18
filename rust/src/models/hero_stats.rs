@@ -60,6 +60,12 @@ pub struct HeroStats {
     pub matches: Vec<u64>,
     #[serde(rename = "matches_played")]
     pub matches_played: u64,
+    /// Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+    #[serde(rename = "mvp_rank_counts")]
+    pub mvp_rank_counts: Vec<u64>,
+    /// Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.
+    #[serde(rename = "mvp_rated_matches")]
+    pub mvp_rated_matches: u64,
     #[serde(rename = "networth_per_min")]
     pub networth_per_min: f64,
     #[serde(rename = "obj_damage_per_min")]
@@ -83,7 +89,7 @@ pub struct HeroStats {
 }
 
 impl HeroStats {
-    pub fn new(account_id: u32, accuracy: f64, assists: u64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: u64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: u32, kills: u64, kills_per_min: f64, last_hits_per_min: f64, last_played: u32, matches: Vec<u64>, matches_played: u64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, time_played: u64, total_boss_damage: u64, total_creep_damage: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, wins: u64) -> HeroStats {
+    pub fn new(account_id: u32, accuracy: f64, assists: u64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: u64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: u32, kills: u64, kills_per_min: f64, last_hits_per_min: f64, last_played: u32, matches: Vec<u64>, matches_played: u64, mvp_rank_counts: Vec<u64>, mvp_rated_matches: u64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, time_played: u64, total_boss_damage: u64, total_creep_damage: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, wins: u64) -> HeroStats {
         HeroStats {
             account_id,
             accuracy,
@@ -108,6 +114,8 @@ impl HeroStats {
             last_played,
             matches,
             matches_played,
+            mvp_rank_counts,
+            mvp_rated_matches,
             networth_per_min,
             obj_damage_per_min,
             obj_damage_per_soul,

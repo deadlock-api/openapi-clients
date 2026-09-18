@@ -26,7 +26,7 @@ export interface TableSchemaRequest {
 
 
 /**
- *  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+ *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
  * List Tables
  */
 function listTablesRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<string>> = {}): QueryConfig<T> {
@@ -61,7 +61,7 @@ function listTablesRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<stri
 }
 
 /**
-*  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+*  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 * List Tables
 */
 export function listTables<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<string>>): QueryConfig<T> {
@@ -69,7 +69,7 @@ export function listTables<T>( requestConfig?: runtime.TypedQueryConfig<T, Array
 }
 
 /**
- *  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+ *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
  * Query
  */
 function sqlRaw<T>(requestParameters: SqlRequest, requestConfig: runtime.TypedQueryConfig<T, string> = {}): QueryConfig<T> {
@@ -120,7 +120,7 @@ function sqlRaw<T>(requestParameters: SqlRequest, requestConfig: runtime.TypedQu
 }
 
 /**
-*  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+*  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 * Query
 */
 export function sql<T>(requestParameters: SqlRequest, requestConfig?: runtime.TypedQueryConfig<T, string>): QueryConfig<T> {
@@ -128,7 +128,7 @@ export function sql<T>(requestParameters: SqlRequest, requestConfig?: runtime.Ty
 }
 
 /**
- *  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+ *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
  * Table Schema
  */
 function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
@@ -167,7 +167,7 @@ function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig:
 }
 
 /**
-*  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+*  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 * Table Schema
 */
 export function tableSchema<T>(requestParameters: TableSchemaRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {

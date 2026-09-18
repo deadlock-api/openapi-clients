@@ -55,7 +55,7 @@ HeroMmr Batch Hero MMR (Deprecated)
 Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each
 player's rank on their latest ranked match played on that hero.
 
-Use `/v1/players/{account_id}/rank` instead.
+Use `/v1/players/rank?account_ids=...` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -255,7 +255,7 @@ HeroMmrDistribution Hero MMR Distribution (Deprecated)
 Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by
 the rank they had on their latest ranked match played on that hero.
 
-Use `/v1/analytics/badge-distribution` instead.
+Use `/v1/players/rank/distribution` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -301,7 +301,7 @@ func (a *MMRAPIService) HeroMmrDistributionExecute(r ApiHeroMmrDistributionReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1786924800
+		var defaultValue int64 = 1787011200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -535,7 +535,7 @@ Mmr Batch MMR (Deprecated)
 Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at
 the end of their latest ranked match. Players without a ranked match carrying a rank are left out.
 
-Use `/v1/players/{account_id}/rank` instead.
+Use `/v1/players/rank?account_ids=...` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -728,7 +728,7 @@ MmrDistribution MMR Distribution (Deprecated)
 Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end
 of their latest ranked match within the filtered range.
 
-Use `/v1/analytics/badge-distribution` instead.
+Use `/v1/players/rank/distribution` instead.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -768,7 +768,7 @@ func (a *MMRAPIService) MmrDistributionExecute(r ApiMmrDistributionRequest) ([]D
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1786924800
+		var defaultValue int64 = 1787011200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

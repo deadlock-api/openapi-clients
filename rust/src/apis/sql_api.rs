@@ -56,7 +56,8 @@ pub enum TableSchemaError {
 }
 
 
-///  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+#[deprecated]
 pub async fn list_tables(configuration: &configuration::Configuration) -> Result<Vec<String>, Error<ListTablesError>> {
 
     let uri_str = format!("{}/v1/sql/tables", configuration.base_path);
@@ -91,7 +92,8 @@ pub async fn list_tables(configuration: &configuration::Configuration) -> Result
     }
 }
 
-///  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+#[deprecated]
 pub async fn sql(configuration: &configuration::Configuration, params: SqlParams) -> Result<String, Error<SqlError>> {
 
     let uri_str = format!("{}/v1/sql", configuration.base_path);
@@ -130,7 +132,8 @@ pub async fn sql(configuration: &configuration::Configuration, params: SqlParams
     }
 }
 
-///  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+#[deprecated]
 pub async fn table_schema(configuration: &configuration::Configuration, params: TableSchemaParams) -> Result<std::collections::HashMap<String, String>, Error<TableSchemaError>> {
 
     let uri_str = format!("{}/v1/sql/tables/{table}/schema", configuration.base_path, table=crate::apis::urlencode(params.table));

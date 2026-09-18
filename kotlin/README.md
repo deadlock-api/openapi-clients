@@ -163,6 +163,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**playerHeroStats**](docs/PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
 | *PlayersApi* | [**rank**](docs/PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank |
 | *PlayersApi* | [**rankAvgImage**](docs/PlayersApi.md#rankavgimage) | **GET** /v1/players/rank/image | Rank Avg Image |
+| *PlayersApi* | [**rankBatch**](docs/PlayersApi.md#rankbatch) | **GET** /v1/players/rank | Batch Rank |
+| *PlayersApi* | [**rankDistribution**](docs/PlayersApi.md#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | *PlayersApi* | [**rankImage**](docs/PlayersApi.md#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
 | *PlayersApi* | [**rankPredict**](docs/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
 | *PlayersApi* | [**rankPredictAvgImage**](docs/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
@@ -197,6 +199,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.AbilityType](docs/AbilityType.md)
  - [deadlock_api_client.models.AbilityVideos](docs/AbilityVideos.md)
  - [deadlock_api_client.models.Accolade](docs/Accolade.md)
+ - [deadlock_api_client.models.AccountRank](docs/AccountRank.md)
  - [deadlock_api_client.models.ActiveMatch](docs/ActiveMatch.md)
  - [deadlock_api_client.models.ActiveMatchGameMode](docs/ActiveMatchGameMode.md)
  - [deadlock_api_client.models.ActiveMatchMode](docs/ActiveMatchMode.md)
@@ -328,6 +331,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
  - [deadlock_api_client.models.Rank](docs/Rank.md)
+ - [deadlock_api_client.models.RankDistributionEntry](docs/RankDistributionEntry.md)
  - [deadlock_api_client.models.RankImages](docs/RankImages.md)
  - [deadlock_api_client.models.RankResponse](docs/RankResponse.md)
  - [deadlock_api_client.models.RankedSeason](docs/RankedSeason.md)

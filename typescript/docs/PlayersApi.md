@@ -12,6 +12,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**playerHeroStats**](#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats|
 |[**rank**](#rank) | **GET** /v1/players/{account_id}/rank | Rank|
 |[**rankAvgImage**](#rankavgimage) | **GET** /v1/players/rank/image | Rank Avg Image|
+|[**rankBatch**](#rankbatch) | **GET** /v1/players/rank | Batch Rank|
+|[**rankDistribution**](#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution|
 |[**rankImage**](#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image|
 |[**rankPredict**](#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)|
 |[**rankPredictAvgImage**](#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)|
@@ -548,6 +550,136 @@ No authorization required
 |**403** | One of the users is protected |  -  |
 |**404** | No image available for the rank |  -  |
 |**500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rankBatch**
+> Array<AccountRank> rankBatch()
+
+ Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+
+### Example
+
+```typescript
+import {
+    PlayersApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new PlayersApi(configuration);
+
+let accountIds: Array<number>; //Comma separated list of account ids, Account IDs are in `SteamID3` format. (default to undefined)
+
+const { status, data } = await apiInstance.rankBatch(
+    accountIds
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | defaults to undefined|
+
+
+### Return type
+
+**Array<AccountRank>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** |  |  -  |
+|**400** | Invalid or missing account IDs |  -  |
+|**500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rankDistribution**
+> Array<RankDistributionEntry> rankDistribution()
+
+ Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+
+### Example
+
+```typescript
+import {
+    PlayersApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new PlayersApi(configuration);
+
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1787011200)
+let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
+let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
+let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
+let isHighSkillRangeParties: boolean; //Filter matches based on whether they are in the high skill range. (optional) (default to undefined)
+let isLowPriPool: boolean; //Filter matches based on whether they are in the low priority pool. (optional) (default to undefined)
+let isNewPlayerPool: boolean; //Filter matches based on whether they are in the new player pool. (optional) (default to undefined)
+let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
+let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.rankDistribution(
+    minUnixTimestamp,
+    maxUnixTimestamp,
+    minDurationS,
+    maxDurationS,
+    isHighSkillRangeParties,
+    isLowPriPool,
+    isNewPlayerPool,
+    minMatchId,
+    maxMatchId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1787011200|
+| **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
+| **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
+| **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
+| **isHighSkillRangeParties** | [**boolean**] | Filter matches based on whether they are in the high skill range. | (optional) defaults to undefined|
+| **isLowPriPool** | [**boolean**] | Filter matches based on whether they are in the low priority pool. | (optional) defaults to undefined|
+| **isNewPlayerPool** | [**boolean**] | Filter matches based on whether they are in the new player pool. | (optional) defaults to undefined|
+| **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
+| **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
+
+
+### Return type
+
+**Array<RankDistributionEntry>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** |  |  -  |
+|**400** | Provided parameters are invalid. |  -  |
+|**500** | Failed to fetch rank distribution |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

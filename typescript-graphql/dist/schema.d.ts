@@ -54,6 +54,77 @@ export interface AbilityVideos {
 export type AssetItem = (Ability | Weapon | Upgrade) & {
     __isUnion?: true;
 };
+export interface Build {
+    hero_build: BuildHero;
+    num_favorites: (Scalars['Int'] | null);
+    num_ignores: (Scalars['Int'] | null);
+    num_reports: (Scalars['Int'] | null);
+    num_weekly_favorites: (Scalars['Int'] | null);
+    rollup_category: (Scalars['Int'] | null);
+    __typename: 'Build';
+}
+export interface BuildHero {
+    /** See more: <https://api.deadlock-api.com/v1/assets/heroes> */
+    hero_id: Scalars['Int'];
+    hero_build_id: Scalars['Int'];
+    author_account_id: Scalars['Int'];
+    last_updated_timestamp: (Scalars['Int'] | null);
+    publish_timestamp: (Scalars['Int'] | null);
+    name: Scalars['String'];
+    description: (Scalars['String'] | null);
+    language: Scalars['Int'];
+    version: Scalars['Int'];
+    origin_build_id: Scalars['Int'];
+    tags: Scalars['Int'][];
+    development_build: (Scalars['Boolean'] | null);
+    details: BuildHeroDetails;
+    /** Hero asset metadata for this build's `hero_id` (latest version, English). */
+    hero: (Hero | null);
+    /**
+     * Stored Steam profile of the build author (no live Steam fetch). `null`
+     * for protected users and accounts without a stored profile.
+     */
+    author: (SteamProfile | null);
+    __typename: 'BuildHero';
+}
+export interface BuildHeroDetails {
+    mod_categories: BuildHeroDetailsCategory[];
+    ability_order: (BuildHeroDetailsAbilityOrder | null);
+    __typename: 'BuildHeroDetails';
+}
+export interface BuildHeroDetailsAbilityOrder {
+    currency_changes: (BuildHeroDetailsAbilityOrderCurrencyChange[] | null);
+    __typename: 'BuildHeroDetailsAbilityOrder';
+}
+export interface BuildHeroDetailsAbilityOrderCurrencyChange {
+    ability_id: Scalars['Int'];
+    currency_type: Scalars['Int'];
+    delta: Scalars['Int'];
+    annotation: (Scalars['String'] | null);
+    /** Catalog asset for this currency change's `ability_id`. */
+    asset: (AssetItem | null);
+    __typename: 'BuildHeroDetailsAbilityOrderCurrencyChange';
+}
+export interface BuildHeroDetailsCategory {
+    name: Scalars['String'];
+    width: (Scalars['Float'] | null);
+    height: (Scalars['Float'] | null);
+    description: (Scalars['String'] | null);
+    mods: (BuildHeroDetailsCategoryAbility[] | null);
+    optional: (Scalars['Boolean'] | null);
+    __typename: 'BuildHeroDetailsCategory';
+}
+export interface BuildHeroDetailsCategoryAbility {
+    ability_id: Scalars['Int'];
+    annotation: (Scalars['String'] | null);
+    required_flex_slots: (Scalars['Int'] | null);
+    sell_priority: (Scalars['Int'] | null);
+    imbue_target_ability_id: (Scalars['Int'] | null);
+    /** Catalog asset for this build slot's `ability_id`. */
+    asset: (AssetItem | null);
+    __typename: 'BuildHeroDetailsCategoryAbility';
+}
+export type BuildLanguage = 'ENGLISH' | 'GERMAN' | 'FRENCH' | 'ITALIAN' | 'KOREAN' | 'SPANISH_SPAIN' | 'CHINESE_SIMPLIFIED' | 'RUSSIAN' | 'THAI' | 'JAPANESE' | 'PORTUGUESE_PORTUGAL' | 'POLISH' | 'CZECH' | 'TURKISH' | 'PORTUGUESE_BRAZIL' | 'UKRAINIAN' | 'SPANISH_LATIN_AMERICA' | 'VIETNAMESE';
 export interface Hero {
     id: Scalars['Int'];
     class_name: Scalars['String'];
@@ -308,8 +379,15 @@ export interface MatchPlayer {
      * profile.
      */
     steam: (SteamProfile | null);
+    /**
+     * Latest stored version of the build this player used, matched on
+     * (`hero_id`, `hero_build_id`). `null` when the build is not in the
+     * database.
+     */
+    hero_build: (Build | null);
     __typename: 'MatchPlayer';
 }
+export type OrderByHeroBuild = 'WEEKLY_FAVORITES' | 'FAVORITES' | 'IGNORES' | 'REPORTS' | 'UPDATED_AT' | 'PUBLISHED_AT' | 'VERSION';
 export type OrderByMatch = 'MATCH_ID' | 'START_TIME' | 'AVERAGE_BADGE';
 export type OrderByMatchHistory = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME';
 export type OrderByMatchPlayer = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME';
@@ -324,6 +402,12 @@ export interface QueryRoot {
      * stored `player_match_history` table (no on-demand Steam fetch).
      */
     match_history: MatchHistoryEntry[];
+    /**
+     * Hero builds from the stored `hero_builds` table — the same data as the
+     * REST `/v1/builds` search. Every version of a build is returned unless
+     * `where.only_latest` is set.
+     */
+    hero_builds: Build[];
     /**
      * All heroes for the given client version (defaults to latest), localized
      * to `language` (defaults to English). Sourced from the versioned assets,
@@ -635,6 +719,83 @@ export interface BoolFilter {
     eq?: (Scalars['Boolean'] | null);
     is_null?: (Scalars['Boolean'] | null);
 }
+export interface BuildGenqlSelection {
+    hero_build?: BuildHeroGenqlSelection;
+    num_favorites?: boolean | number;
+    num_ignores?: boolean | number;
+    num_reports?: boolean | number;
+    num_weekly_favorites?: boolean | number;
+    rollup_category?: boolean | number;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+export interface BuildHeroGenqlSelection {
+    /** See more: <https://api.deadlock-api.com/v1/assets/heroes> */
+    hero_id?: boolean | number;
+    hero_build_id?: boolean | number;
+    author_account_id?: boolean | number;
+    last_updated_timestamp?: boolean | number;
+    publish_timestamp?: boolean | number;
+    name?: boolean | number;
+    description?: boolean | number;
+    language?: boolean | number;
+    version?: boolean | number;
+    origin_build_id?: boolean | number;
+    tags?: boolean | number;
+    development_build?: boolean | number;
+    details?: BuildHeroDetailsGenqlSelection;
+    /** Hero asset metadata for this build's `hero_id` (latest version, English). */
+    hero?: HeroGenqlSelection;
+    /**
+     * Stored Steam profile of the build author (no live Steam fetch). `null`
+     * for protected users and accounts without a stored profile.
+     */
+    author?: SteamProfileGenqlSelection;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+export interface BuildHeroDetailsGenqlSelection {
+    mod_categories?: BuildHeroDetailsCategoryGenqlSelection;
+    ability_order?: BuildHeroDetailsAbilityOrderGenqlSelection;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+export interface BuildHeroDetailsAbilityOrderGenqlSelection {
+    currency_changes?: BuildHeroDetailsAbilityOrderCurrencyChangeGenqlSelection;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+export interface BuildHeroDetailsAbilityOrderCurrencyChangeGenqlSelection {
+    ability_id?: boolean | number;
+    currency_type?: boolean | number;
+    delta?: boolean | number;
+    annotation?: boolean | number;
+    /** Catalog asset for this currency change's `ability_id`. */
+    asset?: AssetItemGenqlSelection;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+export interface BuildHeroDetailsCategoryGenqlSelection {
+    name?: boolean | number;
+    width?: boolean | number;
+    height?: boolean | number;
+    description?: boolean | number;
+    mods?: BuildHeroDetailsCategoryAbilityGenqlSelection;
+    optional?: boolean | number;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+export interface BuildHeroDetailsCategoryAbilityGenqlSelection {
+    ability_id?: boolean | number;
+    annotation?: boolean | number;
+    required_flex_slots?: boolean | number;
+    sell_priority?: boolean | number;
+    imbue_target_ability_id?: boolean | number;
+    /** Catalog asset for this build slot's `ability_id`. */
+    asset?: AssetItemGenqlSelection;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
 export interface HeroGenqlSelection {
     id?: boolean | number;
     class_name?: boolean | number;
@@ -672,6 +833,35 @@ export interface HeroGenqlSelection {
     item_draft_bucketing?: boolean | number;
     __typename?: boolean | number;
     __scalar?: boolean | number;
+}
+/**
+ * Filters for the `hero_builds` query. All set fields are AND-ed. Mirrors
+ * the REST `/v1/builds` search parameters.
+ */
+export interface HeroBuildWhere {
+    /** See more: <https://api.deadlock-api.com/v1/assets/heroes> */
+    hero_id?: (Scalars['Int'] | null);
+    build_id?: (Scalars['Int'] | null);
+    version?: (Scalars['Int'] | null);
+    /** The author's `SteamID3`. */
+    author_id?: (Scalars['Int'] | null);
+    language?: (BuildLanguage | null);
+    tag?: (Scalars['Int'] | null);
+    rollup_category?: (Scalars['Int'] | null);
+    /** Case-insensitive substring match on the build name. */
+    search_name?: (Scalars['String'] | null);
+    /** Case-insensitive substring match on the build description. */
+    search_description?: (Scalars['String'] | null);
+    /** Only return the latest version of each build. */
+    only_latest?: (Scalars['Boolean'] | null);
+    /** Filter on `last_updated` (Unix timestamp). */
+    min_unix_timestamp?: (Scalars['Int'] | null);
+    /** Filter on `last_updated` (Unix timestamp). */
+    max_unix_timestamp?: (Scalars['Int'] | null);
+    /** Filter on the published time (Unix timestamp). */
+    min_published_unix_timestamp?: (Scalars['Int'] | null);
+    /** Filter on the published time (Unix timestamp). */
+    max_published_unix_timestamp?: (Scalars['Int'] | null);
 }
 export interface HeroDescriptionGenqlSelection {
     lore?: boolean | number;
@@ -936,6 +1126,12 @@ export interface MatchPlayerGenqlSelection {
      * profile.
      */
     steam?: SteamProfileGenqlSelection;
+    /**
+     * Latest stored version of the build this player used, matched on
+     * (`hero_id`, `hero_build_id`). `null` when the build is not in the
+     * database.
+     */
+    hero_build?: BuildGenqlSelection;
     __typename?: boolean | number;
     __scalar?: boolean | number;
 }
@@ -999,6 +1195,20 @@ export interface QueryRootGenqlSelection {
         __args?: {
             where?: (MatchHistoryWhere | null);
             order_by?: (OrderByMatchHistory | null);
+            order_direction?: (OrderDirection | null);
+            limit?: Scalars['Int'];
+            offset?: Scalars['Int'];
+        };
+    });
+    /**
+     * Hero builds from the stored `hero_builds` table — the same data as the
+     * REST `/v1/builds` search. Every version of a build is returned unless
+     * `where.only_latest` is set.
+     */
+    hero_builds?: (BuildGenqlSelection & {
+        __args?: {
+            where?: (HeroBuildWhere | null);
+            order_by?: (OrderByHeroBuild | null);
             order_direction?: (OrderDirection | null);
             limit?: Scalars['Int'];
             offset?: Scalars['Int'];
@@ -1325,6 +1535,27 @@ export declare const isAbilityVideos: (obj?: {
 export declare const isAssetItem: (obj?: {
     __typename?: any;
 } | null) => obj is AssetItem;
+export declare const isBuild: (obj?: {
+    __typename?: any;
+} | null) => obj is Build;
+export declare const isBuildHero: (obj?: {
+    __typename?: any;
+} | null) => obj is BuildHero;
+export declare const isBuildHeroDetails: (obj?: {
+    __typename?: any;
+} | null) => obj is BuildHeroDetails;
+export declare const isBuildHeroDetailsAbilityOrder: (obj?: {
+    __typename?: any;
+} | null) => obj is BuildHeroDetailsAbilityOrder;
+export declare const isBuildHeroDetailsAbilityOrderCurrencyChange: (obj?: {
+    __typename?: any;
+} | null) => obj is BuildHeroDetailsAbilityOrderCurrencyChange;
+export declare const isBuildHeroDetailsCategory: (obj?: {
+    __typename?: any;
+} | null) => obj is BuildHeroDetailsCategory;
+export declare const isBuildHeroDetailsCategoryAbility: (obj?: {
+    __typename?: any;
+} | null) => obj is BuildHeroDetailsCategoryAbility;
 export declare const isHero: (obj?: {
     __typename?: any;
 } | null) => obj is Hero;
@@ -1417,6 +1648,26 @@ export declare const enumAbilityType: {
     MELEE: "MELEE";
     COSMETIC: "COSMETIC";
 };
+export declare const enumBuildLanguage: {
+    ENGLISH: "ENGLISH";
+    GERMAN: "GERMAN";
+    FRENCH: "FRENCH";
+    ITALIAN: "ITALIAN";
+    KOREAN: "KOREAN";
+    SPANISH_SPAIN: "SPANISH_SPAIN";
+    CHINESE_SIMPLIFIED: "CHINESE_SIMPLIFIED";
+    RUSSIAN: "RUSSIAN";
+    THAI: "THAI";
+    JAPANESE: "JAPANESE";
+    PORTUGUESE_PORTUGAL: "PORTUGUESE_PORTUGAL";
+    POLISH: "POLISH";
+    CZECH: "CZECH";
+    TURKISH: "TURKISH";
+    PORTUGUESE_BRAZIL: "PORTUGUESE_BRAZIL";
+    UKRAINIAN: "UKRAINIAN";
+    SPANISH_LATIN_AMERICA: "SPANISH_LATIN_AMERICA";
+    VIETNAMESE: "VIETNAMESE";
+};
 export declare const enumHeroType: {
     ASSASSIN: "ASSASSIN";
     BRAWLER: "BRAWLER";
@@ -1463,6 +1714,15 @@ export declare const enumLanguage: {
     TURKISH: "TURKISH";
     UKRAINIAN: "UKRAINIAN";
     VIETNAMESE: "VIETNAMESE";
+};
+export declare const enumOrderByHeroBuild: {
+    WEEKLY_FAVORITES: "WEEKLY_FAVORITES";
+    FAVORITES: "FAVORITES";
+    IGNORES: "IGNORES";
+    REPORTS: "REPORTS";
+    UPDATED_AT: "UPDATED_AT";
+    PUBLISHED_AT: "PUBLISHED_AT";
+    VERSION: "VERSION";
 };
 export declare const enumOrderByMatch: {
     MATCH_ID: "MATCH_ID";

@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**PlayerHeroStats**](PlayersAPI.md#PlayerHeroStats) | **Get** /v1/players/hero-stats | Hero Stats
 [**Rank**](PlayersAPI.md#Rank) | **Get** /v1/players/{account_id}/rank | Rank
 [**RankAvgImage**](PlayersAPI.md#RankAvgImage) | **Get** /v1/players/rank/image | Rank Avg Image
+[**RankBatch**](PlayersAPI.md#RankBatch) | **Get** /v1/players/rank | Batch Rank
+[**RankDistribution**](PlayersAPI.md#RankDistribution) | **Get** /v1/players/rank/distribution | Rank Distribution
 [**RankImage**](PlayersAPI.md#RankImage) | **Get** /v1/players/{account_id}/rank/image | Rank Image
 [**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
 [**RankPredictAvgImage**](PlayersAPI.md#RankPredictAvgImage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
@@ -633,6 +635,154 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: image/png, image/webp
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RankBatch
+
+> []AccountRank RankBatch(ctx).AccountIds(accountIds).Execute()
+
+Batch Rank
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.RankBatch(context.Background()).AccountIds(accountIds).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankBatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RankBatch`: []AccountRank
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankBatch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRankBatchRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountIds** | **[]int32** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+
+### Return type
+
+[**[]AccountRank**](AccountRank.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RankDistribution
+
+> []RankDistributionEntry RankDistribution(ctx).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
+
+Rank Distribution
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1787011200)
+	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
+	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	isHighSkillRangeParties := true // bool | Filter matches based on whether they are in the high skill range. (optional)
+	isLowPriPool := true // bool | Filter matches based on whether they are in the low priority pool. (optional)
+	isNewPlayerPool := true // bool | Filter matches based on whether they are in the new player pool. (optional)
+	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
+	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.RankDistribution(context.Background()).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankDistribution``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RankDistribution`: []RankDistributionEntry
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankDistribution`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRankDistributionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1787011200]
+ **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
+ **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **isHighSkillRangeParties** | **bool** | Filter matches based on whether they are in the high skill range. | 
+ **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | 
+ **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | 
+ **minMatchId** | **int64** | Filter matches based on their ID. | 
+ **maxMatchId** | **int64** | Filter matches based on their ID. | 
+
+### Return type
+
+[**[]RankDistributionEntry**](RankDistributionEntry.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

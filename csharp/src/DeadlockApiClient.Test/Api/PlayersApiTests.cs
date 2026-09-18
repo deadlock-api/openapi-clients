@@ -181,6 +181,38 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test RankBatch
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RankBatchAsyncTest()
+        {
+            List<int> accountIds = default!;
+            var response = await _instance.RankBatchAsync(accountIds);
+            var model = response.Ok();
+            Assert.IsType<List<AccountRank>>(model);
+        }
+
+        /// <summary>
+        /// Test RankDistribution
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RankDistributionAsyncTest()
+        {
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<bool?> isHighSkillRangeParties = default!;
+            Client.Option<bool?> isLowPriPool = default!;
+            Client.Option<bool?> isNewPlayerPool = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            var response = await _instance.RankDistributionAsync(minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId);
+            var model = response.Ok();
+            Assert.IsType<List<RankDistributionEntry>>(model);
+        }
+
+        /// <summary>
         /// Test RankImage
         /// </summary>
         [Fact (Skip = "not implemented")]

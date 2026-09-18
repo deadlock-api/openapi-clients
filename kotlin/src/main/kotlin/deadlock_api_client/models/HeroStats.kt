@@ -54,6 +54,8 @@ import java.io.Serializable
  * @param lastPlayed 
  * @param matches 
  * @param matchesPlayed 
+ * @param mvpRankCounts Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
+ * @param mvpRatedMatches Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.
  * @param networthPerMin 
  * @param objDamagePerMin 
  * @param objDamagePerSoul 
@@ -138,6 +140,14 @@ data class HeroStats (
 
     @Json(name = "matches_played")
     val matchesPlayed: kotlin.Long,
+
+    /* Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank. */
+    @Json(name = "mvp_rank_counts")
+    val mvpRankCounts: kotlin.collections.List<kotlin.Long>,
+
+    /* Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back. */
+    @Json(name = "mvp_rated_matches")
+    val mvpRatedMatches: kotlin.Long,
 
     @Json(name = "networth_per_min")
     val networthPerMin: kotlin.Double,

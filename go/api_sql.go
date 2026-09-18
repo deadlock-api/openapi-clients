@@ -36,6 +36,10 @@ func (r ApiListTablesRequest) Execute() ([]string, *http.Response, error) {
 ListTables List Tables
 
 
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at
+https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+see https://deadlock-api.com/data-dumps.
+
 Lists all tables in the database.
 
 ### Rate Limits:
@@ -48,6 +52,8 @@ Lists all tables in the database.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListTablesRequest
+
+Deprecated
 */
 func (a *SQLAPIService) ListTables(ctx context.Context) ApiListTablesRequest {
 	return ApiListTablesRequest{
@@ -58,6 +64,7 @@ func (a *SQLAPIService) ListTables(ctx context.Context) ApiListTablesRequest {
 
 // Execute executes the request
 //  @return []string
+// Deprecated
 func (a *SQLAPIService) ListTablesExecute(r ApiListTablesRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -168,6 +175,10 @@ func (r ApiSqlRequest) Execute() (string, *http.Response, error) {
 Sql Query
 
 
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at
+https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+see https://deadlock-api.com/data-dumps.
+
 Executes a SQL query on the database.
 
 ### Rate Limits:
@@ -180,6 +191,8 @@ Executes a SQL query on the database.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSqlRequest
+
+Deprecated
 */
 func (a *SQLAPIService) Sql(ctx context.Context) ApiSqlRequest {
 	return ApiSqlRequest{
@@ -190,6 +203,7 @@ func (a *SQLAPIService) Sql(ctx context.Context) ApiSqlRequest {
 
 // Execute executes the request
 //  @return string
+// Deprecated
 func (a *SQLAPIService) SqlExecute(r ApiSqlRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -294,6 +308,10 @@ func (r ApiTableSchemaRequest) Execute() (map[string]string, *http.Response, err
 TableSchema Table Schema
 
 
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at
+https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+see https://deadlock-api.com/data-dumps.
+
 Returns the schema of a table.
 
 ### Rate Limits:
@@ -307,6 +325,8 @@ Returns the schema of a table.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param table The name of the table to fetch the schema for.
  @return ApiTableSchemaRequest
+
+Deprecated
 */
 func (a *SQLAPIService) TableSchema(ctx context.Context, table string) ApiTableSchemaRequest {
 	return ApiTableSchemaRequest{
@@ -318,6 +338,7 @@ func (a *SQLAPIService) TableSchema(ctx context.Context, table string) ApiTableS
 
 // Execute executes the request
 //  @return map[string]string
+// Deprecated
 func (a *SQLAPIService) TableSchemaExecute(r ApiTableSchemaRequest) (map[string]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

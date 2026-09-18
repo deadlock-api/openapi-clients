@@ -261,6 +261,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'MvpRankCounts'
+        /// </summary>
+        [Fact]
+        public void MvpRankCountsTest()
+        {
+            // TODO unit test for the property 'MvpRankCounts'
+        }
+
+        /// <summary>
+        /// Test the property 'MvpRatedMatches'
+        /// </summary>
+        [Fact]
+        public void MvpRatedMatchesTest()
+        {
+            // TODO unit test for the property 'MvpRatedMatches'
+        }
+
+        /// <summary>
         /// Test the property 'NetworthPerMin'
         /// </summary>
         [Fact]

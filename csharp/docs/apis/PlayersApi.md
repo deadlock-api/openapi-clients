@@ -12,6 +12,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**PlayerHeroStats**](PlayersApi.md#playerherostats) | **GET** /v1/players/hero-stats | Hero Stats |
 | [**Rank**](PlayersApi.md#rank) | **GET** /v1/players/{account_id}/rank | Rank |
 | [**RankAvgImage**](PlayersApi.md#rankavgimage) | **GET** /v1/players/rank/image | Rank Avg Image |
+| [**RankBatch**](PlayersApi.md#rankbatch) | **GET** /v1/players/rank | Batch Rank |
+| [**RankDistribution**](PlayersApi.md#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**RankImage**](PlayersApi.md#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
 | [**RankPredict**](PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
 | [**RankPredictAvgImage**](PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
@@ -360,6 +362,90 @@ No authorization required
 | **403** | One of the users is protected |  -  |
 | **404** | No image available for the rank |  -  |
 | **500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="rankbatch"></a>
+# **RankBatch**
+> List&lt;AccountRank&gt; RankBatch (List<int> accountIds)
+
+Batch Rank
+
+ Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |  |
+
+### Return type
+
+[**List&lt;AccountRank&gt;**](AccountRank.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **400** | Invalid or missing account IDs |  -  |
+| **500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="rankdistribution"></a>
+# **RankDistribution**
+> List&lt;RankDistributionEntry&gt; RankDistribution (long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, long minMatchId = null, long maxMatchId = null)
+
+Rank Distribution
+
+ Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  `/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787011200] |
+| **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
+| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **isHighSkillRangeParties** | **bool** | Filter matches based on whether they are in the high skill range. | [optional]  |
+| **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | [optional]  |
+| **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | [optional]  |
+| **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
+| **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
+
+### Return type
+
+[**List&lt;RankDistributionEntry&gt;**](RankDistributionEntry.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **400** | Provided parameters are invalid. |  -  |
+| **500** | Failed to fetch rank distribution |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

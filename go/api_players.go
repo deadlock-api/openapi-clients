@@ -1360,6 +1360,354 @@ func (a *PlayersAPIService) RankAvgImageExecute(r ApiRankAvgImageRequest) ([]int
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiRankBatchRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	accountIds *[]int32
+}
+
+// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+func (r ApiRankBatchRequest) AccountIds(accountIds []int32) ApiRankBatchRequest {
+	r.accountIds = &accountIds
+	return r
+}
+
+func (r ApiRankBatchRequest) Execute() ([]AccountRank, *http.Response, error) {
+	return r.ApiService.RankBatchExecute(r)
+}
+
+/*
+RankBatch Batch Rank
+
+
+Returns the rank of each player at the end of their latest ranked match, the batch form of
+`/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.
+
+Every requested account is returned once, in no particular order. Players none of whose recent
+ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`.
+Protected accounts are left out.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 20req/min |
+| Key | 100req/min & 2000req/h |
+| Global | 200req/min |
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRankBatchRequest
+*/
+func (a *PlayersAPIService) RankBatch(ctx context.Context) ApiRankBatchRequest {
+	return ApiRankBatchRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []AccountRank
+func (a *PlayersAPIService) RankBatchExecute(r ApiRankBatchRequest) ([]AccountRank, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []AccountRank
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.RankBatch")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/rank"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountIds == nil {
+		return localVarReturnValue, nil, reportError("accountIds is required and must be specified")
+	}
+	if len(*r.accountIds) < 1 {
+		return localVarReturnValue, nil, reportError("accountIds must have at least 1 elements")
+	}
+	if len(*r.accountIds) > 1000 {
+		return localVarReturnValue, nil, reportError("accountIds must have less than 1000 elements")
+	}
+
+	{
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRankDistributionRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	isHighSkillRangeParties *bool
+	isLowPriPool *bool
+	isNewPlayerPool *bool
+	minMatchId *int64
+	maxMatchId *int64
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+func (r ApiRankDistributionRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiRankDistributionRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiRankDistributionRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiRankDistributionRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiRankDistributionRequest) MinDurationS(minDurationS int64) ApiRankDistributionRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiRankDistributionRequest) MaxDurationS(maxDurationS int64) ApiRankDistributionRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter matches based on whether they are in the high skill range.
+func (r ApiRankDistributionRequest) IsHighSkillRangeParties(isHighSkillRangeParties bool) ApiRankDistributionRequest {
+	r.isHighSkillRangeParties = &isHighSkillRangeParties
+	return r
+}
+
+// Filter matches based on whether they are in the low priority pool.
+func (r ApiRankDistributionRequest) IsLowPriPool(isLowPriPool bool) ApiRankDistributionRequest {
+	r.isLowPriPool = &isLowPriPool
+	return r
+}
+
+// Filter matches based on whether they are in the new player pool.
+func (r ApiRankDistributionRequest) IsNewPlayerPool(isNewPlayerPool bool) ApiRankDistributionRequest {
+	r.isNewPlayerPool = &isNewPlayerPool
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiRankDistributionRequest) MinMatchId(minMatchId int64) ApiRankDistributionRequest {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiRankDistributionRequest) MaxMatchId(maxMatchId int64) ApiRankDistributionRequest {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+func (r ApiRankDistributionRequest) Execute() ([]RankDistributionEntry, *http.Response, error) {
+	return r.ApiService.RankDistributionExecute(r)
+}
+
+/*
+RankDistribution Rank Distribution
+
+
+Counts players by the rank Valve reported at the end of their latest ranked match within the
+filtered range, i.e. the rank `/v1/players/{account_id}/rank` would return for them. Only ranked
+matches carry a rank, so the filters only ever select ranked matches, and players still in
+placement games are not counted.
+
+`/v1/analytics/badge-distribution` reports the same player counts as `unique_players` next to the
+match counts by average badge; use this endpoint when you only need the players.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | 5req/min |
+| Key | 25req/min |
+| Global | 50req/min |
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRankDistributionRequest
+*/
+func (a *PlayersAPIService) RankDistribution(ctx context.Context) ApiRankDistributionRequest {
+	return ApiRankDistributionRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []RankDistributionEntry
+func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest) ([]RankDistributionEntry, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []RankDistributionEntry
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.RankDistribution")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/rank/distribution"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+		var defaultValue int64 = 1787011200
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+		r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.isHighSkillRangeParties != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_high_skill_range_parties", r.isHighSkillRangeParties, "form", "")
+	}
+	if r.isLowPriPool != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_low_pri_pool", r.isLowPriPool, "form", "")
+	}
+	if r.isNewPlayerPool != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_new_player_pool", r.isNewPlayerPool, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiRankImageRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService

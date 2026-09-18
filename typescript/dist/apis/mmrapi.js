@@ -23,7 +23,7 @@ import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 export const MMRApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead.
+         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch Hero MMR (Deprecated)
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -64,7 +64,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead.
+         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead.
          * @summary Hero MMR Distribution (Deprecated)
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -166,7 +166,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead.
+         *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch MMR (Deprecated)
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
@@ -203,7 +203,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead.
+         *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead.
          * @summary MMR Distribution (Deprecated)
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -305,7 +305,7 @@ export const MMRApiFp = function (configuration) {
     const localVarAxiosParamCreator = MMRApiAxiosParamCreator(configuration);
     return {
         /**
-         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead.
+         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch Hero MMR (Deprecated)
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -321,7 +321,7 @@ export const MMRApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead.
+         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead.
          * @summary Hero MMR Distribution (Deprecated)
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
@@ -359,7 +359,7 @@ export const MMRApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead.
+         *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch MMR (Deprecated)
          * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
@@ -374,7 +374,7 @@ export const MMRApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead.
+         *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead.
          * @summary MMR Distribution (Deprecated)
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -418,7 +418,7 @@ export const MMRApiFactory = function (configuration, basePath, axios) {
     const localVarFp = MMRApiFp(configuration);
     return {
         /**
-         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead.
+         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch Hero MMR (Deprecated)
          * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -429,7 +429,7 @@ export const MMRApiFactory = function (configuration, basePath, axios) {
             return localVarFp.heroMmr(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead.
+         *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead.
          * @summary Hero MMR Distribution (Deprecated)
          * @param {MMRApiHeroMmrDistributionRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -451,7 +451,7 @@ export const MMRApiFactory = function (configuration, basePath, axios) {
             return localVarFp.heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead.
+         *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch MMR (Deprecated)
          * @param {MMRApiMmrRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -462,7 +462,7 @@ export const MMRApiFactory = function (configuration, basePath, axios) {
             return localVarFp.mmr(requestParameters.accountIds, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead.
+         *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead.
          * @summary MMR Distribution (Deprecated)
          * @param {MMRApiMmrDistributionRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -490,7 +490,7 @@ export const MMRApiFactory = function (configuration, basePath, axios) {
  */
 export class MMRApi extends BaseAPI {
     /**
-     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/{account_id}/rank` instead.
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead.
      * @summary Batch Hero MMR (Deprecated)
      * @param {MMRApiHeroMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -501,7 +501,7 @@ export class MMRApi extends BaseAPI {
         return MMRApiFp(this.configuration).heroMmr(requestParameters.accountIds, requestParameters.heroId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/analytics/badge-distribution` instead.
+     *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by the rank they had on their latest ranked match played on that hero.  Use `/v1/players/rank/distribution` instead.
      * @summary Hero MMR Distribution (Deprecated)
      * @param {MMRApiHeroMmrDistributionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -523,7 +523,7 @@ export class MMRApi extends BaseAPI {
         return MMRApiFp(this.configuration).heroMmrHistory(requestParameters.accountId, requestParameters.heroId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/{account_id}/rank` instead.
+     *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead.
      * @summary Batch MMR (Deprecated)
      * @param {MMRApiMmrRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -534,7 +534,7 @@ export class MMRApi extends BaseAPI {
         return MMRApiFp(this.configuration).mmr(requestParameters.accountIds, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/analytics/badge-distribution` instead.
+     *  Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end of their latest ranked match within the filtered range.  Use `/v1/players/rank/distribution` instead.
      * @summary MMR Distribution (Deprecated)
      * @param {MMRApiMmrDistributionRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

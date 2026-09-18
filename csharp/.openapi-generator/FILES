@@ -45,6 +45,7 @@ docs/models/AbilityTooltipDetails.md
 docs/models/AbilityType.md
 docs/models/AbilityVideos.md
 docs/models/Accolade.md
+docs/models/AccountRank.md
 docs/models/ActiveMatch.md
 docs/models/ActiveMatchGameMode.md
 docs/models/ActiveMatchMode.md
@@ -176,6 +177,7 @@ docs/models/PlayerEntry.md
 docs/models/PlayerMatchHistoryEntry.md
 docs/models/PlayerPerformanceCurvePoint.md
 docs/models/Rank.md
+docs/models/RankDistributionEntry.md
 docs/models/RankImages.md
 docs/models/RankResponse.md
 docs/models/RankedSeason.md
@@ -294,6 +296,7 @@ src/DeadlockApiClient.Test/Model/AbilityTooltipDetailsTests.cs
 src/DeadlockApiClient.Test/Model/AbilityTypeTests.cs
 src/DeadlockApiClient.Test/Model/AbilityVideosTests.cs
 src/DeadlockApiClient.Test/Model/AccoladeTests.cs
+src/DeadlockApiClient.Test/Model/AccountRankTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchGameModeTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchModeTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchPlayerTests.cs
@@ -424,6 +427,7 @@ src/DeadlockApiClient.Test/Model/PlayerCardTests.cs
 src/DeadlockApiClient.Test/Model/PlayerEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
+src/DeadlockApiClient.Test/Model/RankDistributionEntryTests.cs
 src/DeadlockApiClient.Test/Model/RankImagesTests.cs
 src/DeadlockApiClient.Test/Model/RankResponseTests.cs
 src/DeadlockApiClient.Test/Model/RankTests.cs
@@ -565,6 +569,7 @@ src/DeadlockApiClient/Model/AbilityTooltipDetails.cs
 src/DeadlockApiClient/Model/AbilityType.cs
 src/DeadlockApiClient/Model/AbilityVideos.cs
 src/DeadlockApiClient/Model/Accolade.cs
+src/DeadlockApiClient/Model/AccountRank.cs
 src/DeadlockApiClient/Model/ActiveMatch.cs
 src/DeadlockApiClient/Model/ActiveMatchGameMode.cs
 src/DeadlockApiClient/Model/ActiveMatchMode.cs
@@ -696,6 +701,7 @@ src/DeadlockApiClient/Model/PlayerEntry.cs
 src/DeadlockApiClient/Model/PlayerMatchHistoryEntry.cs
 src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
 src/DeadlockApiClient/Model/Rank.cs
+src/DeadlockApiClient/Model/RankDistributionEntry.cs
 src/DeadlockApiClient/Model/RankImages.cs
 src/DeadlockApiClient/Model/RankResponse.cs
 src/DeadlockApiClient/Model/RankedSeason.cs
