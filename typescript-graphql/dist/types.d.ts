@@ -250,6 +250,8 @@ declare const _default: {
             sold_time_s: number[];
             flags: number[];
             imbued_ability_id: number[];
+            upgrade_info: number[];
+            net_worth_at_buy: number[];
             asset: number[];
             __typename: number[];
         };
@@ -292,6 +294,7 @@ declare const _default: {
             first_mid_boss_time_s: number[];
             first_objective_destroyed_time_s: number[];
             players: number[];
+            salts: number[];
             __typename: number[];
         };
         MatchHistoryEntry: {
@@ -380,6 +383,11 @@ declare const _default: {
             player_level: number[];
             abandon_match_time_s: number[];
             mvp_rank: number[];
+            won: number[];
+            hero_xp: number[];
+            hero_equips: number[];
+            abilities: number[];
+            created_at: number[];
             max_level: number[];
             max_player_damage: number[];
             max_player_damage_taken: number[];
@@ -393,6 +401,28 @@ declare const _default: {
             max_hero_bullets_hit_crit: number[];
             max_shots_hit: number[];
             max_shots_missed: number[];
+            max_self_healing: number[];
+            max_player_healing: number[];
+            max_gold_player: number[];
+            max_gold_player_orbs: number[];
+            max_gold_lane_creep: number[];
+            max_gold_lane_creep_orbs: number[];
+            max_gold_neutral_creep: number[];
+            max_gold_neutral_creep_orbs: number[];
+            max_gold_boss: number[];
+            max_gold_boss_orb: number[];
+            max_gold_treasure: number[];
+            max_gold_denied: number[];
+            max_gold_death_loss: number[];
+            max_damage_mitigated: number[];
+            max_absorption_provided: number[];
+            max_heal_prevented: number[];
+            max_possible_creeps: number[];
+            max_weapon_power: number[];
+            max_tech_power: number[];
+            max_teammate_healing: number[];
+            max_teammate_barriering: number[];
+            final_stats: number[];
             rewards_eligible: number[];
             earned_holiday_award_2025: number[];
             player_match_outcome: number[];
@@ -407,6 +437,7 @@ declare const _default: {
             hero_build_id: number[];
             pregame_hero_id: number[];
             items: number[];
+            upgrades: number[];
             stats: number[];
             death_details: number[];
             accolades: number[];
@@ -419,6 +450,7 @@ declare const _default: {
             hero: number[];
             steam: number[];
             hero_build: number[];
+            salts: number[];
             __typename: number[];
         };
         MatchPlayerWhere: {
@@ -447,6 +479,32 @@ declare const _default: {
             net_worth: number[];
             player_level: number[];
             assigned_lane: number[];
+            last_hits: number[];
+            denies: number[];
+            mvp_rank: number[];
+            player_rank_initial_display_rank: number[];
+            player_rank_initial_flat_progress: number[];
+            player_rank_final_flat_progress: number[];
+            player_rank_desired_progress_change: number[];
+            player_rank_initial_calibration_games: number[];
+            player_rank_initial_demotion_protection_games: number[];
+            player_rank_consumed_demotion_protection: number[];
+            player_rank_initial_win_streak: number[];
+            __typename: number[];
+        };
+        MatchSalts: {
+            match_id: number[];
+            cluster_id: number[];
+            metadata_salt: number[];
+            replay_salt: number[];
+            created_at: number[];
+            metadata_url: number[];
+            demo_url: number[];
+            __typename: number[];
+        };
+        MatchSaltsWhere: {
+            match_id: number[];
+            cluster_id: number[];
             __typename: number[];
         };
         OrderByHeroBuild: {};
@@ -454,6 +512,45 @@ declare const _default: {
         OrderByMatchHistory: {};
         OrderByMatchPlayer: {};
         OrderDirection: {};
+        Patch: {
+            source: number[];
+            title: number[];
+            pub_date: number[];
+            end_date: number[];
+            link: number[];
+            guid: number[];
+            category: number[];
+            content: number[];
+            matches: (number | {
+                where: number[];
+                order_by: number[];
+                order_direction: number[];
+                limit: (string | number)[];
+                offset: (string | number)[];
+            })[];
+            match_players: (number | {
+                where: number[];
+                order_by: number[];
+                order_direction: number[];
+                limit: (string | number)[];
+                offset: (string | number)[];
+            })[];
+            match_history: (number | {
+                where: number[];
+                order_by: number[];
+                order_direction: number[];
+                limit: (string | number)[];
+                offset: (string | number)[];
+            })[];
+            __typename: number[];
+        };
+        PatchWhere: {
+            source: number[];
+            category: number[];
+            pub_date: number[];
+            end_date: number[];
+            __typename: number[];
+        };
         Rank: {
             tier: number[];
             name: number[];
@@ -574,6 +671,7 @@ declare const _default: {
             player_barriering: number[];
             teammate_healing: number[];
             teammate_barriering: number[];
+            self_damage: number[];
             bullet_kills: number[];
             melee_kills: number[];
             ability_kills: number[];
@@ -667,6 +765,13 @@ declare const _default: {
             passive: number[];
             __typename: number[];
         };
+        UpgradePurchase: {
+            item_id: number[];
+            game_time_s: number[];
+            sold_time_s: number[];
+            net_worth_at_buy: number[];
+            __typename: number[];
+        };
         Weapon: {
             id: number[];
             class_name: number[];
@@ -703,6 +808,18 @@ declare const _default: {
             match_history: (number | {
                 where: number[];
                 order_by: number[];
+                order_direction: number[];
+                limit: (string | number)[];
+                offset: (string | number)[];
+            })[];
+            match_salts: (number | {
+                where: number[];
+                order_direction: number[];
+                limit: (string | number)[];
+                offset: (string | number)[];
+            })[];
+            patches: (number | {
+                where: number[];
                 order_direction: number[];
                 limit: (string | number)[];
                 offset: (string | number)[];

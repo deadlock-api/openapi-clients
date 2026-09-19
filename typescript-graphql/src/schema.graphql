@@ -335,6 +335,12 @@ type Item {
   sold_time_s: Int
   flags: Int
   imbued_ability_id: Int
+  upgrade_info: Int
+
+  """
+  The player's net worth in the last `stats` snapshot before the purchase.
+  """
+  net_worth_at_buy: Int
 
   """
   Catalog asset for this purchased item, matched by `item_id` then `upgrade_id`.
@@ -429,6 +435,12 @@ type Match {
   first_mid_boss_time_s: Int
   first_objective_destroyed_time_s: Int
   players: [MatchPlayer!]
+
+  """
+  Stored salts of this match (no on-demand Steam fetch). `null` when none
+  are stored.
+  """
+  salts: MatchSalts
 }
 
 """
@@ -549,6 +561,15 @@ type MatchPlayer {
   player_level: Int
   abandon_match_time_s: Int
   mvp_rank: Int
+  won: Boolean
+  hero_xp: Int
+  hero_equips: [Int!]
+
+  """The `items.item_id` entries that are abilities."""
+  abilities: [Int!]
+
+  """When the row was ingested, as a unix timestamp."""
+  created_at: Int
   max_level: Int
   max_player_damage: Int
   max_player_damage_taken: Int
@@ -562,6 +583,30 @@ type MatchPlayer {
   max_hero_bullets_hit_crit: Int
   max_shots_hit: Int
   max_shots_missed: Int
+  max_self_healing: Int
+  max_player_healing: Int
+  max_gold_player: Int
+  max_gold_player_orbs: Int
+  max_gold_lane_creep: Int
+  max_gold_lane_creep_orbs: Int
+  max_gold_neutral_creep: Int
+  max_gold_neutral_creep_orbs: Int
+  max_gold_boss: Int
+  max_gold_boss_orb: Int
+  max_gold_treasure: Int
+  max_gold_denied: Int
+  max_gold_death_loss: Int
+  max_damage_mitigated: Int
+  max_absorption_provided: Int
+  max_heal_prevented: Int
+  max_possible_creeps: Int
+  max_weapon_power: Int
+  max_tech_power: Int
+  max_teammate_healing: Int
+  max_teammate_barriering: Int
+
+  """The last `stats` snapshot of the match."""
+  final_stats: Stat
   rewards_eligible: Boolean
   earned_holiday_award_2025: Boolean
   player_match_outcome: String
@@ -580,6 +625,12 @@ type MatchPlayer {
   """
   pregame_hero_id: Int
   items: [Item!]
+
+  """
+  The `items` entries that are purchased upgrade items (no abilities, no
+  starting items).
+  """
+  upgrades: [UpgradePurchase!]
   stats: [Stat!]
   death_details: JsonScalar
   accolades: JsonScalar
@@ -608,6 +659,12 @@ type MatchPlayer {
   database.
   """
   hero_build: Build
+
+  """
+  Stored salts of this player's match (no on-demand Steam fetch). `null`
+  when none are stored.
+  """
+  salts: MatchSalts
 }
 
 """
@@ -640,6 +697,39 @@ input MatchPlayerWhere {
   net_worth: U32Filter
   player_level: U32Filter
   assigned_lane: U32Filter
+  last_hits: U32Filter
+  denies: U32Filter
+  mvp_rank: U32Filter
+  player_rank_initial_display_rank: U32Filter
+  player_rank_initial_flat_progress: U32Filter
+  player_rank_final_flat_progress: U32Filter
+  player_rank_desired_progress_change: I32Filter
+  player_rank_initial_calibration_games: U32Filter
+  player_rank_initial_demotion_protection_games: U32Filter
+  player_rank_consumed_demotion_protection: BoolFilter
+  player_rank_initial_win_streak: U32Filter
+}
+
+type MatchSalts {
+  match_id: Int!
+  cluster_id: Int
+  metadata_salt: Int
+  replay_salt: Int
+
+  """When the salts were stored, as a unix timestamp."""
+  created_at: Int!
+  metadata_url: String
+
+  """`null` when no replay salt is stored for the match."""
+  demo_url: String
+}
+
+"""
+Filter input for the `match_salts` query. Operations across fields are AND-ed.
+"""
+input MatchSaltsWhere {
+  match_id: U64Filter
+  cluster_id: U32Filter
 }
 
 enum OrderByHeroBuild {
@@ -681,11 +771,77 @@ enum OrderByMatchPlayer {
   MATCH_ID
   ACCOUNT_ID
   START_TIME
+  LAST_HITS
+  DENIES
+  MVP_RANK
+  PLAYER_RANK_INITIAL_DISPLAY_RANK
+  PLAYER_RANK_INITIAL_FLAT_PROGRESS
+  PLAYER_RANK_FINAL_FLAT_PROGRESS
+  PLAYER_RANK_DESIRED_PROGRESS_CHANGE
+  PLAYER_RANK_INITIAL_CALIBRATION_GAMES
+  PLAYER_RANK_INITIAL_DEMOTION_PROTECTION_GAMES
+  PLAYER_RANK_CONSUMED_DEMOTION_PROTECTION
+  PLAYER_RANK_INITIAL_WIN_STREAK
 }
 
 enum OrderDirection {
   DESC
   ASC
+}
+
+"""
+One entry of the patch feed — the same data as the REST `/v2/patches`
+endpoint.
+"""
+type Patch {
+  """`forum` (official forum changelog) or `steam` (Steam news feed)."""
+  source: String!
+  title: String!
+
+  """When the patch was published, as a unix timestamp."""
+  pub_date: Int!
+
+  """
+  When the next patch of the same `source` was published, as a unix
+  timestamp. `null` for the patch that is currently live.
+  """
+  end_date: Int
+  link: String!
+  guid: String!
+
+  """Only set for `forum` patches."""
+  category: String
+  content: String!
+
+  """
+  The root `matches` query, scoped to the matches started while this
+  patch was live (`pub_date` until `end_date`).
+  """
+  matches(where: MatchPlayerWhere, order_by: OrderByMatch, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [Match!]!
+
+  """
+  The root `match_players` query, scoped to the matches started while
+  this patch was live (`pub_date` until `end_date`).
+  """
+  match_players(where: MatchPlayerWhere, order_by: OrderByMatchPlayer, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchPlayer!]!
+
+  """
+  The root `match_history` query, scoped to the matches started while
+  this patch was live (`pub_date` until `end_date`).
+  """
+  match_history(where: MatchHistoryWhere, order_by: OrderByMatchHistory, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchHistoryEntry!]!
+}
+
+"""
+Filter input for the `patches` query. Operations across fields are AND-ed.
+"""
+input PatchWhere {
+  source: StringFilter
+  category: StringFilter
+  pub_date: I64Filter
+
+  """`{is_null: true}` selects the patches that are currently live."""
+  end_date: I64Filter
 }
 
 type QueryRoot {
@@ -700,6 +856,22 @@ type QueryRoot {
   stored `player_match_history` table (no on-demand Steam fetch).
   """
   match_history(where: MatchHistoryWhere, order_by: OrderByMatchHistory, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchHistoryEntry!]!
+
+  """
+  Stored match salts — one node per match_id, the same data as the REST
+  `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
+  Ordered by match_id. Salts that failed verification are dropped after
+  paging, so a page can hold slightly fewer than `limit` nodes.
+  """
+  match_salts(where: MatchSaltsWhere, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchSalts!]!
+
+  """
+  Patch notes from the official forum changelog and the Steam news feed —
+  the same data as the REST `/v2/patches` feed, so only as far back as
+  those RSS feeds reach. Ordered by `pub_date`. Every patch can scope the
+  match queries to the time it was live.
+  """
+  patches(where: PatchWhere, order_direction: OrderDirection, limit: Int! = 10, offset: Int! = 0): [Patch!]!
 
   """
   Hero builds from the stored `hero_builds` table — the same data as the
@@ -856,6 +1028,7 @@ type Stat {
   player_barriering: Int
   teammate_healing: Int
   teammate_barriering: Int
+  self_damage: Int
   bullet_kills: Int
   melee_kills: Int
   ability_kills: Int
@@ -950,6 +1123,13 @@ type UpgradeDescription {
   desc_2: String
   active: String
   passive: String
+}
+
+type UpgradePurchase {
+  item_id: Int
+  game_time_s: Int
+  sold_time_s: Int
+  net_worth_at_buy: Int
 }
 
 type Weapon {

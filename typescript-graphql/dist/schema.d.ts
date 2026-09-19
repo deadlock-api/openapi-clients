@@ -216,6 +216,9 @@ export interface Item {
     sold_time_s: (Scalars['Int'] | null);
     flags: (Scalars['Int'] | null);
     imbued_ability_id: (Scalars['Int'] | null);
+    upgrade_info: (Scalars['Int'] | null);
+    /** The player's net worth in the last `stats` snapshot before the purchase. */
+    net_worth_at_buy: (Scalars['Int'] | null);
     /** Catalog asset for this purchased item, matched by `item_id` then `upgrade_id`. */
     asset: (AssetItem | null);
     __typename: 'Item';
@@ -259,6 +262,11 @@ export interface Match {
     first_mid_boss_time_s: (Scalars['Int'] | null);
     first_objective_destroyed_time_s: (Scalars['Int'] | null);
     players: (MatchPlayer[] | null);
+    /**
+     * Stored salts of this match (no on-demand Steam fetch). `null` when none
+     * are stored.
+     */
+    salts: (MatchSalts | null);
     __typename: 'Match';
 }
 /**
@@ -334,6 +342,13 @@ export interface MatchPlayer {
     player_level: (Scalars['Int'] | null);
     abandon_match_time_s: (Scalars['Int'] | null);
     mvp_rank: (Scalars['Int'] | null);
+    won: (Scalars['Boolean'] | null);
+    hero_xp: (Scalars['Int'] | null);
+    hero_equips: (Scalars['Int'][] | null);
+    /** The `items.item_id` entries that are abilities. */
+    abilities: (Scalars['Int'][] | null);
+    /** When the row was ingested, as a unix timestamp. */
+    created_at: (Scalars['Int'] | null);
     max_level: (Scalars['Int'] | null);
     max_player_damage: (Scalars['Int'] | null);
     max_player_damage_taken: (Scalars['Int'] | null);
@@ -347,6 +362,29 @@ export interface MatchPlayer {
     max_hero_bullets_hit_crit: (Scalars['Int'] | null);
     max_shots_hit: (Scalars['Int'] | null);
     max_shots_missed: (Scalars['Int'] | null);
+    max_self_healing: (Scalars['Int'] | null);
+    max_player_healing: (Scalars['Int'] | null);
+    max_gold_player: (Scalars['Int'] | null);
+    max_gold_player_orbs: (Scalars['Int'] | null);
+    max_gold_lane_creep: (Scalars['Int'] | null);
+    max_gold_lane_creep_orbs: (Scalars['Int'] | null);
+    max_gold_neutral_creep: (Scalars['Int'] | null);
+    max_gold_neutral_creep_orbs: (Scalars['Int'] | null);
+    max_gold_boss: (Scalars['Int'] | null);
+    max_gold_boss_orb: (Scalars['Int'] | null);
+    max_gold_treasure: (Scalars['Int'] | null);
+    max_gold_denied: (Scalars['Int'] | null);
+    max_gold_death_loss: (Scalars['Int'] | null);
+    max_damage_mitigated: (Scalars['Int'] | null);
+    max_absorption_provided: (Scalars['Int'] | null);
+    max_heal_prevented: (Scalars['Int'] | null);
+    max_possible_creeps: (Scalars['Int'] | null);
+    max_weapon_power: (Scalars['Int'] | null);
+    max_tech_power: (Scalars['Int'] | null);
+    max_teammate_healing: (Scalars['Int'] | null);
+    max_teammate_barriering: (Scalars['Int'] | null);
+    /** The last `stats` snapshot of the match. */
+    final_stats: (Stat | null);
     rewards_eligible: (Scalars['Boolean'] | null);
     earned_holiday_award_2025: (Scalars['Boolean'] | null);
     player_match_outcome: (Scalars['String'] | null);
@@ -362,6 +400,11 @@ export interface MatchPlayer {
     /** Hero locked before the pre-game swap window; null when unknown. Differs from `hero_id` when the player swapped. */
     pregame_hero_id: (Scalars['Int'] | null);
     items: (Item[] | null);
+    /**
+     * The `items` entries that are purchased upgrade items (no abilities, no
+     * starting items).
+     */
+    upgrades: (UpgradePurchase[] | null);
     stats: (Stat[] | null);
     death_details: (Scalars['JsonScalar'] | null);
     accolades: (Scalars['JsonScalar'] | null);
@@ -385,13 +428,67 @@ export interface MatchPlayer {
      * database.
      */
     hero_build: (Build | null);
+    /**
+     * Stored salts of this player's match (no on-demand Steam fetch). `null`
+     * when none are stored.
+     */
+    salts: (MatchSalts | null);
     __typename: 'MatchPlayer';
+}
+export interface MatchSalts {
+    match_id: Scalars['Int'];
+    cluster_id: (Scalars['Int'] | null);
+    metadata_salt: (Scalars['Int'] | null);
+    replay_salt: (Scalars['Int'] | null);
+    /** When the salts were stored, as a unix timestamp. */
+    created_at: Scalars['Int'];
+    metadata_url: (Scalars['String'] | null);
+    /** `null` when no replay salt is stored for the match. */
+    demo_url: (Scalars['String'] | null);
+    __typename: 'MatchSalts';
 }
 export type OrderByHeroBuild = 'WEEKLY_FAVORITES' | 'FAVORITES' | 'IGNORES' | 'REPORTS' | 'UPDATED_AT' | 'PUBLISHED_AT' | 'VERSION';
 export type OrderByMatch = 'MATCH_ID' | 'START_TIME' | 'AVERAGE_BADGE';
 export type OrderByMatchHistory = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME';
-export type OrderByMatchPlayer = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME';
+export type OrderByMatchPlayer = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME' | 'LAST_HITS' | 'DENIES' | 'MVP_RANK' | 'PLAYER_RANK_INITIAL_DISPLAY_RANK' | 'PLAYER_RANK_INITIAL_FLAT_PROGRESS' | 'PLAYER_RANK_FINAL_FLAT_PROGRESS' | 'PLAYER_RANK_DESIRED_PROGRESS_CHANGE' | 'PLAYER_RANK_INITIAL_CALIBRATION_GAMES' | 'PLAYER_RANK_INITIAL_DEMOTION_PROTECTION_GAMES' | 'PLAYER_RANK_CONSUMED_DEMOTION_PROTECTION' | 'PLAYER_RANK_INITIAL_WIN_STREAK';
 export type OrderDirection = 'DESC' | 'ASC';
+/**
+ * One entry of the patch feed — the same data as the REST `/v2/patches`
+ * endpoint.
+ */
+export interface Patch {
+    /** `forum` (official forum changelog) or `steam` (Steam news feed). */
+    source: Scalars['String'];
+    title: Scalars['String'];
+    /** When the patch was published, as a unix timestamp. */
+    pub_date: Scalars['Int'];
+    /**
+     * When the next patch of the same `source` was published, as a unix
+     * timestamp. `null` for the patch that is currently live.
+     */
+    end_date: (Scalars['Int'] | null);
+    link: Scalars['String'];
+    guid: Scalars['String'];
+    /** Only set for `forum` patches. */
+    category: (Scalars['String'] | null);
+    content: Scalars['String'];
+    /**
+     * The root `matches` query, scoped to the matches started while this
+     * patch was live (`pub_date` until `end_date`).
+     */
+    matches: Match[];
+    /**
+     * The root `match_players` query, scoped to the matches started while
+     * this patch was live (`pub_date` until `end_date`).
+     */
+    match_players: MatchPlayer[];
+    /**
+     * The root `match_history` query, scoped to the matches started while
+     * this patch was live (`pub_date` until `end_date`).
+     */
+    match_history: MatchHistoryEntry[];
+    __typename: 'Patch';
+}
 export interface QueryRoot {
     /** Match-grouped query — one node per match_id with players aggregated. */
     matches: Match[];
@@ -402,6 +499,20 @@ export interface QueryRoot {
      * stored `player_match_history` table (no on-demand Steam fetch).
      */
     match_history: MatchHistoryEntry[];
+    /**
+     * Stored match salts — one node per match_id, the same data as the REST
+     * `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
+     * Ordered by match_id. Salts that failed verification are dropped after
+     * paging, so a page can hold slightly fewer than `limit` nodes.
+     */
+    match_salts: MatchSalts[];
+    /**
+     * Patch notes from the official forum changelog and the Steam news feed —
+     * the same data as the REST `/v2/patches` feed, so only as far back as
+     * those RSS feeds reach. Ordered by `pub_date`. Every patch can scope the
+     * match queries to the time it was live.
+     */
+    patches: Patch[];
     /**
      * Hero builds from the stored `hero_builds` table — the same data as the
      * REST `/v1/builds` search. Every version of a build is returned unless
@@ -577,6 +688,7 @@ export interface Stat {
     player_barriering: (Scalars['Int'] | null);
     teammate_healing: (Scalars['Int'] | null);
     teammate_barriering: (Scalars['Int'] | null);
+    self_damage: (Scalars['Int'] | null);
     bullet_kills: (Scalars['Int'] | null);
     melee_kills: (Scalars['Int'] | null);
     ability_kills: (Scalars['Int'] | null);
@@ -646,6 +758,13 @@ export interface UpgradeDescription {
     active: (Scalars['String'] | null);
     passive: (Scalars['String'] | null);
     __typename: 'UpgradeDescription';
+}
+export interface UpgradePurchase {
+    item_id: (Scalars['Int'] | null);
+    game_time_s: (Scalars['Int'] | null);
+    sold_time_s: (Scalars['Int'] | null);
+    net_worth_at_buy: (Scalars['Int'] | null);
+    __typename: 'UpgradePurchase';
 }
 export interface Weapon {
     id: Scalars['Int'];
@@ -939,6 +1058,9 @@ export interface ItemGenqlSelection {
     sold_time_s?: boolean | number;
     flags?: boolean | number;
     imbued_ability_id?: boolean | number;
+    upgrade_info?: boolean | number;
+    /** The player's net worth in the last `stats` snapshot before the purchase. */
+    net_worth_at_buy?: boolean | number;
     /** Catalog asset for this purchased item, matched by `item_id` then `upgrade_id`. */
     asset?: AssetItemGenqlSelection;
     __typename?: boolean | number;
@@ -978,6 +1100,11 @@ export interface MatchGenqlSelection {
     first_mid_boss_time_s?: boolean | number;
     first_objective_destroyed_time_s?: boolean | number;
     players?: MatchPlayerGenqlSelection;
+    /**
+     * Stored salts of this match (no on-demand Steam fetch). `null` when none
+     * are stored.
+     */
+    salts?: MatchSaltsGenqlSelection;
     __typename?: boolean | number;
     __scalar?: boolean | number;
 }
@@ -1081,6 +1208,13 @@ export interface MatchPlayerGenqlSelection {
     player_level?: boolean | number;
     abandon_match_time_s?: boolean | number;
     mvp_rank?: boolean | number;
+    won?: boolean | number;
+    hero_xp?: boolean | number;
+    hero_equips?: boolean | number;
+    /** The `items.item_id` entries that are abilities. */
+    abilities?: boolean | number;
+    /** When the row was ingested, as a unix timestamp. */
+    created_at?: boolean | number;
     max_level?: boolean | number;
     max_player_damage?: boolean | number;
     max_player_damage_taken?: boolean | number;
@@ -1094,6 +1228,29 @@ export interface MatchPlayerGenqlSelection {
     max_hero_bullets_hit_crit?: boolean | number;
     max_shots_hit?: boolean | number;
     max_shots_missed?: boolean | number;
+    max_self_healing?: boolean | number;
+    max_player_healing?: boolean | number;
+    max_gold_player?: boolean | number;
+    max_gold_player_orbs?: boolean | number;
+    max_gold_lane_creep?: boolean | number;
+    max_gold_lane_creep_orbs?: boolean | number;
+    max_gold_neutral_creep?: boolean | number;
+    max_gold_neutral_creep_orbs?: boolean | number;
+    max_gold_boss?: boolean | number;
+    max_gold_boss_orb?: boolean | number;
+    max_gold_treasure?: boolean | number;
+    max_gold_denied?: boolean | number;
+    max_gold_death_loss?: boolean | number;
+    max_damage_mitigated?: boolean | number;
+    max_absorption_provided?: boolean | number;
+    max_heal_prevented?: boolean | number;
+    max_possible_creeps?: boolean | number;
+    max_weapon_power?: boolean | number;
+    max_tech_power?: boolean | number;
+    max_teammate_healing?: boolean | number;
+    max_teammate_barriering?: boolean | number;
+    /** The last `stats` snapshot of the match. */
+    final_stats?: StatGenqlSelection;
     rewards_eligible?: boolean | number;
     earned_holiday_award_2025?: boolean | number;
     player_match_outcome?: boolean | number;
@@ -1109,6 +1266,11 @@ export interface MatchPlayerGenqlSelection {
     /** Hero locked before the pre-game swap window; null when unknown. Differs from `hero_id` when the player swapped. */
     pregame_hero_id?: boolean | number;
     items?: ItemGenqlSelection;
+    /**
+     * The `items` entries that are purchased upgrade items (no abilities, no
+     * starting items).
+     */
+    upgrades?: UpgradePurchaseGenqlSelection;
     stats?: StatGenqlSelection;
     death_details?: boolean | number;
     accolades?: boolean | number;
@@ -1132,6 +1294,11 @@ export interface MatchPlayerGenqlSelection {
      * database.
      */
     hero_build?: BuildGenqlSelection;
+    /**
+     * Stored salts of this player's match (no on-demand Steam fetch). `null`
+     * when none are stored.
+     */
+    salts?: MatchSaltsGenqlSelection;
     __typename?: boolean | number;
     __scalar?: boolean | number;
 }
@@ -1165,6 +1332,105 @@ export interface MatchPlayerWhere {
     net_worth?: (U32Filter | null);
     player_level?: (U32Filter | null);
     assigned_lane?: (U32Filter | null);
+    last_hits?: (U32Filter | null);
+    denies?: (U32Filter | null);
+    mvp_rank?: (U32Filter | null);
+    player_rank_initial_display_rank?: (U32Filter | null);
+    player_rank_initial_flat_progress?: (U32Filter | null);
+    player_rank_final_flat_progress?: (U32Filter | null);
+    player_rank_desired_progress_change?: (I32Filter | null);
+    player_rank_initial_calibration_games?: (U32Filter | null);
+    player_rank_initial_demotion_protection_games?: (U32Filter | null);
+    player_rank_consumed_demotion_protection?: (BoolFilter | null);
+    player_rank_initial_win_streak?: (U32Filter | null);
+}
+export interface MatchSaltsGenqlSelection {
+    match_id?: boolean | number;
+    cluster_id?: boolean | number;
+    metadata_salt?: boolean | number;
+    replay_salt?: boolean | number;
+    /** When the salts were stored, as a unix timestamp. */
+    created_at?: boolean | number;
+    metadata_url?: boolean | number;
+    /** `null` when no replay salt is stored for the match. */
+    demo_url?: boolean | number;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+/** Filter input for the `match_salts` query. Operations across fields are AND-ed. */
+export interface MatchSaltsWhere {
+    match_id?: (U64Filter | null);
+    cluster_id?: (U32Filter | null);
+}
+/**
+ * One entry of the patch feed — the same data as the REST `/v2/patches`
+ * endpoint.
+ */
+export interface PatchGenqlSelection {
+    /** `forum` (official forum changelog) or `steam` (Steam news feed). */
+    source?: boolean | number;
+    title?: boolean | number;
+    /** When the patch was published, as a unix timestamp. */
+    pub_date?: boolean | number;
+    /**
+     * When the next patch of the same `source` was published, as a unix
+     * timestamp. `null` for the patch that is currently live.
+     */
+    end_date?: boolean | number;
+    link?: boolean | number;
+    guid?: boolean | number;
+    /** Only set for `forum` patches. */
+    category?: boolean | number;
+    content?: boolean | number;
+    /**
+     * The root `matches` query, scoped to the matches started while this
+     * patch was live (`pub_date` until `end_date`).
+     */
+    matches?: (MatchGenqlSelection & {
+        __args?: {
+            where?: (MatchPlayerWhere | null);
+            order_by?: (OrderByMatch | null);
+            order_direction?: (OrderDirection | null);
+            limit?: Scalars['Int'];
+            offset?: Scalars['Int'];
+        };
+    });
+    /**
+     * The root `match_players` query, scoped to the matches started while
+     * this patch was live (`pub_date` until `end_date`).
+     */
+    match_players?: (MatchPlayerGenqlSelection & {
+        __args?: {
+            where?: (MatchPlayerWhere | null);
+            order_by?: (OrderByMatchPlayer | null);
+            order_direction?: (OrderDirection | null);
+            limit?: Scalars['Int'];
+            offset?: Scalars['Int'];
+        };
+    });
+    /**
+     * The root `match_history` query, scoped to the matches started while
+     * this patch was live (`pub_date` until `end_date`).
+     */
+    match_history?: (MatchHistoryEntryGenqlSelection & {
+        __args?: {
+            where?: (MatchHistoryWhere | null);
+            order_by?: (OrderByMatchHistory | null);
+            order_direction?: (OrderDirection | null);
+            limit?: Scalars['Int'];
+            offset?: Scalars['Int'];
+        };
+    });
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
+/** Filter input for the `patches` query. Operations across fields are AND-ed. */
+export interface PatchWhere {
+    source?: (StringFilter | null);
+    category?: (StringFilter | null);
+    pub_date?: (I64Filter | null);
+    /** `{is_null: true}` selects the patches that are currently live. */
+    end_date?: (I64Filter | null);
 }
 export interface QueryRootGenqlSelection {
     /** Match-grouped query — one node per match_id with players aggregated. */
@@ -1195,6 +1461,34 @@ export interface QueryRootGenqlSelection {
         __args?: {
             where?: (MatchHistoryWhere | null);
             order_by?: (OrderByMatchHistory | null);
+            order_direction?: (OrderDirection | null);
+            limit?: Scalars['Int'];
+            offset?: Scalars['Int'];
+        };
+    });
+    /**
+     * Stored match salts — one node per match_id, the same data as the REST
+     * `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
+     * Ordered by match_id. Salts that failed verification are dropped after
+     * paging, so a page can hold slightly fewer than `limit` nodes.
+     */
+    match_salts?: (MatchSaltsGenqlSelection & {
+        __args?: {
+            where?: (MatchSaltsWhere | null);
+            order_direction?: (OrderDirection | null);
+            limit?: Scalars['Int'];
+            offset?: Scalars['Int'];
+        };
+    });
+    /**
+     * Patch notes from the official forum changelog and the Steam news feed —
+     * the same data as the REST `/v2/patches` feed, so only as far back as
+     * those RSS feeds reach. Ordered by `pub_date`. Every patch can scope the
+     * match queries to the time it was live.
+     */
+    patches?: (PatchGenqlSelection & {
+        __args?: {
+            where?: (PatchWhere | null);
             order_direction?: (OrderDirection | null);
             limit?: Scalars['Int'];
             offset?: Scalars['Int'];
@@ -1405,6 +1699,7 @@ export interface StatGenqlSelection {
     player_barriering?: boolean | number;
     teammate_healing?: boolean | number;
     teammate_barriering?: boolean | number;
+    self_damage?: boolean | number;
     bullet_kills?: boolean | number;
     melee_kills?: boolean | number;
     ability_kills?: boolean | number;
@@ -1503,6 +1798,14 @@ export interface UpgradeDescriptionGenqlSelection {
     __typename?: boolean | number;
     __scalar?: boolean | number;
 }
+export interface UpgradePurchaseGenqlSelection {
+    item_id?: boolean | number;
+    game_time_s?: boolean | number;
+    sold_time_s?: boolean | number;
+    net_worth_at_buy?: boolean | number;
+    __typename?: boolean | number;
+    __scalar?: boolean | number;
+}
 export interface WeaponGenqlSelection {
     id?: boolean | number;
     class_name?: boolean | number;
@@ -1586,6 +1889,12 @@ export declare const isMatchHistoryEntry: (obj?: {
 export declare const isMatchPlayer: (obj?: {
     __typename?: any;
 } | null) => obj is MatchPlayer;
+export declare const isMatchSalts: (obj?: {
+    __typename?: any;
+} | null) => obj is MatchSalts;
+export declare const isPatch: (obj?: {
+    __typename?: any;
+} | null) => obj is Patch;
 export declare const isQueryRoot: (obj?: {
     __typename?: any;
 } | null) => obj is QueryRoot;
@@ -1622,6 +1931,9 @@ export declare const isUpgrade: (obj?: {
 export declare const isUpgradeDescription: (obj?: {
     __typename?: any;
 } | null) => obj is UpgradeDescription;
+export declare const isUpgradePurchase: (obj?: {
+    __typename?: any;
+} | null) => obj is UpgradePurchase;
 export declare const isWeapon: (obj?: {
     __typename?: any;
 } | null) => obj is Weapon;
@@ -1738,6 +2050,17 @@ export declare const enumOrderByMatchPlayer: {
     MATCH_ID: "MATCH_ID";
     ACCOUNT_ID: "ACCOUNT_ID";
     START_TIME: "START_TIME";
+    LAST_HITS: "LAST_HITS";
+    DENIES: "DENIES";
+    MVP_RANK: "MVP_RANK";
+    PLAYER_RANK_INITIAL_DISPLAY_RANK: "PLAYER_RANK_INITIAL_DISPLAY_RANK";
+    PLAYER_RANK_INITIAL_FLAT_PROGRESS: "PLAYER_RANK_INITIAL_FLAT_PROGRESS";
+    PLAYER_RANK_FINAL_FLAT_PROGRESS: "PLAYER_RANK_FINAL_FLAT_PROGRESS";
+    PLAYER_RANK_DESIRED_PROGRESS_CHANGE: "PLAYER_RANK_DESIRED_PROGRESS_CHANGE";
+    PLAYER_RANK_INITIAL_CALIBRATION_GAMES: "PLAYER_RANK_INITIAL_CALIBRATION_GAMES";
+    PLAYER_RANK_INITIAL_DEMOTION_PROTECTION_GAMES: "PLAYER_RANK_INITIAL_DEMOTION_PROTECTION_GAMES";
+    PLAYER_RANK_CONSUMED_DEMOTION_PROTECTION: "PLAYER_RANK_CONSUMED_DEMOTION_PROTECTION";
+    PLAYER_RANK_INITIAL_WIN_STREAK: "PLAYER_RANK_INITIAL_WIN_STREAK";
 };
 export declare const enumOrderDirection: {
     DESC: "DESC";

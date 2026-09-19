@@ -3258,7 +3258,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787184000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3273,7 +3273,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RankDistributionEntry[]
      */
-    public function rankDistribution($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistribution($min_unix_timestamp = 1787184000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         list($response) = $this->rankDistributionWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -3284,7 +3284,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787184000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3299,7 +3299,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RankDistributionEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function rankDistributionWithHttpInfo($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionWithHttpInfo($min_unix_timestamp = 1787184000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         $request = $this->rankDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
@@ -3377,7 +3377,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787184000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3391,7 +3391,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankDistributionAsync($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionAsync($min_unix_timestamp = 1787184000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         return $this->rankDistributionAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -3406,7 +3406,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787184000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3420,7 +3420,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankDistributionAsyncWithHttpInfo($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionAsyncWithHttpInfo($min_unix_timestamp = 1787184000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RankDistributionEntry[]';
         $request = $this->rankDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
@@ -3464,7 +3464,7 @@ class PlayersApi
     /**
      * Create request for operation 'rankDistribution'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787011200)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1787184000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3478,7 +3478,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rankDistributionRequest($min_unix_timestamp = 1787011200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionRequest($min_unix_timestamp = 1787184000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
 
 

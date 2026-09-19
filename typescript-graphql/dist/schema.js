@@ -128,6 +128,18 @@ export const isMatchPlayer = (obj) => {
         throw new Error('__typename is missing in "isMatchPlayer"');
     return MatchPlayer_possibleTypes.includes(obj.__typename);
 };
+const MatchSalts_possibleTypes = ['MatchSalts'];
+export const isMatchSalts = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isMatchSalts"');
+    return MatchSalts_possibleTypes.includes(obj.__typename);
+};
+const Patch_possibleTypes = ['Patch'];
+export const isPatch = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isPatch"');
+    return Patch_possibleTypes.includes(obj.__typename);
+};
 const QueryRoot_possibleTypes = ['QueryRoot'];
 export const isQueryRoot = (obj) => {
     if (!obj?.__typename)
@@ -199,6 +211,12 @@ export const isUpgradeDescription = (obj) => {
     if (!obj?.__typename)
         throw new Error('__typename is missing in "isUpgradeDescription"');
     return UpgradeDescription_possibleTypes.includes(obj.__typename);
+};
+const UpgradePurchase_possibleTypes = ['UpgradePurchase'];
+export const isUpgradePurchase = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isUpgradePurchase"');
+    return UpgradePurchase_possibleTypes.includes(obj.__typename);
 };
 const Weapon_possibleTypes = ['Weapon'];
 export const isWeapon = (obj) => {
@@ -318,7 +336,18 @@ export const enumOrderByMatchHistory = {
 export const enumOrderByMatchPlayer = {
     MATCH_ID: 'MATCH_ID',
     ACCOUNT_ID: 'ACCOUNT_ID',
-    START_TIME: 'START_TIME'
+    START_TIME: 'START_TIME',
+    LAST_HITS: 'LAST_HITS',
+    DENIES: 'DENIES',
+    MVP_RANK: 'MVP_RANK',
+    PLAYER_RANK_INITIAL_DISPLAY_RANK: 'PLAYER_RANK_INITIAL_DISPLAY_RANK',
+    PLAYER_RANK_INITIAL_FLAT_PROGRESS: 'PLAYER_RANK_INITIAL_FLAT_PROGRESS',
+    PLAYER_RANK_FINAL_FLAT_PROGRESS: 'PLAYER_RANK_FINAL_FLAT_PROGRESS',
+    PLAYER_RANK_DESIRED_PROGRESS_CHANGE: 'PLAYER_RANK_DESIRED_PROGRESS_CHANGE',
+    PLAYER_RANK_INITIAL_CALIBRATION_GAMES: 'PLAYER_RANK_INITIAL_CALIBRATION_GAMES',
+    PLAYER_RANK_INITIAL_DEMOTION_PROTECTION_GAMES: 'PLAYER_RANK_INITIAL_DEMOTION_PROTECTION_GAMES',
+    PLAYER_RANK_CONSUMED_DEMOTION_PROTECTION: 'PLAYER_RANK_CONSUMED_DEMOTION_PROTECTION',
+    PLAYER_RANK_INITIAL_WIN_STREAK: 'PLAYER_RANK_INITIAL_WIN_STREAK'
 };
 export const enumOrderDirection = {
     DESC: 'DESC',
