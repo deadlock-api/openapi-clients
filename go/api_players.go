@@ -1626,7 +1626,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787184000
+		var defaultValue int64 = 1787270400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
