@@ -29,6 +29,7 @@ from deadlock_api_client.models.active_match_game_mode import ActiveMatchGameMod
 from deadlock_api_client.models.active_match_mode import ActiveMatchMode
 from deadlock_api_client.models.active_match_player import ActiveMatchPlayer
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam
+from deadlock_api_client.models.add_steam_account_request import AddSteamAccountRequest
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
@@ -51,6 +52,7 @@ from deadlock_api_client.models.create_custom_response import CreateCustomRespon
 from deadlock_api_client.models.curve import Curve
 from deadlock_api_client.models.curve_or_float import CurveOrFloat
 from deadlock_api_client.models.damage_flash import DamageFlash
+from deadlock_api_client.models.delete_steam_account_response import DeleteSteamAccountResponse
 from deadlock_api_client.models.demo_query_job_response import DemoQueryJobResponse
 from deadlock_api_client.models.demo_query_request import DemoQueryRequest
 from deadlock_api_client.models.demo_query_status_response import DemoQueryStatusResponse
@@ -69,7 +71,6 @@ from deadlock_api_client.models.feedback_target import FeedbackTarget
 from deadlock_api_client.models.flash_data import FlashData
 from deadlock_api_client.models.forum_patch import ForumPatch
 from deadlock_api_client.models.game_mode import GameMode
-from deadlock_api_client.models.game_server_info import GameServerInfo
 from deadlock_api_client.models.generic_data import GenericData
 from deadlock_api_client.models.get_custom_match_id_response import GetCustomMatchIdResponse
 from deadlock_api_client.models.glitch_settings import GlitchSettings
@@ -120,7 +121,7 @@ from deadlock_api_client.models.lane_stat_curve import LaneStatCurve
 from deadlock_api_client.models.last_ranked_match import LastRankedMatch
 from deadlock_api_client.models.leaderboard import Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry
-from deadlock_api_client.models.list_servers_response import ListServersResponse
+from deadlock_api_client.models.list_steam_accounts_response import ListSteamAccountsResponse
 from deadlock_api_client.models.live_url import LiveUrl
 from deadlock_api_client.models.loot_entry import LootEntry
 from deadlock_api_client.models.loot_table import LootTable
@@ -131,7 +132,6 @@ from deadlock_api_client.models.match_player import MatchPlayer
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse
 from deadlock_api_client.models.mate_stats import MateStats
-from deadlock_api_client.models.metric_ingest_request import MetricIngestRequest
 from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets
 from deadlock_api_client.models.misc_entity import MiscEntity
 from deadlock_api_client.models.modifier_value import ModifierValue
@@ -171,15 +171,15 @@ from deadlock_api_client.models.raw_weapon_info_vertical_recoil import RawWeapon
 from deadlock_api_client.models.recoil_range import RecoilRange
 from deadlock_api_client.models.region_mode import RegionMode
 from deadlock_api_client.models.rejuv_params import RejuvParams
+from deadlock_api_client.models.replace_steam_account_request import ReplaceSteamAccountRequest
 from deadlock_api_client.models.script_values import ScriptValues
 from deadlock_api_client.models.season_interval import SeasonInterval
 from deadlock_api_client.models.server_region import ServerRegion
-from deadlock_api_client.models.server_status_request import ServerStatusRequest
-from deadlock_api_client.models.server_status_response import ServerStatusResponse
 from deadlock_api_client.models.shop_spirit_stats_display import ShopSpiritStatsDisplay
 from deadlock_api_client.models.shop_stat_display import ShopStatDisplay
 from deadlock_api_client.models.shop_vitality_stats_display import ShopVitalityStatsDisplay
 from deadlock_api_client.models.shop_weapon_stats_display import ShopWeaponStatsDisplay
+from deadlock_api_client.models.slots_summary import SlotsSummary
 from deadlock_api_client.models.source_location import SourceLocation
 from deadlock_api_client.models.spread_penalty import SpreadPenalty
 from deadlock_api_client.models.starting_stat import StartingStat
@@ -188,11 +188,12 @@ from deadlock_api_client.models.stats_display import StatsDisplay
 from deadlock_api_client.models.stats_usage_flag import StatsUsageFlag
 from deadlock_api_client.models.status import Status
 from deadlock_api_client.models.status_services import StatusServices
+from deadlock_api_client.models.steam_account_list_item import SteamAccountListItem
+from deadlock_api_client.models.steam_account_response import SteamAccountResponse
 from deadlock_api_client.models.steam_friend import SteamFriend
 from deadlock_api_client.models.steam_info import SteamInfo
 from deadlock_api_client.models.steam_news import SteamNews
 from deadlock_api_client.models.steam_profile import SteamProfile
-from deadlock_api_client.models.steam_server import SteamServer
 from deadlock_api_client.models.street_brawl import StreetBrawl
 from deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
 from deadlock_api_client.models.subclass_bullet_resist_modifier_subclass import SubclassBulletResistModifierSubclass

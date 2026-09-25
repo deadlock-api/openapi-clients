@@ -15,22 +15,156 @@
 import { HttpMethods, QueryConfig, ResponseBody, ResponseText } from 'redux-query';
 import * as runtime from '../runtime';
 import {
+    AddSteamAccountRequest,
+    AddSteamAccountRequestFromJSON,
+    AddSteamAccountRequestToJSON,
     ClickhouseSalts,
     ClickhouseSaltsFromJSON,
     ClickhouseSaltsToJSON,
+    DeleteSteamAccountResponse,
+    DeleteSteamAccountResponseFromJSON,
+    DeleteSteamAccountResponseToJSON,
     FeedbackSubmission,
     FeedbackSubmissionFromJSON,
     FeedbackSubmissionToJSON,
+    ListSteamAccountsResponse,
+    ListSteamAccountsResponseFromJSON,
+    ListSteamAccountsResponseToJSON,
+    ReplaceSteamAccountRequest,
+    ReplaceSteamAccountRequestFromJSON,
+    ReplaceSteamAccountRequestToJSON,
+    SteamAccountResponse,
+    SteamAccountResponseFromJSON,
+    SteamAccountResponseToJSON,
 } from '../models';
+
+export interface AddSteamAccountRequest {
+    addSteamAccountRequest: AddSteamAccountRequest;
+}
+
+export interface DeleteSteamAccountRequest {
+    accountId: string;
+}
 
 export interface IngestSaltsRequest {
     clickhouseSalts: Array<ClickhouseSalts>;
+}
+
+export interface ReactivateSteamAccountRequest {
+    accountId: string;
+}
+
+export interface ReplaceSteamAccountRequest {
+    accountId: string;
+    replaceSteamAccountRequest: ReplaceSteamAccountRequest;
 }
 
 export interface SubmitFeedbackRequest {
     feedbackSubmission: FeedbackSubmission;
 }
 
+
+/**
+ *  Adds a Steam account to the patron\'s prioritized fetching list. Matches of prioritized accounts are fetched first.  Re-adding an account that was removed earlier restores that entry.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+ * Add Prioritized Steam Account
+ */
+function addSteamAccountRaw<T>(requestParameters: AddSteamAccountRequest, requestConfig: runtime.TypedQueryConfig<T, SteamAccountResponse> = {}): QueryConfig<T> {
+    if (requestParameters.addSteamAccountRequest === null || requestParameters.addSteamAccountRequest === undefined) {
+        throw new runtime.RequiredError('addSteamAccountRequest','Required parameter requestParameters.addSteamAccountRequest was null or undefined when calling addSteamAccount.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+
+    const { meta = {} } = requestConfig;
+
+    meta.authType = ['api_key', 'query'];
+    meta.authType = ['api_key', 'header'];
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/patron/steam-accounts`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'POST',
+            headers: headerParameters,
+        },
+        body: queryParameters || AddSteamAccountRequestToJSON(requestParameters.addSteamAccountRequest),
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(SteamAccountResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Adds a Steam account to the patron\'s prioritized fetching list. Matches of prioritized accounts are fetched first.  Re-adding an account that was removed earlier restores that entry.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+* Add Prioritized Steam Account
+*/
+export function addSteamAccount<T>(requestParameters: AddSteamAccountRequest, requestConfig?: runtime.TypedQueryConfig<T, SteamAccountResponse>): QueryConfig<T> {
+    return addSteamAccountRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+ * Remove Prioritized Steam Account
+ */
+function deleteSteamAccountRaw<T>(requestParameters: DeleteSteamAccountRequest, requestConfig: runtime.TypedQueryConfig<T, DeleteSteamAccountResponse> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling deleteSteamAccount.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    meta.authType = ['api_key', 'query'];
+    meta.authType = ['api_key', 'header'];
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/patron/steam-accounts/{account_id}`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'DELETE',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(DeleteSteamAccountResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+* Remove Prioritized Steam Account
+*/
+export function deleteSteamAccount<T>(requestParameters: DeleteSteamAccountRequest, requestConfig?: runtime.TypedQueryConfig<T, DeleteSteamAccountResponse>): QueryConfig<T> {
+    return deleteSteamAccountRaw(requestParameters, requestConfig);
+}
 
 /**
  *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -79,6 +213,158 @@ function ingestSaltsRaw<T>(requestParameters: IngestSaltsRequest, requestConfig:
 */
 export function ingestSalts<T>(requestParameters: IngestSaltsRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
     return ingestSaltsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+ * List Prioritized Steam Accounts
+ */
+function listSteamAccountsRaw<T>( requestConfig: runtime.TypedQueryConfig<T, ListSteamAccountsResponse> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    meta.authType = ['api_key', 'query'];
+    meta.authType = ['api_key', 'header'];
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/patron/steam-accounts`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(ListSteamAccountsResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+* List Prioritized Steam Accounts
+*/
+export function listSteamAccounts<T>( requestConfig?: runtime.TypedQueryConfig<T, ListSteamAccountsResponse>): QueryConfig<T> {
+    return listSteamAccountsRaw( requestConfig);
+}
+
+/**
+ *  Restores a previously removed Steam account to the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+ * Reactivate Prioritized Steam Account
+ */
+function reactivateSteamAccountRaw<T>(requestParameters: ReactivateSteamAccountRequest, requestConfig: runtime.TypedQueryConfig<T, SteamAccountResponse> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling reactivateSteamAccount.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    meta.authType = ['api_key', 'query'];
+    meta.authType = ['api_key', 'header'];
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/patron/steam-accounts/{account_id}/reactivate`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'POST',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(SteamAccountResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Restores a previously removed Steam account to the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+* Reactivate Prioritized Steam Account
+*/
+export function reactivateSteamAccount<T>(requestParameters: ReactivateSteamAccountRequest, requestConfig?: runtime.TypedQueryConfig<T, SteamAccountResponse>): QueryConfig<T> {
+    return reactivateSteamAccountRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Swaps a removed Steam account whose 24 hour cooldown has passed for a new `steam_id3`. `account_id` is the removed account\'s `steam_id3` or its entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+ * Replace Prioritized Steam Account
+ */
+function replaceSteamAccountRaw<T>(requestParameters: ReplaceSteamAccountRequest, requestConfig: runtime.TypedQueryConfig<T, SteamAccountResponse> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling replaceSteamAccount.');
+    }
+
+    if (requestParameters.replaceSteamAccountRequest === null || requestParameters.replaceSteamAccountRequest === undefined) {
+        throw new runtime.RequiredError('replaceSteamAccountRequest','Required parameter requestParameters.replaceSteamAccountRequest was null or undefined when calling replaceSteamAccount.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+
+    const { meta = {} } = requestConfig;
+
+    meta.authType = ['api_key', 'query'];
+    meta.authType = ['api_key', 'header'];
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/patron/steam-accounts/{account_id}`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'PUT',
+            headers: headerParameters,
+        },
+        body: queryParameters || ReplaceSteamAccountRequestToJSON(requestParameters.replaceSteamAccountRequest),
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(SteamAccountResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Swaps a removed Steam account whose 24 hour cooldown has passed for a new `steam_id3`. `account_id` is the removed account\'s `steam_id3` or its entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+* Replace Prioritized Steam Account
+*/
+export function replaceSteamAccount<T>(requestParameters: ReplaceSteamAccountRequest, requestConfig?: runtime.TypedQueryConfig<T, SteamAccountResponse>): QueryConfig<T> {
+    return replaceSteamAccountRaw(requestParameters, requestConfig);
 }
 
 /**

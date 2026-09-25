@@ -31,7 +31,6 @@ src/apis/PlayersApi.ts
 src/apis/RankedSeasonsApi.ts
 src/apis/RanksApi.ts
 src/apis/SQLApi.ts
-src/apis/ServersApi.ts
 src/apis/SteamApi.ts
 src/apis/SteamInfoApi.ts
 src/apis/index.ts
@@ -52,6 +51,7 @@ src/models/ActiveMatchGameMode.ts
 src/models/ActiveMatchMode.ts
 src/models/ActiveMatchPlayer.ts
 src/models/ActiveMatchTeam.ts
+src/models/AddSteamAccountRequest.ts
 src/models/AnalyticsAbilityOrderStats.ts
 src/models/AnalyticsGameStats.ts
 src/models/AnalyticsHeroStats.ts
@@ -74,6 +74,7 @@ src/models/CreateCustomResponse.ts
 src/models/Curve.ts
 src/models/CurveOrFloat.ts
 src/models/DamageFlash.ts
+src/models/DeleteSteamAccountResponse.ts
 src/models/DemoQueryJobResponse.ts
 src/models/DemoQueryRequest.ts
 src/models/DemoQueryStatusResponse.ts
@@ -92,7 +93,6 @@ src/models/FeedbackTarget.ts
 src/models/FlashData.ts
 src/models/ForumPatch.ts
 src/models/GameMode.ts
-src/models/GameServerInfo.ts
 src/models/GenericData.ts
 src/models/GetCustomMatchIdResponse.ts
 src/models/GlitchSettings.ts
@@ -143,7 +143,7 @@ src/models/LaneStatCurve.ts
 src/models/LastRankedMatch.ts
 src/models/Leaderboard.ts
 src/models/LeaderboardEntry.ts
-src/models/ListServersResponse.ts
+src/models/ListSteamAccountsResponse.ts
 src/models/LiveUrl.ts
 src/models/LootEntry.ts
 src/models/LootTable.ts
@@ -154,7 +154,6 @@ src/models/MatchPlayer.ts
 src/models/MatchSaltsResponse.ts
 src/models/MatchSpectateResponse.ts
 src/models/MateStats.ts
-src/models/MetricIngestRequest.ts
 src/models/MiniMapOffsets.ts
 src/models/MiscEntity.ts
 src/models/ModifierValue.ts
@@ -194,15 +193,15 @@ src/models/RawWeaponInfoVerticalRecoil.ts
 src/models/RecoilRange.ts
 src/models/RegionMode.ts
 src/models/RejuvParams.ts
+src/models/ReplaceSteamAccountRequest.ts
 src/models/ScriptValues.ts
 src/models/SeasonInterval.ts
 src/models/ServerRegion.ts
-src/models/ServerStatusRequest.ts
-src/models/ServerStatusResponse.ts
 src/models/ShopSpiritStatsDisplay.ts
 src/models/ShopStatDisplay.ts
 src/models/ShopVitalityStatsDisplay.ts
 src/models/ShopWeaponStatsDisplay.ts
+src/models/SlotsSummary.ts
 src/models/SourceLocation.ts
 src/models/SpreadPenalty.ts
 src/models/StartingStat.ts
@@ -211,11 +210,12 @@ src/models/StatsDisplay.ts
 src/models/StatsUsageFlag.ts
 src/models/Status.ts
 src/models/StatusServices.ts
+src/models/SteamAccountListItem.ts
+src/models/SteamAccountResponse.ts
 src/models/SteamFriend.ts
 src/models/SteamInfo.ts
 src/models/SteamNews.ts
 src/models/SteamProfile.ts
-src/models/SteamServer.ts
 src/models/StreetBrawl.ts
 src/models/SubclassBulletResistModifier.ts
 src/models/SubclassBulletResistModifierSubclass.ts

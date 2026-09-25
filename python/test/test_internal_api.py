@@ -26,10 +26,45 @@ class TestInternalApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_add_steam_account(self) -> None:
+        """Test case for add_steam_account
+
+        Add Prioritized Steam Account
+        """
+        pass
+
+    def test_delete_steam_account(self) -> None:
+        """Test case for delete_steam_account
+
+        Remove Prioritized Steam Account
+        """
+        pass
+
     def test_ingest_salts(self) -> None:
         """Test case for ingest_salts
 
         Match Salts Ingest
+        """
+        pass
+
+    def test_list_steam_accounts(self) -> None:
+        """Test case for list_steam_accounts
+
+        List Prioritized Steam Accounts
+        """
+        pass
+
+    def test_reactivate_steam_account(self) -> None:
+        """Test case for reactivate_steam_account
+
+        Reactivate Prioritized Steam Account
+        """
+        pass
+
+    def test_replace_steam_account(self) -> None:
+        """Test case for replace_steam_account
+
+        Replace Prioritized Steam Account
         """
         pass
 

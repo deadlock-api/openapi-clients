@@ -42,7 +42,6 @@ export * from './apis/players-api.js';
 export * from './apis/ranked-seasons-api.js';
 export * from './apis/ranks-api.js';
 export * from './apis/sqlapi.js';
-export * from './apis/servers-api.js';
 export * from './apis/steam-api.js';
 export * from './apis/steam-info-api.js';
 

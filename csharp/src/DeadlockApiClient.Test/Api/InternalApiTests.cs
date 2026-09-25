@@ -51,6 +51,30 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test AddSteamAccount
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task AddSteamAccountAsyncTest()
+        {
+            AddSteamAccountRequest addSteamAccountRequest = default!;
+            var response = await _instance.AddSteamAccountAsync(addSteamAccountRequest);
+            var model = response.Created();
+            Assert.IsType<DeadlockApiClient.Model.SteamAccountResponse>(model);
+        }
+
+        /// <summary>
+        /// Test DeleteSteamAccount
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task DeleteSteamAccountAsyncTest()
+        {
+            string accountId = default!;
+            var response = await _instance.DeleteSteamAccountAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.DeleteSteamAccountResponse>(model);
+        }
+
+        /// <summary>
         /// Test IngestSalts
         /// </summary>
         [Fact (Skip = "not implemented")]
@@ -58,6 +82,42 @@ namespace DeadlockApiClient.Test.Api
         {
             List<ClickhouseSalts> clickhouseSalts = default!;
             await _instance.IngestSaltsAsync(clickhouseSalts);
+        }
+
+        /// <summary>
+        /// Test ListSteamAccounts
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task ListSteamAccountsAsyncTest()
+        {
+            var response = await _instance.ListSteamAccountsAsync();
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.ListSteamAccountsResponse>(model);
+        }
+
+        /// <summary>
+        /// Test ReactivateSteamAccount
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task ReactivateSteamAccountAsyncTest()
+        {
+            string accountId = default!;
+            var response = await _instance.ReactivateSteamAccountAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.SteamAccountResponse>(model);
+        }
+
+        /// <summary>
+        /// Test ReplaceSteamAccount
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task ReplaceSteamAccountAsyncTest()
+        {
+            string accountId = default!;
+            ReplaceSteamAccountRequest replaceSteamAccountRequest = default!;
+            var response = await _instance.ReplaceSteamAccountAsync(accountId, replaceSteamAccountRequest);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.SteamAccountResponse>(model);
         }
 
         /// <summary>

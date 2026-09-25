@@ -30,7 +30,6 @@ api_patches.go
 api_players.go
 api_ranked_seasons.go
 api_ranks.go
-api_servers.go
 api_sql.go
 api_steam.go
 api_steam_info.go
@@ -53,6 +52,7 @@ docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
 docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
+docs/AddSteamAccountRequest.md
 docs/AnalyticsAPI.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsGameStats.md
@@ -83,6 +83,7 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesAPI.md
 docs/DamageFlash.md
+docs/DeleteSteamAccountResponse.md
 docs/DemoAPI.md
 docs/DemoQueryJobResponse.md
 docs/DemoQueryRequest.md
@@ -102,7 +103,6 @@ docs/FeedbackTarget.md
 docs/FlashData.md
 docs/ForumPatch.md
 docs/GameMode.md
-docs/GameServerInfo.md
 docs/GenericData.md
 docs/GenericDataAPI.md
 docs/GetCustomMatchIdResponse.md
@@ -160,7 +160,7 @@ docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardAPI.md
 docs/LeaderboardEntry.md
-docs/ListServersResponse.md
+docs/ListSteamAccountsResponse.md
 docs/LiveUrl.md
 docs/LootEntry.md
 docs/LootTable.md
@@ -175,7 +175,6 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesAPI.md
 docs/MateStats.md
-docs/MetricIngestRequest.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesAPI.md
 docs/MiscEntity.md
@@ -221,17 +220,16 @@ docs/RawWeaponInfoVerticalRecoil.md
 docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
+docs/ReplaceSteamAccountRequest.md
 docs/SQLAPI.md
 docs/ScriptValues.md
 docs/SeasonInterval.md
 docs/ServerRegion.md
-docs/ServerStatusRequest.md
-docs/ServerStatusResponse.md
-docs/ServersAPI.md
 docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
 docs/ShopWeaponStatsDisplay.md
+docs/SlotsSummary.md
 docs/SourceLocation.md
 docs/SpreadPenalty.md
 docs/StartingStat.md
@@ -241,12 +239,13 @@ docs/StatsUsageFlag.md
 docs/Status.md
 docs/StatusServices.md
 docs/SteamAPI.md
+docs/SteamAccountListItem.md
+docs/SteamAccountResponse.md
 docs/SteamFriend.md
 docs/SteamInfo.md
 docs/SteamInfoAPI.md
 docs/SteamNews.md
 docs/SteamProfile.md
-docs/SteamServer.md
 docs/StreetBrawl.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassBulletResistModifierSubclass.md
@@ -300,6 +299,7 @@ model_active_match_game_mode.go
 model_active_match_mode.go
 model_active_match_player.go
 model_active_match_team.go
+model_add_steam_account_request.go
 model_analytics_ability_order_stats.go
 model_analytics_game_stats.go
 model_analytics_hero_stats.go
@@ -323,6 +323,7 @@ model_create_custom_response.go
 model_curve.go
 model_curve_or_float.go
 model_damage_flash.go
+model_delete_steam_account_response.go
 model_demo_query_job_response.go
 model_demo_query_request.go
 model_demo_query_status_response.go
@@ -341,7 +342,6 @@ model_feedback_target.go
 model_flash_data.go
 model_forum_patch.go
 model_game_mode.go
-model_game_server_info.go
 model_generic_data.go
 model_get_custom_match_id_response.go
 model_glitch_settings.go
@@ -392,7 +392,7 @@ model_lane_stat_curve.go
 model_last_ranked_match.go
 model_leaderboard.go
 model_leaderboard_entry.go
-model_list_servers_response.go
+model_list_steam_accounts_response.go
 model_live_url.go
 model_loot_entry.go
 model_loot_table.go
@@ -402,7 +402,6 @@ model_match_player.go
 model_match_salts_response.go
 model_match_spectate_response.go
 model_mate_stats.go
-model_metric_ingest_request.go
 model_mini_map_offsets.go
 model_misc_entity.go
 model_mmr_history.go
@@ -443,15 +442,15 @@ model_raw_weapon_info_vertical_recoil.go
 model_recoil_range.go
 model_region_mode.go
 model_rejuv_params.go
+model_replace_steam_account_request.go
 model_script_values.go
 model_season_interval.go
 model_server_region.go
-model_server_status_request.go
-model_server_status_response.go
 model_shop_spirit_stats_display.go
 model_shop_stat_display.go
 model_shop_vitality_stats_display.go
 model_shop_weapon_stats_display.go
+model_slots_summary.go
 model_source_location.go
 model_spread_penalty.go
 model_starting_stat.go
@@ -460,11 +459,12 @@ model_stats_display.go
 model_stats_usage_flag.go
 model_status.go
 model_status_services.go
+model_steam_account_list_item.go
+model_steam_account_response.go
 model_steam_friend.go
 model_steam_info.go
 model_steam_news.go
 model_steam_profile.go
-model_steam_server.go
 model_street_brawl.go
 model_subclass_bullet_resist_modifier.go
 model_subclass_bullet_resist_modifier_subclass.go
@@ -528,7 +528,6 @@ test/api_patches_test.go
 test/api_players_test.go
 test/api_ranked_seasons_test.go
 test/api_ranks_test.go
-test/api_servers_test.go
 test/api_sql_test.go
 test/api_steam_info_test.go
 test/api_steam_test.go

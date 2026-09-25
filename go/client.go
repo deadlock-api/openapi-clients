@@ -105,8 +105,6 @@ type APIClient struct {
 
 	SQLAPI *SQLAPIService
 
-	ServersAPI *ServersAPIService
-
 	SteamAPI *SteamAPIService
 
 	SteamInfoAPI *SteamInfoAPIService
@@ -156,7 +154,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.RankedSeasonsAPI = (*RankedSeasonsAPIService)(&c.common)
 	c.RanksAPI = (*RanksAPIService)(&c.common)
 	c.SQLAPI = (*SQLAPIService)(&c.common)
-	c.ServersAPI = (*ServersAPIService)(&c.common)
 	c.SteamAPI = (*SteamAPIService)(&c.common)
 	c.SteamInfoAPI = (*SteamInfoAPIService)(&c.common)
 

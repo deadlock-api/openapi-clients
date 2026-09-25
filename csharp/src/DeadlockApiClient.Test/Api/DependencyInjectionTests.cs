@@ -166,9 +166,6 @@ namespace DeadlockApiClient.Test.Api
             var sQLApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
 
-            var serversApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IServersApi>();
-            Assert.True(serversApi.HttpClient.BaseAddress != null);
-
             var steamApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);
 
@@ -265,9 +262,6 @@ namespace DeadlockApiClient.Test.Api
 
             var sQLApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
-
-            var serversApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IServersApi>();
-            Assert.True(serversApi.HttpClient.BaseAddress != null);
 
             var steamApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);
@@ -366,9 +360,6 @@ namespace DeadlockApiClient.Test.Api
             var sQLApi = _hostUsingAddWithAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
             
-            var serversApi = _hostUsingAddWithAClient.Services.GetRequiredService<IServersApi>();
-            Assert.True(serversApi.HttpClient.BaseAddress != null);
-            
             var steamApi = _hostUsingAddWithAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);
             
@@ -465,9 +456,6 @@ namespace DeadlockApiClient.Test.Api
 
             var sQLApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ISQLApi>();
             Assert.True(sQLApi.HttpClient.BaseAddress != null);
-
-            var serversApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IServersApi>();
-            Assert.True(serversApi.HttpClient.BaseAddress != null);
 
             var steamApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ISteamApi>();
             Assert.True(steamApi.HttpClient.BaseAddress != null);

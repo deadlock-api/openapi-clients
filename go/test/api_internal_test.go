@@ -22,6 +22,32 @@ func Test_deadlock_api_client_InternalAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test InternalAPIService AddSteamAccount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.InternalAPI.AddSteamAccount(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InternalAPIService DeleteSteamAccount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var accountId string
+
+		resp, httpRes, err := apiClient.InternalAPI.DeleteSteamAccount(context.Background(), accountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InternalAPIService IngestSalts", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -29,6 +55,46 @@ func Test_deadlock_api_client_InternalAPIService(t *testing.T) {
 		httpRes, err := apiClient.InternalAPI.IngestSalts(context.Background()).Execute()
 
 		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InternalAPIService ListSteamAccounts", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.InternalAPI.ListSteamAccounts(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InternalAPIService ReactivateSteamAccount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var accountId string
+
+		resp, httpRes, err := apiClient.InternalAPI.ReactivateSteamAccount(context.Background(), accountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InternalAPIService ReplaceSteamAccount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var accountId string
+
+		resp, httpRes, err := apiClient.InternalAPI.ReplaceSteamAccount(context.Background(), accountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

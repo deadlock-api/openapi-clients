@@ -27,19 +27,64 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.InternalApi
+import deadlock_api_client.models.AddSteamAccountRequest
 import deadlock_api_client.models.ClickhouseSalts
+import deadlock_api_client.models.DeleteSteamAccountResponse
 import deadlock_api_client.models.FeedbackSubmission
+import deadlock_api_client.models.ListSteamAccountsResponse
+import deadlock_api_client.models.ReplaceSteamAccountRequest
+import deadlock_api_client.models.SteamAccountResponse
 
 class InternalApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of InternalApi
         //val apiInstance = InternalApi()
 
+        // to test addSteamAccount
+        should("test addSteamAccount") {
+            // uncomment below to test addSteamAccount
+            //val addSteamAccountRequest : AddSteamAccountRequest =  // AddSteamAccountRequest | 
+            //val result : SteamAccountResponse = apiInstance.addSteamAccount(addSteamAccountRequest)
+            //result shouldBe ("TODO")
+        }
+
+        // to test deleteSteamAccount
+        should("test deleteSteamAccount") {
+            // uncomment below to test deleteSteamAccount
+            //val accountId : kotlin.String = accountId_example // kotlin.String | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+            //val result : DeleteSteamAccountResponse = apiInstance.deleteSteamAccount(accountId)
+            //result shouldBe ("TODO")
+        }
+
         // to test ingestSalts
         should("test ingestSalts") {
             // uncomment below to test ingestSalts
             //val clickhouseSalts : kotlin.collections.List<ClickhouseSalts> =  // kotlin.collections.List<ClickhouseSalts> | 
             //apiInstance.ingestSalts(clickhouseSalts)
+        }
+
+        // to test listSteamAccounts
+        should("test listSteamAccounts") {
+            // uncomment below to test listSteamAccounts
+            //val result : ListSteamAccountsResponse = apiInstance.listSteamAccounts()
+            //result shouldBe ("TODO")
+        }
+
+        // to test reactivateSteamAccount
+        should("test reactivateSteamAccount") {
+            // uncomment below to test reactivateSteamAccount
+            //val accountId : kotlin.String = accountId_example // kotlin.String | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+            //val result : SteamAccountResponse = apiInstance.reactivateSteamAccount(accountId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test replaceSteamAccount
+        should("test replaceSteamAccount") {
+            // uncomment below to test replaceSteamAccount
+            //val accountId : kotlin.String = accountId_example // kotlin.String | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+            //val replaceSteamAccountRequest : ReplaceSteamAccountRequest =  // ReplaceSteamAccountRequest | 
+            //val result : SteamAccountResponse = apiInstance.replaceSteamAccount(accountId, replaceSteamAccountRequest)
+            //result shouldBe ("TODO")
         }
 
         // to test submitFeedback

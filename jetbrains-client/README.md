@@ -70,7 +70,12 @@ Class | Method | HTTP request | Description
 *HeroesApi* | [**listHeroes**](Apis/HeroesApi.http#listheroes) | **GET** /v1/assets/heroes | List Heroes
 *InfoApi* | [**healthCheck**](Apis/InfoApi.http#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](Apis/InfoApi.http#info) | **GET** /v1/info | API Info
+*InternalApi* | [**addSteamAccount**](Apis/InternalApi.http#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
+*InternalApi* | [**deleteSteamAccount**](Apis/InternalApi.http#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 *InternalApi* | [**ingestSalts**](Apis/InternalApi.http#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
+*InternalApi* | [**listSteamAccounts**](Apis/InternalApi.http#liststeamaccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts
+*InternalApi* | [**reactivateSteamAccount**](Apis/InternalApi.http#reactivatesteamaccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account
+*InternalApi* | [**replaceSteamAccount**](Apis/InternalApi.http#replacesteamaccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account
 *InternalApi* | [**submitFeedback**](Apis/InternalApi.http#submitfeedback) | **POST** /v1/feedback | Submit Website Feedback
 *ItemsApi* | [**getItem**](Apis/ItemsApi.http#getitem) | **GET** /v1/assets/items/{id_or_class_name} | Get Item
 *ItemsApi* | [**getItemsByHeroId**](Apis/ItemsApi.http#getitemsbyheroid) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero
@@ -127,10 +132,6 @@ Class | Method | HTTP request | Description
 *SQLApi* | [**listTables**](Apis/SQLApi.http#listtables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](Apis/SQLApi.http#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**tableSchema**](Apis/SQLApi.http#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
-*ServersApi* | [**ingest**](Apis/ServersApi.http#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
-*ServersApi* | [**list**](Apis/ServersApi.http#list) | **GET** /v1/servers | List Game Servers
-*ServersApi* | [**status**](Apis/ServersApi.http#status) | **POST** /v1/servers/status | Game Server Status
-*ServersApi* | [**steamList**](Apis/ServersApi.http#steamlist) | **GET** /v1/servers/steam | List Steam Game Servers
 *SteamApi* | [**steam**](Apis/SteamApi.http#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steamSearch**](Apis/SteamApi.http#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search
 *SteamInfoApi* | [**getAllSteamInfo**](Apis/SteamInfoApi.http#getallsteaminfo) | **GET** /v1/assets/steam-info/all | Get All Steam Infos

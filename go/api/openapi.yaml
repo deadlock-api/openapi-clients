@@ -98,11 +98,6 @@ tags:
     **Deprecated.** Direct SQL access will be removed. Query the public data lake instead:
     https://data.deadlock-api.com (DuckDB / DuckLake) or the MCP server at `/v1/mcp`, see https://deadlock-api.com/data-dumps.
   name: SQL
-- description: |2
-
-    Game server status and listing endpoints.
-    Used by game servers to report their status and by clients to discover available servers.
-  name: Servers
 - description: Accolade definitions derived from per-version game data files.
   name: Accolades
 - description: Build tag definitions derived from per-version localization keys.
@@ -197,7 +192,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -468,7 +463,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -602,7 +597,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -690,7 +685,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -923,7 +918,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -1068,7 +1063,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -1268,7 +1263,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -1565,7 +1560,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -1834,7 +1829,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -2113,7 +2108,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -2399,7 +2394,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -2731,7 +2726,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -3031,7 +3026,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -3331,7 +3326,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -3640,7 +3635,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -3927,7 +3922,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -4219,7 +4214,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -4455,7 +4450,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -4769,7 +4764,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -9128,6 +9123,191 @@ paths:
       summary: Big Days
       tags:
       - Patches
+  /v1/patron/steam-accounts:
+    get:
+      description: |2
+
+        Lists the patron's prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.
+
+        ### Authentication
+        Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header,
+        `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the
+        website login works as well.
+      operationId: list_steam_accounts
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListSteamAccountsResponse"
+          description: ""
+        "401":
+          description: "Missing API key, or the key is not linked to a patron"
+      security:
+      - api_key_header: []
+      - api_key_query: []
+      summary: List Prioritized Steam Accounts
+      tags:
+      - Internal
+    post:
+      description: |2
+
+        Adds a Steam account to the patron's prioritized fetching list. Matches of prioritized accounts are fetched first.
+
+        Re-adding an account that was removed earlier restores that entry.
+
+        ### Authentication
+        Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header,
+        `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the
+        website login works as well.
+      operationId: add_steam_account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddSteamAccountRequest"
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SteamAccountResponse"
+          description: ""
+        "400":
+          description: Invalid `steam_id3` or no free slot left
+        "401":
+          description: "Missing API key, or the key is not linked to a patron"
+      security:
+      - api_key_header: []
+      - api_key_query: []
+      summary: Add Prioritized Steam Account
+      tags:
+      - Internal
+  /v1/patron/steam-accounts/{account_id}:
+    delete:
+      description: |2
+
+        Removes a Steam account from the patron's prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.
+
+        ### Authentication
+        Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header,
+        `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the
+        website login works as well.
+      operationId: delete_steam_account
+      parameters:
+      - description: "The account's `steam_id3`, or the `id` of its entry as returned\
+          \ by the list endpoint"
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteSteamAccountResponse"
+          description: ""
+        "401":
+          description: "Missing API key, or the key is not linked to a patron"
+        "404":
+          description: Account not found or does not belong to the patron
+      security:
+      - api_key_header: []
+      - api_key_query: []
+      summary: Remove Prioritized Steam Account
+      tags:
+      - Internal
+    put:
+      description: |2
+
+        Swaps a removed Steam account whose 24 hour cooldown has passed for a new `steam_id3`. `account_id` is the removed account's `steam_id3` or its entry `id`.
+
+        ### Authentication
+        Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header,
+        `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the
+        website login works as well.
+      operationId: replace_steam_account
+      parameters:
+      - description: "The account's `steam_id3`, or the `id` of its entry as returned\
+          \ by the list endpoint"
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReplaceSteamAccountRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SteamAccountResponse"
+          description: ""
+        "400":
+          description: "Invalid `steam_id3`, the account is still active, or its cooldown\
+            \ has not passed"
+        "401":
+          description: "Missing API key, or the key is not linked to a patron"
+        "404":
+          description: Account not found or does not belong to the patron
+      security:
+      - api_key_header: []
+      - api_key_query: []
+      summary: Replace Prioritized Steam Account
+      tags:
+      - Internal
+  /v1/patron/steam-accounts/{account_id}/reactivate:
+    post:
+      description: |2
+
+        Restores a previously removed Steam account to the patron's prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`.
+
+        ### Authentication
+        Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header,
+        `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the
+        website login works as well.
+      operationId: reactivate_steam_account
+      parameters:
+      - description: "The account's `steam_id3`, or the `id` of its entry as returned\
+          \ by the list endpoint"
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SteamAccountResponse"
+          description: ""
+        "400":
+          description: "The account is already active, or no free slot left"
+        "401":
+          description: "Missing API key, or the key is not linked to a patron"
+        "404":
+          description: Account not found or does not belong to the patron
+      security:
+      - api_key_header: []
+      - api_key_query: []
+      summary: Reactivate Prioritized Steam Account
+      tags:
+      - Internal
   /v1/players/hero-stats:
     get:
       description: "\nThis endpoint returns statistics for each hero played by a given\
@@ -9390,7 +9570,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -9514,7 +9694,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -9836,7 +10016,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787529600
+          default: 1787616000
           format: int64
           nullable: true
           type: integer
@@ -10877,92 +11057,6 @@ paths:
       summary: Rank Image
       tags:
       - Players
-  /v1/servers:
-    get:
-      description: Returns all currently active game servers.
-      operationId: list
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ListServersResponse"
-          description: ""
-      summary: List Game Servers
-      tags:
-      - Servers
-  /v1/servers/metrics:
-    post:
-      description: "\nIngests a single metric event reported by a game server. The\
-        \ schema is intentionally\nflexible: `metric_value` carries the primary numeric\
-        \ measurement and `metadata` holds\narbitrary key/value context that varies\
-        \ per game mode or metric. Optional `map` and\n`game_mode_version` let callers\
-        \ segment leaderboards per map or per ruleset revision.\nRequires a valid\
-        \ game server secret as a Bearer token.\n    "
-      operationId: ingest
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/MetricIngestRequest"
-        required: true
-      responses:
-        "202":
-          description: Metric accepted for ingestion.
-        "400":
-          description: Invalid request body.
-        "401":
-          description: Invalid or missing game server secret.
-      summary: Game Server Metric Ingest
-      tags:
-      - Servers
-  /v1/servers/status:
-    post:
-      description: "\nReports the current status of a game server.\nGame servers must\
-        \ call this endpoint at least once every 30 seconds to remain active.\nRequires\
-        \ a valid game server secret as a Bearer token.\n    "
-      operationId: status
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ServerStatusRequest"
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServerStatusResponse"
-          description: ""
-        "400":
-          description: Invalid request body.
-        "401":
-          description: Invalid or missing game server secret.
-      summary: Game Server Status
-      tags:
-      - Servers
-  /v1/servers/steam:
-    get:
-      description: "\nReturns the list of Deadlock game servers registered with the\
-        \ Steam master server\n(`IGameServersService/GetServerList`), filtered to\
-        \ Deadlock's appid.\n    "
-      operationId: steam_list
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/SteamServer"
-                type: array
-                default: null
-          description: ""
-        "500":
-          description: Fetching the Steam server list failed.
-      summary: List Steam Game Servers
-      tags:
-      - Servers
   /v1/sql:
     get:
       deprecated: true
@@ -11674,6 +11768,17 @@ components:
       - Team1
       - Spectator
       type: string
+    AddSteamAccountRequest:
+      description: Request body for adding a Steam account
+      example:
+        steam_id3: 0
+      properties:
+        steam_id3:
+          description: Steam ID3 (32-bit unsigned integer format)
+          format: int64
+          type: integer
+      required:
+      - steam_id3
     AnalyticsAbilityOrderStats:
       example:
         abilities:
@@ -12813,6 +12918,15 @@ components:
       - healing_damage
       - melee_damage
       - tech_damage
+    DeleteSteamAccountResponse:
+      description: Response for deleting a Steam account
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      required:
+      - message
     DemoQueryJobResponse:
       example:
         job_id: job_id
@@ -13163,46 +13277,6 @@ components:
       - internal
       nullable: true
       type: string
-    GameServerInfo:
-      example:
-        current_player_count: 0
-        game_mode: game_mode
-        hostname: hostname
-        ip: ip
-        last_updated: last_updated
-        port: 0
-        region: region
-        server_id: server_id
-      properties:
-        current_player_count:
-          format: int32
-          minimum: 0
-          type: integer
-        game_mode:
-          type: string
-        hostname:
-          nullable: true
-          type: string
-        ip:
-          type: string
-        last_updated:
-          type: string
-        port:
-          format: int32
-          minimum: 0
-          type: integer
-        region:
-          type: string
-        server_id:
-          type: string
-      required:
-      - current_player_count
-      - game_mode
-      - ip
-      - last_updated
-      - port
-      - region
-      - server_id
     GenericData:
       example:
         aim_spring_strength:
@@ -15825,33 +15899,36 @@ components:
             type: integer
           type: array
           default: null
-    ListServersResponse:
+    ListSteamAccountsResponse:
+      description: Response for listing Steam accounts
       example:
-        servers:
-        - current_player_count: 0
-          game_mode: game_mode
-          hostname: hostname
-          ip: ip
-          last_updated: last_updated
-          port: 0
-          region: region
-          server_id: server_id
-        - current_player_count: 0
-          game_mode: game_mode
-          hostname: hostname
-          ip: ip
-          last_updated: last_updated
-          port: 0
-          region: region
-          server_id: server_id
+        accounts:
+        - created_at: 2000-01-23T04:56:07.000+00:00
+          deleted_at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          is_in_cooldown: true
+          steam_id3: 0
+        - created_at: 2000-01-23T04:56:07.000+00:00
+          deleted_at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          is_in_cooldown: true
+          steam_id3: 0
+        summary:
+          available_slots: 6
+          slots_in_cooldown: 1
+          total_slots: 5
+          used_slots: 5
       properties:
-        servers:
+        accounts:
           items:
-            $ref: "#/components/schemas/GameServerInfo"
+            $ref: "#/components/schemas/SteamAccountListItem"
           type: array
           default: null
+        summary:
+          $ref: "#/components/schemas/SlotsSummary"
       required:
-      - servers
+      - accounts
+      - summary
     LiveUrl:
       example:
         broadcast_url: broadcast_url
@@ -16150,61 +16227,6 @@ components:
       - matches_played
       - mate_id
       - wins
-    MetricIngestRequest:
-      example:
-        account_id: 0
-        game_mode: game_mode
-        game_mode_version: game_mode_version
-        map: map
-        metadata:
-          key: metadata
-        metric_name: metric_name
-        metric_value: 6.027456183070403
-        region: region
-        server_id: server_id
-      properties:
-        account_id:
-          description: Steam account id (`UInt32`) of the player this metric is about
-          format: int32
-          minimum: 0
-          type: integer
-        game_mode:
-          description: Game mode this metric applies to (e.g. "speedrun")
-          type: string
-        game_mode_version:
-          description: "Optional game-mode version tag (e.g. \"v2\", \"season3\")\
-            \ for versioning leaderboards"
-          nullable: true
-          type: string
-        map:
-          description: Optional map identifier the metric was produced on
-          nullable: true
-          type: string
-        metadata:
-          additionalProperties:
-            type: string
-          description: Free-form key/value metadata for game-mode-specific context
-          type: object
-        metric_name:
-          description: Name of the metric (e.g. `run_time`)
-          type: string
-        metric_value:
-          description: The primary numeric measurement for this metric
-          format: double
-          type: number
-        region:
-          description: "Region the server is located in (e.g. \"eu\", \"na\")"
-          type: string
-        server_id:
-          description: Unique identifier for the game server reporting the metric
-          type: string
-      required:
-      - account_id
-      - game_mode
-      - metric_name
-      - metric_value
-      - region
-      - server_id
     MiniMapOffsets:
       example:
         entity_class: entity_class
@@ -18239,6 +18261,17 @@ components:
       - rejuvinator_expiration_warning_timing
       - rejuvinator_rebirth_duration
       - trooper_health_mult
+    ReplaceSteamAccountRequest:
+      description: Request body for replacing a Steam account
+      example:
+        steam_id3: 0
+      properties:
+        steam_id3:
+          description: New Steam ID3 (32-bit unsigned integer format)
+          format: int64
+          type: integer
+      required:
+      - steam_id3
     RollType:
       description: "Known values for `m_eRollType`. Unknown values pass through unchanged\
         \ so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`,\
@@ -18307,66 +18340,6 @@ components:
       - argentina
       - south_america
       type: string
-    ServerStatusRequest:
-      example:
-        current_player_count: 0
-        game_mode: game_mode
-        hostname: hostname
-        ip: ip
-        port: 0
-        region: region
-        server_id: server_id
-      properties:
-        current_player_count:
-          description: Current number of players on this server
-          format: int32
-          minimum: 0
-          type: integer
-        game_mode:
-          description: "Game mode this server is running (e.g. \"ranked\", \"unranked\"\
-            )"
-          type: string
-        hostname:
-          description: Hostname of the game server
-          nullable: true
-          type: string
-        ip:
-          description: IP address of the game server
-          type: string
-        port:
-          description: Port the game server is listening on
-          format: int32
-          minimum: 0
-          type: integer
-        region:
-          description: "Region the server is located in (e.g. \"eu\", \"na\", \"sa\"\
-            , \"asia\", \"oceania\")"
-          type: string
-        server_id:
-          description: Unique identifier for the game server
-          type: string
-      required:
-      - current_player_count
-      - game_mode
-      - ip
-      - port
-      - region
-      - server_id
-    ServerStatusResponse:
-      example:
-        server_id: server_id
-        ttl_secs: 0
-      properties:
-        server_id:
-          description: The server ID that reported status
-          type: string
-        ttl_secs:
-          description: TTL in seconds before this registration expires
-          format: int64
-          type: integer
-      required:
-      - server_id
-      - ttl_secs
     ShopSpiritStatsDisplay:
       example:
         display_stats:
@@ -18477,6 +18450,31 @@ components:
       required:
       - display_stats
       - other_display_stats
+    SlotsSummary:
+      description: Summary of the patron's Steam account slots
+      example:
+        available_slots: 6
+        slots_in_cooldown: 1
+        total_slots: 5
+        used_slots: 5
+      properties:
+        available_slots:
+          format: int32
+          type: integer
+        slots_in_cooldown:
+          format: int32
+          type: integer
+        total_slots:
+          format: int32
+          type: integer
+        used_slots:
+          format: int32
+          type: integer
+      required:
+      - available_slots
+      - slots_in_cooldown
+      - total_slots
+      - used_slots
     SourceLocation:
       properties:
         chain:
@@ -18761,6 +18759,60 @@ components:
       - clickhouse
       - postgres
       - redis
+    SteamAccountListItem:
+      description: Response for a Steam account in the list endpoint (includes `is_in_cooldown`)
+      example:
+        created_at: 2000-01-23T04:56:07.000+00:00
+        deleted_at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        is_in_cooldown: true
+        steam_id3: 0
+      properties:
+        created_at:
+          format: date-time
+          type: string
+        deleted_at:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        is_in_cooldown:
+          type: boolean
+        steam_id3:
+          format: int64
+          type: integer
+      required:
+      - created_at
+      - id
+      - is_in_cooldown
+      - steam_id3
+    SteamAccountResponse:
+      description: Response for a Steam account
+      example:
+        created_at: 2000-01-23T04:56:07.000+00:00
+        deleted_at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        steam_id3: 0
+      properties:
+        created_at:
+          format: date-time
+          type: string
+        deleted_at:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        steam_id3:
+          format: int64
+          type: integer
+      required:
+      - created_at
+      - id
+      - steam_id3
     SteamFriend:
       example:
         account_id: 0
@@ -18924,107 +18976,6 @@ components:
       - matches_played_last_30d
       - personaname
       - profileurl
-    SteamServer:
-      example:
-        addr: addr
-        appid: 0
-        bots: 0
-        dedicated: true
-        gamedir: gamedir
-        gameport: 0
-        gametype: gametype
-        map: map
-        max_players: 0
-        name: name
-        os: os
-        players: 0
-        product: product
-        region: 2
-        secure: true
-        steamid: steamid
-        version: version
-      properties:
-        addr:
-          description: Full address of the server including port (e.g. `1.2.3.4:27015`)
-          type: string
-        appid:
-          description: Steam appid of the game running on this server
-          format: int32
-          minimum: 0
-          type: integer
-        bots:
-          description: Number of bots on the server
-          format: int32
-          minimum: 0
-          type: integer
-        dedicated:
-          description: Whether this is a dedicated server
-          type: boolean
-        gamedir:
-          description: Internal game directory name
-          type: string
-        gameport:
-          description: Game port the server is listening on
-          format: int32
-          minimum: 0
-          type: integer
-        gametype:
-          description: Steam gametype tags
-          type: string
-        map:
-          description: Current map
-          type: string
-        max_players:
-          description: Maximum player count
-          format: int32
-          minimum: 0
-          type: integer
-        name:
-          description: Server name as advertised to Steam
-          type: string
-        os:
-          description: "Operating system the server is running on (e.g. `l` for Linux,\
-            \ `w` for Windows)"
-          type: string
-        players:
-          description: Current player count
-          format: int32
-          minimum: 0
-          type: integer
-        product:
-          description: Product identifier reported by the server
-          type: string
-        region:
-          description: Steam region code reported by the server
-          format: int32
-          type: integer
-        secure:
-          description: Whether the server is VAC-secured
-          type: boolean
-        steamid:
-          description: '`SteamID` of the server'
-          type: string
-        version:
-          description: Server build version
-          type: string
-      required:
-      - addr
-      - appid
-      - bots
-      - dedicated
-      - gamedir
-      - gameport
-      - gametype
-      - map
-      - max_players
-      - name
-      - os
-      - players
-      - product
-      - region
-      - secure
-      - steamid
-      - version
     StreetBrawl:
       properties:
         apper_round:
@@ -20393,6 +20344,5 @@ x-tagGroups:
   tags:
   - GraphQL
   - SQL
-  - Servers
   - Commands
   - Internal

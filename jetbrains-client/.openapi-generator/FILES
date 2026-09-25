@@ -27,7 +27,6 @@ Apis/PlayersApi.http
 Apis/RankedSeasonsApi.http
 Apis/RanksApi.http
 Apis/SQLApi.http
-Apis/ServersApi.http
 Apis/SteamApi.http
 Apis/SteamInfoApi.http
 Apis/http-client.template.env.json

@@ -119,7 +119,12 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *HeroesApi* | [**listHeroes**](docs/HeroesApi.md#listheroes) | **GET** /v1/assets/heroes | List Heroes |
 | *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check |
 | *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info |
+| *InternalApi* | [**addSteamAccount**](docs/InternalApi.md#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
+| *InternalApi* | [**deleteSteamAccount**](docs/InternalApi.md#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | *InternalApi* | [**ingestSalts**](docs/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+| *InternalApi* | [**listSteamAccounts**](docs/InternalApi.md#liststeamaccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts |
+| *InternalApi* | [**reactivateSteamAccount**](docs/InternalApi.md#reactivatesteamaccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account |
+| *InternalApi* | [**replaceSteamAccount**](docs/InternalApi.md#replacesteamaccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account |
 | *InternalApi* | [**submitFeedback**](docs/InternalApi.md#submitfeedback) | **POST** /v1/feedback | Submit Website Feedback |
 | *ItemsApi* | [**getItem**](docs/ItemsApi.md#getitem) | **GET** /v1/assets/items/{id_or_class_name} | Get Item |
 | *ItemsApi* | [**getItemsByHeroId**](docs/ItemsApi.md#getitemsbyheroid) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero |
@@ -176,10 +181,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *SQLApi* | [**listTables**](docs/SQLApi.md#listtables) | **GET** /v1/sql/tables | List Tables |
 | *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query |
 | *SQLApi* | [**tableSchema**](docs/SQLApi.md#tableschema) | **GET** /v1/sql/tables/{table}/schema | Table Schema |
-| *ServersApi* | [**ingest**](docs/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest |
-| *ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers |
-| *ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status |
-| *ServersApi* | [**steamList**](docs/ServersApi.md#steamlist) | **GET** /v1/servers/steam | List Steam Game Servers |
 | *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile |
 | *SteamApi* | [**steamSearch**](docs/SteamApi.md#steamsearch) | **GET** /v1/players/steam-search | Steam Profile Search |
 | *SteamInfoApi* | [**getAllSteamInfo**](docs/SteamInfoApi.md#getallsteaminfo) | **GET** /v1/assets/steam-info/all | Get All Steam Infos |
@@ -205,6 +206,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ActiveMatchMode](docs/ActiveMatchMode.md)
  - [deadlock_api_client.models.ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
  - [deadlock_api_client.models.ActiveMatchTeam](docs/ActiveMatchTeam.md)
+ - [deadlock_api_client.models.AddSteamAccountRequest](docs/AddSteamAccountRequest.md)
  - [deadlock_api_client.models.AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
  - [deadlock_api_client.models.AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [deadlock_api_client.models.AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
@@ -227,6 +229,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Curve](docs/Curve.md)
  - [deadlock_api_client.models.CurveOrFloat](docs/CurveOrFloat.md)
  - [deadlock_api_client.models.DamageFlash](docs/DamageFlash.md)
+ - [deadlock_api_client.models.DeleteSteamAccountResponse](docs/DeleteSteamAccountResponse.md)
  - [deadlock_api_client.models.DemoQueryJobResponse](docs/DemoQueryJobResponse.md)
  - [deadlock_api_client.models.DemoQueryRequest](docs/DemoQueryRequest.md)
  - [deadlock_api_client.models.DemoQueryStatusResponse](docs/DemoQueryStatusResponse.md)
@@ -245,7 +248,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.FlashData](docs/FlashData.md)
  - [deadlock_api_client.models.ForumPatch](docs/ForumPatch.md)
  - [deadlock_api_client.models.GameMode](docs/GameMode.md)
- - [deadlock_api_client.models.GameServerInfo](docs/GameServerInfo.md)
  - [deadlock_api_client.models.GenericData](docs/GenericData.md)
  - [deadlock_api_client.models.GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [deadlock_api_client.models.GlitchSettings](docs/GlitchSettings.md)
@@ -296,7 +298,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.LastRankedMatch](docs/LastRankedMatch.md)
  - [deadlock_api_client.models.Leaderboard](docs/Leaderboard.md)
  - [deadlock_api_client.models.LeaderboardEntry](docs/LeaderboardEntry.md)
- - [deadlock_api_client.models.ListServersResponse](docs/ListServersResponse.md)
+ - [deadlock_api_client.models.ListSteamAccountsResponse](docs/ListSteamAccountsResponse.md)
  - [deadlock_api_client.models.LiveUrl](docs/LiveUrl.md)
  - [deadlock_api_client.models.LootEntry](docs/LootEntry.md)
  - [deadlock_api_client.models.LootTable](docs/LootTable.md)
@@ -307,7 +309,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [deadlock_api_client.models.MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [deadlock_api_client.models.MateStats](docs/MateStats.md)
- - [deadlock_api_client.models.MetricIngestRequest](docs/MetricIngestRequest.md)
  - [deadlock_api_client.models.MiniMapOffsets](docs/MiniMapOffsets.md)
  - [deadlock_api_client.models.MiscEntity](docs/MiscEntity.md)
  - [deadlock_api_client.models.ModifierValue](docs/ModifierValue.md)
@@ -347,15 +348,15 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.RecoilRange](docs/RecoilRange.md)
  - [deadlock_api_client.models.RegionMode](docs/RegionMode.md)
  - [deadlock_api_client.models.RejuvParams](docs/RejuvParams.md)
+ - [deadlock_api_client.models.ReplaceSteamAccountRequest](docs/ReplaceSteamAccountRequest.md)
  - [deadlock_api_client.models.ScriptValues](docs/ScriptValues.md)
  - [deadlock_api_client.models.SeasonInterval](docs/SeasonInterval.md)
  - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
- - [deadlock_api_client.models.ServerStatusRequest](docs/ServerStatusRequest.md)
- - [deadlock_api_client.models.ServerStatusResponse](docs/ServerStatusResponse.md)
  - [deadlock_api_client.models.ShopSpiritStatsDisplay](docs/ShopSpiritStatsDisplay.md)
  - [deadlock_api_client.models.ShopStatDisplay](docs/ShopStatDisplay.md)
  - [deadlock_api_client.models.ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)
  - [deadlock_api_client.models.ShopWeaponStatsDisplay](docs/ShopWeaponStatsDisplay.md)
+ - [deadlock_api_client.models.SlotsSummary](docs/SlotsSummary.md)
  - [deadlock_api_client.models.SourceLocation](docs/SourceLocation.md)
  - [deadlock_api_client.models.SpreadPenalty](docs/SpreadPenalty.md)
  - [deadlock_api_client.models.StartingStat](docs/StartingStat.md)
@@ -364,11 +365,12 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.StatsUsageFlag](docs/StatsUsageFlag.md)
  - [deadlock_api_client.models.Status](docs/Status.md)
  - [deadlock_api_client.models.StatusServices](docs/StatusServices.md)
+ - [deadlock_api_client.models.SteamAccountListItem](docs/SteamAccountListItem.md)
+ - [deadlock_api_client.models.SteamAccountResponse](docs/SteamAccountResponse.md)
  - [deadlock_api_client.models.SteamFriend](docs/SteamFriend.md)
  - [deadlock_api_client.models.SteamInfo](docs/SteamInfo.md)
  - [deadlock_api_client.models.SteamNews](docs/SteamNews.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)
- - [deadlock_api_client.models.SteamServer](docs/SteamServer.md)
  - [deadlock_api_client.models.StreetBrawl](docs/StreetBrawl.md)
  - [deadlock_api_client.models.SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [deadlock_api_client.models.SubclassBulletResistModifierSubclass](docs/SubclassBulletResistModifierSubclass.md)

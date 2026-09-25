@@ -1,5 +1,23 @@
 ## InternalApi
 
+### Add Prioritized Steam Account
+## Add Prioritized Steam Account
+POST https://api.deadlock-api.com/v1/patron/steam-accounts?api_key={{queryKey}}
+Content-Type: application/json
+Accept: application/json
+X-API-KEY: {{apiKey}}
+
+{
+ "steam_id3": "<number>"
+}
+
+
+### Remove Prioritized Steam Account
+## Remove Prioritized Steam Account
+DELETE https://api.deadlock-api.com/v1/patron/steam-accounts/{{account_id}}?api_key={{queryKey}}
+Accept: application/json
+X-API-KEY: {{apiKey}}
+
 ### Match Salts Ingest
 ## Match Salts Ingest
 POST https://api.deadlock-api.com/v1/matches/salts
@@ -7,6 +25,30 @@ Content-Type: application/json
 
 {
  
+}
+
+
+### List Prioritized Steam Accounts
+## List Prioritized Steam Accounts
+GET https://api.deadlock-api.com/v1/patron/steam-accounts?api_key={{queryKey}}
+Accept: application/json
+X-API-KEY: {{apiKey}}
+
+### Reactivate Prioritized Steam Account
+## Reactivate Prioritized Steam Account
+POST https://api.deadlock-api.com/v1/patron/steam-accounts/{{account_id}}/reactivate?api_key={{queryKey}}
+Accept: application/json
+X-API-KEY: {{apiKey}}
+
+### Replace Prioritized Steam Account
+## Replace Prioritized Steam Account
+PUT https://api.deadlock-api.com/v1/patron/steam-accounts/{{account_id}}?api_key={{queryKey}}
+Content-Type: application/json
+Accept: application/json
+X-API-KEY: {{apiKey}}
+
+{
+ "steam_id3": "<number>"
 }
 
 

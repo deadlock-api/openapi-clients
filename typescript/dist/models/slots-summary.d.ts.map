@@ -1,0 +1,1 @@
+{"version":3,"file":"slots-summary.d.ts","sourceRoot":"","sources":["../../models/slots-summary.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH;;GAEG;AACH,MAAM,WAAW,YAAY;IACzB,iBAAiB,EAAE,MAAM,CAAC;IAC1B,mBAAmB,EAAE,MAAM,CAAC;IAC5B,aAAa,EAAE,MAAM,CAAC;IACtB,YAAY,EAAE,MAAM,CAAC;CACxB"}

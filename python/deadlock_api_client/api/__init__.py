@@ -29,7 +29,6 @@ from deadlock_api_client.api.players_api import PlayersApi
 from deadlock_api_client.api.ranked_seasons_api import RankedSeasonsApi
 from deadlock_api_client.api.ranks_api import RanksApi
 from deadlock_api_client.api.sql_api import SQLApi
-from deadlock_api_client.api.servers_api import ServersApi
 from deadlock_api_client.api.steam_api import SteamApi
 from deadlock_api_client.api.steam_info_api import SteamInfoApi
 

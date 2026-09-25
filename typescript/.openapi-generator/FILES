@@ -30,7 +30,6 @@ apis/patches-api.ts
 apis/players-api.ts
 apis/ranked-seasons-api.ts
 apis/ranks-api.ts
-apis/servers-api.ts
 apis/sqlapi.ts
 apis/steam-api.ts
 apis/steam-info-api.ts
@@ -54,6 +53,7 @@ docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
 docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
+docs/AddSteamAccountRequest.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
 docs/AnalyticsGameStats.md
@@ -84,6 +84,7 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
 docs/DamageFlash.md
+docs/DeleteSteamAccountResponse.md
 docs/DemoApi.md
 docs/DemoQueryJobResponse.md
 docs/DemoQueryRequest.md
@@ -103,7 +104,6 @@ docs/FeedbackTarget.md
 docs/FlashData.md
 docs/ForumPatch.md
 docs/GameMode.md
-docs/GameServerInfo.md
 docs/GenericData.md
 docs/GenericDataApi.md
 docs/GetCustomMatchIdResponse.md
@@ -161,7 +161,7 @@ docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
-docs/ListServersResponse.md
+docs/ListSteamAccountsResponse.md
 docs/LiveUrl.md
 docs/LootEntry.md
 docs/LootTable.md
@@ -176,7 +176,6 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
-docs/MetricIngestRequest.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
@@ -222,17 +221,16 @@ docs/RawWeaponInfoVerticalRecoil.md
 docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
+docs/ReplaceSteamAccountRequest.md
 docs/SQLApi.md
 docs/ScriptValues.md
 docs/SeasonInterval.md
 docs/ServerRegion.md
-docs/ServerStatusRequest.md
-docs/ServerStatusResponse.md
-docs/ServersApi.md
 docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
 docs/ShopWeaponStatsDisplay.md
+docs/SlotsSummary.md
 docs/SourceLocation.md
 docs/SpreadPenalty.md
 docs/StartingStat.md
@@ -241,13 +239,14 @@ docs/StatsDisplay.md
 docs/StatsUsageFlag.md
 docs/Status.md
 docs/StatusServices.md
+docs/SteamAccountListItem.md
+docs/SteamAccountResponse.md
 docs/SteamApi.md
 docs/SteamFriend.md
 docs/SteamInfo.md
 docs/SteamInfoApi.md
 docs/SteamNews.md
 docs/SteamProfile.md
-docs/SteamServer.md
 docs/StreetBrawl.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassBulletResistModifierSubclass.md
@@ -300,6 +299,7 @@ models/active-match-mode.ts
 models/active-match-player.ts
 models/active-match-team.ts
 models/active-match.ts
+models/add-steam-account-request.ts
 models/analytics-ability-order-stats.ts
 models/analytics-game-stats.ts
 models/analytics-hero-stats.ts
@@ -323,6 +323,7 @@ models/create-custom-response.ts
 models/curve-or-float.ts
 models/curve.ts
 models/damage-flash.ts
+models/delete-steam-account-response.ts
 models/demo-query-job-response.ts
 models/demo-query-request.ts
 models/demo-query-status-response.ts
@@ -341,7 +342,6 @@ models/feedback-target.ts
 models/flash-data.ts
 models/forum-patch.ts
 models/game-mode.ts
-models/game-server-info.ts
 models/generic-data.ts
 models/get-custom-match-id-response.ts
 models/glitch-settings.ts
@@ -393,7 +393,7 @@ models/lane-stat-curve.ts
 models/last-ranked-match.ts
 models/leaderboard-entry.ts
 models/leaderboard.ts
-models/list-servers-response.ts
+models/list-steam-accounts-response.ts
 models/live-url.ts
 models/loot-entry.ts
 models/loot-table.ts
@@ -403,7 +403,6 @@ models/match-player.ts
 models/match-salts-response.ts
 models/match-spectate-response.ts
 models/mate-stats.ts
-models/metric-ingest-request.ts
 models/mini-map-offsets.ts
 models/misc-entity.ts
 models/mmrhistory.ts
@@ -444,15 +443,15 @@ models/raw-weapon-info-vertical-recoil.ts
 models/recoil-range.ts
 models/region-mode.ts
 models/rejuv-params.ts
+models/replace-steam-account-request.ts
 models/script-values.ts
 models/season-interval.ts
 models/server-region.ts
-models/server-status-request.ts
-models/server-status-response.ts
 models/shop-spirit-stats-display.ts
 models/shop-stat-display.ts
 models/shop-vitality-stats-display.ts
 models/shop-weapon-stats-display.ts
+models/slots-summary.ts
 models/source-location.ts
 models/spread-penalty.ts
 models/starting-stat.ts
@@ -461,11 +460,12 @@ models/stats-display.ts
 models/stats-usage-flag.ts
 models/status-services.ts
 models/status.ts
+models/steam-account-list-item.ts
+models/steam-account-response.ts
 models/steam-friend.ts
 models/steam-info.ts
 models/steam-news.ts
 models/steam-profile.ts
-models/steam-server.ts
 models/street-brawl.ts
 models/subclass-bullet-resist-modifier-subclass.ts
 models/subclass-bullet-resist-modifier.ts

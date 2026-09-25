@@ -26,6 +26,5 @@ export * from './PlayersApi';
 export * from './RankedSeasonsApi';
 export * from './RanksApi';
 export * from './SQLApi';
-export * from './ServersApi';
 export * from './SteamApi';
 export * from './SteamInfoApi';

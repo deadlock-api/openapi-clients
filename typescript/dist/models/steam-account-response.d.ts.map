@@ -1,0 +1,1 @@
+{"version":3,"file":"steam-account-response.d.ts","sourceRoot":"","sources":["../../models/steam-account-response.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH;;GAEG;AACH,MAAM,WAAW,oBAAoB;IACjC,YAAY,EAAE,MAAM,CAAC;IACrB,YAAY,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC7B,IAAI,EAAE,MAAM,CAAC;IACb,WAAW,EAAE,MAAM,CAAC;CACvB"}

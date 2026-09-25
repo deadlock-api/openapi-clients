@@ -139,7 +139,6 @@ pub mod players_api;
 pub mod ranked_seasons_api;
 pub mod ranks_api;
 pub mod sql_api;
-pub mod servers_api;
 pub mod steam_api;
 pub mod steam_info_api;
 

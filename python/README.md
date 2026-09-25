@@ -161,7 +161,12 @@ Class | Method | HTTP request | Description
 *HeroesApi* | [**list_heroes**](docs/HeroesApi.md#list_heroes) | **GET** /v1/assets/heroes | List Heroes
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info
+*InternalApi* | [**add_steam_account**](docs/InternalApi.md#add_steam_account) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
+*InternalApi* | [**delete_steam_account**](docs/InternalApi.md#delete_steam_account) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 *InternalApi* | [**ingest_salts**](docs/InternalApi.md#ingest_salts) | **POST** /v1/matches/salts | Match Salts Ingest
+*InternalApi* | [**list_steam_accounts**](docs/InternalApi.md#list_steam_accounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts
+*InternalApi* | [**reactivate_steam_account**](docs/InternalApi.md#reactivate_steam_account) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account
+*InternalApi* | [**replace_steam_account**](docs/InternalApi.md#replace_steam_account) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account
 *InternalApi* | [**submit_feedback**](docs/InternalApi.md#submit_feedback) | **POST** /v1/feedback | Submit Website Feedback
 *ItemsApi* | [**get_item**](docs/ItemsApi.md#get_item) | **GET** /v1/assets/items/{id_or_class_name} | Get Item
 *ItemsApi* | [**get_items_by_hero_id**](docs/ItemsApi.md#get_items_by_hero_id) | **GET** /v1/assets/items/by-hero-id/{id} | List Items By Hero
@@ -218,10 +223,6 @@ Class | Method | HTTP request | Description
 *SQLApi* | [**list_tables**](docs/SQLApi.md#list_tables) | **GET** /v1/sql/tables | List Tables
 *SQLApi* | [**sql**](docs/SQLApi.md#sql) | **GET** /v1/sql | Query
 *SQLApi* | [**table_schema**](docs/SQLApi.md#table_schema) | **GET** /v1/sql/tables/{table}/schema | Table Schema
-*ServersApi* | [**ingest**](docs/ServersApi.md#ingest) | **POST** /v1/servers/metrics | Game Server Metric Ingest
-*ServersApi* | [**list**](docs/ServersApi.md#list) | **GET** /v1/servers | List Game Servers
-*ServersApi* | [**status**](docs/ServersApi.md#status) | **POST** /v1/servers/status | Game Server Status
-*ServersApi* | [**steam_list**](docs/ServersApi.md#steam_list) | **GET** /v1/servers/steam | List Steam Game Servers
 *SteamApi* | [**steam**](docs/SteamApi.md#steam) | **GET** /v1/players/steam | Batch Steam Profile
 *SteamApi* | [**steam_search**](docs/SteamApi.md#steam_search) | **GET** /v1/players/steam-search | Steam Profile Search
 *SteamInfoApi* | [**get_all_steam_info**](docs/SteamInfoApi.md#get_all_steam_info) | **GET** /v1/assets/steam-info/all | Get All Steam Infos
@@ -246,6 +247,7 @@ Class | Method | HTTP request | Description
  - [ActiveMatchMode](docs/ActiveMatchMode.md)
  - [ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
  - [ActiveMatchTeam](docs/ActiveMatchTeam.md)
+ - [AddSteamAccountRequest](docs/AddSteamAccountRequest.md)
  - [AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
  - [AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
@@ -268,6 +270,7 @@ Class | Method | HTTP request | Description
  - [Curve](docs/Curve.md)
  - [CurveOrFloat](docs/CurveOrFloat.md)
  - [DamageFlash](docs/DamageFlash.md)
+ - [DeleteSteamAccountResponse](docs/DeleteSteamAccountResponse.md)
  - [DemoQueryJobResponse](docs/DemoQueryJobResponse.md)
  - [DemoQueryRequest](docs/DemoQueryRequest.md)
  - [DemoQueryStatusResponse](docs/DemoQueryStatusResponse.md)
@@ -286,7 +289,6 @@ Class | Method | HTTP request | Description
  - [FlashData](docs/FlashData.md)
  - [ForumPatch](docs/ForumPatch.md)
  - [GameMode](docs/GameMode.md)
- - [GameServerInfo](docs/GameServerInfo.md)
  - [GenericData](docs/GenericData.md)
  - [GetCustomMatchIdResponse](docs/GetCustomMatchIdResponse.md)
  - [GlitchSettings](docs/GlitchSettings.md)
@@ -337,7 +339,7 @@ Class | Method | HTTP request | Description
  - [LastRankedMatch](docs/LastRankedMatch.md)
  - [Leaderboard](docs/Leaderboard.md)
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
- - [ListServersResponse](docs/ListServersResponse.md)
+ - [ListSteamAccountsResponse](docs/ListSteamAccountsResponse.md)
  - [LiveUrl](docs/LiveUrl.md)
  - [LootEntry](docs/LootEntry.md)
  - [LootTable](docs/LootTable.md)
@@ -348,7 +350,6 @@ Class | Method | HTTP request | Description
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
  - [MatchSpectateResponse](docs/MatchSpectateResponse.md)
  - [MateStats](docs/MateStats.md)
- - [MetricIngestRequest](docs/MetricIngestRequest.md)
  - [MiniMapOffsets](docs/MiniMapOffsets.md)
  - [MiscEntity](docs/MiscEntity.md)
  - [ModifierValue](docs/ModifierValue.md)
@@ -388,15 +389,15 @@ Class | Method | HTTP request | Description
  - [RecoilRange](docs/RecoilRange.md)
  - [RegionMode](docs/RegionMode.md)
  - [RejuvParams](docs/RejuvParams.md)
+ - [ReplaceSteamAccountRequest](docs/ReplaceSteamAccountRequest.md)
  - [ScriptValues](docs/ScriptValues.md)
  - [SeasonInterval](docs/SeasonInterval.md)
  - [ServerRegion](docs/ServerRegion.md)
- - [ServerStatusRequest](docs/ServerStatusRequest.md)
- - [ServerStatusResponse](docs/ServerStatusResponse.md)
  - [ShopSpiritStatsDisplay](docs/ShopSpiritStatsDisplay.md)
  - [ShopStatDisplay](docs/ShopStatDisplay.md)
  - [ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)
  - [ShopWeaponStatsDisplay](docs/ShopWeaponStatsDisplay.md)
+ - [SlotsSummary](docs/SlotsSummary.md)
  - [SourceLocation](docs/SourceLocation.md)
  - [SpreadPenalty](docs/SpreadPenalty.md)
  - [StartingStat](docs/StartingStat.md)
@@ -405,11 +406,12 @@ Class | Method | HTTP request | Description
  - [StatsUsageFlag](docs/StatsUsageFlag.md)
  - [Status](docs/Status.md)
  - [StatusServices](docs/StatusServices.md)
+ - [SteamAccountListItem](docs/SteamAccountListItem.md)
+ - [SteamAccountResponse](docs/SteamAccountResponse.md)
  - [SteamFriend](docs/SteamFriend.md)
  - [SteamInfo](docs/SteamInfo.md)
  - [SteamNews](docs/SteamNews.md)
  - [SteamProfile](docs/SteamProfile.md)
- - [SteamServer](docs/SteamServer.md)
  - [StreetBrawl](docs/StreetBrawl.md)
  - [SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [SubclassBulletResistModifierSubclass](docs/SubclassBulletResistModifierSubclass.md)

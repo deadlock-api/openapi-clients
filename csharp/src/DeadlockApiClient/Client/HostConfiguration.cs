@@ -66,6 +66,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ActiveMatchPlayerJsonConverter());
             _jsonOptions.Converters.Add(new ActiveMatchTeamJsonConverter());
             _jsonOptions.Converters.Add(new ActiveMatchTeamNullableJsonConverter());
+            _jsonOptions.Converters.Add(new AddSteamAccountRequestJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsAbilityOrderStatsJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsGameStatsJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsHeroStatsJsonConverter());
@@ -88,6 +89,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new CurveJsonConverter());
             _jsonOptions.Converters.Add(new CurveOrFloatJsonConverter());
             _jsonOptions.Converters.Add(new DamageFlashJsonConverter());
+            _jsonOptions.Converters.Add(new DeleteSteamAccountResponseJsonConverter());
             _jsonOptions.Converters.Add(new DemoQueryJobResponseJsonConverter());
             _jsonOptions.Converters.Add(new DemoQueryRequestJsonConverter());
             _jsonOptions.Converters.Add(new DemoQueryStatusResponseJsonConverter());
@@ -108,7 +110,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ForumPatchJsonConverter());
             _jsonOptions.Converters.Add(new GameModeJsonConverter());
             _jsonOptions.Converters.Add(new GameModeNullableJsonConverter());
-            _jsonOptions.Converters.Add(new GameServerInfoJsonConverter());
             _jsonOptions.Converters.Add(new GenericDataJsonConverter());
             _jsonOptions.Converters.Add(new GetCustomMatchIdResponseJsonConverter());
             _jsonOptions.Converters.Add(new GlitchSettingsJsonConverter());
@@ -163,7 +164,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new LastRankedMatchJsonConverter());
             _jsonOptions.Converters.Add(new LeaderboardJsonConverter());
             _jsonOptions.Converters.Add(new LeaderboardEntryJsonConverter());
-            _jsonOptions.Converters.Add(new ListServersResponseJsonConverter());
+            _jsonOptions.Converters.Add(new ListSteamAccountsResponseJsonConverter());
             _jsonOptions.Converters.Add(new LiveUrlJsonConverter());
             _jsonOptions.Converters.Add(new LootEntryJsonConverter());
             _jsonOptions.Converters.Add(new LootTableJsonConverter());
@@ -174,7 +175,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());
             _jsonOptions.Converters.Add(new MatchSpectateResponseJsonConverter());
             _jsonOptions.Converters.Add(new MateStatsJsonConverter());
-            _jsonOptions.Converters.Add(new MetricIngestRequestJsonConverter());
             _jsonOptions.Converters.Add(new MiniMapOffsetsJsonConverter());
             _jsonOptions.Converters.Add(new MiscEntityJsonConverter());
             _jsonOptions.Converters.Add(new ModifierValueJsonConverter());
@@ -216,16 +216,16 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RegionModeJsonConverter());
             _jsonOptions.Converters.Add(new RegionModeNullableJsonConverter());
             _jsonOptions.Converters.Add(new RejuvParamsJsonConverter());
+            _jsonOptions.Converters.Add(new ReplaceSteamAccountRequestJsonConverter());
             _jsonOptions.Converters.Add(new ScriptValuesJsonConverter());
             _jsonOptions.Converters.Add(new SeasonIntervalJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionNullableJsonConverter());
-            _jsonOptions.Converters.Add(new ServerStatusRequestJsonConverter());
-            _jsonOptions.Converters.Add(new ServerStatusResponseJsonConverter());
             _jsonOptions.Converters.Add(new ShopSpiritStatsDisplayJsonConverter());
             _jsonOptions.Converters.Add(new ShopStatDisplayJsonConverter());
             _jsonOptions.Converters.Add(new ShopVitalityStatsDisplayJsonConverter());
             _jsonOptions.Converters.Add(new ShopWeaponStatsDisplayJsonConverter());
+            _jsonOptions.Converters.Add(new SlotsSummaryJsonConverter());
             _jsonOptions.Converters.Add(new SourceLocationJsonConverter());
             _jsonOptions.Converters.Add(new SpreadPenaltyJsonConverter());
             _jsonOptions.Converters.Add(new StartingStatJsonConverter());
@@ -235,11 +235,12 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new StatsUsageFlagNullableJsonConverter());
             _jsonOptions.Converters.Add(new StatusJsonConverter());
             _jsonOptions.Converters.Add(new StatusServicesJsonConverter());
+            _jsonOptions.Converters.Add(new SteamAccountListItemJsonConverter());
+            _jsonOptions.Converters.Add(new SteamAccountResponseJsonConverter());
             _jsonOptions.Converters.Add(new SteamFriendJsonConverter());
             _jsonOptions.Converters.Add(new SteamInfoJsonConverter());
             _jsonOptions.Converters.Add(new SteamNewsJsonConverter());
             _jsonOptions.Converters.Add(new SteamProfileJsonConverter());
-            _jsonOptions.Converters.Add(new SteamServerJsonConverter());
             _jsonOptions.Converters.Add(new StreetBrawlJsonConverter());
             _jsonOptions.Converters.Add(new SubclassBulletResistModifierJsonConverter());
             _jsonOptions.Converters.Add(new SubclassBulletResistModifierSubclassJsonConverter());
@@ -307,7 +308,6 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<RankedSeasonsApiEvents>();
             _services.AddSingleton<RanksApiEvents>();
             _services.AddSingleton<SQLApiEvents>();
-            _services.AddSingleton<ServersApiEvents>();
             _services.AddSingleton<SteamApiEvents>();
             _services.AddSingleton<SteamInfoApiEvents>();
             OnHostConfigurationCreated();
@@ -383,7 +383,6 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IRankedSeasonsApi, RankedSeasonsApi>("DeadlockApiClient.Api.IRankedSeasonsApi", client));
             builders.Add(_services.AddHttpClient<IRanksApi, RanksApi>("DeadlockApiClient.Api.IRanksApi", client));
             builders.Add(_services.AddHttpClient<ISQLApi, SQLApi>("DeadlockApiClient.Api.ISQLApi", client));
-            builders.Add(_services.AddHttpClient<IServersApi, ServersApi>("DeadlockApiClient.Api.IServersApi", client));
             builders.Add(_services.AddHttpClient<ISteamApi, SteamApi>("DeadlockApiClient.Api.ISteamApi", client));
             builders.Add(_services.AddHttpClient<ISteamInfoApi, SteamInfoApi>("DeadlockApiClient.Api.ISteamInfoApi", client));
 

@@ -72,12 +72,72 @@ class InternalApiTest extends TestCase
     }
 
     /**
+     * Test case for addSteamAccount
+     *
+     * Add Prioritized Steam Account.
+     *
+     */
+    public function testAddSteamAccount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteSteamAccount
+     *
+     * Remove Prioritized Steam Account.
+     *
+     */
+    public function testDeleteSteamAccount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for ingestSalts
      *
      * Match Salts Ingest.
      *
      */
     public function testIngestSalts()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for listSteamAccounts
+     *
+     * List Prioritized Steam Accounts.
+     *
+     */
+    public function testListSteamAccounts()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for reactivateSteamAccount
+     *
+     * Reactivate Prioritized Steam Account.
+     *
+     */
+    public function testReactivateSteamAccount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for replaceSteamAccount
+     *
+     * Replace Prioritized Steam Account.
+     *
+     */
+    public function testReplaceSteamAccount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

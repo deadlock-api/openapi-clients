@@ -14,7 +14,7 @@
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common.js';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common.js';
 // @ts-ignore
 import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 /**
@@ -22,6 +22,75 @@ import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
  */
 export const InternalApiAxiosParamCreator = function (configuration) {
     return {
+        /**
+         *  Adds a Steam account to the patron\'s prioritized fetching list. Matches of prioritized accounts are fetched first.  Re-adding an account that was removed earlier restores that entry.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Add Prioritized Steam Account
+         * @param {AddSteamAccountRequest} addSteamAccountRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addSteamAccount: async (addSteamAccountRequest, options = {}) => {
+            // verify required parameter 'addSteamAccountRequest' is not null or undefined
+            assertParamExists('addSteamAccount', 'addSteamAccountRequest', addSteamAccountRequest);
+            const localVarPath = `/v1/patron/steam-accounts`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication api_key_query required
+            await setApiKeyToObject(localVarQueryParameter, "api_key", configuration);
+            // authentication api_key_header required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-KEY", configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            localVarRequestOptions.data = serializeDataIfNeeded(addSteamAccountRequest, localVarRequestOptions, configuration);
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Remove Prioritized Steam Account
+         * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSteamAccount: async (accountId, options = {}) => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('deleteSteamAccount', 'accountId', accountId);
+            const localVarPath = `/v1/patron/steam-accounts/{account_id}`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication api_key_query required
+            await setApiKeyToObject(localVarQueryParameter, "api_key", configuration);
+            // authentication api_key_header required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-KEY", configuration);
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Match Salts Ingest
@@ -47,6 +116,109 @@ export const InternalApiAxiosParamCreator = function (configuration) {
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
             localVarRequestOptions.data = serializeDataIfNeeded(clickhouseSalts, localVarRequestOptions, configuration);
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary List Prioritized Steam Accounts
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSteamAccounts: async (options = {}) => {
+            const localVarPath = `/v1/patron/steam-accounts`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication api_key_query required
+            await setApiKeyToObject(localVarQueryParameter, "api_key", configuration);
+            // authentication api_key_header required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-KEY", configuration);
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Restores a previously removed Steam account to the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Reactivate Prioritized Steam Account
+         * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        reactivateSteamAccount: async (accountId, options = {}) => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('reactivateSteamAccount', 'accountId', accountId);
+            const localVarPath = `/v1/patron/steam-accounts/{account_id}/reactivate`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication api_key_query required
+            await setApiKeyToObject(localVarQueryParameter, "api_key", configuration);
+            // authentication api_key_header required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-KEY", configuration);
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Swaps a removed Steam account whose 24 hour cooldown has passed for a new `steam_id3`. `account_id` is the removed account\'s `steam_id3` or its entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Replace Prioritized Steam Account
+         * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+         * @param {ReplaceSteamAccountRequest} replaceSteamAccountRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        replaceSteamAccount: async (accountId, replaceSteamAccountRequest, options = {}) => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('replaceSteamAccount', 'accountId', accountId);
+            // verify required parameter 'replaceSteamAccountRequest' is not null or undefined
+            assertParamExists('replaceSteamAccount', 'replaceSteamAccountRequest', replaceSteamAccountRequest);
+            const localVarPath = `/v1/patron/steam-accounts/{account_id}`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication api_key_query required
+            await setApiKeyToObject(localVarQueryParameter, "api_key", configuration);
+            // authentication api_key_header required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-KEY", configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            localVarRequestOptions.data = serializeDataIfNeeded(replaceSteamAccountRequest, localVarRequestOptions, configuration);
             return {
                 url: toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -91,6 +263,32 @@ export const InternalApiFp = function (configuration) {
     const localVarAxiosParamCreator = InternalApiAxiosParamCreator(configuration);
     return {
         /**
+         *  Adds a Steam account to the patron\'s prioritized fetching list. Matches of prioritized accounts are fetched first.  Re-adding an account that was removed earlier restores that entry.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Add Prioritized Steam Account
+         * @param {AddSteamAccountRequest} addSteamAccountRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addSteamAccount(addSteamAccountRequest, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addSteamAccount(addSteamAccountRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.addSteamAccount']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Remove Prioritized Steam Account
+         * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSteamAccount(accountId, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSteamAccount(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.deleteSteamAccount']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Match Salts Ingest
          * @param {Array<ClickhouseSalts>} clickhouseSalts
@@ -101,6 +299,45 @@ export const InternalApiFp = function (configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ingestSalts(clickhouseSalts, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['InternalApi.ingestSalts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary List Prioritized Steam Accounts
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSteamAccounts(options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSteamAccounts(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.listSteamAccounts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Restores a previously removed Steam account to the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Reactivate Prioritized Steam Account
+         * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async reactivateSteamAccount(accountId, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reactivateSteamAccount(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.reactivateSteamAccount']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Swaps a removed Steam account whose 24 hour cooldown has passed for a new `steam_id3`. `account_id` is the removed account\'s `steam_id3` or its entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Replace Prioritized Steam Account
+         * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+         * @param {ReplaceSteamAccountRequest} replaceSteamAccountRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async replaceSteamAccount(accountId, replaceSteamAccountRequest, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceSteamAccount(accountId, replaceSteamAccountRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.replaceSteamAccount']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -125,6 +362,26 @@ export const InternalApiFactory = function (configuration, basePath, axios) {
     const localVarFp = InternalApiFp(configuration);
     return {
         /**
+         *  Adds a Steam account to the patron\'s prioritized fetching list. Matches of prioritized accounts are fetched first.  Re-adding an account that was removed earlier restores that entry.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Add Prioritized Steam Account
+         * @param {InternalApiAddSteamAccountRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addSteamAccount(requestParameters, options) {
+            return localVarFp.addSteamAccount(requestParameters.addSteamAccountRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Remove Prioritized Steam Account
+         * @param {InternalApiDeleteSteamAccountRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSteamAccount(requestParameters, options) {
+            return localVarFp.deleteSteamAccount(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Match Salts Ingest
          * @param {InternalApiIngestSaltsRequest} requestParameters Request parameters.
@@ -133,6 +390,35 @@ export const InternalApiFactory = function (configuration, basePath, axios) {
          */
         ingestSalts(requestParameters, options) {
             return localVarFp.ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary List Prioritized Steam Accounts
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSteamAccounts(options) {
+            return localVarFp.listSteamAccounts(options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Restores a previously removed Steam account to the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Reactivate Prioritized Steam Account
+         * @param {InternalApiReactivateSteamAccountRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        reactivateSteamAccount(requestParameters, options) {
+            return localVarFp.reactivateSteamAccount(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Swaps a removed Steam account whose 24 hour cooldown has passed for a new `steam_id3`. `account_id` is the removed account\'s `steam_id3` or its entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+         * @summary Replace Prioritized Steam Account
+         * @param {InternalApiReplaceSteamAccountRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        replaceSteamAccount(requestParameters, options) {
+            return localVarFp.replaceSteamAccount(requestParameters.accountId, requestParameters.replaceSteamAccountRequest, options).then((request) => request(axios, basePath));
         },
         /**
          *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |
@@ -151,6 +437,26 @@ export const InternalApiFactory = function (configuration, basePath, axios) {
  */
 export class InternalApi extends BaseAPI {
     /**
+     *  Adds a Steam account to the patron\'s prioritized fetching list. Matches of prioritized accounts are fetched first.  Re-adding an account that was removed earlier restores that entry.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Add Prioritized Steam Account
+     * @param {InternalApiAddSteamAccountRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addSteamAccount(requestParameters, options) {
+        return InternalApiFp(this.configuration).addSteamAccount(requestParameters.addSteamAccountRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Remove Prioritized Steam Account
+     * @param {InternalApiDeleteSteamAccountRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteSteamAccount(requestParameters, options) {
+        return InternalApiFp(this.configuration).deleteSteamAccount(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Match Salts Ingest
      * @param {InternalApiIngestSaltsRequest} requestParameters Request parameters.
@@ -159,6 +465,35 @@ export class InternalApi extends BaseAPI {
      */
     ingestSalts(requestParameters, options) {
         return InternalApiFp(this.configuration).ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary List Prioritized Steam Accounts
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSteamAccounts(options) {
+        return InternalApiFp(this.configuration).listSteamAccounts(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Restores a previously removed Steam account to the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Reactivate Prioritized Steam Account
+     * @param {InternalApiReactivateSteamAccountRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    reactivateSteamAccount(requestParameters, options) {
+        return InternalApiFp(this.configuration).reactivateSteamAccount(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Swaps a removed Steam account whose 24 hour cooldown has passed for a new `steam_id3`. `account_id` is the removed account\'s `steam_id3` or its entry `id`.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Replace Prioritized Steam Account
+     * @param {InternalApiReplaceSteamAccountRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    replaceSteamAccount(requestParameters, options) {
+        return InternalApiFp(this.configuration).replaceSteamAccount(requestParameters.accountId, requestParameters.replaceSteamAccountRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |

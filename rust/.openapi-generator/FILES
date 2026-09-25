@@ -19,6 +19,7 @@ docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
 docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
+docs/AddSteamAccountRequest.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
 docs/AnalyticsGameStats.md
@@ -50,6 +51,7 @@ docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
 docs/DamageFlash.md
+docs/DeleteSteamAccountResponse.md
 docs/DemoApi.md
 docs/DemoQueryJobResponse.md
 docs/DemoQueryRequest.md
@@ -69,7 +71,6 @@ docs/FeedbackTarget.md
 docs/FlashData.md
 docs/ForumPatch.md
 docs/GameMode.md
-docs/GameServerInfo.md
 docs/GenericData.md
 docs/GenericDataApi.md
 docs/GetCustomMatchIdResponse.md
@@ -127,7 +128,7 @@ docs/LastRankedMatch.md
 docs/Leaderboard.md
 docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
-docs/ListServersResponse.md
+docs/ListSteamAccountsResponse.md
 docs/LiveUrl.md
 docs/LootEntry.md
 docs/LootTable.md
@@ -140,7 +141,6 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
-docs/MetricIngestRequest.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
@@ -188,16 +188,15 @@ docs/RawWeaponInfoVerticalRecoil.md
 docs/RecoilRange.md
 docs/RegionMode.md
 docs/RejuvParams.md
+docs/ReplaceSteamAccountRequest.md
 docs/ScriptValues.md
 docs/SeasonInterval.md
 docs/ServerRegion.md
-docs/ServerStatusRequest.md
-docs/ServerStatusResponse.md
-docs/ServersApi.md
 docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
 docs/ShopWeaponStatsDisplay.md
+docs/SlotsSummary.md
 docs/SourceLocation.md
 docs/SpreadPenalty.md
 docs/SqlApi.md
@@ -207,13 +206,14 @@ docs/StatsDisplay.md
 docs/StatsUsageFlag.md
 docs/Status.md
 docs/StatusServices.md
+docs/SteamAccountListItem.md
+docs/SteamAccountResponse.md
 docs/SteamApi.md
 docs/SteamFriend.md
 docs/SteamInfo.md
 docs/SteamInfoApi.md
 docs/SteamNews.md
 docs/SteamProfile.md
-docs/SteamServer.md
 docs/StreetBrawl.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassBulletResistModifierSubclass.md
@@ -279,7 +279,6 @@ src/apis/patches_api.rs
 src/apis/players_api.rs
 src/apis/ranked_seasons_api.rs
 src/apis/ranks_api.rs
-src/apis/servers_api.rs
 src/apis/sql_api.rs
 src/apis/steam_api.rs
 src/apis/steam_info_api.rs
@@ -299,6 +298,7 @@ src/models/active_match_game_mode.rs
 src/models/active_match_mode.rs
 src/models/active_match_player.rs
 src/models/active_match_team.rs
+src/models/add_steam_account_request.rs
 src/models/analytics_ability_order_stats.rs
 src/models/analytics_game_stats.rs
 src/models/analytics_hero_stats.rs
@@ -322,6 +322,7 @@ src/models/create_custom_response.rs
 src/models/curve.rs
 src/models/curve_or_float.rs
 src/models/damage_flash.rs
+src/models/delete_steam_account_response.rs
 src/models/demo_query_job_response.rs
 src/models/demo_query_request.rs
 src/models/demo_query_status_response.rs
@@ -340,7 +341,6 @@ src/models/feedback_target.rs
 src/models/flash_data.rs
 src/models/forum_patch.rs
 src/models/game_mode.rs
-src/models/game_server_info.rs
 src/models/generic_data.rs
 src/models/get_custom_match_id_response.rs
 src/models/glitch_settings.rs
@@ -391,7 +391,7 @@ src/models/lane_stat_curve.rs
 src/models/last_ranked_match.rs
 src/models/leaderboard.rs
 src/models/leaderboard_entry.rs
-src/models/list_servers_response.rs
+src/models/list_steam_accounts_response.rs
 src/models/live_url.rs
 src/models/loot_entry.rs
 src/models/loot_table.rs
@@ -401,7 +401,6 @@ src/models/match_player.rs
 src/models/match_salts_response.rs
 src/models/match_spectate_response.rs
 src/models/mate_stats.rs
-src/models/metric_ingest_request.rs
 src/models/mini_map_offsets.rs
 src/models/misc_entity.rs
 src/models/mmr_history.rs
@@ -443,15 +442,15 @@ src/models/raw_weapon_info_vertical_recoil.rs
 src/models/recoil_range.rs
 src/models/region_mode.rs
 src/models/rejuv_params.rs
+src/models/replace_steam_account_request.rs
 src/models/script_values.rs
 src/models/season_interval.rs
 src/models/server_region.rs
-src/models/server_status_request.rs
-src/models/server_status_response.rs
 src/models/shop_spirit_stats_display.rs
 src/models/shop_stat_display.rs
 src/models/shop_vitality_stats_display.rs
 src/models/shop_weapon_stats_display.rs
+src/models/slots_summary.rs
 src/models/source_location.rs
 src/models/spread_penalty.rs
 src/models/starting_stat.rs
@@ -460,11 +459,12 @@ src/models/stats_display.rs
 src/models/stats_usage_flag.rs
 src/models/status.rs
 src/models/status_services.rs
+src/models/steam_account_list_item.rs
+src/models/steam_account_response.rs
 src/models/steam_friend.rs
 src/models/steam_info.rs
 src/models/steam_news.rs
 src/models/steam_profile.rs
-src/models/steam_server.rs
 src/models/street_brawl.rs
 src/models/subclass_bullet_resist_modifier.rs
 src/models/subclass_bullet_resist_modifier_subclass.rs

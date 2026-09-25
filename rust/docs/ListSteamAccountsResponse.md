@@ -1,0 +1,12 @@
+# ListSteamAccountsResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**accounts** | [**Vec<models::SteamAccountListItem>**](SteamAccountListItem.md) |  | 
+**summary** | [**models::SlotsSummary**](SlotsSummary.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

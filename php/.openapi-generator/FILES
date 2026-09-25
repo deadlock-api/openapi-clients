@@ -31,7 +31,6 @@ api/Api/PlayersApi.php
 api/Api/RankedSeasonsApi.php
 api/Api/RanksApi.php
 api/Api/SQLApi.php
-api/Api/ServersApi.php
 api/Api/SteamApi.php
 api/Api/SteamInfoApi.php
 api/ApiException.php
@@ -54,6 +53,7 @@ api/Model/ActiveMatchGameMode.php
 api/Model/ActiveMatchMode.php
 api/Model/ActiveMatchPlayer.php
 api/Model/ActiveMatchTeam.php
+api/Model/AddSteamAccountRequest.php
 api/Model/AnalyticsAbilityOrderStats.php
 api/Model/AnalyticsGameStats.php
 api/Model/AnalyticsHeroStats.php
@@ -76,6 +76,7 @@ api/Model/CreateCustomResponse.php
 api/Model/Curve.php
 api/Model/CurveOrFloat.php
 api/Model/DamageFlash.php
+api/Model/DeleteSteamAccountResponse.php
 api/Model/DemoQueryJobResponse.php
 api/Model/DemoQueryRequest.php
 api/Model/DemoQueryStatusResponse.php
@@ -94,7 +95,6 @@ api/Model/FeedbackTarget.php
 api/Model/FlashData.php
 api/Model/ForumPatch.php
 api/Model/GameMode.php
-api/Model/GameServerInfo.php
 api/Model/GenericData.php
 api/Model/GetCustomMatchIdResponse.php
 api/Model/GlitchSettings.php
@@ -145,7 +145,7 @@ api/Model/LaneStatCurve.php
 api/Model/LastRankedMatch.php
 api/Model/Leaderboard.php
 api/Model/LeaderboardEntry.php
-api/Model/ListServersResponse.php
+api/Model/ListSteamAccountsResponse.php
 api/Model/LiveUrl.php
 api/Model/LootEntry.php
 api/Model/LootTable.php
@@ -156,7 +156,6 @@ api/Model/MatchPlayer.php
 api/Model/MatchSaltsResponse.php
 api/Model/MatchSpectateResponse.php
 api/Model/MateStats.php
-api/Model/MetricIngestRequest.php
 api/Model/MiniMapOffsets.php
 api/Model/MiscEntity.php
 api/Model/ModelInterface.php
@@ -197,15 +196,15 @@ api/Model/RawWeaponInfoVerticalRecoil.php
 api/Model/RecoilRange.php
 api/Model/RegionMode.php
 api/Model/RejuvParams.php
+api/Model/ReplaceSteamAccountRequest.php
 api/Model/ScriptValues.php
 api/Model/SeasonInterval.php
 api/Model/ServerRegion.php
-api/Model/ServerStatusRequest.php
-api/Model/ServerStatusResponse.php
 api/Model/ShopSpiritStatsDisplay.php
 api/Model/ShopStatDisplay.php
 api/Model/ShopVitalityStatsDisplay.php
 api/Model/ShopWeaponStatsDisplay.php
+api/Model/SlotsSummary.php
 api/Model/SourceLocation.php
 api/Model/SpreadPenalty.php
 api/Model/StartingStat.php
@@ -214,11 +213,12 @@ api/Model/StatsDisplay.php
 api/Model/StatsUsageFlag.php
 api/Model/Status.php
 api/Model/StatusServices.php
+api/Model/SteamAccountListItem.php
+api/Model/SteamAccountResponse.php
 api/Model/SteamFriend.php
 api/Model/SteamInfo.php
 api/Model/SteamNews.php
 api/Model/SteamProfile.php
-api/Model/SteamServer.php
 api/Model/StreetBrawl.php
 api/Model/SubclassBulletResistModifier.php
 api/Model/SubclassBulletResistModifierSubclass.php
@@ -284,7 +284,6 @@ docs/Api/PlayersApi.md
 docs/Api/RankedSeasonsApi.md
 docs/Api/RanksApi.md
 docs/Api/SQLApi.md
-docs/Api/ServersApi.md
 docs/Api/SteamApi.md
 docs/Api/SteamInfoApi.md
 docs/Model/APIInfo.md
@@ -303,6 +302,7 @@ docs/Model/ActiveMatchGameMode.md
 docs/Model/ActiveMatchMode.md
 docs/Model/ActiveMatchPlayer.md
 docs/Model/ActiveMatchTeam.md
+docs/Model/AddSteamAccountRequest.md
 docs/Model/AnalyticsAbilityOrderStats.md
 docs/Model/AnalyticsGameStats.md
 docs/Model/AnalyticsHeroStats.md
@@ -325,6 +325,7 @@ docs/Model/CreateCustomResponse.md
 docs/Model/Curve.md
 docs/Model/CurveOrFloat.md
 docs/Model/DamageFlash.md
+docs/Model/DeleteSteamAccountResponse.md
 docs/Model/DemoQueryJobResponse.md
 docs/Model/DemoQueryRequest.md
 docs/Model/DemoQueryStatusResponse.md
@@ -343,7 +344,6 @@ docs/Model/FeedbackTarget.md
 docs/Model/FlashData.md
 docs/Model/ForumPatch.md
 docs/Model/GameMode.md
-docs/Model/GameServerInfo.md
 docs/Model/GenericData.md
 docs/Model/GetCustomMatchIdResponse.md
 docs/Model/GlitchSettings.md
@@ -394,7 +394,7 @@ docs/Model/LaneStatCurve.md
 docs/Model/LastRankedMatch.md
 docs/Model/Leaderboard.md
 docs/Model/LeaderboardEntry.md
-docs/Model/ListServersResponse.md
+docs/Model/ListSteamAccountsResponse.md
 docs/Model/LiveUrl.md
 docs/Model/LootEntry.md
 docs/Model/LootTable.md
@@ -405,7 +405,6 @@ docs/Model/MatchPlayer.md
 docs/Model/MatchSaltsResponse.md
 docs/Model/MatchSpectateResponse.md
 docs/Model/MateStats.md
-docs/Model/MetricIngestRequest.md
 docs/Model/MiniMapOffsets.md
 docs/Model/MiscEntity.md
 docs/Model/ModifierValue.md
@@ -445,15 +444,15 @@ docs/Model/RawWeaponInfoVerticalRecoil.md
 docs/Model/RecoilRange.md
 docs/Model/RegionMode.md
 docs/Model/RejuvParams.md
+docs/Model/ReplaceSteamAccountRequest.md
 docs/Model/ScriptValues.md
 docs/Model/SeasonInterval.md
 docs/Model/ServerRegion.md
-docs/Model/ServerStatusRequest.md
-docs/Model/ServerStatusResponse.md
 docs/Model/ShopSpiritStatsDisplay.md
 docs/Model/ShopStatDisplay.md
 docs/Model/ShopVitalityStatsDisplay.md
 docs/Model/ShopWeaponStatsDisplay.md
+docs/Model/SlotsSummary.md
 docs/Model/SourceLocation.md
 docs/Model/SpreadPenalty.md
 docs/Model/StartingStat.md
@@ -462,11 +461,12 @@ docs/Model/StatsDisplay.md
 docs/Model/StatsUsageFlag.md
 docs/Model/Status.md
 docs/Model/StatusServices.md
+docs/Model/SteamAccountListItem.md
+docs/Model/SteamAccountResponse.md
 docs/Model/SteamFriend.md
 docs/Model/SteamInfo.md
 docs/Model/SteamNews.md
 docs/Model/SteamProfile.md
-docs/Model/SteamServer.md
 docs/Model/StreetBrawl.md
 docs/Model/SubclassBulletResistModifier.md
 docs/Model/SubclassBulletResistModifierSubclass.md
@@ -532,7 +532,6 @@ test/Api/PlayersApiTest.php
 test/Api/RankedSeasonsApiTest.php
 test/Api/RanksApiTest.php
 test/Api/SQLApiTest.php
-test/Api/ServersApiTest.php
 test/Api/SteamApiTest.php
 test/Api/SteamInfoApiTest.php
 test/Model/APIInfoTest.php
@@ -551,6 +550,7 @@ test/Model/ActiveMatchModeTest.php
 test/Model/ActiveMatchPlayerTest.php
 test/Model/ActiveMatchTeamTest.php
 test/Model/ActiveMatchTest.php
+test/Model/AddSteamAccountRequestTest.php
 test/Model/AnalyticsAbilityOrderStatsTest.php
 test/Model/AnalyticsGameStatsTest.php
 test/Model/AnalyticsHeroStatsTest.php
@@ -573,6 +573,7 @@ test/Model/CreateCustomResponseTest.php
 test/Model/CurveOrFloatTest.php
 test/Model/CurveTest.php
 test/Model/DamageFlashTest.php
+test/Model/DeleteSteamAccountResponseTest.php
 test/Model/DemoQueryJobResponseTest.php
 test/Model/DemoQueryRequestTest.php
 test/Model/DemoQueryStatusResponseTest.php
@@ -591,7 +592,6 @@ test/Model/FeedbackTargetTest.php
 test/Model/FlashDataTest.php
 test/Model/ForumPatchTest.php
 test/Model/GameModeTest.php
-test/Model/GameServerInfoTest.php
 test/Model/GenericDataTest.php
 test/Model/GetCustomMatchIdResponseTest.php
 test/Model/GlitchSettingsTest.php
@@ -642,7 +642,7 @@ test/Model/LaneStatCurveTest.php
 test/Model/LastRankedMatchTest.php
 test/Model/LeaderboardEntryTest.php
 test/Model/LeaderboardTest.php
-test/Model/ListServersResponseTest.php
+test/Model/ListSteamAccountsResponseTest.php
 test/Model/LiveUrlTest.php
 test/Model/LootEntryTest.php
 test/Model/LootTableTest.php
@@ -653,7 +653,6 @@ test/Model/MatchPlayerTest.php
 test/Model/MatchSaltsResponseTest.php
 test/Model/MatchSpectateResponseTest.php
 test/Model/MateStatsTest.php
-test/Model/MetricIngestRequestTest.php
 test/Model/MiniMapOffsetsTest.php
 test/Model/MiscEntityTest.php
 test/Model/ModifierValueTest.php
@@ -693,15 +692,15 @@ test/Model/RawWeaponInfoVerticalRecoilTest.php
 test/Model/RecoilRangeTest.php
 test/Model/RegionModeTest.php
 test/Model/RejuvParamsTest.php
+test/Model/ReplaceSteamAccountRequestTest.php
 test/Model/ScriptValuesTest.php
 test/Model/SeasonIntervalTest.php
 test/Model/ServerRegionTest.php
-test/Model/ServerStatusRequestTest.php
-test/Model/ServerStatusResponseTest.php
 test/Model/ShopSpiritStatsDisplayTest.php
 test/Model/ShopStatDisplayTest.php
 test/Model/ShopVitalityStatsDisplayTest.php
 test/Model/ShopWeaponStatsDisplayTest.php
+test/Model/SlotsSummaryTest.php
 test/Model/SourceLocationTest.php
 test/Model/SpreadPenaltyTest.php
 test/Model/StartingStatTest.php
@@ -710,11 +709,12 @@ test/Model/StatsDisplayTest.php
 test/Model/StatsUsageFlagTest.php
 test/Model/StatusServicesTest.php
 test/Model/StatusTest.php
+test/Model/SteamAccountListItemTest.php
+test/Model/SteamAccountResponseTest.php
 test/Model/SteamFriendTest.php
 test/Model/SteamInfoTest.php
 test/Model/SteamNewsTest.php
 test/Model/SteamProfileTest.php
-test/Model/SteamServerTest.php
 test/Model/StreetBrawlTest.php
 test/Model/SubclassBulletResistModifierSubclassTest.php
 test/Model/SubclassBulletResistModifierTest.php
